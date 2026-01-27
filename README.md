@@ -1,4 +1,4 @@
-# GQL python
+# PlayerDataPy
 A python package for interacting with the PlayerData GraphQL API.
 
 ## Folder Structure
