@@ -8,7 +8,8 @@ from oauthlib.oauth2 import TokenExpiredError
 
 from playerdatapy.auth.base_flow import BaseAuthFlow
 
-from playerdatapy.auth.configuration import API_BASE_URL
+from playerdatapy.constants import API_BASE_URL
+
 
 class TestBaseAuthFlow:
     """Tests for BaseAuthFlow class."""

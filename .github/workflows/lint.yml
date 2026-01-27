@@ -26,10 +26,10 @@ jobs:
           activate-environment: true
 
       - name: Install Dependencies
-        run: uv sync --locked 
+        run: uv sync --extra dev --locked
 
-      - name: Format Check (Black)
-        run: uv run --no-sync black . --check
+      - name: Lint Check (Ruff)
+        run: uv run --no-sync ruff check .
 
-      - name: Import Cleanup Check (Autoflake)
-        run: uv run --no-sync pautoflake ./ --check --quiet
+      - name: Format Check (Ruff)
+        run: uv run --no-sync ruff format --check .

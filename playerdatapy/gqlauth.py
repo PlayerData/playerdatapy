@@ -9,6 +9,7 @@ from oauthlib.oauth2 import TokenExpiredError  # type: ignore[import-untyped]
 from playerdatapy.auth.authorisation_code_flow import AuthorisationCodeFlow
 from playerdatapy.auth.authorisation_code_flow_pcke import AuthorisationCodeFlowPCKE
 from playerdatapy.auth.client_credentials_flow import ClientCredentialsFlow
+from playerdatapy.constants import API_BASE_URL
 
 
 class AuthenticationType(Enum):
@@ -64,7 +65,7 @@ class GraphqlAuth:
         return OAuth2Session(
             self.client_id,
             token=token,
-            auto_refresh_url=f"https://app.playerdata.co.uk/oauth/token",
+            auto_refresh_url=f"{API_BASE_URL}/oauth/token",
             token_updater=self.authenticator.save_token,
         )
 

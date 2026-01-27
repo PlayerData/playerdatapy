@@ -2,6 +2,7 @@ from playerdatapy.gqlauth import GraphqlAuth
 from playerdatapy.gqlclient import Client
 from playerdatapy.gqlauth import AuthenticationType
 import asyncio
+from playerdatapy.constants import API_BASE_URL
 
 # Build out the query string.
 # Our GraphiQL Playground at https://app.playerdata.co.uk/api/graphiql/ is useful for building out and testing the query.
@@ -18,6 +19,7 @@ query Session($session_id: ID!) {
 }
 """
 
+
 async def main(session_id: str):
     auth = GraphqlAuth(
         client_id=CLIENT_ID,
@@ -25,7 +27,7 @@ async def main(session_id: str):
         type=AuthenticationType.CLIENT_CREDENTIALS_FLOW,
     )
     client = Client(
-        url="https://app.playerdata.co.uk/api/graphql",
+        url=f"{API_BASE_URL}/api/graphql",
         headers={"Authorization": f"Bearer {auth._get_authentication_token()}"},
     )
     response = await client.execute(

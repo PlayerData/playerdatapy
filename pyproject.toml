@@ -7,15 +7,19 @@ classifiers = ["Private :: Do Not Upload"]
 readme = "README.md"
 requires-python = ">=3.10,<3.13"
 dependencies = [
-    "argparse>=1.4.0",
+    "graphql-core>=3.2.0",
+    "httpx>=0.24.0",
+    "oauthlib>=3.2.0",
+    "pydantic>=2.0.0",
+    "requests-oauthlib>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
     "ariadne-codegen>=0.17.0",
-    "autoflake>=2.3.1",
-    "black>=25.1.0",
-    "pylint>=3.3.8",
-    "pyproject-autoflake>=1.0.2",
+    "ruff>=0.14.14",
     "pytest>=8.4.2",
     "pytest-asyncio>=0.24.0",
-    "requests-oauthlib>=2.0.0",
 ]
 
 [build-system]
@@ -41,3 +45,6 @@ enable_custom_operations = true
 client_file_name = "gqlclient"
 client_class_name = "GraphqlClient"
 remote_schema_headers = {"Authorization" = "$AUTH_TOKEN"}
+
+[tool.ruff.lint]
+ignore = ["F405", "F403"]

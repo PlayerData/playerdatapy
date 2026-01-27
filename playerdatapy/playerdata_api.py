@@ -1,10 +1,10 @@
 from .gqlauth import GraphqlAuth, AuthenticationType
 from .gqlclient import Client
 from .base_operation import GraphQLField
+from playerdatapy.constants import API_BASE_URL
 
 
 class PlayerDataAPI(GraphqlAuth):
-
     def __init__(
         self,
         client_id: str,
@@ -14,7 +14,6 @@ class PlayerDataAPI(GraphqlAuth):
         port: int = 8888,
         authentication_type: AuthenticationType = AuthenticationType.AUTHORISATION_CODE_FLOW,
     ):
-
         super().__init__(
             client_id=client_id,
             client_secret=client_secret,
@@ -24,7 +23,7 @@ class PlayerDataAPI(GraphqlAuth):
             type=authentication_type,
         )
         self.client = Client(
-            url="https://app.playerdata.co.uk/api/graphql",
+            url=f"{API_BASE_URL}/api/graphql",
             headers={"Authorization": f"Bearer {self._get_authentication_token()}"},
         )
 
