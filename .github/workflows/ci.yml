@@ -1,0 +1,28 @@
+name: PlayerDataPy CI
+
+on:
+  pull_request:
+      types: [opened, synchronize, reopened, ready_for_review]
+  push:
+    branches: [ main ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Lint
+    secrets: inherit
+    uses: "./.github/workflows/lint.yml"
+
+  test:
+    name: Test
+    secrets: inherit
+    uses: "./.github/workflows/test.yml"
+
+  release:
+    name: Release
+    secrets: inherit
+    needs: [lint, test]
+    uses: "./.github/workflows/release.yml"

@@ -1,0 +1,35 @@
+name: PlayerDataPy Lint
+
+on:
+  workflow_call: {}
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install uv
+        id: setup-uv
+        uses: astral-sh/setup-uv@v6.6.1
+        with:
+          enable-cache: true
+          cache-suffix: '-venv-lint'
+          activate-environment: true
+
+      - name: Install Dependencies
+        run: uv sync --locked 
+
+      - name: Format Check (Black)
+        run: uv run --no-sync black . --check
+
+      - name: Import Cleanup Check (Autoflake)
+        run: uv run --no-sync pautoflake ./ --check --quiet

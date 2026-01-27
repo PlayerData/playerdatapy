@@ -1,0 +1,32 @@
+name: PlayerDataPy Test
+
+on:
+  workflow_call: {}
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install uv
+        id: setup-uv
+        uses: astral-sh/setup-uv@v6.6.1
+        with:
+          enable-cache: true
+          cache-suffix: '-venv-test'
+          activate-environment: true
+
+      - name: Install Dependencies
+        run: uv sync --locked
+
+      - name: Run Tests
+        run: uv run --no-sync pytest
