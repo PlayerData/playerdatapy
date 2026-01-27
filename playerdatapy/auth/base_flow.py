@@ -2,12 +2,11 @@ import os
 import json
 import time
 from oauthlib.oauth2 import TokenExpiredError
-from .configuration import API_BASE_URL
+from playerdatapy.constants import API_BASE_URL
 
 
 class BaseAuthFlow:
     """Base class for OAuth2 authentication flows with token management."""
-
 
     def __init__(self, client_id: str, token_file: str = ".token"):
         self.client_id = client_id

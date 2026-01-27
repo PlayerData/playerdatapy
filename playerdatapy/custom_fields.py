@@ -524,65 +524,63 @@ class AggregatedSessionMetricSetFields(GraphQLField):
     avg_acceleration_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("avgAccelerationEvents")
     )
-    avg_acceleration_load_per_contributing_minutes: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_acceleration_load_per_contributing_minutes: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgAccelerationLoadPerContributingMinutes"
     )
-    avg_club_zone_five_acceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneFiveAccelerationDistanceM")
-    avg_club_zone_five_acceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneFiveAccelerationDurationS")
+    avg_club_zone_five_acceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneFiveAccelerationDistanceM"
+    )
+    avg_club_zone_five_acceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneFiveAccelerationDurationS"
+    )
     avg_club_zone_five_acceleration_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("avgClubZoneFiveAccelerationEvents")
     )
-    avg_club_zone_five_deceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneFiveDecelerationDistanceM")
-    avg_club_zone_five_deceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneFiveDecelerationDurationS")
+    avg_club_zone_five_deceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneFiveDecelerationDistanceM"
+    )
+    avg_club_zone_five_deceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneFiveDecelerationDurationS"
+    )
     avg_club_zone_five_deceleration_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("avgClubZoneFiveDecelerationEvents")
     )
-    avg_club_zone_four_acceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneFourAccelerationDistanceM")
-    avg_club_zone_four_acceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneFourAccelerationDurationS")
+    avg_club_zone_four_acceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneFourAccelerationDistanceM"
+    )
+    avg_club_zone_four_acceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneFourAccelerationDurationS"
+    )
     avg_club_zone_four_acceleration_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("avgClubZoneFourAccelerationEvents")
     )
-    avg_club_zone_four_deceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneFourDecelerationDistanceM")
-    avg_club_zone_four_deceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneFourDecelerationDurationS")
+    avg_club_zone_four_deceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneFourDecelerationDistanceM"
+    )
+    avg_club_zone_four_deceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneFourDecelerationDurationS"
+    )
     avg_club_zone_four_deceleration_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("avgClubZoneFourDecelerationEvents")
     )
-    avg_club_zone_high_intensity_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneHighIntensityDistanceM")
-    avg_club_zone_high_intensity_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneHighIntensityDurationS")
+    avg_club_zone_high_intensity_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneHighIntensityDistanceM"
+    )
+    avg_club_zone_high_intensity_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneHighIntensityDurationS"
+    )
     avg_club_zone_high_intensity_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("avgClubZoneHighIntensityEvents")
     )
-    avg_club_zone_high_speed_running_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneHighSpeedRunningDistanceM")
-    avg_club_zone_high_speed_running_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneHighSpeedRunningDurationS")
-    avg_club_zone_high_speed_running_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneHighSpeedRunningEvents")
+    avg_club_zone_high_speed_running_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneHighSpeedRunningDistanceM"
+    )
+    avg_club_zone_high_speed_running_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneHighSpeedRunningDurationS"
+    )
+    avg_club_zone_high_speed_running_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneHighSpeedRunningEvents"
+    )
     avg_club_zone_jogging_distance_m: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("avgClubZoneJoggingDistanceM")
     )
@@ -601,30 +599,30 @@ class AggregatedSessionMetricSetFields(GraphQLField):
     avg_club_zone_low_intensity_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("avgClubZoneLowIntensityEvents")
     )
-    avg_club_zone_medium_intensity_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneMediumIntensityDistanceM")
-    avg_club_zone_medium_intensity_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneMediumIntensityDurationS")
+    avg_club_zone_medium_intensity_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneMediumIntensityDistanceM"
+    )
+    avg_club_zone_medium_intensity_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneMediumIntensityDurationS"
+    )
     avg_club_zone_medium_intensity_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("avgClubZoneMediumIntensityEvents")
     )
-    avg_club_zone_one_acceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneOneAccelerationDistanceM")
-    avg_club_zone_one_acceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneOneAccelerationDurationS")
+    avg_club_zone_one_acceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneOneAccelerationDistanceM"
+    )
+    avg_club_zone_one_acceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneOneAccelerationDurationS"
+    )
     avg_club_zone_one_acceleration_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("avgClubZoneOneAccelerationEvents")
     )
-    avg_club_zone_one_deceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneOneDecelerationDistanceM")
-    avg_club_zone_one_deceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneOneDecelerationDurationS")
+    avg_club_zone_one_deceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneOneDecelerationDistanceM"
+    )
+    avg_club_zone_one_deceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneOneDecelerationDurationS"
+    )
     avg_club_zone_one_deceleration_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("avgClubZoneOneDecelerationEvents")
     )
@@ -637,39 +635,39 @@ class AggregatedSessionMetricSetFields(GraphQLField):
     avg_club_zone_sprint_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("avgClubZoneSprintEvents")
     )
-    avg_club_zone_three_acceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneThreeAccelerationDistanceM")
-    avg_club_zone_three_acceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneThreeAccelerationDurationS")
-    avg_club_zone_three_acceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneThreeAccelerationEvents")
-    avg_club_zone_three_deceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneThreeDecelerationDistanceM")
-    avg_club_zone_three_deceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneThreeDecelerationDurationS")
-    avg_club_zone_three_deceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneThreeDecelerationEvents")
-    avg_club_zone_two_acceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneTwoAccelerationDistanceM")
-    avg_club_zone_two_acceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneTwoAccelerationDurationS")
+    avg_club_zone_three_acceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneThreeAccelerationDistanceM"
+    )
+    avg_club_zone_three_acceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneThreeAccelerationDurationS"
+    )
+    avg_club_zone_three_acceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneThreeAccelerationEvents"
+    )
+    avg_club_zone_three_deceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneThreeDecelerationDistanceM"
+    )
+    avg_club_zone_three_deceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneThreeDecelerationDurationS"
+    )
+    avg_club_zone_three_deceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneThreeDecelerationEvents"
+    )
+    avg_club_zone_two_acceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneTwoAccelerationDistanceM"
+    )
+    avg_club_zone_two_acceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneTwoAccelerationDurationS"
+    )
     avg_club_zone_two_acceleration_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("avgClubZoneTwoAccelerationEvents")
     )
-    avg_club_zone_two_deceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneTwoDecelerationDistanceM")
-    avg_club_zone_two_deceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgClubZoneTwoDecelerationDurationS")
+    avg_club_zone_two_deceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneTwoDecelerationDistanceM"
+    )
+    avg_club_zone_two_deceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneTwoDecelerationDurationS"
+    )
     avg_club_zone_two_deceleration_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("avgClubZoneTwoDecelerationEvents")
     )
@@ -722,92 +720,58 @@ class AggregatedSessionMetricSetFields(GraphQLField):
     avg_high_speed_run_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("avgHighSpeedRunEvents")
     )
-    avg_individual_zone_five_acceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_five_acceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneFiveAccelerationDistanceM"
     )
-    avg_individual_zone_five_acceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_five_acceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneFiveAccelerationDurationS"
     )
-    avg_individual_zone_five_acceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_five_acceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneFiveAccelerationEvents"
     )
-    avg_individual_zone_five_deceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_five_deceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneFiveDecelerationDistanceM"
     )
-    avg_individual_zone_five_deceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_five_deceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneFiveDecelerationDurationS"
     )
-    avg_individual_zone_five_deceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_five_deceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneFiveDecelerationEvents"
     )
-    avg_individual_zone_four_acceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_four_acceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneFourAccelerationDistanceM"
     )
-    avg_individual_zone_four_acceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_four_acceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneFourAccelerationDurationS"
     )
-    avg_individual_zone_four_acceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_four_acceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneFourAccelerationEvents"
     )
-    avg_individual_zone_four_deceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_four_deceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneFourDecelerationDistanceM"
     )
-    avg_individual_zone_four_deceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_four_deceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneFourDecelerationDurationS"
     )
-    avg_individual_zone_four_deceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_four_deceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneFourDecelerationEvents"
     )
-    avg_individual_zone_high_intensity_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_high_intensity_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneHighIntensityDistanceM"
     )
-    avg_individual_zone_high_intensity_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_high_intensity_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneHighIntensityDurationS"
     )
-    avg_individual_zone_high_intensity_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgIndividualZoneHighIntensityEvents")
-    avg_individual_zone_high_speed_running_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_high_intensity_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgIndividualZoneHighIntensityEvents"
+    )
+    avg_individual_zone_high_speed_running_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneHighSpeedRunningDistanceM"
     )
-    avg_individual_zone_high_speed_running_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_high_speed_running_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneHighSpeedRunningDurationS"
     )
-    avg_individual_zone_high_speed_running_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_high_speed_running_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneHighSpeedRunningEvents"
     )
     avg_individual_zone_jogging_distance_m: "AggregatedSessionMetricSetGraphQLField" = (
@@ -819,54 +783,42 @@ class AggregatedSessionMetricSetFields(GraphQLField):
     avg_individual_zone_jogging_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("avgIndividualZoneJoggingEvents")
     )
-    avg_individual_zone_low_intensity_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgIndividualZoneLowIntensityDistanceM")
-    avg_individual_zone_low_intensity_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgIndividualZoneLowIntensityDurationS")
-    avg_individual_zone_low_intensity_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgIndividualZoneLowIntensityEvents")
-    avg_individual_zone_medium_intensity_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_low_intensity_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgIndividualZoneLowIntensityDistanceM"
+    )
+    avg_individual_zone_low_intensity_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgIndividualZoneLowIntensityDurationS"
+    )
+    avg_individual_zone_low_intensity_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgIndividualZoneLowIntensityEvents"
+    )
+    avg_individual_zone_medium_intensity_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneMediumIntensityDistanceM"
     )
-    avg_individual_zone_medium_intensity_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_medium_intensity_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneMediumIntensityDurationS"
     )
-    avg_individual_zone_medium_intensity_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgIndividualZoneMediumIntensityEvents")
-    avg_individual_zone_one_acceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_medium_intensity_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgIndividualZoneMediumIntensityEvents"
+    )
+    avg_individual_zone_one_acceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneOneAccelerationDistanceM"
     )
-    avg_individual_zone_one_acceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_one_acceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneOneAccelerationDurationS"
     )
-    avg_individual_zone_one_acceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgIndividualZoneOneAccelerationEvents")
-    avg_individual_zone_one_deceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_one_acceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgIndividualZoneOneAccelerationEvents"
+    )
+    avg_individual_zone_one_deceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneOneDecelerationDistanceM"
     )
-    avg_individual_zone_one_deceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_one_deceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneOneDecelerationDurationS"
     )
-    avg_individual_zone_one_deceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgIndividualZoneOneDecelerationEvents")
+    avg_individual_zone_one_deceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgIndividualZoneOneDecelerationEvents"
+    )
     avg_individual_zone_sprint_distance_m: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("avgIndividualZoneSprintDistanceM")
     )
@@ -876,62 +828,42 @@ class AggregatedSessionMetricSetFields(GraphQLField):
     avg_individual_zone_sprint_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("avgIndividualZoneSprintEvents")
     )
-    avg_individual_zone_three_acceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_three_acceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneThreeAccelerationDistanceM"
     )
-    avg_individual_zone_three_acceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_three_acceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneThreeAccelerationDurationS"
     )
-    avg_individual_zone_three_acceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_three_acceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneThreeAccelerationEvents"
     )
-    avg_individual_zone_three_deceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_three_deceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneThreeDecelerationDistanceM"
     )
-    avg_individual_zone_three_deceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_three_deceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneThreeDecelerationDurationS"
     )
-    avg_individual_zone_three_deceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_three_deceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneThreeDecelerationEvents"
     )
-    avg_individual_zone_two_acceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_two_acceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneTwoAccelerationDistanceM"
     )
-    avg_individual_zone_two_acceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_two_acceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneTwoAccelerationDurationS"
     )
-    avg_individual_zone_two_acceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgIndividualZoneTwoAccelerationEvents")
-    avg_individual_zone_two_deceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_two_acceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgIndividualZoneTwoAccelerationEvents"
+    )
+    avg_individual_zone_two_deceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneTwoDecelerationDistanceM"
     )
-    avg_individual_zone_two_deceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    avg_individual_zone_two_deceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgIndividualZoneTwoDecelerationDurationS"
     )
-    avg_individual_zone_two_deceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgIndividualZoneTwoDecelerationEvents")
+    avg_individual_zone_two_deceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgIndividualZoneTwoDecelerationEvents"
+    )
     avg_left_dive_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("avgLeftDiveEvents")
     )
@@ -962,18 +894,18 @@ class AggregatedSessionMetricSetFields(GraphQLField):
     avg_metres_per_minute: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("avgMetresPerMinute")
     )
-    avg_ninety_percent_of_max_speed_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgNinetyPercentOfMaxSpeedDistanceM")
-    avg_ninety_percent_of_max_speed_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgNinetyPercentOfMaxSpeedDurationS")
+    avg_ninety_percent_of_max_speed_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgNinetyPercentOfMaxSpeedDistanceM"
+    )
+    avg_ninety_percent_of_max_speed_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgNinetyPercentOfMaxSpeedDurationS"
+    )
     avg_ninety_percent_of_max_speed_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("avgNinetyPercentOfMaxSpeedEvents")
     )
-    avg_ninety_percent_of_raw_max_speed_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("avgNinetyPercentOfRawMaxSpeedEvents")
+    avg_ninety_percent_of_raw_max_speed_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgNinetyPercentOfRawMaxSpeedEvents"
+    )
     avg_pass_distance_m: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("avgPassDistanceM")
     )
@@ -1061,60 +993,60 @@ class AggregatedSessionMetricSetFields(GraphQLField):
     total_acceleration_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("totalAccelerationEvents")
     )
-    total_club_zone_five_acceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneFiveAccelerationDistanceM")
-    total_club_zone_five_acceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneFiveAccelerationDurationS")
-    total_club_zone_five_acceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneFiveAccelerationEvents")
-    total_club_zone_five_deceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneFiveDecelerationDistanceM")
-    total_club_zone_five_deceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneFiveDecelerationDurationS")
-    total_club_zone_five_deceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneFiveDecelerationEvents")
-    total_club_zone_four_acceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneFourAccelerationDistanceM")
-    total_club_zone_four_acceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneFourAccelerationDurationS")
-    total_club_zone_four_acceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneFourAccelerationEvents")
-    total_club_zone_four_deceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneFourDecelerationDistanceM")
-    total_club_zone_four_deceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneFourDecelerationDurationS")
-    total_club_zone_four_deceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneFourDecelerationEvents")
-    total_club_zone_high_intensity_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneHighIntensityDistanceM")
-    total_club_zone_high_intensity_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneHighIntensityDurationS")
+    total_club_zone_five_acceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneFiveAccelerationDistanceM"
+    )
+    total_club_zone_five_acceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneFiveAccelerationDurationS"
+    )
+    total_club_zone_five_acceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneFiveAccelerationEvents"
+    )
+    total_club_zone_five_deceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneFiveDecelerationDistanceM"
+    )
+    total_club_zone_five_deceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneFiveDecelerationDurationS"
+    )
+    total_club_zone_five_deceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneFiveDecelerationEvents"
+    )
+    total_club_zone_four_acceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneFourAccelerationDistanceM"
+    )
+    total_club_zone_four_acceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneFourAccelerationDurationS"
+    )
+    total_club_zone_four_acceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneFourAccelerationEvents"
+    )
+    total_club_zone_four_deceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneFourDecelerationDistanceM"
+    )
+    total_club_zone_four_deceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneFourDecelerationDurationS"
+    )
+    total_club_zone_four_deceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneFourDecelerationEvents"
+    )
+    total_club_zone_high_intensity_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneHighIntensityDistanceM"
+    )
+    total_club_zone_high_intensity_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneHighIntensityDurationS"
+    )
     total_club_zone_high_intensity_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("totalClubZoneHighIntensityEvents")
     )
-    total_club_zone_high_speed_running_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneHighSpeedRunningDistanceM")
-    total_club_zone_high_speed_running_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneHighSpeedRunningDurationS")
-    total_club_zone_high_speed_running_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneHighSpeedRunningEvents")
+    total_club_zone_high_speed_running_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneHighSpeedRunningDistanceM"
+    )
+    total_club_zone_high_speed_running_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneHighSpeedRunningDurationS"
+    )
+    total_club_zone_high_speed_running_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneHighSpeedRunningEvents"
+    )
     total_club_zone_jogging_distance_m: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("totalClubZoneJoggingDistanceM")
     )
@@ -1124,42 +1056,42 @@ class AggregatedSessionMetricSetFields(GraphQLField):
     total_club_zone_jogging_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("totalClubZoneJoggingEvents")
     )
-    total_club_zone_low_intensity_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneLowIntensityDistanceM")
-    total_club_zone_low_intensity_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneLowIntensityDurationS")
+    total_club_zone_low_intensity_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneLowIntensityDistanceM"
+    )
+    total_club_zone_low_intensity_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneLowIntensityDurationS"
+    )
     total_club_zone_low_intensity_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("totalClubZoneLowIntensityEvents")
     )
-    total_club_zone_medium_intensity_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneMediumIntensityDistanceM")
-    total_club_zone_medium_intensity_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneMediumIntensityDurationS")
-    total_club_zone_medium_intensity_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneMediumIntensityEvents")
-    total_club_zone_one_acceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneOneAccelerationDistanceM")
-    total_club_zone_one_acceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneOneAccelerationDurationS")
-    total_club_zone_one_acceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneOneAccelerationEvents")
-    total_club_zone_one_deceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneOneDecelerationDistanceM")
-    total_club_zone_one_deceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneOneDecelerationDurationS")
-    total_club_zone_one_deceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneOneDecelerationEvents")
+    total_club_zone_medium_intensity_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneMediumIntensityDistanceM"
+    )
+    total_club_zone_medium_intensity_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneMediumIntensityDurationS"
+    )
+    total_club_zone_medium_intensity_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneMediumIntensityEvents"
+    )
+    total_club_zone_one_acceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneOneAccelerationDistanceM"
+    )
+    total_club_zone_one_acceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneOneAccelerationDurationS"
+    )
+    total_club_zone_one_acceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneOneAccelerationEvents"
+    )
+    total_club_zone_one_deceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneOneDecelerationDistanceM"
+    )
+    total_club_zone_one_deceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneOneDecelerationDurationS"
+    )
+    total_club_zone_one_deceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneOneDecelerationEvents"
+    )
     total_club_zone_sprint_distance_m: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("totalClubZoneSprintDistanceM")
     )
@@ -1169,50 +1101,42 @@ class AggregatedSessionMetricSetFields(GraphQLField):
     total_club_zone_sprint_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("totalClubZoneSprintEvents")
     )
-    total_club_zone_three_acceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_club_zone_three_acceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalClubZoneThreeAccelerationDistanceM"
     )
-    total_club_zone_three_acceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_club_zone_three_acceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalClubZoneThreeAccelerationDurationS"
     )
-    total_club_zone_three_acceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneThreeAccelerationEvents")
-    total_club_zone_three_deceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_club_zone_three_acceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneThreeAccelerationEvents"
+    )
+    total_club_zone_three_deceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalClubZoneThreeDecelerationDistanceM"
     )
-    total_club_zone_three_deceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_club_zone_three_deceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalClubZoneThreeDecelerationDurationS"
     )
-    total_club_zone_three_deceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneThreeDecelerationEvents")
-    total_club_zone_two_acceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneTwoAccelerationDistanceM")
-    total_club_zone_two_acceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneTwoAccelerationDurationS")
-    total_club_zone_two_acceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneTwoAccelerationEvents")
-    total_club_zone_two_deceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneTwoDecelerationDistanceM")
-    total_club_zone_two_deceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneTwoDecelerationDurationS")
-    total_club_zone_two_deceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalClubZoneTwoDecelerationEvents")
+    total_club_zone_three_deceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneThreeDecelerationEvents"
+    )
+    total_club_zone_two_acceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneTwoAccelerationDistanceM"
+    )
+    total_club_zone_two_acceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneTwoAccelerationDurationS"
+    )
+    total_club_zone_two_acceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneTwoAccelerationEvents"
+    )
+    total_club_zone_two_deceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneTwoDecelerationDistanceM"
+    )
+    total_club_zone_two_deceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneTwoDecelerationDurationS"
+    )
+    total_club_zone_two_deceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneTwoDecelerationEvents"
+    )
     total_deceleration_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("totalDecelerationEvents")
     )
@@ -1243,228 +1167,148 @@ class AggregatedSessionMetricSetFields(GraphQLField):
     total_high_speed_run_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("totalHighSpeedRunEvents")
     )
-    total_individual_zone_five_acceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_five_acceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneFiveAccelerationDistanceM"
     )
-    total_individual_zone_five_acceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_five_acceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneFiveAccelerationDurationS"
     )
-    total_individual_zone_five_acceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_five_acceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneFiveAccelerationEvents"
     )
-    total_individual_zone_five_deceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_five_deceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneFiveDecelerationDistanceM"
     )
-    total_individual_zone_five_deceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_five_deceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneFiveDecelerationDurationS"
     )
-    total_individual_zone_five_deceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_five_deceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneFiveDecelerationEvents"
     )
-    total_individual_zone_four_acceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_four_acceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneFourAccelerationDistanceM"
     )
-    total_individual_zone_four_acceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_four_acceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneFourAccelerationDurationS"
     )
-    total_individual_zone_four_acceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_four_acceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneFourAccelerationEvents"
     )
-    total_individual_zone_four_deceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_four_deceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneFourDecelerationDistanceM"
     )
-    total_individual_zone_four_deceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_four_deceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneFourDecelerationDurationS"
     )
-    total_individual_zone_four_deceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_four_deceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneFourDecelerationEvents"
     )
-    total_individual_zone_high_intensity_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_high_intensity_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneHighIntensityDistanceM"
     )
-    total_individual_zone_high_intensity_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_high_intensity_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneHighIntensityDurationS"
     )
-    total_individual_zone_high_intensity_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalIndividualZoneHighIntensityEvents")
-    total_individual_zone_high_speed_running_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_high_intensity_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalIndividualZoneHighIntensityEvents"
+    )
+    total_individual_zone_high_speed_running_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneHighSpeedRunningDistanceM"
     )
-    total_individual_zone_high_speed_running_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_high_speed_running_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneHighSpeedRunningDurationS"
     )
-    total_individual_zone_high_speed_running_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_high_speed_running_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneHighSpeedRunningEvents"
     )
-    total_individual_zone_jogging_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalIndividualZoneJoggingDistanceM")
-    total_individual_zone_jogging_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalIndividualZoneJoggingDurationS")
+    total_individual_zone_jogging_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalIndividualZoneJoggingDistanceM"
+    )
+    total_individual_zone_jogging_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalIndividualZoneJoggingDurationS"
+    )
     total_individual_zone_jogging_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("totalIndividualZoneJoggingEvents")
     )
-    total_individual_zone_low_intensity_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_low_intensity_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneLowIntensityDistanceM"
     )
-    total_individual_zone_low_intensity_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_low_intensity_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneLowIntensityDurationS"
     )
-    total_individual_zone_low_intensity_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalIndividualZoneLowIntensityEvents")
-    total_individual_zone_medium_intensity_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_low_intensity_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalIndividualZoneLowIntensityEvents"
+    )
+    total_individual_zone_medium_intensity_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneMediumIntensityDistanceM"
     )
-    total_individual_zone_medium_intensity_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_medium_intensity_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneMediumIntensityDurationS"
     )
-    total_individual_zone_medium_intensity_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_medium_intensity_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneMediumIntensityEvents"
     )
-    total_individual_zone_one_acceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_one_acceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneOneAccelerationDistanceM"
     )
-    total_individual_zone_one_acceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_one_acceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneOneAccelerationDurationS"
     )
-    total_individual_zone_one_acceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_one_acceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneOneAccelerationEvents"
     )
-    total_individual_zone_one_deceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_one_deceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneOneDecelerationDistanceM"
     )
-    total_individual_zone_one_deceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_one_deceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneOneDecelerationDurationS"
     )
-    total_individual_zone_one_deceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_one_deceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneOneDecelerationEvents"
     )
-    total_individual_zone_sprint_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalIndividualZoneSprintDistanceM")
-    total_individual_zone_sprint_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalIndividualZoneSprintDurationS")
+    total_individual_zone_sprint_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalIndividualZoneSprintDistanceM"
+    )
+    total_individual_zone_sprint_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalIndividualZoneSprintDurationS"
+    )
     total_individual_zone_sprint_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("totalIndividualZoneSprintEvents")
     )
-    total_individual_zone_three_acceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_three_acceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneThreeAccelerationDistanceM"
     )
-    total_individual_zone_three_acceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_three_acceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneThreeAccelerationDurationS"
     )
-    total_individual_zone_three_acceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_three_acceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneThreeAccelerationEvents"
     )
-    total_individual_zone_three_deceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_three_deceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneThreeDecelerationDistanceM"
     )
-    total_individual_zone_three_deceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_three_deceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneThreeDecelerationDurationS"
     )
-    total_individual_zone_three_deceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_three_deceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneThreeDecelerationEvents"
     )
-    total_individual_zone_two_acceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_two_acceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneTwoAccelerationDistanceM"
     )
-    total_individual_zone_two_acceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_two_acceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneTwoAccelerationDurationS"
     )
-    total_individual_zone_two_acceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_two_acceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneTwoAccelerationEvents"
     )
-    total_individual_zone_two_deceleration_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_two_deceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneTwoDecelerationDistanceM"
     )
-    total_individual_zone_two_deceleration_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_two_deceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneTwoDecelerationDurationS"
     )
-    total_individual_zone_two_deceleration_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField(
+    total_individual_zone_two_deceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalIndividualZoneTwoDecelerationEvents"
     )
     total_left_dive_events: "AggregatedSessionMetricSetGraphQLField" = (
@@ -1491,18 +1335,18 @@ class AggregatedSessionMetricSetFields(GraphQLField):
     total_medium_pass_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("totalMediumPassEvents")
     )
-    total_ninety_percent_of_max_speed_distance_m: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalNinetyPercentOfMaxSpeedDistanceM")
-    total_ninety_percent_of_max_speed_duration_s: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalNinetyPercentOfMaxSpeedDurationS")
-    total_ninety_percent_of_max_speed_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalNinetyPercentOfMaxSpeedEvents")
-    total_ninety_percent_of_raw_max_speed_events: (
-        "AggregatedSessionMetricSetGraphQLField"
-    ) = AggregatedSessionMetricSetGraphQLField("totalNinetyPercentOfRawMaxSpeedEvents")
+    total_ninety_percent_of_max_speed_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalNinetyPercentOfMaxSpeedDistanceM"
+    )
+    total_ninety_percent_of_max_speed_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalNinetyPercentOfMaxSpeedDurationS"
+    )
+    total_ninety_percent_of_max_speed_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalNinetyPercentOfMaxSpeedEvents"
+    )
+    total_ninety_percent_of_raw_max_speed_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalNinetyPercentOfRawMaxSpeedEvents"
+    )
     total_pass_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("totalPassEvents")
     )
@@ -3300,42 +3144,42 @@ class CommonAggregatedMetricsInterface(GraphQLField):
     avg_acceleration_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("avgAccelerationEvents")
     )
-    avg_acceleration_load_per_contributing_minutes: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgAccelerationLoadPerContributingMinutes")
-    avg_club_zone_five_acceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgClubZoneFiveAccelerationDistanceM")
-    avg_club_zone_five_acceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgClubZoneFiveAccelerationDurationS")
+    avg_acceleration_load_per_contributing_minutes: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgAccelerationLoadPerContributingMinutes"
+    )
+    avg_club_zone_five_acceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgClubZoneFiveAccelerationDistanceM"
+    )
+    avg_club_zone_five_acceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgClubZoneFiveAccelerationDurationS"
+    )
     avg_club_zone_five_acceleration_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("avgClubZoneFiveAccelerationEvents")
     )
-    avg_club_zone_five_deceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgClubZoneFiveDecelerationDistanceM")
-    avg_club_zone_five_deceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgClubZoneFiveDecelerationDurationS")
+    avg_club_zone_five_deceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgClubZoneFiveDecelerationDistanceM"
+    )
+    avg_club_zone_five_deceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgClubZoneFiveDecelerationDurationS"
+    )
     avg_club_zone_five_deceleration_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("avgClubZoneFiveDecelerationEvents")
     )
-    avg_club_zone_four_acceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgClubZoneFourAccelerationDistanceM")
-    avg_club_zone_four_acceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgClubZoneFourAccelerationDurationS")
+    avg_club_zone_four_acceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgClubZoneFourAccelerationDistanceM"
+    )
+    avg_club_zone_four_acceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgClubZoneFourAccelerationDurationS"
+    )
     avg_club_zone_four_acceleration_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("avgClubZoneFourAccelerationEvents")
     )
-    avg_club_zone_four_deceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgClubZoneFourDecelerationDistanceM")
-    avg_club_zone_four_deceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgClubZoneFourDecelerationDurationS")
+    avg_club_zone_four_deceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgClubZoneFourDecelerationDistanceM"
+    )
+    avg_club_zone_four_deceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgClubZoneFourDecelerationDurationS"
+    )
     avg_club_zone_four_deceleration_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("avgClubZoneFourDecelerationEvents")
     )
@@ -3348,12 +3192,12 @@ class CommonAggregatedMetricsInterface(GraphQLField):
     avg_club_zone_high_intensity_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("avgClubZoneHighIntensityEvents")
     )
-    avg_club_zone_high_speed_running_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgClubZoneHighSpeedRunningDistanceM")
-    avg_club_zone_high_speed_running_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgClubZoneHighSpeedRunningDurationS")
+    avg_club_zone_high_speed_running_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgClubZoneHighSpeedRunningDistanceM"
+    )
+    avg_club_zone_high_speed_running_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgClubZoneHighSpeedRunningDurationS"
+    )
     avg_club_zone_high_speed_running_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("avgClubZoneHighSpeedRunningEvents")
     )
@@ -3411,21 +3255,21 @@ class CommonAggregatedMetricsInterface(GraphQLField):
     avg_club_zone_sprint_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("avgClubZoneSprintEvents")
     )
-    avg_club_zone_three_acceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgClubZoneThreeAccelerationDistanceM")
-    avg_club_zone_three_acceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgClubZoneThreeAccelerationDurationS")
+    avg_club_zone_three_acceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgClubZoneThreeAccelerationDistanceM"
+    )
+    avg_club_zone_three_acceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgClubZoneThreeAccelerationDurationS"
+    )
     avg_club_zone_three_acceleration_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("avgClubZoneThreeAccelerationEvents")
     )
-    avg_club_zone_three_deceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgClubZoneThreeDecelerationDistanceM")
-    avg_club_zone_three_deceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgClubZoneThreeDecelerationDurationS")
+    avg_club_zone_three_deceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgClubZoneThreeDecelerationDistanceM"
+    )
+    avg_club_zone_three_deceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgClubZoneThreeDecelerationDurationS"
+    )
     avg_club_zone_three_deceleration_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("avgClubZoneThreeDecelerationEvents")
     )
@@ -3496,80 +3340,60 @@ class CommonAggregatedMetricsInterface(GraphQLField):
     avg_high_speed_run_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("avgHighSpeedRunEvents")
     )
-    avg_individual_zone_five_acceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    avg_individual_zone_five_acceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "avgIndividualZoneFiveAccelerationDistanceM"
     )
-    avg_individual_zone_five_acceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    avg_individual_zone_five_acceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "avgIndividualZoneFiveAccelerationDurationS"
     )
-    avg_individual_zone_five_acceleration_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgIndividualZoneFiveAccelerationEvents")
-    avg_individual_zone_five_deceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    avg_individual_zone_five_acceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgIndividualZoneFiveAccelerationEvents"
+    )
+    avg_individual_zone_five_deceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "avgIndividualZoneFiveDecelerationDistanceM"
     )
-    avg_individual_zone_five_deceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    avg_individual_zone_five_deceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "avgIndividualZoneFiveDecelerationDurationS"
     )
-    avg_individual_zone_five_deceleration_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgIndividualZoneFiveDecelerationEvents")
-    avg_individual_zone_four_acceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    avg_individual_zone_five_deceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgIndividualZoneFiveDecelerationEvents"
+    )
+    avg_individual_zone_four_acceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "avgIndividualZoneFourAccelerationDistanceM"
     )
-    avg_individual_zone_four_acceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    avg_individual_zone_four_acceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "avgIndividualZoneFourAccelerationDurationS"
     )
-    avg_individual_zone_four_acceleration_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgIndividualZoneFourAccelerationEvents")
-    avg_individual_zone_four_deceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    avg_individual_zone_four_acceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgIndividualZoneFourAccelerationEvents"
+    )
+    avg_individual_zone_four_deceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "avgIndividualZoneFourDecelerationDistanceM"
     )
-    avg_individual_zone_four_deceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    avg_individual_zone_four_deceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "avgIndividualZoneFourDecelerationDurationS"
     )
-    avg_individual_zone_four_deceleration_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgIndividualZoneFourDecelerationEvents")
-    avg_individual_zone_high_intensity_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgIndividualZoneHighIntensityDistanceM")
-    avg_individual_zone_high_intensity_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgIndividualZoneHighIntensityDurationS")
+    avg_individual_zone_four_deceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgIndividualZoneFourDecelerationEvents"
+    )
+    avg_individual_zone_high_intensity_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgIndividualZoneHighIntensityDistanceM"
+    )
+    avg_individual_zone_high_intensity_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgIndividualZoneHighIntensityDurationS"
+    )
     avg_individual_zone_high_intensity_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("avgIndividualZoneHighIntensityEvents")
     )
-    avg_individual_zone_high_speed_running_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    avg_individual_zone_high_speed_running_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "avgIndividualZoneHighSpeedRunningDistanceM"
     )
-    avg_individual_zone_high_speed_running_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    avg_individual_zone_high_speed_running_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "avgIndividualZoneHighSpeedRunningDurationS"
     )
-    avg_individual_zone_high_speed_running_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgIndividualZoneHighSpeedRunningEvents")
+    avg_individual_zone_high_speed_running_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgIndividualZoneHighSpeedRunningEvents"
+    )
     avg_individual_zone_jogging_distance_m: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("avgIndividualZoneJoggingDistanceM")
     )
@@ -3579,42 +3403,42 @@ class CommonAggregatedMetricsInterface(GraphQLField):
     avg_individual_zone_jogging_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("avgIndividualZoneJoggingEvents")
     )
-    avg_individual_zone_low_intensity_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgIndividualZoneLowIntensityDistanceM")
-    avg_individual_zone_low_intensity_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgIndividualZoneLowIntensityDurationS")
+    avg_individual_zone_low_intensity_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgIndividualZoneLowIntensityDistanceM"
+    )
+    avg_individual_zone_low_intensity_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgIndividualZoneLowIntensityDurationS"
+    )
     avg_individual_zone_low_intensity_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("avgIndividualZoneLowIntensityEvents")
     )
-    avg_individual_zone_medium_intensity_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgIndividualZoneMediumIntensityDistanceM")
-    avg_individual_zone_medium_intensity_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgIndividualZoneMediumIntensityDurationS")
-    avg_individual_zone_medium_intensity_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgIndividualZoneMediumIntensityEvents")
-    avg_individual_zone_one_acceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgIndividualZoneOneAccelerationDistanceM")
-    avg_individual_zone_one_acceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgIndividualZoneOneAccelerationDurationS")
-    avg_individual_zone_one_acceleration_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgIndividualZoneOneAccelerationEvents")
-    avg_individual_zone_one_deceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgIndividualZoneOneDecelerationDistanceM")
-    avg_individual_zone_one_deceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgIndividualZoneOneDecelerationDurationS")
-    avg_individual_zone_one_deceleration_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgIndividualZoneOneDecelerationEvents")
+    avg_individual_zone_medium_intensity_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgIndividualZoneMediumIntensityDistanceM"
+    )
+    avg_individual_zone_medium_intensity_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgIndividualZoneMediumIntensityDurationS"
+    )
+    avg_individual_zone_medium_intensity_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgIndividualZoneMediumIntensityEvents"
+    )
+    avg_individual_zone_one_acceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgIndividualZoneOneAccelerationDistanceM"
+    )
+    avg_individual_zone_one_acceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgIndividualZoneOneAccelerationDurationS"
+    )
+    avg_individual_zone_one_acceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgIndividualZoneOneAccelerationEvents"
+    )
+    avg_individual_zone_one_deceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgIndividualZoneOneDecelerationDistanceM"
+    )
+    avg_individual_zone_one_deceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgIndividualZoneOneDecelerationDurationS"
+    )
+    avg_individual_zone_one_deceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgIndividualZoneOneDecelerationEvents"
+    )
     avg_individual_zone_sprint_distance_m: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("avgIndividualZoneSprintDistanceM")
     )
@@ -3624,50 +3448,42 @@ class CommonAggregatedMetricsInterface(GraphQLField):
     avg_individual_zone_sprint_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("avgIndividualZoneSprintEvents")
     )
-    avg_individual_zone_three_acceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    avg_individual_zone_three_acceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "avgIndividualZoneThreeAccelerationDistanceM"
     )
-    avg_individual_zone_three_acceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    avg_individual_zone_three_acceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "avgIndividualZoneThreeAccelerationDurationS"
     )
-    avg_individual_zone_three_acceleration_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgIndividualZoneThreeAccelerationEvents")
-    avg_individual_zone_three_deceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    avg_individual_zone_three_acceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgIndividualZoneThreeAccelerationEvents"
+    )
+    avg_individual_zone_three_deceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "avgIndividualZoneThreeDecelerationDistanceM"
     )
-    avg_individual_zone_three_deceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    avg_individual_zone_three_deceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "avgIndividualZoneThreeDecelerationDurationS"
     )
-    avg_individual_zone_three_deceleration_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgIndividualZoneThreeDecelerationEvents")
-    avg_individual_zone_two_acceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgIndividualZoneTwoAccelerationDistanceM")
-    avg_individual_zone_two_acceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgIndividualZoneTwoAccelerationDurationS")
-    avg_individual_zone_two_acceleration_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgIndividualZoneTwoAccelerationEvents")
-    avg_individual_zone_two_deceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgIndividualZoneTwoDecelerationDistanceM")
-    avg_individual_zone_two_deceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgIndividualZoneTwoDecelerationDurationS")
-    avg_individual_zone_two_deceleration_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgIndividualZoneTwoDecelerationEvents")
+    avg_individual_zone_three_deceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgIndividualZoneThreeDecelerationEvents"
+    )
+    avg_individual_zone_two_acceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgIndividualZoneTwoAccelerationDistanceM"
+    )
+    avg_individual_zone_two_acceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgIndividualZoneTwoAccelerationDurationS"
+    )
+    avg_individual_zone_two_acceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgIndividualZoneTwoAccelerationEvents"
+    )
+    avg_individual_zone_two_deceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgIndividualZoneTwoDecelerationDistanceM"
+    )
+    avg_individual_zone_two_deceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgIndividualZoneTwoDecelerationDurationS"
+    )
+    avg_individual_zone_two_deceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgIndividualZoneTwoDecelerationEvents"
+    )
     avg_left_dive_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("avgLeftDiveEvents")
     )
@@ -3698,18 +3514,18 @@ class CommonAggregatedMetricsInterface(GraphQLField):
     avg_metres_per_minute: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("avgMetresPerMinute")
     )
-    avg_ninety_percent_of_max_speed_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgNinetyPercentOfMaxSpeedDistanceM")
-    avg_ninety_percent_of_max_speed_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgNinetyPercentOfMaxSpeedDurationS")
+    avg_ninety_percent_of_max_speed_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgNinetyPercentOfMaxSpeedDistanceM"
+    )
+    avg_ninety_percent_of_max_speed_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgNinetyPercentOfMaxSpeedDurationS"
+    )
     avg_ninety_percent_of_max_speed_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("avgNinetyPercentOfMaxSpeedEvents")
     )
-    avg_ninety_percent_of_raw_max_speed_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("avgNinetyPercentOfRawMaxSpeedEvents")
+    avg_ninety_percent_of_raw_max_speed_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgNinetyPercentOfRawMaxSpeedEvents"
+    )
     avg_pass_distance_m: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("avgPassDistanceM")
     )
@@ -3797,39 +3613,39 @@ class CommonAggregatedMetricsInterface(GraphQLField):
     total_acceleration_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("totalAccelerationEvents")
     )
-    total_club_zone_five_acceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalClubZoneFiveAccelerationDistanceM")
-    total_club_zone_five_acceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalClubZoneFiveAccelerationDurationS")
+    total_club_zone_five_acceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneFiveAccelerationDistanceM"
+    )
+    total_club_zone_five_acceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneFiveAccelerationDurationS"
+    )
     total_club_zone_five_acceleration_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("totalClubZoneFiveAccelerationEvents")
     )
-    total_club_zone_five_deceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalClubZoneFiveDecelerationDistanceM")
-    total_club_zone_five_deceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalClubZoneFiveDecelerationDurationS")
+    total_club_zone_five_deceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneFiveDecelerationDistanceM"
+    )
+    total_club_zone_five_deceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneFiveDecelerationDurationS"
+    )
     total_club_zone_five_deceleration_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("totalClubZoneFiveDecelerationEvents")
     )
-    total_club_zone_four_acceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalClubZoneFourAccelerationDistanceM")
-    total_club_zone_four_acceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalClubZoneFourAccelerationDurationS")
+    total_club_zone_four_acceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneFourAccelerationDistanceM"
+    )
+    total_club_zone_four_acceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneFourAccelerationDurationS"
+    )
     total_club_zone_four_acceleration_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("totalClubZoneFourAccelerationEvents")
     )
-    total_club_zone_four_deceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalClubZoneFourDecelerationDistanceM")
-    total_club_zone_four_deceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalClubZoneFourDecelerationDurationS")
+    total_club_zone_four_deceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneFourDecelerationDistanceM"
+    )
+    total_club_zone_four_deceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneFourDecelerationDurationS"
+    )
     total_club_zone_four_deceleration_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("totalClubZoneFourDecelerationEvents")
     )
@@ -3842,12 +3658,12 @@ class CommonAggregatedMetricsInterface(GraphQLField):
     total_club_zone_high_intensity_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("totalClubZoneHighIntensityEvents")
     )
-    total_club_zone_high_speed_running_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalClubZoneHighSpeedRunningDistanceM")
-    total_club_zone_high_speed_running_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalClubZoneHighSpeedRunningDurationS")
+    total_club_zone_high_speed_running_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneHighSpeedRunningDistanceM"
+    )
+    total_club_zone_high_speed_running_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneHighSpeedRunningDurationS"
+    )
     total_club_zone_high_speed_running_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("totalClubZoneHighSpeedRunningEvents")
     )
@@ -3869,30 +3685,30 @@ class CommonAggregatedMetricsInterface(GraphQLField):
     total_club_zone_low_intensity_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("totalClubZoneLowIntensityEvents")
     )
-    total_club_zone_medium_intensity_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalClubZoneMediumIntensityDistanceM")
-    total_club_zone_medium_intensity_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalClubZoneMediumIntensityDurationS")
+    total_club_zone_medium_intensity_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneMediumIntensityDistanceM"
+    )
+    total_club_zone_medium_intensity_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneMediumIntensityDurationS"
+    )
     total_club_zone_medium_intensity_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("totalClubZoneMediumIntensityEvents")
     )
-    total_club_zone_one_acceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalClubZoneOneAccelerationDistanceM")
-    total_club_zone_one_acceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalClubZoneOneAccelerationDurationS")
+    total_club_zone_one_acceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneOneAccelerationDistanceM"
+    )
+    total_club_zone_one_acceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneOneAccelerationDurationS"
+    )
     total_club_zone_one_acceleration_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("totalClubZoneOneAccelerationEvents")
     )
-    total_club_zone_one_deceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalClubZoneOneDecelerationDistanceM")
-    total_club_zone_one_deceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalClubZoneOneDecelerationDurationS")
+    total_club_zone_one_deceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneOneDecelerationDistanceM"
+    )
+    total_club_zone_one_deceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneOneDecelerationDurationS"
+    )
     total_club_zone_one_deceleration_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("totalClubZoneOneDecelerationEvents")
     )
@@ -3905,39 +3721,39 @@ class CommonAggregatedMetricsInterface(GraphQLField):
     total_club_zone_sprint_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("totalClubZoneSprintEvents")
     )
-    total_club_zone_three_acceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalClubZoneThreeAccelerationDistanceM")
-    total_club_zone_three_acceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalClubZoneThreeAccelerationDurationS")
+    total_club_zone_three_acceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneThreeAccelerationDistanceM"
+    )
+    total_club_zone_three_acceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneThreeAccelerationDurationS"
+    )
     total_club_zone_three_acceleration_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("totalClubZoneThreeAccelerationEvents")
     )
-    total_club_zone_three_deceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalClubZoneThreeDecelerationDistanceM")
-    total_club_zone_three_deceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalClubZoneThreeDecelerationDurationS")
+    total_club_zone_three_deceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneThreeDecelerationDistanceM"
+    )
+    total_club_zone_three_deceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneThreeDecelerationDurationS"
+    )
     total_club_zone_three_deceleration_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("totalClubZoneThreeDecelerationEvents")
     )
-    total_club_zone_two_acceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalClubZoneTwoAccelerationDistanceM")
-    total_club_zone_two_acceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalClubZoneTwoAccelerationDurationS")
+    total_club_zone_two_acceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneTwoAccelerationDistanceM"
+    )
+    total_club_zone_two_acceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneTwoAccelerationDurationS"
+    )
     total_club_zone_two_acceleration_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("totalClubZoneTwoAccelerationEvents")
     )
-    total_club_zone_two_deceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalClubZoneTwoDecelerationDistanceM")
-    total_club_zone_two_deceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalClubZoneTwoDecelerationDurationS")
+    total_club_zone_two_deceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneTwoDecelerationDistanceM"
+    )
+    total_club_zone_two_deceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneTwoDecelerationDurationS"
+    )
     total_club_zone_two_deceleration_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("totalClubZoneTwoDecelerationEvents")
     )
@@ -3971,80 +3787,60 @@ class CommonAggregatedMetricsInterface(GraphQLField):
     total_high_speed_run_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("totalHighSpeedRunEvents")
     )
-    total_individual_zone_five_acceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    total_individual_zone_five_acceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "totalIndividualZoneFiveAccelerationDistanceM"
     )
-    total_individual_zone_five_acceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    total_individual_zone_five_acceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "totalIndividualZoneFiveAccelerationDurationS"
     )
-    total_individual_zone_five_acceleration_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalIndividualZoneFiveAccelerationEvents")
-    total_individual_zone_five_deceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    total_individual_zone_five_acceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalIndividualZoneFiveAccelerationEvents"
+    )
+    total_individual_zone_five_deceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "totalIndividualZoneFiveDecelerationDistanceM"
     )
-    total_individual_zone_five_deceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    total_individual_zone_five_deceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "totalIndividualZoneFiveDecelerationDurationS"
     )
-    total_individual_zone_five_deceleration_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalIndividualZoneFiveDecelerationEvents")
-    total_individual_zone_four_acceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    total_individual_zone_five_deceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalIndividualZoneFiveDecelerationEvents"
+    )
+    total_individual_zone_four_acceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "totalIndividualZoneFourAccelerationDistanceM"
     )
-    total_individual_zone_four_acceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    total_individual_zone_four_acceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "totalIndividualZoneFourAccelerationDurationS"
     )
-    total_individual_zone_four_acceleration_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalIndividualZoneFourAccelerationEvents")
-    total_individual_zone_four_deceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    total_individual_zone_four_acceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalIndividualZoneFourAccelerationEvents"
+    )
+    total_individual_zone_four_deceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "totalIndividualZoneFourDecelerationDistanceM"
     )
-    total_individual_zone_four_deceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    total_individual_zone_four_deceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "totalIndividualZoneFourDecelerationDurationS"
     )
-    total_individual_zone_four_deceleration_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalIndividualZoneFourDecelerationEvents")
-    total_individual_zone_high_intensity_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalIndividualZoneHighIntensityDistanceM")
-    total_individual_zone_high_intensity_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalIndividualZoneHighIntensityDurationS")
-    total_individual_zone_high_intensity_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalIndividualZoneHighIntensityEvents")
-    total_individual_zone_high_speed_running_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    total_individual_zone_four_deceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalIndividualZoneFourDecelerationEvents"
+    )
+    total_individual_zone_high_intensity_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalIndividualZoneHighIntensityDistanceM"
+    )
+    total_individual_zone_high_intensity_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalIndividualZoneHighIntensityDurationS"
+    )
+    total_individual_zone_high_intensity_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalIndividualZoneHighIntensityEvents"
+    )
+    total_individual_zone_high_speed_running_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "totalIndividualZoneHighSpeedRunningDistanceM"
     )
-    total_individual_zone_high_speed_running_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    total_individual_zone_high_speed_running_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "totalIndividualZoneHighSpeedRunningDurationS"
     )
-    total_individual_zone_high_speed_running_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalIndividualZoneHighSpeedRunningEvents")
+    total_individual_zone_high_speed_running_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalIndividualZoneHighSpeedRunningEvents"
+    )
     total_individual_zone_jogging_distance_m: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("totalIndividualZoneJoggingDistanceM")
     )
@@ -4054,54 +3850,42 @@ class CommonAggregatedMetricsInterface(GraphQLField):
     total_individual_zone_jogging_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("totalIndividualZoneJoggingEvents")
     )
-    total_individual_zone_low_intensity_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalIndividualZoneLowIntensityDistanceM")
-    total_individual_zone_low_intensity_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalIndividualZoneLowIntensityDurationS")
-    total_individual_zone_low_intensity_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalIndividualZoneLowIntensityEvents")
-    total_individual_zone_medium_intensity_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    total_individual_zone_low_intensity_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalIndividualZoneLowIntensityDistanceM"
+    )
+    total_individual_zone_low_intensity_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalIndividualZoneLowIntensityDurationS"
+    )
+    total_individual_zone_low_intensity_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalIndividualZoneLowIntensityEvents"
+    )
+    total_individual_zone_medium_intensity_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "totalIndividualZoneMediumIntensityDistanceM"
     )
-    total_individual_zone_medium_intensity_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    total_individual_zone_medium_intensity_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "totalIndividualZoneMediumIntensityDurationS"
     )
-    total_individual_zone_medium_intensity_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalIndividualZoneMediumIntensityEvents")
-    total_individual_zone_one_acceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    total_individual_zone_medium_intensity_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalIndividualZoneMediumIntensityEvents"
+    )
+    total_individual_zone_one_acceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "totalIndividualZoneOneAccelerationDistanceM"
     )
-    total_individual_zone_one_acceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    total_individual_zone_one_acceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "totalIndividualZoneOneAccelerationDurationS"
     )
-    total_individual_zone_one_acceleration_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalIndividualZoneOneAccelerationEvents")
-    total_individual_zone_one_deceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    total_individual_zone_one_acceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalIndividualZoneOneAccelerationEvents"
+    )
+    total_individual_zone_one_deceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "totalIndividualZoneOneDecelerationDistanceM"
     )
-    total_individual_zone_one_deceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    total_individual_zone_one_deceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "totalIndividualZoneOneDecelerationDurationS"
     )
-    total_individual_zone_one_deceleration_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalIndividualZoneOneDecelerationEvents")
+    total_individual_zone_one_deceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalIndividualZoneOneDecelerationEvents"
+    )
     total_individual_zone_sprint_distance_m: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("totalIndividualZoneSprintDistanceM")
     )
@@ -4111,62 +3895,42 @@ class CommonAggregatedMetricsInterface(GraphQLField):
     total_individual_zone_sprint_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("totalIndividualZoneSprintEvents")
     )
-    total_individual_zone_three_acceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    total_individual_zone_three_acceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "totalIndividualZoneThreeAccelerationDistanceM"
     )
-    total_individual_zone_three_acceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    total_individual_zone_three_acceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "totalIndividualZoneThreeAccelerationDurationS"
     )
-    total_individual_zone_three_acceleration_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    total_individual_zone_three_acceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "totalIndividualZoneThreeAccelerationEvents"
     )
-    total_individual_zone_three_deceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    total_individual_zone_three_deceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "totalIndividualZoneThreeDecelerationDistanceM"
     )
-    total_individual_zone_three_deceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    total_individual_zone_three_deceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "totalIndividualZoneThreeDecelerationDurationS"
     )
-    total_individual_zone_three_deceleration_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    total_individual_zone_three_deceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "totalIndividualZoneThreeDecelerationEvents"
     )
-    total_individual_zone_two_acceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    total_individual_zone_two_acceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "totalIndividualZoneTwoAccelerationDistanceM"
     )
-    total_individual_zone_two_acceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    total_individual_zone_two_acceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "totalIndividualZoneTwoAccelerationDurationS"
     )
-    total_individual_zone_two_acceleration_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalIndividualZoneTwoAccelerationEvents")
-    total_individual_zone_two_deceleration_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    total_individual_zone_two_acceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalIndividualZoneTwoAccelerationEvents"
+    )
+    total_individual_zone_two_deceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "totalIndividualZoneTwoDecelerationDistanceM"
     )
-    total_individual_zone_two_deceleration_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField(
+    total_individual_zone_two_deceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "totalIndividualZoneTwoDecelerationDurationS"
     )
-    total_individual_zone_two_deceleration_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalIndividualZoneTwoDecelerationEvents")
+    total_individual_zone_two_deceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalIndividualZoneTwoDecelerationEvents"
+    )
     total_left_dive_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("totalLeftDiveEvents")
     )
@@ -4191,18 +3955,18 @@ class CommonAggregatedMetricsInterface(GraphQLField):
     total_medium_pass_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("totalMediumPassEvents")
     )
-    total_ninety_percent_of_max_speed_distance_m: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalNinetyPercentOfMaxSpeedDistanceM")
-    total_ninety_percent_of_max_speed_duration_s: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalNinetyPercentOfMaxSpeedDurationS")
+    total_ninety_percent_of_max_speed_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalNinetyPercentOfMaxSpeedDistanceM"
+    )
+    total_ninety_percent_of_max_speed_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalNinetyPercentOfMaxSpeedDurationS"
+    )
     total_ninety_percent_of_max_speed_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("totalNinetyPercentOfMaxSpeedEvents")
     )
-    total_ninety_percent_of_raw_max_speed_events: (
-        "CommonAggregatedMetricsGraphQLField"
-    ) = CommonAggregatedMetricsGraphQLField("totalNinetyPercentOfRawMaxSpeedEvents")
+    total_ninety_percent_of_raw_max_speed_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalNinetyPercentOfRawMaxSpeedEvents"
+    )
     total_pass_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("totalPassEvents")
     )
@@ -4520,12 +4284,12 @@ class CommonAthleteMetricsInterface(GraphQLField):
     individual_zone_high_intensity_events: "CommonAthleteMetricsGraphQLField" = (
         CommonAthleteMetricsGraphQLField("individualZoneHighIntensityEvents")
     )
-    individual_zone_high_speed_running_distance_m: (
-        "CommonAthleteMetricsGraphQLField"
-    ) = CommonAthleteMetricsGraphQLField("individualZoneHighSpeedRunningDistanceM")
-    individual_zone_high_speed_running_duration_s: (
-        "CommonAthleteMetricsGraphQLField"
-    ) = CommonAthleteMetricsGraphQLField("individualZoneHighSpeedRunningDurationS")
+    individual_zone_high_speed_running_distance_m: "CommonAthleteMetricsGraphQLField" = CommonAthleteMetricsGraphQLField(
+        "individualZoneHighSpeedRunningDistanceM"
+    )
+    individual_zone_high_speed_running_duration_s: "CommonAthleteMetricsGraphQLField" = CommonAthleteMetricsGraphQLField(
+        "individualZoneHighSpeedRunningDurationS"
+    )
     individual_zone_high_speed_running_events: "CommonAthleteMetricsGraphQLField" = (
         CommonAthleteMetricsGraphQLField("individualZoneHighSpeedRunningEvents")
     )
@@ -4583,21 +4347,21 @@ class CommonAthleteMetricsInterface(GraphQLField):
     individual_zone_sprint_events: "CommonAthleteMetricsGraphQLField" = (
         CommonAthleteMetricsGraphQLField("individualZoneSprintEvents")
     )
-    individual_zone_three_acceleration_distance_m: (
-        "CommonAthleteMetricsGraphQLField"
-    ) = CommonAthleteMetricsGraphQLField("individualZoneThreeAccelerationDistanceM")
-    individual_zone_three_acceleration_duration_s: (
-        "CommonAthleteMetricsGraphQLField"
-    ) = CommonAthleteMetricsGraphQLField("individualZoneThreeAccelerationDurationS")
+    individual_zone_three_acceleration_distance_m: "CommonAthleteMetricsGraphQLField" = CommonAthleteMetricsGraphQLField(
+        "individualZoneThreeAccelerationDistanceM"
+    )
+    individual_zone_three_acceleration_duration_s: "CommonAthleteMetricsGraphQLField" = CommonAthleteMetricsGraphQLField(
+        "individualZoneThreeAccelerationDurationS"
+    )
     individual_zone_three_acceleration_events: "CommonAthleteMetricsGraphQLField" = (
         CommonAthleteMetricsGraphQLField("individualZoneThreeAccelerationEvents")
     )
-    individual_zone_three_deceleration_distance_m: (
-        "CommonAthleteMetricsGraphQLField"
-    ) = CommonAthleteMetricsGraphQLField("individualZoneThreeDecelerationDistanceM")
-    individual_zone_three_deceleration_duration_s: (
-        "CommonAthleteMetricsGraphQLField"
-    ) = CommonAthleteMetricsGraphQLField("individualZoneThreeDecelerationDurationS")
+    individual_zone_three_deceleration_distance_m: "CommonAthleteMetricsGraphQLField" = CommonAthleteMetricsGraphQLField(
+        "individualZoneThreeDecelerationDistanceM"
+    )
+    individual_zone_three_deceleration_duration_s: "CommonAthleteMetricsGraphQLField" = CommonAthleteMetricsGraphQLField(
+        "individualZoneThreeDecelerationDurationS"
+    )
     individual_zone_three_deceleration_events: "CommonAthleteMetricsGraphQLField" = (
         CommonAthleteMetricsGraphQLField("individualZoneThreeDecelerationEvents")
     )
@@ -7359,9 +7123,7 @@ class MatchSessionAthleteMetricSetFields(GraphQLField):
     acceleration_events: "MatchSessionAthleteMetricSetGraphQLField" = (
         MatchSessionAthleteMetricSetGraphQLField("accelerationEvents")
     )
-    acceleration_load_per_contributing_minutes: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField(
+    acceleration_load_per_contributing_minutes: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "accelerationLoadPerContributingMinutes"
     )
     avg_heartrate_bpm: "MatchSessionAthleteMetricSetGraphQLField" = (
@@ -7386,39 +7148,39 @@ class MatchSessionAthleteMetricSetFields(GraphQLField):
     def avg_speed_kph_over_time(cls) -> "TimeSeriesDataFields":
         return TimeSeriesDataFields("avgSpeedKphOverTime")
 
-    club_zone_five_acceleration_distance_m: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("clubZoneFiveAccelerationDistanceM")
-    club_zone_five_acceleration_duration_s: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("clubZoneFiveAccelerationDurationS")
+    club_zone_five_acceleration_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneFiveAccelerationDistanceM"
+    )
+    club_zone_five_acceleration_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneFiveAccelerationDurationS"
+    )
     club_zone_five_acceleration_events: "MatchSessionAthleteMetricSetGraphQLField" = (
         MatchSessionAthleteMetricSetGraphQLField("clubZoneFiveAccelerationEvents")
     )
-    club_zone_five_deceleration_distance_m: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("clubZoneFiveDecelerationDistanceM")
-    club_zone_five_deceleration_duration_s: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("clubZoneFiveDecelerationDurationS")
+    club_zone_five_deceleration_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneFiveDecelerationDistanceM"
+    )
+    club_zone_five_deceleration_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneFiveDecelerationDurationS"
+    )
     club_zone_five_deceleration_events: "MatchSessionAthleteMetricSetGraphQLField" = (
         MatchSessionAthleteMetricSetGraphQLField("clubZoneFiveDecelerationEvents")
     )
-    club_zone_four_acceleration_distance_m: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("clubZoneFourAccelerationDistanceM")
-    club_zone_four_acceleration_duration_s: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("clubZoneFourAccelerationDurationS")
+    club_zone_four_acceleration_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneFourAccelerationDistanceM"
+    )
+    club_zone_four_acceleration_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneFourAccelerationDurationS"
+    )
     club_zone_four_acceleration_events: "MatchSessionAthleteMetricSetGraphQLField" = (
         MatchSessionAthleteMetricSetGraphQLField("clubZoneFourAccelerationEvents")
     )
-    club_zone_four_deceleration_distance_m: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("clubZoneFourDecelerationDistanceM")
-    club_zone_four_deceleration_duration_s: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("clubZoneFourDecelerationDurationS")
+    club_zone_four_deceleration_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneFourDecelerationDistanceM"
+    )
+    club_zone_four_deceleration_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneFourDecelerationDurationS"
+    )
     club_zone_four_deceleration_events: "MatchSessionAthleteMetricSetGraphQLField" = (
         MatchSessionAthleteMetricSetGraphQLField("clubZoneFourDecelerationEvents")
     )
@@ -7431,12 +7193,12 @@ class MatchSessionAthleteMetricSetFields(GraphQLField):
     club_zone_high_intensity_events: "MatchSessionAthleteMetricSetGraphQLField" = (
         MatchSessionAthleteMetricSetGraphQLField("clubZoneHighIntensityEvents")
     )
-    club_zone_high_speed_running_distance_m: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("clubZoneHighSpeedRunningDistanceM")
-    club_zone_high_speed_running_duration_s: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("clubZoneHighSpeedRunningDurationS")
+    club_zone_high_speed_running_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneHighSpeedRunningDistanceM"
+    )
+    club_zone_high_speed_running_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneHighSpeedRunningDurationS"
+    )
     club_zone_high_speed_running_events: "MatchSessionAthleteMetricSetGraphQLField" = (
         MatchSessionAthleteMetricSetGraphQLField("clubZoneHighSpeedRunningEvents")
     )
@@ -7458,30 +7220,30 @@ class MatchSessionAthleteMetricSetFields(GraphQLField):
     club_zone_low_intensity_events: "MatchSessionAthleteMetricSetGraphQLField" = (
         MatchSessionAthleteMetricSetGraphQLField("clubZoneLowIntensityEvents")
     )
-    club_zone_medium_intensity_distance_m: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("clubZoneMediumIntensityDistanceM")
-    club_zone_medium_intensity_duration_s: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("clubZoneMediumIntensityDurationS")
+    club_zone_medium_intensity_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneMediumIntensityDistanceM"
+    )
+    club_zone_medium_intensity_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneMediumIntensityDurationS"
+    )
     club_zone_medium_intensity_events: "MatchSessionAthleteMetricSetGraphQLField" = (
         MatchSessionAthleteMetricSetGraphQLField("clubZoneMediumIntensityEvents")
     )
-    club_zone_one_acceleration_distance_m: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("clubZoneOneAccelerationDistanceM")
-    club_zone_one_acceleration_duration_s: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("clubZoneOneAccelerationDurationS")
+    club_zone_one_acceleration_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneOneAccelerationDistanceM"
+    )
+    club_zone_one_acceleration_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneOneAccelerationDurationS"
+    )
     club_zone_one_acceleration_events: "MatchSessionAthleteMetricSetGraphQLField" = (
         MatchSessionAthleteMetricSetGraphQLField("clubZoneOneAccelerationEvents")
     )
-    club_zone_one_deceleration_distance_m: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("clubZoneOneDecelerationDistanceM")
-    club_zone_one_deceleration_duration_s: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("clubZoneOneDecelerationDurationS")
+    club_zone_one_deceleration_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneOneDecelerationDistanceM"
+    )
+    club_zone_one_deceleration_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneOneDecelerationDurationS"
+    )
     club_zone_one_deceleration_events: "MatchSessionAthleteMetricSetGraphQLField" = (
         MatchSessionAthleteMetricSetGraphQLField("clubZoneOneDecelerationEvents")
     )
@@ -7494,39 +7256,39 @@ class MatchSessionAthleteMetricSetFields(GraphQLField):
     club_zone_sprint_events: "MatchSessionAthleteMetricSetGraphQLField" = (
         MatchSessionAthleteMetricSetGraphQLField("clubZoneSprintEvents")
     )
-    club_zone_three_acceleration_distance_m: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("clubZoneThreeAccelerationDistanceM")
-    club_zone_three_acceleration_duration_s: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("clubZoneThreeAccelerationDurationS")
+    club_zone_three_acceleration_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneThreeAccelerationDistanceM"
+    )
+    club_zone_three_acceleration_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneThreeAccelerationDurationS"
+    )
     club_zone_three_acceleration_events: "MatchSessionAthleteMetricSetGraphQLField" = (
         MatchSessionAthleteMetricSetGraphQLField("clubZoneThreeAccelerationEvents")
     )
-    club_zone_three_deceleration_distance_m: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("clubZoneThreeDecelerationDistanceM")
-    club_zone_three_deceleration_duration_s: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("clubZoneThreeDecelerationDurationS")
+    club_zone_three_deceleration_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneThreeDecelerationDistanceM"
+    )
+    club_zone_three_deceleration_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneThreeDecelerationDurationS"
+    )
     club_zone_three_deceleration_events: "MatchSessionAthleteMetricSetGraphQLField" = (
         MatchSessionAthleteMetricSetGraphQLField("clubZoneThreeDecelerationEvents")
     )
-    club_zone_two_acceleration_distance_m: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("clubZoneTwoAccelerationDistanceM")
-    club_zone_two_acceleration_duration_s: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("clubZoneTwoAccelerationDurationS")
+    club_zone_two_acceleration_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneTwoAccelerationDistanceM"
+    )
+    club_zone_two_acceleration_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneTwoAccelerationDurationS"
+    )
     club_zone_two_acceleration_events: "MatchSessionAthleteMetricSetGraphQLField" = (
         MatchSessionAthleteMetricSetGraphQLField("clubZoneTwoAccelerationEvents")
     )
-    club_zone_two_deceleration_distance_m: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("clubZoneTwoDecelerationDistanceM")
-    club_zone_two_deceleration_duration_s: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("clubZoneTwoDecelerationDurationS")
+    club_zone_two_deceleration_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneTwoDecelerationDistanceM"
+    )
+    club_zone_two_deceleration_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneTwoDecelerationDurationS"
+    )
     club_zone_two_deceleration_events: "MatchSessionAthleteMetricSetGraphQLField" = (
         MatchSessionAthleteMetricSetGraphQLField("clubZoneTwoDecelerationEvents")
     )
@@ -7576,80 +7338,60 @@ class MatchSessionAthleteMetricSetFields(GraphQLField):
     id: "MatchSessionAthleteMetricSetGraphQLField" = (
         MatchSessionAthleteMetricSetGraphQLField("id")
     )
-    individual_zone_five_acceleration_distance_m: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField(
+    individual_zone_five_acceleration_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "individualZoneFiveAccelerationDistanceM"
     )
-    individual_zone_five_acceleration_duration_s: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField(
+    individual_zone_five_acceleration_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "individualZoneFiveAccelerationDurationS"
     )
-    individual_zone_five_acceleration_events: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("individualZoneFiveAccelerationEvents")
-    individual_zone_five_deceleration_distance_m: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField(
+    individual_zone_five_acceleration_events: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "individualZoneFiveAccelerationEvents"
+    )
+    individual_zone_five_deceleration_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "individualZoneFiveDecelerationDistanceM"
     )
-    individual_zone_five_deceleration_duration_s: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField(
+    individual_zone_five_deceleration_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "individualZoneFiveDecelerationDurationS"
     )
-    individual_zone_five_deceleration_events: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("individualZoneFiveDecelerationEvents")
-    individual_zone_four_acceleration_distance_m: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField(
+    individual_zone_five_deceleration_events: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "individualZoneFiveDecelerationEvents"
+    )
+    individual_zone_four_acceleration_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "individualZoneFourAccelerationDistanceM"
     )
-    individual_zone_four_acceleration_duration_s: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField(
+    individual_zone_four_acceleration_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "individualZoneFourAccelerationDurationS"
     )
-    individual_zone_four_acceleration_events: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("individualZoneFourAccelerationEvents")
-    individual_zone_four_deceleration_distance_m: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField(
+    individual_zone_four_acceleration_events: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "individualZoneFourAccelerationEvents"
+    )
+    individual_zone_four_deceleration_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "individualZoneFourDecelerationDistanceM"
     )
-    individual_zone_four_deceleration_duration_s: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField(
+    individual_zone_four_deceleration_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "individualZoneFourDecelerationDurationS"
     )
-    individual_zone_four_deceleration_events: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("individualZoneFourDecelerationEvents")
-    individual_zone_high_intensity_distance_m: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("individualZoneHighIntensityDistanceM")
-    individual_zone_high_intensity_duration_s: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("individualZoneHighIntensityDurationS")
-    individual_zone_high_intensity_events: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("individualZoneHighIntensityEvents")
-    individual_zone_high_speed_running_distance_m: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField(
+    individual_zone_four_deceleration_events: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "individualZoneFourDecelerationEvents"
+    )
+    individual_zone_high_intensity_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "individualZoneHighIntensityDistanceM"
+    )
+    individual_zone_high_intensity_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "individualZoneHighIntensityDurationS"
+    )
+    individual_zone_high_intensity_events: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "individualZoneHighIntensityEvents"
+    )
+    individual_zone_high_speed_running_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "individualZoneHighSpeedRunningDistanceM"
     )
-    individual_zone_high_speed_running_duration_s: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField(
+    individual_zone_high_speed_running_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "individualZoneHighSpeedRunningDurationS"
     )
-    individual_zone_high_speed_running_events: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("individualZoneHighSpeedRunningEvents")
+    individual_zone_high_speed_running_events: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "individualZoneHighSpeedRunningEvents"
+    )
     individual_zone_jogging_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = (
         MatchSessionAthleteMetricSetGraphQLField("individualZoneJoggingDistanceM")
     )
@@ -7659,54 +7401,42 @@ class MatchSessionAthleteMetricSetFields(GraphQLField):
     individual_zone_jogging_events: "MatchSessionAthleteMetricSetGraphQLField" = (
         MatchSessionAthleteMetricSetGraphQLField("individualZoneJoggingEvents")
     )
-    individual_zone_low_intensity_distance_m: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("individualZoneLowIntensityDistanceM")
-    individual_zone_low_intensity_duration_s: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("individualZoneLowIntensityDurationS")
+    individual_zone_low_intensity_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "individualZoneLowIntensityDistanceM"
+    )
+    individual_zone_low_intensity_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "individualZoneLowIntensityDurationS"
+    )
     individual_zone_low_intensity_events: "MatchSessionAthleteMetricSetGraphQLField" = (
         MatchSessionAthleteMetricSetGraphQLField("individualZoneLowIntensityEvents")
     )
-    individual_zone_medium_intensity_distance_m: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField(
+    individual_zone_medium_intensity_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "individualZoneMediumIntensityDistanceM"
     )
-    individual_zone_medium_intensity_duration_s: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField(
+    individual_zone_medium_intensity_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "individualZoneMediumIntensityDurationS"
     )
-    individual_zone_medium_intensity_events: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("individualZoneMediumIntensityEvents")
-    individual_zone_one_acceleration_distance_m: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField(
+    individual_zone_medium_intensity_events: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "individualZoneMediumIntensityEvents"
+    )
+    individual_zone_one_acceleration_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "individualZoneOneAccelerationDistanceM"
     )
-    individual_zone_one_acceleration_duration_s: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField(
+    individual_zone_one_acceleration_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "individualZoneOneAccelerationDurationS"
     )
-    individual_zone_one_acceleration_events: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("individualZoneOneAccelerationEvents")
-    individual_zone_one_deceleration_distance_m: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField(
+    individual_zone_one_acceleration_events: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "individualZoneOneAccelerationEvents"
+    )
+    individual_zone_one_deceleration_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "individualZoneOneDecelerationDistanceM"
     )
-    individual_zone_one_deceleration_duration_s: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField(
+    individual_zone_one_deceleration_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "individualZoneOneDecelerationDurationS"
     )
-    individual_zone_one_deceleration_events: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("individualZoneOneDecelerationEvents")
+    individual_zone_one_deceleration_events: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "individualZoneOneDecelerationEvents"
+    )
     individual_zone_sprint_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = (
         MatchSessionAthleteMetricSetGraphQLField("individualZoneSprintDistanceM")
     )
@@ -7716,62 +7446,42 @@ class MatchSessionAthleteMetricSetFields(GraphQLField):
     individual_zone_sprint_events: "MatchSessionAthleteMetricSetGraphQLField" = (
         MatchSessionAthleteMetricSetGraphQLField("individualZoneSprintEvents")
     )
-    individual_zone_three_acceleration_distance_m: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField(
+    individual_zone_three_acceleration_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "individualZoneThreeAccelerationDistanceM"
     )
-    individual_zone_three_acceleration_duration_s: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField(
+    individual_zone_three_acceleration_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "individualZoneThreeAccelerationDurationS"
     )
-    individual_zone_three_acceleration_events: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField(
+    individual_zone_three_acceleration_events: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "individualZoneThreeAccelerationEvents"
     )
-    individual_zone_three_deceleration_distance_m: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField(
+    individual_zone_three_deceleration_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "individualZoneThreeDecelerationDistanceM"
     )
-    individual_zone_three_deceleration_duration_s: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField(
+    individual_zone_three_deceleration_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "individualZoneThreeDecelerationDurationS"
     )
-    individual_zone_three_deceleration_events: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField(
+    individual_zone_three_deceleration_events: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "individualZoneThreeDecelerationEvents"
     )
-    individual_zone_two_acceleration_distance_m: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField(
+    individual_zone_two_acceleration_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "individualZoneTwoAccelerationDistanceM"
     )
-    individual_zone_two_acceleration_duration_s: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField(
+    individual_zone_two_acceleration_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "individualZoneTwoAccelerationDurationS"
     )
-    individual_zone_two_acceleration_events: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("individualZoneTwoAccelerationEvents")
-    individual_zone_two_deceleration_distance_m: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField(
+    individual_zone_two_acceleration_events: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "individualZoneTwoAccelerationEvents"
+    )
+    individual_zone_two_deceleration_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "individualZoneTwoDecelerationDistanceM"
     )
-    individual_zone_two_deceleration_duration_s: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField(
+    individual_zone_two_deceleration_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "individualZoneTwoDecelerationDurationS"
     )
-    individual_zone_two_deceleration_events: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("individualZoneTwoDecelerationEvents")
+    individual_zone_two_deceleration_events: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "individualZoneTwoDecelerationEvents"
+    )
     left_dive_events: "MatchSessionAthleteMetricSetGraphQLField" = (
         MatchSessionAthleteMetricSetGraphQLField("leftDiveEvents")
     )
@@ -7805,18 +7515,18 @@ class MatchSessionAthleteMetricSetFields(GraphQLField):
     metres_per_minute: "MatchSessionAthleteMetricSetGraphQLField" = (
         MatchSessionAthleteMetricSetGraphQLField("metresPerMinute")
     )
-    ninety_percent_of_max_speed_distance_m: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("ninetyPercentOfMaxSpeedDistanceM")
-    ninety_percent_of_max_speed_duration_s: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("ninetyPercentOfMaxSpeedDurationS")
+    ninety_percent_of_max_speed_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "ninetyPercentOfMaxSpeedDistanceM"
+    )
+    ninety_percent_of_max_speed_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "ninetyPercentOfMaxSpeedDurationS"
+    )
     ninety_percent_of_max_speed_events: "MatchSessionAthleteMetricSetGraphQLField" = (
         MatchSessionAthleteMetricSetGraphQLField("ninetyPercentOfMaxSpeedEvents")
     )
-    ninety_percent_of_raw_max_speed_events: (
-        "MatchSessionAthleteMetricSetGraphQLField"
-    ) = MatchSessionAthleteMetricSetGraphQLField("ninetyPercentOfRawMaxSpeedEvents")
+    ninety_percent_of_raw_max_speed_events: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "ninetyPercentOfRawMaxSpeedEvents"
+    )
     pass_events: "MatchSessionAthleteMetricSetGraphQLField" = (
         MatchSessionAthleteMetricSetGraphQLField("passEvents")
     )
@@ -7922,9 +7632,7 @@ class MatchSessionAthletePeriodMetricSetFields(GraphQLField):
     acceleration_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = (
         MatchSessionAthletePeriodMetricSetGraphQLField("accelerationEvents")
     )
-    acceleration_load_per_contributing_minutes: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    acceleration_load_per_contributing_minutes: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "accelerationLoadPerContributingMinutes"
     )
 
@@ -7958,80 +7666,60 @@ class MatchSessionAthletePeriodMetricSetFields(GraphQLField):
     def avg_speed_kph_over_time(cls) -> "TimeSeriesDataFields":
         return TimeSeriesDataFields("avgSpeedKphOverTime")
 
-    club_zone_five_acceleration_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    club_zone_five_acceleration_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "clubZoneFiveAccelerationDistanceM"
     )
-    club_zone_five_acceleration_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    club_zone_five_acceleration_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "clubZoneFiveAccelerationDurationS"
     )
-    club_zone_five_acceleration_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField("clubZoneFiveAccelerationEvents")
-    club_zone_five_deceleration_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    club_zone_five_acceleration_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "clubZoneFiveAccelerationEvents"
+    )
+    club_zone_five_deceleration_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "clubZoneFiveDecelerationDistanceM"
     )
-    club_zone_five_deceleration_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    club_zone_five_deceleration_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "clubZoneFiveDecelerationDurationS"
     )
-    club_zone_five_deceleration_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField("clubZoneFiveDecelerationEvents")
-    club_zone_four_acceleration_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    club_zone_five_deceleration_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "clubZoneFiveDecelerationEvents"
+    )
+    club_zone_four_acceleration_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "clubZoneFourAccelerationDistanceM"
     )
-    club_zone_four_acceleration_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    club_zone_four_acceleration_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "clubZoneFourAccelerationDurationS"
     )
-    club_zone_four_acceleration_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField("clubZoneFourAccelerationEvents")
-    club_zone_four_deceleration_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    club_zone_four_acceleration_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "clubZoneFourAccelerationEvents"
+    )
+    club_zone_four_deceleration_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "clubZoneFourDecelerationDistanceM"
     )
-    club_zone_four_deceleration_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    club_zone_four_deceleration_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "clubZoneFourDecelerationDurationS"
     )
-    club_zone_four_deceleration_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField("clubZoneFourDecelerationEvents")
-    club_zone_high_intensity_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField("clubZoneHighIntensityDistanceM")
-    club_zone_high_intensity_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField("clubZoneHighIntensityDurationS")
-    club_zone_high_intensity_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField("clubZoneHighIntensityEvents")
-    club_zone_high_speed_running_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    club_zone_four_deceleration_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "clubZoneFourDecelerationEvents"
+    )
+    club_zone_high_intensity_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "clubZoneHighIntensityDistanceM"
+    )
+    club_zone_high_intensity_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "clubZoneHighIntensityDurationS"
+    )
+    club_zone_high_intensity_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "clubZoneHighIntensityEvents"
+    )
+    club_zone_high_speed_running_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "clubZoneHighSpeedRunningDistanceM"
     )
-    club_zone_high_speed_running_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    club_zone_high_speed_running_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "clubZoneHighSpeedRunningDurationS"
     )
-    club_zone_high_speed_running_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField("clubZoneHighSpeedRunningEvents")
+    club_zone_high_speed_running_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "clubZoneHighSpeedRunningEvents"
+    )
     club_zone_jogging_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = (
         MatchSessionAthletePeriodMetricSetGraphQLField("clubZoneJoggingDistanceM")
     )
@@ -8041,54 +7729,42 @@ class MatchSessionAthletePeriodMetricSetFields(GraphQLField):
     club_zone_jogging_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = (
         MatchSessionAthletePeriodMetricSetGraphQLField("clubZoneJoggingEvents")
     )
-    club_zone_low_intensity_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField("clubZoneLowIntensityDistanceM")
-    club_zone_low_intensity_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField("clubZoneLowIntensityDurationS")
+    club_zone_low_intensity_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "clubZoneLowIntensityDistanceM"
+    )
+    club_zone_low_intensity_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "clubZoneLowIntensityDurationS"
+    )
     club_zone_low_intensity_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = (
         MatchSessionAthletePeriodMetricSetGraphQLField("clubZoneLowIntensityEvents")
     )
-    club_zone_medium_intensity_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    club_zone_medium_intensity_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "clubZoneMediumIntensityDistanceM"
     )
-    club_zone_medium_intensity_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    club_zone_medium_intensity_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "clubZoneMediumIntensityDurationS"
     )
-    club_zone_medium_intensity_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField("clubZoneMediumIntensityEvents")
-    club_zone_one_acceleration_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    club_zone_medium_intensity_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "clubZoneMediumIntensityEvents"
+    )
+    club_zone_one_acceleration_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "clubZoneOneAccelerationDistanceM"
     )
-    club_zone_one_acceleration_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    club_zone_one_acceleration_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "clubZoneOneAccelerationDurationS"
     )
-    club_zone_one_acceleration_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField("clubZoneOneAccelerationEvents")
-    club_zone_one_deceleration_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    club_zone_one_acceleration_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "clubZoneOneAccelerationEvents"
+    )
+    club_zone_one_deceleration_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "clubZoneOneDecelerationDistanceM"
     )
-    club_zone_one_deceleration_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    club_zone_one_deceleration_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "clubZoneOneDecelerationDurationS"
     )
-    club_zone_one_deceleration_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField("clubZoneOneDecelerationEvents")
+    club_zone_one_deceleration_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "clubZoneOneDecelerationEvents"
+    )
     club_zone_sprint_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = (
         MatchSessionAthletePeriodMetricSetGraphQLField("clubZoneSprintDistanceM")
     )
@@ -8098,62 +7774,42 @@ class MatchSessionAthletePeriodMetricSetFields(GraphQLField):
     club_zone_sprint_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = (
         MatchSessionAthletePeriodMetricSetGraphQLField("clubZoneSprintEvents")
     )
-    club_zone_three_acceleration_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    club_zone_three_acceleration_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "clubZoneThreeAccelerationDistanceM"
     )
-    club_zone_three_acceleration_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    club_zone_three_acceleration_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "clubZoneThreeAccelerationDurationS"
     )
-    club_zone_three_acceleration_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    club_zone_three_acceleration_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "clubZoneThreeAccelerationEvents"
     )
-    club_zone_three_deceleration_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    club_zone_three_deceleration_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "clubZoneThreeDecelerationDistanceM"
     )
-    club_zone_three_deceleration_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    club_zone_three_deceleration_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "clubZoneThreeDecelerationDurationS"
     )
-    club_zone_three_deceleration_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    club_zone_three_deceleration_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "clubZoneThreeDecelerationEvents"
     )
-    club_zone_two_acceleration_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    club_zone_two_acceleration_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "clubZoneTwoAccelerationDistanceM"
     )
-    club_zone_two_acceleration_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    club_zone_two_acceleration_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "clubZoneTwoAccelerationDurationS"
     )
-    club_zone_two_acceleration_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField("clubZoneTwoAccelerationEvents")
-    club_zone_two_deceleration_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    club_zone_two_acceleration_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "clubZoneTwoAccelerationEvents"
+    )
+    club_zone_two_deceleration_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "clubZoneTwoDecelerationDistanceM"
     )
-    club_zone_two_deceleration_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    club_zone_two_deceleration_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "clubZoneTwoDecelerationDurationS"
     )
-    club_zone_two_deceleration_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField("clubZoneTwoDecelerationEvents")
+    club_zone_two_deceleration_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "clubZoneTwoDecelerationEvents"
+    )
 
     @classmethod
     def configured_metrics(
@@ -8215,232 +7871,148 @@ class MatchSessionAthletePeriodMetricSetFields(GraphQLField):
     id: "MatchSessionAthletePeriodMetricSetGraphQLField" = (
         MatchSessionAthletePeriodMetricSetGraphQLField("id")
     )
-    individual_zone_five_acceleration_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_five_acceleration_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneFiveAccelerationDistanceM"
     )
-    individual_zone_five_acceleration_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_five_acceleration_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneFiveAccelerationDurationS"
     )
-    individual_zone_five_acceleration_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_five_acceleration_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneFiveAccelerationEvents"
     )
-    individual_zone_five_deceleration_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_five_deceleration_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneFiveDecelerationDistanceM"
     )
-    individual_zone_five_deceleration_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_five_deceleration_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneFiveDecelerationDurationS"
     )
-    individual_zone_five_deceleration_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_five_deceleration_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneFiveDecelerationEvents"
     )
-    individual_zone_four_acceleration_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_four_acceleration_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneFourAccelerationDistanceM"
     )
-    individual_zone_four_acceleration_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_four_acceleration_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneFourAccelerationDurationS"
     )
-    individual_zone_four_acceleration_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_four_acceleration_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneFourAccelerationEvents"
     )
-    individual_zone_four_deceleration_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_four_deceleration_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneFourDecelerationDistanceM"
     )
-    individual_zone_four_deceleration_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_four_deceleration_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneFourDecelerationDurationS"
     )
-    individual_zone_four_deceleration_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_four_deceleration_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneFourDecelerationEvents"
     )
-    individual_zone_high_intensity_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_high_intensity_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneHighIntensityDistanceM"
     )
-    individual_zone_high_intensity_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_high_intensity_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneHighIntensityDurationS"
     )
-    individual_zone_high_intensity_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_high_intensity_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneHighIntensityEvents"
     )
-    individual_zone_high_speed_running_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_high_speed_running_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneHighSpeedRunningDistanceM"
     )
-    individual_zone_high_speed_running_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_high_speed_running_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneHighSpeedRunningDurationS"
     )
-    individual_zone_high_speed_running_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_high_speed_running_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneHighSpeedRunningEvents"
     )
-    individual_zone_jogging_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField("individualZoneJoggingDistanceM")
-    individual_zone_jogging_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField("individualZoneJoggingDurationS")
+    individual_zone_jogging_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "individualZoneJoggingDistanceM"
+    )
+    individual_zone_jogging_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "individualZoneJoggingDurationS"
+    )
     individual_zone_jogging_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = (
         MatchSessionAthletePeriodMetricSetGraphQLField("individualZoneJoggingEvents")
     )
-    individual_zone_low_intensity_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_low_intensity_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneLowIntensityDistanceM"
     )
-    individual_zone_low_intensity_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_low_intensity_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneLowIntensityDurationS"
     )
-    individual_zone_low_intensity_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_low_intensity_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneLowIntensityEvents"
     )
-    individual_zone_medium_intensity_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_medium_intensity_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneMediumIntensityDistanceM"
     )
-    individual_zone_medium_intensity_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_medium_intensity_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneMediumIntensityDurationS"
     )
-    individual_zone_medium_intensity_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_medium_intensity_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneMediumIntensityEvents"
     )
-    individual_zone_one_acceleration_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_one_acceleration_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneOneAccelerationDistanceM"
     )
-    individual_zone_one_acceleration_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_one_acceleration_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneOneAccelerationDurationS"
     )
-    individual_zone_one_acceleration_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_one_acceleration_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneOneAccelerationEvents"
     )
-    individual_zone_one_deceleration_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_one_deceleration_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneOneDecelerationDistanceM"
     )
-    individual_zone_one_deceleration_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_one_deceleration_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneOneDecelerationDurationS"
     )
-    individual_zone_one_deceleration_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_one_deceleration_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneOneDecelerationEvents"
     )
-    individual_zone_sprint_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField("individualZoneSprintDistanceM")
-    individual_zone_sprint_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField("individualZoneSprintDurationS")
+    individual_zone_sprint_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "individualZoneSprintDistanceM"
+    )
+    individual_zone_sprint_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "individualZoneSprintDurationS"
+    )
     individual_zone_sprint_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = (
         MatchSessionAthletePeriodMetricSetGraphQLField("individualZoneSprintEvents")
     )
-    individual_zone_three_acceleration_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_three_acceleration_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneThreeAccelerationDistanceM"
     )
-    individual_zone_three_acceleration_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_three_acceleration_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneThreeAccelerationDurationS"
     )
-    individual_zone_three_acceleration_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_three_acceleration_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneThreeAccelerationEvents"
     )
-    individual_zone_three_deceleration_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_three_deceleration_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneThreeDecelerationDistanceM"
     )
-    individual_zone_three_deceleration_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_three_deceleration_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneThreeDecelerationDurationS"
     )
-    individual_zone_three_deceleration_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_three_deceleration_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneThreeDecelerationEvents"
     )
-    individual_zone_two_acceleration_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_two_acceleration_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneTwoAccelerationDistanceM"
     )
-    individual_zone_two_acceleration_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_two_acceleration_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneTwoAccelerationDurationS"
     )
-    individual_zone_two_acceleration_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_two_acceleration_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneTwoAccelerationEvents"
     )
-    individual_zone_two_deceleration_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_two_deceleration_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneTwoDecelerationDistanceM"
     )
-    individual_zone_two_deceleration_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_two_deceleration_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneTwoDecelerationDurationS"
     )
-    individual_zone_two_deceleration_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    individual_zone_two_deceleration_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "individualZoneTwoDecelerationEvents"
     )
     left_dive_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = (
@@ -8484,22 +8056,16 @@ class MatchSessionAthletePeriodMetricSetFields(GraphQLField):
     minutes_played: "MatchSessionAthletePeriodMetricSetGraphQLField" = (
         MatchSessionAthletePeriodMetricSetGraphQLField("minutesPlayed")
     )
-    ninety_percent_of_max_speed_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    ninety_percent_of_max_speed_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "ninetyPercentOfMaxSpeedDistanceM"
     )
-    ninety_percent_of_max_speed_duration_s: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    ninety_percent_of_max_speed_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "ninetyPercentOfMaxSpeedDurationS"
     )
-    ninety_percent_of_max_speed_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField("ninetyPercentOfMaxSpeedEvents")
-    ninety_percent_of_raw_max_speed_events: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField(
+    ninety_percent_of_max_speed_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "ninetyPercentOfMaxSpeedEvents"
+    )
+    ninety_percent_of_raw_max_speed_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "ninetyPercentOfRawMaxSpeedEvents"
     )
     pass_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = (
@@ -8559,15 +8125,15 @@ class MatchSessionAthletePeriodMetricSetFields(GraphQLField):
     total_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = (
         MatchSessionAthletePeriodMetricSetGraphQLField("totalDistanceM")
     )
-    total_high_intensity_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField("totalHighIntensityDistanceM")
-    total_live_page_duration_seconds: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField("totalLivePageDurationSeconds")
-    total_medium_intensity_distance_m: (
-        "MatchSessionAthletePeriodMetricSetGraphQLField"
-    ) = MatchSessionAthletePeriodMetricSetGraphQLField("totalMediumIntensityDistanceM")
+    total_high_intensity_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "totalHighIntensityDistanceM"
+    )
+    total_live_page_duration_seconds: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "totalLivePageDurationSeconds"
+    )
+    total_medium_intensity_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "totalMediumIntensityDistanceM"
+    )
     total_sprint_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = (
         MatchSessionAthletePeriodMetricSetGraphQLField("totalSprintDistanceM")
     )
@@ -8643,9 +8209,9 @@ class MatchSessionMetricSetFields(GraphQLField):
     avg_acceleration_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("avgAccelerationEvents")
     )
-    avg_acceleration_load_per_contributing_minutes: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgAccelerationLoadPerContributingMinutes")
+    avg_acceleration_load_per_contributing_minutes: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgAccelerationLoadPerContributingMinutes"
+    )
     avg_club_zone_five_acceleration_distance_m: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("avgClubZoneFiveAccelerationDistanceM")
     )
@@ -8839,60 +8405,60 @@ class MatchSessionMetricSetFields(GraphQLField):
     avg_high_speed_run_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("avgHighSpeedRunEvents")
     )
-    avg_individual_zone_five_acceleration_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneFiveAccelerationDistanceM")
-    avg_individual_zone_five_acceleration_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneFiveAccelerationDurationS")
-    avg_individual_zone_five_acceleration_events: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneFiveAccelerationEvents")
-    avg_individual_zone_five_deceleration_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneFiveDecelerationDistanceM")
-    avg_individual_zone_five_deceleration_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneFiveDecelerationDurationS")
-    avg_individual_zone_five_deceleration_events: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneFiveDecelerationEvents")
-    avg_individual_zone_four_acceleration_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneFourAccelerationDistanceM")
-    avg_individual_zone_four_acceleration_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneFourAccelerationDurationS")
-    avg_individual_zone_four_acceleration_events: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneFourAccelerationEvents")
-    avg_individual_zone_four_deceleration_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneFourDecelerationDistanceM")
-    avg_individual_zone_four_deceleration_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneFourDecelerationDurationS")
-    avg_individual_zone_four_deceleration_events: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneFourDecelerationEvents")
-    avg_individual_zone_high_intensity_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneHighIntensityDistanceM")
-    avg_individual_zone_high_intensity_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneHighIntensityDurationS")
+    avg_individual_zone_five_acceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneFiveAccelerationDistanceM"
+    )
+    avg_individual_zone_five_acceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneFiveAccelerationDurationS"
+    )
+    avg_individual_zone_five_acceleration_events: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneFiveAccelerationEvents"
+    )
+    avg_individual_zone_five_deceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneFiveDecelerationDistanceM"
+    )
+    avg_individual_zone_five_deceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneFiveDecelerationDurationS"
+    )
+    avg_individual_zone_five_deceleration_events: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneFiveDecelerationEvents"
+    )
+    avg_individual_zone_four_acceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneFourAccelerationDistanceM"
+    )
+    avg_individual_zone_four_acceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneFourAccelerationDurationS"
+    )
+    avg_individual_zone_four_acceleration_events: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneFourAccelerationEvents"
+    )
+    avg_individual_zone_four_deceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneFourDecelerationDistanceM"
+    )
+    avg_individual_zone_four_deceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneFourDecelerationDurationS"
+    )
+    avg_individual_zone_four_deceleration_events: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneFourDecelerationEvents"
+    )
+    avg_individual_zone_high_intensity_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneHighIntensityDistanceM"
+    )
+    avg_individual_zone_high_intensity_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneHighIntensityDurationS"
+    )
     avg_individual_zone_high_intensity_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("avgIndividualZoneHighIntensityEvents")
     )
-    avg_individual_zone_high_speed_running_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneHighSpeedRunningDistanceM")
-    avg_individual_zone_high_speed_running_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneHighSpeedRunningDurationS")
-    avg_individual_zone_high_speed_running_events: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneHighSpeedRunningEvents")
+    avg_individual_zone_high_speed_running_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneHighSpeedRunningDistanceM"
+    )
+    avg_individual_zone_high_speed_running_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneHighSpeedRunningDurationS"
+    )
+    avg_individual_zone_high_speed_running_events: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneHighSpeedRunningEvents"
+    )
     avg_individual_zone_jogging_distance_m: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("avgIndividualZoneJoggingDistanceM")
     )
@@ -8902,39 +8468,39 @@ class MatchSessionMetricSetFields(GraphQLField):
     avg_individual_zone_jogging_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("avgIndividualZoneJoggingEvents")
     )
-    avg_individual_zone_low_intensity_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneLowIntensityDistanceM")
-    avg_individual_zone_low_intensity_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneLowIntensityDurationS")
+    avg_individual_zone_low_intensity_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneLowIntensityDistanceM"
+    )
+    avg_individual_zone_low_intensity_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneLowIntensityDurationS"
+    )
     avg_individual_zone_low_intensity_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("avgIndividualZoneLowIntensityEvents")
     )
-    avg_individual_zone_medium_intensity_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneMediumIntensityDistanceM")
-    avg_individual_zone_medium_intensity_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneMediumIntensityDurationS")
+    avg_individual_zone_medium_intensity_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneMediumIntensityDistanceM"
+    )
+    avg_individual_zone_medium_intensity_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneMediumIntensityDurationS"
+    )
     avg_individual_zone_medium_intensity_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("avgIndividualZoneMediumIntensityEvents")
     )
-    avg_individual_zone_one_acceleration_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneOneAccelerationDistanceM")
-    avg_individual_zone_one_acceleration_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneOneAccelerationDurationS")
+    avg_individual_zone_one_acceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneOneAccelerationDistanceM"
+    )
+    avg_individual_zone_one_acceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneOneAccelerationDurationS"
+    )
     avg_individual_zone_one_acceleration_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("avgIndividualZoneOneAccelerationEvents")
     )
-    avg_individual_zone_one_deceleration_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneOneDecelerationDistanceM")
-    avg_individual_zone_one_deceleration_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneOneDecelerationDurationS")
+    avg_individual_zone_one_deceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneOneDecelerationDistanceM"
+    )
+    avg_individual_zone_one_deceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneOneDecelerationDurationS"
+    )
     avg_individual_zone_one_deceleration_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("avgIndividualZoneOneDecelerationEvents")
     )
@@ -8947,39 +8513,39 @@ class MatchSessionMetricSetFields(GraphQLField):
     avg_individual_zone_sprint_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("avgIndividualZoneSprintEvents")
     )
-    avg_individual_zone_three_acceleration_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneThreeAccelerationDistanceM")
-    avg_individual_zone_three_acceleration_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneThreeAccelerationDurationS")
-    avg_individual_zone_three_acceleration_events: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneThreeAccelerationEvents")
-    avg_individual_zone_three_deceleration_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneThreeDecelerationDistanceM")
-    avg_individual_zone_three_deceleration_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneThreeDecelerationDurationS")
-    avg_individual_zone_three_deceleration_events: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneThreeDecelerationEvents")
-    avg_individual_zone_two_acceleration_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneTwoAccelerationDistanceM")
-    avg_individual_zone_two_acceleration_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneTwoAccelerationDurationS")
+    avg_individual_zone_three_acceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneThreeAccelerationDistanceM"
+    )
+    avg_individual_zone_three_acceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneThreeAccelerationDurationS"
+    )
+    avg_individual_zone_three_acceleration_events: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneThreeAccelerationEvents"
+    )
+    avg_individual_zone_three_deceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneThreeDecelerationDistanceM"
+    )
+    avg_individual_zone_three_deceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneThreeDecelerationDurationS"
+    )
+    avg_individual_zone_three_deceleration_events: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneThreeDecelerationEvents"
+    )
+    avg_individual_zone_two_acceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneTwoAccelerationDistanceM"
+    )
+    avg_individual_zone_two_acceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneTwoAccelerationDurationS"
+    )
     avg_individual_zone_two_acceleration_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("avgIndividualZoneTwoAccelerationEvents")
     )
-    avg_individual_zone_two_deceleration_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneTwoDecelerationDistanceM")
-    avg_individual_zone_two_deceleration_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("avgIndividualZoneTwoDecelerationDurationS")
+    avg_individual_zone_two_deceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneTwoDecelerationDistanceM"
+    )
+    avg_individual_zone_two_deceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgIndividualZoneTwoDecelerationDurationS"
+    )
     avg_individual_zone_two_deceleration_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("avgIndividualZoneTwoDecelerationEvents")
     )
@@ -9113,39 +8679,39 @@ class MatchSessionMetricSetFields(GraphQLField):
     total_acceleration_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("totalAccelerationEvents")
     )
-    total_club_zone_five_acceleration_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalClubZoneFiveAccelerationDistanceM")
-    total_club_zone_five_acceleration_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalClubZoneFiveAccelerationDurationS")
+    total_club_zone_five_acceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalClubZoneFiveAccelerationDistanceM"
+    )
+    total_club_zone_five_acceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalClubZoneFiveAccelerationDurationS"
+    )
     total_club_zone_five_acceleration_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("totalClubZoneFiveAccelerationEvents")
     )
-    total_club_zone_five_deceleration_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalClubZoneFiveDecelerationDistanceM")
-    total_club_zone_five_deceleration_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalClubZoneFiveDecelerationDurationS")
+    total_club_zone_five_deceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalClubZoneFiveDecelerationDistanceM"
+    )
+    total_club_zone_five_deceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalClubZoneFiveDecelerationDurationS"
+    )
     total_club_zone_five_deceleration_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("totalClubZoneFiveDecelerationEvents")
     )
-    total_club_zone_four_acceleration_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalClubZoneFourAccelerationDistanceM")
-    total_club_zone_four_acceleration_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalClubZoneFourAccelerationDurationS")
+    total_club_zone_four_acceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalClubZoneFourAccelerationDistanceM"
+    )
+    total_club_zone_four_acceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalClubZoneFourAccelerationDurationS"
+    )
     total_club_zone_four_acceleration_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("totalClubZoneFourAccelerationEvents")
     )
-    total_club_zone_four_deceleration_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalClubZoneFourDecelerationDistanceM")
-    total_club_zone_four_deceleration_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalClubZoneFourDecelerationDurationS")
+    total_club_zone_four_deceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalClubZoneFourDecelerationDistanceM"
+    )
+    total_club_zone_four_deceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalClubZoneFourDecelerationDurationS"
+    )
     total_club_zone_four_deceleration_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("totalClubZoneFourDecelerationEvents")
     )
@@ -9158,12 +8724,12 @@ class MatchSessionMetricSetFields(GraphQLField):
     total_club_zone_high_intensity_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("totalClubZoneHighIntensityEvents")
     )
-    total_club_zone_high_speed_running_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalClubZoneHighSpeedRunningDistanceM")
-    total_club_zone_high_speed_running_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalClubZoneHighSpeedRunningDurationS")
+    total_club_zone_high_speed_running_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalClubZoneHighSpeedRunningDistanceM"
+    )
+    total_club_zone_high_speed_running_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalClubZoneHighSpeedRunningDurationS"
+    )
     total_club_zone_high_speed_running_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("totalClubZoneHighSpeedRunningEvents")
     )
@@ -9221,21 +8787,21 @@ class MatchSessionMetricSetFields(GraphQLField):
     total_club_zone_sprint_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("totalClubZoneSprintEvents")
     )
-    total_club_zone_three_acceleration_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalClubZoneThreeAccelerationDistanceM")
-    total_club_zone_three_acceleration_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalClubZoneThreeAccelerationDurationS")
+    total_club_zone_three_acceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalClubZoneThreeAccelerationDistanceM"
+    )
+    total_club_zone_three_acceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalClubZoneThreeAccelerationDurationS"
+    )
     total_club_zone_three_acceleration_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("totalClubZoneThreeAccelerationEvents")
     )
-    total_club_zone_three_deceleration_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalClubZoneThreeDecelerationDistanceM")
-    total_club_zone_three_deceleration_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalClubZoneThreeDecelerationDurationS")
+    total_club_zone_three_deceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalClubZoneThreeDecelerationDistanceM"
+    )
+    total_club_zone_three_deceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalClubZoneThreeDecelerationDurationS"
+    )
     total_club_zone_three_deceleration_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("totalClubZoneThreeDecelerationEvents")
     )
@@ -9287,80 +8853,60 @@ class MatchSessionMetricSetFields(GraphQLField):
     total_high_speed_run_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("totalHighSpeedRunEvents")
     )
-    total_individual_zone_five_acceleration_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField(
+    total_individual_zone_five_acceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
         "totalIndividualZoneFiveAccelerationDistanceM"
     )
-    total_individual_zone_five_acceleration_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField(
+    total_individual_zone_five_acceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
         "totalIndividualZoneFiveAccelerationDurationS"
     )
-    total_individual_zone_five_acceleration_events: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalIndividualZoneFiveAccelerationEvents")
-    total_individual_zone_five_deceleration_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField(
+    total_individual_zone_five_acceleration_events: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalIndividualZoneFiveAccelerationEvents"
+    )
+    total_individual_zone_five_deceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
         "totalIndividualZoneFiveDecelerationDistanceM"
     )
-    total_individual_zone_five_deceleration_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField(
+    total_individual_zone_five_deceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
         "totalIndividualZoneFiveDecelerationDurationS"
     )
-    total_individual_zone_five_deceleration_events: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalIndividualZoneFiveDecelerationEvents")
-    total_individual_zone_four_acceleration_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField(
+    total_individual_zone_five_deceleration_events: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalIndividualZoneFiveDecelerationEvents"
+    )
+    total_individual_zone_four_acceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
         "totalIndividualZoneFourAccelerationDistanceM"
     )
-    total_individual_zone_four_acceleration_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField(
+    total_individual_zone_four_acceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
         "totalIndividualZoneFourAccelerationDurationS"
     )
-    total_individual_zone_four_acceleration_events: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalIndividualZoneFourAccelerationEvents")
-    total_individual_zone_four_deceleration_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField(
+    total_individual_zone_four_acceleration_events: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalIndividualZoneFourAccelerationEvents"
+    )
+    total_individual_zone_four_deceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
         "totalIndividualZoneFourDecelerationDistanceM"
     )
-    total_individual_zone_four_deceleration_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField(
+    total_individual_zone_four_deceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
         "totalIndividualZoneFourDecelerationDurationS"
     )
-    total_individual_zone_four_deceleration_events: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalIndividualZoneFourDecelerationEvents")
-    total_individual_zone_high_intensity_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalIndividualZoneHighIntensityDistanceM")
-    total_individual_zone_high_intensity_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalIndividualZoneHighIntensityDurationS")
+    total_individual_zone_four_deceleration_events: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalIndividualZoneFourDecelerationEvents"
+    )
+    total_individual_zone_high_intensity_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalIndividualZoneHighIntensityDistanceM"
+    )
+    total_individual_zone_high_intensity_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalIndividualZoneHighIntensityDurationS"
+    )
     total_individual_zone_high_intensity_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("totalIndividualZoneHighIntensityEvents")
     )
-    total_individual_zone_high_speed_running_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField(
+    total_individual_zone_high_speed_running_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
         "totalIndividualZoneHighSpeedRunningDistanceM"
     )
-    total_individual_zone_high_speed_running_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField(
+    total_individual_zone_high_speed_running_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
         "totalIndividualZoneHighSpeedRunningDurationS"
     )
-    total_individual_zone_high_speed_running_events: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalIndividualZoneHighSpeedRunningEvents")
+    total_individual_zone_high_speed_running_events: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalIndividualZoneHighSpeedRunningEvents"
+    )
     total_individual_zone_jogging_distance_m: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("totalIndividualZoneJoggingDistanceM")
     )
@@ -9370,42 +8916,42 @@ class MatchSessionMetricSetFields(GraphQLField):
     total_individual_zone_jogging_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("totalIndividualZoneJoggingEvents")
     )
-    total_individual_zone_low_intensity_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalIndividualZoneLowIntensityDistanceM")
-    total_individual_zone_low_intensity_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalIndividualZoneLowIntensityDurationS")
+    total_individual_zone_low_intensity_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalIndividualZoneLowIntensityDistanceM"
+    )
+    total_individual_zone_low_intensity_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalIndividualZoneLowIntensityDurationS"
+    )
     total_individual_zone_low_intensity_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("totalIndividualZoneLowIntensityEvents")
     )
-    total_individual_zone_medium_intensity_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalIndividualZoneMediumIntensityDistanceM")
-    total_individual_zone_medium_intensity_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalIndividualZoneMediumIntensityDurationS")
-    total_individual_zone_medium_intensity_events: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalIndividualZoneMediumIntensityEvents")
-    total_individual_zone_one_acceleration_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalIndividualZoneOneAccelerationDistanceM")
-    total_individual_zone_one_acceleration_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalIndividualZoneOneAccelerationDurationS")
-    total_individual_zone_one_acceleration_events: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalIndividualZoneOneAccelerationEvents")
-    total_individual_zone_one_deceleration_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalIndividualZoneOneDecelerationDistanceM")
-    total_individual_zone_one_deceleration_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalIndividualZoneOneDecelerationDurationS")
-    total_individual_zone_one_deceleration_events: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalIndividualZoneOneDecelerationEvents")
+    total_individual_zone_medium_intensity_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalIndividualZoneMediumIntensityDistanceM"
+    )
+    total_individual_zone_medium_intensity_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalIndividualZoneMediumIntensityDurationS"
+    )
+    total_individual_zone_medium_intensity_events: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalIndividualZoneMediumIntensityEvents"
+    )
+    total_individual_zone_one_acceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalIndividualZoneOneAccelerationDistanceM"
+    )
+    total_individual_zone_one_acceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalIndividualZoneOneAccelerationDurationS"
+    )
+    total_individual_zone_one_acceleration_events: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalIndividualZoneOneAccelerationEvents"
+    )
+    total_individual_zone_one_deceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalIndividualZoneOneDecelerationDistanceM"
+    )
+    total_individual_zone_one_deceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalIndividualZoneOneDecelerationDurationS"
+    )
+    total_individual_zone_one_deceleration_events: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalIndividualZoneOneDecelerationEvents"
+    )
     total_individual_zone_sprint_distance_m: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("totalIndividualZoneSprintDistanceM")
     )
@@ -9415,50 +8961,42 @@ class MatchSessionMetricSetFields(GraphQLField):
     total_individual_zone_sprint_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("totalIndividualZoneSprintEvents")
     )
-    total_individual_zone_three_acceleration_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField(
+    total_individual_zone_three_acceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
         "totalIndividualZoneThreeAccelerationDistanceM"
     )
-    total_individual_zone_three_acceleration_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField(
+    total_individual_zone_three_acceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
         "totalIndividualZoneThreeAccelerationDurationS"
     )
-    total_individual_zone_three_acceleration_events: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalIndividualZoneThreeAccelerationEvents")
-    total_individual_zone_three_deceleration_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField(
+    total_individual_zone_three_acceleration_events: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalIndividualZoneThreeAccelerationEvents"
+    )
+    total_individual_zone_three_deceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
         "totalIndividualZoneThreeDecelerationDistanceM"
     )
-    total_individual_zone_three_deceleration_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField(
+    total_individual_zone_three_deceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
         "totalIndividualZoneThreeDecelerationDurationS"
     )
-    total_individual_zone_three_deceleration_events: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalIndividualZoneThreeDecelerationEvents")
-    total_individual_zone_two_acceleration_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalIndividualZoneTwoAccelerationDistanceM")
-    total_individual_zone_two_acceleration_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalIndividualZoneTwoAccelerationDurationS")
-    total_individual_zone_two_acceleration_events: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalIndividualZoneTwoAccelerationEvents")
-    total_individual_zone_two_deceleration_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalIndividualZoneTwoDecelerationDistanceM")
-    total_individual_zone_two_deceleration_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalIndividualZoneTwoDecelerationDurationS")
-    total_individual_zone_two_deceleration_events: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalIndividualZoneTwoDecelerationEvents")
+    total_individual_zone_three_deceleration_events: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalIndividualZoneThreeDecelerationEvents"
+    )
+    total_individual_zone_two_acceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalIndividualZoneTwoAccelerationDistanceM"
+    )
+    total_individual_zone_two_acceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalIndividualZoneTwoAccelerationDurationS"
+    )
+    total_individual_zone_two_acceleration_events: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalIndividualZoneTwoAccelerationEvents"
+    )
+    total_individual_zone_two_deceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalIndividualZoneTwoDecelerationDistanceM"
+    )
+    total_individual_zone_two_deceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalIndividualZoneTwoDecelerationDurationS"
+    )
+    total_individual_zone_two_deceleration_events: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalIndividualZoneTwoDecelerationEvents"
+    )
     total_left_dive_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("totalLeftDiveEvents")
     )
@@ -9483,18 +9021,18 @@ class MatchSessionMetricSetFields(GraphQLField):
     total_medium_pass_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("totalMediumPassEvents")
     )
-    total_ninety_percent_of_max_speed_distance_m: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalNinetyPercentOfMaxSpeedDistanceM")
-    total_ninety_percent_of_max_speed_duration_s: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalNinetyPercentOfMaxSpeedDurationS")
+    total_ninety_percent_of_max_speed_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalNinetyPercentOfMaxSpeedDistanceM"
+    )
+    total_ninety_percent_of_max_speed_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalNinetyPercentOfMaxSpeedDurationS"
+    )
     total_ninety_percent_of_max_speed_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("totalNinetyPercentOfMaxSpeedEvents")
     )
-    total_ninety_percent_of_raw_max_speed_events: (
-        "MatchSessionMetricSetGraphQLField"
-    ) = MatchSessionMetricSetGraphQLField("totalNinetyPercentOfRawMaxSpeedEvents")
+    total_ninety_percent_of_raw_max_speed_events: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalNinetyPercentOfRawMaxSpeedEvents"
+    )
     total_pass_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("totalPassEvents")
     )
@@ -9768,9 +9306,7 @@ class MatchSessionParticipationPartMetricSetFields(GraphQLField):
     acceleration_events: "MatchSessionParticipationPartMetricSetGraphQLField" = (
         MatchSessionParticipationPartMetricSetGraphQLField("accelerationEvents")
     )
-    acceleration_load_per_contributing_minutes: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    acceleration_load_per_contributing_minutes: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "accelerationLoadPerContributingMinutes"
     )
     avg_heartrate_bpm: "MatchSessionParticipationPartMetricSetGraphQLField" = (
@@ -9795,230 +9331,148 @@ class MatchSessionParticipationPartMetricSetFields(GraphQLField):
     def avg_speed_kph_over_time(cls) -> "TimeSeriesDataFields":
         return TimeSeriesDataFields("avgSpeedKphOverTime")
 
-    club_zone_five_acceleration_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_five_acceleration_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneFiveAccelerationDistanceM"
     )
-    club_zone_five_acceleration_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_five_acceleration_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneFiveAccelerationDurationS"
     )
-    club_zone_five_acceleration_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_five_acceleration_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneFiveAccelerationEvents"
     )
-    club_zone_five_deceleration_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_five_deceleration_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneFiveDecelerationDistanceM"
     )
-    club_zone_five_deceleration_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_five_deceleration_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneFiveDecelerationDurationS"
     )
-    club_zone_five_deceleration_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_five_deceleration_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneFiveDecelerationEvents"
     )
-    club_zone_four_acceleration_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_four_acceleration_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneFourAccelerationDistanceM"
     )
-    club_zone_four_acceleration_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_four_acceleration_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneFourAccelerationDurationS"
     )
-    club_zone_four_acceleration_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_four_acceleration_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneFourAccelerationEvents"
     )
-    club_zone_four_deceleration_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_four_deceleration_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneFourDecelerationDistanceM"
     )
-    club_zone_four_deceleration_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_four_deceleration_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneFourDecelerationDurationS"
     )
-    club_zone_four_deceleration_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_four_deceleration_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneFourDecelerationEvents"
     )
-    club_zone_high_intensity_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_high_intensity_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneHighIntensityDistanceM"
     )
-    club_zone_high_intensity_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_high_intensity_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneHighIntensityDurationS"
     )
-    club_zone_high_intensity_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_high_intensity_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneHighIntensityEvents"
     )
-    club_zone_high_speed_running_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_high_speed_running_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneHighSpeedRunningDistanceM"
     )
-    club_zone_high_speed_running_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_high_speed_running_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneHighSpeedRunningDurationS"
     )
-    club_zone_high_speed_running_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_high_speed_running_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneHighSpeedRunningEvents"
     )
-    club_zone_jogging_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField("clubZoneJoggingDistanceM")
-    club_zone_jogging_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField("clubZoneJoggingDurationS")
+    club_zone_jogging_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
+        "clubZoneJoggingDistanceM"
+    )
+    club_zone_jogging_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
+        "clubZoneJoggingDurationS"
+    )
     club_zone_jogging_events: "MatchSessionParticipationPartMetricSetGraphQLField" = (
         MatchSessionParticipationPartMetricSetGraphQLField("clubZoneJoggingEvents")
     )
-    club_zone_low_intensity_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_low_intensity_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneLowIntensityDistanceM"
     )
-    club_zone_low_intensity_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_low_intensity_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneLowIntensityDurationS"
     )
-    club_zone_low_intensity_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField("clubZoneLowIntensityEvents")
-    club_zone_medium_intensity_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_low_intensity_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
+        "clubZoneLowIntensityEvents"
+    )
+    club_zone_medium_intensity_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneMediumIntensityDistanceM"
     )
-    club_zone_medium_intensity_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_medium_intensity_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneMediumIntensityDurationS"
     )
-    club_zone_medium_intensity_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_medium_intensity_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneMediumIntensityEvents"
     )
-    club_zone_one_acceleration_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_one_acceleration_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneOneAccelerationDistanceM"
     )
-    club_zone_one_acceleration_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_one_acceleration_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneOneAccelerationDurationS"
     )
-    club_zone_one_acceleration_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_one_acceleration_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneOneAccelerationEvents"
     )
-    club_zone_one_deceleration_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_one_deceleration_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneOneDecelerationDistanceM"
     )
-    club_zone_one_deceleration_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_one_deceleration_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneOneDecelerationDurationS"
     )
-    club_zone_one_deceleration_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_one_deceleration_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneOneDecelerationEvents"
     )
-    club_zone_sprint_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField("clubZoneSprintDistanceM")
-    club_zone_sprint_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField("clubZoneSprintDurationS")
+    club_zone_sprint_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
+        "clubZoneSprintDistanceM"
+    )
+    club_zone_sprint_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
+        "clubZoneSprintDurationS"
+    )
     club_zone_sprint_events: "MatchSessionParticipationPartMetricSetGraphQLField" = (
         MatchSessionParticipationPartMetricSetGraphQLField("clubZoneSprintEvents")
     )
-    club_zone_three_acceleration_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_three_acceleration_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneThreeAccelerationDistanceM"
     )
-    club_zone_three_acceleration_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_three_acceleration_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneThreeAccelerationDurationS"
     )
-    club_zone_three_acceleration_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_three_acceleration_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneThreeAccelerationEvents"
     )
-    club_zone_three_deceleration_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_three_deceleration_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneThreeDecelerationDistanceM"
     )
-    club_zone_three_deceleration_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_three_deceleration_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneThreeDecelerationDurationS"
     )
-    club_zone_three_deceleration_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_three_deceleration_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneThreeDecelerationEvents"
     )
-    club_zone_two_acceleration_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_two_acceleration_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneTwoAccelerationDistanceM"
     )
-    club_zone_two_acceleration_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_two_acceleration_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneTwoAccelerationDurationS"
     )
-    club_zone_two_acceleration_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_two_acceleration_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneTwoAccelerationEvents"
     )
-    club_zone_two_deceleration_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_two_deceleration_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneTwoDecelerationDistanceM"
     )
-    club_zone_two_deceleration_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_two_deceleration_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneTwoDecelerationDurationS"
     )
-    club_zone_two_deceleration_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    club_zone_two_deceleration_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneTwoDecelerationEvents"
     )
 
@@ -10052,9 +9506,9 @@ class MatchSessionParticipationPartMetricSetFields(GraphQLField):
     def high_intensity_run_distance_m_over_time(cls) -> "TimeSeriesDataFields":
         return TimeSeriesDataFields("highIntensityRunDistanceMOverTime")
 
-    high_metabolic_load_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField("highMetabolicLoadDistanceM")
+    high_metabolic_load_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
+        "highMetabolicLoadDistanceM"
+    )
     high_metabolic_load_events: "MatchSessionParticipationPartMetricSetGraphQLField" = (
         MatchSessionParticipationPartMetricSetGraphQLField("highMetabolicLoadEvents")
     )
@@ -10067,242 +9521,148 @@ class MatchSessionParticipationPartMetricSetFields(GraphQLField):
     id: "MatchSessionParticipationPartMetricSetGraphQLField" = (
         MatchSessionParticipationPartMetricSetGraphQLField("id")
     )
-    individual_zone_five_acceleration_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_five_acceleration_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneFiveAccelerationDistanceM"
     )
-    individual_zone_five_acceleration_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_five_acceleration_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneFiveAccelerationDurationS"
     )
-    individual_zone_five_acceleration_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_five_acceleration_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneFiveAccelerationEvents"
     )
-    individual_zone_five_deceleration_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_five_deceleration_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneFiveDecelerationDistanceM"
     )
-    individual_zone_five_deceleration_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_five_deceleration_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneFiveDecelerationDurationS"
     )
-    individual_zone_five_deceleration_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_five_deceleration_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneFiveDecelerationEvents"
     )
-    individual_zone_four_acceleration_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_four_acceleration_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneFourAccelerationDistanceM"
     )
-    individual_zone_four_acceleration_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_four_acceleration_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneFourAccelerationDurationS"
     )
-    individual_zone_four_acceleration_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_four_acceleration_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneFourAccelerationEvents"
     )
-    individual_zone_four_deceleration_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_four_deceleration_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneFourDecelerationDistanceM"
     )
-    individual_zone_four_deceleration_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_four_deceleration_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneFourDecelerationDurationS"
     )
-    individual_zone_four_deceleration_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_four_deceleration_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneFourDecelerationEvents"
     )
-    individual_zone_high_intensity_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_high_intensity_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneHighIntensityDistanceM"
     )
-    individual_zone_high_intensity_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_high_intensity_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneHighIntensityDurationS"
     )
-    individual_zone_high_intensity_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_high_intensity_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneHighIntensityEvents"
     )
-    individual_zone_high_speed_running_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_high_speed_running_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneHighSpeedRunningDistanceM"
     )
-    individual_zone_high_speed_running_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_high_speed_running_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneHighSpeedRunningDurationS"
     )
-    individual_zone_high_speed_running_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_high_speed_running_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneHighSpeedRunningEvents"
     )
-    individual_zone_jogging_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_jogging_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneJoggingDistanceM"
     )
-    individual_zone_jogging_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_jogging_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneJoggingDurationS"
     )
-    individual_zone_jogging_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_jogging_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneJoggingEvents"
     )
-    individual_zone_low_intensity_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_low_intensity_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneLowIntensityDistanceM"
     )
-    individual_zone_low_intensity_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_low_intensity_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneLowIntensityDurationS"
     )
-    individual_zone_low_intensity_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_low_intensity_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneLowIntensityEvents"
     )
-    individual_zone_medium_intensity_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_medium_intensity_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneMediumIntensityDistanceM"
     )
-    individual_zone_medium_intensity_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_medium_intensity_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneMediumIntensityDurationS"
     )
-    individual_zone_medium_intensity_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_medium_intensity_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneMediumIntensityEvents"
     )
-    individual_zone_one_acceleration_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_one_acceleration_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneOneAccelerationDistanceM"
     )
-    individual_zone_one_acceleration_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_one_acceleration_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneOneAccelerationDurationS"
     )
-    individual_zone_one_acceleration_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_one_acceleration_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneOneAccelerationEvents"
     )
-    individual_zone_one_deceleration_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_one_deceleration_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneOneDecelerationDistanceM"
     )
-    individual_zone_one_deceleration_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_one_deceleration_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneOneDecelerationDurationS"
     )
-    individual_zone_one_deceleration_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_one_deceleration_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneOneDecelerationEvents"
     )
-    individual_zone_sprint_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_sprint_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneSprintDistanceM"
     )
-    individual_zone_sprint_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_sprint_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneSprintDurationS"
     )
-    individual_zone_sprint_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField("individualZoneSprintEvents")
-    individual_zone_three_acceleration_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_sprint_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
+        "individualZoneSprintEvents"
+    )
+    individual_zone_three_acceleration_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneThreeAccelerationDistanceM"
     )
-    individual_zone_three_acceleration_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_three_acceleration_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneThreeAccelerationDurationS"
     )
-    individual_zone_three_acceleration_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_three_acceleration_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneThreeAccelerationEvents"
     )
-    individual_zone_three_deceleration_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_three_deceleration_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneThreeDecelerationDistanceM"
     )
-    individual_zone_three_deceleration_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_three_deceleration_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneThreeDecelerationDurationS"
     )
-    individual_zone_three_deceleration_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_three_deceleration_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneThreeDecelerationEvents"
     )
-    individual_zone_two_acceleration_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_two_acceleration_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneTwoAccelerationDistanceM"
     )
-    individual_zone_two_acceleration_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_two_acceleration_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneTwoAccelerationDurationS"
     )
-    individual_zone_two_acceleration_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_two_acceleration_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneTwoAccelerationEvents"
     )
-    individual_zone_two_deceleration_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_two_deceleration_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneTwoDecelerationDistanceM"
     )
-    individual_zone_two_deceleration_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_two_deceleration_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneTwoDecelerationDurationS"
     )
-    individual_zone_two_deceleration_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    individual_zone_two_deceleration_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "individualZoneTwoDecelerationEvents"
     )
     left_dive_events: "MatchSessionParticipationPartMetricSetGraphQLField" = (
@@ -10338,24 +9698,16 @@ class MatchSessionParticipationPartMetricSetFields(GraphQLField):
     metres_per_minute: "MatchSessionParticipationPartMetricSetGraphQLField" = (
         MatchSessionParticipationPartMetricSetGraphQLField("metresPerMinute")
     )
-    ninety_percent_of_max_speed_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    ninety_percent_of_max_speed_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "ninetyPercentOfMaxSpeedDistanceM"
     )
-    ninety_percent_of_max_speed_duration_s: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    ninety_percent_of_max_speed_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "ninetyPercentOfMaxSpeedDurationS"
     )
-    ninety_percent_of_max_speed_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    ninety_percent_of_max_speed_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "ninetyPercentOfMaxSpeedEvents"
     )
-    ninety_percent_of_raw_max_speed_events: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    ninety_percent_of_raw_max_speed_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "ninetyPercentOfRawMaxSpeedEvents"
     )
     pass_events: "MatchSessionParticipationPartMetricSetGraphQLField" = (
@@ -10364,9 +9716,9 @@ class MatchSessionParticipationPartMetricSetFields(GraphQLField):
     percentage_max_speed_kph: "MatchSessionParticipationPartMetricSetGraphQLField" = (
         MatchSessionParticipationPartMetricSetGraphQLField("percentageMaxSpeedKph")
     )
-    percentage_raw_max_speed_kph: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField("percentageRawMaxSpeedKph")
+    percentage_raw_max_speed_kph: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
+        "percentageRawMaxSpeedKph"
+    )
     processing_warnings: "MatchSessionParticipationPartMetricSetGraphQLField" = (
         MatchSessionParticipationPartMetricSetGraphQLField("processingWarnings")
     )
@@ -10382,9 +9734,9 @@ class MatchSessionParticipationPartMetricSetFields(GraphQLField):
     right_low_dive_events: "MatchSessionParticipationPartMetricSetGraphQLField" = (
         MatchSessionParticipationPartMetricSetGraphQLField("rightLowDiveEvents")
     )
-    sampled_speed_kph_over_time: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField("sampledSpeedKphOverTime")
+    sampled_speed_kph_over_time: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
+        "sampledSpeedKphOverTime"
+    )
     short_pass_events: "MatchSessionParticipationPartMetricSetGraphQLField" = (
         MatchSessionParticipationPartMetricSetGraphQLField("shortPassEvents")
     )
@@ -10410,19 +9762,13 @@ class MatchSessionParticipationPartMetricSetFields(GraphQLField):
     total_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = (
         MatchSessionParticipationPartMetricSetGraphQLField("totalDistanceM")
     )
-    total_high_intensity_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    total_high_intensity_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "totalHighIntensityDistanceM"
     )
-    total_live_page_duration_seconds: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    total_live_page_duration_seconds: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "totalLivePageDurationSeconds"
     )
-    total_medium_intensity_distance_m: (
-        "MatchSessionParticipationPartMetricSetGraphQLField"
-    ) = MatchSessionParticipationPartMetricSetGraphQLField(
+    total_medium_intensity_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "totalMediumIntensityDistanceM"
     )
     total_sprint_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = (
@@ -10539,65 +9885,63 @@ class MatchSessionPeriodMetricSetFields(GraphQLField):
     avg_acceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("avgAccelerationEvents")
     )
-    avg_acceleration_load_per_contributing_minutes: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_acceleration_load_per_contributing_minutes: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgAccelerationLoadPerContributingMinutes"
     )
-    avg_club_zone_five_acceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneFiveAccelerationDistanceM")
-    avg_club_zone_five_acceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneFiveAccelerationDurationS")
-    avg_club_zone_five_acceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneFiveAccelerationEvents")
-    avg_club_zone_five_deceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneFiveDecelerationDistanceM")
-    avg_club_zone_five_deceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneFiveDecelerationDurationS")
-    avg_club_zone_five_deceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneFiveDecelerationEvents")
-    avg_club_zone_four_acceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneFourAccelerationDistanceM")
-    avg_club_zone_four_acceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneFourAccelerationDurationS")
-    avg_club_zone_four_acceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneFourAccelerationEvents")
-    avg_club_zone_four_deceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneFourDecelerationDistanceM")
-    avg_club_zone_four_deceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneFourDecelerationDurationS")
-    avg_club_zone_four_deceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneFourDecelerationEvents")
-    avg_club_zone_high_intensity_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneHighIntensityDistanceM")
-    avg_club_zone_high_intensity_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneHighIntensityDurationS")
+    avg_club_zone_five_acceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneFiveAccelerationDistanceM"
+    )
+    avg_club_zone_five_acceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneFiveAccelerationDurationS"
+    )
+    avg_club_zone_five_acceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneFiveAccelerationEvents"
+    )
+    avg_club_zone_five_deceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneFiveDecelerationDistanceM"
+    )
+    avg_club_zone_five_deceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneFiveDecelerationDurationS"
+    )
+    avg_club_zone_five_deceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneFiveDecelerationEvents"
+    )
+    avg_club_zone_four_acceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneFourAccelerationDistanceM"
+    )
+    avg_club_zone_four_acceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneFourAccelerationDurationS"
+    )
+    avg_club_zone_four_acceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneFourAccelerationEvents"
+    )
+    avg_club_zone_four_deceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneFourDecelerationDistanceM"
+    )
+    avg_club_zone_four_deceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneFourDecelerationDurationS"
+    )
+    avg_club_zone_four_deceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneFourDecelerationEvents"
+    )
+    avg_club_zone_high_intensity_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneHighIntensityDistanceM"
+    )
+    avg_club_zone_high_intensity_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneHighIntensityDurationS"
+    )
     avg_club_zone_high_intensity_events: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("avgClubZoneHighIntensityEvents")
     )
-    avg_club_zone_high_speed_running_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneHighSpeedRunningDistanceM")
-    avg_club_zone_high_speed_running_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneHighSpeedRunningDurationS")
-    avg_club_zone_high_speed_running_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneHighSpeedRunningEvents")
+    avg_club_zone_high_speed_running_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneHighSpeedRunningDistanceM"
+    )
+    avg_club_zone_high_speed_running_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneHighSpeedRunningDurationS"
+    )
+    avg_club_zone_high_speed_running_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneHighSpeedRunningEvents"
+    )
     avg_club_zone_jogging_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("avgClubZoneJoggingDistanceM")
     )
@@ -10607,39 +9951,39 @@ class MatchSessionPeriodMetricSetFields(GraphQLField):
     avg_club_zone_jogging_events: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("avgClubZoneJoggingEvents")
     )
-    avg_club_zone_low_intensity_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneLowIntensityDistanceM")
-    avg_club_zone_low_intensity_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneLowIntensityDurationS")
+    avg_club_zone_low_intensity_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneLowIntensityDistanceM"
+    )
+    avg_club_zone_low_intensity_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneLowIntensityDurationS"
+    )
     avg_club_zone_low_intensity_events: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("avgClubZoneLowIntensityEvents")
     )
-    avg_club_zone_medium_intensity_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneMediumIntensityDistanceM")
-    avg_club_zone_medium_intensity_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneMediumIntensityDurationS")
+    avg_club_zone_medium_intensity_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneMediumIntensityDistanceM"
+    )
+    avg_club_zone_medium_intensity_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneMediumIntensityDurationS"
+    )
     avg_club_zone_medium_intensity_events: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("avgClubZoneMediumIntensityEvents")
     )
-    avg_club_zone_one_acceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneOneAccelerationDistanceM")
-    avg_club_zone_one_acceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneOneAccelerationDurationS")
+    avg_club_zone_one_acceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneOneAccelerationDistanceM"
+    )
+    avg_club_zone_one_acceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneOneAccelerationDurationS"
+    )
     avg_club_zone_one_acceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("avgClubZoneOneAccelerationEvents")
     )
-    avg_club_zone_one_deceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneOneDecelerationDistanceM")
-    avg_club_zone_one_deceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneOneDecelerationDurationS")
+    avg_club_zone_one_deceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneOneDecelerationDistanceM"
+    )
+    avg_club_zone_one_deceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneOneDecelerationDurationS"
+    )
     avg_club_zone_one_deceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("avgClubZoneOneDecelerationEvents")
     )
@@ -10652,39 +9996,39 @@ class MatchSessionPeriodMetricSetFields(GraphQLField):
     avg_club_zone_sprint_events: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("avgClubZoneSprintEvents")
     )
-    avg_club_zone_three_acceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneThreeAccelerationDistanceM")
-    avg_club_zone_three_acceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneThreeAccelerationDurationS")
-    avg_club_zone_three_acceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneThreeAccelerationEvents")
-    avg_club_zone_three_deceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneThreeDecelerationDistanceM")
-    avg_club_zone_three_deceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneThreeDecelerationDurationS")
-    avg_club_zone_three_deceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneThreeDecelerationEvents")
-    avg_club_zone_two_acceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneTwoAccelerationDistanceM")
-    avg_club_zone_two_acceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneTwoAccelerationDurationS")
+    avg_club_zone_three_acceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneThreeAccelerationDistanceM"
+    )
+    avg_club_zone_three_acceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneThreeAccelerationDurationS"
+    )
+    avg_club_zone_three_acceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneThreeAccelerationEvents"
+    )
+    avg_club_zone_three_deceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneThreeDecelerationDistanceM"
+    )
+    avg_club_zone_three_deceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneThreeDecelerationDurationS"
+    )
+    avg_club_zone_three_deceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneThreeDecelerationEvents"
+    )
+    avg_club_zone_two_acceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneTwoAccelerationDistanceM"
+    )
+    avg_club_zone_two_acceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneTwoAccelerationDurationS"
+    )
     avg_club_zone_two_acceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("avgClubZoneTwoAccelerationEvents")
     )
-    avg_club_zone_two_deceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneTwoDecelerationDistanceM")
-    avg_club_zone_two_deceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgClubZoneTwoDecelerationDurationS")
+    avg_club_zone_two_deceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneTwoDecelerationDistanceM"
+    )
+    avg_club_zone_two_deceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneTwoDecelerationDurationS"
+    )
     avg_club_zone_two_deceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("avgClubZoneTwoDecelerationEvents")
     )
@@ -10737,159 +10081,103 @@ class MatchSessionPeriodMetricSetFields(GraphQLField):
     avg_high_speed_run_events: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("avgHighSpeedRunEvents")
     )
-    avg_individual_zone_five_acceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_five_acceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneFiveAccelerationDistanceM"
     )
-    avg_individual_zone_five_acceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_five_acceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneFiveAccelerationDurationS"
     )
-    avg_individual_zone_five_acceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_five_acceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneFiveAccelerationEvents"
     )
-    avg_individual_zone_five_deceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_five_deceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneFiveDecelerationDistanceM"
     )
-    avg_individual_zone_five_deceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_five_deceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneFiveDecelerationDurationS"
     )
-    avg_individual_zone_five_deceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_five_deceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneFiveDecelerationEvents"
     )
-    avg_individual_zone_four_acceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_four_acceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneFourAccelerationDistanceM"
     )
-    avg_individual_zone_four_acceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_four_acceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneFourAccelerationDurationS"
     )
-    avg_individual_zone_four_acceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_four_acceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneFourAccelerationEvents"
     )
-    avg_individual_zone_four_deceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_four_deceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneFourDecelerationDistanceM"
     )
-    avg_individual_zone_four_deceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_four_deceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneFourDecelerationDurationS"
     )
-    avg_individual_zone_four_deceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_four_deceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneFourDecelerationEvents"
     )
-    avg_individual_zone_high_intensity_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_high_intensity_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneHighIntensityDistanceM"
     )
-    avg_individual_zone_high_intensity_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_high_intensity_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneHighIntensityDurationS"
     )
-    avg_individual_zone_high_intensity_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgIndividualZoneHighIntensityEvents")
-    avg_individual_zone_high_speed_running_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_high_intensity_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgIndividualZoneHighIntensityEvents"
+    )
+    avg_individual_zone_high_speed_running_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneHighSpeedRunningDistanceM"
     )
-    avg_individual_zone_high_speed_running_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_high_speed_running_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneHighSpeedRunningDurationS"
     )
-    avg_individual_zone_high_speed_running_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_high_speed_running_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneHighSpeedRunningEvents"
     )
-    avg_individual_zone_jogging_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgIndividualZoneJoggingDistanceM")
-    avg_individual_zone_jogging_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgIndividualZoneJoggingDurationS")
+    avg_individual_zone_jogging_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgIndividualZoneJoggingDistanceM"
+    )
+    avg_individual_zone_jogging_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgIndividualZoneJoggingDurationS"
+    )
     avg_individual_zone_jogging_events: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("avgIndividualZoneJoggingEvents")
     )
-    avg_individual_zone_low_intensity_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_low_intensity_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneLowIntensityDistanceM"
     )
-    avg_individual_zone_low_intensity_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_low_intensity_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneLowIntensityDurationS"
     )
-    avg_individual_zone_low_intensity_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgIndividualZoneLowIntensityEvents")
-    avg_individual_zone_medium_intensity_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_low_intensity_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgIndividualZoneLowIntensityEvents"
+    )
+    avg_individual_zone_medium_intensity_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneMediumIntensityDistanceM"
     )
-    avg_individual_zone_medium_intensity_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_medium_intensity_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneMediumIntensityDurationS"
     )
-    avg_individual_zone_medium_intensity_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_medium_intensity_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneMediumIntensityEvents"
     )
-    avg_individual_zone_one_acceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_one_acceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneOneAccelerationDistanceM"
     )
-    avg_individual_zone_one_acceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_one_acceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneOneAccelerationDurationS"
     )
-    avg_individual_zone_one_acceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_one_acceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneOneAccelerationEvents"
     )
-    avg_individual_zone_one_deceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_one_deceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneOneDecelerationDistanceM"
     )
-    avg_individual_zone_one_deceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_one_deceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneOneDecelerationDurationS"
     )
-    avg_individual_zone_one_deceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_one_deceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneOneDecelerationEvents"
     )
     avg_individual_zone_sprint_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = (
@@ -10901,64 +10189,40 @@ class MatchSessionPeriodMetricSetFields(GraphQLField):
     avg_individual_zone_sprint_events: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("avgIndividualZoneSprintEvents")
     )
-    avg_individual_zone_three_acceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_three_acceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneThreeAccelerationDistanceM"
     )
-    avg_individual_zone_three_acceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_three_acceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneThreeAccelerationDurationS"
     )
-    avg_individual_zone_three_acceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_three_acceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneThreeAccelerationEvents"
     )
-    avg_individual_zone_three_deceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_three_deceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneThreeDecelerationDistanceM"
     )
-    avg_individual_zone_three_deceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_three_deceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneThreeDecelerationDurationS"
     )
-    avg_individual_zone_three_deceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_three_deceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneThreeDecelerationEvents"
     )
-    avg_individual_zone_two_acceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_two_acceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneTwoAccelerationDistanceM"
     )
-    avg_individual_zone_two_acceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_two_acceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneTwoAccelerationDurationS"
     )
-    avg_individual_zone_two_acceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_two_acceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneTwoAccelerationEvents"
     )
-    avg_individual_zone_two_deceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_two_deceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneTwoDecelerationDistanceM"
     )
-    avg_individual_zone_two_deceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_two_deceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneTwoDecelerationDurationS"
     )
-    avg_individual_zone_two_deceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    avg_individual_zone_two_deceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgIndividualZoneTwoDecelerationEvents"
     )
     avg_left_dive_events: "MatchSessionPeriodMetricSetGraphQLField" = (
@@ -10991,18 +10255,18 @@ class MatchSessionPeriodMetricSetFields(GraphQLField):
     avg_metres_per_minute: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("avgMetresPerMinute")
     )
-    avg_ninety_percent_of_max_speed_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgNinetyPercentOfMaxSpeedDistanceM")
-    avg_ninety_percent_of_max_speed_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgNinetyPercentOfMaxSpeedDurationS")
-    avg_ninety_percent_of_max_speed_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgNinetyPercentOfMaxSpeedEvents")
-    avg_ninety_percent_of_raw_max_speed_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("avgNinetyPercentOfRawMaxSpeedEvents")
+    avg_ninety_percent_of_max_speed_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgNinetyPercentOfMaxSpeedDistanceM"
+    )
+    avg_ninety_percent_of_max_speed_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgNinetyPercentOfMaxSpeedDurationS"
+    )
+    avg_ninety_percent_of_max_speed_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgNinetyPercentOfMaxSpeedEvents"
+    )
+    avg_ninety_percent_of_raw_max_speed_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgNinetyPercentOfRawMaxSpeedEvents"
+    )
     avg_pass_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("avgPassDistanceM")
     )
@@ -11093,80 +10357,60 @@ class MatchSessionPeriodMetricSetFields(GraphQLField):
     total_acceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("totalAccelerationEvents")
     )
-    total_club_zone_five_acceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_club_zone_five_acceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalClubZoneFiveAccelerationDistanceM"
     )
-    total_club_zone_five_acceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_club_zone_five_acceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalClubZoneFiveAccelerationDurationS"
     )
-    total_club_zone_five_acceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalClubZoneFiveAccelerationEvents")
-    total_club_zone_five_deceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_club_zone_five_acceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneFiveAccelerationEvents"
+    )
+    total_club_zone_five_deceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalClubZoneFiveDecelerationDistanceM"
     )
-    total_club_zone_five_deceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_club_zone_five_deceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalClubZoneFiveDecelerationDurationS"
     )
-    total_club_zone_five_deceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalClubZoneFiveDecelerationEvents")
-    total_club_zone_four_acceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_club_zone_five_deceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneFiveDecelerationEvents"
+    )
+    total_club_zone_four_acceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalClubZoneFourAccelerationDistanceM"
     )
-    total_club_zone_four_acceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_club_zone_four_acceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalClubZoneFourAccelerationDurationS"
     )
-    total_club_zone_four_acceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalClubZoneFourAccelerationEvents")
-    total_club_zone_four_deceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_club_zone_four_acceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneFourAccelerationEvents"
+    )
+    total_club_zone_four_deceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalClubZoneFourDecelerationDistanceM"
     )
-    total_club_zone_four_deceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_club_zone_four_deceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalClubZoneFourDecelerationDurationS"
     )
-    total_club_zone_four_deceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalClubZoneFourDecelerationEvents")
-    total_club_zone_high_intensity_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalClubZoneHighIntensityDistanceM")
-    total_club_zone_high_intensity_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalClubZoneHighIntensityDurationS")
+    total_club_zone_four_deceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneFourDecelerationEvents"
+    )
+    total_club_zone_high_intensity_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneHighIntensityDistanceM"
+    )
+    total_club_zone_high_intensity_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneHighIntensityDurationS"
+    )
     total_club_zone_high_intensity_events: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("totalClubZoneHighIntensityEvents")
     )
-    total_club_zone_high_speed_running_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_club_zone_high_speed_running_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalClubZoneHighSpeedRunningDistanceM"
     )
-    total_club_zone_high_speed_running_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_club_zone_high_speed_running_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalClubZoneHighSpeedRunningDurationS"
     )
-    total_club_zone_high_speed_running_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalClubZoneHighSpeedRunningEvents")
+    total_club_zone_high_speed_running_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneHighSpeedRunningEvents"
+    )
     total_club_zone_jogging_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("totalClubZoneJoggingDistanceM")
     )
@@ -11176,42 +10420,42 @@ class MatchSessionPeriodMetricSetFields(GraphQLField):
     total_club_zone_jogging_events: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("totalClubZoneJoggingEvents")
     )
-    total_club_zone_low_intensity_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalClubZoneLowIntensityDistanceM")
-    total_club_zone_low_intensity_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalClubZoneLowIntensityDurationS")
+    total_club_zone_low_intensity_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneLowIntensityDistanceM"
+    )
+    total_club_zone_low_intensity_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneLowIntensityDurationS"
+    )
     total_club_zone_low_intensity_events: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("totalClubZoneLowIntensityEvents")
     )
-    total_club_zone_medium_intensity_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalClubZoneMediumIntensityDistanceM")
-    total_club_zone_medium_intensity_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalClubZoneMediumIntensityDurationS")
-    total_club_zone_medium_intensity_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalClubZoneMediumIntensityEvents")
-    total_club_zone_one_acceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalClubZoneOneAccelerationDistanceM")
-    total_club_zone_one_acceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalClubZoneOneAccelerationDurationS")
-    total_club_zone_one_acceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalClubZoneOneAccelerationEvents")
-    total_club_zone_one_deceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalClubZoneOneDecelerationDistanceM")
-    total_club_zone_one_deceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalClubZoneOneDecelerationDurationS")
-    total_club_zone_one_deceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalClubZoneOneDecelerationEvents")
+    total_club_zone_medium_intensity_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneMediumIntensityDistanceM"
+    )
+    total_club_zone_medium_intensity_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneMediumIntensityDurationS"
+    )
+    total_club_zone_medium_intensity_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneMediumIntensityEvents"
+    )
+    total_club_zone_one_acceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneOneAccelerationDistanceM"
+    )
+    total_club_zone_one_acceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneOneAccelerationDurationS"
+    )
+    total_club_zone_one_acceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneOneAccelerationEvents"
+    )
+    total_club_zone_one_deceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneOneDecelerationDistanceM"
+    )
+    total_club_zone_one_deceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneOneDecelerationDurationS"
+    )
+    total_club_zone_one_deceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneOneDecelerationEvents"
+    )
     total_club_zone_sprint_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("totalClubZoneSprintDistanceM")
     )
@@ -11221,50 +10465,42 @@ class MatchSessionPeriodMetricSetFields(GraphQLField):
     total_club_zone_sprint_events: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("totalClubZoneSprintEvents")
     )
-    total_club_zone_three_acceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_club_zone_three_acceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalClubZoneThreeAccelerationDistanceM"
     )
-    total_club_zone_three_acceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_club_zone_three_acceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalClubZoneThreeAccelerationDurationS"
     )
-    total_club_zone_three_acceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalClubZoneThreeAccelerationEvents")
-    total_club_zone_three_deceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_club_zone_three_acceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneThreeAccelerationEvents"
+    )
+    total_club_zone_three_deceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalClubZoneThreeDecelerationDistanceM"
     )
-    total_club_zone_three_deceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_club_zone_three_deceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalClubZoneThreeDecelerationDurationS"
     )
-    total_club_zone_three_deceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalClubZoneThreeDecelerationEvents")
-    total_club_zone_two_acceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalClubZoneTwoAccelerationDistanceM")
-    total_club_zone_two_acceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalClubZoneTwoAccelerationDurationS")
-    total_club_zone_two_acceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalClubZoneTwoAccelerationEvents")
-    total_club_zone_two_deceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalClubZoneTwoDecelerationDistanceM")
-    total_club_zone_two_deceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalClubZoneTwoDecelerationDurationS")
-    total_club_zone_two_deceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalClubZoneTwoDecelerationEvents")
+    total_club_zone_three_deceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneThreeDecelerationEvents"
+    )
+    total_club_zone_two_acceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneTwoAccelerationDistanceM"
+    )
+    total_club_zone_two_acceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneTwoAccelerationDurationS"
+    )
+    total_club_zone_two_acceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneTwoAccelerationEvents"
+    )
+    total_club_zone_two_deceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneTwoDecelerationDistanceM"
+    )
+    total_club_zone_two_deceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneTwoDecelerationDurationS"
+    )
+    total_club_zone_two_deceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneTwoDecelerationEvents"
+    )
     total_deceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("totalDecelerationEvents")
     )
@@ -11295,230 +10531,148 @@ class MatchSessionPeriodMetricSetFields(GraphQLField):
     total_high_speed_run_events: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("totalHighSpeedRunEvents")
     )
-    total_individual_zone_five_acceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_five_acceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneFiveAccelerationDistanceM"
     )
-    total_individual_zone_five_acceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_five_acceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneFiveAccelerationDurationS"
     )
-    total_individual_zone_five_acceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_five_acceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneFiveAccelerationEvents"
     )
-    total_individual_zone_five_deceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_five_deceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneFiveDecelerationDistanceM"
     )
-    total_individual_zone_five_deceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_five_deceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneFiveDecelerationDurationS"
     )
-    total_individual_zone_five_deceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_five_deceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneFiveDecelerationEvents"
     )
-    total_individual_zone_four_acceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_four_acceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneFourAccelerationDistanceM"
     )
-    total_individual_zone_four_acceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_four_acceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneFourAccelerationDurationS"
     )
-    total_individual_zone_four_acceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_four_acceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneFourAccelerationEvents"
     )
-    total_individual_zone_four_deceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_four_deceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneFourDecelerationDistanceM"
     )
-    total_individual_zone_four_deceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_four_deceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneFourDecelerationDurationS"
     )
-    total_individual_zone_four_deceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_four_deceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneFourDecelerationEvents"
     )
-    total_individual_zone_high_intensity_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_high_intensity_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneHighIntensityDistanceM"
     )
-    total_individual_zone_high_intensity_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_high_intensity_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneHighIntensityDurationS"
     )
-    total_individual_zone_high_intensity_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_high_intensity_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneHighIntensityEvents"
     )
-    total_individual_zone_high_speed_running_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_high_speed_running_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneHighSpeedRunningDistanceM"
     )
-    total_individual_zone_high_speed_running_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_high_speed_running_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneHighSpeedRunningDurationS"
     )
-    total_individual_zone_high_speed_running_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_high_speed_running_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneHighSpeedRunningEvents"
     )
-    total_individual_zone_jogging_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalIndividualZoneJoggingDistanceM")
-    total_individual_zone_jogging_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalIndividualZoneJoggingDurationS")
+    total_individual_zone_jogging_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalIndividualZoneJoggingDistanceM"
+    )
+    total_individual_zone_jogging_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalIndividualZoneJoggingDurationS"
+    )
     total_individual_zone_jogging_events: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("totalIndividualZoneJoggingEvents")
     )
-    total_individual_zone_low_intensity_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_low_intensity_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneLowIntensityDistanceM"
     )
-    total_individual_zone_low_intensity_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_low_intensity_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneLowIntensityDurationS"
     )
-    total_individual_zone_low_intensity_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalIndividualZoneLowIntensityEvents")
-    total_individual_zone_medium_intensity_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_low_intensity_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalIndividualZoneLowIntensityEvents"
+    )
+    total_individual_zone_medium_intensity_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneMediumIntensityDistanceM"
     )
-    total_individual_zone_medium_intensity_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_medium_intensity_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneMediumIntensityDurationS"
     )
-    total_individual_zone_medium_intensity_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_medium_intensity_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneMediumIntensityEvents"
     )
-    total_individual_zone_one_acceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_one_acceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneOneAccelerationDistanceM"
     )
-    total_individual_zone_one_acceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_one_acceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneOneAccelerationDurationS"
     )
-    total_individual_zone_one_acceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_one_acceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneOneAccelerationEvents"
     )
-    total_individual_zone_one_deceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_one_deceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneOneDecelerationDistanceM"
     )
-    total_individual_zone_one_deceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_one_deceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneOneDecelerationDurationS"
     )
-    total_individual_zone_one_deceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_one_deceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneOneDecelerationEvents"
     )
-    total_individual_zone_sprint_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalIndividualZoneSprintDistanceM")
-    total_individual_zone_sprint_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalIndividualZoneSprintDurationS")
+    total_individual_zone_sprint_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalIndividualZoneSprintDistanceM"
+    )
+    total_individual_zone_sprint_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalIndividualZoneSprintDurationS"
+    )
     total_individual_zone_sprint_events: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("totalIndividualZoneSprintEvents")
     )
-    total_individual_zone_three_acceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_three_acceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneThreeAccelerationDistanceM"
     )
-    total_individual_zone_three_acceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_three_acceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneThreeAccelerationDurationS"
     )
-    total_individual_zone_three_acceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_three_acceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneThreeAccelerationEvents"
     )
-    total_individual_zone_three_deceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_three_deceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneThreeDecelerationDistanceM"
     )
-    total_individual_zone_three_deceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_three_deceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneThreeDecelerationDurationS"
     )
-    total_individual_zone_three_deceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_three_deceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneThreeDecelerationEvents"
     )
-    total_individual_zone_two_acceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_two_acceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneTwoAccelerationDistanceM"
     )
-    total_individual_zone_two_acceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_two_acceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneTwoAccelerationDurationS"
     )
-    total_individual_zone_two_acceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_two_acceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneTwoAccelerationEvents"
     )
-    total_individual_zone_two_deceleration_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_two_deceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneTwoDecelerationDistanceM"
     )
-    total_individual_zone_two_deceleration_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_two_deceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneTwoDecelerationDurationS"
     )
-    total_individual_zone_two_deceleration_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField(
+    total_individual_zone_two_deceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalIndividualZoneTwoDecelerationEvents"
     )
     total_left_dive_events: "MatchSessionPeriodMetricSetGraphQLField" = (
@@ -11545,18 +10699,18 @@ class MatchSessionPeriodMetricSetFields(GraphQLField):
     total_medium_pass_events: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("totalMediumPassEvents")
     )
-    total_ninety_percent_of_max_speed_distance_m: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalNinetyPercentOfMaxSpeedDistanceM")
-    total_ninety_percent_of_max_speed_duration_s: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalNinetyPercentOfMaxSpeedDurationS")
-    total_ninety_percent_of_max_speed_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalNinetyPercentOfMaxSpeedEvents")
-    total_ninety_percent_of_raw_max_speed_events: (
-        "MatchSessionPeriodMetricSetGraphQLField"
-    ) = MatchSessionPeriodMetricSetGraphQLField("totalNinetyPercentOfRawMaxSpeedEvents")
+    total_ninety_percent_of_max_speed_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalNinetyPercentOfMaxSpeedDistanceM"
+    )
+    total_ninety_percent_of_max_speed_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalNinetyPercentOfMaxSpeedDurationS"
+    )
+    total_ninety_percent_of_max_speed_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalNinetyPercentOfMaxSpeedEvents"
+    )
+    total_ninety_percent_of_raw_max_speed_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalNinetyPercentOfRawMaxSpeedEvents"
+    )
     total_pass_events: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("totalPassEvents")
     )
@@ -14030,9 +13184,7 @@ class SessionBlueprintSessionCreationSkippedAthletesContextFields(GraphQLField):
     athlete_ids: "SessionBlueprintSessionCreationSkippedAthletesContextGraphQLField" = (
         SessionBlueprintSessionCreationSkippedAthletesContextGraphQLField("athleteIds")
     )
-    athlete_names: (
-        "SessionBlueprintSessionCreationSkippedAthletesContextGraphQLField"
-    ) = SessionBlueprintSessionCreationSkippedAthletesContextGraphQLField(
+    athlete_names: "SessionBlueprintSessionCreationSkippedAthletesContextGraphQLField" = SessionBlueprintSessionCreationSkippedAthletesContextGraphQLField(
         "athleteNames"
     )
 
@@ -14040,9 +13192,7 @@ class SessionBlueprintSessionCreationSkippedAthletesContextFields(GraphQLField):
     def athletes(cls) -> "AthleteFields":
         return AthleteFields("athletes")
 
-    next_occurrence: (
-        "SessionBlueprintSessionCreationSkippedAthletesContextGraphQLField"
-    ) = SessionBlueprintSessionCreationSkippedAthletesContextGraphQLField(
+    next_occurrence: "SessionBlueprintSessionCreationSkippedAthletesContextGraphQLField" = SessionBlueprintSessionCreationSkippedAthletesContextGraphQLField(
         "nextOccurrence"
     )
 
@@ -14050,9 +13200,7 @@ class SessionBlueprintSessionCreationSkippedAthletesContextFields(GraphQLField):
     def session_blueprint(cls) -> "SessionBlueprintFields":
         return SessionBlueprintFields("sessionBlueprint")
 
-    session_blueprint_id: (
-        "SessionBlueprintSessionCreationSkippedAthletesContextGraphQLField"
-    ) = SessionBlueprintSessionCreationSkippedAthletesContextGraphQLField(
+    session_blueprint_id: "SessionBlueprintSessionCreationSkippedAthletesContextGraphQLField" = SessionBlueprintSessionCreationSkippedAthletesContextGraphQLField(
         "sessionBlueprintId"
     )
 
@@ -14076,24 +13224,16 @@ class SessionBlueprintSessionCreationSkippedAthletesContextFields(GraphQLField):
 
 
 class SessionBlueprintSessionCreationSkippedGatewaysContextFields(GraphQLField):
-    gateway_ownership_ids: (
-        "SessionBlueprintSessionCreationSkippedGatewaysContextGraphQLField"
-    ) = SessionBlueprintSessionCreationSkippedGatewaysContextGraphQLField(
+    gateway_ownership_ids: "SessionBlueprintSessionCreationSkippedGatewaysContextGraphQLField" = SessionBlueprintSessionCreationSkippedGatewaysContextGraphQLField(
         "gatewayOwnershipIds"
     )
-    gateway_ownership_names: (
-        "SessionBlueprintSessionCreationSkippedGatewaysContextGraphQLField"
-    ) = SessionBlueprintSessionCreationSkippedGatewaysContextGraphQLField(
+    gateway_ownership_names: "SessionBlueprintSessionCreationSkippedGatewaysContextGraphQLField" = SessionBlueprintSessionCreationSkippedGatewaysContextGraphQLField(
         "gatewayOwnershipNames"
     )
-    next_occurrence: (
-        "SessionBlueprintSessionCreationSkippedGatewaysContextGraphQLField"
-    ) = SessionBlueprintSessionCreationSkippedGatewaysContextGraphQLField(
+    next_occurrence: "SessionBlueprintSessionCreationSkippedGatewaysContextGraphQLField" = SessionBlueprintSessionCreationSkippedGatewaysContextGraphQLField(
         "nextOccurrence"
     )
-    session_blueprint_id: (
-        "SessionBlueprintSessionCreationSkippedGatewaysContextGraphQLField"
-    ) = SessionBlueprintSessionCreationSkippedGatewaysContextGraphQLField(
+    session_blueprint_id: "SessionBlueprintSessionCreationSkippedGatewaysContextGraphQLField" = SessionBlueprintSessionCreationSkippedGatewaysContextGraphQLField(
         "sessionBlueprintId"
     )
 
@@ -15385,9 +14525,7 @@ class TrainingSessionAthleteMetricSetFields(GraphQLField):
     acceleration_events: "TrainingSessionAthleteMetricSetGraphQLField" = (
         TrainingSessionAthleteMetricSetGraphQLField("accelerationEvents")
     )
-    acceleration_load_per_contributing_minutes: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    acceleration_load_per_contributing_minutes: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "accelerationLoadPerContributingMinutes"
     )
     average_speed_kph: "TrainingSessionAthleteMetricSetGraphQLField" = (
@@ -15420,60 +14558,60 @@ class TrainingSessionAthleteMetricSetFields(GraphQLField):
     def avg_speed_kph_over_time(cls) -> "TimeSeriesDataFields":
         return TimeSeriesDataFields("avgSpeedKphOverTime")
 
-    club_zone_five_acceleration_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneFiveAccelerationDistanceM")
-    club_zone_five_acceleration_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneFiveAccelerationDurationS")
-    club_zone_five_acceleration_events: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneFiveAccelerationEvents")
-    club_zone_five_deceleration_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneFiveDecelerationDistanceM")
-    club_zone_five_deceleration_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneFiveDecelerationDurationS")
-    club_zone_five_deceleration_events: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneFiveDecelerationEvents")
-    club_zone_four_acceleration_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneFourAccelerationDistanceM")
-    club_zone_four_acceleration_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneFourAccelerationDurationS")
-    club_zone_four_acceleration_events: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneFourAccelerationEvents")
-    club_zone_four_deceleration_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneFourDecelerationDistanceM")
-    club_zone_four_deceleration_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneFourDecelerationDurationS")
-    club_zone_four_deceleration_events: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneFourDecelerationEvents")
-    club_zone_high_intensity_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneHighIntensityDistanceM")
-    club_zone_high_intensity_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneHighIntensityDurationS")
+    club_zone_five_acceleration_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneFiveAccelerationDistanceM"
+    )
+    club_zone_five_acceleration_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneFiveAccelerationDurationS"
+    )
+    club_zone_five_acceleration_events: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneFiveAccelerationEvents"
+    )
+    club_zone_five_deceleration_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneFiveDecelerationDistanceM"
+    )
+    club_zone_five_deceleration_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneFiveDecelerationDurationS"
+    )
+    club_zone_five_deceleration_events: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneFiveDecelerationEvents"
+    )
+    club_zone_four_acceleration_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneFourAccelerationDistanceM"
+    )
+    club_zone_four_acceleration_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneFourAccelerationDurationS"
+    )
+    club_zone_four_acceleration_events: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneFourAccelerationEvents"
+    )
+    club_zone_four_deceleration_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneFourDecelerationDistanceM"
+    )
+    club_zone_four_deceleration_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneFourDecelerationDurationS"
+    )
+    club_zone_four_deceleration_events: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneFourDecelerationEvents"
+    )
+    club_zone_high_intensity_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneHighIntensityDistanceM"
+    )
+    club_zone_high_intensity_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneHighIntensityDurationS"
+    )
     club_zone_high_intensity_events: "TrainingSessionAthleteMetricSetGraphQLField" = (
         TrainingSessionAthleteMetricSetGraphQLField("clubZoneHighIntensityEvents")
     )
-    club_zone_high_speed_running_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneHighSpeedRunningDistanceM")
-    club_zone_high_speed_running_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneHighSpeedRunningDurationS")
-    club_zone_high_speed_running_events: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneHighSpeedRunningEvents")
+    club_zone_high_speed_running_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneHighSpeedRunningDistanceM"
+    )
+    club_zone_high_speed_running_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneHighSpeedRunningDurationS"
+    )
+    club_zone_high_speed_running_events: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneHighSpeedRunningEvents"
+    )
     club_zone_jogging_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = (
         TrainingSessionAthleteMetricSetGraphQLField("clubZoneJoggingDistanceM")
     )
@@ -15483,39 +14621,39 @@ class TrainingSessionAthleteMetricSetFields(GraphQLField):
     club_zone_jogging_events: "TrainingSessionAthleteMetricSetGraphQLField" = (
         TrainingSessionAthleteMetricSetGraphQLField("clubZoneJoggingEvents")
     )
-    club_zone_low_intensity_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneLowIntensityDistanceM")
-    club_zone_low_intensity_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneLowIntensityDurationS")
+    club_zone_low_intensity_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneLowIntensityDistanceM"
+    )
+    club_zone_low_intensity_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneLowIntensityDurationS"
+    )
     club_zone_low_intensity_events: "TrainingSessionAthleteMetricSetGraphQLField" = (
         TrainingSessionAthleteMetricSetGraphQLField("clubZoneLowIntensityEvents")
     )
-    club_zone_medium_intensity_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneMediumIntensityDistanceM")
-    club_zone_medium_intensity_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneMediumIntensityDurationS")
+    club_zone_medium_intensity_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneMediumIntensityDistanceM"
+    )
+    club_zone_medium_intensity_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneMediumIntensityDurationS"
+    )
     club_zone_medium_intensity_events: "TrainingSessionAthleteMetricSetGraphQLField" = (
         TrainingSessionAthleteMetricSetGraphQLField("clubZoneMediumIntensityEvents")
     )
-    club_zone_one_acceleration_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneOneAccelerationDistanceM")
-    club_zone_one_acceleration_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneOneAccelerationDurationS")
+    club_zone_one_acceleration_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneOneAccelerationDistanceM"
+    )
+    club_zone_one_acceleration_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneOneAccelerationDurationS"
+    )
     club_zone_one_acceleration_events: "TrainingSessionAthleteMetricSetGraphQLField" = (
         TrainingSessionAthleteMetricSetGraphQLField("clubZoneOneAccelerationEvents")
     )
-    club_zone_one_deceleration_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneOneDecelerationDistanceM")
-    club_zone_one_deceleration_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneOneDecelerationDurationS")
+    club_zone_one_deceleration_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneOneDecelerationDistanceM"
+    )
+    club_zone_one_deceleration_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneOneDecelerationDurationS"
+    )
     club_zone_one_deceleration_events: "TrainingSessionAthleteMetricSetGraphQLField" = (
         TrainingSessionAthleteMetricSetGraphQLField("clubZoneOneDecelerationEvents")
     )
@@ -15528,47 +14666,39 @@ class TrainingSessionAthleteMetricSetFields(GraphQLField):
     club_zone_sprint_events: "TrainingSessionAthleteMetricSetGraphQLField" = (
         TrainingSessionAthleteMetricSetGraphQLField("clubZoneSprintEvents")
     )
-    club_zone_three_acceleration_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    club_zone_three_acceleration_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "clubZoneThreeAccelerationDistanceM"
     )
-    club_zone_three_acceleration_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    club_zone_three_acceleration_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "clubZoneThreeAccelerationDurationS"
     )
-    club_zone_three_acceleration_events: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneThreeAccelerationEvents")
-    club_zone_three_deceleration_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    club_zone_three_acceleration_events: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneThreeAccelerationEvents"
+    )
+    club_zone_three_deceleration_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "clubZoneThreeDecelerationDistanceM"
     )
-    club_zone_three_deceleration_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    club_zone_three_deceleration_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "clubZoneThreeDecelerationDurationS"
     )
-    club_zone_three_deceleration_events: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneThreeDecelerationEvents")
-    club_zone_two_acceleration_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneTwoAccelerationDistanceM")
-    club_zone_two_acceleration_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneTwoAccelerationDurationS")
+    club_zone_three_deceleration_events: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneThreeDecelerationEvents"
+    )
+    club_zone_two_acceleration_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneTwoAccelerationDistanceM"
+    )
+    club_zone_two_acceleration_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneTwoAccelerationDurationS"
+    )
     club_zone_two_acceleration_events: "TrainingSessionAthleteMetricSetGraphQLField" = (
         TrainingSessionAthleteMetricSetGraphQLField("clubZoneTwoAccelerationEvents")
     )
-    club_zone_two_deceleration_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneTwoDecelerationDistanceM")
-    club_zone_two_deceleration_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("clubZoneTwoDecelerationDurationS")
+    club_zone_two_deceleration_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneTwoDecelerationDistanceM"
+    )
+    club_zone_two_deceleration_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneTwoDecelerationDurationS"
+    )
     club_zone_two_deceleration_events: "TrainingSessionAthleteMetricSetGraphQLField" = (
         TrainingSessionAthleteMetricSetGraphQLField("clubZoneTwoDecelerationEvents")
     )
@@ -15624,159 +14754,103 @@ class TrainingSessionAthleteMetricSetFields(GraphQLField):
     id: "TrainingSessionAthleteMetricSetGraphQLField" = (
         TrainingSessionAthleteMetricSetGraphQLField("id")
     )
-    individual_zone_five_acceleration_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_five_acceleration_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneFiveAccelerationDistanceM"
     )
-    individual_zone_five_acceleration_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_five_acceleration_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneFiveAccelerationDurationS"
     )
-    individual_zone_five_acceleration_events: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_five_acceleration_events: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneFiveAccelerationEvents"
     )
-    individual_zone_five_deceleration_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_five_deceleration_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneFiveDecelerationDistanceM"
     )
-    individual_zone_five_deceleration_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_five_deceleration_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneFiveDecelerationDurationS"
     )
-    individual_zone_five_deceleration_events: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_five_deceleration_events: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneFiveDecelerationEvents"
     )
-    individual_zone_four_acceleration_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_four_acceleration_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneFourAccelerationDistanceM"
     )
-    individual_zone_four_acceleration_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_four_acceleration_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneFourAccelerationDurationS"
     )
-    individual_zone_four_acceleration_events: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_four_acceleration_events: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneFourAccelerationEvents"
     )
-    individual_zone_four_deceleration_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_four_deceleration_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneFourDecelerationDistanceM"
     )
-    individual_zone_four_deceleration_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_four_deceleration_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneFourDecelerationDurationS"
     )
-    individual_zone_four_deceleration_events: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_four_deceleration_events: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneFourDecelerationEvents"
     )
-    individual_zone_high_intensity_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_high_intensity_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneHighIntensityDistanceM"
     )
-    individual_zone_high_intensity_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_high_intensity_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneHighIntensityDurationS"
     )
-    individual_zone_high_intensity_events: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("individualZoneHighIntensityEvents")
-    individual_zone_high_speed_running_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_high_intensity_events: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "individualZoneHighIntensityEvents"
+    )
+    individual_zone_high_speed_running_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneHighSpeedRunningDistanceM"
     )
-    individual_zone_high_speed_running_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_high_speed_running_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneHighSpeedRunningDurationS"
     )
-    individual_zone_high_speed_running_events: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_high_speed_running_events: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneHighSpeedRunningEvents"
     )
-    individual_zone_jogging_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("individualZoneJoggingDistanceM")
-    individual_zone_jogging_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("individualZoneJoggingDurationS")
+    individual_zone_jogging_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "individualZoneJoggingDistanceM"
+    )
+    individual_zone_jogging_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "individualZoneJoggingDurationS"
+    )
     individual_zone_jogging_events: "TrainingSessionAthleteMetricSetGraphQLField" = (
         TrainingSessionAthleteMetricSetGraphQLField("individualZoneJoggingEvents")
     )
-    individual_zone_low_intensity_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_low_intensity_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneLowIntensityDistanceM"
     )
-    individual_zone_low_intensity_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_low_intensity_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneLowIntensityDurationS"
     )
-    individual_zone_low_intensity_events: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("individualZoneLowIntensityEvents")
-    individual_zone_medium_intensity_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_low_intensity_events: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "individualZoneLowIntensityEvents"
+    )
+    individual_zone_medium_intensity_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneMediumIntensityDistanceM"
     )
-    individual_zone_medium_intensity_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_medium_intensity_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneMediumIntensityDurationS"
     )
-    individual_zone_medium_intensity_events: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_medium_intensity_events: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneMediumIntensityEvents"
     )
-    individual_zone_one_acceleration_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_one_acceleration_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneOneAccelerationDistanceM"
     )
-    individual_zone_one_acceleration_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_one_acceleration_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneOneAccelerationDurationS"
     )
-    individual_zone_one_acceleration_events: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_one_acceleration_events: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneOneAccelerationEvents"
     )
-    individual_zone_one_deceleration_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_one_deceleration_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneOneDecelerationDistanceM"
     )
-    individual_zone_one_deceleration_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_one_deceleration_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneOneDecelerationDurationS"
     )
-    individual_zone_one_deceleration_events: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_one_deceleration_events: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneOneDecelerationEvents"
     )
     individual_zone_sprint_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = (
@@ -15788,64 +14862,40 @@ class TrainingSessionAthleteMetricSetFields(GraphQLField):
     individual_zone_sprint_events: "TrainingSessionAthleteMetricSetGraphQLField" = (
         TrainingSessionAthleteMetricSetGraphQLField("individualZoneSprintEvents")
     )
-    individual_zone_three_acceleration_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_three_acceleration_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneThreeAccelerationDistanceM"
     )
-    individual_zone_three_acceleration_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_three_acceleration_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneThreeAccelerationDurationS"
     )
-    individual_zone_three_acceleration_events: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_three_acceleration_events: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneThreeAccelerationEvents"
     )
-    individual_zone_three_deceleration_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_three_deceleration_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneThreeDecelerationDistanceM"
     )
-    individual_zone_three_deceleration_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_three_deceleration_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneThreeDecelerationDurationS"
     )
-    individual_zone_three_deceleration_events: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_three_deceleration_events: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneThreeDecelerationEvents"
     )
-    individual_zone_two_acceleration_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_two_acceleration_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneTwoAccelerationDistanceM"
     )
-    individual_zone_two_acceleration_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_two_acceleration_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneTwoAccelerationDurationS"
     )
-    individual_zone_two_acceleration_events: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_two_acceleration_events: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneTwoAccelerationEvents"
     )
-    individual_zone_two_deceleration_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_two_deceleration_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneTwoDecelerationDistanceM"
     )
-    individual_zone_two_deceleration_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_two_deceleration_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneTwoDecelerationDurationS"
     )
-    individual_zone_two_deceleration_events: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField(
+    individual_zone_two_deceleration_events: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "individualZoneTwoDecelerationEvents"
     )
     left_dive_events: "TrainingSessionAthleteMetricSetGraphQLField" = (
@@ -15881,18 +14931,18 @@ class TrainingSessionAthleteMetricSetFields(GraphQLField):
     metres_per_minute: "TrainingSessionAthleteMetricSetGraphQLField" = (
         TrainingSessionAthleteMetricSetGraphQLField("metresPerMinute")
     )
-    ninety_percent_of_max_speed_distance_m: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("ninetyPercentOfMaxSpeedDistanceM")
-    ninety_percent_of_max_speed_duration_s: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("ninetyPercentOfMaxSpeedDurationS")
-    ninety_percent_of_max_speed_events: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("ninetyPercentOfMaxSpeedEvents")
-    ninety_percent_of_raw_max_speed_events: (
-        "TrainingSessionAthleteMetricSetGraphQLField"
-    ) = TrainingSessionAthleteMetricSetGraphQLField("ninetyPercentOfRawMaxSpeedEvents")
+    ninety_percent_of_max_speed_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "ninetyPercentOfMaxSpeedDistanceM"
+    )
+    ninety_percent_of_max_speed_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "ninetyPercentOfMaxSpeedDurationS"
+    )
+    ninety_percent_of_max_speed_events: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "ninetyPercentOfMaxSpeedEvents"
+    )
+    ninety_percent_of_raw_max_speed_events: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "ninetyPercentOfRawMaxSpeedEvents"
+    )
     pass_events: "TrainingSessionAthleteMetricSetGraphQLField" = (
         TrainingSessionAthleteMetricSetGraphQLField("passEvents")
     )
@@ -16034,44 +15084,42 @@ class TrainingSessionMetricSetFields(GraphQLField):
     avg_acceleration_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("avgAccelerationEvents")
     )
-    avg_acceleration_load_per_contributing_minutes: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    avg_acceleration_load_per_contributing_minutes: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "avgAccelerationLoadPerContributingMinutes"
     )
-    avg_club_zone_five_acceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgClubZoneFiveAccelerationDistanceM")
-    avg_club_zone_five_acceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgClubZoneFiveAccelerationDurationS")
+    avg_club_zone_five_acceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneFiveAccelerationDistanceM"
+    )
+    avg_club_zone_five_acceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneFiveAccelerationDurationS"
+    )
     avg_club_zone_five_acceleration_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("avgClubZoneFiveAccelerationEvents")
     )
-    avg_club_zone_five_deceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgClubZoneFiveDecelerationDistanceM")
-    avg_club_zone_five_deceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgClubZoneFiveDecelerationDurationS")
+    avg_club_zone_five_deceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneFiveDecelerationDistanceM"
+    )
+    avg_club_zone_five_deceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneFiveDecelerationDurationS"
+    )
     avg_club_zone_five_deceleration_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("avgClubZoneFiveDecelerationEvents")
     )
-    avg_club_zone_four_acceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgClubZoneFourAccelerationDistanceM")
-    avg_club_zone_four_acceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgClubZoneFourAccelerationDurationS")
+    avg_club_zone_four_acceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneFourAccelerationDistanceM"
+    )
+    avg_club_zone_four_acceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneFourAccelerationDurationS"
+    )
     avg_club_zone_four_acceleration_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("avgClubZoneFourAccelerationEvents")
     )
-    avg_club_zone_four_deceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgClubZoneFourDecelerationDistanceM")
-    avg_club_zone_four_deceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgClubZoneFourDecelerationDurationS")
+    avg_club_zone_four_deceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneFourDecelerationDistanceM"
+    )
+    avg_club_zone_four_deceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneFourDecelerationDurationS"
+    )
     avg_club_zone_four_deceleration_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("avgClubZoneFourDecelerationEvents")
     )
@@ -16084,12 +15132,12 @@ class TrainingSessionMetricSetFields(GraphQLField):
     avg_club_zone_high_intensity_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("avgClubZoneHighIntensityEvents")
     )
-    avg_club_zone_high_speed_running_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgClubZoneHighSpeedRunningDistanceM")
-    avg_club_zone_high_speed_running_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgClubZoneHighSpeedRunningDurationS")
+    avg_club_zone_high_speed_running_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneHighSpeedRunningDistanceM"
+    )
+    avg_club_zone_high_speed_running_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneHighSpeedRunningDurationS"
+    )
     avg_club_zone_high_speed_running_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("avgClubZoneHighSpeedRunningEvents")
     )
@@ -16111,30 +15159,30 @@ class TrainingSessionMetricSetFields(GraphQLField):
     avg_club_zone_low_intensity_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("avgClubZoneLowIntensityEvents")
     )
-    avg_club_zone_medium_intensity_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgClubZoneMediumIntensityDistanceM")
-    avg_club_zone_medium_intensity_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgClubZoneMediumIntensityDurationS")
+    avg_club_zone_medium_intensity_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneMediumIntensityDistanceM"
+    )
+    avg_club_zone_medium_intensity_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneMediumIntensityDurationS"
+    )
     avg_club_zone_medium_intensity_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("avgClubZoneMediumIntensityEvents")
     )
-    avg_club_zone_one_acceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgClubZoneOneAccelerationDistanceM")
-    avg_club_zone_one_acceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgClubZoneOneAccelerationDurationS")
+    avg_club_zone_one_acceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneOneAccelerationDistanceM"
+    )
+    avg_club_zone_one_acceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneOneAccelerationDurationS"
+    )
     avg_club_zone_one_acceleration_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("avgClubZoneOneAccelerationEvents")
     )
-    avg_club_zone_one_deceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgClubZoneOneDecelerationDistanceM")
-    avg_club_zone_one_deceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgClubZoneOneDecelerationDurationS")
+    avg_club_zone_one_deceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneOneDecelerationDistanceM"
+    )
+    avg_club_zone_one_deceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneOneDecelerationDurationS"
+    )
     avg_club_zone_one_deceleration_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("avgClubZoneOneDecelerationEvents")
     )
@@ -16147,39 +15195,39 @@ class TrainingSessionMetricSetFields(GraphQLField):
     avg_club_zone_sprint_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("avgClubZoneSprintEvents")
     )
-    avg_club_zone_three_acceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgClubZoneThreeAccelerationDistanceM")
-    avg_club_zone_three_acceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgClubZoneThreeAccelerationDurationS")
+    avg_club_zone_three_acceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneThreeAccelerationDistanceM"
+    )
+    avg_club_zone_three_acceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneThreeAccelerationDurationS"
+    )
     avg_club_zone_three_acceleration_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("avgClubZoneThreeAccelerationEvents")
     )
-    avg_club_zone_three_deceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgClubZoneThreeDecelerationDistanceM")
-    avg_club_zone_three_deceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgClubZoneThreeDecelerationDurationS")
+    avg_club_zone_three_deceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneThreeDecelerationDistanceM"
+    )
+    avg_club_zone_three_deceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneThreeDecelerationDurationS"
+    )
     avg_club_zone_three_deceleration_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("avgClubZoneThreeDecelerationEvents")
     )
-    avg_club_zone_two_acceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgClubZoneTwoAccelerationDistanceM")
-    avg_club_zone_two_acceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgClubZoneTwoAccelerationDurationS")
+    avg_club_zone_two_acceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneTwoAccelerationDistanceM"
+    )
+    avg_club_zone_two_acceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneTwoAccelerationDurationS"
+    )
     avg_club_zone_two_acceleration_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("avgClubZoneTwoAccelerationEvents")
     )
-    avg_club_zone_two_deceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgClubZoneTwoDecelerationDistanceM")
-    avg_club_zone_two_deceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgClubZoneTwoDecelerationDurationS")
+    avg_club_zone_two_deceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneTwoDecelerationDistanceM"
+    )
+    avg_club_zone_two_deceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneTwoDecelerationDurationS"
+    )
     avg_club_zone_two_deceleration_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("avgClubZoneTwoDecelerationEvents")
     )
@@ -16241,80 +15289,60 @@ class TrainingSessionMetricSetFields(GraphQLField):
     avg_high_speed_run_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("avgHighSpeedRunEvents")
     )
-    avg_individual_zone_five_acceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    avg_individual_zone_five_acceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "avgIndividualZoneFiveAccelerationDistanceM"
     )
-    avg_individual_zone_five_acceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    avg_individual_zone_five_acceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "avgIndividualZoneFiveAccelerationDurationS"
     )
-    avg_individual_zone_five_acceleration_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgIndividualZoneFiveAccelerationEvents")
-    avg_individual_zone_five_deceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    avg_individual_zone_five_acceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgIndividualZoneFiveAccelerationEvents"
+    )
+    avg_individual_zone_five_deceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "avgIndividualZoneFiveDecelerationDistanceM"
     )
-    avg_individual_zone_five_deceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    avg_individual_zone_five_deceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "avgIndividualZoneFiveDecelerationDurationS"
     )
-    avg_individual_zone_five_deceleration_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgIndividualZoneFiveDecelerationEvents")
-    avg_individual_zone_four_acceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    avg_individual_zone_five_deceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgIndividualZoneFiveDecelerationEvents"
+    )
+    avg_individual_zone_four_acceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "avgIndividualZoneFourAccelerationDistanceM"
     )
-    avg_individual_zone_four_acceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    avg_individual_zone_four_acceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "avgIndividualZoneFourAccelerationDurationS"
     )
-    avg_individual_zone_four_acceleration_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgIndividualZoneFourAccelerationEvents")
-    avg_individual_zone_four_deceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    avg_individual_zone_four_acceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgIndividualZoneFourAccelerationEvents"
+    )
+    avg_individual_zone_four_deceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "avgIndividualZoneFourDecelerationDistanceM"
     )
-    avg_individual_zone_four_deceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    avg_individual_zone_four_deceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "avgIndividualZoneFourDecelerationDurationS"
     )
-    avg_individual_zone_four_deceleration_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgIndividualZoneFourDecelerationEvents")
-    avg_individual_zone_high_intensity_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgIndividualZoneHighIntensityDistanceM")
-    avg_individual_zone_high_intensity_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgIndividualZoneHighIntensityDurationS")
-    avg_individual_zone_high_intensity_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgIndividualZoneHighIntensityEvents")
-    avg_individual_zone_high_speed_running_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    avg_individual_zone_four_deceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgIndividualZoneFourDecelerationEvents"
+    )
+    avg_individual_zone_high_intensity_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgIndividualZoneHighIntensityDistanceM"
+    )
+    avg_individual_zone_high_intensity_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgIndividualZoneHighIntensityDurationS"
+    )
+    avg_individual_zone_high_intensity_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgIndividualZoneHighIntensityEvents"
+    )
+    avg_individual_zone_high_speed_running_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "avgIndividualZoneHighSpeedRunningDistanceM"
     )
-    avg_individual_zone_high_speed_running_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    avg_individual_zone_high_speed_running_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "avgIndividualZoneHighSpeedRunningDurationS"
     )
-    avg_individual_zone_high_speed_running_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgIndividualZoneHighSpeedRunningEvents")
+    avg_individual_zone_high_speed_running_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgIndividualZoneHighSpeedRunningEvents"
+    )
     avg_individual_zone_jogging_distance_m: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("avgIndividualZoneJoggingDistanceM")
     )
@@ -16324,54 +15352,42 @@ class TrainingSessionMetricSetFields(GraphQLField):
     avg_individual_zone_jogging_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("avgIndividualZoneJoggingEvents")
     )
-    avg_individual_zone_low_intensity_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgIndividualZoneLowIntensityDistanceM")
-    avg_individual_zone_low_intensity_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgIndividualZoneLowIntensityDurationS")
+    avg_individual_zone_low_intensity_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgIndividualZoneLowIntensityDistanceM"
+    )
+    avg_individual_zone_low_intensity_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgIndividualZoneLowIntensityDurationS"
+    )
     avg_individual_zone_low_intensity_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("avgIndividualZoneLowIntensityEvents")
     )
-    avg_individual_zone_medium_intensity_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    avg_individual_zone_medium_intensity_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "avgIndividualZoneMediumIntensityDistanceM"
     )
-    avg_individual_zone_medium_intensity_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    avg_individual_zone_medium_intensity_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "avgIndividualZoneMediumIntensityDurationS"
     )
-    avg_individual_zone_medium_intensity_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgIndividualZoneMediumIntensityEvents")
-    avg_individual_zone_one_acceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    avg_individual_zone_medium_intensity_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgIndividualZoneMediumIntensityEvents"
+    )
+    avg_individual_zone_one_acceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "avgIndividualZoneOneAccelerationDistanceM"
     )
-    avg_individual_zone_one_acceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    avg_individual_zone_one_acceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "avgIndividualZoneOneAccelerationDurationS"
     )
-    avg_individual_zone_one_acceleration_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgIndividualZoneOneAccelerationEvents")
-    avg_individual_zone_one_deceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    avg_individual_zone_one_acceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgIndividualZoneOneAccelerationEvents"
+    )
+    avg_individual_zone_one_deceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "avgIndividualZoneOneDecelerationDistanceM"
     )
-    avg_individual_zone_one_deceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    avg_individual_zone_one_deceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "avgIndividualZoneOneDecelerationDurationS"
     )
-    avg_individual_zone_one_deceleration_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgIndividualZoneOneDecelerationEvents")
+    avg_individual_zone_one_deceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgIndividualZoneOneDecelerationEvents"
+    )
     avg_individual_zone_sprint_distance_m: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("avgIndividualZoneSprintDistanceM")
     )
@@ -16381,58 +15397,42 @@ class TrainingSessionMetricSetFields(GraphQLField):
     avg_individual_zone_sprint_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("avgIndividualZoneSprintEvents")
     )
-    avg_individual_zone_three_acceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    avg_individual_zone_three_acceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "avgIndividualZoneThreeAccelerationDistanceM"
     )
-    avg_individual_zone_three_acceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    avg_individual_zone_three_acceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "avgIndividualZoneThreeAccelerationDurationS"
     )
-    avg_individual_zone_three_acceleration_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgIndividualZoneThreeAccelerationEvents")
-    avg_individual_zone_three_deceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    avg_individual_zone_three_acceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgIndividualZoneThreeAccelerationEvents"
+    )
+    avg_individual_zone_three_deceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "avgIndividualZoneThreeDecelerationDistanceM"
     )
-    avg_individual_zone_three_deceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    avg_individual_zone_three_deceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "avgIndividualZoneThreeDecelerationDurationS"
     )
-    avg_individual_zone_three_deceleration_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgIndividualZoneThreeDecelerationEvents")
-    avg_individual_zone_two_acceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    avg_individual_zone_three_deceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgIndividualZoneThreeDecelerationEvents"
+    )
+    avg_individual_zone_two_acceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "avgIndividualZoneTwoAccelerationDistanceM"
     )
-    avg_individual_zone_two_acceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    avg_individual_zone_two_acceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "avgIndividualZoneTwoAccelerationDurationS"
     )
-    avg_individual_zone_two_acceleration_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgIndividualZoneTwoAccelerationEvents")
-    avg_individual_zone_two_deceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    avg_individual_zone_two_acceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgIndividualZoneTwoAccelerationEvents"
+    )
+    avg_individual_zone_two_deceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "avgIndividualZoneTwoDecelerationDistanceM"
     )
-    avg_individual_zone_two_deceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    avg_individual_zone_two_deceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "avgIndividualZoneTwoDecelerationDurationS"
     )
-    avg_individual_zone_two_deceleration_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgIndividualZoneTwoDecelerationEvents")
+    avg_individual_zone_two_deceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgIndividualZoneTwoDecelerationEvents"
+    )
     avg_left_dive_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("avgLeftDiveEvents")
     )
@@ -16463,18 +15463,18 @@ class TrainingSessionMetricSetFields(GraphQLField):
     avg_metres_per_minute: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("avgMetresPerMinute")
     )
-    avg_ninety_percent_of_max_speed_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgNinetyPercentOfMaxSpeedDistanceM")
-    avg_ninety_percent_of_max_speed_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgNinetyPercentOfMaxSpeedDurationS")
+    avg_ninety_percent_of_max_speed_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgNinetyPercentOfMaxSpeedDistanceM"
+    )
+    avg_ninety_percent_of_max_speed_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgNinetyPercentOfMaxSpeedDurationS"
+    )
     avg_ninety_percent_of_max_speed_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("avgNinetyPercentOfMaxSpeedEvents")
     )
-    avg_ninety_percent_of_raw_max_speed_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("avgNinetyPercentOfRawMaxSpeedEvents")
+    avg_ninety_percent_of_raw_max_speed_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgNinetyPercentOfRawMaxSpeedEvents"
+    )
     avg_pass_distance_m: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("avgPassDistanceM")
     )
@@ -16580,60 +15580,60 @@ class TrainingSessionMetricSetFields(GraphQLField):
     total_acceleration_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("totalAccelerationEvents")
     )
-    total_club_zone_five_acceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneFiveAccelerationDistanceM")
-    total_club_zone_five_acceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneFiveAccelerationDurationS")
+    total_club_zone_five_acceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneFiveAccelerationDistanceM"
+    )
+    total_club_zone_five_acceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneFiveAccelerationDurationS"
+    )
     total_club_zone_five_acceleration_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("totalClubZoneFiveAccelerationEvents")
     )
-    total_club_zone_five_deceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneFiveDecelerationDistanceM")
-    total_club_zone_five_deceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneFiveDecelerationDurationS")
+    total_club_zone_five_deceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneFiveDecelerationDistanceM"
+    )
+    total_club_zone_five_deceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneFiveDecelerationDurationS"
+    )
     total_club_zone_five_deceleration_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("totalClubZoneFiveDecelerationEvents")
     )
-    total_club_zone_four_acceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneFourAccelerationDistanceM")
-    total_club_zone_four_acceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneFourAccelerationDurationS")
+    total_club_zone_four_acceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneFourAccelerationDistanceM"
+    )
+    total_club_zone_four_acceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneFourAccelerationDurationS"
+    )
     total_club_zone_four_acceleration_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("totalClubZoneFourAccelerationEvents")
     )
-    total_club_zone_four_deceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneFourDecelerationDistanceM")
-    total_club_zone_four_deceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneFourDecelerationDurationS")
+    total_club_zone_four_deceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneFourDecelerationDistanceM"
+    )
+    total_club_zone_four_deceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneFourDecelerationDurationS"
+    )
     total_club_zone_four_deceleration_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("totalClubZoneFourDecelerationEvents")
     )
-    total_club_zone_high_intensity_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneHighIntensityDistanceM")
-    total_club_zone_high_intensity_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneHighIntensityDurationS")
+    total_club_zone_high_intensity_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneHighIntensityDistanceM"
+    )
+    total_club_zone_high_intensity_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneHighIntensityDurationS"
+    )
     total_club_zone_high_intensity_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("totalClubZoneHighIntensityEvents")
     )
-    total_club_zone_high_speed_running_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneHighSpeedRunningDistanceM")
-    total_club_zone_high_speed_running_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneHighSpeedRunningDurationS")
-    total_club_zone_high_speed_running_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneHighSpeedRunningEvents")
+    total_club_zone_high_speed_running_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneHighSpeedRunningDistanceM"
+    )
+    total_club_zone_high_speed_running_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneHighSpeedRunningDurationS"
+    )
+    total_club_zone_high_speed_running_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneHighSpeedRunningEvents"
+    )
     total_club_zone_jogging_distance_m: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("totalClubZoneJoggingDistanceM")
     )
@@ -16652,30 +15652,30 @@ class TrainingSessionMetricSetFields(GraphQLField):
     total_club_zone_low_intensity_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("totalClubZoneLowIntensityEvents")
     )
-    total_club_zone_medium_intensity_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneMediumIntensityDistanceM")
-    total_club_zone_medium_intensity_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneMediumIntensityDurationS")
+    total_club_zone_medium_intensity_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneMediumIntensityDistanceM"
+    )
+    total_club_zone_medium_intensity_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneMediumIntensityDurationS"
+    )
     total_club_zone_medium_intensity_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("totalClubZoneMediumIntensityEvents")
     )
-    total_club_zone_one_acceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneOneAccelerationDistanceM")
-    total_club_zone_one_acceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneOneAccelerationDurationS")
+    total_club_zone_one_acceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneOneAccelerationDistanceM"
+    )
+    total_club_zone_one_acceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneOneAccelerationDurationS"
+    )
     total_club_zone_one_acceleration_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("totalClubZoneOneAccelerationEvents")
     )
-    total_club_zone_one_deceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneOneDecelerationDistanceM")
-    total_club_zone_one_deceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneOneDecelerationDurationS")
+    total_club_zone_one_deceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneOneDecelerationDistanceM"
+    )
+    total_club_zone_one_deceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneOneDecelerationDurationS"
+    )
     total_club_zone_one_deceleration_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("totalClubZoneOneDecelerationEvents")
     )
@@ -16688,39 +15688,39 @@ class TrainingSessionMetricSetFields(GraphQLField):
     total_club_zone_sprint_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("totalClubZoneSprintEvents")
     )
-    total_club_zone_three_acceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneThreeAccelerationDistanceM")
-    total_club_zone_three_acceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneThreeAccelerationDurationS")
-    total_club_zone_three_acceleration_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneThreeAccelerationEvents")
-    total_club_zone_three_deceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneThreeDecelerationDistanceM")
-    total_club_zone_three_deceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneThreeDecelerationDurationS")
-    total_club_zone_three_deceleration_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneThreeDecelerationEvents")
-    total_club_zone_two_acceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneTwoAccelerationDistanceM")
-    total_club_zone_two_acceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneTwoAccelerationDurationS")
+    total_club_zone_three_acceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneThreeAccelerationDistanceM"
+    )
+    total_club_zone_three_acceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneThreeAccelerationDurationS"
+    )
+    total_club_zone_three_acceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneThreeAccelerationEvents"
+    )
+    total_club_zone_three_deceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneThreeDecelerationDistanceM"
+    )
+    total_club_zone_three_deceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneThreeDecelerationDurationS"
+    )
+    total_club_zone_three_deceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneThreeDecelerationEvents"
+    )
+    total_club_zone_two_acceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneTwoAccelerationDistanceM"
+    )
+    total_club_zone_two_acceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneTwoAccelerationDurationS"
+    )
     total_club_zone_two_acceleration_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("totalClubZoneTwoAccelerationEvents")
     )
-    total_club_zone_two_deceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneTwoDecelerationDistanceM")
-    total_club_zone_two_deceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalClubZoneTwoDecelerationDurationS")
+    total_club_zone_two_deceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneTwoDecelerationDistanceM"
+    )
+    total_club_zone_two_deceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneTwoDecelerationDurationS"
+    )
     total_club_zone_two_deceleration_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("totalClubZoneTwoDecelerationEvents")
     )
@@ -16754,92 +15754,58 @@ class TrainingSessionMetricSetFields(GraphQLField):
     total_high_speed_run_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("totalHighSpeedRunEvents")
     )
-    total_individual_zone_five_acceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_five_acceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneFiveAccelerationDistanceM"
     )
-    total_individual_zone_five_acceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_five_acceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneFiveAccelerationDurationS"
     )
-    total_individual_zone_five_acceleration_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_five_acceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneFiveAccelerationEvents"
     )
-    total_individual_zone_five_deceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_five_deceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneFiveDecelerationDistanceM"
     )
-    total_individual_zone_five_deceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_five_deceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneFiveDecelerationDurationS"
     )
-    total_individual_zone_five_deceleration_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_five_deceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneFiveDecelerationEvents"
     )
-    total_individual_zone_four_acceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_four_acceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneFourAccelerationDistanceM"
     )
-    total_individual_zone_four_acceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_four_acceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneFourAccelerationDurationS"
     )
-    total_individual_zone_four_acceleration_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_four_acceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneFourAccelerationEvents"
     )
-    total_individual_zone_four_deceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_four_deceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneFourDecelerationDistanceM"
     )
-    total_individual_zone_four_deceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_four_deceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneFourDecelerationDurationS"
     )
-    total_individual_zone_four_deceleration_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_four_deceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneFourDecelerationEvents"
     )
-    total_individual_zone_high_intensity_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_high_intensity_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneHighIntensityDistanceM"
     )
-    total_individual_zone_high_intensity_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_high_intensity_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneHighIntensityDurationS"
     )
-    total_individual_zone_high_intensity_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalIndividualZoneHighIntensityEvents")
-    total_individual_zone_high_speed_running_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_high_intensity_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalIndividualZoneHighIntensityEvents"
+    )
+    total_individual_zone_high_speed_running_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneHighSpeedRunningDistanceM"
     )
-    total_individual_zone_high_speed_running_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_high_speed_running_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneHighSpeedRunningDurationS"
     )
-    total_individual_zone_high_speed_running_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_high_speed_running_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneHighSpeedRunningEvents"
     )
     total_individual_zone_jogging_distance_m: "TrainingSessionMetricSetGraphQLField" = (
@@ -16851,54 +15817,42 @@ class TrainingSessionMetricSetFields(GraphQLField):
     total_individual_zone_jogging_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("totalIndividualZoneJoggingEvents")
     )
-    total_individual_zone_low_intensity_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalIndividualZoneLowIntensityDistanceM")
-    total_individual_zone_low_intensity_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalIndividualZoneLowIntensityDurationS")
-    total_individual_zone_low_intensity_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalIndividualZoneLowIntensityEvents")
-    total_individual_zone_medium_intensity_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_low_intensity_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalIndividualZoneLowIntensityDistanceM"
+    )
+    total_individual_zone_low_intensity_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalIndividualZoneLowIntensityDurationS"
+    )
+    total_individual_zone_low_intensity_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalIndividualZoneLowIntensityEvents"
+    )
+    total_individual_zone_medium_intensity_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneMediumIntensityDistanceM"
     )
-    total_individual_zone_medium_intensity_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_medium_intensity_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneMediumIntensityDurationS"
     )
-    total_individual_zone_medium_intensity_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalIndividualZoneMediumIntensityEvents")
-    total_individual_zone_one_acceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_medium_intensity_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalIndividualZoneMediumIntensityEvents"
+    )
+    total_individual_zone_one_acceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneOneAccelerationDistanceM"
     )
-    total_individual_zone_one_acceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_one_acceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneOneAccelerationDurationS"
     )
-    total_individual_zone_one_acceleration_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalIndividualZoneOneAccelerationEvents")
-    total_individual_zone_one_deceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_one_acceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalIndividualZoneOneAccelerationEvents"
+    )
+    total_individual_zone_one_deceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneOneDecelerationDistanceM"
     )
-    total_individual_zone_one_deceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_one_deceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneOneDecelerationDurationS"
     )
-    total_individual_zone_one_deceleration_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalIndividualZoneOneDecelerationEvents")
+    total_individual_zone_one_deceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalIndividualZoneOneDecelerationEvents"
+    )
     total_individual_zone_sprint_distance_m: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("totalIndividualZoneSprintDistanceM")
     )
@@ -16908,62 +15862,42 @@ class TrainingSessionMetricSetFields(GraphQLField):
     total_individual_zone_sprint_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("totalIndividualZoneSprintEvents")
     )
-    total_individual_zone_three_acceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_three_acceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneThreeAccelerationDistanceM"
     )
-    total_individual_zone_three_acceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_three_acceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneThreeAccelerationDurationS"
     )
-    total_individual_zone_three_acceleration_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_three_acceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneThreeAccelerationEvents"
     )
-    total_individual_zone_three_deceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_three_deceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneThreeDecelerationDistanceM"
     )
-    total_individual_zone_three_deceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_three_deceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneThreeDecelerationDurationS"
     )
-    total_individual_zone_three_deceleration_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_three_deceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneThreeDecelerationEvents"
     )
-    total_individual_zone_two_acceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_two_acceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneTwoAccelerationDistanceM"
     )
-    total_individual_zone_two_acceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_two_acceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneTwoAccelerationDurationS"
     )
-    total_individual_zone_two_acceleration_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalIndividualZoneTwoAccelerationEvents")
-    total_individual_zone_two_deceleration_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_two_acceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalIndividualZoneTwoAccelerationEvents"
+    )
+    total_individual_zone_two_deceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneTwoDecelerationDistanceM"
     )
-    total_individual_zone_two_deceleration_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField(
+    total_individual_zone_two_deceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalIndividualZoneTwoDecelerationDurationS"
     )
-    total_individual_zone_two_deceleration_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalIndividualZoneTwoDecelerationEvents")
+    total_individual_zone_two_deceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalIndividualZoneTwoDecelerationEvents"
+    )
     total_left_dive_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("totalLeftDiveEvents")
     )
@@ -16988,18 +15922,18 @@ class TrainingSessionMetricSetFields(GraphQLField):
     total_medium_pass_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("totalMediumPassEvents")
     )
-    total_ninety_percent_of_max_speed_distance_m: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalNinetyPercentOfMaxSpeedDistanceM")
-    total_ninety_percent_of_max_speed_duration_s: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalNinetyPercentOfMaxSpeedDurationS")
+    total_ninety_percent_of_max_speed_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalNinetyPercentOfMaxSpeedDistanceM"
+    )
+    total_ninety_percent_of_max_speed_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalNinetyPercentOfMaxSpeedDurationS"
+    )
     total_ninety_percent_of_max_speed_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("totalNinetyPercentOfMaxSpeedEvents")
     )
-    total_ninety_percent_of_raw_max_speed_events: (
-        "TrainingSessionMetricSetGraphQLField"
-    ) = TrainingSessionMetricSetGraphQLField("totalNinetyPercentOfRawMaxSpeedEvents")
+    total_ninety_percent_of_raw_max_speed_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalNinetyPercentOfRawMaxSpeedEvents"
+    )
     total_pass_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("totalPassEvents")
     )
@@ -17161,9 +16095,7 @@ class TrainingSessionSegmentAthleteMetricSetFields(GraphQLField):
     acceleration_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = (
         TrainingSessionSegmentAthleteMetricSetGraphQLField("accelerationEvents")
     )
-    acceleration_load_per_contributing_minutes: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    acceleration_load_per_contributing_minutes: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "accelerationLoadPerContributingMinutes"
     )
     avg_heartrate_bpm: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = (
@@ -17188,230 +16120,148 @@ class TrainingSessionSegmentAthleteMetricSetFields(GraphQLField):
     def avg_speed_kph_over_time(cls) -> "TimeSeriesDataFields":
         return TimeSeriesDataFields("avgSpeedKphOverTime")
 
-    club_zone_five_acceleration_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_five_acceleration_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneFiveAccelerationDistanceM"
     )
-    club_zone_five_acceleration_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_five_acceleration_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneFiveAccelerationDurationS"
     )
-    club_zone_five_acceleration_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_five_acceleration_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneFiveAccelerationEvents"
     )
-    club_zone_five_deceleration_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_five_deceleration_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneFiveDecelerationDistanceM"
     )
-    club_zone_five_deceleration_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_five_deceleration_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneFiveDecelerationDurationS"
     )
-    club_zone_five_deceleration_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_five_deceleration_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneFiveDecelerationEvents"
     )
-    club_zone_four_acceleration_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_four_acceleration_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneFourAccelerationDistanceM"
     )
-    club_zone_four_acceleration_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_four_acceleration_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneFourAccelerationDurationS"
     )
-    club_zone_four_acceleration_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_four_acceleration_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneFourAccelerationEvents"
     )
-    club_zone_four_deceleration_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_four_deceleration_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneFourDecelerationDistanceM"
     )
-    club_zone_four_deceleration_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_four_deceleration_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneFourDecelerationDurationS"
     )
-    club_zone_four_deceleration_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_four_deceleration_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneFourDecelerationEvents"
     )
-    club_zone_high_intensity_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_high_intensity_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneHighIntensityDistanceM"
     )
-    club_zone_high_intensity_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_high_intensity_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneHighIntensityDurationS"
     )
-    club_zone_high_intensity_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_high_intensity_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneHighIntensityEvents"
     )
-    club_zone_high_speed_running_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_high_speed_running_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneHighSpeedRunningDistanceM"
     )
-    club_zone_high_speed_running_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_high_speed_running_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneHighSpeedRunningDurationS"
     )
-    club_zone_high_speed_running_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_high_speed_running_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneHighSpeedRunningEvents"
     )
-    club_zone_jogging_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField("clubZoneJoggingDistanceM")
-    club_zone_jogging_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField("clubZoneJoggingDurationS")
+    club_zone_jogging_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+        "clubZoneJoggingDistanceM"
+    )
+    club_zone_jogging_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+        "clubZoneJoggingDurationS"
+    )
     club_zone_jogging_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = (
         TrainingSessionSegmentAthleteMetricSetGraphQLField("clubZoneJoggingEvents")
     )
-    club_zone_low_intensity_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_low_intensity_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneLowIntensityDistanceM"
     )
-    club_zone_low_intensity_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_low_intensity_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneLowIntensityDurationS"
     )
-    club_zone_low_intensity_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField("clubZoneLowIntensityEvents")
-    club_zone_medium_intensity_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_low_intensity_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+        "clubZoneLowIntensityEvents"
+    )
+    club_zone_medium_intensity_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneMediumIntensityDistanceM"
     )
-    club_zone_medium_intensity_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_medium_intensity_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneMediumIntensityDurationS"
     )
-    club_zone_medium_intensity_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_medium_intensity_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneMediumIntensityEvents"
     )
-    club_zone_one_acceleration_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_one_acceleration_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneOneAccelerationDistanceM"
     )
-    club_zone_one_acceleration_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_one_acceleration_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneOneAccelerationDurationS"
     )
-    club_zone_one_acceleration_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_one_acceleration_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneOneAccelerationEvents"
     )
-    club_zone_one_deceleration_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_one_deceleration_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneOneDecelerationDistanceM"
     )
-    club_zone_one_deceleration_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_one_deceleration_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneOneDecelerationDurationS"
     )
-    club_zone_one_deceleration_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_one_deceleration_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneOneDecelerationEvents"
     )
-    club_zone_sprint_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField("clubZoneSprintDistanceM")
-    club_zone_sprint_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField("clubZoneSprintDurationS")
+    club_zone_sprint_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+        "clubZoneSprintDistanceM"
+    )
+    club_zone_sprint_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+        "clubZoneSprintDurationS"
+    )
     club_zone_sprint_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = (
         TrainingSessionSegmentAthleteMetricSetGraphQLField("clubZoneSprintEvents")
     )
-    club_zone_three_acceleration_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_three_acceleration_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneThreeAccelerationDistanceM"
     )
-    club_zone_three_acceleration_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_three_acceleration_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneThreeAccelerationDurationS"
     )
-    club_zone_three_acceleration_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_three_acceleration_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneThreeAccelerationEvents"
     )
-    club_zone_three_deceleration_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_three_deceleration_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneThreeDecelerationDistanceM"
     )
-    club_zone_three_deceleration_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_three_deceleration_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneThreeDecelerationDurationS"
     )
-    club_zone_three_deceleration_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_three_deceleration_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneThreeDecelerationEvents"
     )
-    club_zone_two_acceleration_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_two_acceleration_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneTwoAccelerationDistanceM"
     )
-    club_zone_two_acceleration_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_two_acceleration_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneTwoAccelerationDurationS"
     )
-    club_zone_two_acceleration_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_two_acceleration_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneTwoAccelerationEvents"
     )
-    club_zone_two_deceleration_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_two_deceleration_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneTwoDecelerationDistanceM"
     )
-    club_zone_two_deceleration_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_two_deceleration_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneTwoDecelerationDurationS"
     )
-    club_zone_two_deceleration_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    club_zone_two_deceleration_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneTwoDecelerationEvents"
     )
 
@@ -17440,17 +16290,17 @@ class TrainingSessionSegmentAthleteMetricSetFields(GraphQLField):
     high_intensity_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = (
         TrainingSessionSegmentAthleteMetricSetGraphQLField("highIntensityEvents")
     )
-    high_intensity_run_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField("highIntensityRunDistanceM")
+    high_intensity_run_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+        "highIntensityRunDistanceM"
+    )
 
     @classmethod
     def high_intensity_run_distance_m_over_time(cls) -> "TimeSeriesDataFields":
         return TimeSeriesDataFields("highIntensityRunDistanceMOverTime")
 
-    high_metabolic_load_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField("highMetabolicLoadDistanceM")
+    high_metabolic_load_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+        "highMetabolicLoadDistanceM"
+    )
     high_metabolic_load_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = (
         TrainingSessionSegmentAthleteMetricSetGraphQLField("highMetabolicLoadEvents")
     )
@@ -17463,242 +16313,148 @@ class TrainingSessionSegmentAthleteMetricSetFields(GraphQLField):
     id: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = (
         TrainingSessionSegmentAthleteMetricSetGraphQLField("id")
     )
-    individual_zone_five_acceleration_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_five_acceleration_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneFiveAccelerationDistanceM"
     )
-    individual_zone_five_acceleration_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_five_acceleration_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneFiveAccelerationDurationS"
     )
-    individual_zone_five_acceleration_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_five_acceleration_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneFiveAccelerationEvents"
     )
-    individual_zone_five_deceleration_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_five_deceleration_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneFiveDecelerationDistanceM"
     )
-    individual_zone_five_deceleration_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_five_deceleration_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneFiveDecelerationDurationS"
     )
-    individual_zone_five_deceleration_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_five_deceleration_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneFiveDecelerationEvents"
     )
-    individual_zone_four_acceleration_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_four_acceleration_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneFourAccelerationDistanceM"
     )
-    individual_zone_four_acceleration_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_four_acceleration_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneFourAccelerationDurationS"
     )
-    individual_zone_four_acceleration_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_four_acceleration_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneFourAccelerationEvents"
     )
-    individual_zone_four_deceleration_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_four_deceleration_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneFourDecelerationDistanceM"
     )
-    individual_zone_four_deceleration_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_four_deceleration_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneFourDecelerationDurationS"
     )
-    individual_zone_four_deceleration_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_four_deceleration_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneFourDecelerationEvents"
     )
-    individual_zone_high_intensity_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_high_intensity_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneHighIntensityDistanceM"
     )
-    individual_zone_high_intensity_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_high_intensity_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneHighIntensityDurationS"
     )
-    individual_zone_high_intensity_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_high_intensity_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneHighIntensityEvents"
     )
-    individual_zone_high_speed_running_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_high_speed_running_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneHighSpeedRunningDistanceM"
     )
-    individual_zone_high_speed_running_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_high_speed_running_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneHighSpeedRunningDurationS"
     )
-    individual_zone_high_speed_running_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_high_speed_running_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneHighSpeedRunningEvents"
     )
-    individual_zone_jogging_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_jogging_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneJoggingDistanceM"
     )
-    individual_zone_jogging_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_jogging_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneJoggingDurationS"
     )
-    individual_zone_jogging_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_jogging_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneJoggingEvents"
     )
-    individual_zone_low_intensity_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_low_intensity_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneLowIntensityDistanceM"
     )
-    individual_zone_low_intensity_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_low_intensity_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneLowIntensityDurationS"
     )
-    individual_zone_low_intensity_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_low_intensity_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneLowIntensityEvents"
     )
-    individual_zone_medium_intensity_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_medium_intensity_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneMediumIntensityDistanceM"
     )
-    individual_zone_medium_intensity_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_medium_intensity_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneMediumIntensityDurationS"
     )
-    individual_zone_medium_intensity_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_medium_intensity_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneMediumIntensityEvents"
     )
-    individual_zone_one_acceleration_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_one_acceleration_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneOneAccelerationDistanceM"
     )
-    individual_zone_one_acceleration_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_one_acceleration_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneOneAccelerationDurationS"
     )
-    individual_zone_one_acceleration_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_one_acceleration_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneOneAccelerationEvents"
     )
-    individual_zone_one_deceleration_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_one_deceleration_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneOneDecelerationDistanceM"
     )
-    individual_zone_one_deceleration_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_one_deceleration_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneOneDecelerationDurationS"
     )
-    individual_zone_one_deceleration_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_one_deceleration_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneOneDecelerationEvents"
     )
-    individual_zone_sprint_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_sprint_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneSprintDistanceM"
     )
-    individual_zone_sprint_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_sprint_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneSprintDurationS"
     )
-    individual_zone_sprint_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField("individualZoneSprintEvents")
-    individual_zone_three_acceleration_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_sprint_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+        "individualZoneSprintEvents"
+    )
+    individual_zone_three_acceleration_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneThreeAccelerationDistanceM"
     )
-    individual_zone_three_acceleration_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_three_acceleration_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneThreeAccelerationDurationS"
     )
-    individual_zone_three_acceleration_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_three_acceleration_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneThreeAccelerationEvents"
     )
-    individual_zone_three_deceleration_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_three_deceleration_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneThreeDecelerationDistanceM"
     )
-    individual_zone_three_deceleration_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_three_deceleration_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneThreeDecelerationDurationS"
     )
-    individual_zone_three_deceleration_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_three_deceleration_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneThreeDecelerationEvents"
     )
-    individual_zone_two_acceleration_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_two_acceleration_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneTwoAccelerationDistanceM"
     )
-    individual_zone_two_acceleration_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_two_acceleration_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneTwoAccelerationDurationS"
     )
-    individual_zone_two_acceleration_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_two_acceleration_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneTwoAccelerationEvents"
     )
-    individual_zone_two_deceleration_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_two_deceleration_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneTwoDecelerationDistanceM"
     )
-    individual_zone_two_deceleration_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_two_deceleration_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneTwoDecelerationDurationS"
     )
-    individual_zone_two_deceleration_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    individual_zone_two_deceleration_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "individualZoneTwoDecelerationEvents"
     )
     left_dive_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = (
@@ -17734,24 +16490,16 @@ class TrainingSessionSegmentAthleteMetricSetFields(GraphQLField):
     metres_per_minute: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = (
         TrainingSessionSegmentAthleteMetricSetGraphQLField("metresPerMinute")
     )
-    ninety_percent_of_max_speed_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    ninety_percent_of_max_speed_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "ninetyPercentOfMaxSpeedDistanceM"
     )
-    ninety_percent_of_max_speed_duration_s: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    ninety_percent_of_max_speed_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "ninetyPercentOfMaxSpeedDurationS"
     )
-    ninety_percent_of_max_speed_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    ninety_percent_of_max_speed_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "ninetyPercentOfMaxSpeedEvents"
     )
-    ninety_percent_of_raw_max_speed_events: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    ninety_percent_of_raw_max_speed_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "ninetyPercentOfRawMaxSpeedEvents"
     )
     pass_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = (
@@ -17760,9 +16508,9 @@ class TrainingSessionSegmentAthleteMetricSetFields(GraphQLField):
     percentage_max_speed_kph: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = (
         TrainingSessionSegmentAthleteMetricSetGraphQLField("percentageMaxSpeedKph")
     )
-    percentage_raw_max_speed_kph: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField("percentageRawMaxSpeedKph")
+    percentage_raw_max_speed_kph: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+        "percentageRawMaxSpeedKph"
+    )
     processing_warnings: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = (
         TrainingSessionSegmentAthleteMetricSetGraphQLField("processingWarnings")
     )
@@ -17778,9 +16526,9 @@ class TrainingSessionSegmentAthleteMetricSetFields(GraphQLField):
     right_low_dive_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = (
         TrainingSessionSegmentAthleteMetricSetGraphQLField("rightLowDiveEvents")
     )
-    sampled_speed_kph_over_time: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField("sampledSpeedKphOverTime")
+    sampled_speed_kph_over_time: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+        "sampledSpeedKphOverTime"
+    )
     short_pass_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = (
         TrainingSessionSegmentAthleteMetricSetGraphQLField("shortPassEvents")
     )
@@ -17806,19 +16554,13 @@ class TrainingSessionSegmentAthleteMetricSetFields(GraphQLField):
     total_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = (
         TrainingSessionSegmentAthleteMetricSetGraphQLField("totalDistanceM")
     )
-    total_high_intensity_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    total_high_intensity_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "totalHighIntensityDistanceM"
     )
-    total_live_page_duration_seconds: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    total_live_page_duration_seconds: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "totalLivePageDurationSeconds"
     )
-    total_medium_intensity_distance_m: (
-        "TrainingSessionSegmentAthleteMetricSetGraphQLField"
-    ) = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+    total_medium_intensity_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "totalMediumIntensityDistanceM"
     )
     total_sprint_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = (
@@ -17865,85 +16607,63 @@ class TrainingSessionSegmentMetricSetFields(GraphQLField):
     avg_acceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = (
         TrainingSessionSegmentMetricSetGraphQLField("avgAccelerationEvents")
     )
-    avg_acceleration_load_per_contributing_minutes: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_acceleration_load_per_contributing_minutes: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgAccelerationLoadPerContributingMinutes"
     )
-    avg_club_zone_five_acceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_club_zone_five_acceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgClubZoneFiveAccelerationDistanceM"
     )
-    avg_club_zone_five_acceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_club_zone_five_acceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgClubZoneFiveAccelerationDurationS"
     )
-    avg_club_zone_five_acceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("avgClubZoneFiveAccelerationEvents")
-    avg_club_zone_five_deceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_club_zone_five_acceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneFiveAccelerationEvents"
+    )
+    avg_club_zone_five_deceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgClubZoneFiveDecelerationDistanceM"
     )
-    avg_club_zone_five_deceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_club_zone_five_deceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgClubZoneFiveDecelerationDurationS"
     )
-    avg_club_zone_five_deceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("avgClubZoneFiveDecelerationEvents")
-    avg_club_zone_four_acceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_club_zone_five_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneFiveDecelerationEvents"
+    )
+    avg_club_zone_four_acceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgClubZoneFourAccelerationDistanceM"
     )
-    avg_club_zone_four_acceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_club_zone_four_acceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgClubZoneFourAccelerationDurationS"
     )
-    avg_club_zone_four_acceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("avgClubZoneFourAccelerationEvents")
-    avg_club_zone_four_deceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_club_zone_four_acceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneFourAccelerationEvents"
+    )
+    avg_club_zone_four_deceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgClubZoneFourDecelerationDistanceM"
     )
-    avg_club_zone_four_deceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_club_zone_four_deceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgClubZoneFourDecelerationDurationS"
     )
-    avg_club_zone_four_deceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("avgClubZoneFourDecelerationEvents")
-    avg_club_zone_high_intensity_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("avgClubZoneHighIntensityDistanceM")
-    avg_club_zone_high_intensity_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("avgClubZoneHighIntensityDurationS")
-    avg_club_zone_high_intensity_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("avgClubZoneHighIntensityEvents")
-    avg_club_zone_high_speed_running_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_club_zone_four_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneFourDecelerationEvents"
+    )
+    avg_club_zone_high_intensity_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneHighIntensityDistanceM"
+    )
+    avg_club_zone_high_intensity_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneHighIntensityDurationS"
+    )
+    avg_club_zone_high_intensity_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneHighIntensityEvents"
+    )
+    avg_club_zone_high_speed_running_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgClubZoneHighSpeedRunningDistanceM"
     )
-    avg_club_zone_high_speed_running_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_club_zone_high_speed_running_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgClubZoneHighSpeedRunningDurationS"
     )
-    avg_club_zone_high_speed_running_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("avgClubZoneHighSpeedRunningEvents")
+    avg_club_zone_high_speed_running_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneHighSpeedRunningEvents"
+    )
     avg_club_zone_jogging_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = (
         TrainingSessionSegmentMetricSetGraphQLField("avgClubZoneJoggingDistanceM")
     )
@@ -17953,54 +16673,42 @@ class TrainingSessionSegmentMetricSetFields(GraphQLField):
     avg_club_zone_jogging_events: "TrainingSessionSegmentMetricSetGraphQLField" = (
         TrainingSessionSegmentMetricSetGraphQLField("avgClubZoneJoggingEvents")
     )
-    avg_club_zone_low_intensity_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("avgClubZoneLowIntensityDistanceM")
-    avg_club_zone_low_intensity_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("avgClubZoneLowIntensityDurationS")
-    avg_club_zone_low_intensity_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("avgClubZoneLowIntensityEvents")
-    avg_club_zone_medium_intensity_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_club_zone_low_intensity_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneLowIntensityDistanceM"
+    )
+    avg_club_zone_low_intensity_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneLowIntensityDurationS"
+    )
+    avg_club_zone_low_intensity_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneLowIntensityEvents"
+    )
+    avg_club_zone_medium_intensity_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgClubZoneMediumIntensityDistanceM"
     )
-    avg_club_zone_medium_intensity_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_club_zone_medium_intensity_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgClubZoneMediumIntensityDurationS"
     )
-    avg_club_zone_medium_intensity_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("avgClubZoneMediumIntensityEvents")
-    avg_club_zone_one_acceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_club_zone_medium_intensity_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneMediumIntensityEvents"
+    )
+    avg_club_zone_one_acceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgClubZoneOneAccelerationDistanceM"
     )
-    avg_club_zone_one_acceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_club_zone_one_acceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgClubZoneOneAccelerationDurationS"
     )
-    avg_club_zone_one_acceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("avgClubZoneOneAccelerationEvents")
-    avg_club_zone_one_deceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_club_zone_one_acceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneOneAccelerationEvents"
+    )
+    avg_club_zone_one_deceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgClubZoneOneDecelerationDistanceM"
     )
-    avg_club_zone_one_deceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_club_zone_one_deceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgClubZoneOneDecelerationDurationS"
     )
-    avg_club_zone_one_deceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("avgClubZoneOneDecelerationEvents")
+    avg_club_zone_one_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneOneDecelerationEvents"
+    )
     avg_club_zone_sprint_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = (
         TrainingSessionSegmentMetricSetGraphQLField("avgClubZoneSprintDistanceM")
     )
@@ -18010,62 +16718,42 @@ class TrainingSessionSegmentMetricSetFields(GraphQLField):
     avg_club_zone_sprint_events: "TrainingSessionSegmentMetricSetGraphQLField" = (
         TrainingSessionSegmentMetricSetGraphQLField("avgClubZoneSprintEvents")
     )
-    avg_club_zone_three_acceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_club_zone_three_acceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgClubZoneThreeAccelerationDistanceM"
     )
-    avg_club_zone_three_acceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_club_zone_three_acceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgClubZoneThreeAccelerationDurationS"
     )
-    avg_club_zone_three_acceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_club_zone_three_acceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgClubZoneThreeAccelerationEvents"
     )
-    avg_club_zone_three_deceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_club_zone_three_deceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgClubZoneThreeDecelerationDistanceM"
     )
-    avg_club_zone_three_deceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_club_zone_three_deceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgClubZoneThreeDecelerationDurationS"
     )
-    avg_club_zone_three_deceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_club_zone_three_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgClubZoneThreeDecelerationEvents"
     )
-    avg_club_zone_two_acceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_club_zone_two_acceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgClubZoneTwoAccelerationDistanceM"
     )
-    avg_club_zone_two_acceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_club_zone_two_acceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgClubZoneTwoAccelerationDurationS"
     )
-    avg_club_zone_two_acceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("avgClubZoneTwoAccelerationEvents")
-    avg_club_zone_two_deceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_club_zone_two_acceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneTwoAccelerationEvents"
+    )
+    avg_club_zone_two_deceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgClubZoneTwoDecelerationDistanceM"
     )
-    avg_club_zone_two_deceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_club_zone_two_deceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgClubZoneTwoDecelerationDurationS"
     )
-    avg_club_zone_two_deceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("avgClubZoneTwoDecelerationEvents")
+    avg_club_zone_two_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneTwoDecelerationEvents"
+    )
     avg_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = (
         TrainingSessionSegmentMetricSetGraphQLField("avgDecelerationEvents")
     )
@@ -18106,9 +16794,9 @@ class TrainingSessionSegmentMetricSetFields(GraphQLField):
             "avgHighIntensityRunDistanceMOverTime", arguments=cleared_arguments
         )
 
-    avg_high_metabolic_load_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("avgHighMetabolicLoadDistanceM")
+    avg_high_metabolic_load_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgHighMetabolicLoadDistanceM"
+    )
     avg_high_metabolic_load_events: "TrainingSessionSegmentMetricSetGraphQLField" = (
         TrainingSessionSegmentMetricSetGraphQLField("avgHighMetabolicLoadEvents")
     )
@@ -18118,232 +16806,148 @@ class TrainingSessionSegmentMetricSetFields(GraphQLField):
     avg_high_speed_run_events: "TrainingSessionSegmentMetricSetGraphQLField" = (
         TrainingSessionSegmentMetricSetGraphQLField("avgHighSpeedRunEvents")
     )
-    avg_individual_zone_five_acceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_five_acceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneFiveAccelerationDistanceM"
     )
-    avg_individual_zone_five_acceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_five_acceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneFiveAccelerationDurationS"
     )
-    avg_individual_zone_five_acceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_five_acceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneFiveAccelerationEvents"
     )
-    avg_individual_zone_five_deceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_five_deceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneFiveDecelerationDistanceM"
     )
-    avg_individual_zone_five_deceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_five_deceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneFiveDecelerationDurationS"
     )
-    avg_individual_zone_five_deceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_five_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneFiveDecelerationEvents"
     )
-    avg_individual_zone_four_acceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_four_acceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneFourAccelerationDistanceM"
     )
-    avg_individual_zone_four_acceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_four_acceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneFourAccelerationDurationS"
     )
-    avg_individual_zone_four_acceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_four_acceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneFourAccelerationEvents"
     )
-    avg_individual_zone_four_deceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_four_deceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneFourDecelerationDistanceM"
     )
-    avg_individual_zone_four_deceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_four_deceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneFourDecelerationDurationS"
     )
-    avg_individual_zone_four_deceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_four_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneFourDecelerationEvents"
     )
-    avg_individual_zone_high_intensity_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_high_intensity_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneHighIntensityDistanceM"
     )
-    avg_individual_zone_high_intensity_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_high_intensity_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneHighIntensityDurationS"
     )
-    avg_individual_zone_high_intensity_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_high_intensity_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneHighIntensityEvents"
     )
-    avg_individual_zone_high_speed_running_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_high_speed_running_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneHighSpeedRunningDistanceM"
     )
-    avg_individual_zone_high_speed_running_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_high_speed_running_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneHighSpeedRunningDurationS"
     )
-    avg_individual_zone_high_speed_running_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_high_speed_running_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneHighSpeedRunningEvents"
     )
-    avg_individual_zone_jogging_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("avgIndividualZoneJoggingDistanceM")
-    avg_individual_zone_jogging_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("avgIndividualZoneJoggingDurationS")
-    avg_individual_zone_jogging_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("avgIndividualZoneJoggingEvents")
-    avg_individual_zone_low_intensity_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_jogging_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgIndividualZoneJoggingDistanceM"
+    )
+    avg_individual_zone_jogging_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgIndividualZoneJoggingDurationS"
+    )
+    avg_individual_zone_jogging_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgIndividualZoneJoggingEvents"
+    )
+    avg_individual_zone_low_intensity_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneLowIntensityDistanceM"
     )
-    avg_individual_zone_low_intensity_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_low_intensity_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneLowIntensityDurationS"
     )
-    avg_individual_zone_low_intensity_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_low_intensity_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneLowIntensityEvents"
     )
-    avg_individual_zone_medium_intensity_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_medium_intensity_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneMediumIntensityDistanceM"
     )
-    avg_individual_zone_medium_intensity_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_medium_intensity_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneMediumIntensityDurationS"
     )
-    avg_individual_zone_medium_intensity_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_medium_intensity_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneMediumIntensityEvents"
     )
-    avg_individual_zone_one_acceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_one_acceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneOneAccelerationDistanceM"
     )
-    avg_individual_zone_one_acceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_one_acceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneOneAccelerationDurationS"
     )
-    avg_individual_zone_one_acceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_one_acceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneOneAccelerationEvents"
     )
-    avg_individual_zone_one_deceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_one_deceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneOneDecelerationDistanceM"
     )
-    avg_individual_zone_one_deceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_one_deceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneOneDecelerationDurationS"
     )
-    avg_individual_zone_one_deceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_one_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneOneDecelerationEvents"
     )
-    avg_individual_zone_sprint_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("avgIndividualZoneSprintDistanceM")
-    avg_individual_zone_sprint_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("avgIndividualZoneSprintDurationS")
+    avg_individual_zone_sprint_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgIndividualZoneSprintDistanceM"
+    )
+    avg_individual_zone_sprint_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgIndividualZoneSprintDurationS"
+    )
     avg_individual_zone_sprint_events: "TrainingSessionSegmentMetricSetGraphQLField" = (
         TrainingSessionSegmentMetricSetGraphQLField("avgIndividualZoneSprintEvents")
     )
-    avg_individual_zone_three_acceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_three_acceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneThreeAccelerationDistanceM"
     )
-    avg_individual_zone_three_acceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_three_acceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneThreeAccelerationDurationS"
     )
-    avg_individual_zone_three_acceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_three_acceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneThreeAccelerationEvents"
     )
-    avg_individual_zone_three_deceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_three_deceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneThreeDecelerationDistanceM"
     )
-    avg_individual_zone_three_deceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_three_deceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneThreeDecelerationDurationS"
     )
-    avg_individual_zone_three_deceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_three_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneThreeDecelerationEvents"
     )
-    avg_individual_zone_two_acceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_two_acceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneTwoAccelerationDistanceM"
     )
-    avg_individual_zone_two_acceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_two_acceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneTwoAccelerationDurationS"
     )
-    avg_individual_zone_two_acceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_two_acceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneTwoAccelerationEvents"
     )
-    avg_individual_zone_two_deceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_two_deceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneTwoDecelerationDistanceM"
     )
-    avg_individual_zone_two_deceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_two_deceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneTwoDecelerationDurationS"
     )
-    avg_individual_zone_two_deceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_individual_zone_two_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgIndividualZoneTwoDecelerationEvents"
     )
     avg_left_dive_events: "TrainingSessionSegmentMetricSetGraphQLField" = (
@@ -18376,22 +16980,16 @@ class TrainingSessionSegmentMetricSetFields(GraphQLField):
     avg_metres_per_minute: "TrainingSessionSegmentMetricSetGraphQLField" = (
         TrainingSessionSegmentMetricSetGraphQLField("avgMetresPerMinute")
     )
-    avg_ninety_percent_of_max_speed_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_ninety_percent_of_max_speed_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgNinetyPercentOfMaxSpeedDistanceM"
     )
-    avg_ninety_percent_of_max_speed_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_ninety_percent_of_max_speed_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgNinetyPercentOfMaxSpeedDurationS"
     )
-    avg_ninety_percent_of_max_speed_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("avgNinetyPercentOfMaxSpeedEvents")
-    avg_ninety_percent_of_raw_max_speed_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    avg_ninety_percent_of_max_speed_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgNinetyPercentOfMaxSpeedEvents"
+    )
+    avg_ninety_percent_of_raw_max_speed_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgNinetyPercentOfRawMaxSpeedEvents"
     )
     avg_pass_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = (
@@ -18448,12 +17046,12 @@ class TrainingSessionSegmentMetricSetFields(GraphQLField):
     avg_total_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = (
         TrainingSessionSegmentMetricSetGraphQLField("avgTotalDistanceM")
     )
-    avg_total_high_intensity_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("avgTotalHighIntensityDistanceM")
-    avg_total_medium_intensity_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("avgTotalMediumIntensityDistanceM")
+    avg_total_high_intensity_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgTotalHighIntensityDistanceM"
+    )
+    avg_total_medium_intensity_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgTotalMediumIntensityDistanceM"
+    )
     avg_total_sprint_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = (
         TrainingSessionSegmentMetricSetGraphQLField("avgTotalSprintDistanceM")
     )
@@ -18484,159 +17082,103 @@ class TrainingSessionSegmentMetricSetFields(GraphQLField):
     total_acceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = (
         TrainingSessionSegmentMetricSetGraphQLField("totalAccelerationEvents")
     )
-    total_club_zone_five_acceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_five_acceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneFiveAccelerationDistanceM"
     )
-    total_club_zone_five_acceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_five_acceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneFiveAccelerationDurationS"
     )
-    total_club_zone_five_acceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_five_acceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneFiveAccelerationEvents"
     )
-    total_club_zone_five_deceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_five_deceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneFiveDecelerationDistanceM"
     )
-    total_club_zone_five_deceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_five_deceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneFiveDecelerationDurationS"
     )
-    total_club_zone_five_deceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_five_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneFiveDecelerationEvents"
     )
-    total_club_zone_four_acceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_four_acceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneFourAccelerationDistanceM"
     )
-    total_club_zone_four_acceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_four_acceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneFourAccelerationDurationS"
     )
-    total_club_zone_four_acceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_four_acceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneFourAccelerationEvents"
     )
-    total_club_zone_four_deceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_four_deceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneFourDecelerationDistanceM"
     )
-    total_club_zone_four_deceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_four_deceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneFourDecelerationDurationS"
     )
-    total_club_zone_four_deceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_four_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneFourDecelerationEvents"
     )
-    total_club_zone_high_intensity_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_high_intensity_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneHighIntensityDistanceM"
     )
-    total_club_zone_high_intensity_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_high_intensity_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneHighIntensityDurationS"
     )
-    total_club_zone_high_intensity_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("totalClubZoneHighIntensityEvents")
-    total_club_zone_high_speed_running_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_high_intensity_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "totalClubZoneHighIntensityEvents"
+    )
+    total_club_zone_high_speed_running_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneHighSpeedRunningDistanceM"
     )
-    total_club_zone_high_speed_running_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_high_speed_running_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneHighSpeedRunningDurationS"
     )
-    total_club_zone_high_speed_running_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_high_speed_running_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneHighSpeedRunningEvents"
     )
-    total_club_zone_jogging_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("totalClubZoneJoggingDistanceM")
-    total_club_zone_jogging_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("totalClubZoneJoggingDurationS")
+    total_club_zone_jogging_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "totalClubZoneJoggingDistanceM"
+    )
+    total_club_zone_jogging_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "totalClubZoneJoggingDurationS"
+    )
     total_club_zone_jogging_events: "TrainingSessionSegmentMetricSetGraphQLField" = (
         TrainingSessionSegmentMetricSetGraphQLField("totalClubZoneJoggingEvents")
     )
-    total_club_zone_low_intensity_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_low_intensity_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneLowIntensityDistanceM"
     )
-    total_club_zone_low_intensity_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_low_intensity_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneLowIntensityDurationS"
     )
-    total_club_zone_low_intensity_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("totalClubZoneLowIntensityEvents")
-    total_club_zone_medium_intensity_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_low_intensity_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "totalClubZoneLowIntensityEvents"
+    )
+    total_club_zone_medium_intensity_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneMediumIntensityDistanceM"
     )
-    total_club_zone_medium_intensity_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_medium_intensity_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneMediumIntensityDurationS"
     )
-    total_club_zone_medium_intensity_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_medium_intensity_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneMediumIntensityEvents"
     )
-    total_club_zone_one_acceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_one_acceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneOneAccelerationDistanceM"
     )
-    total_club_zone_one_acceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_one_acceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneOneAccelerationDurationS"
     )
-    total_club_zone_one_acceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_one_acceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneOneAccelerationEvents"
     )
-    total_club_zone_one_deceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_one_deceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneOneDecelerationDistanceM"
     )
-    total_club_zone_one_deceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_one_deceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneOneDecelerationDurationS"
     )
-    total_club_zone_one_deceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_one_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneOneDecelerationEvents"
     )
     total_club_zone_sprint_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = (
@@ -18648,64 +17190,40 @@ class TrainingSessionSegmentMetricSetFields(GraphQLField):
     total_club_zone_sprint_events: "TrainingSessionSegmentMetricSetGraphQLField" = (
         TrainingSessionSegmentMetricSetGraphQLField("totalClubZoneSprintEvents")
     )
-    total_club_zone_three_acceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_three_acceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneThreeAccelerationDistanceM"
     )
-    total_club_zone_three_acceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_three_acceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneThreeAccelerationDurationS"
     )
-    total_club_zone_three_acceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_three_acceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneThreeAccelerationEvents"
     )
-    total_club_zone_three_deceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_three_deceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneThreeDecelerationDistanceM"
     )
-    total_club_zone_three_deceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_three_deceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneThreeDecelerationDurationS"
     )
-    total_club_zone_three_deceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_three_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneThreeDecelerationEvents"
     )
-    total_club_zone_two_acceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_two_acceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneTwoAccelerationDistanceM"
     )
-    total_club_zone_two_acceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_two_acceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneTwoAccelerationDurationS"
     )
-    total_club_zone_two_acceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_two_acceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneTwoAccelerationEvents"
     )
-    total_club_zone_two_deceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_two_deceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneTwoDecelerationDistanceM"
     )
-    total_club_zone_two_deceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_two_deceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneTwoDecelerationDurationS"
     )
-    total_club_zone_two_deceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_club_zone_two_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneTwoDecelerationEvents"
     )
     total_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = (
@@ -18726,9 +17244,9 @@ class TrainingSessionSegmentMetricSetFields(GraphQLField):
     total_high_intensity_events: "TrainingSessionSegmentMetricSetGraphQLField" = (
         TrainingSessionSegmentMetricSetGraphQLField("totalHighIntensityEvents")
     )
-    total_high_metabolic_load_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("totalHighMetabolicLoadDistanceM")
+    total_high_metabolic_load_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "totalHighMetabolicLoadDistanceM"
+    )
     total_high_metabolic_load_events: "TrainingSessionSegmentMetricSetGraphQLField" = (
         TrainingSessionSegmentMetricSetGraphQLField("totalHighMetabolicLoadEvents")
     )
@@ -18738,240 +17256,148 @@ class TrainingSessionSegmentMetricSetFields(GraphQLField):
     total_high_speed_run_events: "TrainingSessionSegmentMetricSetGraphQLField" = (
         TrainingSessionSegmentMetricSetGraphQLField("totalHighSpeedRunEvents")
     )
-    total_individual_zone_five_acceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_five_acceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneFiveAccelerationDistanceM"
     )
-    total_individual_zone_five_acceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_five_acceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneFiveAccelerationDurationS"
     )
-    total_individual_zone_five_acceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_five_acceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneFiveAccelerationEvents"
     )
-    total_individual_zone_five_deceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_five_deceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneFiveDecelerationDistanceM"
     )
-    total_individual_zone_five_deceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_five_deceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneFiveDecelerationDurationS"
     )
-    total_individual_zone_five_deceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_five_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneFiveDecelerationEvents"
     )
-    total_individual_zone_four_acceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_four_acceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneFourAccelerationDistanceM"
     )
-    total_individual_zone_four_acceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_four_acceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneFourAccelerationDurationS"
     )
-    total_individual_zone_four_acceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_four_acceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneFourAccelerationEvents"
     )
-    total_individual_zone_four_deceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_four_deceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneFourDecelerationDistanceM"
     )
-    total_individual_zone_four_deceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_four_deceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneFourDecelerationDurationS"
     )
-    total_individual_zone_four_deceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_four_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneFourDecelerationEvents"
     )
-    total_individual_zone_high_intensity_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_high_intensity_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneHighIntensityDistanceM"
     )
-    total_individual_zone_high_intensity_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_high_intensity_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneHighIntensityDurationS"
     )
-    total_individual_zone_high_intensity_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_high_intensity_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneHighIntensityEvents"
     )
-    total_individual_zone_high_speed_running_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_high_speed_running_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneHighSpeedRunningDistanceM"
     )
-    total_individual_zone_high_speed_running_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_high_speed_running_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneHighSpeedRunningDurationS"
     )
-    total_individual_zone_high_speed_running_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_high_speed_running_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneHighSpeedRunningEvents"
     )
-    total_individual_zone_jogging_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_jogging_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneJoggingDistanceM"
     )
-    total_individual_zone_jogging_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_jogging_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneJoggingDurationS"
     )
-    total_individual_zone_jogging_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("totalIndividualZoneJoggingEvents")
-    total_individual_zone_low_intensity_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_jogging_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "totalIndividualZoneJoggingEvents"
+    )
+    total_individual_zone_low_intensity_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneLowIntensityDistanceM"
     )
-    total_individual_zone_low_intensity_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_low_intensity_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneLowIntensityDurationS"
     )
-    total_individual_zone_low_intensity_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_low_intensity_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneLowIntensityEvents"
     )
-    total_individual_zone_medium_intensity_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_medium_intensity_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneMediumIntensityDistanceM"
     )
-    total_individual_zone_medium_intensity_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_medium_intensity_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneMediumIntensityDurationS"
     )
-    total_individual_zone_medium_intensity_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_medium_intensity_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneMediumIntensityEvents"
     )
-    total_individual_zone_one_acceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_one_acceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneOneAccelerationDistanceM"
     )
-    total_individual_zone_one_acceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_one_acceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneOneAccelerationDurationS"
     )
-    total_individual_zone_one_acceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_one_acceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneOneAccelerationEvents"
     )
-    total_individual_zone_one_deceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_one_deceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneOneDecelerationDistanceM"
     )
-    total_individual_zone_one_deceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_one_deceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneOneDecelerationDurationS"
     )
-    total_individual_zone_one_deceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_one_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneOneDecelerationEvents"
     )
-    total_individual_zone_sprint_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_sprint_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneSprintDistanceM"
     )
-    total_individual_zone_sprint_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_sprint_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneSprintDurationS"
     )
-    total_individual_zone_sprint_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField("totalIndividualZoneSprintEvents")
-    total_individual_zone_three_acceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_sprint_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "totalIndividualZoneSprintEvents"
+    )
+    total_individual_zone_three_acceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneThreeAccelerationDistanceM"
     )
-    total_individual_zone_three_acceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_three_acceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneThreeAccelerationDurationS"
     )
-    total_individual_zone_three_acceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_three_acceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneThreeAccelerationEvents"
     )
-    total_individual_zone_three_deceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_three_deceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneThreeDecelerationDistanceM"
     )
-    total_individual_zone_three_deceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_three_deceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneThreeDecelerationDurationS"
     )
-    total_individual_zone_three_deceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_three_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneThreeDecelerationEvents"
     )
-    total_individual_zone_two_acceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_two_acceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneTwoAccelerationDistanceM"
     )
-    total_individual_zone_two_acceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_two_acceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneTwoAccelerationDurationS"
     )
-    total_individual_zone_two_acceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_two_acceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneTwoAccelerationEvents"
     )
-    total_individual_zone_two_deceleration_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_two_deceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneTwoDecelerationDistanceM"
     )
-    total_individual_zone_two_deceleration_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_two_deceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneTwoDecelerationDurationS"
     )
-    total_individual_zone_two_deceleration_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_individual_zone_two_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalIndividualZoneTwoDecelerationEvents"
     )
     total_left_dive_events: "TrainingSessionSegmentMetricSetGraphQLField" = (
@@ -18998,24 +17424,16 @@ class TrainingSessionSegmentMetricSetFields(GraphQLField):
     total_medium_pass_events: "TrainingSessionSegmentMetricSetGraphQLField" = (
         TrainingSessionSegmentMetricSetGraphQLField("totalMediumPassEvents")
     )
-    total_ninety_percent_of_max_speed_distance_m: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_ninety_percent_of_max_speed_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalNinetyPercentOfMaxSpeedDistanceM"
     )
-    total_ninety_percent_of_max_speed_duration_s: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_ninety_percent_of_max_speed_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalNinetyPercentOfMaxSpeedDurationS"
     )
-    total_ninety_percent_of_max_speed_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_ninety_percent_of_max_speed_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalNinetyPercentOfMaxSpeedEvents"
     )
-    total_ninety_percent_of_raw_max_speed_events: (
-        "TrainingSessionSegmentMetricSetGraphQLField"
-    ) = TrainingSessionSegmentMetricSetGraphQLField(
+    total_ninety_percent_of_raw_max_speed_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalNinetyPercentOfRawMaxSpeedEvents"
     )
     total_pass_events: "TrainingSessionSegmentMetricSetGraphQLField" = (

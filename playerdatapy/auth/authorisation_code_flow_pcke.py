@@ -1,5 +1,6 @@
 from .authorisation_code_flow_base import AuthorisationCodeFlowBase
 
+
 class AuthorisationCodeFlowPCKE(AuthorisationCodeFlowBase):
     """Handles oauth2 authentication code flow with PKCE and token management."""
 

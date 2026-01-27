@@ -12,7 +12,6 @@ class ClientCredentialsFlow(BaseAuthFlow):
         self.client_secret = client_secret
 
     def authenticate(self, save_token: bool = True) -> dict:
-
         client = BackendApplicationClient(client_id=self.client_id)
 
         self.oauth_session = OAuth2Session(

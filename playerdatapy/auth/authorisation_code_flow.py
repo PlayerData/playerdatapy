@@ -1,5 +1,6 @@
 from .authorisation_code_flow_base import AuthorisationCodeFlowBase
 
+
 class AuthorisationCodeFlow(AuthorisationCodeFlowBase):
     """Handles oauth2 authorisation code flow and token management."""
 
