@@ -3,18 +3,26 @@ from playerdatapy.gqlclient import Client
 from playerdatapy.gqlauth import AuthenticationType
 import asyncio
 from playerdatapy.constants import API_BASE_URL
+import os
 
-# Build out the query string.
+CLIENT_ID = os.environ.get("CLIENT_ID")
+CLIENT_SECRET = os.environ.get("CLIENT_SECRET")
+SESSION_ID = os.environ.get("SESSION_ID")
+
+# Build out the query string to get session participations and datafiles from a session.
 # Our GraphiQL Playground at https://app.playerdata.co.uk/api/graphiql/ is useful for building out and testing the query.
-CLIENT_ID = "your_client_id"
-CLIENT_SECRET = "your_client_secret"
-
-example_query = """
-query Session($session_id: ID!) {
+session_query = """
+query GetSessionParticipations($session_id: ID!) {
     session(id: $session_id) {
-        id
-        startTime
-        endTime
+        sessionParticipations {
+            id
+            athlete {
+                name
+            }
+            datafiles {
+                url(format: json)
+            }
+        }
     }
 }
 """
@@ -31,14 +39,13 @@ async def main(session_id: str):
         headers={"Authorization": f"Bearer {auth._get_authentication_token()}"},
     )
     response = await client.execute(
-        query=example_query,
+        query=session_query,
         variables={"session_id": session_id},
     )
     result = client.get_data(response)
-    return result["session"]
+    return result
 
 
 if __name__ == "__main__":
-    session_id = "an_example_session_id"
-    result = asyncio.run(main(session_id))
+    result = asyncio.run(main(SESSION_ID))
     print(result)

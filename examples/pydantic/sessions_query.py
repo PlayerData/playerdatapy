@@ -3,13 +3,14 @@ from datetime import datetime, timedelta
 
 from playerdatapy.playerdata_api import PlayerDataAPI
 from playerdatapy.custom_queries import Query
-from playerdatapy.custom_fields import SportDefinitionFields, SessionInterface
+from playerdatapy.custom_fields import SessionInterface
 from playerdatapy.input_types import SessionsSessionFilter
 from playerdatapy.gqlauth import AuthenticationType
+import os
 
-CLIENT_ID = "your_client_id"
-CLIENT_SECRET = "your_client_secret"
-CLUB_ID = "your_club_id"
+CLIENT_ID = os.environ.get("CLIENT_ID")
+CLIENT_SECRET = os.environ.get("CLIENT_SECRET")
+CLUB_ID = os.environ.get("CLUB_ID")
 
 # Create a PlayerDataAPI instance.
 api = PlayerDataAPI(
@@ -19,13 +20,6 @@ api = PlayerDataAPI(
 )
 
 # Build out the query objects.
-sports_query = Query.sports().fields(
-    SportDefinitionFields.id,
-    SportDefinitionFields.name,
-    SportDefinitionFields.is_indoor,
-    SportDefinitionFields.has_pitch_definition,
-)
-
 sessions_query = Query.sessions(
     filter=SessionsSessionFilter(
         clubIdEq=CLUB_ID,
@@ -38,6 +32,6 @@ sessions_query = Query.sessions(
     SessionInterface.end_time,
 )
 
-# Run the queries.
-response = asyncio.run(api.run_queries("sports", sports_query, sessions_query))
+# Run the query .
+response = asyncio.run(api.run_queries("Sessions", sessions_query))
 print(response)
