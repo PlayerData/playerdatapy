@@ -2,7 +2,7 @@ from playerdatapy.gqlauth import GraphqlAuth
 from playerdatapy.gqlclient import Client
 from playerdatapy.gqlauth import AuthenticationType
 from playerdatapy.constants import API_BASE_URL
- 
+
 import os
 import asyncio
 from datetime import datetime, timedelta
@@ -44,10 +44,11 @@ variables = {
     "endTimeLteq": endTimeLteq,
 }
 
+
 async def main():
     response = client.execute(query=example_query, variables=variables)
     result = await client.get_data(response)
     print(result["sessions"])
 
-asyncio.run(main())
 
+asyncio.run(main())

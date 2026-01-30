@@ -4,7 +4,9 @@ from playerdatapy.gqlauth import AuthenticationType
 import os
 import asyncio
 from datetime import datetime, timedelta
-from queries.club_sessions_filtered_by_time_range import club_sessions_filtered_by_time_range
+from queries.club_sessions_filtered_by_time_range import (
+    club_sessions_filtered_by_time_range,
+)
 
 # Set the environment variables or hardcode them in the file if you prefer.
 CLIENT_ID = os.environ.get("CLIENT_ID")
