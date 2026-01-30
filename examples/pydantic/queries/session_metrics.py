@@ -1,0 +1,80 @@
+from playerdatapy.custom_queries import Query
+from playerdatapy.custom_fields import (
+    SessionInterface,
+    SessionParticipationInterface,
+    SegmentParticipationFields,
+    SegmentFields,
+    ConfiguredAggMetricsFields,
+    ConfiguredMetricsFields,
+    GenericMetricFields,
+    FloatMetricValueFields,
+    IntMetricValueFields,
+    JsonMetricValueFields,
+)
+
+
+def session_metrics(session_id: str):
+    return Query.session(id=session_id).fields(
+        SessionInterface.start_time,
+        SessionInterface.configured_agg_metrics().fields(
+            ConfiguredAggMetricsFields.data().fields(
+                GenericMetricFields.label,
+                GenericMetricFields.local_unit_label,
+                GenericMetricFields.local_value.on(
+                    "FloatMetricValue",
+                    FloatMetricValueFields.float_value,
+                )
+                .on(
+                    "IntMetricValue",
+                    IntMetricValueFields.int_value,
+                )
+                .on(
+                    "JsonMetricValue",
+                    JsonMetricValueFields.json_value,
+                ),
+            ),
+        ),
+        SessionInterface.session_participations().fields(
+            SessionParticipationInterface.configured_metrics().fields(
+                ConfiguredMetricsFields.data().fields(
+                    GenericMetricFields.label,
+                    GenericMetricFields.local_unit_label,
+                    GenericMetricFields.local_value.on(
+                        "FloatMetricValue",
+                        FloatMetricValueFields.float_value,
+                    )
+                    .on(
+                        "IntMetricValue",
+                        IntMetricValueFields.int_value,
+                    )
+                    .on(
+                        "JsonMetricValue",
+                        JsonMetricValueFields.json_value,
+                    ),
+                ),
+            ),
+            SessionParticipationInterface.segment_participations().fields(
+                SegmentParticipationFields.segment().fields(
+                    SegmentFields.title,
+                ),
+                SegmentParticipationFields.configured_metrics().fields(
+                    ConfiguredMetricsFields.data().fields(
+                        GenericMetricFields.label,
+                        GenericMetricFields.local_unit_label,
+                        GenericMetricFields.local_value.on(
+                            "FloatMetricValue",
+                            FloatMetricValueFields.float_value,
+                        )
+                        .on(
+                            "IntMetricValue",
+                            IntMetricValueFields.int_value,
+                        )
+                        .on(
+                            "JsonMetricValue",
+                            JsonMetricValueFields.json_value,
+                        ),
+                    ),
+                ),
+            ),
+        ),
+    )
