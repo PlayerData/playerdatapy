@@ -46,8 +46,8 @@ variables = {
 
 
 async def main():
-    response = client.execute(query=example_query, variables=variables)
-    result = await client.get_data(response)
+    response = await client.execute(query=example_query, variables=variables)
+    result = client.get_data(response)
     print(result["sessions"])
 
 
