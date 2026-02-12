@@ -1,0 +1,7 @@
+query ClubSessionsFilteredByTimeRange($clubId: ID, $startTime:ISO8601DateTime,$endTime:ISO8601DateTime){
+	sessions(filter: {clubIdEq: $clubId, startTimeGteq: $startTime, endTimeLteq:$endTime}, offset: 0, limit:30){
+    id
+    startTime
+    endTime
+  }
+}
