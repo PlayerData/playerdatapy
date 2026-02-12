@@ -10,25 +10,20 @@ import asyncio
 import json
 import os
 import sys
-from datetime import datetime, timedelta, timezone
-
 import httpx
 
 from playerdatapy.constants import API_BASE_URL
 from playerdatapy.gqlauth import AuthenticationType
 from playerdatapy.playerdata_api import PlayerDataAPI
 
-from queries.club_sessions_filtered_by_time_range import (
-    club_sessions_filtered_by_time_range,
-)
-from queries.session_ball_data import session_ball_data
+from examples.pydantic.queries.club_sessions import club_sessions
+from examples.pydantic.queries.session_ball_data import session_ball_data
 
 # -----------------------------------------------------------------------------
 # Config (env or override below)
 # -----------------------------------------------------------------------------
 CLIENT_ID = os.environ.get("CLIENT_ID")
 CLUB_ID = os.environ.get("CLUB_ID")
-SESSION_DAYS = 30  # sessions from last N days
 
 
 def _record_count(data: list | dict) -> int:
@@ -84,6 +79,9 @@ async def download_recording(
     """Download one recording's raw JSON to out_dir. Returns True if saved, False if skipped."""
     url = recording.get("url")
     if not url:
+        ball = recording.get("ball") or {}
+        serial = ball.get("serialNumber", "?")
+        print(f"  Skip {recording['id']} (Ball {serial}): no URL")
         return False
     if url.startswith("/"):
         url = f"{API_BASE_URL.rstrip('/')}{url}"
@@ -99,7 +97,8 @@ async def download_recording(
         print(f"  Skip {recording['id']} (Ball {serial}): {e.response.status_code}")
         return False
     except httpx.RequestError as e:
-        print(f"  Skip {recording['id']} (Ball {serial}): {e}")
+        reason = str(e).strip() or type(e).__name__
+        print(f"  Skip {recording['id']} (Ball {serial}): {reason}")
         return False
 
     if _record_count(raw) == 0:
@@ -120,23 +119,16 @@ async def main() -> None:
         authentication_type=AuthenticationType.AUTHORISATION_CODE_FLOW_PCKE,
     )
 
-    now = datetime.now(timezone.utc)
-    start = now - timedelta(days=SESSION_DAYS)
-
     sessions_response = await api.run_queries(
-        "ClubSessionsFilteredByTimeRangeQuery",
-        club_sessions_filtered_by_time_range(
-            club_id=CLUB_ID,
-            start_time_gteq=start,
-            end_time_lteq=now,
-        ),
+        "ClubSessionsQuery",
+        club_sessions(club_id=CLUB_ID),
     )
     sessions = sessions_response.get("sessions") or []
 
     if not sessions:
         print("No sessions found.")
         return
-    print(f"Found {len(sessions)} session(s) in last {SESSION_DAYS} days.")
+    print(f"Found {len(sessions)} session(s).")
 
     chosen = _choose_session(sessions)
     if not chosen:
@@ -165,7 +157,7 @@ async def main() -> None:
     print(f"Downloading {len(recordings_with_url)} recording(s) to {out_dir}/")
 
     headers = {"Authorization": f"Bearer {api._get_authentication_token()}"}
-    async with httpx.AsyncClient(headers=headers) as http_client:
+    async with httpx.AsyncClient(headers=headers, timeout=60.0) as http_client:
         ok = sum(
             await asyncio.gather(
                 *[

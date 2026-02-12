@@ -10,7 +10,7 @@ import asyncio
 import json
 import os
 import sys
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 
 import httpx
 
@@ -23,8 +23,6 @@ from playerdatapy.gqlclient import Client
 # -----------------------------------------------------------------------------
 CLIENT_ID = os.environ.get("CLIENT_ID")
 CLUB_ID = os.environ.get("CLUB_ID")
-SESSION_DAYS = 30  # sessions from last N days
-
 # -----------------------------------------------------------------------------
 # GraphQL
 # -----------------------------------------------------------------------------
@@ -120,6 +118,9 @@ async def download_recording(
     """Download one recording's raw JSON to out_dir. Returns True if saved, False if skipped."""
     url = recording.get("url")
     if not url:
+        ball = recording.get("ball") or {}
+        serial = ball.get("serialNumber", "?")
+        print(f"  Skip {recording['id']} (Ball {serial}): no URL")
         return False
     if url.startswith("/"):
         url = f"{API_BASE_URL.rstrip('/')}{url}"
@@ -135,7 +136,8 @@ async def download_recording(
         print(f"  Skip {recording['id']} (Ball {serial}): {e.response.status_code}")
         return False
     except httpx.RequestError as e:
-        print(f"  Skip {recording['id']} (Ball {serial}): {e}")
+        reason = str(e).strip() or type(e).__name__
+        print(f"  Skip {recording['id']} (Ball {serial}): {reason}")
         return False
 
     if _record_count(raw) == 0:
@@ -160,9 +162,10 @@ async def main() -> None:
     )
 
     now = datetime.now(timezone.utc)
+    # No time filter: get all sessions (use a wide range for the required query params)
     list_vars = {
         "clubIdEq": CLUB_ID,
-        "startTimeGteq": (now - timedelta(days=SESSION_DAYS)).isoformat(),
+        "startTimeGteq": datetime(2000, 1, 1, tzinfo=timezone.utc).isoformat(),
         "endTimeLteq": now.isoformat(),
     }
 
@@ -172,7 +175,7 @@ async def main() -> None:
     if not sessions:
         print("No sessions found.")
         return
-    print(f"Found {len(sessions)} session(s) in last {SESSION_DAYS} days.")
+    print(f"Found {len(sessions)} session(s).")
 
     chosen = _choose_session(sessions)
     if not chosen:
@@ -196,7 +199,7 @@ async def main() -> None:
     print(f"Downloading {len(recordings_with_url)} recording(s) to {out_dir}/")
 
     headers = {"Authorization": f"Bearer {auth._get_authentication_token()}"}
-    async with httpx.AsyncClient(headers=headers) as http_client:
+    async with httpx.AsyncClient(headers=headers, timeout=60.0) as http_client:
         ok = sum(
             await asyncio.gather(
                 *[
