@@ -8,6 +8,7 @@ from pydantic import Field
 from .base_model import BaseModel
 from .enums import (
     ClubSport,
+    CreatorTypeEnum,
     DeviceSyncTypeEnum,
     MatchEventTeam,
     MatchSessionResult,
@@ -20,9 +21,31 @@ from .enums import (
 )
 
 
+class AccelzoneLowerBoundsInput(BaseModel):
+    zone_1: float = Field(alias="zone1")
+    zone_2: float = Field(alias="zone2")
+    zone_3: float = Field(alias="zone3")
+    zone_4: float = Field(alias="zone4")
+    zone_5: float = Field(alias="zone5")
+
+
+class AthleteAccelzoneAttributes(BaseModel):
+    accelzones_lower_bounds_ms_2: Optional["AccelzoneLowerBoundsInput"] = Field(
+        alias="accelzonesLowerBoundsMs2", default=None
+    )
+    athlete_ids: list[str] = Field(alias="athleteIds")
+
+
 class AthleteClippedTimesInput(BaseModel):
     athlete_id: str = Field(alias="athleteId")
     clipped_time_periods: list["IntervalInput"] = Field(alias="clippedTimePeriods")
+
+
+class AthleteDecelzoneAttributes(BaseModel):
+    athlete_ids: list[str] = Field(alias="athleteIds")
+    decelzones_lower_bounds_ms_2: Optional["DecelzoneLowerBoundsInput"] = Field(
+        alias="decelzonesLowerBoundsMs2", default=None
+    )
 
 
 class AthleteGroupAttributes(BaseModel):
@@ -30,6 +53,42 @@ class AthleteGroupAttributes(BaseModel):
     colour: str
     club_id: str = Field(alias="clubId")
     athlete_ids: list[str] = Field(alias="athleteIds")
+
+
+class AthleteHeartRateBoundsAttributes(BaseModel):
+    athlete_ids: list[str] = Field(alias="athleteIds")
+    custom_max_heart_rate_bpm: Optional[float] = Field(
+        alias="customMaxHeartRateBpm", default=None
+    )
+    heart_rate_bounds_percentages: Optional["HeartRateLowerBoundsInput"] = Field(
+        alias="heartRateBoundsPercentages", default=None
+    )
+
+
+class AthleteRelativeAccelzoneAttributes(BaseModel):
+    athlete_ids: list[str] = Field(alias="athleteIds")
+    auto_update_relative_accelzones: Optional[bool] = Field(
+        alias="autoUpdateRelativeAccelzones", default=None
+    )
+    custom_max_acceleration_ms_2: Optional[float] = Field(
+        alias="customMaxAccelerationMs2", default=None
+    )
+    relative_accelzones_lower_bounds: Optional["AccelzoneLowerBoundsInput"] = Field(
+        alias="relativeAccelzonesLowerBounds", default=None
+    )
+
+
+class AthleteRelativeDecelzoneAttributes(BaseModel):
+    athlete_ids: list[str] = Field(alias="athleteIds")
+    auto_update_relative_decelzones: Optional[bool] = Field(
+        alias="autoUpdateRelativeDecelzones", default=None
+    )
+    custom_max_deceleration_ms_2: Optional[float] = Field(
+        alias="customMaxDecelerationMs2", default=None
+    )
+    relative_decelzones_lower_bounds: Optional["DecelzoneLowerBoundsInput"] = Field(
+        alias="relativeDecelzonesLowerBounds", default=None
+    )
 
 
 class AthleteSpeedzoneAttributes(BaseModel):
@@ -110,6 +169,14 @@ class DatasetAttributes(BaseModel):
     start_date: Optional[Any] = Field(alias="startDate", default=None)
 
 
+class DecelzoneLowerBoundsInput(BaseModel):
+    zone_1: float = Field(alias="zone1")
+    zone_2: float = Field(alias="zone2")
+    zone_3: float = Field(alias="zone3")
+    zone_4: float = Field(alias="zone4")
+    zone_5: float = Field(alias="zone5")
+
+
 class DeviceAttributes(BaseModel):
     firmware_version: str = Field(alias="firmwareVersion")
 
@@ -137,6 +204,14 @@ class GatewaySessionAttributes(BaseModel):
     gateway_ownership_id: Optional[str] = Field(
         alias="gatewayOwnershipId", default=None
     )
+
+
+class HeartRateLowerBoundsInput(BaseModel):
+    zone_1: float = Field(alias="zone1")
+    zone_2: float = Field(alias="zone2")
+    zone_3: float = Field(alias="zone3")
+    zone_4: float = Field(alias="zone4")
+    zone_5: float = Field(alias="zone5")
 
 
 class IntervalInput(BaseModel):
@@ -397,6 +472,10 @@ class SessionsSessionBaseFilter(BaseModel):
     with_athlete_name_containing: Optional[str] = Field(
         alias="withAthleteNameContaining", default=None
     )
+    creator_id_eq: Optional[str] = Field(alias="creatorIdEq", default=None)
+    creator_type_eq: Optional[CreatorTypeEnum] = Field(
+        alias="creatorTypeEq", default=None
+    )
 
 
 class SessionsSessionFilter(BaseModel):
@@ -444,6 +523,10 @@ class SurveyAnswerAttributes(BaseModel):
 
 class SurveyAttributes(BaseModel):
     title: str
+    question_ids: Optional[list[str]] = Field(alias="questionIds", default=None)
+    timer_triggers: Optional[list["SurveyTimerTriggerCreateAttributes"]] = Field(
+        alias="timerTriggers", default=None
+    )
 
 
 class SurveyDistributionAttributes(BaseModel):
@@ -454,6 +537,11 @@ class SurveyDistributionAttributes(BaseModel):
 
 class SurveyTimerTriggerAttributes(BaseModel):
     survey_id: str = Field(alias="surveyId")
+    athlete_ids: list[str] = Field(alias="athleteIds")
+    recurrence_schedule: "RecurrenceScheduleInput" = Field(alias="recurrenceSchedule")
+
+
+class SurveyTimerTriggerCreateAttributes(BaseModel):
     athlete_ids: list[str] = Field(alias="athleteIds")
     recurrence_schedule: "RecurrenceScheduleInput" = Field(alias="recurrenceSchedule")
 
@@ -511,6 +599,15 @@ class UpdateClubMemberAttributes(BaseModel):
 class UpdateClubSettingsAttributes(BaseModel):
     labelled_speedzones_lower_bounds_kph: Optional["SpeedzoneLowerBoundsInput"] = Field(
         alias="labelledSpeedzonesLowerBoundsKph", default=None
+    )
+    labelled_heart_rate_bounds_percentages: Optional["HeartRateLowerBoundsInput"] = (
+        Field(alias="labelledHeartRateBoundsPercentages", default=None)
+    )
+    labelled_accelzones_lower_bounds_ms_2: Optional["AccelzoneLowerBoundsInput"] = (
+        Field(alias="labelledAccelzonesLowerBoundsMs2", default=None)
+    )
+    labelled_decelzones_lower_bounds_ms_2: Optional["DecelzoneLowerBoundsInput"] = (
+        Field(alias="labelledDecelzonesLowerBoundsMs2", default=None)
     )
     select_edges_for_sync: Optional[bool] = Field(
         alias="selectEdgesForSync", default=None
@@ -588,7 +685,12 @@ class VideoRecordingAttributes(BaseModel):
     total_size_bytes: int = Field(alias="totalSizeBytes")
 
 
+AthleteAccelzoneAttributes.model_rebuild()
 AthleteClippedTimesInput.model_rebuild()
+AthleteDecelzoneAttributes.model_rebuild()
+AthleteHeartRateBoundsAttributes.model_rebuild()
+AthleteRelativeAccelzoneAttributes.model_rebuild()
+AthleteRelativeDecelzoneAttributes.model_rebuild()
 AthleteSpeedzoneAttributes.model_rebuild()
 MutateSessionAttributes.model_rebuild()
 MutateSessionBlueprintAttributes.model_rebuild()
@@ -599,7 +701,9 @@ RelativeSpeedzoneAttributes.model_rebuild()
 SegmentAttributes.model_rebuild()
 SegmentPatch.model_rebuild()
 SessionPositionsAttributes.model_rebuild()
+SurveyAttributes.model_rebuild()
 SurveyTimerTriggerAttributes.model_rebuild()
+SurveyTimerTriggerCreateAttributes.model_rebuild()
 UpdateClubSettingsAttributes.model_rebuild()
 UpdatePersonAttributes.model_rebuild()
 UpdateSettingsAttributes.model_rebuild()

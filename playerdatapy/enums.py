@@ -87,10 +87,23 @@ class ConfiguredMetricListTypeEnum(str, Enum):
     leaderboard = "leaderboard"
 
 
+class CreatorTypeEnum(str, Enum):
+    Staff = "Staff"
+    Athlete = "Athlete"
+
+
+class CustomMaxMetricEnum(str, Enum):
+    ACCELERATION = "ACCELERATION"
+    DECELERATION = "DECELERATION"
+    HEART_RATE = "HEART_RATE"
+    SPEED = "SPEED"
+
+
 class DatafileFormat(str, Enum):
     json = "json"
     v3 = "v3"
     v4 = "v4"
+    raw = "raw"
 
 
 class DatasetStatusEnum(str, Enum):
@@ -164,21 +177,14 @@ class FeatureNameEnum(str, Enum):
     firmware_updates = "firmware_updates"
     firmware_gateway_updates = "firmware_gateway_updates"
     firmware_anchor_updates = "firmware_anchor_updates"
-    raw_top_speed = "raw_top_speed"
     chat = "chat"
     chat_extended_capabilities = "chat_extended_capabilities"
-    metric_table = "metric_table"
-    select_edges_for_sync = "select_edges_for_sync"
-    session_rework = "session_rework"
     configurable_comparison = "configurable_comparison"
-    native_edge_sync = "native_edge_sync"
     browser_report_gen = "browser_report_gen"
     session_automation = "session_automation"
-    advanced_session_detection = "advanced_session_detection"
     report_improvements = "report_improvements"
     individual_speed_zones = "individual_speed_zones"
     notification_enhancements = "notification_enhancements"
-    improved_tactical_maps = "improved_tactical_maps"
     tactical_video_playback = "tactical_video_playback"
     tactical_map_speed = "tactical_map_speed"
     web_segments = "web_segments"
@@ -190,23 +196,23 @@ class FeatureNameEnum(str, Enum):
     hubspot_integration = "hubspot_integration"
     warmup_match_session = "warmup_match_session"
     customer_flexible_reporting = "customer_flexible_reporting"
-    session_creation_usability = "session_creation_usability"
-    app_navigation_usability = "app_navigation_usability"
     auto_pitch_detection = "auto_pitch_detection"
-    multi_session = "multi_session"
     match_session_parts_processing_v2 = "match_session_parts_processing_v2"
     recruitment_dashboard = "recruitment_dashboard"
     ball_metrics = "ball_metrics"
     session_quick_actions = "session_quick_actions"
     custom_survey_questions = "custom_survey_questions"
     localized_terms = "localized_terms"
-    edge_sync_direct_upload = "edge_sync_direct_upload"
     duplicate_segment_null_times = "duplicate_segment_null_times"
     processing_diagnostics = "processing_diagnostics"
     backfill_sampled_speed_blob_job = "backfill_sampled_speed_blob_job"
     survey_archival = "survey_archival"
+    anonymise_data_pipeline_enabled = "anonymise_data_pipeline_enabled"
     use_competitor_s_metrics = "use_competitor_s_metrics"
     bad_data_clipping = "bad_data_clipping"
+    auto_gateway_assignment = "auto_gateway_assignment"
+    sync_only_recent_edges = "sync_only_recent_edges"
+    zone_management_v2 = "zone_management_v2"
 
 
 class FirmwareBoardName(str, Enum):
