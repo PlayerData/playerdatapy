@@ -1,0 +1,8 @@
+query SessionParticipationsUrls($ids: [ID!]!) {
+  sessionParticipations(ids: $ids) {
+    id
+    datafiles {
+      url(format: json)
+    }
+  }
+}

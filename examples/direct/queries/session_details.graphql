@@ -1,0 +1,19 @@
+query SessionDetails($sessionId: ID!) {
+  session(id: $sessionId) {
+    sessionParticipations {
+      id
+      athlete {
+        id
+        name
+      }
+      segmentParticipations {
+        segment {
+          id
+          title
+          startTime
+          endTime
+        }
+      }
+    }
+  }
+}

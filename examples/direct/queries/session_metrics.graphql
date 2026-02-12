@@ -1,0 +1,66 @@
+query SessionMetrics($sessionId: ID!) {
+  session(id: $sessionId) {
+    startTime
+
+    configuredAggMetrics {
+      data {
+        label
+        localUnitLabel
+        localValue {
+          ... on FloatMetricValue {
+            floatValue
+          }
+          ... on IntMetricValue {
+            intValue
+          }
+          ... on JsonMetricValue {
+            jsonValue
+          }
+        }
+      }
+    }
+
+    sessionParticipations {
+      configuredMetrics {
+        data {
+          label
+          localUnitLabel
+          localValue {
+            ... on FloatMetricValue {
+              floatValue
+            }
+            ... on IntMetricValue {
+              intValue
+            }
+            ... on JsonMetricValue {
+              jsonValue
+            }
+          }
+        }
+      }
+
+      segmentParticipations {
+        segment {
+          title
+        }
+        configuredMetrics {
+          data {
+            label
+            localUnitLabel
+            localValue {
+              ... on FloatMetricValue {
+                floatValue
+              }
+              ... on IntMetricValue {
+                intValue
+              }
+              ... on JsonMetricValue {
+                jsonValue
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

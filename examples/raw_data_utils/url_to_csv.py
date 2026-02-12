@@ -13,7 +13,15 @@ def raw_gps_data(json_data: list[dict]) -> pl.DataFrame:
     Returns:
         A DataFrame containing the GPS data.
     """
-    participation_data = pl.DataFrame(json_data)
+    schema = {
+        "time": pl.Int64,
+        "latitude": pl.Float32,
+        "longitude": pl.Float32,
+        "speed": pl.Float32,
+        "satellites": pl.UInt8,
+        "type": pl.String,
+    }
+    participation_data = pl.DataFrame(json_data, schema=schema)
     gps_events = participation_data.filter(pl.col("type") == "GPS")
 
     if gps_events.is_empty():
@@ -22,9 +30,9 @@ def raw_gps_data(json_data: list[dict]) -> pl.DataFrame:
     gps_data = gps_events.select(
         [
             pl.from_epoch(pl.col("time"), time_unit="ms").dt.replace_time_zone("UTC"),
-            pl.col("latitude").cast(pl.Float64),
-            pl.col("longitude").cast(pl.Float64),
-            pl.col("speed").cast(pl.Float64),
+            pl.col("latitude").cast(pl.Float32),
+            pl.col("longitude").cast(pl.Float32),
+            pl.col("speed").cast(pl.Float32),
             pl.col("satellites").cast(pl.UInt8),
         ]
     ).sort("time")
@@ -42,7 +50,14 @@ def raw_imu_acceleration_data(json_data: list[dict]) -> pl.DataFrame:
     Returns:
         A DataFrame containing the IMU acceleration data.
     """
-    participation_data = pl.DataFrame(json_data)
+    schema = {
+        "time": pl.Int64,
+        "x": pl.Float32,
+        "y": pl.Float32,
+        "z": pl.Float32,
+        "type": pl.String,
+    }
+    participation_data = pl.DataFrame(json_data, schema=schema)
     acceleration_events = participation_data.filter(pl.col("type") == "ACCELERATION")
 
     if acceleration_events.is_empty():
@@ -68,7 +83,15 @@ def raw_imu_orientation_data(json_data: list[dict]) -> pl.DataFrame:
     Returns:
         A DataFrame containing the IMU orientation data.
     """
-    participation_data = pl.DataFrame(json_data)
+    schema = {
+        "time": pl.Int64,
+        "x": pl.Float32,
+        "y": pl.Float32,
+        "z": pl.Float32,
+        "w": pl.Float32,
+        "type": pl.String,
+    }
+    participation_data = pl.DataFrame(json_data, schema=schema)
     orientation_events = participation_data.filter(
         pl.col("type") == "DEVICE_ORIENTATION"
     )
