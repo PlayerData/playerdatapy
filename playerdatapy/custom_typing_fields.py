@@ -3,6 +3,18 @@
 from .base_operation import GraphQLField
 
 
+class AccelzoneLowerBoundsGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "AccelzoneLowerBoundsGraphQLField":
+        self._alias = alias
+        return self
+
+
+class AccelzonesPayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "AccelzonesPayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
 class AcceptPrivacyPolicyPayloadGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "AcceptPrivacyPolicyPayloadGraphQLField":
         self._alias = alias
@@ -117,6 +129,24 @@ class AthleteGraphQLField(GraphQLField):
 
 class AthleteGroupGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "AthleteGroupGraphQLField":
+        self._alias = alias
+        return self
+
+
+class AthleteLabelledAccelzonesGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "AthleteLabelledAccelzonesGraphQLField":
+        self._alias = alias
+        return self
+
+
+class AthleteLabelledDecelzonesGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "AthleteLabelledDecelzonesGraphQLField":
+        self._alias = alias
+        return self
+
+
+class AthleteLabelledHeartRateBoundsGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "AthleteLabelledHeartRateBoundsGraphQLField":
         self._alias = alias
         return self
 
@@ -511,6 +541,36 @@ class DayBreakdownOverviewGraphQLField(GraphQLField):
         return self
 
 
+class DecelzoneLowerBoundsGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "DecelzoneLowerBoundsGraphQLField":
+        self._alias = alias
+        return self
+
+
+class DecelzonesPayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "DecelzonesPayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
+class DeleteAccelzonesPayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "DeleteAccelzonesPayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
+class DeleteDecelzonesPayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "DeleteDecelzonesPayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
+class DeleteHeartRateBoundsPayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "DeleteHeartRateBoundsPayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
 class DeleteSpeedzonesPayloadGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "DeleteSpeedzonesPayloadGraphQLField":
         self._alias = alias
@@ -531,6 +591,12 @@ class DestroyAthleteGroupPayloadGraphQLField(GraphQLField):
 
 class DestroyCustomQuestionDefinitionPayloadGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "DestroyCustomQuestionDefinitionPayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
+class DestroyDatasetPayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "DestroyDatasetPayloadGraphQLField":
         self._alias = alias
         return self
 
@@ -769,6 +835,18 @@ class GenericMetricExplanationGraphQLField(GraphQLField):
 
 class GenericPersonalBestsMetricGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "GenericPersonalBestsMetricGraphQLField":
+        self._alias = alias
+        return self
+
+
+class HeartRateBoundsPayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "HeartRateBoundsPayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
+class HeartRateLowerBoundsGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "HeartRateLowerBoundsGraphQLField":
         self._alias = alias
         return self
 
@@ -1181,6 +1259,18 @@ class RegisterDevicePayloadGraphQLField(GraphQLField):
         return self
 
 
+class RelativeAccelzonesPayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "RelativeAccelzonesPayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
+class RelativeDecelzonesPayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "RelativeDecelzonesPayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
 class RelativeSpeedzonesPayloadGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "RelativeSpeedzonesPayloadGraphQLField":
         self._alias = alias
@@ -1391,6 +1481,12 @@ class SessionWarningsGraphQLField(GraphQLField):
 
 class SetBenchedPlayersPayloadGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "SetBenchedPlayersPayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
+class SetCustomMaxMetricPayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "SetCustomMaxMetricPayloadGraphQLField":
         self._alias = alias
         return self
 
@@ -1795,8 +1891,26 @@ class ValidationErrorGraphQLField(GraphQLField):
         return self
 
 
+class VideoFragmentGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "VideoFragmentGraphQLField":
+        self._alias = alias
+        return self
+
+
 class VideoRecordingGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "VideoRecordingGraphQLField":
+        self._alias = alias
+        return self
+
+
+class VideoSourceInterfaceGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "VideoSourceInterfaceGraphQLField":
+        self._alias = alias
+        return self
+
+
+class VideoVariantGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "VideoVariantGraphQLField":
         self._alias = alias
         return self
 
