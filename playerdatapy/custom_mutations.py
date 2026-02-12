@@ -2,6 +2,15 @@
 
 from typing import Any, Optional
 
+from .enums import (
+    CustomMaxMetricEnum,
+    DeviceOwnerType,
+    DeviceTypeEnum,
+    EdgeOwnerType,
+    OwnerEnum,
+    Platform,
+    RatingEnum,
+)
 from .custom_fields import (
     AccelzonesPayloadFields,
     AcceptPrivacyPolicyPayloadFields,
@@ -198,7 +207,7 @@ class Mutation:
         cls,
         signup_token: str,
         *,
-        person_attributes: Optional[UpdatePersonAttributes] = None
+        person_attributes: Optional[UpdatePersonAttributes] = None,
     ) -> AddExistingPersonToClubPayloadFields:
         arguments: dict[str, dict[str, Any]] = {
             "personAttributes": {
@@ -417,7 +426,7 @@ class Mutation:
         cls,
         attributes: AthleteHeartRateBoundsAttributes,
         *,
-        reprocess: Optional[bool] = None
+        reprocess: Optional[bool] = None,
     ) -> HeartRateBoundsPayloadFields:
         arguments: dict[str, dict[str, Any]] = {
             "reprocess": {"type": "Boolean", "value": reprocess},
@@ -438,7 +447,7 @@ class Mutation:
         cls,
         attributes: AthleteRelativeAccelzoneAttributes,
         *,
-        reprocess: Optional[bool] = None
+        reprocess: Optional[bool] = None,
     ) -> RelativeAccelzonesPayloadFields:
         arguments: dict[str, dict[str, Any]] = {
             "reprocess": {"type": "Boolean", "value": reprocess},
@@ -459,7 +468,7 @@ class Mutation:
         cls,
         attributes: AthleteRelativeDecelzoneAttributes,
         *,
-        reprocess: Optional[bool] = None
+        reprocess: Optional[bool] = None,
     ) -> RelativeDecelzonesPayloadFields:
         arguments: dict[str, dict[str, Any]] = {
             "reprocess": {"type": "Boolean", "value": reprocess},
@@ -480,7 +489,7 @@ class Mutation:
         cls,
         attributes: RelativeSpeedzoneAttributes,
         *,
-        reprocess: Optional[bool] = None
+        reprocess: Optional[bool] = None,
     ) -> RelativeSpeedzonesPayloadFields:
         arguments: dict[str, dict[str, Any]] = {
             "reprocess": {"type": "Boolean", "value": reprocess},
@@ -672,7 +681,7 @@ class Mutation:
         *,
         detected_session_id: Optional[str] = None,
         owner_id: Optional[str] = None,
-        owner_type: Optional[OwnerEnum] = None
+        owner_type: Optional[OwnerEnum] = None,
     ) -> CreatePitchPayloadFields:
         arguments: dict[str, dict[str, Any]] = {
             "detectedSessionId": {"type": "ID", "value": detected_session_id},
@@ -1079,7 +1088,7 @@ class Mutation:
         response_id: str,
         *,
         rating: Optional[RatingEnum] = None,
-        rating_explanation: Optional[str] = None
+        rating_explanation: Optional[str] = None,
     ) -> RateResponsePayloadFields:
         arguments: dict[str, dict[str, Any]] = {
             "rating": {"type": "RatingEnum", "value": rating},
@@ -1098,7 +1107,7 @@ class Mutation:
         cls,
         attributes: list[GatewaySessionAttributes],
         *,
-        session_id: Optional[str] = None
+        session_id: Optional[str] = None,
     ) -> RecreateGatewaySessionsPayloadFields:
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "[GatewaySessionAttributes!]!", "value": attributes},
@@ -1250,7 +1259,7 @@ class Mutation:
         metric: CustomMaxMetricEnum,
         *,
         reprocess: Optional[bool] = None,
-        value: Optional[float] = None
+        value: Optional[float] = None,
     ) -> SetCustomMaxMetricPayloadFields:
         arguments: dict[str, dict[str, Any]] = {
             "reprocess": {"type": "Boolean", "value": reprocess},
@@ -1346,7 +1355,7 @@ class Mutation:
         club_id: str,
         attributes: UpdateClubSettingsAttributes,
         *,
-        reprocess: Optional[bool] = None
+        reprocess: Optional[bool] = None,
     ) -> UpdateClubSettingsPayloadFields:
         arguments: dict[str, dict[str, Any]] = {
             "clubId": {"type": "ID!", "value": club_id},
@@ -1520,7 +1529,7 @@ class Mutation:
         id: str,
         attributes: UpdatePersonAttributes,
         *,
-        reprocess: Optional[bool] = None
+        reprocess: Optional[bool] = None,
     ) -> UpdatePersonDetailsPayloadFields:
         arguments: dict[str, dict[str, Any]] = {
             "id": {"type": "ID!", "value": id},
@@ -1796,7 +1805,7 @@ class Mutation:
         attributes: SessionPlanAttributesInput,
         club_id: str,
         *,
-        session_plan_id: Optional[str] = None
+        session_plan_id: Optional[str] = None,
     ) -> UpsertSessionPlanPayloadFields:
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "SessionPlanAttributesInput!", "value": attributes},

@@ -2,6 +2,17 @@
 
 from typing import Any, Optional
 
+from .enums import (
+    FeatureNameEnum,
+    FirmwareBoardName,
+    FirmwareBuildProfile,
+    FirmwareFeatureVariant,
+    FirmwareProject,
+    OwnerEnum,
+    PermissionAction,
+    PermissionSubject,
+    Platform,
+)
 from .custom_fields import (
     AthleteFields,
     AthleteGroupFields,
@@ -153,7 +164,7 @@ class Query:
         ids: Optional[list[str]] = None,
         offset: Optional[int] = None,
         limit: Optional[int] = None,
-        club_id: Optional[str] = None
+        club_id: Optional[str] = None,
     ) -> DatasetFields:
         arguments: dict[str, dict[str, Any]] = {
             "ids": {"type": "[ID!]", "value": ids},
@@ -213,7 +224,7 @@ class Query:
         *,
         name_enum: Optional[FeatureNameEnum] = None,
         club_id: Optional[str] = None,
-        platform: Optional[Platform] = None
+        platform: Optional[Platform] = None,
     ) -> FeatureCheckFields:
         arguments: dict[str, dict[str, Any]] = {
             "nameEnum": {"type": "FeatureNameEnum", "value": name_enum},
@@ -232,7 +243,7 @@ class Query:
         project: FirmwareProject,
         *,
         build_profile: Optional[FirmwareBuildProfile] = None,
-        feature_variant: Optional[FirmwareFeatureVariant] = None
+        feature_variant: Optional[FirmwareFeatureVariant] = None,
     ) -> FirmwareVersionFields:
         arguments: dict[str, dict[str, Any]] = {
             "boardName": {"type": "FirmwareBoardName!", "value": board_name},
@@ -268,7 +279,7 @@ class Query:
         club_id: Optional[str] = None,
         project: Optional[FirmwareProject] = None,
         build_profile: Optional[FirmwareBuildProfile] = None,
-        feature_variant: Optional[FirmwareFeatureVariant] = None
+        feature_variant: Optional[FirmwareFeatureVariant] = None,
     ) -> FirmwareVersionFields:
         arguments: dict[str, dict[str, Any]] = {
             "clubId": {"type": "ID", "value": club_id},
@@ -329,7 +340,7 @@ class Query:
         *,
         ids: Optional[list[str]] = None,
         limit: Optional[int] = None,
-        offset: Optional[int] = None
+        offset: Optional[int] = None,
     ) -> OrganisationFields:
         arguments: dict[str, dict[str, Any]] = {
             "ids": {"type": "[ID!]", "value": ids},
@@ -350,7 +361,7 @@ class Query:
         *,
         club_id: Optional[str] = None,
         subject: Optional[PermissionSubject] = None,
-        subject_id: Optional[str] = None
+        subject_id: Optional[str] = None,
     ) -> PermissionFields:
         arguments: dict[str, dict[str, Any]] = {
             "clubId": {"type": "ID", "value": club_id},
@@ -467,7 +478,7 @@ class Query:
         ids: list[str],
         *,
         limit: Optional[int] = None,
-        offset: Optional[int] = None
+        offset: Optional[int] = None,
     ) -> SessionParticipationInterface:
         arguments: dict[str, dict[str, Any]] = {
             "limit": {"type": "Int", "value": limit},
@@ -487,7 +498,7 @@ class Query:
         filter: SessionsSessionFilter,
         *,
         offset: Optional[int] = None,
-        limit: Optional[int] = None
+        limit: Optional[int] = None,
     ) -> SessionInterface:
         arguments: dict[str, dict[str, Any]] = {
             "filter": {"type": "SessionsSessionFilter!", "value": filter},
