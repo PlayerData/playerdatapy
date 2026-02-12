@@ -44,7 +44,7 @@ query($sessionId: ID!) {
     id
     startTime
     endTime
-    ballDataRecordings {
+    ballDataRecordings(withData: true) {
       id
       url(format: json)
       ball { id serialNumber }

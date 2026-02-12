@@ -13,7 +13,7 @@ def session_ball_data(session_id: str):
         SessionInterface.id,
         SessionInterface.start_time,
         SessionInterface.end_time,
-        SessionInterface.ball_data_recordings().fields(
+        SessionInterface.ball_data_recordings(with_data=True).fields(
             BallDataRecordingFields.id,
             BallDataRecordingFields.url(format=DatafileFormat.json),
             BallDataRecordingFields.ball().fields(
