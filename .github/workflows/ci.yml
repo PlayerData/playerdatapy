@@ -26,3 +26,12 @@ jobs:
     secrets: inherit
     needs: [lint, test]
     uses: "./.github/workflows/release.yml"
+  
+  publish:
+    name: Publish playerDatapy Python Package
+    secrets: inherit
+    needs: release
+    uses: "./.github/workflows/publish.yml"
+    with:
+      new_release_published: ${{ needs.release.outputs.new_release_published }}
+      new_release_version: ${{ needs.release.outputs.new_release_version }}
