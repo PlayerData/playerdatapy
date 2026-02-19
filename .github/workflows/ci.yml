@@ -31,6 +31,7 @@ jobs:
     name: Publish playerDatapy Python Package
     secrets: inherit
     needs: release
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     uses: "./.github/workflows/publish.yml"
     with:
       new_release_published: ${{ needs.release.outputs.new_release_published }}

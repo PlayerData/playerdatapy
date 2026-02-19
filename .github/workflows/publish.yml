@@ -47,5 +47,5 @@ jobs:
 
       - name: Publish
         if: ${{ inputs.new_release_published == 'true' }}
-        run: uv publish
+        run: uv publish --trusted-publishing always
 
