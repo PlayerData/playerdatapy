@@ -3,13 +3,11 @@ name = "playerdatapy"
 version = "0.1.0"
 description = "Python client for the PlayerData GraphQL API"
 authors = [{ name = "PlayerData Engineering", email = "dev@playerdata.com" }]
-classifiers = ["Private :: Do Not Upload"]
 readme = "README.md"
 requires-python = ">=3.10,<3.14"
 dependencies = [
     "graphql-core>=3.2.0",
     "httpx>=0.24.0",
-    "ipykernel>=7.1.0",
     "oauthlib>=3.2.0",
     "polars>=1.37.1",
     "pydantic>=2.0.0",
@@ -22,6 +20,7 @@ dev = [
     "ruff>=0.14.14",
     "pytest>=8.4.2",
     "pytest-asyncio>=0.24.0",
+    "ipykernel>=7.1.0",
 ]
 
 [build-system]
