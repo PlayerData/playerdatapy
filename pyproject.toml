@@ -31,9 +31,6 @@ build-backend = "hatchling.build"
 [tool.hatchling.build.targets.wheel]
 packages = ["playerdatapy"]
 
-[tool.uv]
-keyring-provider = "subprocess"
-
 [tool.autoflake]
 check = false
 in-place = true
