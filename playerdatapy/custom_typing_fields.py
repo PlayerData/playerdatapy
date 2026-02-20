@@ -229,12 +229,6 @@ class BallDataRecordingGraphQLField(GraphQLField):
         return self
 
 
-class BandedJumpZoneLowerBoundsGraphQLField(GraphQLField):
-    def alias(self, alias: str) -> "BandedJumpZoneLowerBoundsGraphQLField":
-        self._alias = alias
-        return self
-
-
 class BucketGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "BucketGraphQLField":
         self._alias = alias
