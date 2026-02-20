@@ -1,4 +1,4 @@
-name: Ariadne Codegen
+name: Code Generation
 
 on:
   workflow_dispatch: {}
@@ -9,9 +9,18 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
 
     steps:
+      - name: Generate Branch Name
+        id: branch-name
+        run: echo "branch-name=codegen-$(openssl rand -hex 4)" >> "$GITHUB_OUTPUT"
+
       - uses: actions/checkout@v6
+        with:
+          ref: main
+
+      - run: git checkout -b ${{ steps.branch-name.outputs.branch-name }}
 
       - uses: actions/setup-python@v6
         with:
@@ -35,3 +44,15 @@ jobs:
 
       - name: Fix Imports
         run: uv run --no-sync scripts/fix_imports.py
+
+      - run: |
+          git add .
+          git commit -m "chore: update graphql schema"
+          git push --force
+          gh pr create --base main --head ${{ steps.branch-name.outputs.branch-name }}
+        
+      # - name: Enable Automerge
+      #   if: steps.create-pr.outputs.pull-request-number
+      #   run: gh pr merge ${{ steps.create-pr.outputs.pull-request-number }} --auto --squash
+      #   env:
+      #     GH_TOKEN: ${{ github.token }}
