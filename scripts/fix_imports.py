@@ -1,16 +1,14 @@
 def add_import_line(path: str, import_line: str):
-    with open(path, "r") as f:
+    with open(path, "r+") as f:
         content = f.read()
         content = import_line + content
-    with open(path, "w") as f:
         f.write(content)
 
 
 def replace_import_line(path: str, import_line: str, new_import_line: str):
-    with open(path, "r") as f:
+    with open(path, "r+") as f:
         content = f.read()
         content = content.replace(import_line, new_import_line)
-    with open(path, "w") as f:
         f.write(content)
 
 
