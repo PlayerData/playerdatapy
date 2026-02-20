@@ -10,16 +10,19 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      pull-requests: write
 
     steps:
+      - uses: actions/checkout@v6
+
+      - name: Git Config
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "mickey.mouse@playerdata.com"
+          git config --global push.autoSetupRemote true
+
       - name: Generate Branch Name
         id: branch-name
         run: echo "branch-name=codegen-$(openssl rand -hex 4)" >> "$GITHUB_OUTPUT"
-
-      - uses: actions/checkout@v6
-        with:
-          ref: main
 
       - run: git checkout -b ${{ steps.branch-name.outputs.branch-name }}
 
@@ -44,13 +47,30 @@ jobs:
         run: uv run --no-sync ariadne-codegen
 
       - name: Fix Imports
-        run: uv run --no-sync scripts/fix_imports.py
+        run: uv run --no-sync scripts/fixup.py
 
-      - run: |
+      - name: Generate GitHub App Token
+        id: app_token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: 73365
+          private-key: ${{ secrets.BEAVERBOT_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+
+      - name: Create PR
+        env:
+          GH_TOKEN: ${{ steps.app_token.outputs.token }}
+        run: |
           git add .
           git commit -m "chore: update graphql schema"
+          git fetch origin
+          git rebase origin/main -X theirs
           git push --force
-          gh pr create --base main --head ${{ steps.branch-name.outputs.branch-name }}
+          gh pr create \
+            --title "Code Generation" \
+            --body "Automagically generated schema updates." \
+            --base main \
+            --head ${{ steps.branch-name.outputs.branch-name }}
         
       # - name: Enable Automerge
       #   if: steps.create-pr.outputs.pull-request-number
