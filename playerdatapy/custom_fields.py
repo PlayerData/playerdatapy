@@ -2441,15 +2441,11 @@ class BallDataRecordingFields(GraphQLField):
 
     @classmethod
     def url(
-        cls,
-        *,
-        format: Optional[DatafileFormat] = None,
-        session_times_only: Optional[bool] = None,
+        cls, *, format: Optional[DatafileFormat] = None
     ) -> "BallDataRecordingGraphQLField":
         """The URL to download the data file"""
         arguments: dict[str, dict[str, Any]] = {
-            "format": {"type": "DatafileFormat", "value": format},
-            "sessionTimesOnly": {"type": "Boolean", "value": session_times_only},
+            "format": {"type": "DatafileFormat", "value": format}
         }
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
