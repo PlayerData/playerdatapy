@@ -14,13 +14,15 @@ dependencies = [
     "requests-oauthlib>=2.0.0",
 ]
 
-[project.optional-dependencies]
-dev = [
-    "ariadne-codegen>=0.17.0",
-    "ruff>=0.14.14",
-    "pytest>=8.4.2",
-    "pytest-asyncio>=0.24.0",
-    "ipykernel>=7.1.0",
+[dependency-groups]
+codegen = [
+    "ariadne-codegen>=0.17.2",
+]
+test = [
+    "ipykernel>=7.2.0",
+    "pytest>=9.0.2",
+    "pytest-asyncio>=1.3.0",
+    "ruff>=0.15.1",
 ]
 
 [build-system]
@@ -40,12 +42,11 @@ remove-unused-variables = true
 ignore-init-module-imports = true
 
 [tool.ariadne-codegen]
-remote_schema_url = "https://app.playerdata.co.uk/api/graphql"
+schema_path = "schema.graphql"
 target_package_name = "playerdatapy"
 enable_custom_operations = true
 client_file_name = "gqlclient"
 client_class_name = "GraphqlClient"
-remote_schema_headers = {"Authorization" = "$AUTH_TOKEN"}
 
 [tool.ruff.lint]
 ignore = ["F405", "F403"]
