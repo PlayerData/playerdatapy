@@ -6,81 +6,82 @@ from enum import Enum
 
 class AggFuncEnum(str, Enum):
     avg = "avg"
-    sum = "sum"
-    max = "max"
     avgByAthlete = "avgByAthlete"
-    avgBySession = "avgBySession"
     avgByParticipation = "avgByParticipation"
+    avgBySession = "avgBySession"
+    max = "max"
+    sum = "sum"
 
 
 class AppAuthenticationFlow(str, Enum):
-    DETAILS = "DETAILS"
-    EDGE_ASSIGNMENT = "EDGE_ASSIGNMENT"
     ATHLETE_DASHBOARD = "ATHLETE_DASHBOARD"
     CURRENT_CLUB = "CURRENT_CLUB"
+    DETAILS = "DETAILS"
+    EDGE_ASSIGNMENT = "EDGE_ASSIGNMENT"
     NO_CLUB = "NO_CLUB"
+    PRIVACY_POLICY_ACCEPTANCE = "PRIVACY_POLICY_ACCEPTANCE"
     SELECT_CLUB = "SELECT_CLUB"
     UPDATE_APP = "UPDATE_APP"
-    PRIVACY_POLICY_ACCEPTANCE = "PRIVACY_POLICY_ACCEPTANCE"
 
 
 class AppMessageTypeEnum(str, Enum):
     AccountSuspended = "AccountSuspended"
     AccountUnpaid = "AccountUnpaid"
+    DataReady = "DataReady"
     FirmwareUpdateAvailable = "FirmwareUpdateAvailable"
     GatewayFirmwareUpdateAvailable = "GatewayFirmwareUpdateAvailable"
     LegacySurveyDistributed = "LegacySurveyDistributed"
-    SurveyCompleted = "SurveyCompleted"
-    DataReady = "DataReady"
     NewPersonalBest = "NewPersonalBest"
-    SurveyReminder = "SurveyReminder"
+    SessionBlueprintSessionCreationFailed = "SessionBlueprintSessionCreationFailed"
     SessionBlueprintSessionCreationSkippedAthletes = (
         "SessionBlueprintSessionCreationSkippedAthletes"
     )
     SessionBlueprintSessionCreationSkippedGateways = (
         "SessionBlueprintSessionCreationSkippedGateways"
     )
-    SessionBlueprintSessionCreationFailed = "SessionBlueprintSessionCreationFailed"
+    SurveyCompleted = "SurveyCompleted"
+    SurveyReminder = "SurveyReminder"
 
 
 class ChartDataTypeEnum(str, Enum):
-    series = "series"
-    time = "time"
     category = "category"
     excluded = "excluded"
+    series = "series"
+    time = "time"
 
 
 class ChartTypeEnum(str, Enum):
-    column = "column"
-    stackedColumn = "stackedColumn"
     bar = "bar"
-    stackedBar = "stackedBar"
-    line = "line"
-    radarLine = "radarLine"
-    pie = "pie"
     boxPlot = "boxPlot"
+    column = "column"
     columnLineCombo = "columnLineCombo"
     customCombo = "customCombo"
+    line = "line"
+    pie = "pie"
+    radarLine = "radarLine"
+    stackedBar = "stackedBar"
+    stackedColumn = "stackedColumn"
+    table = "table"
 
 
 class ClubSport(str, Enum):
-    association_football = "association_football"
     american_football = "american_football"
-    other = "other"
-    rugby = "rugby"
-    hockey = "hockey"
-    gaelic_football = "gaelic_football"
-    shinty = "shinty"
-    hurling = "hurling"
-    polo = "polo"
-    mens_lacrosse = "mens_lacrosse"
-    womens_lacrosse = "womens_lacrosse"
+    association_football = "association_football"
     association_football_referees = "association_football_referees"
-    rugby_league = "rugby_league"
-    basketball = "basketball"
-    volleyball = "volleyball"
     baseball = "baseball"
+    basketball = "basketball"
     cricket = "cricket"
+    gaelic_football = "gaelic_football"
+    hockey = "hockey"
+    hurling = "hurling"
+    mens_lacrosse = "mens_lacrosse"
+    other = "other"
+    polo = "polo"
+    rugby = "rugby"
+    rugby_league = "rugby_league"
+    shinty = "shinty"
+    volleyball = "volleyball"
+    womens_lacrosse = "womens_lacrosse"
 
 
 class ConfiguredMetricListTypeEnum(str, Enum):
@@ -88,8 +89,8 @@ class ConfiguredMetricListTypeEnum(str, Enum):
 
 
 class CreatorTypeEnum(str, Enum):
-    Staff = "Staff"
     Athlete = "Athlete"
+    Staff = "Staff"
 
 
 class CustomMaxMetricEnum(str, Enum):
@@ -101,9 +102,9 @@ class CustomMaxMetricEnum(str, Enum):
 
 class DatafileFormat(str, Enum):
     json = "json"
+    raw = "raw"
     v3 = "v3"
     v4 = "v4"
-    raw = "raw"
 
 
 class DatasetStatusEnum(str, Enum):
@@ -113,16 +114,16 @@ class DatasetStatusEnum(str, Enum):
 
 
 class DecryptionArea(str, Enum):
-    HeartrateAssociationService = "HeartrateAssociationService"
     EdgeName = "EdgeName"
-    MeshInit = "MeshInit"
     EnableDFU = "EnableDFU"
+    HeartrateAssociationService = "HeartrateAssociationService"
+    MeshInit = "MeshInit"
 
 
 class DetectedMatchEventState(str, Enum):
-    pending = "pending"
     confirmed = "confirmed"
     dismissed = "dismissed"
+    pending = "pending"
 
 
 class DeviceOwnerType(str, Enum):
@@ -131,36 +132,36 @@ class DeviceOwnerType(str, Enum):
 
 
 class DeviceSyncTypeEnum(str, Enum):
-    edge = "edge"
     ball = "ball"
+    edge = "edge"
 
 
 class DeviceTypeEnum(str, Enum):
+    Anchor = "Anchor"
     Ball = "Ball"
     Edge = "Edge"
     Gateway = "Gateway"
-    Anchor = "Anchor"
 
 
 class DiagnosticWarningErrorTypeEnum(str, Enum):
+    BATTERY_DEPLETION = "BATTERY_DEPLETION"
+    DATA_OUTSIDE_TIME_WINDOW = "DATA_OUTSIDE_TIME_WINDOW"
     DATA_OVERWRITTEN = "DATA_OVERWRITTEN"
     GPS_QUALITY = "GPS_QUALITY"
-    PITCH_LOCATION_ERROR = "PITCH_LOCATION_ERROR"
-    DATA_OUTSIDE_TIME_WINDOW = "DATA_OUTSIDE_TIME_WINDOW"
-    UNIT_NOT_WORN = "UNIT_NOT_WORN"
-    BATTERY_DEPLETION = "BATTERY_DEPLETION"
-    UNIT_SWITCHED_OFF = "UNIT_SWITCHED_OFF"
     NO_GPS_DATA = "NO_GPS_DATA"
+    PITCH_LOCATION_ERROR = "PITCH_LOCATION_ERROR"
+    UNIT_NOT_WORN = "UNIT_NOT_WORN"
+    UNIT_SWITCHED_OFF = "UNIT_SWITCHED_OFF"
 
 
 class DisplayUnitEnum(str, Enum):
-    M = "M"
+    BPM = "BPM"
+    HOUR = "HOUR"
     KM = "KM"
     KPH = "KPH"
-    BPM = "BPM"
-    SEC = "SEC"
+    M = "M"
     MIN = "MIN"
-    HOUR = "HOUR"
+    SEC = "SEC"
     UNITLESS = "UNITLESS"
 
 
@@ -171,70 +172,70 @@ class EdgeOwnerType(str, Enum):
 
 class FeatureNameEnum(str, Enum):
     allow_font_scaling = "allow_font_scaling"
-    csv_exports = "csv_exports"
+    anonymise_data_pipeline_enabled = "anonymise_data_pipeline_enabled"
+    auto_gateway_assignment = "auto_gateway_assignment"
+    auto_pitch_detection = "auto_pitch_detection"
+    backfill_sampled_speed_blob_job = "backfill_sampled_speed_blob_job"
+    bad_data_clipping = "bad_data_clipping"
+    ball_metrics = "ball_metrics"
+    browser_report_gen = "browser_report_gen"
     bt_hr_sensor_pairing = "bt_hr_sensor_pairing"
-    heartrate_data = "heartrate_data"
-    firmware_updates = "firmware_updates"
-    firmware_gateway_updates = "firmware_gateway_updates"
-    firmware_anchor_updates = "firmware_anchor_updates"
     chat = "chat"
     chat_extended_capabilities = "chat_extended_capabilities"
     configurable_comparison = "configurable_comparison"
-    browser_report_gen = "browser_report_gen"
-    session_automation = "session_automation"
-    report_improvements = "report_improvements"
-    individual_speed_zones = "individual_speed_zones"
-    notification_enhancements = "notification_enhancements"
-    tactical_video_playback = "tactical_video_playback"
-    tactical_map_speed = "tactical_map_speed"
-    web_segments = "web_segments"
-    debounce_live_data_backfill = "debounce_live_data_backfill"
     configurable_metrics = "configurable_metrics"
+    csv_exports = "csv_exports"
     custom_csv = "custom_csv"
-    flexible_reporting = "flexible_reporting"
-    pitches_on_sessions = "pitches_on_sessions"
-    hubspot_integration = "hubspot_integration"
-    warmup_match_session = "warmup_match_session"
-    customer_flexible_reporting = "customer_flexible_reporting"
-    auto_pitch_detection = "auto_pitch_detection"
-    match_session_parts_processing_v2 = "match_session_parts_processing_v2"
-    recruitment_dashboard = "recruitment_dashboard"
-    ball_metrics = "ball_metrics"
-    session_quick_actions = "session_quick_actions"
     custom_survey_questions = "custom_survey_questions"
-    localized_terms = "localized_terms"
+    customer_flexible_reporting = "customer_flexible_reporting"
+    debounce_live_data_backfill = "debounce_live_data_backfill"
     duplicate_segment_null_times = "duplicate_segment_null_times"
+    firmware_anchor_updates = "firmware_anchor_updates"
+    firmware_gateway_updates = "firmware_gateway_updates"
+    firmware_updates = "firmware_updates"
+    flexible_reporting = "flexible_reporting"
+    heartrate_data = "heartrate_data"
+    hubspot_integration = "hubspot_integration"
+    individual_speed_zones = "individual_speed_zones"
+    localized_terms = "localized_terms"
+    match_session_parts_processing_v2 = "match_session_parts_processing_v2"
+    notification_enhancements = "notification_enhancements"
+    pitches_on_sessions = "pitches_on_sessions"
     processing_diagnostics = "processing_diagnostics"
-    backfill_sampled_speed_blob_job = "backfill_sampled_speed_blob_job"
+    recruitment_dashboard = "recruitment_dashboard"
+    report_improvements = "report_improvements"
+    session_automation = "session_automation"
+    session_quick_actions = "session_quick_actions"
     survey_archival = "survey_archival"
-    anonymise_data_pipeline_enabled = "anonymise_data_pipeline_enabled"
-    use_competitor_s_metrics = "use_competitor_s_metrics"
-    bad_data_clipping = "bad_data_clipping"
-    auto_gateway_assignment = "auto_gateway_assignment"
     sync_only_recent_edges = "sync_only_recent_edges"
+    tactical_map_speed = "tactical_map_speed"
+    tactical_video_playback = "tactical_video_playback"
+    use_competitor_s_metrics = "use_competitor_s_metrics"
+    warmup_match_session = "warmup_match_session"
+    web_segments = "web_segments"
     zone_management_v2 = "zone_management_v2"
 
 
 class FirmwareBoardName(str, Enum):
+    playerdata_anchor_v3_0_0 = "playerdata_anchor_v3_0_0"
+    playerdata_anchor_v5_0_0 = "playerdata_anchor_v5_0_0"
+    playerdata_anchor_v6_0_3 = "playerdata_anchor_v6_0_3"
+    playerdata_ball_v1_0_2 = "playerdata_ball_v1_0_2"
+    playerdata_ball_v1_1_0 = "playerdata_ball_v1_1_0"
     playerdata_edge_v2_0_8 = "playerdata_edge_v2_0_8"
+    playerdata_edge_v2_0_81 = "playerdata_edge_v2_0_81"
     playerdata_edge_v2_0_9 = "playerdata_edge_v2_0_9"
     playerdata_edge_v2_1_1 = "playerdata_edge_v2_1_1"
-    playerdata_anchor_v3_0_0 = "playerdata_anchor_v3_0_0"
-    playerdata_edge_v2_0_81 = "playerdata_edge_v2_0_81"
-    playerdata_edge_v3_0_5 = "playerdata_edge_v3_0_5"
-    playerdata_anchor_v5_0_0 = "playerdata_anchor_v5_0_0"
-    playerdata_gateway_v1_0_0 = "playerdata_gateway_v1_0_0"
     playerdata_edge_v2_2_0 = "playerdata_edge_v2_2_0"
+    playerdata_edge_v3_0_5 = "playerdata_edge_v3_0_5"
+    playerdata_edge_v3_1_0 = "playerdata_edge_v3_1_0"
+    playerdata_gateway_v1_0_0 = "playerdata_gateway_v1_0_0"
     playerdata_gateway_v2_0_2_nrf5340_cpuapp = (
         "playerdata_gateway_v2_0_2_nrf5340_cpuapp"
     )
     playerdata_gateway_v2_0_3_nrf5340_cpuapp = (
         "playerdata_gateway_v2_0_3_nrf5340_cpuapp"
     )
-    playerdata_anchor_v6_0_3 = "playerdata_anchor_v6_0_3"
-    playerdata_edge_v3_1_0 = "playerdata_edge_v3_1_0"
-    playerdata_ball_v1_0_2 = "playerdata_ball_v1_0_2"
-    playerdata_ball_v1_1_0 = "playerdata_ball_v1_1_0"
 
 
 class FirmwareBuildProfile(str, Enum):
@@ -243,18 +244,18 @@ class FirmwareBuildProfile(str, Enum):
 
 
 class FirmwareFeatureVariant(str, Enum):
-    normal = "normal"
-    no_stillness = "no_stillness"
-    imu_recording = "imu_recording"
     datafile_v4 = "datafile_v4"
     fixed = "fixed"
+    imu_recording = "imu_recording"
+    no_stillness = "no_stillness"
+    normal = "normal"
 
 
 class FirmwareProject(str, Enum):
-    edge = "edge"
-    edge_factory_test = "edge_factory_test"
     anchor = "anchor"
     anchor_factory_test = "anchor_factory_test"
+    edge = "edge"
+    edge_factory_test = "edge_factory_test"
     gateway_v2 = "gateway_v2"
 
 
@@ -270,30 +271,30 @@ class MatchEventClassEnum(str, Enum):
 
 
 class MatchEventTeam(str, Enum):
-    our_team = "our_team"
-    opposing_team = "opposing_team"
     both_teams = "both_teams"
+    opposing_team = "opposing_team"
+    our_team = "our_team"
 
 
 class MatchSessionResult(str, Enum):
-    loss = "loss"
     draw = "draw"
+    loss = "loss"
     win = "win"
 
 
 class OperatingMode(str, Enum):
+    ChargeMode = "ChargeMode"
     DataCapture = "DataCapture"
     DataTransfer = "DataTransfer"
     Error = "Error"
-    Powerdown = "Powerdown"
-    ChargeMode = "ChargeMode"
-    HrPeripheralPairingMode = "HrPeripheralPairingMode"
     FirmwareUpdate = "FirmwareUpdate"
+    HrPeripheralPairingMode = "HrPeripheralPairingMode"
+    Powerdown = "Powerdown"
 
 
 class OrderDirectionEnum(str, Enum):
-    desc = "desc"
     asc = "asc"
+    desc = "desc"
 
 
 class OwnerEnum(str, Enum):
@@ -302,34 +303,34 @@ class OwnerEnum(str, Enum):
 
 
 class PathmapPathType(str, Enum):
-    sprint = "sprint"
     high_intensity = "high_intensity"
+    sprint = "sprint"
 
 
 class PermissionAction(str, Enum):
     Create = "Create"
+    Destroy = "Destroy"
     Edit = "Edit"
     Export = "Export"
     Index = "Index"
     New = "New"
     Show = "Show"
     Update = "Update"
-    Destroy = "Destroy"
 
 
 class PermissionSubject(str, Enum):
     Athlete = "Athlete"
     ClubSettings = "ClubSettings"
-    Person = "Person"
     PendingMember = "PendingMember"
+    Person = "Person"
     Pitch = "Pitch"
-    Survey = "Survey"
-    SurveyDistribution = "SurveyDistribution"
-    SurveyTimerTrigger = "SurveyTimerTrigger"
-    SurveyQuestion = "SurveyQuestion"
+    Report = "Report"
     Session = "Session"
     SessionTagDefinition = "SessionTagDefinition"
-    Report = "Report"
+    Survey = "Survey"
+    SurveyDistribution = "SurveyDistribution"
+    SurveyQuestion = "SurveyQuestion"
+    SurveyTimerTrigger = "SurveyTimerTrigger"
 
 
 class Platform(str, Enum):
@@ -339,41 +340,44 @@ class Platform(str, Enum):
 
 
 class ProcessingWarning(str, Enum):
-    NO_EDGE_DATA = "NO_EDGE_DATA"
-    NO_GPS_DATA = "NO_GPS_DATA"
-    NO_DATA_FILE = "NO_DATA_FILE"
-    FILTERED_BY_TIME = "FILTERED_BY_TIME"
+    ANCHOR_LOCALISATION_FAILED = "ANCHOR_LOCALISATION_FAILED"
     FILTERED_BY_PITCH_BOUNDS = "FILTERED_BY_PITCH_BOUNDS"
     FILTERED_BY_SATELLITE_COUNT = "FILTERED_BY_SATELLITE_COUNT"
-    NO_UWB_DATA = "NO_UWB_DATA"
-    NO_UWB_ANCHOR_POSITION_DATA = "NO_UWB_ANCHOR_POSITION_DATA"
-    NO_UWB_DELTA_TAG_DATA = "NO_UWB_DELTA_TAG_DATA"
-    UWB_LOCALISATION_FAILED = "UWB_LOCALISATION_FAILED"
-    UWB_HYBRID_SYSTEMS_NOT_SUPPORTED = "UWB_HYBRID_SYSTEMS_NOT_SUPPORTED"
-    NO_ACCELERATION_DATA = "NO_ACCELERATION_DATA"
-    NO_DELTA_DATA = "NO_DELTA_DATA"
-    NO_ANCHOR_DATA = "NO_ANCHOR_DATA"
-    ANCHOR_LOCALISATION_FAILED = "ANCHOR_LOCALISATION_FAILED"
-    NO_LPS_DATA = "NO_LPS_DATA"
-    NO_VALID_LPS_DATA = "NO_VALID_LPS_DATA"
+    FILTERED_BY_TIME = "FILTERED_BY_TIME"
     INSUFFICIENT_LPS_DATA_TO_LOCALISE = "INSUFFICIENT_LPS_DATA_TO_LOCALISE"
-    NO_VALID_LOCALISATION_DATA = "NO_VALID_LOCALISATION_DATA"
     LOW_DATA_POINTS = "LOW_DATA_POINTS"
-    PITCH_TOO_SMALL = "PITCH_TOO_SMALL"
+    NO_ACCELERATION_DATA = "NO_ACCELERATION_DATA"
+    NO_ANCHOR_DATA = "NO_ANCHOR_DATA"
+    NO_DATA_FILE = "NO_DATA_FILE"
+    NO_DELTA_DATA = "NO_DELTA_DATA"
+    NO_EDGE_DATA = "NO_EDGE_DATA"
+    NO_GPS_DATA = "NO_GPS_DATA"
+    NO_LPS_DATA = "NO_LPS_DATA"
+    NO_PITCH_DETECTED = "NO_PITCH_DETECTED"
+    NO_UWB_ANCHOR_POSITION_DATA = "NO_UWB_ANCHOR_POSITION_DATA"
+    NO_UWB_DATA = "NO_UWB_DATA"
+    NO_UWB_DELTA_TAG_DATA = "NO_UWB_DELTA_TAG_DATA"
+    NO_VALID_LOCALISATION_DATA = "NO_VALID_LOCALISATION_DATA"
+    NO_VALID_LPS_DATA = "NO_VALID_LPS_DATA"
     PITCH_TOO_LARGE = "PITCH_TOO_LARGE"
+    PITCH_TOO_SMALL = "PITCH_TOO_SMALL"
+    UWB_HYBRID_SYSTEMS_NOT_SUPPORTED = "UWB_HYBRID_SYSTEMS_NOT_SUPPORTED"
+    UWB_LOCALISATION_FAILED = "UWB_LOCALISATION_FAILED"
 
 
 class QuickActionStateEnum(str, Enum):
-    BEFORE_SESSION = "BEFORE_SESSION"
     AFTER_SESSION = "AFTER_SESSION"
-    TRAINING_OUTSIDE_SEGMENT_NO_FUTURE_SEGMENTS = (
-        "TRAINING_OUTSIDE_SEGMENT_NO_FUTURE_SEGMENTS"
+    BEFORE_SESSION = "BEFORE_SESSION"
+    MATCH_INSIDE_FINAL_SEGMENT = "MATCH_INSIDE_FINAL_SEGMENT"
+    MATCH_INSIDE_NON_FINAL_SEGMENT = "MATCH_INSIDE_NON_FINAL_SEGMENT"
+    MATCH_OUTSIDE_SEGMENT_WITH_FUTURE_SEGMENTS = (
+        "MATCH_OUTSIDE_SEGMENT_WITH_FUTURE_SEGMENTS"
+    )
+    TRAINING_INSIDE_SEGMENT_NEAR_SESSION_END = (
+        "TRAINING_INSIDE_SEGMENT_NEAR_SESSION_END"
     )
     TRAINING_INSIDE_SEGMENT_NO_FUTURE_SEGMENTS = (
         "TRAINING_INSIDE_SEGMENT_NO_FUTURE_SEGMENTS"
-    )
-    TRAINING_OUTSIDE_SEGMENT_WITH_FUTURE_SEGMENTS = (
-        "TRAINING_OUTSIDE_SEGMENT_WITH_FUTURE_SEGMENTS"
     )
     TRAINING_INSIDE_SEGMENT_WITH_FUTURE_SEGMENTS = (
         "TRAINING_INSIDE_SEGMENT_WITH_FUTURE_SEGMENTS"
@@ -381,13 +385,11 @@ class QuickActionStateEnum(str, Enum):
     TRAINING_OUTSIDE_SEGMENT_NEAR_SESSION_END = (
         "TRAINING_OUTSIDE_SEGMENT_NEAR_SESSION_END"
     )
-    TRAINING_INSIDE_SEGMENT_NEAR_SESSION_END = (
-        "TRAINING_INSIDE_SEGMENT_NEAR_SESSION_END"
+    TRAINING_OUTSIDE_SEGMENT_NO_FUTURE_SEGMENTS = (
+        "TRAINING_OUTSIDE_SEGMENT_NO_FUTURE_SEGMENTS"
     )
-    MATCH_INSIDE_NON_FINAL_SEGMENT = "MATCH_INSIDE_NON_FINAL_SEGMENT"
-    MATCH_INSIDE_FINAL_SEGMENT = "MATCH_INSIDE_FINAL_SEGMENT"
-    MATCH_OUTSIDE_SEGMENT_WITH_FUTURE_SEGMENTS = (
-        "MATCH_OUTSIDE_SEGMENT_WITH_FUTURE_SEGMENTS"
+    TRAINING_OUTSIDE_SEGMENT_WITH_FUTURE_SEGMENTS = (
+        "TRAINING_OUTSIDE_SEGMENT_WITH_FUTURE_SEGMENTS"
     )
     UNABLE_TO_DETERMINE = "UNABLE_TO_DETERMINE"
 
@@ -400,60 +402,61 @@ class RatingEnum(str, Enum):
 class ReportType(str, Enum):
     AthleteReport = "AthleteReport"
     GroupReport = "GroupReport"
-    SingleSessionReport = "SingleSessionReport"
     MultiSessionReport = "MultiSessionReport"
+    SingleSessionReport = "SingleSessionReport"
 
 
 class ReportTypeEnum(str, Enum):
     AthleteLoad = "AthleteLoad"
-    SingleSession = "SingleSession"
     MultiSession = "MultiSession"
+    SingleSession = "SingleSession"
 
 
 class ResponderEnum(str, Enum):
-    human = "human"
     bot = "bot"
+    human = "human"
     system = "system"
 
 
 class SeriesChartTypeEnum(str, Enum):
-    line = "line"
     groupedColumn = "groupedColumn"
+    line = "line"
     stackedColumn = "stackedColumn"
 
 
 class SessionParticipationWarningCodes(str, Enum):
-    FUTURE_SESSION = "FUTURE_SESSION"
-    NO_ATHLETES_ASSIGNED = "NO_ATHLETES_ASSIGNED"
-    NO_EDGES_ASSIGNED = "NO_EDGES_ASSIGNED"
+    ANCHOR_LOCALISATION_FAILED = "ANCHOR_LOCALISATION_FAILED"
     EDGE_SYNC_REQUIRED = "EDGE_SYNC_REQUIRED"
-    GATEWAY_ASSIGNABLE = "GATEWAY_ASSIGNABLE"
-    LIVE_SESSION_DATA_GAPS = "LIVE_SESSION_DATA_GAPS"
-    GATEWAY_NOT_CONNECTED = "GATEWAY_NOT_CONNECTED"
-    NO_GATEWAY_DATA = "NO_GATEWAY_DATA"
-    LIVE_INDOOR_SESSION = "LIVE_INDOOR_SESSION"
-    NO_EDGE_DATA = "NO_EDGE_DATA"
-    NO_GPS_DATA = "NO_GPS_DATA"
-    NO_DATA_FILE = "NO_DATA_FILE"
-    FILTERED_BY_TIME = "FILTERED_BY_TIME"
     FILTERED_BY_PITCH_BOUNDS = "FILTERED_BY_PITCH_BOUNDS"
     FILTERED_BY_SATELLITE_COUNT = "FILTERED_BY_SATELLITE_COUNT"
-    NO_UWB_DATA = "NO_UWB_DATA"
-    NO_UWB_ANCHOR_POSITION_DATA = "NO_UWB_ANCHOR_POSITION_DATA"
-    NO_UWB_DELTA_TAG_DATA = "NO_UWB_DELTA_TAG_DATA"
-    UWB_LOCALISATION_FAILED = "UWB_LOCALISATION_FAILED"
-    UWB_HYBRID_SYSTEMS_NOT_SUPPORTED = "UWB_HYBRID_SYSTEMS_NOT_SUPPORTED"
-    NO_ACCELERATION_DATA = "NO_ACCELERATION_DATA"
-    NO_DELTA_DATA = "NO_DELTA_DATA"
-    NO_ANCHOR_DATA = "NO_ANCHOR_DATA"
-    ANCHOR_LOCALISATION_FAILED = "ANCHOR_LOCALISATION_FAILED"
-    NO_LPS_DATA = "NO_LPS_DATA"
-    NO_VALID_LPS_DATA = "NO_VALID_LPS_DATA"
+    FILTERED_BY_TIME = "FILTERED_BY_TIME"
+    FUTURE_SESSION = "FUTURE_SESSION"
+    GATEWAY_ASSIGNABLE = "GATEWAY_ASSIGNABLE"
+    GATEWAY_NOT_CONNECTED = "GATEWAY_NOT_CONNECTED"
     INSUFFICIENT_LPS_DATA_TO_LOCALISE = "INSUFFICIENT_LPS_DATA_TO_LOCALISE"
-    NO_VALID_LOCALISATION_DATA = "NO_VALID_LOCALISATION_DATA"
+    LIVE_INDOOR_SESSION = "LIVE_INDOOR_SESSION"
+    LIVE_SESSION_DATA_GAPS = "LIVE_SESSION_DATA_GAPS"
     LOW_DATA_POINTS = "LOW_DATA_POINTS"
-    PITCH_TOO_SMALL = "PITCH_TOO_SMALL"
+    NO_ACCELERATION_DATA = "NO_ACCELERATION_DATA"
+    NO_ANCHOR_DATA = "NO_ANCHOR_DATA"
+    NO_ATHLETES_ASSIGNED = "NO_ATHLETES_ASSIGNED"
+    NO_DATA_FILE = "NO_DATA_FILE"
+    NO_DELTA_DATA = "NO_DELTA_DATA"
+    NO_EDGES_ASSIGNED = "NO_EDGES_ASSIGNED"
+    NO_EDGE_DATA = "NO_EDGE_DATA"
+    NO_GATEWAY_DATA = "NO_GATEWAY_DATA"
+    NO_GPS_DATA = "NO_GPS_DATA"
+    NO_LPS_DATA = "NO_LPS_DATA"
+    NO_PITCH_DETECTED = "NO_PITCH_DETECTED"
+    NO_UWB_ANCHOR_POSITION_DATA = "NO_UWB_ANCHOR_POSITION_DATA"
+    NO_UWB_DATA = "NO_UWB_DATA"
+    NO_UWB_DELTA_TAG_DATA = "NO_UWB_DELTA_TAG_DATA"
+    NO_VALID_LOCALISATION_DATA = "NO_VALID_LOCALISATION_DATA"
+    NO_VALID_LPS_DATA = "NO_VALID_LPS_DATA"
     PITCH_TOO_LARGE = "PITCH_TOO_LARGE"
+    PITCH_TOO_SMALL = "PITCH_TOO_SMALL"
+    UWB_HYBRID_SYSTEMS_NOT_SUPPORTED = "UWB_HYBRID_SYSTEMS_NOT_SUPPORTED"
+    UWB_LOCALISATION_FAILED = "UWB_LOCALISATION_FAILED"
 
 
 class SessionTypeEnum(str, Enum):
@@ -462,75 +465,75 @@ class SessionTypeEnum(str, Enum):
 
 
 class SessionWarningCodes(str, Enum):
+    EDGE_SYNC_REQUIRED = "EDGE_SYNC_REQUIRED"
     FUTURE_SESSION = "FUTURE_SESSION"
+    GATEWAY_ASSIGNABLE = "GATEWAY_ASSIGNABLE"
+    GATEWAY_NOT_CONNECTED = "GATEWAY_NOT_CONNECTED"
+    LIVE_INDOOR_SESSION = "LIVE_INDOOR_SESSION"
+    LIVE_SESSION_DATA_GAPS = "LIVE_SESSION_DATA_GAPS"
     NO_ATHLETES_ASSIGNED = "NO_ATHLETES_ASSIGNED"
     NO_EDGES_ASSIGNED = "NO_EDGES_ASSIGNED"
-    EDGE_SYNC_REQUIRED = "EDGE_SYNC_REQUIRED"
-    GATEWAY_ASSIGNABLE = "GATEWAY_ASSIGNABLE"
-    LIVE_SESSION_DATA_GAPS = "LIVE_SESSION_DATA_GAPS"
-    GATEWAY_NOT_CONNECTED = "GATEWAY_NOT_CONNECTED"
     NO_GATEWAY_DATA = "NO_GATEWAY_DATA"
-    LIVE_INDOOR_SESSION = "LIVE_INDOOR_SESSION"
 
 
 class SignupFlow(str, Enum):
     ALREADY_LINKED = "ALREADY_LINKED"
     INVALID_EMAIL = "INVALID_EMAIL"
     LINK_TO_NEW_CLUB = "LINK_TO_NEW_CLUB"
-    NEW_USER = "NEW_USER"
     NEW_CLAIMABLE_ATHLETE = "NEW_CLAIMABLE_ATHLETE"
+    NEW_USER = "NEW_USER"
     NO_EMAIL = "NO_EMAIL"
     PENDING_MEMBER = "PENDING_MEMBER"
     SIGN_IN_REQUIRED = "SIGN_IN_REQUIRED"
 
 
 class SortField(str, Enum):
-    avg_distance_m = "avg_distance_m"
-    avg_high_intensity_events = "avg_high_intensity_events"
-    avg_high_intensity_run_distance_m = "avg_high_intensity_run_distance_m"
-    avg_high_intensity_distance_m = "avg_high_intensity_distance_m"
-    avg_total_high_intensity_distance_m = "avg_total_high_intensity_distance_m"
-    avg_max_speed_kph = "avg_max_speed_kph"
-    avg_raw_max_speed_kph = "avg_raw_max_speed_kph"
-    avg_metres_per_minute = "avg_metres_per_minute"
-    avg_sprint_events = "avg_sprint_events"
-    avg_sprint_distance_m = "avg_sprint_distance_m"
     avg_acceleration_events = "avg_acceleration_events"
     avg_deceleration_events = "avg_deceleration_events"
+    avg_distance_m = "avg_distance_m"
+    avg_high_intensity_distance_m = "avg_high_intensity_distance_m"
+    avg_high_intensity_events = "avg_high_intensity_events"
+    avg_high_intensity_run_distance_m = "avg_high_intensity_run_distance_m"
+    avg_max_speed_kph = "avg_max_speed_kph"
+    avg_metres_per_minute = "avg_metres_per_minute"
+    avg_raw_max_speed_kph = "avg_raw_max_speed_kph"
+    avg_sprint_distance_m = "avg_sprint_distance_m"
+    avg_sprint_events = "avg_sprint_events"
+    avg_total_high_intensity_distance_m = "avg_total_high_intensity_distance_m"
     avg_workload = "avg_workload"
     avg_workload_intensity = "avg_workload_intensity"
     avg_workload_volume = "avg_workload_volume"
-    max_total_distance_m = "max_total_distance_m"
     max_max_speed_kph = "max_max_speed_kph"
-    max_raw_max_speed_kph = "max_raw_max_speed_kph"
     max_metres_per_minute = "max_metres_per_minute"
-    total_distance_m = "total_distance_m"
-    total_high_intensity_events = "total_high_intensity_events"
-    total_high_intensity_run_distance_m = "total_high_intensity_run_distance_m"
-    total_high_intensity_distance_m = "total_high_intensity_distance_m"
-    total_sprint_count = "total_sprint_count"
-    total_sprint_events = "total_sprint_events"
-    total_sprint_distance_m = "total_sprint_distance_m"
+    max_raw_max_speed_kph = "max_raw_max_speed_kph"
+    max_total_distance_m = "max_total_distance_m"
     total_acceleration_events = "total_acceleration_events"
     total_deceleration_events = "total_deceleration_events"
+    total_distance_m = "total_distance_m"
+    total_high_intensity_distance_m = "total_high_intensity_distance_m"
+    total_high_intensity_events = "total_high_intensity_events"
+    total_high_intensity_run_distance_m = "total_high_intensity_run_distance_m"
+    total_sprint_count = "total_sprint_count"
+    total_sprint_distance_m = "total_sprint_distance_m"
+    total_sprint_events = "total_sprint_events"
 
 
 class StripeSubscriptionStatus(str, Enum):
     active = "active"
-    unpaid = "unpaid"
     cancelled = "cancelled"
     paused = "paused"
+    unpaid = "unpaid"
 
 
 class TaggableTypeEnum(str, Enum):
+    athlete = "athlete"
+    match_session = "match_session"
     segment = "segment"
-    session = "session"
-    session_participation = "session_participation"
     segment_participation = "segment_participation"
     segment_participation_part = "segment_participation_part"
-    match_session = "match_session"
+    session = "session"
+    session_participation = "session_participation"
     training_session = "training_session"
-    athlete = "athlete"
 
 
 class TaggerTypeEnum(str, Enum):
@@ -538,7 +541,7 @@ class TaggerTypeEnum(str, Enum):
 
 
 class UnitSystem(str, Enum):
-    metric = "metric"
     imperial = "imperial"
-    metres_per_second = "metres_per_second"
     imperial_yards_only = "imperial_yards_only"
+    metres_per_second = "metres_per_second"
+    metric = "metric"
