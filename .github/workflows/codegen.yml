@@ -1,0 +1,37 @@
+name: Ariadne Codegen
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  codegen:
+    name: Regenerate Ariadne Codegen
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6.6.1
+        with:
+          enable-cache: true
+          cache-suffix: '-venv-codegen'
+          activate-environment: true
+
+      - name: Install Dependencies
+        run: uv sync --group codegen --locked
+
+      - name: Fetch the Schema
+        run: uv run --no-sync scripts/fetch_schema.py
+
+      - name: Code Generation
+        run: uv run --no-sync ariadne-codegen
+
+      - name: Fix Imports
+        run: uv run --no-sync scripts/fix_imports.py
