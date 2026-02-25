@@ -147,7 +147,6 @@ from .input_types import (
     VideoRecordingAttributes,
 )
 
-# Appended manually
 from .playerdata_api import PlayerDataAPI
 
 __all__ = [

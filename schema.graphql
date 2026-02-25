@@ -1290,11 +1290,6 @@ type BallDataRecording {
     The format of the data file to download
     """
     format: DatafileFormat
-
-    """
-    When true, don't include events outside the session start/end times
-    """
-    sessionTimesOnly: Boolean
   ): String
 }
 
@@ -3560,6 +3555,11 @@ Device sync upload record
 """
 type DeviceSync {
   """
+  The ball associated with this sync (via ball ownership)
+  """
+  ball: Ball
+
+  """
   ID of the associated device ownership
   """
   deviceOwnershipId: ID!
@@ -3573,6 +3573,11 @@ type DeviceSync {
   End time of the sync period
   """
   endTime: ISO8601DateTime
+
+  """
+  Signed URL for the plaintext data file
+  """
+  fileUrl: String
 
   """
   Unique identifier for the device sync
@@ -3702,6 +3707,16 @@ enum DisplayUnitEnum {
   Minutes
   """
   MIN
+
+  """
+  Meters per second
+  """
+  MPS
+
+  """
+  Percentage
+  """
+  PERCENT
 
   """
   Seconds
@@ -4009,11 +4024,6 @@ enum FeatureNameEnum {
   Enables customer flexible reporting
   """
   customer_flexible_reporting
-
-  """
-  Enables live data backfill debounce
-  """
-  debounce_live_data_backfill
 
   """
   Enables segments with nil duration
@@ -7901,6 +7911,31 @@ input OrderInputObject {
 
 type Organisation {
   activeSubscription: CustomerSubscription
+
+  """
+  Ball device syncs for this organisation
+  """
+  ballSyncs(
+    """
+    End of the time range to filter syncs
+    """
+    endTime: ISO8601DateTime
+
+    """
+    Maximum number of syncs to return
+    """
+    limit: Int
+
+    """
+    Number of syncs to skip
+    """
+    offset: Int
+
+    """
+    Start of the time range to filter syncs
+    """
+    startTime: ISO8601DateTime
+  ): [DeviceSync!]!
   clubs: [Club!]!
   edgeOwnershipsCount: Int!
   id: ID!
