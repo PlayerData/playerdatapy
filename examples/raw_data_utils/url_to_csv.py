@@ -109,6 +109,31 @@ def raw_imu_orientation_data(json_data: list[dict]) -> pl.DataFrame:
     return orientation_data
 
 
+def raw_heart_rate_data(json_data: list[dict]) -> pl.DataFrame:
+    """
+    Extracts Heart Rate data from JSON data and returns a DataFrame.
+    """
+    schema = {
+        "time": pl.Int64,
+        "rtor_ms": pl.Float32,
+        "type": pl.String,
+    }
+    participation_data = pl.DataFrame(json_data, schema=schema)
+    heart_rate_events = participation_data.filter(pl.col("type") == "HEARTBEAT")
+
+    if heart_rate_events.is_empty():
+        return pl.DataFrame()
+
+    heart_rate_data = heart_rate_events.select(
+        [
+            pl.from_epoch(pl.col("time"), time_unit="ms").dt.replace_time_zone("UTC"),
+            pl.col("rtor_ms").cast(pl.Float32),
+        ]
+    ).sort("time")
+
+    return heart_rate_data
+
+
 def url_to_csv(url: str, session_participation_id: str) -> None:
     """
     Fetches JSON data from a URL, extracts GPS and IMU data, and writes to CSV files
@@ -128,6 +153,7 @@ def url_to_csv(url: str, session_participation_id: str) -> None:
     gps_data = raw_gps_data(json_data)
     imu_acceleration_data = raw_imu_acceleration_data(json_data)
     imu_orientation_data = raw_imu_orientation_data(json_data)
+    heart_rate_data = raw_heart_rate_data(json_data)
 
     # Create a directory for this session_participation_id if it doesn't exist
     output_dir = session_participation_id
@@ -148,5 +174,9 @@ def url_to_csv(url: str, session_participation_id: str) -> None:
         os.path.join(
             output_dir, f"imu_orientation_data_{session_participation_id}.csv"
         ),
+        separator=",",
+    )
+    heart_rate_data.write_csv(
+        os.path.join(output_dir, f"heart_rate_data_{session_participation_id}.csv"),
         separator=",",
     )
