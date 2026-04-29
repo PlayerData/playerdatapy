@@ -40,7 +40,29 @@ def index():
             return f"Token exchange failed: {resp.text}", 400
 
         access_token = resp.json()["access_token"]
-        return redirect(f"/me?token={access_token}")
+
+        me = requests.post(
+            GRAPHQL_URL,
+            json={"query": "{ currentPerson { name } }"},
+            headers={"Authorization": f"Bearer {access_token}"},
+        )
+        if not me.ok:
+            return f"GraphQL request failed: {me.text}", 400
+
+        name = me.json()["data"]["currentPerson"]["name"]
+        return f"""<!DOCTYPE html>
+<html>
+<head><title>Hello</title>
+<style>
+  body {{ font-family: sans-serif; max-width: 500px; margin: 100px auto; text-align: center; }}
+  h1 {{ font-size: 2em; }}
+</style>
+</head>
+<body>
+  <h1>Hello, {name}!</h1>
+  <p>Successfully authenticated with PlayerData.</p>
+</body>
+</html>"""
 
     # CORRECT: start at the authorize endpoint, not the login page
     state = secrets.token_urlsafe(16)
@@ -54,36 +76,6 @@ def index():
         "state": state,
     }
     return redirect(AUTH_URL + "?" + urllib.parse.urlencode(params))
-
-
-@app.route("/me")
-def me():
-    access_token = request.args.get("token")
-    if not access_token:
-        return redirect("/")
-
-    resp = requests.post(
-        GRAPHQL_URL,
-        json={"query": "{ currentPerson { name } }"},
-        headers={"Authorization": f"Bearer {access_token}"},
-    )
-    if not resp.ok:
-        return f"GraphQL request failed: {resp.text}", 400
-
-    name = resp.json()["data"]["currentPerson"]["name"]
-    return f"""<!DOCTYPE html>
-<html>
-<head><title>Hello</title>
-<style>
-  body {{ font-family: sans-serif; max-width: 500px; margin: 100px auto; text-align: center; }}
-  h1 {{ font-size: 2em; }}
-</style>
-</head>
-<body>
-  <h1>Hello, {name}!</h1>
-  <p>Successfully authenticated with PlayerData.</p>
-</body>
-</html>"""
 
 
 def _open_browser():
