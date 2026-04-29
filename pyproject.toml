@@ -6,11 +6,13 @@ authors = [{ name = "PlayerData Engineering", email = "dev@playerdata.com" }]
 readme = "README.md"
 requires-python = ">=3.10,<3.14"
 dependencies = [
+    "flask>=3.1.3",
     "graphql-core>=3.2.0",
     "httpx>=0.24.0",
     "oauthlib>=3.2.0",
     "polars>=1.37.1",
     "pydantic>=2.0.0",
+    "requests>=2.32.5",
     "requests-oauthlib>=2.0.0",
 ]
 
