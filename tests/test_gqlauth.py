@@ -1,8 +1,10 @@
+from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 import pytest
 from oauthlib.oauth2 import TokenExpiredError  # type: ignore[import-untyped]
 
+from playerdatapy.auth.token_storage import default_token_path
 from playerdatapy.gqlauth import GraphqlAuth, AuthenticationType
 
 
@@ -29,12 +31,14 @@ class TestGraphqlAuth:
 
         assert auth.client_id == "test_client"
         assert auth.client_secret == "test_secret"
-        assert auth.token_file == ".token"
+        assert auth.token_file == default_token_path()
         assert auth.redirect_uri == "http://localhost:8888"
         assert auth.port == 8888
         assert auth.authentication_type == AuthenticationType.CLIENT_CREDENTIALS_FLOW
         assert auth.authenticator == mock_authenticator
-        mock_flow_class.assert_called_once_with("test_client", "test_secret", ".token")
+        mock_flow_class.assert_called_once_with(
+            "test_client", "test_secret", default_token_path()
+        )
 
     @patch("playerdatapy.gqlauth.OAuth2Session")
     @patch("playerdatapy.gqlauth.AuthorisationCodeFlow")
@@ -59,12 +63,12 @@ class TestGraphqlAuth:
 
         assert auth.client_id == "test_client"
         assert auth.client_secret == "test_secret"
-        assert auth.token_file == ".test_token"
+        assert auth.token_file == Path(".test_token")
         assert auth.redirect_uri == "http://localhost:9999"
         assert auth.port == 9999
         assert auth.authentication_type == AuthenticationType.AUTHORISATION_CODE_FLOW
         mock_flow_class.assert_called_once_with(
-            "test_client", 9999, "test_secret", ".test_token"
+            "test_client", 9999, "test_secret", Path(".test_token")
         )
 
     @patch("playerdatapy.gqlauth.OAuth2Session")
@@ -91,7 +95,9 @@ class TestGraphqlAuth:
         assert (
             auth.authentication_type == AuthenticationType.AUTHORISATION_CODE_FLOW_PCKE
         )
-        mock_flow_class.assert_called_once_with("test_client", 8888, ".test_token")
+        mock_flow_class.assert_called_once_with(
+            "test_client", 8888, Path(".test_token")
+        )
 
     @patch("playerdatapy.gqlauth.OAuth2Session")
     @patch("playerdatapy.gqlauth.ClientCredentialsFlow")

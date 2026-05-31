@@ -3,6 +3,7 @@ import os
 import tempfile
 from unittest.mock import MagicMock, patch
 
+from pathlib import Path
 import pytest
 
 from playerdatapy.auth.authorisation_code_flow_base import AuthorisationCodeFlowBase
@@ -24,7 +25,7 @@ class TestAuthorisationCodeFlowBase:
             )
 
             assert flow.client_id == "test_client"
-            assert flow.token_file == ".test_token"
+            assert flow.token_file == Path(".test_token")
             assert flow.server == mock_server
             mock_server_class.assert_called_once_with(8080)
 

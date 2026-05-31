@@ -1,3 +1,6 @@
+from pathlib import Path
+from typing import Optional, Union
+
 from .authorisation_code_flow_base import AuthorisationCodeFlowBase
 
 
@@ -5,7 +8,11 @@ class AuthorisationCodeFlow(AuthorisationCodeFlowBase):
     """Handles oauth2 authorisation code flow and token management."""
 
     def __init__(
-        self, client_id: str, port: int, client_secret: str, token_file: str = ".token"
+        self,
+        client_id: str,
+        port: int,
+        client_secret: str,
+        token_file: Optional[Union[str, Path]] = None,
     ):
         super().__init__(client_id, port, token_file)
         self.client_secret = client_secret

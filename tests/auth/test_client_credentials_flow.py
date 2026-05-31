@@ -3,6 +3,7 @@ import os
 import tempfile
 from unittest.mock import MagicMock, patch
 
+from pathlib import Path
 import pytest
 
 from playerdatapy.auth.client_credentials_flow import ClientCredentialsFlow
@@ -20,7 +21,7 @@ class TestClientCredentialsFlow:
         )
         assert flow.client_id == "test_client"
         assert flow.client_secret == "test_secret"
-        assert flow.token_file == ".test_token"
+        assert flow.token_file == Path(".test_token")
         assert flow.oauth_session is None
 
     @patch("playerdatapy.auth.client_credentials_flow.OAuth2Session")

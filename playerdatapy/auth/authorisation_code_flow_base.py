@@ -1,4 +1,6 @@
 import webbrowser
+from pathlib import Path
+from typing import Optional, Union
 from requests_oauthlib import OAuth2Session
 
 from .base_flow import BaseAuthFlow
@@ -8,7 +10,9 @@ from .server import Server
 class AuthorisationCodeFlowBase(BaseAuthFlow):
     """Base class for OAuth2 authorization code flows with token management."""
 
-    def __init__(self, client_id: str, port: int, token_file: str = ".token"):
+    def __init__(
+        self, client_id: str, port: int, token_file: Optional[Union[str, Path]] = None
+    ):
         super().__init__(client_id, token_file)
         self.server = Server(port)
 
