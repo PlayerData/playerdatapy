@@ -1,3 +1,6 @@
+from pathlib import Path
+from typing import Optional, Union
+
 from .gqlauth import GraphqlAuth, AuthenticationType
 from .gqlclient import Client
 from .base_operation import GraphQLField
@@ -10,7 +13,7 @@ class PlayerDataAPI(GraphqlAuth):
         client_id: str,
         client_secret: str = "",
         redirect_uri: str = "http://localhost:8888",
-        token_file: str = ".token",
+        token_file: Optional[Union[str, Path]] = None,
         port: int = 8888,
         authentication_type: AuthenticationType = AuthenticationType.AUTHORISATION_CODE_FLOW,
     ):

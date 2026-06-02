@@ -1,3 +1,5 @@
+from pathlib import Path
+from typing import Optional, Union
 from requests_oauthlib import OAuth2Session
 from oauthlib.oauth2 import BackendApplicationClient
 
@@ -7,7 +9,12 @@ from .base_flow import BaseAuthFlow
 class ClientCredentialsFlow(BaseAuthFlow):
     """Handles oauth2 client credentials flow and token management."""
 
-    def __init__(self, client_id: str, client_secret: str, token_file: str = ".token"):
+    def __init__(
+        self,
+        client_id: str,
+        client_secret: str,
+        token_file: Optional[Union[str, Path]] = None,
+    ):
         super().__init__(client_id, token_file)
         self.client_secret = client_secret
 

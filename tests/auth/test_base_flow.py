@@ -3,6 +3,7 @@ import os
 import tempfile
 import time
 
+from pathlib import Path
 import pytest
 from oauthlib.oauth2 import TokenExpiredError
 
@@ -19,7 +20,7 @@ class TestBaseAuthFlow:
         flow = BaseAuthFlow(client_id="test_client", token_file=".test_token")
         assert flow.client_id == "test_client"
         assert flow.api_base_url == API_BASE_URL
-        assert flow.token_file == ".test_token"
+        assert flow.token_file == Path(".test_token")
         assert flow.oauth_session is None
 
     def test_save_token(self):

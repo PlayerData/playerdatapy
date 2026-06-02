@@ -1,3 +1,4 @@
+from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 
@@ -20,7 +21,7 @@ class TestAuthorisationCodeFlowPCKE:
             )
 
             assert flow.client_id == "test_client"
-            assert flow.token_file == ".test_token"
+            assert flow.token_file == Path(".test_token")
             assert flow.server == mock_server
             # Should not have client_secret attribute
             assert not hasattr(flow, "client_secret")

@@ -3,12 +3,15 @@ GraphQL client for the Playerdata API
 """
 
 from enum import Enum
+from pathlib import Path
+from typing import Optional, Union
 from requests_oauthlib import OAuth2Session  # type: ignore[import-untyped]
 from oauthlib.oauth2 import TokenExpiredError  # type: ignore[import-untyped]
 
 from playerdatapy.auth.authorisation_code_flow import AuthorisationCodeFlow
 from playerdatapy.auth.authorisation_code_flow_pcke import AuthorisationCodeFlowPCKE
 from playerdatapy.auth.client_credentials_flow import ClientCredentialsFlow
+from playerdatapy.auth.token_storage import default_token_path
 from playerdatapy.constants import API_BASE_URL
 
 
@@ -26,14 +29,14 @@ class GraphqlAuth:
     def __init__(
         self,
         client_id: str,
-        token_file: str = ".token",
+        token_file: Optional[Union[str, Path]] = None,
         client_secret: str = "",
         redirect_uri: str = "http://localhost:8888",
         port: int = 8888,
         type: AuthenticationType = AuthenticationType.AUTHORISATION_CODE_FLOW,
     ):
         self.client_id = client_id
-        self.token_file = token_file
+        self.token_file: Path = Path(token_file) if token_file else default_token_path()
         self.authenticator = None
         self.authentication_type = type
         self.client_secret = client_secret

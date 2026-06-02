@@ -2,6 +2,7 @@ from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 
+from playerdatapy.auth.token_storage import default_token_path
 from playerdatapy.playerdata_api import PlayerDataAPI
 from playerdatapy.gqlauth import AuthenticationType
 from playerdatapy.base_operation import GraphQLField
@@ -68,7 +69,7 @@ class TestPlayerdataAPI:
         assert interface.client_id == "test_client"
         assert interface.client_secret == ""
         assert interface.redirect_uri == "http://localhost:8888"
-        assert interface.token_file == ".token"
+        assert interface.token_file == default_token_path()
         assert interface.port == 8888
         assert (
             interface.authentication_type == AuthenticationType.AUTHORISATION_CODE_FLOW

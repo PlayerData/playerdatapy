@@ -1,3 +1,4 @@
+from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 
@@ -24,7 +25,7 @@ class TestAuthorisationCodeFlow:
 
             assert flow.client_id == "test_client"
             assert flow.client_secret == "test_secret"
-            assert flow.token_file == ".test_token"
+            assert flow.token_file == Path(".test_token")
             assert flow.server == mock_server
 
     def test_fetch_token_with_client_secret(self):
