@@ -4,7 +4,7 @@ from typing import Optional, Union
 from .gqlauth import GraphqlAuth, AuthenticationType
 from .gqlclient import Client
 from .base_operation import GraphQLField
-from playerdatapy.constants import API_BASE_URL
+from playerdatapy.constants import GRAPHQL_URL
 
 
 class PlayerDataAPI(GraphqlAuth):
@@ -26,7 +26,7 @@ class PlayerDataAPI(GraphqlAuth):
             type=authentication_type,
         )
         self.client = Client(
-            url=f"{API_BASE_URL}/api/graphql",
+            url=GRAPHQL_URL,
             headers={"Authorization": f"Bearer {self._get_authentication_token()}"},
         )
 
