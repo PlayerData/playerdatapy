@@ -18,6 +18,10 @@ dependencies = [
 codegen = [
     "ariadne-codegen>=0.17.2",
 ]
+docs = [
+    "mkdocs-material>=9.5.0",
+    "mkdocstrings[python]>=0.26.0",
+]
 test = [
     "ipykernel>=7.2.0",
     "pytest>=9.0.3",
@@ -47,6 +51,7 @@ target_package_name = "playerdatapy"
 enable_custom_operations = true
 client_file_name = "gqlclient"
 client_class_name = "GraphqlClient"
+plugins = ["codegen_plugins.docstrings.EnumDocstringsPlugin"]
 
 [tool.ruff.lint]
 ignore = ["F405", "F403"]

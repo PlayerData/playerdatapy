@@ -5,6 +5,8 @@ from enum import Enum
 
 
 class AggFuncEnum(str, Enum):
+    """The different aggregation functions"""
+
     avg = "avg"
     avgByAthlete = "avgByAthlete"
     avgByParticipation = "avgByParticipation"
@@ -15,13 +17,21 @@ class AggFuncEnum(str, Enum):
 
 class AppAuthenticationFlow(str, Enum):
     ATHLETE_DASHBOARD = "ATHLETE_DASHBOARD"
+    "Person is directed to Athlete Dashboard"
     CURRENT_CLUB = "CURRENT_CLUB"
+    "Person has club, decide route on client side"
     DETAILS = "DETAILS"
+    "Person without DOB or gender"
     EDGE_ASSIGNMENT = "EDGE_ASSIGNMENT"
+    "Person has an Edge that can be scanned"
     NO_CLUB = "NO_CLUB"
+    "Person has no club or individual Athlete"
     PRIVACY_POLICY_ACCEPTANCE = "PRIVACY_POLICY_ACCEPTANCE"
+    "Person needs to accept a new privacy policy"
     SELECT_CLUB = "SELECT_CLUB"
+    "Can select from a list of clubs"
     UPDATE_APP = "UPDATE_APP"
+    "Person needs to update app to latest version"
 
 
 class AppMessageTypeEnum(str, Enum):
@@ -44,6 +54,8 @@ class AppMessageTypeEnum(str, Enum):
 
 
 class ChartDataTypeEnum(str, Enum):
+    """data type for a column, required by AG Grid when creating charts"""
+
     category = "category"
     excluded = "excluded"
     series = "series"
@@ -51,6 +63,8 @@ class ChartDataTypeEnum(str, Enum):
 
 
 class ChartTypeEnum(str, Enum):
+    """The different chart types we support"""
+
     bar = "bar"
     boxPlot = "boxPlot"
     column = "column"
@@ -85,19 +99,30 @@ class ClubSport(str, Enum):
 
 
 class ConfiguredMetricListTypeEnum(str, Enum):
+    """Configured metric list type."""
+
     leaderboard = "leaderboard"
+    "Leaderboard"
 
 
 class CreatorTypeEnum(str, Enum):
+    """The type of polymorphic creator"""
+
     Athlete = "Athlete"
     Staff = "Staff"
 
 
 class CustomMaxMetricEnum(str, Enum):
+    """Available custom max metric types for athletes"""
+
     ACCELERATION = "ACCELERATION"
+    "Maximum acceleration in m/s²"
     DECELERATION = "DECELERATION"
+    "Maximum deceleration in m/s²"
     HEART_RATE = "HEART_RATE"
+    "Maximum heart rate in BPM"
     SPEED = "SPEED"
+    "Top speed in km/h"
 
 
 class DatafileFormat(str, Enum):
@@ -108,6 +133,8 @@ class DatafileFormat(str, Enum):
 
 
 class DatasetStatusEnum(str, Enum):
+    """Status of a dataset"""
+
     Completed = "Completed"
     Failed = "Failed"
     Generating = "Generating"
@@ -127,16 +154,22 @@ class DetectedMatchEventState(str, Enum):
 
 
 class DeviceOwnerType(str, Enum):
+    """The type of owner for a device"""
+
     Organisation = "Organisation"
     Person = "Person"
 
 
 class DeviceSyncTypeEnum(str, Enum):
+    """The different device types that can be synced"""
+
     ball = "ball"
     edge = "edge"
 
 
 class DeviceTypeEnum(str, Enum):
+    """The different harware devices"""
+
     Anchor = "Anchor"
     Ball = "Ball"
     Edge = "Edge"
@@ -144,6 +177,8 @@ class DeviceTypeEnum(str, Enum):
 
 
 class DiagnosticWarningErrorTypeEnum(str, Enum):
+    """The type of diagnostic error"""
+
     BATTERY_DEPLETION = "BATTERY_DEPLETION"
     DATA_OUTSIDE_TIME_WINDOW = "DATA_OUTSIDE_TIME_WINDOW"
     DATA_OVERWRITTEN = "DATA_OVERWRITTEN"
@@ -155,66 +190,124 @@ class DiagnosticWarningErrorTypeEnum(str, Enum):
 
 
 class DisplayUnitEnum(str, Enum):
+    """The display unit of the metric"""
+
     BPM = "BPM"
+    "Beats per minute"
     HOUR = "HOUR"
+    "Hours"
     KM = "KM"
+    "Kilometers"
     KPH = "KPH"
+    "Kilometers per hour"
     M = "M"
+    "Meters"
     MIN = "MIN"
+    "Minutes"
     MPS = "MPS"
+    "Meters per second"
     PERCENT = "PERCENT"
+    "Percentage"
     SEC = "SEC"
+    "Seconds"
     UNITLESS = "UNITLESS"
+    "Unitless"
 
 
 class EdgeOwnerType(str, Enum):
+    """The type of owner for a device"""
+
     Organisation = "Organisation"
     Person = "Person"
 
 
 class FeatureNameEnum(str, Enum):
+    """An enum of all the features that can be enabled/disabled"""
+
     allow_font_scaling = "allow_font_scaling"
+    "Enables scaling fonts for accessibility"
     anonymise_data_pipeline_enabled = "anonymise_data_pipeline_enabled"
+    "Enables the anonymisation of session data on data recording addition"
     auto_gateway_assignment = "auto_gateway_assignment"
+    "Enables processing of gateway assignments received from the gateway assignment pipeline"
     auto_pitch_detection = "auto_pitch_detection"
+    "Enables auto pitch detection"
     backfill_sampled_speed_blob_job = "backfill_sampled_speed_blob_job"
+    "Enables backfilling sampled speed blob job"
     bad_data_clipping = "bad_data_clipping"
+    "Enables the bad data clipping feature in the web application"
     ball_metrics = "ball_metrics"
+    "Enables ball metrics"
     browser_report_gen = "browser_report_gen"
+    "Enable report generation in the browser"
     bt_hr_sensor_pairing = "bt_hr_sensor_pairing"
+    "Enables setting up an edge to pair with a HR sensor"
     chat = "chat"
+    "*Deprecated* Enable chat interface"
     chat_extended_capabilities = "chat_extended_capabilities"
+    "Enable extended chat capabilities including sports science research tools"
     configurable_comparison = "configurable_comparison"
+    "Enables configurable metric comparisons"
     configurable_metrics = "configurable_metrics"
+    "*Deprecated* Enables scoped metric display by club"
     csv_exports = "csv_exports"
+    "Enable survey exports in CSV format"
     custom_csv = "custom_csv"
+    "Enables csv reporting options"
     custom_survey_questions = "custom_survey_questions"
+    "Enables custom survey questions"
     customer_flexible_reporting = "customer_flexible_reporting"
+    "Enables customer flexible reporting"
     duplicate_segment_null_times = "duplicate_segment_null_times"
+    "Enables segments with nil duration"
     firmware_anchor_updates = "firmware_anchor_updates"
+    "Enables (self-serve) anchor firmware updates"
     firmware_gateway_updates = "firmware_gateway_updates"
+    "Enables (self-serve) gateway firmware updates"
     firmware_updates = "firmware_updates"
+    "Enables (self-serve) firmware updates, including prompts to update"
     flexible_reporting = "flexible_reporting"
+    "Enables flexible reporting"
     heartrate_data = "heartrate_data"
+    "*Deprecated by Configurable Metrics*"
     hubspot_integration = "hubspot_integration"
+    "Enables a variety of integrations with the hubspot API"
     individual_speed_zones = "individual_speed_zones"
+    "Enables the individual speed zones feature"
     localized_terms = "localized_terms"
+    "Enables US / GB specific sports terms (e.g. match -> game)"
     match_session_parts_processing_v2 = "match_session_parts_processing_v2"
+    "Enables new match session part processing"
     notification_enhancements = "notification_enhancements"
+    "Enables the reworked notifications modal"
     pitches_on_sessions = "pitches_on_sessions"
+    "Enables reading & writing pitches from Sessions::Session"
     processing_diagnostics = "processing_diagnostics"
+    "Enables processing diagnostics"
     recruitment_dashboard = "recruitment_dashboard"
+    "Enables access to the recruitment dashboard via SSO"
     report_improvements = "report_improvements"
+    "Enables the report improvements feature"
     session_automation = "session_automation"
+    "Enables detected sessions v2"
     session_quick_actions = "session_quick_actions"
+    "Enables quick actions on sessions"
     survey_archival = "survey_archival"
+    "Enables archival of surveys"
     sync_only_recent_edges = "sync_only_recent_edges"
+    "Filters edge sync list to only show edges from a specific session"
     tactical_map_speed = "tactical_map_speed"
+    "Enables speed graphs on tactical maps"
     tactical_video_playback = "tactical_video_playback"
+    "Enables the tactical video playback feature"
     use_competitor_s_metrics = "use_competitor_s_metrics"
+    "Enables using competitor S acceleration/deceleration metrics"
     warmup_match_session = "warmup_match_session"
+    "Enables warmup match session definitions"
     web_segments = "web_segments"
+    "Enables segment creation on the web"
     zone_management_v2 = "zone_management_v2"
+    "Enables the 2026 redesign of individual and club zone management"
 
 
 class FirmwareBoardName(str, Enum):
@@ -266,6 +359,8 @@ class FirmwareVariant(str, Enum):
 
 
 class MatchEventClassEnum(str, Enum):
+    """Classes of match event"""
+
     OnPitchEvent = "OnPitchEvent"
     PitchEntryEvent = "PitchEntryEvent"
     PitchExitEvent = "PitchExitEvent"
@@ -305,7 +400,9 @@ class OwnerEnum(str, Enum):
 
 class PathmapPathType(str, Enum):
     high_intensity = "high_intensity"
+    "high_intensity"
     sprint = "sprint"
+    "sprint"
 
 
 class PermissionAction(str, Enum):
@@ -336,66 +433,108 @@ class PermissionSubject(str, Enum):
 
 class Platform(str, Enum):
     ANDROID = "ANDROID"
+    "A device running Android"
     IOS = "IOS"
+    "A device running iOS"
     WEB = "WEB"
+    "Running in a web browser"
 
 
 class ProcessingWarning(str, Enum):
     ANCHOR_LOCALISATION_FAILED = "ANCHOR_LOCALISATION_FAILED"
+    "The anchor auto localisation process failed"
     FILTERED_BY_PITCH_BOUNDS = "FILTERED_BY_PITCH_BOUNDS"
+    "Provided data was (almost) entirely filtered by pitch bounds"
     FILTERED_BY_SATELLITE_COUNT = "FILTERED_BY_SATELLITE_COUNT"
+    "Provided data predominantly below satellite count threshold"
     FILTERED_BY_TIME = "FILTERED_BY_TIME"
+    "Provided data was (almost) entirely filtered out by time bounds"
     INSUFFICIENT_LPS_DATA_TO_LOCALISE = "INSUFFICIENT_LPS_DATA_TO_LOCALISE"
+    "There was insufficient LPS data to track the athletes position"
     LOW_DATA_POINTS = "LOW_DATA_POINTS"
+    "Not enough high speed points to create a pitch from"
     NO_ACCELERATION_DATA = "NO_ACCELERATION_DATA"
+    "There was no acceleration data in the provided file"
     NO_ANCHOR_DATA = "NO_ANCHOR_DATA"
+    "There was no anchor data recorded"
     NO_DATA_FILE = "NO_DATA_FILE"
+    "Session reprocessed without datafile"
     NO_DELTA_DATA = "NO_DELTA_DATA"
+    "There was no delta data recorded"
     NO_EDGE_DATA = "NO_EDGE_DATA"
+    "There was no data in the provided file"
     NO_GPS_DATA = "NO_GPS_DATA"
+    "There was no GPS data in the provided file"
     NO_LPS_DATA = "NO_LPS_DATA"
+    "There was no LPS data recorded"
     NO_PITCH_DETECTED = "NO_PITCH_DETECTED"
+    "No pitch was detected for this session"
     NO_UWB_ANCHOR_POSITION_DATA = "NO_UWB_ANCHOR_POSITION_DATA"
+    "(DEPRECATED) There was no UWB anchor position data in the provided file"
     NO_UWB_DATA = "NO_UWB_DATA"
+    "(DEPRECATED) There was no UWB data in the provided file"
     NO_UWB_DELTA_TAG_DATA = "NO_UWB_DELTA_TAG_DATA"
+    "(DEPRECATED) There was no UWB delta tag data in the provided file"
     NO_VALID_LOCALISATION_DATA = "NO_VALID_LOCALISATION_DATA"
+    "Could not produce valid LPS tracking data"
     NO_VALID_LPS_DATA = "NO_VALID_LPS_DATA"
+    "There was no valid LPS data recorded"
     PITCH_TOO_LARGE = "PITCH_TOO_LARGE"
+    "The pitch created by pitch detection was initially too large (150m x 200m)\n            reflecting a high speed in a large area."
     PITCH_TOO_SMALL = "PITCH_TOO_SMALL"
+    "The pitch created by pitch detection was initially too small (20m x 50m)\n            reflecting a high speed in a small area."
     UWB_HYBRID_SYSTEMS_NOT_SUPPORTED = "UWB_HYBRID_SYSTEMS_NOT_SUPPORTED"
+    "(DEPRECATED) Fixed and floating anchors not supported yet"
     UWB_LOCALISATION_FAILED = "UWB_LOCALISATION_FAILED"
+    "(DEPRECATED) The localisation process failed for the provided UWB data"
 
 
 class QuickActionStateEnum(str, Enum):
+    """Enum for quick action states"""
+
     AFTER_SESSION = "AFTER_SESSION"
+    "Quick action state after session ends"
     BEFORE_SESSION = "BEFORE_SESSION"
+    "Quick action state before session starts"
     MATCH_INSIDE_FINAL_SEGMENT = "MATCH_INSIDE_FINAL_SEGMENT"
+    "Quick action state for match inside final segment"
     MATCH_INSIDE_NON_FINAL_SEGMENT = "MATCH_INSIDE_NON_FINAL_SEGMENT"
+    "Quick action state for match inside non-final segment"
     MATCH_OUTSIDE_SEGMENT_WITH_FUTURE_SEGMENTS = (
         "MATCH_OUTSIDE_SEGMENT_WITH_FUTURE_SEGMENTS"
     )
+    "Quick action state for matches to skip past breaks or other gaps between segments"
     TRAINING_INSIDE_SEGMENT_NEAR_SESSION_END = (
         "TRAINING_INSIDE_SEGMENT_NEAR_SESSION_END"
     )
+    "Quick action state for training inside segment near session end (10 mins)"
     TRAINING_INSIDE_SEGMENT_NO_FUTURE_SEGMENTS = (
         "TRAINING_INSIDE_SEGMENT_NO_FUTURE_SEGMENTS"
     )
+    "Quick action state for training inside segment with no future segments"
     TRAINING_INSIDE_SEGMENT_WITH_FUTURE_SEGMENTS = (
         "TRAINING_INSIDE_SEGMENT_WITH_FUTURE_SEGMENTS"
     )
+    "Quick action state for training inside segment with future segments"
     TRAINING_OUTSIDE_SEGMENT_NEAR_SESSION_END = (
         "TRAINING_OUTSIDE_SEGMENT_NEAR_SESSION_END"
     )
+    "Quick action state for training outside segment near session end (10 mins)"
     TRAINING_OUTSIDE_SEGMENT_NO_FUTURE_SEGMENTS = (
         "TRAINING_OUTSIDE_SEGMENT_NO_FUTURE_SEGMENTS"
     )
+    "Quick action state for training outside segment with no segments"
     TRAINING_OUTSIDE_SEGMENT_WITH_FUTURE_SEGMENTS = (
         "TRAINING_OUTSIDE_SEGMENT_WITH_FUTURE_SEGMENTS"
     )
+    "Quick action state for training outside segment with future segments"
     UNABLE_TO_DETERMINE = "UNABLE_TO_DETERMINE"
+    "Failed to evaluate the correct quick action state for this session"
 
 
 class RatingEnum(str, Enum):
+    """The rating of the response"""
+
     negative = "negative"
     positive = "positive"
 
@@ -420,72 +559,131 @@ class ResponderEnum(str, Enum):
 
 
 class SeriesChartTypeEnum(str, Enum):
+    """The different chart types we support for combo charts"""
+
     groupedColumn = "groupedColumn"
     line = "line"
     stackedColumn = "stackedColumn"
 
 
 class SessionParticipationWarningCodes(str, Enum):
+    """The codes for the warnings"""
+
     ANCHOR_LOCALISATION_FAILED = "ANCHOR_LOCALISATION_FAILED"
+    "The anchor auto localisation process failed"
     EDGE_SYNC_REQUIRED = "EDGE_SYNC_REQUIRED"
+    "Session has data syncs but one or more has no data file."
     FILTERED_BY_PITCH_BOUNDS = "FILTERED_BY_PITCH_BOUNDS"
+    "Provided data was (almost) entirely filtered by pitch bounds"
     FILTERED_BY_SATELLITE_COUNT = "FILTERED_BY_SATELLITE_COUNT"
+    "Provided data predominantly below satellite count threshold"
     FILTERED_BY_TIME = "FILTERED_BY_TIME"
+    "Provided data was (almost) entirely filtered out by time bounds"
     FUTURE_SESSION = "FUTURE_SESSION"
+    "Session start time is in the future."
     GATEWAY_ASSIGNABLE = "GATEWAY_ASSIGNABLE"
+    "The session is in progress and a gateway can be assigned."
     GATEWAY_NOT_CONNECTED = "GATEWAY_NOT_CONNECTED"
+    "The Gateway has not connected to the network."
     INSUFFICIENT_LPS_DATA_TO_LOCALISE = "INSUFFICIENT_LPS_DATA_TO_LOCALISE"
+    "There was insufficient LPS data to track the athletes position"
     LIVE_INDOOR_SESSION = "LIVE_INDOOR_SESSION"
+    "Live indoor session's are not supported."
     LIVE_SESSION_DATA_GAPS = "LIVE_SESSION_DATA_GAPS"
+    "The session has gaps in data coverage that require edge sync."
     LOW_DATA_POINTS = "LOW_DATA_POINTS"
+    "Not enough high speed points to create a pitch from"
     NO_ACCELERATION_DATA = "NO_ACCELERATION_DATA"
+    "There was no acceleration data in the provided file"
     NO_ANCHOR_DATA = "NO_ANCHOR_DATA"
+    "There was no anchor data recorded"
     NO_ATHLETES_ASSIGNED = "NO_ATHLETES_ASSIGNED"
+    "Session has no session participations."
     NO_DATA_FILE = "NO_DATA_FILE"
+    "Session reprocessed without datafile"
     NO_DELTA_DATA = "NO_DELTA_DATA"
+    "There was no delta data recorded"
     NO_EDGES_ASSIGNED = "NO_EDGES_ASSIGNED"
+    "Session has no data recordings."
     NO_EDGE_DATA = "NO_EDGE_DATA"
+    "There was no data in the provided file"
     NO_GATEWAY_DATA = "NO_GATEWAY_DATA"
+    "No data has been received from the Gateway."
     NO_GPS_DATA = "NO_GPS_DATA"
+    "There was no GPS data in the provided file"
     NO_LPS_DATA = "NO_LPS_DATA"
+    "There was no LPS data recorded"
     NO_PITCH_DETECTED = "NO_PITCH_DETECTED"
+    "No pitch was detected for this session"
     NO_UWB_ANCHOR_POSITION_DATA = "NO_UWB_ANCHOR_POSITION_DATA"
+    "(DEPRECATED) There was no UWB anchor position data in the provided file"
     NO_UWB_DATA = "NO_UWB_DATA"
+    "(DEPRECATED) There was no UWB data in the provided file"
     NO_UWB_DELTA_TAG_DATA = "NO_UWB_DELTA_TAG_DATA"
+    "(DEPRECATED) There was no UWB delta tag data in the provided file"
     NO_VALID_LOCALISATION_DATA = "NO_VALID_LOCALISATION_DATA"
+    "Could not produce valid LPS tracking data"
     NO_VALID_LPS_DATA = "NO_VALID_LPS_DATA"
+    "There was no valid LPS data recorded"
     PITCH_TOO_LARGE = "PITCH_TOO_LARGE"
+    "The pitch created by pitch detection was initially too large (150m x 200m)\n            reflecting a high speed in a large area."
     PITCH_TOO_SMALL = "PITCH_TOO_SMALL"
+    "The pitch created by pitch detection was initially too small (20m x 50m)\n            reflecting a high speed in a small area."
     UWB_HYBRID_SYSTEMS_NOT_SUPPORTED = "UWB_HYBRID_SYSTEMS_NOT_SUPPORTED"
+    "(DEPRECATED) Fixed and floating anchors not supported yet"
     UWB_LOCALISATION_FAILED = "UWB_LOCALISATION_FAILED"
+    "(DEPRECATED) The localisation process failed for the provided UWB data"
 
 
 class SessionTypeEnum(str, Enum):
+    """Enum for session type"""
+
     MatchSession = "MatchSession"
+    "A session that is a match."
     TrainingSession = "TrainingSession"
+    "A session that is a training."
 
 
 class SessionWarningCodes(str, Enum):
+    """The codes for the warnings"""
+
     EDGE_SYNC_REQUIRED = "EDGE_SYNC_REQUIRED"
+    "Session has data syncs but one or more has no data file."
     FUTURE_SESSION = "FUTURE_SESSION"
+    "Session start time is in the future."
     GATEWAY_ASSIGNABLE = "GATEWAY_ASSIGNABLE"
+    "The session is in progress and a gateway can be assigned."
     GATEWAY_NOT_CONNECTED = "GATEWAY_NOT_CONNECTED"
+    "The Gateway has not connected to the network."
     LIVE_INDOOR_SESSION = "LIVE_INDOOR_SESSION"
+    "Live indoor session's are not supported."
     LIVE_SESSION_DATA_GAPS = "LIVE_SESSION_DATA_GAPS"
+    "The session has gaps in data coverage that require edge sync."
     NO_ATHLETES_ASSIGNED = "NO_ATHLETES_ASSIGNED"
+    "Session has no session participations."
     NO_EDGES_ASSIGNED = "NO_EDGES_ASSIGNED"
+    "Session has no data recordings."
     NO_GATEWAY_DATA = "NO_GATEWAY_DATA"
+    "No data has been received from the Gateway."
 
 
 class SignupFlow(str, Enum):
     ALREADY_LINKED = "ALREADY_LINKED"
+    "This user is already part of this club"
     INVALID_EMAIL = "INVALID_EMAIL"
+    "The email address is invalid"
     LINK_TO_NEW_CLUB = "LINK_TO_NEW_CLUB"
+    "This is an existing user but for a different club"
     NEW_CLAIMABLE_ATHLETE = "NEW_CLAIMABLE_ATHLETE"
+    "This is a new user with a claimable athlete"
     NEW_USER = "NEW_USER"
+    "This is a new user, not already part of a club"
     NO_EMAIL = "NO_EMAIL"
+    "No email address has been provided yet"
     PENDING_MEMBER = "PENDING_MEMBER"
+    "The application to join the club is waiting for a response from club staff"
     SIGN_IN_REQUIRED = "SIGN_IN_REQUIRED"
+    "To continue, the person must sign in"
 
 
 class SortField(str, Enum):
@@ -527,6 +725,8 @@ class StripeSubscriptionStatus(str, Enum):
 
 
 class TaggableTypeEnum(str, Enum):
+    """The types of model that tags can be applied to"""
+
     athlete = "athlete"
     match_session = "match_session"
     segment = "segment"

@@ -22,3 +22,4 @@ __PYCACHE__
 *.glb
 .coverage
 .token
+site/
