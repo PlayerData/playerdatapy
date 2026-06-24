@@ -26,4 +26,4 @@ jobs:
       - name: Install
         run: uv sync --group docs
       - name: Build & deploy
-        run: uv run mkdocs gh-deploy --force --clean
+        run: uv run mkdocs gh-deploy --clean

@@ -23,14 +23,14 @@ See [`examples/direct/quick_start.py`](https://github.com/PlayerData/playerdatap
 ## Sessions in last 30 days
 
 ```python
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
-end = datetime.utcnow()
+end = datetime.now(timezone.utc)
 start = end - timedelta(days=30)
 
 variables = {
     "clubIdEq": CLUB_ID,
-    "startTimeGteq": start.isoformat() + "Z",
-    "endTimeLteq": end.isoformat() + "Z",
+    "startTimeGteq": start.isoformat(),
+    "endTimeLteq": end.isoformat(),
 }
 ```

@@ -7,8 +7,8 @@ PlayerData API uses **OAuth 2.0**. Two grant types depending on integration.
 | Purpose | URL |
 |---------|-----|
 | GraphQL API | `https://app.playerdata.co.uk/api/graphql` |
-| OAuth Authorisation | `https://app.playerdata.co.uk/api/oauth/authorize` |
-| OAuth Token/Refresh | `https://app.playerdata.co.uk/api/oauth/token` |
+| OAuth Authorisation | `https://app.playerdata.co.uk/oauth/authorize` |
+| OAuth Token/Refresh | `https://app.playerdata.co.uk/oauth/token` |
 | Sign Out | `https://app.playerdata.co.uk/api/auth/identities/sign_out` |
 
 ## Grant types
@@ -48,7 +48,7 @@ Three OAuth2 flows supported via `playerdatapy.gqlauth.AuthenticationType`:
 | `AUTHORISATION_CODE_FLOW_PCKE` | Public clients, no secret |
 | `CLIENT_CREDENTIALS_FLOW` | Backend-to-backend |
 
-Contact `support@playerdata.co.uk` to request credentials.
+Contact `support@playerdata.com` to request credentials.
 
 ## Env vars
 
@@ -83,9 +83,11 @@ Tokens are persisted to the path returned by `playerdatapy.auth.token_storage.de
 
 ## Regenerating the SDK
 
-Bump `schema.graphql`, then:
+Codegen reads `schema.graphql` directly — no introspection token needed at codegen time. After bumping `schema.graphql`:
 
 ```bash
-export AUTH_TOKEN="Bearer $YOUR_TOKEN"
-uv run python -m ariadne_codegen
+uv sync --group codegen
+uv run ariadne-codegen
 ```
+
+To refresh `schema.graphql` itself from the live API, run an introspection query separately and commit the result.

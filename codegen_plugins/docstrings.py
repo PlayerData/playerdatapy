@@ -16,8 +16,6 @@ class EnumDocstringsPlugin(Plugin):
     def generate_enum(
         self, class_def: ast.ClassDef, enum_type: GraphQLEnumType
     ) -> ast.ClassDef:
-        members = {name: value for name, value in enum_type.values.items()}
-
         new_body: list[ast.stmt] = []
 
         if enum_type.description:
@@ -33,8 +31,8 @@ class EnumDocstringsPlugin(Plugin):
             elif isinstance(stmt, ast.AnnAssign) and isinstance(stmt.target, ast.Name):
                 target_name = stmt.target.id
 
-            if target_name and target_name in members:
-                desc = members[target_name].description
+            if target_name and target_name in enum_type.values:
+                desc = enum_type.values[target_name].description
                 if desc:
                     new_body.append(_docstring_node(desc))
 

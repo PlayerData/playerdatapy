@@ -17,36 +17,32 @@ export CLUB_ID=your_club_id
 ## 3. Run a query
 
 ```python
-import asyncio, os
-from playerdatapy.gqlauth import GraphqlAuth, AuthenticationType
-from playerdatapy.gqlclient import Client
-from playerdatapy.constants import API_BASE_URL
+import asyncio
+import os
+from datetime import datetime, timedelta, timezone
 
-auth = GraphqlAuth(
+from playerdatapy.playerdata_api import PlayerDataAPI
+from playerdatapy.gqlauth import AuthenticationType
+
+api = PlayerDataAPI(
     client_id=os.environ["CLIENT_ID"],
     client_secret=os.environ["CLIENT_SECRET"],
-    type=AuthenticationType.CLIENT_CREDENTIALS_FLOW,
+    authentication_type=AuthenticationType.CLIENT_CREDENTIALS_FLOW,
 )
 
-client = Client(
-    url=f"{API_BASE_URL}/api/graphql",
-    headers={"Authorization": f"Bearer {auth._get_authentication_token()}"},
+end = datetime.now(timezone.utc)
+start = end - timedelta(days=7)
+
+response = asyncio.run(
+    api.run_queries(
+        "SessionsQuery",
+        # Build query objects with helpers from examples/pydantic/queries
+        # or directly from playerdatapy.custom_queries / custom_fields.
+    )
 )
-
-query = """
-query($clubIdEq: ID!) {
-  sessions(filter: {clubIdEq: $clubIdEq}) {
-    id
-    startTime
-  }
-}
-"""
-
-async def main():
-    response = await client.execute(query=query, variables={"clubIdEq": os.environ["CLUB_ID"]})
-    print(client.get_data(response)["sessions"])
-
-asyncio.run(main())
+print(response)
 ```
+
+See [`examples/pydantic/quick_start.py`](https://github.com/PlayerData/playerdatapy/blob/main/examples/pydantic/quick_start.py) for a fully working example using the typed query helpers.
 
 Build/test queries against [GraphiQL Playground](https://app.playerdata.co.uk/api/graphiql/).
