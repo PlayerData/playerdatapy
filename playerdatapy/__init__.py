@@ -147,10 +147,7 @@ from .input_types import (
     VideoRecordingAttributes,
 )
 
-from .playerdata_api import PlayerDataAPI
-
 __all__ = [
-    "PlayerDataAPI",
     "AccelzoneLowerBoundsInput",
     "AggFuncEnum",
     "AppAuthenticationFlow",
