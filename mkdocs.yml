@@ -1,5 +1,5 @@
-site_name: PlayerDataPy
-site_description: Python client for the PlayerData GraphQL API
+site_name: PlayerData API
+site_description: PlayerData GraphQL API documentation, with official Python SDK
 site_url: https://playerdata.github.io/playerdatapy/
 repo_url: https://github.com/PlayerData/playerdatapy
 repo_name: PlayerData/playerdatapy
@@ -10,8 +10,10 @@ theme:
   features:
     - navigation.tabs
     - navigation.sections
-    - navigation.expand
+    - navigation.indexes
     - navigation.top
+    - navigation.prune
+    - toc.follow
     - content.code.copy
     - content.code.annotate
     - search.suggest
@@ -46,39 +48,63 @@ extra:
 
 nav:
   - Home: index.md
-  - Quickstart: quickstart.md
-  - Authentication: auth.md
-  - Concepts: concepts.md
-  - Metrics: metrics.md
-  - Pagination & Limits: limits.md
-  - Errors: errors.md
-  - Examples: examples.md
-  - FAQ: faq.md
-  - API Reference: api.md
+  - API:
+      - Overview: api/overview.md
+      - Authentication: auth.md
+      - Concepts: concepts.md
+      - Metrics: metrics.md
+      - Pagination & Limits: limits.md
+      - Errors: errors.md
+      - Clients: clients.md
+      - Schema: schema/
+      - FAQ: faq.md
+  - Python SDK:
+      - Overview: python/index.md
+      - Quickstart: quickstart.md
+      - Examples: examples.md
+      - Reference: reference/
 
 plugins:
   - search
+  - gen-files:
+      scripts:
+        - docs/gen_ref.py
+        - docs/gen_schema.py
+  - literate-nav:
+      nav_file: SUMMARY.md
   - mkdocstrings:
       default_handler: python
       handlers:
         python:
           paths: [.]
           options:
+            extensions:
+              - griffe_pydantic:
+                  schema: true
             docstring_style: google
-            show_source: true
+            show_source: false
+            show_bases: true
             show_root_heading: true
             show_root_full_path: false
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
             members_order: source
             separate_signature: true
             show_signature_annotations: true
             signature_crossrefs: true
             merge_init_into_class: true
+            heading_level: 2
             filters: ["!^_"]
+            group_by_category: true
 
 markdown_extensions:
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.highlight:
@@ -87,5 +113,9 @@ markdown_extensions:
   - pymdownx.snippets
   - attr_list
   - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - toc:
       permalink: true
+      toc_depth: 2

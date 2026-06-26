@@ -29,7 +29,9 @@ PlayerData API uses **OAuth 2.0**. Two grant types depending on integration.
 
 ## Permissions
 
-Data access governed by **club staff membership**. To access a club's data, authenticated user/service must be listed as staff for that club. If missing, contact the club administrator.
+Under the **Authorisation Code Grant**, data access is governed by **club staff membership**: to access a club's data, the authenticated user must be listed as staff for that club. If missing, contact the club administrator.
+
+**Client Credentials Grant** uses organisation-level access — service accounts must be explicitly granted org access by PlayerData.
 
 ## Tokens
 
@@ -50,44 +52,87 @@ Three OAuth2 flows supported via `playerdatapy.gqlauth.AuthenticationType`:
 
 Contact `support@playerdata.com` to request credentials.
 
-## Env vars
+## Client credentials — raw HTTP
 
 ```bash
-export CLIENT_ID=your_client_id
-export CLIENT_SECRET=your_client_secret
-export CLUB_ID=your_club_id
+curl -X POST https://app.playerdata.co.uk/oauth/token \
+  -d "grant_type=client_credentials" \
+  -d "client_id=$CLIENT_ID" \
+  -d "client_secret=$CLIENT_SECRET"
 ```
 
-## Client credentials (backend)
+Response:
+
+```json
+{
+  "access_token": "eyJ...",
+  "token_type": "Bearer",
+  "expires_in": 7200
+}
+```
+
+Use the `access_token` as `Authorization: Bearer <token>` on subsequent requests.
+
+## Client credentials — Python SDK
+
+```python
+from playerdatapy.playerdata_api import PlayerDataAPI
+from playerdatapy.gqlauth import AuthenticationType
+
+api = PlayerDataAPI(
+    client_id="...",
+    client_secret="...",
+    authentication_type=AuthenticationType.CLIENT_CREDENTIALS_FLOW,
+)
+```
+
+The SDK persists tokens to disk and refreshes proactively. See [Python SDK → Authentication](reference/authentication/GraphqlAuth.md).
+
+## Authorisation Code flow — Python SDK (PKCE)
 
 ```python
 from playerdatapy.gqlauth import GraphqlAuth, AuthenticationType
 
 auth = GraphqlAuth(
     client_id="...",
-    client_secret="...",
-    type=AuthenticationType.CLIENT_CREDENTIALS_FLOW,
-)
-```
-
-## Authorisation code flow (PKCE)
-
-```python
-auth = GraphqlAuth(
-    client_id="...",
     type=AuthenticationType.AUTHORISATION_CODE_FLOW_PCKE,
 )
 ```
 
-Tokens are persisted to the path returned by `playerdatapy.auth.token_storage.default_token_path()`. Override with the `token_file=` argument.
+SDK opens a browser, captures the redirect, exchanges code → token, stores it. Override the storage path with `token_file=`.
 
-## Regenerating the SDK
+## Authorisation Code flow — manual (any language)
 
-Codegen reads `schema.graphql` directly — no introspection token needed at codegen time. After bumping `schema.graphql`:
+1. Send the user to:
+   ```
+   https://app.playerdata.co.uk/oauth/authorize
+     ?response_type=code
+     &client_id=$CLIENT_ID
+     &redirect_uri=$REDIRECT_URI
+   ```
+2. Receive the `code` parameter on your registered redirect URI.
+3. Exchange for tokens (confidential client — include `client_secret`):
+   ```bash
+   curl -X POST https://app.playerdata.co.uk/oauth/token \
+     -d "grant_type=authorization_code" \
+     -d "code=$CODE" \
+     -d "client_id=$CLIENT_ID" \
+     -d "client_secret=$CLIENT_SECRET" \
+     -d "redirect_uri=$REDIRECT_URI"
+   ```
+   For public clients, omit `client_secret`.
+4. Refresh later:
+   ```bash
+   curl -X POST https://app.playerdata.co.uk/oauth/token \
+     -d "grant_type=refresh_token" \
+     -d "refresh_token=$REFRESH_TOKEN" \
+     -d "client_id=$CLIENT_ID"
+   ```
+
+## Env vars (used in examples)
 
 ```bash
-uv sync --group codegen
-uv run ariadne-codegen
+export CLIENT_ID=your_client_id
+export CLIENT_SECRET=your_client_secret
+export CLUB_ID=your_club_id
 ```
-
-To refresh `schema.graphql` itself from the live API, run an introspection query separately and commit the result.
