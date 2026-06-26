@@ -9,3 +9,23 @@
   --md-primary-fg-color: #38D430;
   --md-accent-fg-color: #5FE058;
 }
+
+:root {
+  --doc-symbol-attribute-fg-color: #953800;
+  --doc-symbol-function-fg-color: #8250df;
+  --doc-symbol-method-fg-color: #8250df;
+  --doc-symbol-class-fg-color: #0550ae;
+  --doc-symbol-module-fg-color: #5cad0f;
+
+  --doc-symbol-attribute-bg-color: #95380033;
+  --doc-symbol-function-bg-color: #8250df33;
+  --doc-symbol-method-bg-color: #8250df33;
+  --doc-symbol-class-bg-color: #0550ae33;
+  --doc-symbol-module-bg-color: #5cad0f33;
+}
+
+code.doc-symbol-attribute::after { content: "attr"; }
+code.doc-symbol-function::after { content: "func"; }
+code.doc-symbol-method::after { content: "method"; }
+code.doc-symbol-class::after { content: "class"; }
+code.doc-symbol-module::after { content: "module"; }

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Python client for the PlayerData GraphQL API">
+        <meta name="description" content="PlayerData GraphQL API documentation, with official Python SDK">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Metrics - PlayerDataPy</title>
+        <title>Metrics - PlayerData API</title>
       
     
     
@@ -96,7 +96,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="PlayerDataPy" class="md-header__button md-logo" aria-label="PlayerDataPy" data-md-component="logo">
+    <a href=".." title="PlayerData API" class="md-header__button md-logo" aria-label="PlayerData API" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -110,7 +110,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            PlayerDataPy
+            PlayerData API
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -246,18 +246,23 @@
   
   
   
+    
   
-    <li class="md-tabs__item">
-      <a href="../quickstart/" class="md-tabs__link">
-        
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../api/overview/" class="md-tabs__link">
+          
   
   
     
   
-  Quickstart
+  API
 
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
@@ -266,152 +271,20 @@
   
   
   
-    <li class="md-tabs__item">
-      <a href="../auth/" class="md-tabs__link">
-        
+    
+    
+      <li class="md-tabs__item">
+        <a href="../python/" class="md-tabs__link">
+          
   
   
     
   
-  Authentication
+  Python SDK
 
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../concepts/" class="md-tabs__link">
-        
-  
-  
+        </a>
+      </li>
     
-  
-  Concepts
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Metrics
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../limits/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Pagination & Limits
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../errors/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Errors
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../examples/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Examples
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../faq/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  FAQ
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../api/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  API Reference
-
-      </a>
-    </li>
   
 
       
@@ -437,13 +310,13 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="PlayerDataPy" class="md-nav__button md-logo" aria-label="PlayerDataPy" data-md-component="logo">
+    <a href=".." title="PlayerData API" class="md-nav__button md-logo" aria-label="PlayerData API" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    PlayerDataPy
+    PlayerData API
   </label>
   
     <div class="md-nav__source">
@@ -491,17 +364,96 @@
       
   
   
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
   
   
     <li class="md-nav__item">
-      <a href="../quickstart/" class="md-nav__link">
+      <a href="../api/overview/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quickstart
+    Overview
   
 
     
@@ -513,9 +465,10 @@
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
@@ -540,9 +493,10 @@
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
@@ -567,9 +521,10 @@
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
     
@@ -635,10 +590,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#distance-speed" class="md-nav__link">
+  <a href="#1-totals" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Distance &amp; speed
+        1. Totals
       
     </span>
   </a>
@@ -646,10 +601,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#intensity-events" class="md-nav__link">
+  <a href="#2-zonal-breakdowns" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Intensity &amp; events
+        2. Zonal breakdowns
       
     </span>
   </a>
@@ -657,10 +612,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#time-series-5-minute-intervals" class="md-nav__link">
+  <a href="#3-time-series" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Time-series (5-minute intervals)
+        3. Time series
       
     </span>
   </a>
@@ -668,10 +623,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#raw-gps" class="md-nav__link">
+  <a href="#4-raw-gps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Raw GPS
+        4. Raw GPS
       
     </span>
   </a>
@@ -696,9 +651,10 @@
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
@@ -723,9 +679,10 @@
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
@@ -750,22 +707,23 @@
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
   
     <li class="md-nav__item">
-      <a href="../examples/" class="md-nav__link">
+      <a href="../clients/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Examples
+    Clients
   
 
     
@@ -777,9 +735,1814 @@
     </li>
   
 
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
     
       
       
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../schema/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_8" id="__nav_2_8_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Schema
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../schema/queries/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Queries
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../schema/mutations/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mutations
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../schema/objects/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object types
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../schema/interfaces/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interfaces
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../schema/unions/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unions
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../schema/inputs/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Input types
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../schema/enums/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enums
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../schema/scalars/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scalars
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
   
   
   
@@ -804,6 +2567,14 @@
     </li>
   
 
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
     
       
       
@@ -811,15 +2582,47 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../api/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../python/" class="md-nav__link">
+      
   
   
   <span class="md-ellipsis">
     
   
-    API Reference
+    Python SDK
   
 
     
@@ -827,7 +2630,13 @@
   
   
 
-      </a>
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
     </li>
   
 
@@ -859,10 +2668,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#distance-speed" class="md-nav__link">
+  <a href="#1-totals" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Distance &amp; speed
+        1. Totals
       
     </span>
   </a>
@@ -870,10 +2679,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#intensity-events" class="md-nav__link">
+  <a href="#2-zonal-breakdowns" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Intensity &amp; events
+        2. Zonal breakdowns
       
     </span>
   </a>
@@ -881,10 +2690,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#time-series-5-minute-intervals" class="md-nav__link">
+  <a href="#3-time-series" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Time-series (5-minute intervals)
+        3. Time series
       
     </span>
   </a>
@@ -892,10 +2701,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#raw-gps" class="md-nav__link">
+  <a href="#4-raw-gps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Raw GPS
+        4. Raw GPS
       
     </span>
   </a>
@@ -934,38 +2743,139 @@
 
 
 <h1 id="metrics">Metrics<a class="headerlink" href="#metrics" title="Permanent link">&para;</a></h1>
-<p>Non-exhaustive reference. Full set discoverable via <a href="https://app.playerdata.co.uk/api/graphiql">GraphiQL Playground</a>.</p>
-<h2 id="distance-speed">Distance &amp; speed<a class="headerlink" href="#distance-speed" title="Permanent link">&para;</a></h2>
+<p>Per-athlete performance metrics on session, segment, and session-participation objects. Every metric on the <code>CommonAthleteMetrics</code> interface is queryable on <code>MatchSessionAthleteMetricSet</code>, <code>TrainingSessionAthleteMetricSet</code>, and their period/segment variants.</p>
+<p>Full schema reference: <a href="../schema/objects/"><code>schema/objects/</code></a>. Live exploration: <a href="https://app.playerdata.co.uk/api/graphiql">GraphiQL Playground</a>.</p>
+<p>Metrics fall into four shapes:</p>
+<ol>
+<li><strong>Totals</strong> — one number per athlete per session/segment (e.g. <code>totalDistanceM</code>)</li>
+<li><strong>Zonal breakdowns</strong> — totals binned into intensity bands (e.g. <code>clubZoneSprintDistanceM</code>)</li>
+<li><strong>Time series</strong> — sampled values over time at fixed intervals (e.g. <code>distanceMOverTime</code>)</li>
+<li><strong>Raw GPS</strong> — per-sample latitude / longitude / speed</li>
+</ol>
+<h2 id="1-totals">1. Totals<a class="headerlink" href="#1-totals" title="Permanent link">&para;</a></h2>
+<h3 id="distance-speed">Distance &amp; speed<a class="headerlink" href="#distance-speed" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>totalDistanceM</code></li>
+<li><code>metresPerMinute</code></li>
+<li><code>distanceMAtKph</code> — distance bucketed by speed band</li>
+<li><code>timeAtKph</code> — time bucketed by speed band</li>
 <li><code>avgSpeedKph</code></li>
 <li><code>maxSpeedKph</code></li>
-<li><code>metresPerMinute</code></li>
-<li><code>distanceMAtKph</code></li>
-<li><code>timeAtKph</code></li>
+<li><code>rawMaxSpeedKph</code></li>
+<li><code>percentageMaxSpeedKph</code></li>
+<li><code>percentageRawMaxSpeedKph</code></li>
+<li><code>ninetyPercentOfMaxSpeedDistanceM</code></li>
+<li><code>ninetyPercentOfMaxSpeedDurationS</code></li>
+<li><code>ninetyPercentOfMaxSpeedEvents</code></li>
 </ul>
-<h2 id="intensity-events">Intensity &amp; events<a class="headerlink" href="#intensity-events" title="Permanent link">&para;</a></h2>
+<h3 id="intensity-totals">Intensity totals<a class="headerlink" href="#intensity-totals" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>highSpeedRunDistanceM</code></li>
+<li><code>totalHighIntensityDistanceM</code></li>
+<li><code>totalMediumIntensityDistanceM</code></li>
+<li><code>totalSprintDistanceM</code></li>
+<li><code>highMetabolicLoadDistanceM</code></li>
+<li><code>highIntensityEvents</code></li>
+<li><code>highMetabolicLoadEvents</code></li>
+<li><code>highSpeedRunEvents</code></li>
+<li><code>sprintEvents</code></li>
+</ul>
+<h3 id="acceleration-deceleration">Acceleration &amp; deceleration<a class="headerlink" href="#acceleration-deceleration" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>accelerationEvents</code></li>
 <li><code>decelerationEvents</code></li>
-<li><code>highIntensityEvents</code></li>
-<li><code>sprintEvents</code></li>
-<li><code>totalHighIntensityDistanceM</code></li>
-<li><code>totalSprintDistanceM</code></li>
+<li><code>maxAcceleration</code></li>
+<li><code>maxDeceleration</code></li>
+<li><code>accelerationLoadPerContributingMinutes</code></li>
 </ul>
-<h2 id="time-series-5-minute-intervals">Time-series (5-minute intervals)<a class="headerlink" href="#time-series-5-minute-intervals" title="Permanent link">&para;</a></h2>
+<h3 id="heart-rate">Heart rate<a class="headerlink" href="#heart-rate" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>avgHeartrateBpm</code></li>
+<li><code>maxHeartrateBpm</code></li>
+<li><code>zoneOneHeartrateDurationS</code> … <code>zoneFiveHeartrateDurationS</code></li>
+</ul>
+<h3 id="jump-events">Jump events<a class="headerlink" href="#jump-events" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>lowJumpEvents</code></li>
+<li><code>mediumJumpEvents</code></li>
+<li><code>highJumpEvents</code></li>
+</ul>
+<h2 id="2-zonal-breakdowns">2. Zonal breakdowns<a class="headerlink" href="#2-zonal-breakdowns" title="Permanent link">&para;</a></h2>
+<p>Every zone metric exists in three shapes — <code>*DistanceM</code>, <code>*DurationS</code>, <code>*Events</code> — and in two scopes:</p>
+<ul>
+<li><strong>Club zones</strong> — thresholds shared club-wide</li>
+<li><strong>Individual zones</strong> — per-athlete thresholds</li>
+</ul>
+<p>Both scopes are exposed on every athlete. Use whichever matches your analysis.</p>
+<h3 id="speed-intensity-bands">Speed / intensity bands<a class="headerlink" href="#speed-intensity-bands" title="Permanent link">&para;</a></h3>
+<p>Ascending order: <strong>Jogging → Low intensity → Medium intensity → High intensity → Sprint</strong>. <code>HighSpeedRunning</code> is the combined high-intensity + sprint range, not a separate band.</p>
+<table>
+<thead>
+<tr>
+<th>Band</th>
+<th>Club</th>
+<th>Individual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Jogging</td>
+<td><code>clubZoneJogging*</code></td>
+<td><code>individualZoneJogging*</code></td>
+</tr>
+<tr>
+<td>Low intensity</td>
+<td><code>clubZoneLowIntensity*</code></td>
+<td><code>individualZoneLowIntensity*</code></td>
+</tr>
+<tr>
+<td>Medium intensity</td>
+<td><code>clubZoneMediumIntensity*</code></td>
+<td><code>individualZoneMediumIntensity*</code></td>
+</tr>
+<tr>
+<td>High intensity</td>
+<td><code>clubZoneHighIntensity*</code></td>
+<td><code>individualZoneHighIntensity*</code></td>
+</tr>
+<tr>
+<td>Sprint</td>
+<td><code>clubZoneSprint*</code></td>
+<td><code>individualZoneSprint*</code></td>
+</tr>
+<tr>
+<td>High-speed running (combined)</td>
+<td><code>clubZoneHighSpeedRunning*</code></td>
+<td><code>individualZoneHighSpeedRunning*</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="acceleration-deceleration-bands">Acceleration / deceleration bands<a class="headerlink" href="#acceleration-deceleration-bands" title="Permanent link">&para;</a></h3>
+<p>Five-band split (One → Five), each in both scopes.</p>
+<ul>
+<li><code>clubZoneOneAcceleration*</code> … <code>clubZoneFiveAcceleration*</code></li>
+<li><code>clubZoneOneDeceleration*</code> … <code>clubZoneFiveDeceleration*</code></li>
+<li><code>individualZoneOneAcceleration*</code> … <code>individualZoneFiveAcceleration*</code></li>
+<li><code>individualZoneOneDeceleration*</code> … <code>individualZoneFiveDeceleration*</code></li>
+</ul>
+<h2 id="3-time-series">3. Time series<a class="headerlink" href="#3-time-series" title="Permanent link">&para;</a></h2>
+<p>Fields returning <code>[TimeSeriesData!]</code>, sampled at 5-minute intervals:</p>
 <ul>
 <li><code>distanceMOverTime</code></li>
 <li><code>avgSpeedKphOverTime</code></li>
+<li><code>avgHeartrateBpmOverTime</code></li>
+<li><code>sprintDistanceMOverTime</code></li>
+<li><code>highIntensityRunDistanceMOverTime</code></li>
+<li><code>sampledSpeedKphOverTime</code></li>
 </ul>
-<h2 id="raw-gps">Raw GPS<a class="headerlink" href="#raw-gps" title="Permanent link">&para;</a></h2>
+<h2 id="4-raw-gps">4. Raw GPS<a class="headerlink" href="#4-raw-gps" title="Permanent link">&para;</a></h2>
 <p>Latitude, longitude, speed, timestamps per athlete session participation via dedicated schema fields.</p>
 <h2 id="configured-vs-all-metrics">Configured vs all metrics<a class="headerlink" href="#configured-vs-all-metrics" title="Permanent link">&para;</a></h2>
 <p><strong>Configured metrics</strong> — club has enabled in the app. Shown to staff + athletes. Queryable at session, participation, segment level.</p>
 <p><strong>All metrics</strong> — calculated for every club regardless of config. Useful for analysis or future enablement. Some may not return values depending on firmware.</p>
 <p><strong>Caveats:</strong></p>
 <ul>
-<li><strong>Zonal metrics</strong> (speed, acceleration, heart rate) use zones set at session time or app defaults</li>
+<li><strong>Zonal metrics</strong> (speed, acceleration, heart rate) use zones set for the athlete at an individual and club level</li>
 <li><strong>IMU metrics</strong> only available if club device firmware supports them</li>
 </ul>
 <p><strong>Best practice:</strong></p>
@@ -1049,7 +2959,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "content.code.annotate", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.prune", "toc.follow", "content.code.copy", "content.code.annotate", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
