@@ -5,42 +5,63 @@ from typing import Any, Optional
 from .custom_fields import (
     AccelzonesPayloadFields,
     AcceptPrivacyPolicyPayloadFields,
+    AcceptTermsOfUsePayloadFields,
     AddAthleteGroupPayloadFields,
     AddExistingPersonToClubPayloadFields,
     AddNewPersonToClubPayloadFields,
     AddSurveyAnswerPayloadFields,
+    ApplyTargetTemplatePayloadFields,
     ArchiveClubMemberPayloadFields,
     ArchivePitchPayloadFields,
     ArchiveSurveyPayloadFields,
+    AssignDefaultEdgesPayloadFields,
     AssignDevicePayloadFields,
     AssignEdgePayloadFields,
     BulkApprovePayloadFields,
     ClaimPersonPayloadFields,
     ClubMutationFields,
+    CommitImportToExistingSessionPayloadFields,
+    CommitImportToNewSessionPayloadFields,
+    CreateBulkActionPayloadFields,
+    CreateBulkAthleteImportPayloadFields,
+    CreateBulkStaffImportPayloadFields,
     CreateCustomQuestionDefinitionPayloadFields,
     CreateDatasetPayloadFields,
+    CreateDevicePagePayloadFields,
     CreateDeviceSyncPayloadFields,
     CreateEdgeNamePayloadFields,
     CreateFlexibleReportChartPayloadFields,
     CreateFlexibleReportPayloadFields,
+    CreateImportPayloadFields,
     CreateMatchEventPayloadFields,
     CreateMatchEventsPayloadFields,
     CreatePitchPayloadFields,
+    CreatePredictedSessionPayloadFields,
     CreateQuestionPayloadFields,
     CreateReportPayloadFields,
     CreateResponsePayloadFields,
     CreateSegmentPayloadFields,
+    CreateSessionFromPredictedSessionPayloadFields,
     CreateSessionPayloadFields,
     CreateSessionTagDefinitionPayloadFields,
     CreateSurveyPayloadFields,
     CreateSurveyTimerTriggerPayloadFields,
     CreateTagDefinitionPayloadFields,
+    CreateTargetDefinitionPayloadFields,
+    CreateTargetsPayloadFields,
+    CreateTargetTemplatePayloadFields,
+    CreateUnreadableDevicePagesPayloadFields,
+    CreateVideoClipPayloadFields,
     CreateVideoRecordingPayloadFields,
     DecelzonesPayloadFields,
     DeleteAccelzonesPayloadFields,
+    DeleteCustomBaselineTargetsPayloadFields,
     DeleteDecelzonesPayloadFields,
     DeleteHeartRateBoundsPayloadFields,
+    DeleteSessionTargetsPayloadFields,
     DeleteSpeedzonesPayloadFields,
+    DeleteTargetTemplatesPayloadFields,
+    DeleteVideoClipPayloadFields,
     DestroyAppMessagePayloadFields,
     DestroyAthleteGroupPayloadFields,
     DestroyCustomQuestionDefinitionPayloadFields,
@@ -53,18 +74,23 @@ from .custom_fields import (
     DestroySessionBlueprintPayloadFields,
     DestroySessionPayloadFields,
     DestroySessionTagDefinitionPayloadFields,
+    DestroySessionTargetDefinitionsPayloadFields,
     DestroyTagDefinitionPayloadFields,
+    DiscardPredictedSessionPayloadFields,
     DuplicateFlexibleReportPayloadFields,
     DuplicateSegmentPayloadFields,
     DuplicateSessionPayloadFields,
     DuplicateSurveyPayloadFields,
     EndEdgeOwnershipPayloadFields,
+    GrantOrgAdminRolePayloadFields,
     HeartRateBoundsPayloadFields,
     MarkAppMessageReadPayloadFields,
     MarkMultipleAppMessagesReadPayloadFields,
     ProvisionGatewayPayloadFields,
+    RatePredictedSessionPayloadFields,
     RateResponsePayloadFields,
     RecreateGatewaySessionsPayloadFields,
+    RegenerateDatasetPayloadFields,
     RegisterDevicePayloadFields,
     RelativeAccelzonesPayloadFields,
     RelativeDecelzonesPayloadFields,
@@ -75,6 +101,7 @@ from .custom_fields import (
     RespondToDetectedMatchEventPayloadFields,
     RespondToDetectedMatchEventsPayloadFields,
     ReviewPendingMemberPayloadFields,
+    RevokeOrgAdminRolePayloadFields,
     RotateLiveDataKeysPayloadFields,
     SetBenchedPlayersPayloadFields,
     SetCustomMaxMetricPayloadFields,
@@ -84,7 +111,9 @@ from .custom_fields import (
     UpdateAthleteGroupPayloadFields,
     UpdateAthletePayloadFields,
     UpdateClubMemberPayloadFields,
+    UpdateClubPayloadFields,
     UpdateClubSettingsPayloadFields,
+    UpdateCustomBaselineTargetsPayloadFields,
     UpdateCustomQuestionDefinitionPayloadFields,
     UpdateDatasetPayloadFields,
     UpdateDevicePayloadFields,
@@ -98,16 +127,23 @@ from .custom_fields import (
     UpdatePitchPayloadFields,
     UpdateSegmentPayloadFields,
     UpdateSegmentsPayloadFields,
+    UpdateSendAthleteConfirmationEmailsPayloadFields,
     UpdateSessionBlueprintPayloadFields,
     UpdateSessionParticipationsPayloadFields,
     UpdateSessionPayloadFields,
     UpdateSessionPositionsPayloadFields,
     UpdateSessionTagDefinitionPayloadFields,
+    UpdateSessionTargetsPayloadFields,
     UpdateStaffBillingPayloadFields,
+    UpdateStepStatusPayloadFields,
     UpdateSurveyPayloadFields,
     UpdateSurveyTimerTriggerPayloadFields,
     UpdateTagDefinitionPayloadFields,
+    UpdateTargetDefinitionPayloadFields,
+    UpdateTargetTemplatePayloadFields,
     UpdateUserPreferencesPayloadFields,
+    UpdateVideoClipPayloadFields,
+    UploadMetaEventsPayloadFields,
     UpsertChatClubContextPayloadFields,
     UpsertChatCoachContextPayloadFields,
     UpsertDataRecordingsPayloadFields,
@@ -121,22 +157,34 @@ from .input_types import (
     AthleteRelativeAccelzoneAttributes,
     AthleteRelativeDecelzoneAttributes,
     AthleteSpeedzoneAttributes,
+    BulkAthleteRowInput,
+    BulkStaffRowInput,
     BulkUpdateMatchEventAttributes,
+    BulkUpdateTargetAttributes,
     ClaimPersonAttributes,
     ClubContextAttributes,
     CoachContextAttributesInput,
+    CreateDevicePageInput,
     CreateDeviceSyncInput,
     CreateFlexibleReportChartAttributes,
+    CreateImportInput,
+    CreatePredictedSessionAttributes,
+    CreateUnreadableDevicePagesInput,
+    CustomBaselineTargetInput,
     CustomQuestionDefinitionAttributes,
     DatasetAttributes,
+    DefaultEdgeAssignmentAttributes,
     DeviceAttributes,
     DuplicateSessionAttributes,
     FlexibleReportAttributes,
     GatewaySessionAttributes,
     MatchEventAttributes,
+    MetaEventInput,
     MutateSessionAttributes,
     MutateSessionBlueprintAttributes,
     NewPersonAttributes,
+    NewSessionTargetInput,
+    ParsedSegmentPatchInput,
     PitchAttributes,
     RelativeSpeedzoneAttributes,
     ReportAttributes,
@@ -151,7 +199,11 @@ from .input_types import (
     SurveyTimerTriggerAttributes,
     TagDefinitionAttributes,
     TaggerAttributes,
+    TargetAttributes,
+    TargetDefinitionAttributes,
+    TopicAttributesInput,
     UpdateAthleteAttributes,
+    UpdateClubAttributes,
     UpdateClubMemberAttributes,
     UpdateClubSettingsAttributes,
     UpdateDatasetAttributes,
@@ -161,7 +213,9 @@ from .input_types import (
     UpdatePersonAttributes,
     UpdateStaffBillingAttributes,
     UpdateUserPreferencesAttributes,
+    UpdateVideoClipAttributes,
     UpsertDataRecordingsAttributes,
+    VideoClipAttributes,
     VideoRecordingAttributes,
 )
 
@@ -181,9 +235,23 @@ class Mutation:
         )
 
     @classmethod
+    def accept_terms_of_use(cls, terms_of_use_id: str) -> AcceptTermsOfUsePayloadFields:
+        """Accept a terms of use change"""
+        arguments: dict[str, dict[str, Any]] = {
+            "termsOfUseId": {"type": "ID!", "value": terms_of_use_id}
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return AcceptTermsOfUsePayloadFields(
+            field_name="acceptTermsOfUse", arguments=cleared_arguments
+        )
+
+    @classmethod
     def add_athlete_group(
         cls, attributes: AthleteGroupAttributes
     ) -> AddAthleteGroupPayloadFields:
+        """Adds an athlete group"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "AthleteGroupAttributes!", "value": attributes}
         }
@@ -201,7 +269,7 @@ class Mutation:
         *,
         person_attributes: Optional[UpdatePersonAttributes] = None,
     ) -> AddExistingPersonToClubPayloadFields:
-        """Adds an existing Person to a Club"""
+        """Adds an existing person to a club"""
         arguments: dict[str, dict[str, Any]] = {
             "personAttributes": {
                 "type": "UpdatePersonAttributes",
@@ -247,8 +315,24 @@ class Mutation:
         )
 
     @classmethod
+    def apply_target_template(
+        cls, session_id: str, target_template_id: str
+    ) -> ApplyTargetTemplatePayloadFields:
+        """Applies a target template to a session, building its targets"""
+        arguments: dict[str, dict[str, Any]] = {
+            "sessionId": {"type": "ID!", "value": session_id},
+            "targetTemplateId": {"type": "ID!", "value": target_template_id},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return ApplyTargetTemplatePayloadFields(
+            field_name="applyTargetTemplate", arguments=cleared_arguments
+        )
+
+    @classmethod
     def approve_all_pending_members(cls, ids: list[str]) -> BulkApprovePayloadFields:
-        """Bulk approve of pending members, returning the approved athletes."""
+        """Approves all pending members"""
         arguments: dict[str, dict[str, Any]] = {"ids": {"type": "[ID!]!", "value": ids}}
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
@@ -261,7 +345,7 @@ class Mutation:
     def archive_club_member(
         cls, club_id: str, id: str
     ) -> ArchiveClubMemberPayloadFields:
-        """A Mutation Performed by Club Staff on a Club Member"""
+        """Archives a club member"""
         arguments: dict[str, dict[str, Any]] = {
             "clubId": {"type": "ID!", "value": club_id},
             "id": {"type": "ID!", "value": id},
@@ -275,6 +359,7 @@ class Mutation:
 
     @classmethod
     def archive_pitch(cls, id: str) -> ArchivePitchPayloadFields:
+        """Archives a pitch"""
         arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
@@ -285,13 +370,32 @@ class Mutation:
 
     @classmethod
     def archive_survey(cls, id: str) -> ArchiveSurveyPayloadFields:
-        """Archive a survey"""
+        """Archives a survey"""
         arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
         }
         return ArchiveSurveyPayloadFields(
             field_name="archiveSurvey", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def assign_default_edges(
+        cls, assignments: list[DefaultEdgeAssignmentAttributes], club_id: str
+    ) -> AssignDefaultEdgesPayloadFields:
+        """Assigns default edges to athletes"""
+        arguments: dict[str, dict[str, Any]] = {
+            "assignments": {
+                "type": "[DefaultEdgeAssignmentAttributes!]!",
+                "value": assignments,
+            },
+            "clubId": {"type": "ID!", "value": club_id},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return AssignDefaultEdgesPayloadFields(
+            field_name="assignDefaultEdges", arguments=cleared_arguments
         )
 
     @classmethod
@@ -302,7 +406,7 @@ class Mutation:
         serial_number: Any,
         type_: DeviceTypeEnum,
     ) -> AssignDevicePayloadFields:
-        """Assign a device to an owner"""
+        """Assigns a device to an owner"""
         arguments: dict[str, dict[str, Any]] = {
             "ownerId": {"type": "ID!", "value": owner_id},
             "ownerType": {"type": "DeviceOwnerType!", "value": owner_type},
@@ -320,7 +424,7 @@ class Mutation:
     def assign_edge(
         cls, edge_id: str, owner_id: str, owner_type: EdgeOwnerType
     ) -> AssignEdgePayloadFields:
-        """Assign an edge to an owner"""
+        """Assigns an edge to an owner"""
         arguments: dict[str, dict[str, Any]] = {
             "edgeId": {"type": "ID!", "value": edge_id},
             "ownerId": {"type": "ID!", "value": owner_id},
@@ -337,7 +441,7 @@ class Mutation:
     def athletes_accelzones(
         cls, attributes: AthleteAccelzoneAttributes, *, reprocess: Optional[bool] = None
     ) -> AccelzonesPayloadFields:
-        """Bulk update of athlete accelzones"""
+        """Sets athletes' acceleration zones"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "AthleteAccelzoneAttributes!", "value": attributes},
             "reprocess": {"type": "Boolean", "value": reprocess},
@@ -353,7 +457,7 @@ class Mutation:
     def athletes_decelzones(
         cls, attributes: AthleteDecelzoneAttributes, *, reprocess: Optional[bool] = None
     ) -> DecelzonesPayloadFields:
-        """Bulk update of athlete decelzones"""
+        """Sets athletes' deceleration zones"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "AthleteDecelzoneAttributes!", "value": attributes},
             "reprocess": {"type": "Boolean", "value": reprocess},
@@ -369,7 +473,7 @@ class Mutation:
     def athletes_delete_accelzones(
         cls, athlete_ids: list[str], *, reprocess: Optional[bool] = None
     ) -> DeleteAccelzonesPayloadFields:
-        """Bulk delete of athlete accelzones"""
+        """Deletes athletes' acceleration zones"""
         arguments: dict[str, dict[str, Any]] = {
             "athleteIds": {"type": "[ID!]!", "value": athlete_ids},
             "reprocess": {"type": "Boolean", "value": reprocess},
@@ -385,7 +489,7 @@ class Mutation:
     def athletes_delete_decelzones(
         cls, athlete_ids: list[str], *, reprocess: Optional[bool] = None
     ) -> DeleteDecelzonesPayloadFields:
-        """Bulk delete of athlete decelzones"""
+        """Deletes athletes' deceleration zones"""
         arguments: dict[str, dict[str, Any]] = {
             "athleteIds": {"type": "[ID!]!", "value": athlete_ids},
             "reprocess": {"type": "Boolean", "value": reprocess},
@@ -401,7 +505,7 @@ class Mutation:
     def athletes_delete_heart_rate_bounds(
         cls, athlete_ids: list[str], *, reprocess: Optional[bool] = None
     ) -> DeleteHeartRateBoundsPayloadFields:
-        """Bulk delete of athlete heart rate bounds"""
+        """Deletes athletes' heart rate bounds"""
         arguments: dict[str, dict[str, Any]] = {
             "athleteIds": {"type": "[ID!]!", "value": athlete_ids},
             "reprocess": {"type": "Boolean", "value": reprocess},
@@ -417,7 +521,7 @@ class Mutation:
     def athletes_delete_speedzones(
         cls, athlete_ids: list[str], *, reprocess: Optional[bool] = None
     ) -> DeleteSpeedzonesPayloadFields:
-        """Bulk delete of athlete speedzones"""
+        """Deletes athletes' speed zones"""
         arguments: dict[str, dict[str, Any]] = {
             "athleteIds": {"type": "[ID!]!", "value": athlete_ids},
             "reprocess": {"type": "Boolean", "value": reprocess},
@@ -436,7 +540,7 @@ class Mutation:
         *,
         reprocess: Optional[bool] = None,
     ) -> HeartRateBoundsPayloadFields:
-        """Bulk update of athlete heart rate bounds"""
+        """Sets athletes' heart rate bounds"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {
                 "type": "AthleteHeartRateBoundsAttributes!",
@@ -458,7 +562,7 @@ class Mutation:
         *,
         reprocess: Optional[bool] = None,
     ) -> RelativeAccelzonesPayloadFields:
-        """Bulk update of athlete relative accelzones"""
+        """Sets athletes' relative acceleration zones"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {
                 "type": "AthleteRelativeAccelzoneAttributes!",
@@ -480,7 +584,7 @@ class Mutation:
         *,
         reprocess: Optional[bool] = None,
     ) -> RelativeDecelzonesPayloadFields:
-        """Bulk update of athlete relative decelzones"""
+        """Sets athletes' relative deceleration zones"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {
                 "type": "AthleteRelativeDecelzoneAttributes!",
@@ -502,7 +606,7 @@ class Mutation:
         *,
         reprocess: Optional[bool] = None,
     ) -> RelativeSpeedzonesPayloadFields:
-        """Bulk update of athlete speedzones"""
+        """Sets athletes' relative speed zones"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "RelativeSpeedzoneAttributes!", "value": attributes},
             "reprocess": {"type": "Boolean", "value": reprocess},
@@ -518,7 +622,7 @@ class Mutation:
     def athletes_speedzones(
         cls, attributes: AthleteSpeedzoneAttributes, *, reprocess: Optional[bool] = None
     ) -> SpeedzonesPayloadFields:
-        """Bulk update of athlete speedzones"""
+        """Sets athletes' speed zones"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "AthleteSpeedzoneAttributes!", "value": attributes},
             "reprocess": {"type": "Boolean", "value": reprocess},
@@ -555,11 +659,125 @@ class Mutation:
         return ClubMutationFields(field_name="club", arguments=cleared_arguments)
 
     @classmethod
-    def create_chat_response(
-        cls, question_id: str, response: str
-    ) -> CreateResponsePayloadFields:
-        """Respond to a question"""
+    def commit_training_plan_import_to_existing_session(
+        cls,
+        id: str,
+        segments: list[ParsedSegmentPatchInput],
+        session_id: str,
+        *,
+        keywords: Optional[list[str]] = None,
+    ) -> CommitImportToExistingSessionPayloadFields:
+        """Commits a training plan import to an existing session"""
         arguments: dict[str, dict[str, Any]] = {
+            "id": {"type": "ID!", "value": id},
+            "keywords": {"type": "[String!]", "value": keywords},
+            "segments": {"type": "[ParsedSegmentPatchInput!]!", "value": segments},
+            "sessionId": {"type": "ID!", "value": session_id},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return CommitImportToExistingSessionPayloadFields(
+            field_name="commitTrainingPlanImportToExistingSession",
+            arguments=cleared_arguments,
+        )
+
+    @classmethod
+    def commit_training_plan_import_to_new_session(
+        cls,
+        id: str,
+        new_session: NewSessionTargetInput,
+        segments: list[ParsedSegmentPatchInput],
+        *,
+        keywords: Optional[list[str]] = None,
+    ) -> CommitImportToNewSessionPayloadFields:
+        """Commits a training plan import to a new session"""
+        arguments: dict[str, dict[str, Any]] = {
+            "id": {"type": "ID!", "value": id},
+            "keywords": {"type": "[String!]", "value": keywords},
+            "newSession": {"type": "NewSessionTargetInput!", "value": new_session},
+            "segments": {"type": "[ParsedSegmentPatchInput!]!", "value": segments},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return CommitImportToNewSessionPayloadFields(
+            field_name="commitTrainingPlanImportToNewSession",
+            arguments=cleared_arguments,
+        )
+
+    @classmethod
+    def create_bulk_action(
+        cls,
+        action: BulkActionEnum,
+        actionable_type: BulkActionableTypeEnum,
+        source_ids: list[str],
+        *,
+        extra_params: Optional[Any] = None,
+        target_club_ids: Optional[list[str]] = None,
+    ) -> CreateBulkActionPayloadFields:
+        """Bulk-action records of a given type (copy across clubs, future: archive, etc.)"""
+        arguments: dict[str, dict[str, Any]] = {
+            "action": {"type": "BulkActionEnum!", "value": action},
+            "actionableType": {
+                "type": "BulkActionableTypeEnum!",
+                "value": actionable_type,
+            },
+            "extraParams": {"type": "JSON", "value": extra_params},
+            "sourceIds": {"type": "[ID!]!", "value": source_ids},
+            "targetClubIds": {"type": "[ID!]", "value": target_club_ids},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return CreateBulkActionPayloadFields(
+            field_name="createBulkAction", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def create_bulk_athlete_import(
+        cls, club_id: str, date_format: str, rows: list[BulkAthleteRowInput]
+    ) -> CreateBulkAthleteImportPayloadFields:
+        """Creates a bulk athlete import"""
+        arguments: dict[str, dict[str, Any]] = {
+            "clubId": {"type": "ID!", "value": club_id},
+            "dateFormat": {"type": "String!", "value": date_format},
+            "rows": {"type": "[BulkAthleteRowInput!]!", "value": rows},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return CreateBulkAthleteImportPayloadFields(
+            field_name="createBulkAthleteImport", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def create_bulk_staff_import(
+        cls, club_id: str, rows: list[BulkStaffRowInput]
+    ) -> CreateBulkStaffImportPayloadFields:
+        """Creates a bulk staff import"""
+        arguments: dict[str, dict[str, Any]] = {
+            "clubId": {"type": "ID!", "value": club_id},
+            "rows": {"type": "[BulkStaffRowInput!]!", "value": rows},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return CreateBulkStaffImportPayloadFields(
+            field_name="createBulkStaffImport", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def create_chat_response(
+        cls,
+        question_id: str,
+        response: str,
+        *,
+        call_site: Optional[CallSiteEnum] = None,
+    ) -> CreateResponsePayloadFields:
+        """Creates a chat response"""
+        arguments: dict[str, dict[str, Any]] = {
+            "callSite": {"type": "CallSiteEnum", "value": call_site},
             "questionId": {"type": "ID!", "value": question_id},
             "response": {"type": "String!", "value": response},
         }
@@ -593,7 +811,7 @@ class Mutation:
     def create_dataset(
         cls, attributes: DatasetAttributes
     ) -> CreateDatasetPayloadFields:
-        """Create a dataset"""
+        """Creates a reporting dataset"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "DatasetAttributes!", "value": attributes}
         }
@@ -602,6 +820,21 @@ class Mutation:
         }
         return CreateDatasetPayloadFields(
             field_name="createDataset", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def create_device_page(
+        cls, input: CreateDevicePageInput
+    ) -> CreateDevicePagePayloadFields:
+        """Create a Device::Page from a blob uploaded via missingDevicePages"""
+        arguments: dict[str, dict[str, Any]] = {
+            "input": {"type": "CreateDevicePageInput!", "value": input}
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return CreateDevicePagePayloadFields(
+            field_name="createDevicePage", arguments=cleared_arguments
         )
 
     @classmethod
@@ -621,6 +854,7 @@ class Mutation:
 
     @classmethod
     def create_edge_name(cls, edge_id: str, name: str) -> CreateEdgeNamePayloadFields:
+        """Creates a custom display name for an edge"""
         arguments: dict[str, dict[str, Any]] = {
             "edgeId": {"type": "ID!", "value": edge_id},
             "name": {"type": "String!", "value": name},
@@ -636,7 +870,7 @@ class Mutation:
     def create_flexible_report(
         cls, attributes: FlexibleReportAttributes
     ) -> CreateFlexibleReportPayloadFields:
-        """create a FlexibleReport along with its dataset"""
+        """Creates a flexible report"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "FlexibleReportAttributes!", "value": attributes}
         }
@@ -651,7 +885,7 @@ class Mutation:
     def create_flexible_report_chart(
         cls, attributes: CreateFlexibleReportChartAttributes
     ) -> CreateFlexibleReportChartPayloadFields:
-        """Create a flexible report chart"""
+        """Creates a flexible report chart"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {
                 "type": "CreateFlexibleReportChartAttributes!",
@@ -669,7 +903,7 @@ class Mutation:
     def create_match_event(
         cls, attributes: MatchEventAttributes, session_id: str
     ) -> CreateMatchEventPayloadFields:
-        """Create a match event"""
+        """Creates a match event"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "MatchEventAttributes!", "value": attributes},
             "sessionId": {"type": "ID!", "value": session_id},
@@ -685,7 +919,7 @@ class Mutation:
     def create_match_events(
         cls, attributes: list[MatchEventAttributes], session_id: str
     ) -> CreateMatchEventsPayloadFields:
-        """Create match events"""
+        """Creates multiple match events"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "[MatchEventAttributes!]!", "value": attributes},
             "sessionId": {"type": "ID!", "value": session_id},
@@ -707,7 +941,7 @@ class Mutation:
         owner_id: Optional[str] = None,
         owner_type: Optional[OwnerEnum] = None,
     ) -> CreatePitchPayloadFields:
-        """Define a new pitch"""
+        """Creates a new pitch"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "PitchAttributes!", "value": attributes},
             "clubId": {"type": "ID", "value": club_id},
@@ -723,13 +957,41 @@ class Mutation:
         )
 
     @classmethod
-    def create_question(
-        cls, question: str, staff_id: str
-    ) -> CreateQuestionPayloadFields:
-        """Ask a question"""
+    def create_predicted_session(
+        cls, attributes: CreatePredictedSessionAttributes
+    ) -> CreatePredictedSessionPayloadFields:
+        """Creates a predicted session"""
         arguments: dict[str, dict[str, Any]] = {
+            "attributes": {
+                "type": "CreatePredictedSessionAttributes!",
+                "value": attributes,
+            }
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return CreatePredictedSessionPayloadFields(
+            field_name="createPredictedSession", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def create_question(
+        cls,
+        question: str,
+        staff_id: str,
+        *,
+        call_site: Optional[CallSiteEnum] = None,
+        topic_attributes: Optional[TopicAttributesInput] = None,
+    ) -> CreateQuestionPayloadFields:
+        """Creates a chat question"""
+        arguments: dict[str, dict[str, Any]] = {
+            "callSite": {"type": "CallSiteEnum", "value": call_site},
             "question": {"type": "String!", "value": question},
             "staffId": {"type": "ID!", "value": staff_id},
+            "topicAttributes": {
+                "type": "TopicAttributesInput",
+                "value": topic_attributes,
+            },
         }
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
@@ -740,6 +1002,7 @@ class Mutation:
 
     @classmethod
     def create_report(cls, attributes: ReportAttributes) -> CreateReportPayloadFields:
+        """Creates a report"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "ReportAttributes!", "value": attributes}
         }
@@ -754,7 +1017,7 @@ class Mutation:
     def create_session(
         cls, attributes: MutateSessionAttributes
     ) -> CreateSessionPayloadFields:
-        """Create a Training/Match session"""
+        """Creates a new session"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "MutateSessionAttributes!", "value": attributes}
         }
@@ -766,10 +1029,25 @@ class Mutation:
         )
 
     @classmethod
+    def create_session_from_predicted_session(
+        cls, predicted_session_id: str
+    ) -> CreateSessionFromPredictedSessionPayloadFields:
+        """Creates a session from a predicted session"""
+        arguments: dict[str, dict[str, Any]] = {
+            "predictedSessionId": {"type": "ID!", "value": predicted_session_id}
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return CreateSessionFromPredictedSessionPayloadFields(
+            field_name="createSessionFromPredictedSession", arguments=cleared_arguments
+        )
+
+    @classmethod
     def create_session_segment(
         cls, attributes: SegmentAttributes, *, id: Optional[str] = None
     ) -> CreateSegmentPayloadFields:
-        """Create a session segment"""
+        """Creates a session segment"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "SegmentAttributes!", "value": attributes},
             "id": {"type": "ID", "value": id},
@@ -785,7 +1063,7 @@ class Mutation:
     def create_session_tag_definition(
         cls, attributes: SessionTagDefinitionAttributes, club_id: str
     ) -> CreateSessionTagDefinitionPayloadFields:
-        """Create a session tag definition"""
+        """Creates a session tag definition"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {
                 "type": "SessionTagDefinitionAttributes!",
@@ -801,10 +1079,49 @@ class Mutation:
         )
 
     @classmethod
+    def create_session_target_definition(
+        cls, attributes: TargetDefinitionAttributes, template_id: str
+    ) -> CreateTargetDefinitionPayloadFields:
+        """Creates a target definition within a target template"""
+        arguments: dict[str, dict[str, Any]] = {
+            "attributes": {"type": "TargetDefinitionAttributes!", "value": attributes},
+            "templateId": {"type": "ID!", "value": template_id},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return CreateTargetDefinitionPayloadFields(
+            field_name="createSessionTargetDefinition", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def create_session_targets(
+        cls,
+        attributes: TargetAttributes,
+        targetable_ids: list[str],
+        targetable_type: TargetTargetableTypeEnum,
+    ) -> CreateTargetsPayloadFields:
+        """Creates multiple session targets"""
+        arguments: dict[str, dict[str, Any]] = {
+            "attributes": {"type": "TargetAttributes!", "value": attributes},
+            "targetableIds": {"type": "[ID!]!", "value": targetable_ids},
+            "targetableType": {
+                "type": "TargetTargetableTypeEnum!",
+                "value": targetable_type,
+            },
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return CreateTargetsPayloadFields(
+            field_name="createSessionTargets", arguments=cleared_arguments
+        )
+
+    @classmethod
     def create_survey(
         cls, attributes: SurveyAttributes, club_id: str
     ) -> CreateSurveyPayloadFields:
-        """Create a new survey"""
+        """Creates a new survey"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "SurveyAttributes!", "value": attributes},
             "clubId": {"type": "ID!", "value": club_id},
@@ -835,7 +1152,7 @@ class Mutation:
     def create_tag_definition(
         cls, attributes: TagDefinitionAttributes, tagger: TaggerAttributes
     ) -> CreateTagDefinitionPayloadFields:
-        """Create a tag definition"""
+        """Creates a tag definition"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "TagDefinitionAttributes!", "value": attributes},
             "tagger": {"type": "TaggerAttributes!", "value": tagger},
@@ -848,10 +1165,72 @@ class Mutation:
         )
 
     @classmethod
+    def create_target_template(
+        cls, name: str, settings_id: str
+    ) -> CreateTargetTemplatePayloadFields:
+        """Creates a target template for a settings record"""
+        arguments: dict[str, dict[str, Any]] = {
+            "name": {"type": "String!", "value": name},
+            "settingsId": {"type": "ID!", "value": settings_id},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return CreateTargetTemplatePayloadFields(
+            field_name="createTargetTemplate", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def create_training_plan_import(
+        cls, input: CreateImportInput
+    ) -> CreateImportPayloadFields:
+        """Creates a training plan import"""
+        arguments: dict[str, dict[str, Any]] = {
+            "input": {"type": "CreateImportInput!", "value": input}
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return CreateImportPayloadFields(
+            field_name="createTrainingPlanImport", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def create_unreadable_device_pages(
+        cls, input: CreateUnreadableDevicePagesInput
+    ) -> CreateUnreadableDevicePagesPayloadFields:
+        """Create Device::UndecryptablePages for page indexes the device cannot read"""
+        arguments: dict[str, dict[str, Any]] = {
+            "input": {"type": "CreateUnreadableDevicePagesInput!", "value": input}
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return CreateUnreadableDevicePagesPayloadFields(
+            field_name="createUnreadableDevicePages", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def create_video_clip(
+        cls, attributes: VideoClipAttributes, session_id: str
+    ) -> CreateVideoClipPayloadFields:
+        """Creates a video clip"""
+        arguments: dict[str, dict[str, Any]] = {
+            "attributes": {"type": "VideoClipAttributes!", "value": attributes},
+            "sessionId": {"type": "ID!", "value": session_id},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return CreateVideoClipPayloadFields(
+            field_name="createVideoClip", arguments=cleared_arguments
+        )
+
+    @classmethod
     def create_video_recording(
         cls, attributes: VideoRecordingAttributes
     ) -> CreateVideoRecordingPayloadFields:
-        """Create a video recording record ready for camera upload"""
+        """Creates a video recording"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "VideoRecordingAttributes!", "value": attributes}
         }
@@ -863,7 +1242,60 @@ class Mutation:
         )
 
     @classmethod
+    def delete_custom_baseline_targets(
+        cls, ids: list[str]
+    ) -> DeleteCustomBaselineTargetsPayloadFields:
+        """Bulk deletes custom baseline targets for a settings record"""
+        arguments: dict[str, dict[str, Any]] = {"ids": {"type": "[ID!]!", "value": ids}}
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return DeleteCustomBaselineTargetsPayloadFields(
+            field_name="deleteCustomBaselineTargets", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def delete_session_targets(
+        cls, target_ids: list[str]
+    ) -> DeleteSessionTargetsPayloadFields:
+        """Bulk deletes session targets"""
+        arguments: dict[str, dict[str, Any]] = {
+            "targetIds": {"type": "[ID!]!", "value": target_ids}
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return DeleteSessionTargetsPayloadFields(
+            field_name="deleteSessionTargets", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def delete_target_templates(
+        cls, ids: list[str]
+    ) -> DeleteTargetTemplatesPayloadFields:
+        """Bulk deletes target templates"""
+        arguments: dict[str, dict[str, Any]] = {"ids": {"type": "[ID!]!", "value": ids}}
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return DeleteTargetTemplatesPayloadFields(
+            field_name="deleteTargetTemplates", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def delete_video_clip(cls, id: str) -> DeleteVideoClipPayloadFields:
+        """Deletes a video clip"""
+        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return DeleteVideoClipPayloadFields(
+            field_name="deleteVideoClip", arguments=cleared_arguments
+        )
+
+    @classmethod
     def destroy_athlete_group(cls, group_id: str) -> DestroyAthleteGroupPayloadFields:
+        """Destroys an athlete group"""
         arguments: dict[str, dict[str, Any]] = {
             "groupId": {"type": "ID!", "value": group_id}
         }
@@ -892,7 +1324,7 @@ class Mutation:
 
     @classmethod
     def destroy_dataset(cls, id: str) -> DestroyDatasetPayloadFields:
-        """Destroy a Dataset"""
+        """Destroys a reporting dataset"""
         arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
@@ -905,7 +1337,7 @@ class Mutation:
     def destroy_flexible_report_charts(
         cls, chart_ids: list[str]
     ) -> DestroyFlexibleReportChartsPayloadFields:
-        """destroy flexible report charts given an array of FlexibleReportChart ids"""
+        """Destroys flexible report charts"""
         arguments: dict[str, dict[str, Any]] = {
             "chartIds": {"type": "[ID!]!", "value": chart_ids}
         }
@@ -920,7 +1352,7 @@ class Mutation:
     def destroy_flexible_reports(
         cls, report_ids: list[str]
     ) -> DestroyFlexibleReportsPayloadFields:
-        """destroy flexible reports given an array of FlexibleReport ids"""
+        """Destroys flexible reports"""
         arguments: dict[str, dict[str, Any]] = {
             "reportIds": {"type": "[ID!]!", "value": report_ids}
         }
@@ -933,7 +1365,7 @@ class Mutation:
 
     @classmethod
     def destroy_match_event(cls, id: str) -> DestroyMatchEventPayloadFields:
-        """Destroy a match event"""
+        """Destroys a match event"""
         arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
@@ -944,7 +1376,7 @@ class Mutation:
 
     @classmethod
     def destroy_match_events(cls, ids: list[str]) -> DestroyMatchEventsPayloadFields:
-        """Destroy match events"""
+        """Destroys multiple match events"""
         arguments: dict[str, dict[str, Any]] = {"ids": {"type": "[ID!]!", "value": ids}}
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
@@ -955,7 +1387,7 @@ class Mutation:
 
     @classmethod
     def destroy_session(cls, id: str) -> DestroySessionPayloadFields:
-        """Destroy a session"""
+        """Destroys a session"""
         arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
@@ -966,7 +1398,7 @@ class Mutation:
 
     @classmethod
     def destroy_session_blueprint(cls, id: str) -> DestroySessionBlueprintPayloadFields:
-        """Destroy a session blueprint"""
+        """Destroys a session blueprint"""
         arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
@@ -977,7 +1409,7 @@ class Mutation:
 
     @classmethod
     def destroy_session_segment(cls, id: str) -> DestroySegmentPayloadFields:
-        """Destroy a session segment"""
+        """Destroys a session segment"""
         arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
@@ -990,7 +1422,7 @@ class Mutation:
     def destroy_session_tag_definition(
         cls, id: str
     ) -> DestroySessionTagDefinitionPayloadFields:
-        """Destroy a session tag definition"""
+        """Destroys a session tag definition"""
         arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
@@ -1000,8 +1432,21 @@ class Mutation:
         )
 
     @classmethod
+    def destroy_session_target_definitions(
+        cls, ids: list[str]
+    ) -> DestroySessionTargetDefinitionsPayloadFields:
+        """Bulk delete target definitions within target templates"""
+        arguments: dict[str, dict[str, Any]] = {"ids": {"type": "[ID!]!", "value": ids}}
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return DestroySessionTargetDefinitionsPayloadFields(
+            field_name="destroySessionTargetDefinitions", arguments=cleared_arguments
+        )
+
+    @classmethod
     def destroy_tag_definition(cls, id: str) -> DestroyTagDefinitionPayloadFields:
-        """Destroy a tag definition"""
+        """Destroys a tag definition"""
         arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
@@ -1011,8 +1456,23 @@ class Mutation:
         )
 
     @classmethod
+    def discard_predicted_session(
+        cls, predicted_session_id: str
+    ) -> DiscardPredictedSessionPayloadFields:
+        """Discards a predicted session"""
+        arguments: dict[str, dict[str, Any]] = {
+            "predictedSessionId": {"type": "ID!", "value": predicted_session_id}
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return DiscardPredictedSessionPayloadFields(
+            field_name="discardPredictedSession", arguments=cleared_arguments
+        )
+
+    @classmethod
     def dismiss_app_message(cls, id: str) -> DestroyAppMessagePayloadFields:
-        """Destroy an app message"""
+        """Dismisses an app message"""
         arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
@@ -1025,7 +1485,7 @@ class Mutation:
     def duplicate_flexible_report(
         cls, club_id: str, id: str
     ) -> DuplicateFlexibleReportPayloadFields:
-        """duplicate a FlexibleReport"""
+        """Duplicates a flexible report"""
         arguments: dict[str, dict[str, Any]] = {
             "clubId": {"type": "ID!", "value": club_id},
             "id": {"type": "ID!", "value": id},
@@ -1041,7 +1501,7 @@ class Mutation:
     def duplicate_session(
         cls, attributes: DuplicateSessionAttributes, id: str
     ) -> DuplicateSessionPayloadFields:
-        """Duplicate a Training/Match session"""
+        """Duplicates a session"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "DuplicateSessionAttributes!", "value": attributes},
             "id": {"type": "ID!", "value": id},
@@ -1055,7 +1515,7 @@ class Mutation:
 
     @classmethod
     def duplicate_session_segment(cls, id: str) -> DuplicateSegmentPayloadFields:
-        """Duplicate a session segment, retaining its boundary times"""
+        """Duplicates a session segment"""
         arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
@@ -1068,7 +1528,7 @@ class Mutation:
     def duplicate_survey(
         cls, attributes: SurveyAttributes, club_id: str, id: str
     ) -> DuplicateSurveyPayloadFields:
-        """Duplicate an existing survey with a new title and ID"""
+        """Duplicates a survey"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "SurveyAttributes!", "value": attributes},
             "clubId": {"type": "ID!", "value": club_id},
@@ -1083,7 +1543,7 @@ class Mutation:
 
     @classmethod
     def end_edge_ownership(cls, edge_id: str) -> EndEdgeOwnershipPayloadFields:
-        """End an edge's ownership"""
+        """Ends an edge's current ownership"""
         arguments: dict[str, dict[str, Any]] = {
             "edgeId": {"type": "ID!", "value": edge_id}
         }
@@ -1095,8 +1555,24 @@ class Mutation:
         )
 
     @classmethod
+    def grant_org_admin_role(
+        cls, member_id: str, org_id: str
+    ) -> GrantOrgAdminRolePayloadFields:
+        """Grants an org admin role to a member"""
+        arguments: dict[str, dict[str, Any]] = {
+            "memberId": {"type": "ID!", "value": member_id},
+            "orgId": {"type": "ID!", "value": org_id},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return GrantOrgAdminRolePayloadFields(
+            field_name="grantOrgAdminRole", arguments=cleared_arguments
+        )
+
+    @classmethod
     def mark_app_message_read(cls, id: str) -> MarkAppMessageReadPayloadFields:
-        """Mark an app message as read"""
+        """Marks an app message as read"""
         arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
@@ -1109,7 +1585,7 @@ class Mutation:
     def mark_multiple_app_messages_read(
         cls, ids: list[str]
     ) -> MarkMultipleAppMessagesReadPayloadFields:
-        """Mark multiple app messages as read"""
+        """Marks multiple app messages as read"""
         arguments: dict[str, dict[str, Any]] = {"ids": {"type": "[ID!]!", "value": ids}}
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
@@ -1122,7 +1598,7 @@ class Mutation:
     def provision_gateway(
         cls, csr: str, firmware_version: str, organisation_id: str, serial_number: str
     ) -> ProvisionGatewayPayloadFields:
-        """Set up a gateway for use by the provided organisation"""
+        """Provisions a new gateway"""
         arguments: dict[str, dict[str, Any]] = {
             "csr": {"type": "String!", "value": csr},
             "firmwareVersion": {"type": "String!", "value": firmware_version},
@@ -1144,7 +1620,7 @@ class Mutation:
         rating: Optional[RatingEnum] = None,
         rating_explanation: Optional[str] = None,
     ) -> RateResponsePayloadFields:
-        """Rate a chat response"""
+        """Rates a chat response"""
         arguments: dict[str, dict[str, Any]] = {
             "rating": {"type": "RatingEnum", "value": rating},
             "ratingExplanation": {"type": "String", "value": rating_explanation},
@@ -1158,13 +1634,34 @@ class Mutation:
         )
 
     @classmethod
+    def rate_predicted_session(
+        cls,
+        predicted_session_id: str,
+        *,
+        rating: Optional[RatingEnum] = None,
+        rating_explanation: Optional[str] = None,
+    ) -> RatePredictedSessionPayloadFields:
+        """Rates a predicted session"""
+        arguments: dict[str, dict[str, Any]] = {
+            "predictedSessionId": {"type": "ID!", "value": predicted_session_id},
+            "rating": {"type": "RatingEnum", "value": rating},
+            "ratingExplanation": {"type": "String", "value": rating_explanation},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return RatePredictedSessionPayloadFields(
+            field_name="ratePredictedSession", arguments=cleared_arguments
+        )
+
+    @classmethod
     def recreate_gateway_sessions(
         cls,
         attributes: list[GatewaySessionAttributes],
         *,
         session_id: Optional[str] = None,
     ) -> RecreateGatewaySessionsPayloadFields:
-        """Recreates gateway sessions for a given gateway ownership and session."""
+        """Recreates a gateway's sessions"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "[GatewaySessionAttributes!]!", "value": attributes},
             "sessionId": {"type": "ID", "value": session_id},
@@ -1174,6 +1671,17 @@ class Mutation:
         }
         return RecreateGatewaySessionsPayloadFields(
             field_name="recreateGatewaySessions", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def regenerate_dataset(cls, id: str) -> RegenerateDatasetPayloadFields:
+        """Regenerates a reporting dataset"""
+        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return RegenerateDatasetPayloadFields(
+            field_name="regenerateDataset", arguments=cleared_arguments
         )
 
     @classmethod
@@ -1211,7 +1719,7 @@ class Mutation:
     def resend_pending_member_confirmation_email(
         cls, id: str
     ) -> ResendConfirmationEmailPayloadFields:
-        """Resend the confirmation email to a PendingMember."""
+        """Resends a pending member's confirmation email"""
         arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
@@ -1225,6 +1733,7 @@ class Mutation:
     def resend_report(
         cls, report_id: str, *, regenerate: Optional[bool] = None
     ) -> ResendReportPayloadFields:
+        """Resends a report"""
         arguments: dict[str, dict[str, Any]] = {
             "regenerate": {"type": "Boolean", "value": regenerate},
             "reportId": {"type": "ID!", "value": report_id},
@@ -1240,7 +1749,7 @@ class Mutation:
     def respond_to_detected_match_event(
         cls, accept_event: bool, id: str
     ) -> RespondToDetectedMatchEventPayloadFields:
-        """Confirm or Dismiss a detected match event"""
+        """Responds to a detected match event"""
         arguments: dict[str, dict[str, Any]] = {
             "acceptEvent": {"type": "Boolean!", "value": accept_event},
             "id": {"type": "ID!", "value": id},
@@ -1256,7 +1765,7 @@ class Mutation:
     def respond_to_detected_match_events(
         cls, accept_event: bool, ids: list[str]
     ) -> RespondToDetectedMatchEventsPayloadFields:
-        """Confirm or Dismiss a set of detected match events"""
+        """Responds to multiple detected match events"""
         arguments: dict[str, dict[str, Any]] = {
             "acceptEvent": {"type": "Boolean!", "value": accept_event},
             "ids": {"type": "[ID!]!", "value": ids},
@@ -1272,7 +1781,7 @@ class Mutation:
     def review_pending_member(
         cls, approved: bool, id: str
     ) -> ReviewPendingMemberPayloadFields:
-        """Approve or reject a PendingMember returning an Athlete or nothing."""
+        """Approves or rejects a pending member"""
         arguments: dict[str, dict[str, Any]] = {
             "approved": {"type": "Boolean!", "value": approved},
             "id": {"type": "ID!", "value": id},
@@ -1285,7 +1794,24 @@ class Mutation:
         )
 
     @classmethod
+    def revoke_org_admin_role(
+        cls, member_id: str, org_id: str
+    ) -> RevokeOrgAdminRolePayloadFields:
+        """Revokes an org admin role from a member"""
+        arguments: dict[str, dict[str, Any]] = {
+            "memberId": {"type": "ID!", "value": member_id},
+            "orgId": {"type": "ID!", "value": org_id},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return RevokeOrgAdminRolePayloadFields(
+            field_name="revokeOrgAdminRole", arguments=cleared_arguments
+        )
+
+    @classmethod
     def rotate_live_data_keys(cls, club_id: str) -> RotateLiveDataKeysPayloadFields:
+        """Rotates a club's live data keys"""
         arguments: dict[str, dict[str, Any]] = {
             "clubId": {"type": "ID!", "value": club_id}
         }
@@ -1300,7 +1826,7 @@ class Mutation:
     def set_benched_players(
         cls, match_session_participations: list[str], session_id: str
     ) -> SetBenchedPlayersPayloadFields:
-        """set which players did not start in a match, other athletes on the session will be marked as starters"""
+        """Sets the benched players for a session"""
         arguments: dict[str, dict[str, Any]] = {
             "matchSessionParticipations": {
                 "type": "[ID!]!",
@@ -1324,7 +1850,7 @@ class Mutation:
         reprocess: Optional[bool] = None,
         value: Optional[float] = None,
     ) -> SetCustomMaxMetricPayloadFields:
-        """Bulk update of a single custom max metric on athletes"""
+        """Sets a custom maximum metric value for an athlete"""
         arguments: dict[str, dict[str, Any]] = {
             "athleteIds": {"type": "[ID!]!", "value": athlete_ids},
             "metric": {"type": "CustomMaxMetricEnum!", "value": metric},
@@ -1342,7 +1868,7 @@ class Mutation:
     def trigger_session_detection_v_2(
         cls, edge_ids: list[str]
     ) -> TriggerSessionDetectionV2PayloadFields:
-        """Trigger the session detection v2 job"""
+        """Triggers v2 session detection"""
         arguments: dict[str, dict[str, Any]] = {
             "edgeIds": {"type": "[String!]!", "value": edge_ids}
         }
@@ -1357,7 +1883,7 @@ class Mutation:
     def unarchive_club_member(
         cls, club_id: str, id: str
     ) -> UnarchiveClubMemberPayloadFields:
-        """A Mutation Performed by Club Staff on a Club Member"""
+        """Unarchives a club member"""
         arguments: dict[str, dict[str, Any]] = {
             "clubId": {"type": "ID!", "value": club_id},
             "id": {"type": "ID!", "value": id},
@@ -1373,7 +1899,7 @@ class Mutation:
     def update_athlete(
         cls, athlete_id: str, attributes: UpdateAthleteAttributes
     ) -> UpdateAthletePayloadFields:
-        """Update athlete's information"""
+        """Updates an athlete"""
         arguments: dict[str, dict[str, Any]] = {
             "athleteId": {"type": "ID!", "value": athlete_id},
             "attributes": {"type": "UpdateAthleteAttributes!", "value": attributes},
@@ -1389,6 +1915,7 @@ class Mutation:
     def update_athlete_group(
         cls, attributes: AthleteGroupAttributes, group_id: str
     ) -> UpdateAthleteGroupPayloadFields:
+        """Updates an athlete group"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "AthleteGroupAttributes!", "value": attributes},
             "groupId": {"type": "ID!", "value": group_id},
@@ -1401,10 +1928,26 @@ class Mutation:
         )
 
     @classmethod
+    def update_club(
+        cls, attributes: UpdateClubAttributes, club_id: str
+    ) -> UpdateClubPayloadFields:
+        """Update top-level attributes of a club"""
+        arguments: dict[str, dict[str, Any]] = {
+            "attributes": {"type": "UpdateClubAttributes!", "value": attributes},
+            "clubId": {"type": "ID!", "value": club_id},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return UpdateClubPayloadFields(
+            field_name="updateClub", arguments=cleared_arguments
+        )
+
+    @classmethod
     def update_club_member(
         cls, attributes: UpdateClubMemberAttributes, club_id: str, id: str
     ) -> UpdateClubMemberPayloadFields:
-        """Update a club member's information"""
+        """Updates a club member"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "UpdateClubMemberAttributes!", "value": attributes},
             "clubId": {"type": "ID!", "value": club_id},
@@ -1442,6 +1985,25 @@ class Mutation:
         )
 
     @classmethod
+    def update_custom_baseline_targets(
+        cls, settings_id: str, target_values: list[CustomBaselineTargetInput]
+    ) -> UpdateCustomBaselineTargetsPayloadFields:
+        """Bulk upserts custom baseline targets for a settings record"""
+        arguments: dict[str, dict[str, Any]] = {
+            "settingsId": {"type": "ID!", "value": settings_id},
+            "targetValues": {
+                "type": "[CustomBaselineTargetInput!]!",
+                "value": target_values,
+            },
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return UpdateCustomBaselineTargetsPayloadFields(
+            field_name="updateCustomBaselineTargets", arguments=cleared_arguments
+        )
+
+    @classmethod
     def update_custom_question_definition(
         cls, attributes: CustomQuestionDefinitionAttributes, club_id: str, id: str
     ) -> UpdateCustomQuestionDefinitionPayloadFields:
@@ -1465,7 +2027,7 @@ class Mutation:
     def update_dataset(
         cls, attributes: UpdateDatasetAttributes, id: str
     ) -> UpdateDatasetPayloadFields:
-        """update a Dataset"""
+        """Updates a reporting dataset"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "UpdateDatasetAttributes!", "value": attributes},
             "id": {"type": "ID!", "value": id},
@@ -1481,7 +2043,7 @@ class Mutation:
     def update_device(
         cls, attributes: DeviceAttributes, serial_number: Any, type_: DeviceTypeEnum
     ) -> UpdateDevicePayloadFields:
-        """Update the attributes for a device"""
+        """Updates a device"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "DeviceAttributes!", "value": attributes},
             "serialNumber": {"type": "BigInt!", "value": serial_number},
@@ -1498,7 +2060,7 @@ class Mutation:
     def update_flexible_report(
         cls, attributes: UpdateFlexibleReportAttributes, id: str
     ) -> UpdateFlexibleReportPayloadFields:
-        """update a FlexibleReport"""
+        """Updates a flexible report"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {
                 "type": "UpdateFlexibleReportAttributes!",
@@ -1517,7 +2079,7 @@ class Mutation:
     def update_flexible_report_chart(
         cls, attributes: UpdateFlexibleReportChartAttributes, id: str
     ) -> UpdateFlexibleReportChartPayloadFields:
-        """Update a flexible report chart"""
+        """Updates a flexible report chart"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {
                 "type": "UpdateFlexibleReportChartAttributes!",
@@ -1536,7 +2098,7 @@ class Mutation:
     def update_flexible_report_chart_position(
         cls, id: str, position: int
     ) -> UpdateFlexibleReportChartPositionPayloadFields:
-        """Update position of a flexible report chart and reorder other charts accordingly"""
+        """Updates the position of a flexible report chart"""
         arguments: dict[str, dict[str, Any]] = {
             "id": {"type": "ID!", "value": id},
             "position": {"type": "Int!", "value": position},
@@ -1571,7 +2133,7 @@ class Mutation:
     def update_match_event(
         cls, attributes: MatchEventAttributes, id: str
     ) -> UpdateMatchEventPayloadFields:
-        """Update a match event"""
+        """Updates a match event"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "MatchEventAttributes!", "value": attributes},
             "id": {"type": "ID!", "value": id},
@@ -1587,7 +2149,7 @@ class Mutation:
     def update_match_events(
         cls, attributes: list[BulkUpdateMatchEventAttributes]
     ) -> UpdateMatchEventsPayloadFields:
-        """Update match events"""
+        """Updates multiple match events"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {
                 "type": "[BulkUpdateMatchEventAttributes!]!",
@@ -1626,7 +2188,7 @@ class Mutation:
     def update_pitch(
         cls, attributes: PitchAttributes, pitch_id: str
     ) -> UpdatePitchPayloadFields:
-        """Update a pitch"""
+        """Updates an existing pitch"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "PitchAttributes!", "value": attributes},
             "pitchId": {"type": "ID!", "value": pitch_id},
@@ -1642,7 +2204,7 @@ class Mutation:
     def update_session(
         cls, attributes: MutateSessionAttributes, id: str
     ) -> UpdateSessionPayloadFields:
-        """Update a Training/Match session"""
+        """Updates an existing session"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "MutateSessionAttributes!", "value": attributes},
             "id": {"type": "ID!", "value": id},
@@ -1658,7 +2220,7 @@ class Mutation:
     def update_session_blueprint(
         cls, attributes: MutateSessionBlueprintAttributes, id: str
     ) -> UpdateSessionBlueprintPayloadFields:
-        """Update a session blueprint"""
+        """Updates a session blueprint"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {
                 "type": "MutateSessionBlueprintAttributes!",
@@ -1677,7 +2239,7 @@ class Mutation:
     def update_session_participations(
         cls, attributes: list[SessionParticipationAttributes]
     ) -> UpdateSessionParticipationsPayloadFields:
-        """Update session participations"""
+        """Updates session participations"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {
                 "type": "[SessionParticipationAttributes!]!",
@@ -1695,7 +2257,7 @@ class Mutation:
     def update_session_positions(
         cls, attributes: SessionPositionsAttributes, id: str
     ) -> UpdateSessionPositionsPayloadFields:
-        """Session positions"""
+        """Updates athlete positions for a session"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "SessionPositionsAttributes!", "value": attributes},
             "id": {"type": "ID!", "value": id},
@@ -1715,7 +2277,7 @@ class Mutation:
         attributes: Optional[SegmentAttributes] = None,
         patch: Optional[SegmentPatch] = None,
     ) -> UpdateSegmentPayloadFields:
-        """Update a session segment"""
+        """Updates a session segment"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "SegmentAttributes", "value": attributes},
             "id": {"type": "ID!", "value": id},
@@ -1732,7 +2294,7 @@ class Mutation:
     def update_session_segments(
         cls, patches: list[SegmentPatch]
     ) -> UpdateSegmentsPayloadFields:
-        """Update session segments"""
+        """Updates multiple session segments"""
         arguments: dict[str, dict[str, Any]] = {
             "patches": {"type": "[SegmentPatch!]!", "value": patches}
         }
@@ -1747,7 +2309,7 @@ class Mutation:
     def update_session_tag_definition(
         cls, attributes: SessionTagDefinitionAttributes, id: str
     ) -> UpdateSessionTagDefinitionPayloadFields:
-        """Update a session tag definition"""
+        """Updates a session tag definition"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {
                 "type": "SessionTagDefinitionAttributes!",
@@ -1763,1934 +2325,65 @@ class Mutation:
         )
 
     @classmethod
-    def update_staff_billing(
-        cls, attributes: list[UpdateStaffBillingAttributes]
-    ) -> UpdateStaffBillingPayloadFields:
-        """Update which staff have access to billing details"""
+    def update_session_targets(
+        cls, attributes: list[BulkUpdateTargetAttributes]
+    ) -> UpdateSessionTargetsPayloadFields:
+        """Updates multiple session targets"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {
-                "type": "[UpdateStaffBillingAttributes!]!",
+                "type": "[BulkUpdateTargetAttributes!]!",
                 "value": attributes,
             }
         }
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
         }
-        return UpdateStaffBillingPayloadFields(
-            field_name="updateStaffBilling", arguments=cleared_arguments
+        return UpdateSessionTargetsPayloadFields(
+            field_name="updateSessionTargets", arguments=cleared_arguments
         )
 
     @classmethod
-    def update_survey(
-        cls, attributes: SurveyAttributes, id: str
-    ) -> UpdateSurveyPayloadFields:
-        """Update a survey"""
+    def update_setup_checklist_send_athlete_confirmation_emails(
+        cls, club_id: str, send_athlete_confirmation_emails: bool
+    ) -> UpdateSendAthleteConfirmationEmailsPayloadFields:
+        """Toggle whether to email invited athletes on setup checklist completion"""
         arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "SurveyAttributes!", "value": attributes},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateSurveyPayloadFields(
-            field_name="updateSurvey", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_survey_timer_trigger(
-        cls, attributes: SurveyTimerTriggerAttributes, survey_timer_trigger_id: str
-    ) -> UpdateSurveyTimerTriggerPayloadFields:
-        """Update a timer trigger"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "SurveyTimerTriggerAttributes!",
-                "value": attributes,
+            "clubId": {"type": "ID!", "value": club_id},
+            "sendAthleteConfirmationEmails": {
+                "type": "Boolean!",
+                "value": send_athlete_confirmation_emails,
             },
-            "surveyTimerTriggerId": {"type": "ID!", "value": survey_timer_trigger_id},
         }
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
         }
-        return UpdateSurveyTimerTriggerPayloadFields(
-            field_name="updateSurveyTimerTrigger", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_tag_definition(
-        cls, attributes: TagDefinitionAttributes, id: str
-    ) -> UpdateTagDefinitionPayloadFields:
-        """Update a tag definition"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "TagDefinitionAttributes!", "value": attributes},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateTagDefinitionPayloadFields(
-            field_name="updateTagDefinition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_user_preferences(
-        cls, attributes: UpdateUserPreferencesAttributes
-    ) -> UpdateUserPreferencesPayloadFields:
-        """Updates the user preferences for a given setting"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "UpdateUserPreferencesAttributes!",
-                "value": attributes,
-            }
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateUserPreferencesPayloadFields(
-            field_name="updateUserPreferences", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def upsert_chat_club_context(
-        cls, attributes: ClubContextAttributes, club_id: str
-    ) -> UpsertChatClubContextPayloadFields:
-        """Create or update a chat club context"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "ClubContextAttributes!", "value": attributes},
-            "clubId": {"type": "ID!", "value": club_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpsertChatClubContextPayloadFields(
-            field_name="upsertChatClubContext", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def upsert_chat_coach_context(
-        cls, attributes: CoachContextAttributesInput
-    ) -> UpsertChatCoachContextPayloadFields:
-        """Create or update a coach context"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "CoachContextAttributesInput!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpsertChatCoachContextPayloadFields(
-            field_name="upsertChatCoachContext", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def upsert_data_recordings(
-        cls, attributes: list[UpsertDataRecordingsAttributes], session_id: str
-    ) -> UpsertDataRecordingsPayloadFields:
-        """Add EDGE data recordings to a session or update it"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "[UpsertDataRecordingsAttributes!]!",
-                "value": attributes,
-            },
-            "sessionId": {"type": "ID!", "value": session_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpsertDataRecordingsPayloadFields(
-            field_name="upsertDataRecordings", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def upsert_session_plan(
-        cls,
-        attributes: SessionPlanAttributesInput,
-        club_id: str,
-        *,
-        session_plan_id: Optional[str] = None,
-    ) -> UpsertSessionPlanPayloadFields:
-        """Create or update a session plan"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "SessionPlanAttributesInput!", "value": attributes},
-            "clubId": {"type": "ID!", "value": club_id},
-            "sessionPlanId": {"type": "ID", "value": session_plan_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpsertSessionPlanPayloadFields(
-            field_name="upsertSessionPlan", arguments=cleared_arguments
-        )
-
-
-from playerdatapy.enums import *
-# Generated by ariadne-codegen
-
-from typing import Any, Optional
-
-from .custom_fields import (
-    AccelzonesPayloadFields,
-    AcceptPrivacyPolicyPayloadFields,
-    AddAthleteGroupPayloadFields,
-    AddExistingPersonToClubPayloadFields,
-    AddNewPersonToClubPayloadFields,
-    AddSurveyAnswerPayloadFields,
-    ArchiveClubMemberPayloadFields,
-    ArchivePitchPayloadFields,
-    ArchiveSurveyPayloadFields,
-    AssignDevicePayloadFields,
-    AssignEdgePayloadFields,
-    BulkApprovePayloadFields,
-    ClaimPersonPayloadFields,
-    ClubMutationFields,
-    CreateCustomQuestionDefinitionPayloadFields,
-    CreateDatasetPayloadFields,
-    CreateDeviceSyncPayloadFields,
-    CreateEdgeNamePayloadFields,
-    CreateFlexibleReportChartPayloadFields,
-    CreateFlexibleReportPayloadFields,
-    CreateMatchEventPayloadFields,
-    CreateMatchEventsPayloadFields,
-    CreatePitchPayloadFields,
-    CreateQuestionPayloadFields,
-    CreateReportPayloadFields,
-    CreateResponsePayloadFields,
-    CreateSegmentPayloadFields,
-    CreateSessionPayloadFields,
-    CreateSessionTagDefinitionPayloadFields,
-    CreateSurveyPayloadFields,
-    CreateSurveyTimerTriggerPayloadFields,
-    CreateTagDefinitionPayloadFields,
-    CreateVideoRecordingPayloadFields,
-    DecelzonesPayloadFields,
-    DeleteAccelzonesPayloadFields,
-    DeleteDecelzonesPayloadFields,
-    DeleteHeartRateBoundsPayloadFields,
-    DeleteSpeedzonesPayloadFields,
-    DestroyAppMessagePayloadFields,
-    DestroyAthleteGroupPayloadFields,
-    DestroyCustomQuestionDefinitionPayloadFields,
-    DestroyDatasetPayloadFields,
-    DestroyFlexibleReportChartsPayloadFields,
-    DestroyFlexibleReportsPayloadFields,
-    DestroyMatchEventPayloadFields,
-    DestroyMatchEventsPayloadFields,
-    DestroySegmentPayloadFields,
-    DestroySessionBlueprintPayloadFields,
-    DestroySessionPayloadFields,
-    DestroySessionTagDefinitionPayloadFields,
-    DestroyTagDefinitionPayloadFields,
-    DuplicateFlexibleReportPayloadFields,
-    DuplicateSegmentPayloadFields,
-    DuplicateSessionPayloadFields,
-    DuplicateSurveyPayloadFields,
-    EndEdgeOwnershipPayloadFields,
-    HeartRateBoundsPayloadFields,
-    MarkAppMessageReadPayloadFields,
-    MarkMultipleAppMessagesReadPayloadFields,
-    ProvisionGatewayPayloadFields,
-    RateResponsePayloadFields,
-    RecreateGatewaySessionsPayloadFields,
-    RegisterDevicePayloadFields,
-    RelativeAccelzonesPayloadFields,
-    RelativeDecelzonesPayloadFields,
-    RelativeSpeedzonesPayloadFields,
-    RemoveSurveyTimerTriggerPayloadFields,
-    ResendConfirmationEmailPayloadFields,
-    ResendReportPayloadFields,
-    RespondToDetectedMatchEventPayloadFields,
-    RespondToDetectedMatchEventsPayloadFields,
-    ReviewPendingMemberPayloadFields,
-    RotateLiveDataKeysPayloadFields,
-    SetBenchedPlayersPayloadFields,
-    SetCustomMaxMetricPayloadFields,
-    SpeedzonesPayloadFields,
-    TriggerSessionDetectionV2PayloadFields,
-    UnarchiveClubMemberPayloadFields,
-    UpdateAthleteGroupPayloadFields,
-    UpdateAthletePayloadFields,
-    UpdateClubMemberPayloadFields,
-    UpdateClubSettingsPayloadFields,
-    UpdateCustomQuestionDefinitionPayloadFields,
-    UpdateDatasetPayloadFields,
-    UpdateDevicePayloadFields,
-    UpdateFlexibleReportChartPayloadFields,
-    UpdateFlexibleReportChartPositionPayloadFields,
-    UpdateFlexibleReportPayloadFields,
-    UpdateGatewayOwnershipPayloadFields,
-    UpdateMatchEventPayloadFields,
-    UpdateMatchEventsPayloadFields,
-    UpdatePersonDetailsPayloadFields,
-    UpdatePitchPayloadFields,
-    UpdateSegmentPayloadFields,
-    UpdateSegmentsPayloadFields,
-    UpdateSessionBlueprintPayloadFields,
-    UpdateSessionParticipationsPayloadFields,
-    UpdateSessionPayloadFields,
-    UpdateSessionPositionsPayloadFields,
-    UpdateSessionTagDefinitionPayloadFields,
-    UpdateStaffBillingPayloadFields,
-    UpdateSurveyPayloadFields,
-    UpdateSurveyTimerTriggerPayloadFields,
-    UpdateTagDefinitionPayloadFields,
-    UpdateUserPreferencesPayloadFields,
-    UpsertChatClubContextPayloadFields,
-    UpsertChatCoachContextPayloadFields,
-    UpsertDataRecordingsPayloadFields,
-    UpsertSessionPlanPayloadFields,
-)
-from .input_types import (
-    AthleteAccelzoneAttributes,
-    AthleteDecelzoneAttributes,
-    AthleteGroupAttributes,
-    AthleteHeartRateBoundsAttributes,
-    AthleteRelativeAccelzoneAttributes,
-    AthleteRelativeDecelzoneAttributes,
-    AthleteSpeedzoneAttributes,
-    BulkUpdateMatchEventAttributes,
-    ClaimPersonAttributes,
-    ClubContextAttributes,
-    CoachContextAttributesInput,
-    CreateDeviceSyncInput,
-    CreateFlexibleReportChartAttributes,
-    CustomQuestionDefinitionAttributes,
-    DatasetAttributes,
-    DeviceAttributes,
-    DuplicateSessionAttributes,
-    FlexibleReportAttributes,
-    GatewaySessionAttributes,
-    MatchEventAttributes,
-    MutateSessionAttributes,
-    MutateSessionBlueprintAttributes,
-    NewPersonAttributes,
-    PitchAttributes,
-    RelativeSpeedzoneAttributes,
-    ReportAttributes,
-    SegmentAttributes,
-    SegmentPatch,
-    SessionParticipationAttributes,
-    SessionPlanAttributesInput,
-    SessionPositionsAttributes,
-    SessionTagDefinitionAttributes,
-    SurveyAnswerAttributes,
-    SurveyAttributes,
-    SurveyTimerTriggerAttributes,
-    TagDefinitionAttributes,
-    TaggerAttributes,
-    UpdateAthleteAttributes,
-    UpdateClubMemberAttributes,
-    UpdateClubSettingsAttributes,
-    UpdateDatasetAttributes,
-    UpdateFlexibleReportAttributes,
-    UpdateFlexibleReportChartAttributes,
-    UpdateGatewayOwnershipAttributes,
-    UpdatePersonAttributes,
-    UpdateStaffBillingAttributes,
-    UpdateUserPreferencesAttributes,
-    UpsertDataRecordingsAttributes,
-    VideoRecordingAttributes,
-)
-
-
-class Mutation:
-    @classmethod
-    def accept_privacy_policy(cls, policy_id: str) -> AcceptPrivacyPolicyPayloadFields:
-        """Accept a privacy policy change"""
-        arguments: dict[str, dict[str, Any]] = {
-            "policyId": {"type": "ID!", "value": policy_id}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AcceptPrivacyPolicyPayloadFields(
-            field_name="acceptPrivacyPolicy", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def add_athlete_group(
-        cls, attributes: AthleteGroupAttributes
-    ) -> AddAthleteGroupPayloadFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "AthleteGroupAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AddAthleteGroupPayloadFields(
-            field_name="addAthleteGroup", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def add_existing_person_to_club(
-        cls,
-        signup_token: str,
-        *,
-        person_attributes: Optional[UpdatePersonAttributes] = None,
-    ) -> AddExistingPersonToClubPayloadFields:
-        """Adds an existing Person to a Club"""
-        arguments: dict[str, dict[str, Any]] = {
-            "personAttributes": {
-                "type": "UpdatePersonAttributes",
-                "value": person_attributes,
-            },
-            "signupToken": {"type": "String!", "value": signup_token},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AddExistingPersonToClubPayloadFields(
-            field_name="addExistingPersonToClub", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def add_new_person_to_club(
-        cls, attributes: NewPersonAttributes
-    ) -> AddNewPersonToClubPayloadFields:
-        """Adds a new Person to a Club"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "NewPersonAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AddNewPersonToClubPayloadFields(
-            field_name="addNewPersonToClub", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def add_survey_answer(
-        cls, attributes: SurveyAnswerAttributes
-    ) -> AddSurveyAnswerPayloadFields:
-        """Answer a survey question"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "SurveyAnswerAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AddSurveyAnswerPayloadFields(
-            field_name="addSurveyAnswer", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def approve_all_pending_members(cls, ids: list[str]) -> BulkApprovePayloadFields:
-        """Bulk approve of pending members, returning the approved athletes."""
-        arguments: dict[str, dict[str, Any]] = {"ids": {"type": "[ID!]!", "value": ids}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return BulkApprovePayloadFields(
-            field_name="approveAllPendingMembers", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def archive_club_member(
-        cls, club_id: str, id: str
-    ) -> ArchiveClubMemberPayloadFields:
-        """A Mutation Performed by Club Staff on a Club Member"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID!", "value": club_id},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ArchiveClubMemberPayloadFields(
-            field_name="archiveClubMember", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def archive_pitch(cls, id: str) -> ArchivePitchPayloadFields:
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ArchivePitchPayloadFields(
-            field_name="archivePitch", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def archive_survey(cls, id: str) -> ArchiveSurveyPayloadFields:
-        """Archive a survey"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ArchiveSurveyPayloadFields(
-            field_name="archiveSurvey", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def assign_device(
-        cls,
-        owner_id: str,
-        owner_type: DeviceOwnerType,
-        serial_number: Any,
-        type_: DeviceTypeEnum,
-    ) -> AssignDevicePayloadFields:
-        """Assign a device to an owner"""
-        arguments: dict[str, dict[str, Any]] = {
-            "ownerId": {"type": "ID!", "value": owner_id},
-            "ownerType": {"type": "DeviceOwnerType!", "value": owner_type},
-            "serialNumber": {"type": "BigInt!", "value": serial_number},
-            "type": {"type": "DeviceTypeEnum!", "value": type_},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AssignDevicePayloadFields(
-            field_name="assignDevice", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def assign_edge(
-        cls, edge_id: str, owner_id: str, owner_type: EdgeOwnerType
-    ) -> AssignEdgePayloadFields:
-        """Assign an edge to an owner"""
-        arguments: dict[str, dict[str, Any]] = {
-            "edgeId": {"type": "ID!", "value": edge_id},
-            "ownerId": {"type": "ID!", "value": owner_id},
-            "ownerType": {"type": "EdgeOwnerType!", "value": owner_type},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AssignEdgePayloadFields(
-            field_name="assignEdge", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_accelzones(
-        cls, attributes: AthleteAccelzoneAttributes, *, reprocess: Optional[bool] = None
-    ) -> AccelzonesPayloadFields:
-        """Bulk update of athlete accelzones"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "AthleteAccelzoneAttributes!", "value": attributes},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AccelzonesPayloadFields(
-            field_name="athletesAccelzones", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_decelzones(
-        cls, attributes: AthleteDecelzoneAttributes, *, reprocess: Optional[bool] = None
-    ) -> DecelzonesPayloadFields:
-        """Bulk update of athlete decelzones"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "AthleteDecelzoneAttributes!", "value": attributes},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DecelzonesPayloadFields(
-            field_name="athletesDecelzones", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_delete_accelzones(
-        cls, athlete_ids: list[str], *, reprocess: Optional[bool] = None
-    ) -> DeleteAccelzonesPayloadFields:
-        """Bulk delete of athlete accelzones"""
-        arguments: dict[str, dict[str, Any]] = {
-            "athleteIds": {"type": "[ID!]!", "value": athlete_ids},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DeleteAccelzonesPayloadFields(
-            field_name="athletesDeleteAccelzones", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_delete_decelzones(
-        cls, athlete_ids: list[str], *, reprocess: Optional[bool] = None
-    ) -> DeleteDecelzonesPayloadFields:
-        """Bulk delete of athlete decelzones"""
-        arguments: dict[str, dict[str, Any]] = {
-            "athleteIds": {"type": "[ID!]!", "value": athlete_ids},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DeleteDecelzonesPayloadFields(
-            field_name="athletesDeleteDecelzones", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_delete_heart_rate_bounds(
-        cls, athlete_ids: list[str], *, reprocess: Optional[bool] = None
-    ) -> DeleteHeartRateBoundsPayloadFields:
-        """Bulk delete of athlete heart rate bounds"""
-        arguments: dict[str, dict[str, Any]] = {
-            "athleteIds": {"type": "[ID!]!", "value": athlete_ids},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DeleteHeartRateBoundsPayloadFields(
-            field_name="athletesDeleteHeartRateBounds", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_delete_speedzones(
-        cls, athlete_ids: list[str], *, reprocess: Optional[bool] = None
-    ) -> DeleteSpeedzonesPayloadFields:
-        """Bulk delete of athlete speedzones"""
-        arguments: dict[str, dict[str, Any]] = {
-            "athleteIds": {"type": "[ID!]!", "value": athlete_ids},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DeleteSpeedzonesPayloadFields(
-            field_name="athletesDeleteSpeedzones", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_heart_rate_bounds(
-        cls,
-        attributes: AthleteHeartRateBoundsAttributes,
-        *,
-        reprocess: Optional[bool] = None,
-    ) -> HeartRateBoundsPayloadFields:
-        """Bulk update of athlete heart rate bounds"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "AthleteHeartRateBoundsAttributes!",
-                "value": attributes,
-            },
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return HeartRateBoundsPayloadFields(
-            field_name="athletesHeartRateBounds", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_relative_accelzones(
-        cls,
-        attributes: AthleteRelativeAccelzoneAttributes,
-        *,
-        reprocess: Optional[bool] = None,
-    ) -> RelativeAccelzonesPayloadFields:
-        """Bulk update of athlete relative accelzones"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "AthleteRelativeAccelzoneAttributes!",
-                "value": attributes,
-            },
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RelativeAccelzonesPayloadFields(
-            field_name="athletesRelativeAccelzones", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_relative_decelzones(
-        cls,
-        attributes: AthleteRelativeDecelzoneAttributes,
-        *,
-        reprocess: Optional[bool] = None,
-    ) -> RelativeDecelzonesPayloadFields:
-        """Bulk update of athlete relative decelzones"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "AthleteRelativeDecelzoneAttributes!",
-                "value": attributes,
-            },
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RelativeDecelzonesPayloadFields(
-            field_name="athletesRelativeDecelzones", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_relative_speedzones(
-        cls,
-        attributes: RelativeSpeedzoneAttributes,
-        *,
-        reprocess: Optional[bool] = None,
-    ) -> RelativeSpeedzonesPayloadFields:
-        """Bulk update of athlete speedzones"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "RelativeSpeedzoneAttributes!", "value": attributes},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RelativeSpeedzonesPayloadFields(
-            field_name="athletesRelativeSpeedzones", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_speedzones(
-        cls, attributes: AthleteSpeedzoneAttributes, *, reprocess: Optional[bool] = None
-    ) -> SpeedzonesPayloadFields:
-        """Bulk update of athlete speedzones"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "AthleteSpeedzoneAttributes!", "value": attributes},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SpeedzonesPayloadFields(
-            field_name="athletesSpeedzones", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def claim_person(
-        cls, attributes: ClaimPersonAttributes
-    ) -> ClaimPersonPayloadFields:
-        """mutation for claiming an Athlete"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "ClaimPersonAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ClaimPersonPayloadFields(
-            field_name="claimPerson", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def club(cls, id: str) -> ClubMutationFields:
-        """The club to perform mutations on"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ClubMutationFields(field_name="club", arguments=cleared_arguments)
-
-    @classmethod
-    def create_chat_response(
-        cls, question_id: str, response: str
-    ) -> CreateResponsePayloadFields:
-        """Respond to a question"""
-        arguments: dict[str, dict[str, Any]] = {
-            "questionId": {"type": "ID!", "value": question_id},
-            "response": {"type": "String!", "value": response},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateResponsePayloadFields(
-            field_name="createChatResponse", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_custom_question_definition(
-        cls, attributes: CustomQuestionDefinitionAttributes, club_id: str
-    ) -> CreateCustomQuestionDefinitionPayloadFields:
-        """Create a custom question definition"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "CustomQuestionDefinitionAttributes!",
-                "value": attributes,
-            },
-            "clubId": {"type": "ID!", "value": club_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateCustomQuestionDefinitionPayloadFields(
-            field_name="createCustomQuestionDefinition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_dataset(
-        cls, attributes: DatasetAttributes
-    ) -> CreateDatasetPayloadFields:
-        """Create a dataset"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "DatasetAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateDatasetPayloadFields(
-            field_name="createDataset", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_device_sync(
-        cls, input: CreateDeviceSyncInput
-    ) -> CreateDeviceSyncPayloadFields:
-        """Create a DeviceSync with an uploaded file blob"""
-        arguments: dict[str, dict[str, Any]] = {
-            "input": {"type": "CreateDeviceSyncInput!", "value": input}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateDeviceSyncPayloadFields(
-            field_name="createDeviceSync", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_edge_name(cls, edge_id: str, name: str) -> CreateEdgeNamePayloadFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "edgeId": {"type": "ID!", "value": edge_id},
-            "name": {"type": "String!", "value": name},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateEdgeNamePayloadFields(
-            field_name="createEdgeName", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_flexible_report(
-        cls, attributes: FlexibleReportAttributes
-    ) -> CreateFlexibleReportPayloadFields:
-        """create a FlexibleReport along with its dataset"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "FlexibleReportAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateFlexibleReportPayloadFields(
-            field_name="createFlexibleReport", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_flexible_report_chart(
-        cls, attributes: CreateFlexibleReportChartAttributes
-    ) -> CreateFlexibleReportChartPayloadFields:
-        """Create a flexible report chart"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "CreateFlexibleReportChartAttributes!",
-                "value": attributes,
-            }
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateFlexibleReportChartPayloadFields(
-            field_name="createFlexibleReportChart", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_match_event(
-        cls, attributes: MatchEventAttributes, session_id: str
-    ) -> CreateMatchEventPayloadFields:
-        """Create a match event"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "MatchEventAttributes!", "value": attributes},
-            "sessionId": {"type": "ID!", "value": session_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateMatchEventPayloadFields(
-            field_name="createMatchEvent", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_match_events(
-        cls, attributes: list[MatchEventAttributes], session_id: str
-    ) -> CreateMatchEventsPayloadFields:
-        """Create match events"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "[MatchEventAttributes!]!", "value": attributes},
-            "sessionId": {"type": "ID!", "value": session_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateMatchEventsPayloadFields(
-            field_name="createMatchEvents", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_pitch(
-        cls,
-        attributes: PitchAttributes,
-        *,
-        club_id: Optional[str] = None,
-        detected_session_id: Optional[str] = None,
-        owner_id: Optional[str] = None,
-        owner_type: Optional[OwnerEnum] = None,
-    ) -> CreatePitchPayloadFields:
-        """Define a new pitch"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "PitchAttributes!", "value": attributes},
-            "clubId": {"type": "ID", "value": club_id},
-            "detectedSessionId": {"type": "ID", "value": detected_session_id},
-            "ownerId": {"type": "ID", "value": owner_id},
-            "ownerType": {"type": "OwnerEnum", "value": owner_type},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreatePitchPayloadFields(
-            field_name="createPitch", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_question(
-        cls, question: str, staff_id: str
-    ) -> CreateQuestionPayloadFields:
-        """Ask a question"""
-        arguments: dict[str, dict[str, Any]] = {
-            "question": {"type": "String!", "value": question},
-            "staffId": {"type": "ID!", "value": staff_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateQuestionPayloadFields(
-            field_name="createQuestion", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_report(cls, attributes: ReportAttributes) -> CreateReportPayloadFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "ReportAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateReportPayloadFields(
-            field_name="createReport", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_session(
-        cls, attributes: MutateSessionAttributes
-    ) -> CreateSessionPayloadFields:
-        """Create a Training/Match session"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "MutateSessionAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateSessionPayloadFields(
-            field_name="createSession", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_session_segment(
-        cls, attributes: SegmentAttributes, *, id: Optional[str] = None
-    ) -> CreateSegmentPayloadFields:
-        """Create a session segment"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "SegmentAttributes!", "value": attributes},
-            "id": {"type": "ID", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateSegmentPayloadFields(
-            field_name="createSessionSegment", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_session_tag_definition(
-        cls, attributes: SessionTagDefinitionAttributes, club_id: str
-    ) -> CreateSessionTagDefinitionPayloadFields:
-        """Create a session tag definition"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "SessionTagDefinitionAttributes!",
-                "value": attributes,
-            },
-            "clubId": {"type": "ID!", "value": club_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateSessionTagDefinitionPayloadFields(
-            field_name="createSessionTagDefinition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_survey(
-        cls, attributes: SurveyAttributes, club_id: str
-    ) -> CreateSurveyPayloadFields:
-        """Create a new survey"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "SurveyAttributes!", "value": attributes},
-            "clubId": {"type": "ID!", "value": club_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateSurveyPayloadFields(
-            field_name="createSurvey", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_survey_timer_trigger(
-        cls, attributes: SurveyTimerTriggerAttributes
-    ) -> CreateSurveyTimerTriggerPayloadFields:
-        """Create a timer trigger for distributing surveys"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "SurveyTimerTriggerAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateSurveyTimerTriggerPayloadFields(
-            field_name="createSurveyTimerTrigger", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_tag_definition(
-        cls, attributes: TagDefinitionAttributes, tagger: TaggerAttributes
-    ) -> CreateTagDefinitionPayloadFields:
-        """Create a tag definition"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "TagDefinitionAttributes!", "value": attributes},
-            "tagger": {"type": "TaggerAttributes!", "value": tagger},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateTagDefinitionPayloadFields(
-            field_name="createTagDefinition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_video_recording(
-        cls, attributes: VideoRecordingAttributes
-    ) -> CreateVideoRecordingPayloadFields:
-        """Create a video recording record ready for camera upload"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "VideoRecordingAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateVideoRecordingPayloadFields(
-            field_name="createVideoRecording", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_athlete_group(cls, group_id: str) -> DestroyAthleteGroupPayloadFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "groupId": {"type": "ID!", "value": group_id}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroyAthleteGroupPayloadFields(
-            field_name="destroyAthleteGroup", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_custom_question_definition(
-        cls, club_id: str, id: str
-    ) -> DestroyCustomQuestionDefinitionPayloadFields:
-        """Destroy Custom Question Definition"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID!", "value": club_id},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroyCustomQuestionDefinitionPayloadFields(
-            field_name="destroyCustomQuestionDefinition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_dataset(cls, id: str) -> DestroyDatasetPayloadFields:
-        """Destroy a Dataset"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroyDatasetPayloadFields(
-            field_name="destroyDataset", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_flexible_report_charts(
-        cls, chart_ids: list[str]
-    ) -> DestroyFlexibleReportChartsPayloadFields:
-        """destroy flexible report charts given an array of FlexibleReportChart ids"""
-        arguments: dict[str, dict[str, Any]] = {
-            "chartIds": {"type": "[ID!]!", "value": chart_ids}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroyFlexibleReportChartsPayloadFields(
-            field_name="destroyFlexibleReportCharts", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_flexible_reports(
-        cls, report_ids: list[str]
-    ) -> DestroyFlexibleReportsPayloadFields:
-        """destroy flexible reports given an array of FlexibleReport ids"""
-        arguments: dict[str, dict[str, Any]] = {
-            "reportIds": {"type": "[ID!]!", "value": report_ids}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroyFlexibleReportsPayloadFields(
-            field_name="destroyFlexibleReports", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_match_event(cls, id: str) -> DestroyMatchEventPayloadFields:
-        """Destroy a match event"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroyMatchEventPayloadFields(
-            field_name="destroyMatchEvent", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_match_events(cls, ids: list[str]) -> DestroyMatchEventsPayloadFields:
-        """Destroy match events"""
-        arguments: dict[str, dict[str, Any]] = {"ids": {"type": "[ID!]!", "value": ids}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroyMatchEventsPayloadFields(
-            field_name="destroyMatchEvents", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_session(cls, id: str) -> DestroySessionPayloadFields:
-        """Destroy a session"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroySessionPayloadFields(
-            field_name="destroySession", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_session_blueprint(cls, id: str) -> DestroySessionBlueprintPayloadFields:
-        """Destroy a session blueprint"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroySessionBlueprintPayloadFields(
-            field_name="destroySessionBlueprint", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_session_segment(cls, id: str) -> DestroySegmentPayloadFields:
-        """Destroy a session segment"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroySegmentPayloadFields(
-            field_name="destroySessionSegment", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_session_tag_definition(
-        cls, id: str
-    ) -> DestroySessionTagDefinitionPayloadFields:
-        """Destroy a session tag definition"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroySessionTagDefinitionPayloadFields(
-            field_name="destroySessionTagDefinition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_tag_definition(cls, id: str) -> DestroyTagDefinitionPayloadFields:
-        """Destroy a tag definition"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroyTagDefinitionPayloadFields(
-            field_name="destroyTagDefinition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def dismiss_app_message(cls, id: str) -> DestroyAppMessagePayloadFields:
-        """Destroy an app message"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroyAppMessagePayloadFields(
-            field_name="dismissAppMessage", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def duplicate_flexible_report(
-        cls, club_id: str, id: str
-    ) -> DuplicateFlexibleReportPayloadFields:
-        """duplicate a FlexibleReport"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID!", "value": club_id},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DuplicateFlexibleReportPayloadFields(
-            field_name="duplicateFlexibleReport", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def duplicate_session(
-        cls, attributes: DuplicateSessionAttributes, id: str
-    ) -> DuplicateSessionPayloadFields:
-        """Duplicate a Training/Match session"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "DuplicateSessionAttributes!", "value": attributes},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DuplicateSessionPayloadFields(
-            field_name="duplicateSession", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def duplicate_session_segment(cls, id: str) -> DuplicateSegmentPayloadFields:
-        """Duplicate a session segment, retaining its boundary times"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DuplicateSegmentPayloadFields(
-            field_name="duplicateSessionSegment", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def duplicate_survey(
-        cls, attributes: SurveyAttributes, club_id: str, id: str
-    ) -> DuplicateSurveyPayloadFields:
-        """Duplicate an existing survey with a new title and ID"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "SurveyAttributes!", "value": attributes},
-            "clubId": {"type": "ID!", "value": club_id},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DuplicateSurveyPayloadFields(
-            field_name="duplicateSurvey", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def end_edge_ownership(cls, edge_id: str) -> EndEdgeOwnershipPayloadFields:
-        """End an edge's ownership"""
-        arguments: dict[str, dict[str, Any]] = {
-            "edgeId": {"type": "ID!", "value": edge_id}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return EndEdgeOwnershipPayloadFields(
-            field_name="endEdgeOwnership", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def mark_app_message_read(cls, id: str) -> MarkAppMessageReadPayloadFields:
-        """Mark an app message as read"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return MarkAppMessageReadPayloadFields(
-            field_name="markAppMessageRead", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def mark_multiple_app_messages_read(
-        cls, ids: list[str]
-    ) -> MarkMultipleAppMessagesReadPayloadFields:
-        """Mark multiple app messages as read"""
-        arguments: dict[str, dict[str, Any]] = {"ids": {"type": "[ID!]!", "value": ids}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return MarkMultipleAppMessagesReadPayloadFields(
-            field_name="markMultipleAppMessagesRead", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def provision_gateway(
-        cls, csr: str, firmware_version: str, organisation_id: str, serial_number: str
-    ) -> ProvisionGatewayPayloadFields:
-        """Set up a gateway for use by the provided organisation"""
-        arguments: dict[str, dict[str, Any]] = {
-            "csr": {"type": "String!", "value": csr},
-            "firmwareVersion": {"type": "String!", "value": firmware_version},
-            "organisationId": {"type": "ID!", "value": organisation_id},
-            "serialNumber": {"type": "String!", "value": serial_number},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ProvisionGatewayPayloadFields(
-            field_name="provisionGateway", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def rate_chat_response(
-        cls,
-        response_id: str,
-        *,
-        rating: Optional[RatingEnum] = None,
-        rating_explanation: Optional[str] = None,
-    ) -> RateResponsePayloadFields:
-        """Rate a chat response"""
-        arguments: dict[str, dict[str, Any]] = {
-            "rating": {"type": "RatingEnum", "value": rating},
-            "ratingExplanation": {"type": "String", "value": rating_explanation},
-            "responseId": {"type": "ID!", "value": response_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RateResponsePayloadFields(
-            field_name="rateChatResponse", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def recreate_gateway_sessions(
-        cls,
-        attributes: list[GatewaySessionAttributes],
-        *,
-        session_id: Optional[str] = None,
-    ) -> RecreateGatewaySessionsPayloadFields:
-        """Recreates gateway sessions for a given gateway ownership and session."""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "[GatewaySessionAttributes!]!", "value": attributes},
-            "sessionId": {"type": "ID", "value": session_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RecreateGatewaySessionsPayloadFields(
-            field_name="recreateGatewaySessions", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def register_device(
-        cls, firebase_token: str, *, platform: Optional[Platform] = None
-    ) -> RegisterDevicePayloadFields:
-        """Register a mobile device"""
-        arguments: dict[str, dict[str, Any]] = {
-            "firebaseToken": {"type": "String!", "value": firebase_token},
-            "platform": {"type": "Platform", "value": platform},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RegisterDevicePayloadFields(
-            field_name="registerDevice", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def remove_survey_timer_trigger(
-        cls, survey_timer_trigger_id: str
-    ) -> RemoveSurveyTimerTriggerPayloadFields:
-        """Remove a timer trigger"""
-        arguments: dict[str, dict[str, Any]] = {
-            "surveyTimerTriggerId": {"type": "ID!", "value": survey_timer_trigger_id}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RemoveSurveyTimerTriggerPayloadFields(
-            field_name="removeSurveyTimerTrigger", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def resend_pending_member_confirmation_email(
-        cls, id: str
-    ) -> ResendConfirmationEmailPayloadFields:
-        """Resend the confirmation email to a PendingMember."""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ResendConfirmationEmailPayloadFields(
-            field_name="resendPendingMemberConfirmationEmail",
+        return UpdateSendAthleteConfirmationEmailsPayloadFields(
+            field_name="updateSetupChecklistSendAthleteConfirmationEmails",
             arguments=cleared_arguments,
         )
 
     @classmethod
-    def resend_report(
-        cls, report_id: str, *, regenerate: Optional[bool] = None
-    ) -> ResendReportPayloadFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "regenerate": {"type": "Boolean", "value": regenerate},
-            "reportId": {"type": "ID!", "value": report_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ResendReportPayloadFields(
-            field_name="resendReport", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def respond_to_detected_match_event(
-        cls, accept_event: bool, id: str
-    ) -> RespondToDetectedMatchEventPayloadFields:
-        """Confirm or Dismiss a detected match event"""
-        arguments: dict[str, dict[str, Any]] = {
-            "acceptEvent": {"type": "Boolean!", "value": accept_event},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RespondToDetectedMatchEventPayloadFields(
-            field_name="respondToDetectedMatchEvent", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def respond_to_detected_match_events(
-        cls, accept_event: bool, ids: list[str]
-    ) -> RespondToDetectedMatchEventsPayloadFields:
-        """Confirm or Dismiss a set of detected match events"""
-        arguments: dict[str, dict[str, Any]] = {
-            "acceptEvent": {"type": "Boolean!", "value": accept_event},
-            "ids": {"type": "[ID!]!", "value": ids},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RespondToDetectedMatchEventsPayloadFields(
-            field_name="respondToDetectedMatchEvents", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def review_pending_member(
-        cls, approved: bool, id: str
-    ) -> ReviewPendingMemberPayloadFields:
-        """Approve or reject a PendingMember returning an Athlete or nothing."""
-        arguments: dict[str, dict[str, Any]] = {
-            "approved": {"type": "Boolean!", "value": approved},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ReviewPendingMemberPayloadFields(
-            field_name="reviewPendingMember", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def rotate_live_data_keys(cls, club_id: str) -> RotateLiveDataKeysPayloadFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID!", "value": club_id}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RotateLiveDataKeysPayloadFields(
-            field_name="rotateLiveDataKeys", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def set_benched_players(
-        cls, match_session_participations: list[str], session_id: str
-    ) -> SetBenchedPlayersPayloadFields:
-        """set which players did not start in a match, other athletes on the session will be marked as starters"""
-        arguments: dict[str, dict[str, Any]] = {
-            "matchSessionParticipations": {
-                "type": "[ID!]!",
-                "value": match_session_participations,
-            },
-            "sessionId": {"type": "ID!", "value": session_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SetBenchedPlayersPayloadFields(
-            field_name="setBenchedPlayers", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def set_custom_max_metric(
-        cls,
-        athlete_ids: list[str],
-        metric: CustomMaxMetricEnum,
-        *,
-        reprocess: Optional[bool] = None,
-        value: Optional[float] = None,
-    ) -> SetCustomMaxMetricPayloadFields:
-        """Bulk update of a single custom max metric on athletes"""
-        arguments: dict[str, dict[str, Any]] = {
-            "athleteIds": {"type": "[ID!]!", "value": athlete_ids},
-            "metric": {"type": "CustomMaxMetricEnum!", "value": metric},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-            "value": {"type": "Float", "value": value},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SetCustomMaxMetricPayloadFields(
-            field_name="setCustomMaxMetric", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def trigger_session_detection_v_2(
-        cls, edge_ids: list[str]
-    ) -> TriggerSessionDetectionV2PayloadFields:
-        """Trigger the session detection v2 job"""
-        arguments: dict[str, dict[str, Any]] = {
-            "edgeIds": {"type": "[String!]!", "value": edge_ids}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return TriggerSessionDetectionV2PayloadFields(
-            field_name="triggerSessionDetectionV2", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def unarchive_club_member(
-        cls, club_id: str, id: str
-    ) -> UnarchiveClubMemberPayloadFields:
-        """A Mutation Performed by Club Staff on a Club Member"""
+    def update_setup_checklist_step_status(
+        cls, club_id: str, status: StepStatusEnum, step_id: StepEnum
+    ) -> UpdateStepStatusPayloadFields:
+        """Update the status of a setup checklist step"""
         arguments: dict[str, dict[str, Any]] = {
             "clubId": {"type": "ID!", "value": club_id},
-            "id": {"type": "ID!", "value": id},
+            "status": {"type": "StepStatusEnum!", "value": status},
+            "stepId": {"type": "StepEnum!", "value": step_id},
         }
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
         }
-        return UnarchiveClubMemberPayloadFields(
-            field_name="unarchiveClubMember", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_athlete(
-        cls, athlete_id: str, attributes: UpdateAthleteAttributes
-    ) -> UpdateAthletePayloadFields:
-        """Update athlete's information"""
-        arguments: dict[str, dict[str, Any]] = {
-            "athleteId": {"type": "ID!", "value": athlete_id},
-            "attributes": {"type": "UpdateAthleteAttributes!", "value": attributes},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateAthletePayloadFields(
-            field_name="updateAthlete", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_athlete_group(
-        cls, attributes: AthleteGroupAttributes, group_id: str
-    ) -> UpdateAthleteGroupPayloadFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "AthleteGroupAttributes!", "value": attributes},
-            "groupId": {"type": "ID!", "value": group_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateAthleteGroupPayloadFields(
-            field_name="updateAthleteGroup", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_club_member(
-        cls, attributes: UpdateClubMemberAttributes, club_id: str, id: str
-    ) -> UpdateClubMemberPayloadFields:
-        """Update a club member's information"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "UpdateClubMemberAttributes!", "value": attributes},
-            "clubId": {"type": "ID!", "value": club_id},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateClubMemberPayloadFields(
-            field_name="updateClubMember", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_club_settings(
-        cls,
-        attributes: UpdateClubSettingsAttributes,
-        club_id: str,
-        *,
-        reprocess: Optional[bool] = None,
-    ) -> UpdateClubSettingsPayloadFields:
-        """Update settings for a club"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "UpdateClubSettingsAttributes!",
-                "value": attributes,
-            },
-            "clubId": {"type": "ID!", "value": club_id},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateClubSettingsPayloadFields(
-            field_name="updateClubSettings", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_custom_question_definition(
-        cls, attributes: CustomQuestionDefinitionAttributes, club_id: str, id: str
-    ) -> UpdateCustomQuestionDefinitionPayloadFields:
-        """Update a custom question definition"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "CustomQuestionDefinitionAttributes!",
-                "value": attributes,
-            },
-            "clubId": {"type": "ID!", "value": club_id},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateCustomQuestionDefinitionPayloadFields(
-            field_name="updateCustomQuestionDefinition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_dataset(
-        cls, attributes: UpdateDatasetAttributes, id: str
-    ) -> UpdateDatasetPayloadFields:
-        """update a Dataset"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "UpdateDatasetAttributes!", "value": attributes},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateDatasetPayloadFields(
-            field_name="updateDataset", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_device(
-        cls, attributes: DeviceAttributes, serial_number: Any, type_: DeviceTypeEnum
-    ) -> UpdateDevicePayloadFields:
-        """Update the attributes for a device"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "DeviceAttributes!", "value": attributes},
-            "serialNumber": {"type": "BigInt!", "value": serial_number},
-            "type": {"type": "DeviceTypeEnum!", "value": type_},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateDevicePayloadFields(
-            field_name="updateDevice", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_flexible_report(
-        cls, attributes: UpdateFlexibleReportAttributes, id: str
-    ) -> UpdateFlexibleReportPayloadFields:
-        """update a FlexibleReport"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "UpdateFlexibleReportAttributes!",
-                "value": attributes,
-            },
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateFlexibleReportPayloadFields(
-            field_name="updateFlexibleReport", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_flexible_report_chart(
-        cls, attributes: UpdateFlexibleReportChartAttributes, id: str
-    ) -> UpdateFlexibleReportChartPayloadFields:
-        """Update a flexible report chart"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "UpdateFlexibleReportChartAttributes!",
-                "value": attributes,
-            },
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateFlexibleReportChartPayloadFields(
-            field_name="updateFlexibleReportChart", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_flexible_report_chart_position(
-        cls, id: str, position: int
-    ) -> UpdateFlexibleReportChartPositionPayloadFields:
-        """Update position of a flexible report chart and reorder other charts accordingly"""
-        arguments: dict[str, dict[str, Any]] = {
-            "id": {"type": "ID!", "value": id},
-            "position": {"type": "Int!", "value": position},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateFlexibleReportChartPositionPayloadFields(
-            field_name="updateFlexibleReportChartPosition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_gateway_ownership(
-        cls, attributes: UpdateGatewayOwnershipAttributes, id: str
-    ) -> UpdateGatewayOwnershipPayloadFields:
-        """Update a gateway ownership's name"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "UpdateGatewayOwnershipAttributes!",
-                "value": attributes,
-            },
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateGatewayOwnershipPayloadFields(
-            field_name="updateGatewayOwnership", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_match_event(
-        cls, attributes: MatchEventAttributes, id: str
-    ) -> UpdateMatchEventPayloadFields:
-        """Update a match event"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "MatchEventAttributes!", "value": attributes},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateMatchEventPayloadFields(
-            field_name="updateMatchEvent", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_match_events(
-        cls, attributes: list[BulkUpdateMatchEventAttributes]
-    ) -> UpdateMatchEventsPayloadFields:
-        """Update match events"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "[BulkUpdateMatchEventAttributes!]!",
-                "value": attributes,
-            }
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateMatchEventsPayloadFields(
-            field_name="updateMatchEvents", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_person_details(
-        cls,
-        attributes: UpdatePersonAttributes,
-        id: str,
-        *,
-        reprocess: Optional[bool] = None,
-    ) -> UpdatePersonDetailsPayloadFields:
-        """Updates a person's details"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "UpdatePersonAttributes!", "value": attributes},
-            "id": {"type": "ID!", "value": id},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdatePersonDetailsPayloadFields(
-            field_name="updatePersonDetails", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_pitch(
-        cls, attributes: PitchAttributes, pitch_id: str
-    ) -> UpdatePitchPayloadFields:
-        """Update a pitch"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "PitchAttributes!", "value": attributes},
-            "pitchId": {"type": "ID!", "value": pitch_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdatePitchPayloadFields(
-            field_name="updatePitch", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_session(
-        cls, attributes: MutateSessionAttributes, id: str
-    ) -> UpdateSessionPayloadFields:
-        """Update a Training/Match session"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "MutateSessionAttributes!", "value": attributes},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateSessionPayloadFields(
-            field_name="updateSession", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_session_blueprint(
-        cls, attributes: MutateSessionBlueprintAttributes, id: str
-    ) -> UpdateSessionBlueprintPayloadFields:
-        """Update a session blueprint"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "MutateSessionBlueprintAttributes!",
-                "value": attributes,
-            },
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateSessionBlueprintPayloadFields(
-            field_name="updateSessionBlueprint", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_session_participations(
-        cls, attributes: list[SessionParticipationAttributes]
-    ) -> UpdateSessionParticipationsPayloadFields:
-        """Update session participations"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "[SessionParticipationAttributes!]!",
-                "value": attributes,
-            }
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateSessionParticipationsPayloadFields(
-            field_name="updateSessionParticipations", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_session_positions(
-        cls, attributes: SessionPositionsAttributes, id: str
-    ) -> UpdateSessionPositionsPayloadFields:
-        """Session positions"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "SessionPositionsAttributes!", "value": attributes},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateSessionPositionsPayloadFields(
-            field_name="updateSessionPositions", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_session_segment(
-        cls,
-        id: str,
-        *,
-        attributes: Optional[SegmentAttributes] = None,
-        patch: Optional[SegmentPatch] = None,
-    ) -> UpdateSegmentPayloadFields:
-        """Update a session segment"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "SegmentAttributes", "value": attributes},
-            "id": {"type": "ID!", "value": id},
-            "patch": {"type": "SegmentPatch", "value": patch},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateSegmentPayloadFields(
-            field_name="updateSessionSegment", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_session_segments(
-        cls, patches: list[SegmentPatch]
-    ) -> UpdateSegmentsPayloadFields:
-        """Update session segments"""
-        arguments: dict[str, dict[str, Any]] = {
-            "patches": {"type": "[SegmentPatch!]!", "value": patches}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateSegmentsPayloadFields(
-            field_name="updateSessionSegments", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_session_tag_definition(
-        cls, attributes: SessionTagDefinitionAttributes, id: str
-    ) -> UpdateSessionTagDefinitionPayloadFields:
-        """Update a session tag definition"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "SessionTagDefinitionAttributes!",
-                "value": attributes,
-            },
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateSessionTagDefinitionPayloadFields(
-            field_name="updateSessionTagDefinition", arguments=cleared_arguments
+        return UpdateStepStatusPayloadFields(
+            field_name="updateSetupChecklistStepStatus", arguments=cleared_arguments
         )
 
     @classmethod
     def update_staff_billing(
         cls, attributes: list[UpdateStaffBillingAttributes]
     ) -> UpdateStaffBillingPayloadFields:
-        """Update which staff have access to billing details"""
+        """Updates staff billing details"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {
                 "type": "[UpdateStaffBillingAttributes!]!",
@@ -3708,7 +2401,7 @@ class Mutation:
     def update_survey(
         cls, attributes: SurveyAttributes, id: str
     ) -> UpdateSurveyPayloadFields:
-        """Update a survey"""
+        """Updates an existing survey"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "SurveyAttributes!", "value": attributes},
             "id": {"type": "ID!", "value": id},
@@ -3743,7 +2436,7 @@ class Mutation:
     def update_tag_definition(
         cls, attributes: TagDefinitionAttributes, id: str
     ) -> UpdateTagDefinitionPayloadFields:
-        """Update a tag definition"""
+        """Updates a tag definition"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "TagDefinitionAttributes!", "value": attributes},
             "id": {"type": "ID!", "value": id},
@@ -3756,1934 +2449,42 @@ class Mutation:
         )
 
     @classmethod
-    def update_user_preferences(
-        cls, attributes: UpdateUserPreferencesAttributes
-    ) -> UpdateUserPreferencesPayloadFields:
-        """Updates the user preferences for a given setting"""
+    def update_target_definition(
+        cls, attributes: TargetDefinitionAttributes, target_definition_id: str
+    ) -> UpdateTargetDefinitionPayloadFields:
+        """Updates a target definition within a target template"""
         arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "UpdateUserPreferencesAttributes!",
-                "value": attributes,
-            }
+            "attributes": {"type": "TargetDefinitionAttributes!", "value": attributes},
+            "targetDefinitionId": {"type": "ID!", "value": target_definition_id},
         }
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
         }
-        return UpdateUserPreferencesPayloadFields(
-            field_name="updateUserPreferences", arguments=cleared_arguments
+        return UpdateTargetDefinitionPayloadFields(
+            field_name="updateTargetDefinition", arguments=cleared_arguments
         )
 
     @classmethod
-    def upsert_chat_club_context(
-        cls, attributes: ClubContextAttributes, club_id: str
-    ) -> UpsertChatClubContextPayloadFields:
-        """Create or update a chat club context"""
+    def update_target_template(
+        cls, name: str, template_id: str
+    ) -> UpdateTargetTemplatePayloadFields:
+        """Updates a target template's name"""
         arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "ClubContextAttributes!", "value": attributes},
-            "clubId": {"type": "ID!", "value": club_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpsertChatClubContextPayloadFields(
-            field_name="upsertChatClubContext", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def upsert_chat_coach_context(
-        cls, attributes: CoachContextAttributesInput
-    ) -> UpsertChatCoachContextPayloadFields:
-        """Create or update a coach context"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "CoachContextAttributesInput!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpsertChatCoachContextPayloadFields(
-            field_name="upsertChatCoachContext", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def upsert_data_recordings(
-        cls, attributes: list[UpsertDataRecordingsAttributes], session_id: str
-    ) -> UpsertDataRecordingsPayloadFields:
-        """Add EDGE data recordings to a session or update it"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "[UpsertDataRecordingsAttributes!]!",
-                "value": attributes,
-            },
-            "sessionId": {"type": "ID!", "value": session_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpsertDataRecordingsPayloadFields(
-            field_name="upsertDataRecordings", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def upsert_session_plan(
-        cls,
-        attributes: SessionPlanAttributesInput,
-        club_id: str,
-        *,
-        session_plan_id: Optional[str] = None,
-    ) -> UpsertSessionPlanPayloadFields:
-        """Create or update a session plan"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "SessionPlanAttributesInput!", "value": attributes},
-            "clubId": {"type": "ID!", "value": club_id},
-            "sessionPlanId": {"type": "ID", "value": session_plan_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpsertSessionPlanPayloadFields(
-            field_name="upsertSessionPlan", arguments=cleared_arguments
-        )
-
-
-from playerdatapy.enums import *
-# Generated by ariadne-codegen
-
-from typing import Any, Optional
-
-from .custom_fields import (
-    AccelzonesPayloadFields,
-    AcceptPrivacyPolicyPayloadFields,
-    AddAthleteGroupPayloadFields,
-    AddExistingPersonToClubPayloadFields,
-    AddNewPersonToClubPayloadFields,
-    AddSurveyAnswerPayloadFields,
-    ArchiveClubMemberPayloadFields,
-    ArchivePitchPayloadFields,
-    ArchiveSurveyPayloadFields,
-    AssignDevicePayloadFields,
-    AssignEdgePayloadFields,
-    BulkApprovePayloadFields,
-    ClaimPersonPayloadFields,
-    ClubMutationFields,
-    CreateCustomQuestionDefinitionPayloadFields,
-    CreateDatasetPayloadFields,
-    CreateDeviceSyncPayloadFields,
-    CreateEdgeNamePayloadFields,
-    CreateFlexibleReportChartPayloadFields,
-    CreateFlexibleReportPayloadFields,
-    CreateMatchEventPayloadFields,
-    CreateMatchEventsPayloadFields,
-    CreatePitchPayloadFields,
-    CreateQuestionPayloadFields,
-    CreateReportPayloadFields,
-    CreateResponsePayloadFields,
-    CreateSegmentPayloadFields,
-    CreateSessionPayloadFields,
-    CreateSessionTagDefinitionPayloadFields,
-    CreateSurveyPayloadFields,
-    CreateSurveyTimerTriggerPayloadFields,
-    CreateTagDefinitionPayloadFields,
-    CreateVideoRecordingPayloadFields,
-    DecelzonesPayloadFields,
-    DeleteAccelzonesPayloadFields,
-    DeleteDecelzonesPayloadFields,
-    DeleteHeartRateBoundsPayloadFields,
-    DeleteSpeedzonesPayloadFields,
-    DestroyAppMessagePayloadFields,
-    DestroyAthleteGroupPayloadFields,
-    DestroyCustomQuestionDefinitionPayloadFields,
-    DestroyDatasetPayloadFields,
-    DestroyFlexibleReportChartsPayloadFields,
-    DestroyFlexibleReportsPayloadFields,
-    DestroyMatchEventPayloadFields,
-    DestroyMatchEventsPayloadFields,
-    DestroySegmentPayloadFields,
-    DestroySessionBlueprintPayloadFields,
-    DestroySessionPayloadFields,
-    DestroySessionTagDefinitionPayloadFields,
-    DestroyTagDefinitionPayloadFields,
-    DuplicateFlexibleReportPayloadFields,
-    DuplicateSegmentPayloadFields,
-    DuplicateSessionPayloadFields,
-    DuplicateSurveyPayloadFields,
-    EndEdgeOwnershipPayloadFields,
-    HeartRateBoundsPayloadFields,
-    MarkAppMessageReadPayloadFields,
-    MarkMultipleAppMessagesReadPayloadFields,
-    ProvisionGatewayPayloadFields,
-    RateResponsePayloadFields,
-    RecreateGatewaySessionsPayloadFields,
-    RegisterDevicePayloadFields,
-    RelativeAccelzonesPayloadFields,
-    RelativeDecelzonesPayloadFields,
-    RelativeSpeedzonesPayloadFields,
-    RemoveSurveyTimerTriggerPayloadFields,
-    ResendConfirmationEmailPayloadFields,
-    ResendReportPayloadFields,
-    RespondToDetectedMatchEventPayloadFields,
-    RespondToDetectedMatchEventsPayloadFields,
-    ReviewPendingMemberPayloadFields,
-    RotateLiveDataKeysPayloadFields,
-    SetBenchedPlayersPayloadFields,
-    SetCustomMaxMetricPayloadFields,
-    SpeedzonesPayloadFields,
-    TriggerSessionDetectionV2PayloadFields,
-    UnarchiveClubMemberPayloadFields,
-    UpdateAthleteGroupPayloadFields,
-    UpdateAthletePayloadFields,
-    UpdateClubMemberPayloadFields,
-    UpdateClubSettingsPayloadFields,
-    UpdateCustomQuestionDefinitionPayloadFields,
-    UpdateDatasetPayloadFields,
-    UpdateDevicePayloadFields,
-    UpdateFlexibleReportChartPayloadFields,
-    UpdateFlexibleReportChartPositionPayloadFields,
-    UpdateFlexibleReportPayloadFields,
-    UpdateGatewayOwnershipPayloadFields,
-    UpdateMatchEventPayloadFields,
-    UpdateMatchEventsPayloadFields,
-    UpdatePersonDetailsPayloadFields,
-    UpdatePitchPayloadFields,
-    UpdateSegmentPayloadFields,
-    UpdateSegmentsPayloadFields,
-    UpdateSessionBlueprintPayloadFields,
-    UpdateSessionParticipationsPayloadFields,
-    UpdateSessionPayloadFields,
-    UpdateSessionPositionsPayloadFields,
-    UpdateSessionTagDefinitionPayloadFields,
-    UpdateStaffBillingPayloadFields,
-    UpdateSurveyPayloadFields,
-    UpdateSurveyTimerTriggerPayloadFields,
-    UpdateTagDefinitionPayloadFields,
-    UpdateUserPreferencesPayloadFields,
-    UpsertChatClubContextPayloadFields,
-    UpsertChatCoachContextPayloadFields,
-    UpsertDataRecordingsPayloadFields,
-    UpsertSessionPlanPayloadFields,
-)
-from .input_types import (
-    AthleteAccelzoneAttributes,
-    AthleteDecelzoneAttributes,
-    AthleteGroupAttributes,
-    AthleteHeartRateBoundsAttributes,
-    AthleteRelativeAccelzoneAttributes,
-    AthleteRelativeDecelzoneAttributes,
-    AthleteSpeedzoneAttributes,
-    BulkUpdateMatchEventAttributes,
-    ClaimPersonAttributes,
-    ClubContextAttributes,
-    CoachContextAttributesInput,
-    CreateDeviceSyncInput,
-    CreateFlexibleReportChartAttributes,
-    CustomQuestionDefinitionAttributes,
-    DatasetAttributes,
-    DeviceAttributes,
-    DuplicateSessionAttributes,
-    FlexibleReportAttributes,
-    GatewaySessionAttributes,
-    MatchEventAttributes,
-    MutateSessionAttributes,
-    MutateSessionBlueprintAttributes,
-    NewPersonAttributes,
-    PitchAttributes,
-    RelativeSpeedzoneAttributes,
-    ReportAttributes,
-    SegmentAttributes,
-    SegmentPatch,
-    SessionParticipationAttributes,
-    SessionPlanAttributesInput,
-    SessionPositionsAttributes,
-    SessionTagDefinitionAttributes,
-    SurveyAnswerAttributes,
-    SurveyAttributes,
-    SurveyTimerTriggerAttributes,
-    TagDefinitionAttributes,
-    TaggerAttributes,
-    UpdateAthleteAttributes,
-    UpdateClubMemberAttributes,
-    UpdateClubSettingsAttributes,
-    UpdateDatasetAttributes,
-    UpdateFlexibleReportAttributes,
-    UpdateFlexibleReportChartAttributes,
-    UpdateGatewayOwnershipAttributes,
-    UpdatePersonAttributes,
-    UpdateStaffBillingAttributes,
-    UpdateUserPreferencesAttributes,
-    UpsertDataRecordingsAttributes,
-    VideoRecordingAttributes,
-)
-
-
-class Mutation:
-    @classmethod
-    def accept_privacy_policy(cls, policy_id: str) -> AcceptPrivacyPolicyPayloadFields:
-        """Accept a privacy policy change"""
-        arguments: dict[str, dict[str, Any]] = {
-            "policyId": {"type": "ID!", "value": policy_id}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AcceptPrivacyPolicyPayloadFields(
-            field_name="acceptPrivacyPolicy", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def add_athlete_group(
-        cls, attributes: AthleteGroupAttributes
-    ) -> AddAthleteGroupPayloadFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "AthleteGroupAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AddAthleteGroupPayloadFields(
-            field_name="addAthleteGroup", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def add_existing_person_to_club(
-        cls,
-        signup_token: str,
-        *,
-        person_attributes: Optional[UpdatePersonAttributes] = None,
-    ) -> AddExistingPersonToClubPayloadFields:
-        """Adds an existing Person to a Club"""
-        arguments: dict[str, dict[str, Any]] = {
-            "personAttributes": {
-                "type": "UpdatePersonAttributes",
-                "value": person_attributes,
-            },
-            "signupToken": {"type": "String!", "value": signup_token},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AddExistingPersonToClubPayloadFields(
-            field_name="addExistingPersonToClub", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def add_new_person_to_club(
-        cls, attributes: NewPersonAttributes
-    ) -> AddNewPersonToClubPayloadFields:
-        """Adds a new Person to a Club"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "NewPersonAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AddNewPersonToClubPayloadFields(
-            field_name="addNewPersonToClub", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def add_survey_answer(
-        cls, attributes: SurveyAnswerAttributes
-    ) -> AddSurveyAnswerPayloadFields:
-        """Answer a survey question"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "SurveyAnswerAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AddSurveyAnswerPayloadFields(
-            field_name="addSurveyAnswer", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def approve_all_pending_members(cls, ids: list[str]) -> BulkApprovePayloadFields:
-        """Bulk approve of pending members, returning the approved athletes."""
-        arguments: dict[str, dict[str, Any]] = {"ids": {"type": "[ID!]!", "value": ids}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return BulkApprovePayloadFields(
-            field_name="approveAllPendingMembers", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def archive_club_member(
-        cls, club_id: str, id: str
-    ) -> ArchiveClubMemberPayloadFields:
-        """A Mutation Performed by Club Staff on a Club Member"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID!", "value": club_id},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ArchiveClubMemberPayloadFields(
-            field_name="archiveClubMember", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def archive_pitch(cls, id: str) -> ArchivePitchPayloadFields:
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ArchivePitchPayloadFields(
-            field_name="archivePitch", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def archive_survey(cls, id: str) -> ArchiveSurveyPayloadFields:
-        """Archive a survey"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ArchiveSurveyPayloadFields(
-            field_name="archiveSurvey", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def assign_device(
-        cls,
-        owner_id: str,
-        owner_type: DeviceOwnerType,
-        serial_number: Any,
-        type_: DeviceTypeEnum,
-    ) -> AssignDevicePayloadFields:
-        """Assign a device to an owner"""
-        arguments: dict[str, dict[str, Any]] = {
-            "ownerId": {"type": "ID!", "value": owner_id},
-            "ownerType": {"type": "DeviceOwnerType!", "value": owner_type},
-            "serialNumber": {"type": "BigInt!", "value": serial_number},
-            "type": {"type": "DeviceTypeEnum!", "value": type_},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AssignDevicePayloadFields(
-            field_name="assignDevice", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def assign_edge(
-        cls, edge_id: str, owner_id: str, owner_type: EdgeOwnerType
-    ) -> AssignEdgePayloadFields:
-        """Assign an edge to an owner"""
-        arguments: dict[str, dict[str, Any]] = {
-            "edgeId": {"type": "ID!", "value": edge_id},
-            "ownerId": {"type": "ID!", "value": owner_id},
-            "ownerType": {"type": "EdgeOwnerType!", "value": owner_type},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AssignEdgePayloadFields(
-            field_name="assignEdge", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_accelzones(
-        cls, attributes: AthleteAccelzoneAttributes, *, reprocess: Optional[bool] = None
-    ) -> AccelzonesPayloadFields:
-        """Bulk update of athlete accelzones"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "AthleteAccelzoneAttributes!", "value": attributes},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AccelzonesPayloadFields(
-            field_name="athletesAccelzones", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_decelzones(
-        cls, attributes: AthleteDecelzoneAttributes, *, reprocess: Optional[bool] = None
-    ) -> DecelzonesPayloadFields:
-        """Bulk update of athlete decelzones"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "AthleteDecelzoneAttributes!", "value": attributes},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DecelzonesPayloadFields(
-            field_name="athletesDecelzones", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_delete_accelzones(
-        cls, athlete_ids: list[str], *, reprocess: Optional[bool] = None
-    ) -> DeleteAccelzonesPayloadFields:
-        """Bulk delete of athlete accelzones"""
-        arguments: dict[str, dict[str, Any]] = {
-            "athleteIds": {"type": "[ID!]!", "value": athlete_ids},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DeleteAccelzonesPayloadFields(
-            field_name="athletesDeleteAccelzones", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_delete_decelzones(
-        cls, athlete_ids: list[str], *, reprocess: Optional[bool] = None
-    ) -> DeleteDecelzonesPayloadFields:
-        """Bulk delete of athlete decelzones"""
-        arguments: dict[str, dict[str, Any]] = {
-            "athleteIds": {"type": "[ID!]!", "value": athlete_ids},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DeleteDecelzonesPayloadFields(
-            field_name="athletesDeleteDecelzones", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_delete_heart_rate_bounds(
-        cls, athlete_ids: list[str], *, reprocess: Optional[bool] = None
-    ) -> DeleteHeartRateBoundsPayloadFields:
-        """Bulk delete of athlete heart rate bounds"""
-        arguments: dict[str, dict[str, Any]] = {
-            "athleteIds": {"type": "[ID!]!", "value": athlete_ids},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DeleteHeartRateBoundsPayloadFields(
-            field_name="athletesDeleteHeartRateBounds", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_delete_speedzones(
-        cls, athlete_ids: list[str], *, reprocess: Optional[bool] = None
-    ) -> DeleteSpeedzonesPayloadFields:
-        """Bulk delete of athlete speedzones"""
-        arguments: dict[str, dict[str, Any]] = {
-            "athleteIds": {"type": "[ID!]!", "value": athlete_ids},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DeleteSpeedzonesPayloadFields(
-            field_name="athletesDeleteSpeedzones", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_heart_rate_bounds(
-        cls,
-        attributes: AthleteHeartRateBoundsAttributes,
-        *,
-        reprocess: Optional[bool] = None,
-    ) -> HeartRateBoundsPayloadFields:
-        """Bulk update of athlete heart rate bounds"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "AthleteHeartRateBoundsAttributes!",
-                "value": attributes,
-            },
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return HeartRateBoundsPayloadFields(
-            field_name="athletesHeartRateBounds", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_relative_accelzones(
-        cls,
-        attributes: AthleteRelativeAccelzoneAttributes,
-        *,
-        reprocess: Optional[bool] = None,
-    ) -> RelativeAccelzonesPayloadFields:
-        """Bulk update of athlete relative accelzones"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "AthleteRelativeAccelzoneAttributes!",
-                "value": attributes,
-            },
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RelativeAccelzonesPayloadFields(
-            field_name="athletesRelativeAccelzones", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_relative_decelzones(
-        cls,
-        attributes: AthleteRelativeDecelzoneAttributes,
-        *,
-        reprocess: Optional[bool] = None,
-    ) -> RelativeDecelzonesPayloadFields:
-        """Bulk update of athlete relative decelzones"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "AthleteRelativeDecelzoneAttributes!",
-                "value": attributes,
-            },
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RelativeDecelzonesPayloadFields(
-            field_name="athletesRelativeDecelzones", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_relative_speedzones(
-        cls,
-        attributes: RelativeSpeedzoneAttributes,
-        *,
-        reprocess: Optional[bool] = None,
-    ) -> RelativeSpeedzonesPayloadFields:
-        """Bulk update of athlete speedzones"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "RelativeSpeedzoneAttributes!", "value": attributes},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RelativeSpeedzonesPayloadFields(
-            field_name="athletesRelativeSpeedzones", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_speedzones(
-        cls, attributes: AthleteSpeedzoneAttributes, *, reprocess: Optional[bool] = None
-    ) -> SpeedzonesPayloadFields:
-        """Bulk update of athlete speedzones"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "AthleteSpeedzoneAttributes!", "value": attributes},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SpeedzonesPayloadFields(
-            field_name="athletesSpeedzones", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def claim_person(
-        cls, attributes: ClaimPersonAttributes
-    ) -> ClaimPersonPayloadFields:
-        """mutation for claiming an Athlete"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "ClaimPersonAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ClaimPersonPayloadFields(
-            field_name="claimPerson", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def club(cls, id: str) -> ClubMutationFields:
-        """The club to perform mutations on"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ClubMutationFields(field_name="club", arguments=cleared_arguments)
-
-    @classmethod
-    def create_chat_response(
-        cls, question_id: str, response: str
-    ) -> CreateResponsePayloadFields:
-        """Respond to a question"""
-        arguments: dict[str, dict[str, Any]] = {
-            "questionId": {"type": "ID!", "value": question_id},
-            "response": {"type": "String!", "value": response},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateResponsePayloadFields(
-            field_name="createChatResponse", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_custom_question_definition(
-        cls, attributes: CustomQuestionDefinitionAttributes, club_id: str
-    ) -> CreateCustomQuestionDefinitionPayloadFields:
-        """Create a custom question definition"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "CustomQuestionDefinitionAttributes!",
-                "value": attributes,
-            },
-            "clubId": {"type": "ID!", "value": club_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateCustomQuestionDefinitionPayloadFields(
-            field_name="createCustomQuestionDefinition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_dataset(
-        cls, attributes: DatasetAttributes
-    ) -> CreateDatasetPayloadFields:
-        """Create a dataset"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "DatasetAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateDatasetPayloadFields(
-            field_name="createDataset", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_device_sync(
-        cls, input: CreateDeviceSyncInput
-    ) -> CreateDeviceSyncPayloadFields:
-        """Create a DeviceSync with an uploaded file blob"""
-        arguments: dict[str, dict[str, Any]] = {
-            "input": {"type": "CreateDeviceSyncInput!", "value": input}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateDeviceSyncPayloadFields(
-            field_name="createDeviceSync", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_edge_name(cls, edge_id: str, name: str) -> CreateEdgeNamePayloadFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "edgeId": {"type": "ID!", "value": edge_id},
             "name": {"type": "String!", "value": name},
+            "templateId": {"type": "ID!", "value": template_id},
         }
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
         }
-        return CreateEdgeNamePayloadFields(
-            field_name="createEdgeName", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_flexible_report(
-        cls, attributes: FlexibleReportAttributes
-    ) -> CreateFlexibleReportPayloadFields:
-        """create a FlexibleReport along with its dataset"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "FlexibleReportAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateFlexibleReportPayloadFields(
-            field_name="createFlexibleReport", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_flexible_report_chart(
-        cls, attributes: CreateFlexibleReportChartAttributes
-    ) -> CreateFlexibleReportChartPayloadFields:
-        """Create a flexible report chart"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "CreateFlexibleReportChartAttributes!",
-                "value": attributes,
-            }
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateFlexibleReportChartPayloadFields(
-            field_name="createFlexibleReportChart", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_match_event(
-        cls, attributes: MatchEventAttributes, session_id: str
-    ) -> CreateMatchEventPayloadFields:
-        """Create a match event"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "MatchEventAttributes!", "value": attributes},
-            "sessionId": {"type": "ID!", "value": session_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateMatchEventPayloadFields(
-            field_name="createMatchEvent", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_match_events(
-        cls, attributes: list[MatchEventAttributes], session_id: str
-    ) -> CreateMatchEventsPayloadFields:
-        """Create match events"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "[MatchEventAttributes!]!", "value": attributes},
-            "sessionId": {"type": "ID!", "value": session_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateMatchEventsPayloadFields(
-            field_name="createMatchEvents", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_pitch(
-        cls,
-        attributes: PitchAttributes,
-        *,
-        club_id: Optional[str] = None,
-        detected_session_id: Optional[str] = None,
-        owner_id: Optional[str] = None,
-        owner_type: Optional[OwnerEnum] = None,
-    ) -> CreatePitchPayloadFields:
-        """Define a new pitch"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "PitchAttributes!", "value": attributes},
-            "clubId": {"type": "ID", "value": club_id},
-            "detectedSessionId": {"type": "ID", "value": detected_session_id},
-            "ownerId": {"type": "ID", "value": owner_id},
-            "ownerType": {"type": "OwnerEnum", "value": owner_type},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreatePitchPayloadFields(
-            field_name="createPitch", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_question(
-        cls, question: str, staff_id: str
-    ) -> CreateQuestionPayloadFields:
-        """Ask a question"""
-        arguments: dict[str, dict[str, Any]] = {
-            "question": {"type": "String!", "value": question},
-            "staffId": {"type": "ID!", "value": staff_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateQuestionPayloadFields(
-            field_name="createQuestion", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_report(cls, attributes: ReportAttributes) -> CreateReportPayloadFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "ReportAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateReportPayloadFields(
-            field_name="createReport", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_session(
-        cls, attributes: MutateSessionAttributes
-    ) -> CreateSessionPayloadFields:
-        """Create a Training/Match session"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "MutateSessionAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateSessionPayloadFields(
-            field_name="createSession", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_session_segment(
-        cls, attributes: SegmentAttributes, *, id: Optional[str] = None
-    ) -> CreateSegmentPayloadFields:
-        """Create a session segment"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "SegmentAttributes!", "value": attributes},
-            "id": {"type": "ID", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateSegmentPayloadFields(
-            field_name="createSessionSegment", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_session_tag_definition(
-        cls, attributes: SessionTagDefinitionAttributes, club_id: str
-    ) -> CreateSessionTagDefinitionPayloadFields:
-        """Create a session tag definition"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "SessionTagDefinitionAttributes!",
-                "value": attributes,
-            },
-            "clubId": {"type": "ID!", "value": club_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateSessionTagDefinitionPayloadFields(
-            field_name="createSessionTagDefinition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_survey(
-        cls, attributes: SurveyAttributes, club_id: str
-    ) -> CreateSurveyPayloadFields:
-        """Create a new survey"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "SurveyAttributes!", "value": attributes},
-            "clubId": {"type": "ID!", "value": club_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateSurveyPayloadFields(
-            field_name="createSurvey", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_survey_timer_trigger(
-        cls, attributes: SurveyTimerTriggerAttributes
-    ) -> CreateSurveyTimerTriggerPayloadFields:
-        """Create a timer trigger for distributing surveys"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "SurveyTimerTriggerAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateSurveyTimerTriggerPayloadFields(
-            field_name="createSurveyTimerTrigger", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_tag_definition(
-        cls, attributes: TagDefinitionAttributes, tagger: TaggerAttributes
-    ) -> CreateTagDefinitionPayloadFields:
-        """Create a tag definition"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "TagDefinitionAttributes!", "value": attributes},
-            "tagger": {"type": "TaggerAttributes!", "value": tagger},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateTagDefinitionPayloadFields(
-            field_name="createTagDefinition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_video_recording(
-        cls, attributes: VideoRecordingAttributes
-    ) -> CreateVideoRecordingPayloadFields:
-        """Create a video recording record ready for camera upload"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "VideoRecordingAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateVideoRecordingPayloadFields(
-            field_name="createVideoRecording", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_athlete_group(cls, group_id: str) -> DestroyAthleteGroupPayloadFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "groupId": {"type": "ID!", "value": group_id}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroyAthleteGroupPayloadFields(
-            field_name="destroyAthleteGroup", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_custom_question_definition(
-        cls, club_id: str, id: str
-    ) -> DestroyCustomQuestionDefinitionPayloadFields:
-        """Destroy Custom Question Definition"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID!", "value": club_id},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroyCustomQuestionDefinitionPayloadFields(
-            field_name="destroyCustomQuestionDefinition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_dataset(cls, id: str) -> DestroyDatasetPayloadFields:
-        """Destroy a Dataset"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroyDatasetPayloadFields(
-            field_name="destroyDataset", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_flexible_report_charts(
-        cls, chart_ids: list[str]
-    ) -> DestroyFlexibleReportChartsPayloadFields:
-        """destroy flexible report charts given an array of FlexibleReportChart ids"""
-        arguments: dict[str, dict[str, Any]] = {
-            "chartIds": {"type": "[ID!]!", "value": chart_ids}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroyFlexibleReportChartsPayloadFields(
-            field_name="destroyFlexibleReportCharts", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_flexible_reports(
-        cls, report_ids: list[str]
-    ) -> DestroyFlexibleReportsPayloadFields:
-        """destroy flexible reports given an array of FlexibleReport ids"""
-        arguments: dict[str, dict[str, Any]] = {
-            "reportIds": {"type": "[ID!]!", "value": report_ids}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroyFlexibleReportsPayloadFields(
-            field_name="destroyFlexibleReports", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_match_event(cls, id: str) -> DestroyMatchEventPayloadFields:
-        """Destroy a match event"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroyMatchEventPayloadFields(
-            field_name="destroyMatchEvent", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_match_events(cls, ids: list[str]) -> DestroyMatchEventsPayloadFields:
-        """Destroy match events"""
-        arguments: dict[str, dict[str, Any]] = {"ids": {"type": "[ID!]!", "value": ids}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroyMatchEventsPayloadFields(
-            field_name="destroyMatchEvents", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_session(cls, id: str) -> DestroySessionPayloadFields:
-        """Destroy a session"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroySessionPayloadFields(
-            field_name="destroySession", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_session_blueprint(cls, id: str) -> DestroySessionBlueprintPayloadFields:
-        """Destroy a session blueprint"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroySessionBlueprintPayloadFields(
-            field_name="destroySessionBlueprint", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_session_segment(cls, id: str) -> DestroySegmentPayloadFields:
-        """Destroy a session segment"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroySegmentPayloadFields(
-            field_name="destroySessionSegment", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_session_tag_definition(
-        cls, id: str
-    ) -> DestroySessionTagDefinitionPayloadFields:
-        """Destroy a session tag definition"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroySessionTagDefinitionPayloadFields(
-            field_name="destroySessionTagDefinition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_tag_definition(cls, id: str) -> DestroyTagDefinitionPayloadFields:
-        """Destroy a tag definition"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroyTagDefinitionPayloadFields(
-            field_name="destroyTagDefinition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def dismiss_app_message(cls, id: str) -> DestroyAppMessagePayloadFields:
-        """Destroy an app message"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroyAppMessagePayloadFields(
-            field_name="dismissAppMessage", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def duplicate_flexible_report(
-        cls, club_id: str, id: str
-    ) -> DuplicateFlexibleReportPayloadFields:
-        """duplicate a FlexibleReport"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID!", "value": club_id},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DuplicateFlexibleReportPayloadFields(
-            field_name="duplicateFlexibleReport", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def duplicate_session(
-        cls, attributes: DuplicateSessionAttributes, id: str
-    ) -> DuplicateSessionPayloadFields:
-        """Duplicate a Training/Match session"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "DuplicateSessionAttributes!", "value": attributes},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DuplicateSessionPayloadFields(
-            field_name="duplicateSession", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def duplicate_session_segment(cls, id: str) -> DuplicateSegmentPayloadFields:
-        """Duplicate a session segment, retaining its boundary times"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DuplicateSegmentPayloadFields(
-            field_name="duplicateSessionSegment", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def duplicate_survey(
-        cls, attributes: SurveyAttributes, club_id: str, id: str
-    ) -> DuplicateSurveyPayloadFields:
-        """Duplicate an existing survey with a new title and ID"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "SurveyAttributes!", "value": attributes},
-            "clubId": {"type": "ID!", "value": club_id},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DuplicateSurveyPayloadFields(
-            field_name="duplicateSurvey", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def end_edge_ownership(cls, edge_id: str) -> EndEdgeOwnershipPayloadFields:
-        """End an edge's ownership"""
-        arguments: dict[str, dict[str, Any]] = {
-            "edgeId": {"type": "ID!", "value": edge_id}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return EndEdgeOwnershipPayloadFields(
-            field_name="endEdgeOwnership", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def mark_app_message_read(cls, id: str) -> MarkAppMessageReadPayloadFields:
-        """Mark an app message as read"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return MarkAppMessageReadPayloadFields(
-            field_name="markAppMessageRead", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def mark_multiple_app_messages_read(
-        cls, ids: list[str]
-    ) -> MarkMultipleAppMessagesReadPayloadFields:
-        """Mark multiple app messages as read"""
-        arguments: dict[str, dict[str, Any]] = {"ids": {"type": "[ID!]!", "value": ids}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return MarkMultipleAppMessagesReadPayloadFields(
-            field_name="markMultipleAppMessagesRead", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def provision_gateway(
-        cls, csr: str, firmware_version: str, organisation_id: str, serial_number: str
-    ) -> ProvisionGatewayPayloadFields:
-        """Set up a gateway for use by the provided organisation"""
-        arguments: dict[str, dict[str, Any]] = {
-            "csr": {"type": "String!", "value": csr},
-            "firmwareVersion": {"type": "String!", "value": firmware_version},
-            "organisationId": {"type": "ID!", "value": organisation_id},
-            "serialNumber": {"type": "String!", "value": serial_number},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ProvisionGatewayPayloadFields(
-            field_name="provisionGateway", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def rate_chat_response(
-        cls,
-        response_id: str,
-        *,
-        rating: Optional[RatingEnum] = None,
-        rating_explanation: Optional[str] = None,
-    ) -> RateResponsePayloadFields:
-        """Rate a chat response"""
-        arguments: dict[str, dict[str, Any]] = {
-            "rating": {"type": "RatingEnum", "value": rating},
-            "ratingExplanation": {"type": "String", "value": rating_explanation},
-            "responseId": {"type": "ID!", "value": response_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RateResponsePayloadFields(
-            field_name="rateChatResponse", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def recreate_gateway_sessions(
-        cls,
-        attributes: list[GatewaySessionAttributes],
-        *,
-        session_id: Optional[str] = None,
-    ) -> RecreateGatewaySessionsPayloadFields:
-        """Recreates gateway sessions for a given gateway ownership and session."""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "[GatewaySessionAttributes!]!", "value": attributes},
-            "sessionId": {"type": "ID", "value": session_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RecreateGatewaySessionsPayloadFields(
-            field_name="recreateGatewaySessions", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def register_device(
-        cls, firebase_token: str, *, platform: Optional[Platform] = None
-    ) -> RegisterDevicePayloadFields:
-        """Register a mobile device"""
-        arguments: dict[str, dict[str, Any]] = {
-            "firebaseToken": {"type": "String!", "value": firebase_token},
-            "platform": {"type": "Platform", "value": platform},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RegisterDevicePayloadFields(
-            field_name="registerDevice", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def remove_survey_timer_trigger(
-        cls, survey_timer_trigger_id: str
-    ) -> RemoveSurveyTimerTriggerPayloadFields:
-        """Remove a timer trigger"""
-        arguments: dict[str, dict[str, Any]] = {
-            "surveyTimerTriggerId": {"type": "ID!", "value": survey_timer_trigger_id}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RemoveSurveyTimerTriggerPayloadFields(
-            field_name="removeSurveyTimerTrigger", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def resend_pending_member_confirmation_email(
-        cls, id: str
-    ) -> ResendConfirmationEmailPayloadFields:
-        """Resend the confirmation email to a PendingMember."""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ResendConfirmationEmailPayloadFields(
-            field_name="resendPendingMemberConfirmationEmail",
-            arguments=cleared_arguments,
-        )
-
-    @classmethod
-    def resend_report(
-        cls, report_id: str, *, regenerate: Optional[bool] = None
-    ) -> ResendReportPayloadFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "regenerate": {"type": "Boolean", "value": regenerate},
-            "reportId": {"type": "ID!", "value": report_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ResendReportPayloadFields(
-            field_name="resendReport", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def respond_to_detected_match_event(
-        cls, accept_event: bool, id: str
-    ) -> RespondToDetectedMatchEventPayloadFields:
-        """Confirm or Dismiss a detected match event"""
-        arguments: dict[str, dict[str, Any]] = {
-            "acceptEvent": {"type": "Boolean!", "value": accept_event},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RespondToDetectedMatchEventPayloadFields(
-            field_name="respondToDetectedMatchEvent", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def respond_to_detected_match_events(
-        cls, accept_event: bool, ids: list[str]
-    ) -> RespondToDetectedMatchEventsPayloadFields:
-        """Confirm or Dismiss a set of detected match events"""
-        arguments: dict[str, dict[str, Any]] = {
-            "acceptEvent": {"type": "Boolean!", "value": accept_event},
-            "ids": {"type": "[ID!]!", "value": ids},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RespondToDetectedMatchEventsPayloadFields(
-            field_name="respondToDetectedMatchEvents", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def review_pending_member(
-        cls, approved: bool, id: str
-    ) -> ReviewPendingMemberPayloadFields:
-        """Approve or reject a PendingMember returning an Athlete or nothing."""
-        arguments: dict[str, dict[str, Any]] = {
-            "approved": {"type": "Boolean!", "value": approved},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ReviewPendingMemberPayloadFields(
-            field_name="reviewPendingMember", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def rotate_live_data_keys(cls, club_id: str) -> RotateLiveDataKeysPayloadFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID!", "value": club_id}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RotateLiveDataKeysPayloadFields(
-            field_name="rotateLiveDataKeys", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def set_benched_players(
-        cls, match_session_participations: list[str], session_id: str
-    ) -> SetBenchedPlayersPayloadFields:
-        """set which players did not start in a match, other athletes on the session will be marked as starters"""
-        arguments: dict[str, dict[str, Any]] = {
-            "matchSessionParticipations": {
-                "type": "[ID!]!",
-                "value": match_session_participations,
-            },
-            "sessionId": {"type": "ID!", "value": session_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SetBenchedPlayersPayloadFields(
-            field_name="setBenchedPlayers", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def set_custom_max_metric(
-        cls,
-        athlete_ids: list[str],
-        metric: CustomMaxMetricEnum,
-        *,
-        reprocess: Optional[bool] = None,
-        value: Optional[float] = None,
-    ) -> SetCustomMaxMetricPayloadFields:
-        """Bulk update of a single custom max metric on athletes"""
-        arguments: dict[str, dict[str, Any]] = {
-            "athleteIds": {"type": "[ID!]!", "value": athlete_ids},
-            "metric": {"type": "CustomMaxMetricEnum!", "value": metric},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-            "value": {"type": "Float", "value": value},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SetCustomMaxMetricPayloadFields(
-            field_name="setCustomMaxMetric", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def trigger_session_detection_v_2(
-        cls, edge_ids: list[str]
-    ) -> TriggerSessionDetectionV2PayloadFields:
-        """Trigger the session detection v2 job"""
-        arguments: dict[str, dict[str, Any]] = {
-            "edgeIds": {"type": "[String!]!", "value": edge_ids}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return TriggerSessionDetectionV2PayloadFields(
-            field_name="triggerSessionDetectionV2", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def unarchive_club_member(
-        cls, club_id: str, id: str
-    ) -> UnarchiveClubMemberPayloadFields:
-        """A Mutation Performed by Club Staff on a Club Member"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID!", "value": club_id},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UnarchiveClubMemberPayloadFields(
-            field_name="unarchiveClubMember", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_athlete(
-        cls, athlete_id: str, attributes: UpdateAthleteAttributes
-    ) -> UpdateAthletePayloadFields:
-        """Update athlete's information"""
-        arguments: dict[str, dict[str, Any]] = {
-            "athleteId": {"type": "ID!", "value": athlete_id},
-            "attributes": {"type": "UpdateAthleteAttributes!", "value": attributes},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateAthletePayloadFields(
-            field_name="updateAthlete", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_athlete_group(
-        cls, attributes: AthleteGroupAttributes, group_id: str
-    ) -> UpdateAthleteGroupPayloadFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "AthleteGroupAttributes!", "value": attributes},
-            "groupId": {"type": "ID!", "value": group_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateAthleteGroupPayloadFields(
-            field_name="updateAthleteGroup", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_club_member(
-        cls, attributes: UpdateClubMemberAttributes, club_id: str, id: str
-    ) -> UpdateClubMemberPayloadFields:
-        """Update a club member's information"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "UpdateClubMemberAttributes!", "value": attributes},
-            "clubId": {"type": "ID!", "value": club_id},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateClubMemberPayloadFields(
-            field_name="updateClubMember", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_club_settings(
-        cls,
-        attributes: UpdateClubSettingsAttributes,
-        club_id: str,
-        *,
-        reprocess: Optional[bool] = None,
-    ) -> UpdateClubSettingsPayloadFields:
-        """Update settings for a club"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "UpdateClubSettingsAttributes!",
-                "value": attributes,
-            },
-            "clubId": {"type": "ID!", "value": club_id},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateClubSettingsPayloadFields(
-            field_name="updateClubSettings", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_custom_question_definition(
-        cls, attributes: CustomQuestionDefinitionAttributes, club_id: str, id: str
-    ) -> UpdateCustomQuestionDefinitionPayloadFields:
-        """Update a custom question definition"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "CustomQuestionDefinitionAttributes!",
-                "value": attributes,
-            },
-            "clubId": {"type": "ID!", "value": club_id},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateCustomQuestionDefinitionPayloadFields(
-            field_name="updateCustomQuestionDefinition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_dataset(
-        cls, attributes: UpdateDatasetAttributes, id: str
-    ) -> UpdateDatasetPayloadFields:
-        """update a Dataset"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "UpdateDatasetAttributes!", "value": attributes},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateDatasetPayloadFields(
-            field_name="updateDataset", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_device(
-        cls, attributes: DeviceAttributes, serial_number: Any, type_: DeviceTypeEnum
-    ) -> UpdateDevicePayloadFields:
-        """Update the attributes for a device"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "DeviceAttributes!", "value": attributes},
-            "serialNumber": {"type": "BigInt!", "value": serial_number},
-            "type": {"type": "DeviceTypeEnum!", "value": type_},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateDevicePayloadFields(
-            field_name="updateDevice", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_flexible_report(
-        cls, attributes: UpdateFlexibleReportAttributes, id: str
-    ) -> UpdateFlexibleReportPayloadFields:
-        """update a FlexibleReport"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "UpdateFlexibleReportAttributes!",
-                "value": attributes,
-            },
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateFlexibleReportPayloadFields(
-            field_name="updateFlexibleReport", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_flexible_report_chart(
-        cls, attributes: UpdateFlexibleReportChartAttributes, id: str
-    ) -> UpdateFlexibleReportChartPayloadFields:
-        """Update a flexible report chart"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "UpdateFlexibleReportChartAttributes!",
-                "value": attributes,
-            },
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateFlexibleReportChartPayloadFields(
-            field_name="updateFlexibleReportChart", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_flexible_report_chart_position(
-        cls, id: str, position: int
-    ) -> UpdateFlexibleReportChartPositionPayloadFields:
-        """Update position of a flexible report chart and reorder other charts accordingly"""
-        arguments: dict[str, dict[str, Any]] = {
-            "id": {"type": "ID!", "value": id},
-            "position": {"type": "Int!", "value": position},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateFlexibleReportChartPositionPayloadFields(
-            field_name="updateFlexibleReportChartPosition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_gateway_ownership(
-        cls, attributes: UpdateGatewayOwnershipAttributes, id: str
-    ) -> UpdateGatewayOwnershipPayloadFields:
-        """Update a gateway ownership's name"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "UpdateGatewayOwnershipAttributes!",
-                "value": attributes,
-            },
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateGatewayOwnershipPayloadFields(
-            field_name="updateGatewayOwnership", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_match_event(
-        cls, attributes: MatchEventAttributes, id: str
-    ) -> UpdateMatchEventPayloadFields:
-        """Update a match event"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "MatchEventAttributes!", "value": attributes},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateMatchEventPayloadFields(
-            field_name="updateMatchEvent", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_match_events(
-        cls, attributes: list[BulkUpdateMatchEventAttributes]
-    ) -> UpdateMatchEventsPayloadFields:
-        """Update match events"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "[BulkUpdateMatchEventAttributes!]!",
-                "value": attributes,
-            }
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateMatchEventsPayloadFields(
-            field_name="updateMatchEvents", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_person_details(
-        cls,
-        attributes: UpdatePersonAttributes,
-        id: str,
-        *,
-        reprocess: Optional[bool] = None,
-    ) -> UpdatePersonDetailsPayloadFields:
-        """Updates a person's details"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "UpdatePersonAttributes!", "value": attributes},
-            "id": {"type": "ID!", "value": id},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdatePersonDetailsPayloadFields(
-            field_name="updatePersonDetails", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_pitch(
-        cls, attributes: PitchAttributes, pitch_id: str
-    ) -> UpdatePitchPayloadFields:
-        """Update a pitch"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "PitchAttributes!", "value": attributes},
-            "pitchId": {"type": "ID!", "value": pitch_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdatePitchPayloadFields(
-            field_name="updatePitch", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_session(
-        cls, attributes: MutateSessionAttributes, id: str
-    ) -> UpdateSessionPayloadFields:
-        """Update a Training/Match session"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "MutateSessionAttributes!", "value": attributes},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateSessionPayloadFields(
-            field_name="updateSession", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_session_blueprint(
-        cls, attributes: MutateSessionBlueprintAttributes, id: str
-    ) -> UpdateSessionBlueprintPayloadFields:
-        """Update a session blueprint"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "MutateSessionBlueprintAttributes!",
-                "value": attributes,
-            },
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateSessionBlueprintPayloadFields(
-            field_name="updateSessionBlueprint", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_session_participations(
-        cls, attributes: list[SessionParticipationAttributes]
-    ) -> UpdateSessionParticipationsPayloadFields:
-        """Update session participations"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "[SessionParticipationAttributes!]!",
-                "value": attributes,
-            }
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateSessionParticipationsPayloadFields(
-            field_name="updateSessionParticipations", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_session_positions(
-        cls, attributes: SessionPositionsAttributes, id: str
-    ) -> UpdateSessionPositionsPayloadFields:
-        """Session positions"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "SessionPositionsAttributes!", "value": attributes},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateSessionPositionsPayloadFields(
-            field_name="updateSessionPositions", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_session_segment(
-        cls,
-        id: str,
-        *,
-        attributes: Optional[SegmentAttributes] = None,
-        patch: Optional[SegmentPatch] = None,
-    ) -> UpdateSegmentPayloadFields:
-        """Update a session segment"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "SegmentAttributes", "value": attributes},
-            "id": {"type": "ID!", "value": id},
-            "patch": {"type": "SegmentPatch", "value": patch},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateSegmentPayloadFields(
-            field_name="updateSessionSegment", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_session_segments(
-        cls, patches: list[SegmentPatch]
-    ) -> UpdateSegmentsPayloadFields:
-        """Update session segments"""
-        arguments: dict[str, dict[str, Any]] = {
-            "patches": {"type": "[SegmentPatch!]!", "value": patches}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateSegmentsPayloadFields(
-            field_name="updateSessionSegments", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_session_tag_definition(
-        cls, attributes: SessionTagDefinitionAttributes, id: str
-    ) -> UpdateSessionTagDefinitionPayloadFields:
-        """Update a session tag definition"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "SessionTagDefinitionAttributes!",
-                "value": attributes,
-            },
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateSessionTagDefinitionPayloadFields(
-            field_name="updateSessionTagDefinition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_staff_billing(
-        cls, attributes: list[UpdateStaffBillingAttributes]
-    ) -> UpdateStaffBillingPayloadFields:
-        """Update which staff have access to billing details"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "[UpdateStaffBillingAttributes!]!",
-                "value": attributes,
-            }
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateStaffBillingPayloadFields(
-            field_name="updateStaffBilling", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_survey(
-        cls, attributes: SurveyAttributes, id: str
-    ) -> UpdateSurveyPayloadFields:
-        """Update a survey"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "SurveyAttributes!", "value": attributes},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateSurveyPayloadFields(
-            field_name="updateSurvey", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_survey_timer_trigger(
-        cls, attributes: SurveyTimerTriggerAttributes, survey_timer_trigger_id: str
-    ) -> UpdateSurveyTimerTriggerPayloadFields:
-        """Update a timer trigger"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "SurveyTimerTriggerAttributes!",
-                "value": attributes,
-            },
-            "surveyTimerTriggerId": {"type": "ID!", "value": survey_timer_trigger_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateSurveyTimerTriggerPayloadFields(
-            field_name="updateSurveyTimerTrigger", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_tag_definition(
-        cls, attributes: TagDefinitionAttributes, id: str
-    ) -> UpdateTagDefinitionPayloadFields:
-        """Update a tag definition"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "TagDefinitionAttributes!", "value": attributes},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateTagDefinitionPayloadFields(
-            field_name="updateTagDefinition", arguments=cleared_arguments
+        return UpdateTargetTemplatePayloadFields(
+            field_name="updateTargetTemplate", arguments=cleared_arguments
         )
 
     @classmethod
     def update_user_preferences(
         cls, attributes: UpdateUserPreferencesAttributes
     ) -> UpdateUserPreferencesPayloadFields:
-        """Updates the user preferences for a given setting"""
+        """Updates the current user's preferences"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {
                 "type": "UpdateUserPreferencesAttributes!",
@@ -5698,10 +2499,49 @@ class Mutation:
         )
 
     @classmethod
+    def update_video_clip(
+        cls, attributes: UpdateVideoClipAttributes, id: str
+    ) -> UpdateVideoClipPayloadFields:
+        """Updates a video clip"""
+        arguments: dict[str, dict[str, Any]] = {
+            "attributes": {"type": "UpdateVideoClipAttributes!", "value": attributes},
+            "id": {"type": "ID!", "value": id},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return UpdateVideoClipPayloadFields(
+            field_name="updateVideoClip", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def upload_device_meta_events(
+        cls,
+        device_ownership_id: str,
+        events: list[MetaEventInput],
+        firmware_version: str,
+        *,
+        device_type: Optional[DeviceSyncTypeEnum] = None,
+    ) -> UploadMetaEventsPayloadFields:
+        """Upload raw meta events for a device and update its firmware version"""
+        arguments: dict[str, dict[str, Any]] = {
+            "deviceOwnershipId": {"type": "ID!", "value": device_ownership_id},
+            "deviceType": {"type": "DeviceSyncTypeEnum", "value": device_type},
+            "events": {"type": "[MetaEventInput!]!", "value": events},
+            "firmwareVersion": {"type": "String!", "value": firmware_version},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return UploadMetaEventsPayloadFields(
+            field_name="uploadDeviceMetaEvents", arguments=cleared_arguments
+        )
+
+    @classmethod
     def upsert_chat_club_context(
         cls, attributes: ClubContextAttributes, club_id: str
     ) -> UpsertChatClubContextPayloadFields:
-        """Create or update a chat club context"""
+        """Creates or updates the chat context for a club"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "ClubContextAttributes!", "value": attributes},
             "clubId": {"type": "ID!", "value": club_id},
@@ -5717,7 +2557,7 @@ class Mutation:
     def upsert_chat_coach_context(
         cls, attributes: CoachContextAttributesInput
     ) -> UpsertChatCoachContextPayloadFields:
-        """Create or update a coach context"""
+        """Creates or updates the chat context for a coach"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "CoachContextAttributesInput!", "value": attributes}
         }
@@ -5732,7 +2572,7 @@ class Mutation:
     def upsert_data_recordings(
         cls, attributes: list[UpsertDataRecordingsAttributes], session_id: str
     ) -> UpsertDataRecordingsPayloadFields:
-        """Add EDGE data recordings to a session or update it"""
+        """Creates or updates data recordings for a session"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {
                 "type": "[UpsertDataRecordingsAttributes!]!",
@@ -5755,1931 +2595,7 @@ class Mutation:
         *,
         session_plan_id: Optional[str] = None,
     ) -> UpsertSessionPlanPayloadFields:
-        """Create or update a session plan"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "SessionPlanAttributesInput!", "value": attributes},
-            "clubId": {"type": "ID!", "value": club_id},
-            "sessionPlanId": {"type": "ID", "value": session_plan_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpsertSessionPlanPayloadFields(
-            field_name="upsertSessionPlan", arguments=cleared_arguments
-        )
-
-
-from playerdatapy.enums import *
-# Generated by ariadne-codegen
-
-from typing import Any, Optional
-
-from .custom_fields import (
-    AccelzonesPayloadFields,
-    AcceptPrivacyPolicyPayloadFields,
-    AddAthleteGroupPayloadFields,
-    AddExistingPersonToClubPayloadFields,
-    AddNewPersonToClubPayloadFields,
-    AddSurveyAnswerPayloadFields,
-    ArchiveClubMemberPayloadFields,
-    ArchivePitchPayloadFields,
-    ArchiveSurveyPayloadFields,
-    AssignDevicePayloadFields,
-    AssignEdgePayloadFields,
-    BulkApprovePayloadFields,
-    ClaimPersonPayloadFields,
-    ClubMutationFields,
-    CreateCustomQuestionDefinitionPayloadFields,
-    CreateDatasetPayloadFields,
-    CreateDeviceSyncPayloadFields,
-    CreateEdgeNamePayloadFields,
-    CreateFlexibleReportChartPayloadFields,
-    CreateFlexibleReportPayloadFields,
-    CreateMatchEventPayloadFields,
-    CreateMatchEventsPayloadFields,
-    CreatePitchPayloadFields,
-    CreateQuestionPayloadFields,
-    CreateReportPayloadFields,
-    CreateResponsePayloadFields,
-    CreateSegmentPayloadFields,
-    CreateSessionPayloadFields,
-    CreateSessionTagDefinitionPayloadFields,
-    CreateSurveyPayloadFields,
-    CreateSurveyTimerTriggerPayloadFields,
-    CreateTagDefinitionPayloadFields,
-    CreateVideoRecordingPayloadFields,
-    DecelzonesPayloadFields,
-    DeleteAccelzonesPayloadFields,
-    DeleteDecelzonesPayloadFields,
-    DeleteHeartRateBoundsPayloadFields,
-    DeleteSpeedzonesPayloadFields,
-    DestroyAppMessagePayloadFields,
-    DestroyAthleteGroupPayloadFields,
-    DestroyCustomQuestionDefinitionPayloadFields,
-    DestroyDatasetPayloadFields,
-    DestroyFlexibleReportChartsPayloadFields,
-    DestroyFlexibleReportsPayloadFields,
-    DestroyMatchEventPayloadFields,
-    DestroyMatchEventsPayloadFields,
-    DestroySegmentPayloadFields,
-    DestroySessionBlueprintPayloadFields,
-    DestroySessionPayloadFields,
-    DestroySessionTagDefinitionPayloadFields,
-    DestroyTagDefinitionPayloadFields,
-    DuplicateFlexibleReportPayloadFields,
-    DuplicateSegmentPayloadFields,
-    DuplicateSessionPayloadFields,
-    DuplicateSurveyPayloadFields,
-    EndEdgeOwnershipPayloadFields,
-    HeartRateBoundsPayloadFields,
-    MarkAppMessageReadPayloadFields,
-    MarkMultipleAppMessagesReadPayloadFields,
-    ProvisionGatewayPayloadFields,
-    RateResponsePayloadFields,
-    RecreateGatewaySessionsPayloadFields,
-    RegisterDevicePayloadFields,
-    RelativeAccelzonesPayloadFields,
-    RelativeDecelzonesPayloadFields,
-    RelativeSpeedzonesPayloadFields,
-    RemoveSurveyTimerTriggerPayloadFields,
-    ResendConfirmationEmailPayloadFields,
-    ResendReportPayloadFields,
-    RespondToDetectedMatchEventPayloadFields,
-    RespondToDetectedMatchEventsPayloadFields,
-    ReviewPendingMemberPayloadFields,
-    RotateLiveDataKeysPayloadFields,
-    SetBenchedPlayersPayloadFields,
-    SetCustomMaxMetricPayloadFields,
-    SpeedzonesPayloadFields,
-    TriggerSessionDetectionV2PayloadFields,
-    UnarchiveClubMemberPayloadFields,
-    UpdateAthleteGroupPayloadFields,
-    UpdateAthletePayloadFields,
-    UpdateClubMemberPayloadFields,
-    UpdateClubSettingsPayloadFields,
-    UpdateCustomQuestionDefinitionPayloadFields,
-    UpdateDatasetPayloadFields,
-    UpdateDevicePayloadFields,
-    UpdateFlexibleReportChartPayloadFields,
-    UpdateFlexibleReportChartPositionPayloadFields,
-    UpdateFlexibleReportPayloadFields,
-    UpdateGatewayOwnershipPayloadFields,
-    UpdateMatchEventPayloadFields,
-    UpdateMatchEventsPayloadFields,
-    UpdatePersonDetailsPayloadFields,
-    UpdatePitchPayloadFields,
-    UpdateSegmentPayloadFields,
-    UpdateSegmentsPayloadFields,
-    UpdateSessionBlueprintPayloadFields,
-    UpdateSessionParticipationsPayloadFields,
-    UpdateSessionPayloadFields,
-    UpdateSessionPositionsPayloadFields,
-    UpdateSessionTagDefinitionPayloadFields,
-    UpdateStaffBillingPayloadFields,
-    UpdateSurveyPayloadFields,
-    UpdateSurveyTimerTriggerPayloadFields,
-    UpdateTagDefinitionPayloadFields,
-    UpdateUserPreferencesPayloadFields,
-    UpsertChatClubContextPayloadFields,
-    UpsertChatCoachContextPayloadFields,
-    UpsertDataRecordingsPayloadFields,
-    UpsertSessionPlanPayloadFields,
-)
-from .input_types import (
-    AthleteAccelzoneAttributes,
-    AthleteDecelzoneAttributes,
-    AthleteGroupAttributes,
-    AthleteHeartRateBoundsAttributes,
-    AthleteRelativeAccelzoneAttributes,
-    AthleteRelativeDecelzoneAttributes,
-    AthleteSpeedzoneAttributes,
-    BulkUpdateMatchEventAttributes,
-    ClaimPersonAttributes,
-    ClubContextAttributes,
-    CoachContextAttributesInput,
-    CreateDeviceSyncInput,
-    CreateFlexibleReportChartAttributes,
-    CustomQuestionDefinitionAttributes,
-    DatasetAttributes,
-    DeviceAttributes,
-    DuplicateSessionAttributes,
-    FlexibleReportAttributes,
-    GatewaySessionAttributes,
-    MatchEventAttributes,
-    MutateSessionAttributes,
-    MutateSessionBlueprintAttributes,
-    NewPersonAttributes,
-    PitchAttributes,
-    RelativeSpeedzoneAttributes,
-    ReportAttributes,
-    SegmentAttributes,
-    SegmentPatch,
-    SessionParticipationAttributes,
-    SessionPlanAttributesInput,
-    SessionPositionsAttributes,
-    SessionTagDefinitionAttributes,
-    SurveyAnswerAttributes,
-    SurveyAttributes,
-    SurveyTimerTriggerAttributes,
-    TagDefinitionAttributes,
-    TaggerAttributes,
-    UpdateAthleteAttributes,
-    UpdateClubMemberAttributes,
-    UpdateClubSettingsAttributes,
-    UpdateDatasetAttributes,
-    UpdateFlexibleReportAttributes,
-    UpdateFlexibleReportChartAttributes,
-    UpdateGatewayOwnershipAttributes,
-    UpdatePersonAttributes,
-    UpdateStaffBillingAttributes,
-    UpdateUserPreferencesAttributes,
-    UpsertDataRecordingsAttributes,
-    VideoRecordingAttributes,
-)
-
-
-class Mutation:
-    @classmethod
-    def accept_privacy_policy(cls, policy_id: str) -> AcceptPrivacyPolicyPayloadFields:
-        """Accept a privacy policy change"""
-        arguments: dict[str, dict[str, Any]] = {
-            "policyId": {"type": "ID!", "value": policy_id}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AcceptPrivacyPolicyPayloadFields(
-            field_name="acceptPrivacyPolicy", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def add_athlete_group(
-        cls, attributes: AthleteGroupAttributes
-    ) -> AddAthleteGroupPayloadFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "AthleteGroupAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AddAthleteGroupPayloadFields(
-            field_name="addAthleteGroup", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def add_existing_person_to_club(
-        cls,
-        signup_token: str,
-        *,
-        person_attributes: Optional[UpdatePersonAttributes] = None,
-    ) -> AddExistingPersonToClubPayloadFields:
-        """Adds an existing Person to a Club"""
-        arguments: dict[str, dict[str, Any]] = {
-            "personAttributes": {
-                "type": "UpdatePersonAttributes",
-                "value": person_attributes,
-            },
-            "signupToken": {"type": "String!", "value": signup_token},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AddExistingPersonToClubPayloadFields(
-            field_name="addExistingPersonToClub", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def add_new_person_to_club(
-        cls, attributes: NewPersonAttributes
-    ) -> AddNewPersonToClubPayloadFields:
-        """Adds a new Person to a Club"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "NewPersonAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AddNewPersonToClubPayloadFields(
-            field_name="addNewPersonToClub", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def add_survey_answer(
-        cls, attributes: SurveyAnswerAttributes
-    ) -> AddSurveyAnswerPayloadFields:
-        """Answer a survey question"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "SurveyAnswerAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AddSurveyAnswerPayloadFields(
-            field_name="addSurveyAnswer", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def approve_all_pending_members(cls, ids: list[str]) -> BulkApprovePayloadFields:
-        """Bulk approve of pending members, returning the approved athletes."""
-        arguments: dict[str, dict[str, Any]] = {"ids": {"type": "[ID!]!", "value": ids}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return BulkApprovePayloadFields(
-            field_name="approveAllPendingMembers", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def archive_club_member(
-        cls, club_id: str, id: str
-    ) -> ArchiveClubMemberPayloadFields:
-        """A Mutation Performed by Club Staff on a Club Member"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID!", "value": club_id},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ArchiveClubMemberPayloadFields(
-            field_name="archiveClubMember", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def archive_pitch(cls, id: str) -> ArchivePitchPayloadFields:
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ArchivePitchPayloadFields(
-            field_name="archivePitch", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def archive_survey(cls, id: str) -> ArchiveSurveyPayloadFields:
-        """Archive a survey"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ArchiveSurveyPayloadFields(
-            field_name="archiveSurvey", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def assign_device(
-        cls,
-        owner_id: str,
-        owner_type: DeviceOwnerType,
-        serial_number: Any,
-        type_: DeviceTypeEnum,
-    ) -> AssignDevicePayloadFields:
-        """Assign a device to an owner"""
-        arguments: dict[str, dict[str, Any]] = {
-            "ownerId": {"type": "ID!", "value": owner_id},
-            "ownerType": {"type": "DeviceOwnerType!", "value": owner_type},
-            "serialNumber": {"type": "BigInt!", "value": serial_number},
-            "type": {"type": "DeviceTypeEnum!", "value": type_},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AssignDevicePayloadFields(
-            field_name="assignDevice", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def assign_edge(
-        cls, edge_id: str, owner_id: str, owner_type: EdgeOwnerType
-    ) -> AssignEdgePayloadFields:
-        """Assign an edge to an owner"""
-        arguments: dict[str, dict[str, Any]] = {
-            "edgeId": {"type": "ID!", "value": edge_id},
-            "ownerId": {"type": "ID!", "value": owner_id},
-            "ownerType": {"type": "EdgeOwnerType!", "value": owner_type},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AssignEdgePayloadFields(
-            field_name="assignEdge", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_accelzones(
-        cls, attributes: AthleteAccelzoneAttributes, *, reprocess: Optional[bool] = None
-    ) -> AccelzonesPayloadFields:
-        """Bulk update of athlete accelzones"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "AthleteAccelzoneAttributes!", "value": attributes},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AccelzonesPayloadFields(
-            field_name="athletesAccelzones", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_decelzones(
-        cls, attributes: AthleteDecelzoneAttributes, *, reprocess: Optional[bool] = None
-    ) -> DecelzonesPayloadFields:
-        """Bulk update of athlete decelzones"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "AthleteDecelzoneAttributes!", "value": attributes},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DecelzonesPayloadFields(
-            field_name="athletesDecelzones", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_delete_accelzones(
-        cls, athlete_ids: list[str], *, reprocess: Optional[bool] = None
-    ) -> DeleteAccelzonesPayloadFields:
-        """Bulk delete of athlete accelzones"""
-        arguments: dict[str, dict[str, Any]] = {
-            "athleteIds": {"type": "[ID!]!", "value": athlete_ids},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DeleteAccelzonesPayloadFields(
-            field_name="athletesDeleteAccelzones", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_delete_decelzones(
-        cls, athlete_ids: list[str], *, reprocess: Optional[bool] = None
-    ) -> DeleteDecelzonesPayloadFields:
-        """Bulk delete of athlete decelzones"""
-        arguments: dict[str, dict[str, Any]] = {
-            "athleteIds": {"type": "[ID!]!", "value": athlete_ids},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DeleteDecelzonesPayloadFields(
-            field_name="athletesDeleteDecelzones", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_delete_heart_rate_bounds(
-        cls, athlete_ids: list[str], *, reprocess: Optional[bool] = None
-    ) -> DeleteHeartRateBoundsPayloadFields:
-        """Bulk delete of athlete heart rate bounds"""
-        arguments: dict[str, dict[str, Any]] = {
-            "athleteIds": {"type": "[ID!]!", "value": athlete_ids},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DeleteHeartRateBoundsPayloadFields(
-            field_name="athletesDeleteHeartRateBounds", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_delete_speedzones(
-        cls, athlete_ids: list[str], *, reprocess: Optional[bool] = None
-    ) -> DeleteSpeedzonesPayloadFields:
-        """Bulk delete of athlete speedzones"""
-        arguments: dict[str, dict[str, Any]] = {
-            "athleteIds": {"type": "[ID!]!", "value": athlete_ids},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DeleteSpeedzonesPayloadFields(
-            field_name="athletesDeleteSpeedzones", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_heart_rate_bounds(
-        cls,
-        attributes: AthleteHeartRateBoundsAttributes,
-        *,
-        reprocess: Optional[bool] = None,
-    ) -> HeartRateBoundsPayloadFields:
-        """Bulk update of athlete heart rate bounds"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "AthleteHeartRateBoundsAttributes!",
-                "value": attributes,
-            },
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return HeartRateBoundsPayloadFields(
-            field_name="athletesHeartRateBounds", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_relative_accelzones(
-        cls,
-        attributes: AthleteRelativeAccelzoneAttributes,
-        *,
-        reprocess: Optional[bool] = None,
-    ) -> RelativeAccelzonesPayloadFields:
-        """Bulk update of athlete relative accelzones"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "AthleteRelativeAccelzoneAttributes!",
-                "value": attributes,
-            },
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RelativeAccelzonesPayloadFields(
-            field_name="athletesRelativeAccelzones", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_relative_decelzones(
-        cls,
-        attributes: AthleteRelativeDecelzoneAttributes,
-        *,
-        reprocess: Optional[bool] = None,
-    ) -> RelativeDecelzonesPayloadFields:
-        """Bulk update of athlete relative decelzones"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "AthleteRelativeDecelzoneAttributes!",
-                "value": attributes,
-            },
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RelativeDecelzonesPayloadFields(
-            field_name="athletesRelativeDecelzones", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_relative_speedzones(
-        cls,
-        attributes: RelativeSpeedzoneAttributes,
-        *,
-        reprocess: Optional[bool] = None,
-    ) -> RelativeSpeedzonesPayloadFields:
-        """Bulk update of athlete speedzones"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "RelativeSpeedzoneAttributes!", "value": attributes},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RelativeSpeedzonesPayloadFields(
-            field_name="athletesRelativeSpeedzones", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athletes_speedzones(
-        cls, attributes: AthleteSpeedzoneAttributes, *, reprocess: Optional[bool] = None
-    ) -> SpeedzonesPayloadFields:
-        """Bulk update of athlete speedzones"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "AthleteSpeedzoneAttributes!", "value": attributes},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SpeedzonesPayloadFields(
-            field_name="athletesSpeedzones", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def claim_person(
-        cls, attributes: ClaimPersonAttributes
-    ) -> ClaimPersonPayloadFields:
-        """mutation for claiming an Athlete"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "ClaimPersonAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ClaimPersonPayloadFields(
-            field_name="claimPerson", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def club(cls, id: str) -> ClubMutationFields:
-        """The club to perform mutations on"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ClubMutationFields(field_name="club", arguments=cleared_arguments)
-
-    @classmethod
-    def create_chat_response(
-        cls, question_id: str, response: str
-    ) -> CreateResponsePayloadFields:
-        """Respond to a question"""
-        arguments: dict[str, dict[str, Any]] = {
-            "questionId": {"type": "ID!", "value": question_id},
-            "response": {"type": "String!", "value": response},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateResponsePayloadFields(
-            field_name="createChatResponse", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_custom_question_definition(
-        cls, attributes: CustomQuestionDefinitionAttributes, club_id: str
-    ) -> CreateCustomQuestionDefinitionPayloadFields:
-        """Create a custom question definition"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "CustomQuestionDefinitionAttributes!",
-                "value": attributes,
-            },
-            "clubId": {"type": "ID!", "value": club_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateCustomQuestionDefinitionPayloadFields(
-            field_name="createCustomQuestionDefinition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_dataset(
-        cls, attributes: DatasetAttributes
-    ) -> CreateDatasetPayloadFields:
-        """Create a dataset"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "DatasetAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateDatasetPayloadFields(
-            field_name="createDataset", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_device_sync(
-        cls, input: CreateDeviceSyncInput
-    ) -> CreateDeviceSyncPayloadFields:
-        """Create a DeviceSync with an uploaded file blob"""
-        arguments: dict[str, dict[str, Any]] = {
-            "input": {"type": "CreateDeviceSyncInput!", "value": input}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateDeviceSyncPayloadFields(
-            field_name="createDeviceSync", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_edge_name(cls, edge_id: str, name: str) -> CreateEdgeNamePayloadFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "edgeId": {"type": "ID!", "value": edge_id},
-            "name": {"type": "String!", "value": name},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateEdgeNamePayloadFields(
-            field_name="createEdgeName", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_flexible_report(
-        cls, attributes: FlexibleReportAttributes
-    ) -> CreateFlexibleReportPayloadFields:
-        """create a FlexibleReport along with its dataset"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "FlexibleReportAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateFlexibleReportPayloadFields(
-            field_name="createFlexibleReport", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_flexible_report_chart(
-        cls, attributes: CreateFlexibleReportChartAttributes
-    ) -> CreateFlexibleReportChartPayloadFields:
-        """Create a flexible report chart"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "CreateFlexibleReportChartAttributes!",
-                "value": attributes,
-            }
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateFlexibleReportChartPayloadFields(
-            field_name="createFlexibleReportChart", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_match_event(
-        cls, attributes: MatchEventAttributes, session_id: str
-    ) -> CreateMatchEventPayloadFields:
-        """Create a match event"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "MatchEventAttributes!", "value": attributes},
-            "sessionId": {"type": "ID!", "value": session_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateMatchEventPayloadFields(
-            field_name="createMatchEvent", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_match_events(
-        cls, attributes: list[MatchEventAttributes], session_id: str
-    ) -> CreateMatchEventsPayloadFields:
-        """Create match events"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "[MatchEventAttributes!]!", "value": attributes},
-            "sessionId": {"type": "ID!", "value": session_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateMatchEventsPayloadFields(
-            field_name="createMatchEvents", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_pitch(
-        cls,
-        attributes: PitchAttributes,
-        *,
-        club_id: Optional[str] = None,
-        detected_session_id: Optional[str] = None,
-        owner_id: Optional[str] = None,
-        owner_type: Optional[OwnerEnum] = None,
-    ) -> CreatePitchPayloadFields:
-        """Define a new pitch"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "PitchAttributes!", "value": attributes},
-            "clubId": {"type": "ID", "value": club_id},
-            "detectedSessionId": {"type": "ID", "value": detected_session_id},
-            "ownerId": {"type": "ID", "value": owner_id},
-            "ownerType": {"type": "OwnerEnum", "value": owner_type},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreatePitchPayloadFields(
-            field_name="createPitch", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_question(
-        cls, question: str, staff_id: str
-    ) -> CreateQuestionPayloadFields:
-        """Ask a question"""
-        arguments: dict[str, dict[str, Any]] = {
-            "question": {"type": "String!", "value": question},
-            "staffId": {"type": "ID!", "value": staff_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateQuestionPayloadFields(
-            field_name="createQuestion", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_report(cls, attributes: ReportAttributes) -> CreateReportPayloadFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "ReportAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateReportPayloadFields(
-            field_name="createReport", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_session(
-        cls, attributes: MutateSessionAttributes
-    ) -> CreateSessionPayloadFields:
-        """Create a Training/Match session"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "MutateSessionAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateSessionPayloadFields(
-            field_name="createSession", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_session_segment(
-        cls, attributes: SegmentAttributes, *, id: Optional[str] = None
-    ) -> CreateSegmentPayloadFields:
-        """Create a session segment"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "SegmentAttributes!", "value": attributes},
-            "id": {"type": "ID", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateSegmentPayloadFields(
-            field_name="createSessionSegment", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_session_tag_definition(
-        cls, attributes: SessionTagDefinitionAttributes, club_id: str
-    ) -> CreateSessionTagDefinitionPayloadFields:
-        """Create a session tag definition"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "SessionTagDefinitionAttributes!",
-                "value": attributes,
-            },
-            "clubId": {"type": "ID!", "value": club_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateSessionTagDefinitionPayloadFields(
-            field_name="createSessionTagDefinition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_survey(
-        cls, attributes: SurveyAttributes, club_id: str
-    ) -> CreateSurveyPayloadFields:
-        """Create a new survey"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "SurveyAttributes!", "value": attributes},
-            "clubId": {"type": "ID!", "value": club_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateSurveyPayloadFields(
-            field_name="createSurvey", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_survey_timer_trigger(
-        cls, attributes: SurveyTimerTriggerAttributes
-    ) -> CreateSurveyTimerTriggerPayloadFields:
-        """Create a timer trigger for distributing surveys"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "SurveyTimerTriggerAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateSurveyTimerTriggerPayloadFields(
-            field_name="createSurveyTimerTrigger", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_tag_definition(
-        cls, attributes: TagDefinitionAttributes, tagger: TaggerAttributes
-    ) -> CreateTagDefinitionPayloadFields:
-        """Create a tag definition"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "TagDefinitionAttributes!", "value": attributes},
-            "tagger": {"type": "TaggerAttributes!", "value": tagger},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateTagDefinitionPayloadFields(
-            field_name="createTagDefinition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_video_recording(
-        cls, attributes: VideoRecordingAttributes
-    ) -> CreateVideoRecordingPayloadFields:
-        """Create a video recording record ready for camera upload"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "VideoRecordingAttributes!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreateVideoRecordingPayloadFields(
-            field_name="createVideoRecording", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_athlete_group(cls, group_id: str) -> DestroyAthleteGroupPayloadFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "groupId": {"type": "ID!", "value": group_id}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroyAthleteGroupPayloadFields(
-            field_name="destroyAthleteGroup", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_custom_question_definition(
-        cls, club_id: str, id: str
-    ) -> DestroyCustomQuestionDefinitionPayloadFields:
-        """Destroy Custom Question Definition"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID!", "value": club_id},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroyCustomQuestionDefinitionPayloadFields(
-            field_name="destroyCustomQuestionDefinition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_dataset(cls, id: str) -> DestroyDatasetPayloadFields:
-        """Destroy a Dataset"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroyDatasetPayloadFields(
-            field_name="destroyDataset", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_flexible_report_charts(
-        cls, chart_ids: list[str]
-    ) -> DestroyFlexibleReportChartsPayloadFields:
-        """destroy flexible report charts given an array of FlexibleReportChart ids"""
-        arguments: dict[str, dict[str, Any]] = {
-            "chartIds": {"type": "[ID!]!", "value": chart_ids}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroyFlexibleReportChartsPayloadFields(
-            field_name="destroyFlexibleReportCharts", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_flexible_reports(
-        cls, report_ids: list[str]
-    ) -> DestroyFlexibleReportsPayloadFields:
-        """destroy flexible reports given an array of FlexibleReport ids"""
-        arguments: dict[str, dict[str, Any]] = {
-            "reportIds": {"type": "[ID!]!", "value": report_ids}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroyFlexibleReportsPayloadFields(
-            field_name="destroyFlexibleReports", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_match_event(cls, id: str) -> DestroyMatchEventPayloadFields:
-        """Destroy a match event"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroyMatchEventPayloadFields(
-            field_name="destroyMatchEvent", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_match_events(cls, ids: list[str]) -> DestroyMatchEventsPayloadFields:
-        """Destroy match events"""
-        arguments: dict[str, dict[str, Any]] = {"ids": {"type": "[ID!]!", "value": ids}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroyMatchEventsPayloadFields(
-            field_name="destroyMatchEvents", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_session(cls, id: str) -> DestroySessionPayloadFields:
-        """Destroy a session"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroySessionPayloadFields(
-            field_name="destroySession", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_session_blueprint(cls, id: str) -> DestroySessionBlueprintPayloadFields:
-        """Destroy a session blueprint"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroySessionBlueprintPayloadFields(
-            field_name="destroySessionBlueprint", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_session_segment(cls, id: str) -> DestroySegmentPayloadFields:
-        """Destroy a session segment"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroySegmentPayloadFields(
-            field_name="destroySessionSegment", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_session_tag_definition(
-        cls, id: str
-    ) -> DestroySessionTagDefinitionPayloadFields:
-        """Destroy a session tag definition"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroySessionTagDefinitionPayloadFields(
-            field_name="destroySessionTagDefinition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def destroy_tag_definition(cls, id: str) -> DestroyTagDefinitionPayloadFields:
-        """Destroy a tag definition"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroyTagDefinitionPayloadFields(
-            field_name="destroyTagDefinition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def dismiss_app_message(cls, id: str) -> DestroyAppMessagePayloadFields:
-        """Destroy an app message"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DestroyAppMessagePayloadFields(
-            field_name="dismissAppMessage", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def duplicate_flexible_report(
-        cls, club_id: str, id: str
-    ) -> DuplicateFlexibleReportPayloadFields:
-        """duplicate a FlexibleReport"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID!", "value": club_id},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DuplicateFlexibleReportPayloadFields(
-            field_name="duplicateFlexibleReport", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def duplicate_session(
-        cls, attributes: DuplicateSessionAttributes, id: str
-    ) -> DuplicateSessionPayloadFields:
-        """Duplicate a Training/Match session"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "DuplicateSessionAttributes!", "value": attributes},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DuplicateSessionPayloadFields(
-            field_name="duplicateSession", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def duplicate_session_segment(cls, id: str) -> DuplicateSegmentPayloadFields:
-        """Duplicate a session segment, retaining its boundary times"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DuplicateSegmentPayloadFields(
-            field_name="duplicateSessionSegment", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def duplicate_survey(
-        cls, attributes: SurveyAttributes, club_id: str, id: str
-    ) -> DuplicateSurveyPayloadFields:
-        """Duplicate an existing survey with a new title and ID"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "SurveyAttributes!", "value": attributes},
-            "clubId": {"type": "ID!", "value": club_id},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DuplicateSurveyPayloadFields(
-            field_name="duplicateSurvey", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def end_edge_ownership(cls, edge_id: str) -> EndEdgeOwnershipPayloadFields:
-        """End an edge's ownership"""
-        arguments: dict[str, dict[str, Any]] = {
-            "edgeId": {"type": "ID!", "value": edge_id}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return EndEdgeOwnershipPayloadFields(
-            field_name="endEdgeOwnership", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def mark_app_message_read(cls, id: str) -> MarkAppMessageReadPayloadFields:
-        """Mark an app message as read"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return MarkAppMessageReadPayloadFields(
-            field_name="markAppMessageRead", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def mark_multiple_app_messages_read(
-        cls, ids: list[str]
-    ) -> MarkMultipleAppMessagesReadPayloadFields:
-        """Mark multiple app messages as read"""
-        arguments: dict[str, dict[str, Any]] = {"ids": {"type": "[ID!]!", "value": ids}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return MarkMultipleAppMessagesReadPayloadFields(
-            field_name="markMultipleAppMessagesRead", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def provision_gateway(
-        cls, csr: str, firmware_version: str, organisation_id: str, serial_number: str
-    ) -> ProvisionGatewayPayloadFields:
-        """Set up a gateway for use by the provided organisation"""
-        arguments: dict[str, dict[str, Any]] = {
-            "csr": {"type": "String!", "value": csr},
-            "firmwareVersion": {"type": "String!", "value": firmware_version},
-            "organisationId": {"type": "ID!", "value": organisation_id},
-            "serialNumber": {"type": "String!", "value": serial_number},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ProvisionGatewayPayloadFields(
-            field_name="provisionGateway", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def rate_chat_response(
-        cls,
-        response_id: str,
-        *,
-        rating: Optional[RatingEnum] = None,
-        rating_explanation: Optional[str] = None,
-    ) -> RateResponsePayloadFields:
-        """Rate a chat response"""
-        arguments: dict[str, dict[str, Any]] = {
-            "rating": {"type": "RatingEnum", "value": rating},
-            "ratingExplanation": {"type": "String", "value": rating_explanation},
-            "responseId": {"type": "ID!", "value": response_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RateResponsePayloadFields(
-            field_name="rateChatResponse", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def recreate_gateway_sessions(
-        cls,
-        attributes: list[GatewaySessionAttributes],
-        *,
-        session_id: Optional[str] = None,
-    ) -> RecreateGatewaySessionsPayloadFields:
-        """Recreates gateway sessions for a given gateway ownership and session."""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "[GatewaySessionAttributes!]!", "value": attributes},
-            "sessionId": {"type": "ID", "value": session_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RecreateGatewaySessionsPayloadFields(
-            field_name="recreateGatewaySessions", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def register_device(
-        cls, firebase_token: str, *, platform: Optional[Platform] = None
-    ) -> RegisterDevicePayloadFields:
-        """Register a mobile device"""
-        arguments: dict[str, dict[str, Any]] = {
-            "firebaseToken": {"type": "String!", "value": firebase_token},
-            "platform": {"type": "Platform", "value": platform},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RegisterDevicePayloadFields(
-            field_name="registerDevice", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def remove_survey_timer_trigger(
-        cls, survey_timer_trigger_id: str
-    ) -> RemoveSurveyTimerTriggerPayloadFields:
-        """Remove a timer trigger"""
-        arguments: dict[str, dict[str, Any]] = {
-            "surveyTimerTriggerId": {"type": "ID!", "value": survey_timer_trigger_id}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RemoveSurveyTimerTriggerPayloadFields(
-            field_name="removeSurveyTimerTrigger", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def resend_pending_member_confirmation_email(
-        cls, id: str
-    ) -> ResendConfirmationEmailPayloadFields:
-        """Resend the confirmation email to a PendingMember."""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ResendConfirmationEmailPayloadFields(
-            field_name="resendPendingMemberConfirmationEmail",
-            arguments=cleared_arguments,
-        )
-
-    @classmethod
-    def resend_report(
-        cls, report_id: str, *, regenerate: Optional[bool] = None
-    ) -> ResendReportPayloadFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "regenerate": {"type": "Boolean", "value": regenerate},
-            "reportId": {"type": "ID!", "value": report_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ResendReportPayloadFields(
-            field_name="resendReport", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def respond_to_detected_match_event(
-        cls, accept_event: bool, id: str
-    ) -> RespondToDetectedMatchEventPayloadFields:
-        """Confirm or Dismiss a detected match event"""
-        arguments: dict[str, dict[str, Any]] = {
-            "acceptEvent": {"type": "Boolean!", "value": accept_event},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RespondToDetectedMatchEventPayloadFields(
-            field_name="respondToDetectedMatchEvent", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def respond_to_detected_match_events(
-        cls, accept_event: bool, ids: list[str]
-    ) -> RespondToDetectedMatchEventsPayloadFields:
-        """Confirm or Dismiss a set of detected match events"""
-        arguments: dict[str, dict[str, Any]] = {
-            "acceptEvent": {"type": "Boolean!", "value": accept_event},
-            "ids": {"type": "[ID!]!", "value": ids},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RespondToDetectedMatchEventsPayloadFields(
-            field_name="respondToDetectedMatchEvents", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def review_pending_member(
-        cls, approved: bool, id: str
-    ) -> ReviewPendingMemberPayloadFields:
-        """Approve or reject a PendingMember returning an Athlete or nothing."""
-        arguments: dict[str, dict[str, Any]] = {
-            "approved": {"type": "Boolean!", "value": approved},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ReviewPendingMemberPayloadFields(
-            field_name="reviewPendingMember", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def rotate_live_data_keys(cls, club_id: str) -> RotateLiveDataKeysPayloadFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID!", "value": club_id}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RotateLiveDataKeysPayloadFields(
-            field_name="rotateLiveDataKeys", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def set_benched_players(
-        cls, match_session_participations: list[str], session_id: str
-    ) -> SetBenchedPlayersPayloadFields:
-        """set which players did not start in a match, other athletes on the session will be marked as starters"""
-        arguments: dict[str, dict[str, Any]] = {
-            "matchSessionParticipations": {
-                "type": "[ID!]!",
-                "value": match_session_participations,
-            },
-            "sessionId": {"type": "ID!", "value": session_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SetBenchedPlayersPayloadFields(
-            field_name="setBenchedPlayers", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def set_custom_max_metric(
-        cls,
-        athlete_ids: list[str],
-        metric: CustomMaxMetricEnum,
-        *,
-        reprocess: Optional[bool] = None,
-        value: Optional[float] = None,
-    ) -> SetCustomMaxMetricPayloadFields:
-        """Bulk update of a single custom max metric on athletes"""
-        arguments: dict[str, dict[str, Any]] = {
-            "athleteIds": {"type": "[ID!]!", "value": athlete_ids},
-            "metric": {"type": "CustomMaxMetricEnum!", "value": metric},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-            "value": {"type": "Float", "value": value},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SetCustomMaxMetricPayloadFields(
-            field_name="setCustomMaxMetric", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def trigger_session_detection_v_2(
-        cls, edge_ids: list[str]
-    ) -> TriggerSessionDetectionV2PayloadFields:
-        """Trigger the session detection v2 job"""
-        arguments: dict[str, dict[str, Any]] = {
-            "edgeIds": {"type": "[String!]!", "value": edge_ids}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return TriggerSessionDetectionV2PayloadFields(
-            field_name="triggerSessionDetectionV2", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def unarchive_club_member(
-        cls, club_id: str, id: str
-    ) -> UnarchiveClubMemberPayloadFields:
-        """A Mutation Performed by Club Staff on a Club Member"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID!", "value": club_id},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UnarchiveClubMemberPayloadFields(
-            field_name="unarchiveClubMember", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_athlete(
-        cls, athlete_id: str, attributes: UpdateAthleteAttributes
-    ) -> UpdateAthletePayloadFields:
-        """Update athlete's information"""
-        arguments: dict[str, dict[str, Any]] = {
-            "athleteId": {"type": "ID!", "value": athlete_id},
-            "attributes": {"type": "UpdateAthleteAttributes!", "value": attributes},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateAthletePayloadFields(
-            field_name="updateAthlete", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_athlete_group(
-        cls, attributes: AthleteGroupAttributes, group_id: str
-    ) -> UpdateAthleteGroupPayloadFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "AthleteGroupAttributes!", "value": attributes},
-            "groupId": {"type": "ID!", "value": group_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateAthleteGroupPayloadFields(
-            field_name="updateAthleteGroup", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_club_member(
-        cls, attributes: UpdateClubMemberAttributes, club_id: str, id: str
-    ) -> UpdateClubMemberPayloadFields:
-        """Update a club member's information"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "UpdateClubMemberAttributes!", "value": attributes},
-            "clubId": {"type": "ID!", "value": club_id},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateClubMemberPayloadFields(
-            field_name="updateClubMember", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_club_settings(
-        cls,
-        attributes: UpdateClubSettingsAttributes,
-        club_id: str,
-        *,
-        reprocess: Optional[bool] = None,
-    ) -> UpdateClubSettingsPayloadFields:
-        """Update settings for a club"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "UpdateClubSettingsAttributes!",
-                "value": attributes,
-            },
-            "clubId": {"type": "ID!", "value": club_id},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateClubSettingsPayloadFields(
-            field_name="updateClubSettings", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_custom_question_definition(
-        cls, attributes: CustomQuestionDefinitionAttributes, club_id: str, id: str
-    ) -> UpdateCustomQuestionDefinitionPayloadFields:
-        """Update a custom question definition"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "CustomQuestionDefinitionAttributes!",
-                "value": attributes,
-            },
-            "clubId": {"type": "ID!", "value": club_id},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateCustomQuestionDefinitionPayloadFields(
-            field_name="updateCustomQuestionDefinition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_dataset(
-        cls, attributes: UpdateDatasetAttributes, id: str
-    ) -> UpdateDatasetPayloadFields:
-        """update a Dataset"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "UpdateDatasetAttributes!", "value": attributes},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateDatasetPayloadFields(
-            field_name="updateDataset", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_device(
-        cls, attributes: DeviceAttributes, serial_number: Any, type_: DeviceTypeEnum
-    ) -> UpdateDevicePayloadFields:
-        """Update the attributes for a device"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "DeviceAttributes!", "value": attributes},
-            "serialNumber": {"type": "BigInt!", "value": serial_number},
-            "type": {"type": "DeviceTypeEnum!", "value": type_},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateDevicePayloadFields(
-            field_name="updateDevice", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_flexible_report(
-        cls, attributes: UpdateFlexibleReportAttributes, id: str
-    ) -> UpdateFlexibleReportPayloadFields:
-        """update a FlexibleReport"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "UpdateFlexibleReportAttributes!",
-                "value": attributes,
-            },
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateFlexibleReportPayloadFields(
-            field_name="updateFlexibleReport", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_flexible_report_chart(
-        cls, attributes: UpdateFlexibleReportChartAttributes, id: str
-    ) -> UpdateFlexibleReportChartPayloadFields:
-        """Update a flexible report chart"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "UpdateFlexibleReportChartAttributes!",
-                "value": attributes,
-            },
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateFlexibleReportChartPayloadFields(
-            field_name="updateFlexibleReportChart", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_flexible_report_chart_position(
-        cls, id: str, position: int
-    ) -> UpdateFlexibleReportChartPositionPayloadFields:
-        """Update position of a flexible report chart and reorder other charts accordingly"""
-        arguments: dict[str, dict[str, Any]] = {
-            "id": {"type": "ID!", "value": id},
-            "position": {"type": "Int!", "value": position},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateFlexibleReportChartPositionPayloadFields(
-            field_name="updateFlexibleReportChartPosition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_gateway_ownership(
-        cls, attributes: UpdateGatewayOwnershipAttributes, id: str
-    ) -> UpdateGatewayOwnershipPayloadFields:
-        """Update a gateway ownership's name"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "UpdateGatewayOwnershipAttributes!",
-                "value": attributes,
-            },
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateGatewayOwnershipPayloadFields(
-            field_name="updateGatewayOwnership", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_match_event(
-        cls, attributes: MatchEventAttributes, id: str
-    ) -> UpdateMatchEventPayloadFields:
-        """Update a match event"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "MatchEventAttributes!", "value": attributes},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateMatchEventPayloadFields(
-            field_name="updateMatchEvent", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_match_events(
-        cls, attributes: list[BulkUpdateMatchEventAttributes]
-    ) -> UpdateMatchEventsPayloadFields:
-        """Update match events"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "[BulkUpdateMatchEventAttributes!]!",
-                "value": attributes,
-            }
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateMatchEventsPayloadFields(
-            field_name="updateMatchEvents", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_person_details(
-        cls,
-        attributes: UpdatePersonAttributes,
-        id: str,
-        *,
-        reprocess: Optional[bool] = None,
-    ) -> UpdatePersonDetailsPayloadFields:
-        """Updates a person's details"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "UpdatePersonAttributes!", "value": attributes},
-            "id": {"type": "ID!", "value": id},
-            "reprocess": {"type": "Boolean", "value": reprocess},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdatePersonDetailsPayloadFields(
-            field_name="updatePersonDetails", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_pitch(
-        cls, attributes: PitchAttributes, pitch_id: str
-    ) -> UpdatePitchPayloadFields:
-        """Update a pitch"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "PitchAttributes!", "value": attributes},
-            "pitchId": {"type": "ID!", "value": pitch_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdatePitchPayloadFields(
-            field_name="updatePitch", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_session(
-        cls, attributes: MutateSessionAttributes, id: str
-    ) -> UpdateSessionPayloadFields:
-        """Update a Training/Match session"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "MutateSessionAttributes!", "value": attributes},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateSessionPayloadFields(
-            field_name="updateSession", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_session_blueprint(
-        cls, attributes: MutateSessionBlueprintAttributes, id: str
-    ) -> UpdateSessionBlueprintPayloadFields:
-        """Update a session blueprint"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "MutateSessionBlueprintAttributes!",
-                "value": attributes,
-            },
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateSessionBlueprintPayloadFields(
-            field_name="updateSessionBlueprint", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_session_participations(
-        cls, attributes: list[SessionParticipationAttributes]
-    ) -> UpdateSessionParticipationsPayloadFields:
-        """Update session participations"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "[SessionParticipationAttributes!]!",
-                "value": attributes,
-            }
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateSessionParticipationsPayloadFields(
-            field_name="updateSessionParticipations", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_session_positions(
-        cls, attributes: SessionPositionsAttributes, id: str
-    ) -> UpdateSessionPositionsPayloadFields:
-        """Session positions"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "SessionPositionsAttributes!", "value": attributes},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateSessionPositionsPayloadFields(
-            field_name="updateSessionPositions", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_session_segment(
-        cls,
-        id: str,
-        *,
-        attributes: Optional[SegmentAttributes] = None,
-        patch: Optional[SegmentPatch] = None,
-    ) -> UpdateSegmentPayloadFields:
-        """Update a session segment"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "SegmentAttributes", "value": attributes},
-            "id": {"type": "ID!", "value": id},
-            "patch": {"type": "SegmentPatch", "value": patch},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateSegmentPayloadFields(
-            field_name="updateSessionSegment", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_session_segments(
-        cls, patches: list[SegmentPatch]
-    ) -> UpdateSegmentsPayloadFields:
-        """Update session segments"""
-        arguments: dict[str, dict[str, Any]] = {
-            "patches": {"type": "[SegmentPatch!]!", "value": patches}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateSegmentsPayloadFields(
-            field_name="updateSessionSegments", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_session_tag_definition(
-        cls, attributes: SessionTagDefinitionAttributes, id: str
-    ) -> UpdateSessionTagDefinitionPayloadFields:
-        """Update a session tag definition"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "SessionTagDefinitionAttributes!",
-                "value": attributes,
-            },
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateSessionTagDefinitionPayloadFields(
-            field_name="updateSessionTagDefinition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_staff_billing(
-        cls, attributes: list[UpdateStaffBillingAttributes]
-    ) -> UpdateStaffBillingPayloadFields:
-        """Update which staff have access to billing details"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "[UpdateStaffBillingAttributes!]!",
-                "value": attributes,
-            }
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateStaffBillingPayloadFields(
-            field_name="updateStaffBilling", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_survey(
-        cls, attributes: SurveyAttributes, id: str
-    ) -> UpdateSurveyPayloadFields:
-        """Update a survey"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "SurveyAttributes!", "value": attributes},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateSurveyPayloadFields(
-            field_name="updateSurvey", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_survey_timer_trigger(
-        cls, attributes: SurveyTimerTriggerAttributes, survey_timer_trigger_id: str
-    ) -> UpdateSurveyTimerTriggerPayloadFields:
-        """Update a timer trigger"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "SurveyTimerTriggerAttributes!",
-                "value": attributes,
-            },
-            "surveyTimerTriggerId": {"type": "ID!", "value": survey_timer_trigger_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateSurveyTimerTriggerPayloadFields(
-            field_name="updateSurveyTimerTrigger", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_tag_definition(
-        cls, attributes: TagDefinitionAttributes, id: str
-    ) -> UpdateTagDefinitionPayloadFields:
-        """Update a tag definition"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "TagDefinitionAttributes!", "value": attributes},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateTagDefinitionPayloadFields(
-            field_name="updateTagDefinition", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def update_user_preferences(
-        cls, attributes: UpdateUserPreferencesAttributes
-    ) -> UpdateUserPreferencesPayloadFields:
-        """Updates the user preferences for a given setting"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "UpdateUserPreferencesAttributes!",
-                "value": attributes,
-            }
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpdateUserPreferencesPayloadFields(
-            field_name="updateUserPreferences", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def upsert_chat_club_context(
-        cls, attributes: ClubContextAttributes, club_id: str
-    ) -> UpsertChatClubContextPayloadFields:
-        """Create or update a chat club context"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "ClubContextAttributes!", "value": attributes},
-            "clubId": {"type": "ID!", "value": club_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpsertChatClubContextPayloadFields(
-            field_name="upsertChatClubContext", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def upsert_chat_coach_context(
-        cls, attributes: CoachContextAttributesInput
-    ) -> UpsertChatCoachContextPayloadFields:
-        """Create or update a coach context"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {"type": "CoachContextAttributesInput!", "value": attributes}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpsertChatCoachContextPayloadFields(
-            field_name="upsertChatCoachContext", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def upsert_data_recordings(
-        cls, attributes: list[UpsertDataRecordingsAttributes], session_id: str
-    ) -> UpsertDataRecordingsPayloadFields:
-        """Add EDGE data recordings to a session or update it"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "[UpsertDataRecordingsAttributes!]!",
-                "value": attributes,
-            },
-            "sessionId": {"type": "ID!", "value": session_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UpsertDataRecordingsPayloadFields(
-            field_name="upsertDataRecordings", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def upsert_session_plan(
-        cls,
-        attributes: SessionPlanAttributesInput,
-        club_id: str,
-        *,
-        session_plan_id: Optional[str] = None,
-    ) -> UpsertSessionPlanPayloadFields:
-        """Create or update a session plan"""
+        """Creates or updates a chat session plan"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "SessionPlanAttributesInput!", "value": attributes},
             "clubId": {"type": "ID!", "value": club_id},

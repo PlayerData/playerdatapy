@@ -5,6 +5,9 @@ from typing import Any, Optional
 from .custom_fields import (
     AthleteFields,
     AthleteGroupFields,
+    BulkActionFields,
+    BulkAthleteImportFields,
+    BulkStaffImportFields,
     ClubFields,
     DatasetFields,
     DatasetTemplateFields,
@@ -31,14 +34,20 @@ from .custom_fields import (
     SessionInterface,
     SessionParticipationInterface,
     SettingsFields,
+    SignedUrlFields,
     SportDefinitionFields,
     SurveyAssignmentFields,
     SurveyDistributionFields,
     SurveyFields,
     SurveyQuestionFields,
+    TargetTemplateFields,
+    TermsOfUseFields,
+    TrainingPlanImportFields,
     TrainingSessionFields,
     TrainingSessionParticipationFields,
     UserPreferenceFields,
+    VideoSignedUrlFields,
+    WorkflowImmediateResponseFields,
 )
 from .custom_typing_fields import GraphQLField
 from .input_types import SessionsSessionFilter
@@ -46,10 +55,13 @@ from .input_types import SessionsSessionFilter
 
 class Query:
     @classmethod
-    def app_authentication_flow(cls, *, club_id: Optional[str] = None) -> GraphQLField:
-        """Disambiguate authenticated navigation steps."""
+    def app_authentication_flow(
+        cls, *, club_id: Optional[str] = None, organisation_id: Optional[str] = None
+    ) -> GraphQLField:
+        """The authentication flow to direct an app user through"""
         arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID", "value": club_id}
+            "clubId": {"type": "ID", "value": club_id},
+            "organisationId": {"type": "ID", "value": organisation_id},
         }
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
@@ -95,6 +107,37 @@ class Query:
         )
 
     @classmethod
+    def bulk_action(cls, id: str) -> BulkActionFields:
+        """A bulk action record"""
+        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return BulkActionFields(field_name="bulkAction", arguments=cleared_arguments)
+
+    @classmethod
+    def bulk_athlete_import(cls, id: str) -> BulkAthleteImportFields:
+        """A bulk athlete import record"""
+        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return BulkAthleteImportFields(
+            field_name="bulkAthleteImport", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def bulk_staff_import(cls, id: str) -> BulkStaffImportFields:
+        """A bulk staff import record"""
+        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return BulkStaffImportFields(
+            field_name="bulkStaffImport", arguments=cleared_arguments
+        )
+
+    @classmethod
     def chat_example_prompts(
         cls, *, club_id: Optional[str] = None
     ) -> ExamplePromptFields:
@@ -134,6 +177,23 @@ class Query:
         return QuestionFields(field_name="chatQuestions", arguments=cleared_arguments)
 
     @classmethod
+    def chat_workflow_immediate_response(
+        cls, club_id: str, workflow_name: str
+    ) -> WorkflowImmediateResponseFields:
+        """The pre-LLM immediate response for a chat workflow, used to render the
+        greeting on the chat index page before any RootQuestion exists"""
+        arguments: dict[str, dict[str, Any]] = {
+            "clubId": {"type": "ID!", "value": club_id},
+            "workflowName": {"type": "String!", "value": workflow_name},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return WorkflowImmediateResponseFields(
+            field_name="chatWorkflowImmediateResponse", arguments=cleared_arguments
+        )
+
+    @classmethod
     def chat_workflow_string_triggers(cls) -> GraphQLField:
         """The different string triggers for workflows"""
         return GraphQLField(field_name="chatWorkflowStringTriggers")
@@ -158,6 +218,11 @@ class Query:
         return PrivacyPolicyFields(field_name="currentPrivacyPolicy")
 
     @classmethod
+    def current_terms_of_use(cls) -> TermsOfUseFields:
+        """Fetch the current terms of use"""
+        return TermsOfUseFields(field_name="currentTermsOfUse")
+
+    @classmethod
     def datasets(
         cls,
         *,
@@ -180,7 +245,7 @@ class Query:
 
     @classmethod
     def decide_signup_flow(cls, *, email: Optional[str] = None) -> GraphQLField:
-        """Decide what flow a signup should take."""
+        """The signup flow to direct a person through based on their email"""
         arguments: dict[str, dict[str, Any]] = {
             "email": {"type": "String", "value": email}
         }
@@ -203,6 +268,22 @@ class Query:
         }
         return DeviceInterfaceInterface(
             field_name="device", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def devices(
+        cls, type_: DeviceTypeEnum, *, ids: Optional[list[str]] = None
+    ) -> DeviceInterfaceInterface:
+        """Devices of a given type currently owned and accessible to the user"""
+        arguments: dict[str, dict[str, Any]] = {
+            "ids": {"type": "[ID!]", "value": ids},
+            "type": {"type": "DeviceTypeEnum!", "value": type_},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return DeviceInterfaceInterface(
+            field_name="devices", arguments=cleared_arguments
         )
 
     @classmethod
@@ -383,7 +464,7 @@ class Query:
         subject: Optional[PermissionSubject] = None,
         subject_id: Optional[str] = None,
     ) -> PermissionFields:
-        """Check the current user's permissions"""
+        """Whether the current person is permitted to perform a given action"""
         arguments: dict[str, dict[str, Any]] = {
             "clubId": {"type": "ID", "value": club_id},
             "requestedAction": {"type": "PermissionAction!", "value": requested_action},
@@ -452,6 +533,7 @@ class Query:
 
     @classmethod
     def search_place(cls, address: str) -> MapCoordinateFields:
+        """The map coordinate for a searched address"""
         arguments: dict[str, dict[str, Any]] = {
             "address": {"type": "String!", "value": address}
         }
@@ -473,6 +555,7 @@ class Query:
 
     @classmethod
     def segment_participations(cls, ids: list[str]) -> SegmentParticipationFields:
+        """A collection of segment participation objects"""
         arguments: dict[str, dict[str, Any]] = {"ids": {"type": "[ID!]!", "value": ids}}
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
@@ -543,6 +626,7 @@ class Query:
 
     @classmethod
     def settings(cls, owner_id: str, owner_type: OwnerEnum) -> SettingsFields:
+        """The settings for a given owner"""
         arguments: dict[str, dict[str, Any]] = {
             "ownerId": {"type": "ID!", "value": owner_id},
             "ownerType": {"type": "OwnerEnum!", "value": owner_type},
@@ -554,6 +638,7 @@ class Query:
 
     @classmethod
     def single_session_report(cls, club_id: str, session_id: str) -> ReportFields:
+        """A single session report for a session within a club"""
         arguments: dict[str, dict[str, Any]] = {
             "clubId": {"type": "ID!", "value": club_id},
             "sessionId": {"type": "ID!", "value": session_id},
@@ -569,6 +654,7 @@ class Query:
     def sport(
         cls, *, id: Optional[str] = None, match_id: Optional[str] = None
     ) -> SportDefinitionFields:
+        """A sport definition looked up by id or match id"""
         arguments: dict[str, dict[str, Any]] = {
             "id": {"type": "String", "value": id},
             "matchId": {"type": "ID", "value": match_id},
@@ -580,6 +666,7 @@ class Query:
 
     @classmethod
     def sports(cls) -> SportDefinitionFields:
+        """All available sport definitions"""
         return SportDefinitionFields(field_name="sports")
 
     @classmethod
@@ -614,660 +701,25 @@ class Query:
         )
 
     @classmethod
-    def training_session(cls, id: str) -> TrainingSessionFields:
-        """A training session"""
+    def target_template(cls, id: str) -> TargetTemplateFields:
+        """A target template"""
         arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
         }
-        return TrainingSessionFields(
-            field_name="trainingSession", arguments=cleared_arguments
+        return TargetTemplateFields(
+            field_name="targetTemplate", arguments=cleared_arguments
         )
 
     @classmethod
-    def training_session_participation(
-        cls, id: str
-    ) -> TrainingSessionParticipationFields:
-        """A training session participation"""
+    def training_plan_import(cls, id: str) -> TrainingPlanImportFields:
+        """A training plan import record"""
         arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
         }
-        return TrainingSessionParticipationFields(
-            field_name="trainingSessionParticipation", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def user_preferences(
-        cls, owner_id: str, owner_type: OwnerEnum, *, keys: Optional[list[str]] = None
-    ) -> UserPreferenceFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "keys": {"type": "[String!]", "value": keys},
-            "ownerId": {"type": "ID!", "value": owner_id},
-            "ownerType": {"type": "OwnerEnum!", "value": owner_type},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UserPreferenceFields(
-            field_name="userPreferences", arguments=cleared_arguments
-        )
-
-
-from playerdatapy.enums import *
-# Generated by ariadne-codegen
-
-from typing import Any, Optional
-
-from .custom_fields import (
-    AthleteFields,
-    AthleteGroupFields,
-    ClubFields,
-    DatasetFields,
-    DatasetTemplateFields,
-    DeviceInterfaceInterface,
-    EdgeFields,
-    ExamplePromptFields,
-    FeatureCheckFields,
-    FirmwareVersionFields,
-    FlexibleReportFields,
-    MapCoordinateFields,
-    MatchSessionFields,
-    MatchSessionParticipationFields,
-    MatchSessionParticipationPartFields,
-    OrganisationFields,
-    PermissionFields,
-    PersonFields,
-    PitchFields,
-    PrivacyPolicyFields,
-    QuestionFields,
-    ReportFields,
-    SegmentFields,
-    SegmentParticipationFields,
-    SessionBlueprintFields,
-    SessionInterface,
-    SessionParticipationInterface,
-    SettingsFields,
-    SportDefinitionFields,
-    SurveyAssignmentFields,
-    SurveyDistributionFields,
-    SurveyFields,
-    SurveyQuestionFields,
-    TrainingSessionFields,
-    TrainingSessionParticipationFields,
-    UserPreferenceFields,
-)
-from .custom_typing_fields import GraphQLField
-from .input_types import SessionsSessionFilter
-
-
-class Query:
-    @classmethod
-    def app_authentication_flow(cls, *, club_id: Optional[str] = None) -> GraphQLField:
-        """Disambiguate authenticated navigation steps."""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID", "value": club_id}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return GraphQLField(
-            field_name="appAuthenticationFlow", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athlete(cls, id: str) -> AthleteFields:
-        """An athlete"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AthleteFields(field_name="athlete", arguments=cleared_arguments)
-
-    @classmethod
-    def athlete_group(cls, id: str) -> AthleteGroupFields:
-        """An athlete group"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AthleteGroupFields(
-            field_name="athleteGroup", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def available_dataset_templates(
-        cls, owner_id: str, owner_type: OwnerEnum
-    ) -> DatasetTemplateFields:
-        """The available templates for flexible reporting"""
-        arguments: dict[str, dict[str, Any]] = {
-            "ownerId": {"type": "ID!", "value": owner_id},
-            "ownerType": {"type": "OwnerEnum!", "value": owner_type},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DatasetTemplateFields(
-            field_name="availableDatasetTemplates", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def chat_example_prompts(
-        cls, *, club_id: Optional[str] = None
-    ) -> ExamplePromptFields:
-        """Example prompts for chat interactions"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID", "value": club_id}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ExamplePromptFields(
-            field_name="chatExamplePrompts", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def chat_question(cls, id: str) -> QuestionFields:
-        """A chat question"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return QuestionFields(field_name="chatQuestion", arguments=cleared_arguments)
-
-    @classmethod
-    def chat_questions(
-        cls, club_id: str, *, limit: Optional[int] = None, offset: Optional[int] = None
-    ) -> QuestionFields:
-        """Chat questions for the current staff member in a club"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID!", "value": club_id},
-            "limit": {"type": "Int", "value": limit},
-            "offset": {"type": "Int", "value": offset},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return QuestionFields(field_name="chatQuestions", arguments=cleared_arguments)
-
-    @classmethod
-    def chat_workflow_string_triggers(cls) -> GraphQLField:
-        """The different string triggers for workflows"""
-        return GraphQLField(field_name="chatWorkflowStringTriggers")
-
-    @classmethod
-    def club(cls, id: str) -> ClubFields:
-        """A club"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ClubFields(field_name="club", arguments=cleared_arguments)
-
-    @classmethod
-    def current_person(cls) -> PersonFields:
-        """The authenticated person"""
-        return PersonFields(field_name="currentPerson")
-
-    @classmethod
-    def current_privacy_policy(cls) -> PrivacyPolicyFields:
-        """Fetch the current privacy policy"""
-        return PrivacyPolicyFields(field_name="currentPrivacyPolicy")
-
-    @classmethod
-    def datasets(
-        cls,
-        *,
-        club_id: Optional[str] = None,
-        ids: Optional[list[str]] = None,
-        limit: Optional[int] = None,
-        offset: Optional[int] = None,
-    ) -> DatasetFields:
-        """A dataset for flexible reporting"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID", "value": club_id},
-            "ids": {"type": "[ID!]", "value": ids},
-            "limit": {"type": "Int", "value": limit},
-            "offset": {"type": "Int", "value": offset},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DatasetFields(field_name="datasets", arguments=cleared_arguments)
-
-    @classmethod
-    def decide_signup_flow(cls, *, email: Optional[str] = None) -> GraphQLField:
-        """Decide what flow a signup should take."""
-        arguments: dict[str, dict[str, Any]] = {
-            "email": {"type": "String", "value": email}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return GraphQLField(field_name="decideSignupFlow", arguments=cleared_arguments)
-
-    @classmethod
-    def device(
-        cls, board_name: FirmwareBoardName, serial_number: Any
-    ) -> DeviceInterfaceInterface:
-        """A device"""
-        arguments: dict[str, dict[str, Any]] = {
-            "boardName": {"type": "FirmwareBoardName!", "value": board_name},
-            "serialNumber": {"type": "BigInt!", "value": serial_number},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DeviceInterfaceInterface(
-            field_name="device", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def edge(cls, id: str) -> EdgeFields:
-        """Query single edge by ID/ Serial Number"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return EdgeFields(field_name="edge", arguments=cleared_arguments)
-
-    @classmethod
-    def edges(cls, *, ids: Optional[list[str]] = None) -> EdgeFields:
-        """All Edges currently owned and accessible to the user"""
-        arguments: dict[str, dict[str, Any]] = {"ids": {"type": "[ID!]", "value": ids}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return EdgeFields(field_name="edges", arguments=cleared_arguments)
-
-    @classmethod
-    def feature(
-        cls,
-        *,
-        club_id: Optional[str] = None,
-        name: Optional[str] = None,
-        name_enum: Optional[FeatureNameEnum] = None,
-        platform: Optional[Platform] = None,
-        version: Optional[str] = None,
-    ) -> FeatureCheckFields:
-        """Check if a feature is available"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID", "value": club_id},
-            "name": {"type": "String", "value": name},
-            "nameEnum": {"type": "FeatureNameEnum", "value": name_enum},
-            "platform": {"type": "Platform", "value": platform},
-            "version": {"type": "String", "value": version},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return FeatureCheckFields(field_name="feature", arguments=cleared_arguments)
-
-    @classmethod
-    def firmware_versions(
-        cls,
-        board_name: FirmwareBoardName,
-        project: FirmwareProject,
-        *,
-        build_profile: Optional[FirmwareBuildProfile] = None,
-        feature_variant: Optional[FirmwareFeatureVariant] = None,
-        variant: Optional[FirmwareVariant] = None,
-    ) -> FirmwareVersionFields:
-        """All firmware versions"""
-        arguments: dict[str, dict[str, Any]] = {
-            "boardName": {"type": "FirmwareBoardName!", "value": board_name},
-            "buildProfile": {"type": "FirmwareBuildProfile", "value": build_profile},
-            "featureVariant": {
-                "type": "FirmwareFeatureVariant",
-                "value": feature_variant,
-            },
-            "project": {"type": "FirmwareProject!", "value": project},
-            "variant": {"type": "FirmwareVariant", "value": variant},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return FirmwareVersionFields(
-            field_name="firmwareVersions", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def flexible_report(cls, id: str) -> FlexibleReportFields:
-        """A flexible report"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return FlexibleReportFields(
-            field_name="flexibleReport", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def latest_firmware_versions(
-        cls,
-        board_names: list[FirmwareBoardName],
-        *,
-        build_profile: Optional[FirmwareBuildProfile] = None,
-        club_id: Optional[str] = None,
-        feature_variant: Optional[FirmwareFeatureVariant] = None,
-        project: Optional[FirmwareProject] = None,
-    ) -> FirmwareVersionFields:
-        """The latest firmware version available to the current person (in their given club)"""
-        arguments: dict[str, dict[str, Any]] = {
-            "boardNames": {"type": "[FirmwareBoardName!]!", "value": board_names},
-            "buildProfile": {"type": "FirmwareBuildProfile", "value": build_profile},
-            "clubId": {"type": "ID", "value": club_id},
-            "featureVariant": {
-                "type": "FirmwareFeatureVariant",
-                "value": feature_variant,
-            },
-            "project": {"type": "FirmwareProject", "value": project},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return FirmwareVersionFields(
-            field_name="latestFirmwareVersions", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def latest_metric_set_version(cls) -> GraphQLField:
-        """The latest released metric version"""
-        return GraphQLField(field_name="latestMetricSetVersion")
-
-    @classmethod
-    def match_session(cls, id: str) -> MatchSessionFields:
-        """A match session"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return MatchSessionFields(
-            field_name="matchSession", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def match_session_participation(cls, id: str) -> MatchSessionParticipationFields:
-        """A match session participation"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return MatchSessionParticipationFields(
-            field_name="matchSessionParticipation", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def match_session_participation_parts(
-        cls, ids: list[str]
-    ) -> MatchSessionParticipationPartFields:
-        """A collection of match session participation part objects"""
-        arguments: dict[str, dict[str, Any]] = {"ids": {"type": "[ID!]!", "value": ids}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return MatchSessionParticipationPartFields(
-            field_name="matchSessionParticipationParts", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def organisations(
-        cls,
-        *,
-        ids: Optional[list[str]] = None,
-        limit: Optional[int] = None,
-        offset: Optional[int] = None,
-    ) -> OrganisationFields:
-        """Organisations"""
-        arguments: dict[str, dict[str, Any]] = {
-            "ids": {"type": "[ID!]", "value": ids},
-            "limit": {"type": "Int", "value": limit},
-            "offset": {"type": "Int", "value": offset},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return OrganisationFields(
-            field_name="organisations", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def permission(
-        cls,
-        requested_action: PermissionAction,
-        *,
-        club_id: Optional[str] = None,
-        subject: Optional[PermissionSubject] = None,
-        subject_id: Optional[str] = None,
-    ) -> PermissionFields:
-        """Check the current user's permissions"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID", "value": club_id},
-            "requestedAction": {"type": "PermissionAction!", "value": requested_action},
-            "subject": {"type": "PermissionSubject", "value": subject},
-            "subjectId": {"type": "ID", "value": subject_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return PermissionFields(field_name="permission", arguments=cleared_arguments)
-
-    @classmethod
-    def person(cls, id: str) -> PersonFields:
-        """Get a single person for editing"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return PersonFields(field_name="person", arguments=cleared_arguments)
-
-    @classmethod
-    def pitch(cls, id: str) -> PitchFields:
-        """A pitch"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return PitchFields(field_name="pitch", arguments=cleared_arguments)
-
-    @classmethod
-    def question_definitions(
-        cls, *, club_id: Optional[str] = None
-    ) -> SurveyQuestionFields:
-        """All available survey question definitions"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID", "value": club_id}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SurveyQuestionFields(
-            field_name="questionDefinitions", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def report(cls, id: str) -> ReportFields:
-        """A report"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ReportFields(field_name="report", arguments=cleared_arguments)
-
-    @classmethod
-    def report_types_allowed(cls, club_id: str) -> GraphQLField:
-        """The set of reports allowed"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID!", "value": club_id}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return GraphQLField(
-            field_name="reportTypesAllowed", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def search_place(cls, address: str) -> MapCoordinateFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "address": {"type": "String!", "value": address}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return MapCoordinateFields(
-            field_name="searchPlace", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def segment(cls, id: str) -> SegmentFields:
-        """A Segment"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SegmentFields(field_name="segment", arguments=cleared_arguments)
-
-    @classmethod
-    def segment_participations(cls, ids: list[str]) -> SegmentParticipationFields:
-        arguments: dict[str, dict[str, Any]] = {"ids": {"type": "[ID!]!", "value": ids}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SegmentParticipationFields(
-            field_name="segmentParticipations", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def session(cls, id: str) -> SessionInterface:
-        """A session"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SessionInterface(field_name="session", arguments=cleared_arguments)
-
-    @classmethod
-    def session_blueprint(cls, id: str) -> SessionBlueprintFields:
-        """A session blueprint"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SessionBlueprintFields(
-            field_name="sessionBlueprint", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def session_participations(
-        cls,
-        ids: list[str],
-        *,
-        limit: Optional[int] = None,
-        offset: Optional[int] = None,
-    ) -> SessionParticipationInterface:
-        """A collection of session participation objects"""
-        arguments: dict[str, dict[str, Any]] = {
-            "ids": {"type": "[ID!]!", "value": ids},
-            "limit": {"type": "Int", "value": limit},
-            "offset": {"type": "Int", "value": offset},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SessionParticipationInterface(
-            field_name="sessionParticipations", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def sessions(
-        cls,
-        filter_: SessionsSessionFilter,
-        *,
-        limit: Optional[int] = None,
-        offset: Optional[int] = None,
-    ) -> SessionInterface:
-        """Sessions"""
-        arguments: dict[str, dict[str, Any]] = {
-            "filter": {"type": "SessionsSessionFilter!", "value": filter_},
-            "limit": {"type": "Int", "value": limit},
-            "offset": {"type": "Int", "value": offset},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SessionInterface(field_name="sessions", arguments=cleared_arguments)
-
-    @classmethod
-    def settings(cls, owner_id: str, owner_type: OwnerEnum) -> SettingsFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "ownerId": {"type": "ID!", "value": owner_id},
-            "ownerType": {"type": "OwnerEnum!", "value": owner_type},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SettingsFields(field_name="settings", arguments=cleared_arguments)
-
-    @classmethod
-    def single_session_report(cls, club_id: str, session_id: str) -> ReportFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID!", "value": club_id},
-            "sessionId": {"type": "ID!", "value": session_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ReportFields(
-            field_name="singleSessionReport", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def sport(
-        cls, *, id: Optional[str] = None, match_id: Optional[str] = None
-    ) -> SportDefinitionFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "id": {"type": "String", "value": id},
-            "matchId": {"type": "ID", "value": match_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SportDefinitionFields(field_name="sport", arguments=cleared_arguments)
-
-    @classmethod
-    def sports(cls) -> SportDefinitionFields:
-        return SportDefinitionFields(field_name="sports")
-
-    @classmethod
-    def survey(cls, id: str) -> SurveyFields:
-        """A survey"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SurveyFields(field_name="survey", arguments=cleared_arguments)
-
-    @classmethod
-    def survey_assignment(cls, id: str) -> SurveyAssignmentFields:
-        """A survey assignment"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SurveyAssignmentFields(
-            field_name="surveyAssignment", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def survey_distribution(cls, id: str) -> SurveyDistributionFields:
-        """A survey distribution"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SurveyDistributionFields(
-            field_name="surveyDistribution", arguments=cleared_arguments
+        return TrainingPlanImportFields(
+            field_name="trainingPlanImport", arguments=cleared_arguments
         )
 
     @classmethod
@@ -1298,6 +750,7 @@ class Query:
     def user_preferences(
         cls, owner_id: str, owner_type: OwnerEnum, *, keys: Optional[list[str]] = None
     ) -> UserPreferenceFields:
+        """The stored user preferences for a given owner"""
         arguments: dict[str, dict[str, Any]] = {
             "keys": {"type": "[String!]", "value": keys},
             "ownerId": {"type": "ID!", "value": owner_id},
@@ -1310,1316 +763,31 @@ class Query:
             field_name="userPreferences", arguments=cleared_arguments
         )
 
-
-from playerdatapy.enums import *
-# Generated by ariadne-codegen
-
-from typing import Any, Optional
-
-from .custom_fields import (
-    AthleteFields,
-    AthleteGroupFields,
-    ClubFields,
-    DatasetFields,
-    DatasetTemplateFields,
-    DeviceInterfaceInterface,
-    EdgeFields,
-    ExamplePromptFields,
-    FeatureCheckFields,
-    FirmwareVersionFields,
-    FlexibleReportFields,
-    MapCoordinateFields,
-    MatchSessionFields,
-    MatchSessionParticipationFields,
-    MatchSessionParticipationPartFields,
-    OrganisationFields,
-    PermissionFields,
-    PersonFields,
-    PitchFields,
-    PrivacyPolicyFields,
-    QuestionFields,
-    ReportFields,
-    SegmentFields,
-    SegmentParticipationFields,
-    SessionBlueprintFields,
-    SessionInterface,
-    SessionParticipationInterface,
-    SettingsFields,
-    SportDefinitionFields,
-    SurveyAssignmentFields,
-    SurveyDistributionFields,
-    SurveyFields,
-    SurveyQuestionFields,
-    TrainingSessionFields,
-    TrainingSessionParticipationFields,
-    UserPreferenceFields,
-)
-from .custom_typing_fields import GraphQLField
-from .input_types import SessionsSessionFilter
-
-
-class Query:
     @classmethod
-    def app_authentication_flow(cls, *, club_id: Optional[str] = None) -> GraphQLField:
-        """Disambiguate authenticated navigation steps."""
+    def video_recording_download_url(cls, video_recording_id: str) -> SignedUrlFields:
+        """Generate a signed URL to download the broadcast-view MP4 of a recording"""
         arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID", "value": club_id}
+            "videoRecordingId": {"type": "ID!", "value": video_recording_id}
         }
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
         }
-        return GraphQLField(
-            field_name="appAuthenticationFlow", arguments=cleared_arguments
+        return SignedUrlFields(
+            field_name="videoRecordingDownloadUrl", arguments=cleared_arguments
         )
 
     @classmethod
-    def athlete(cls, id: str) -> AthleteFields:
-        """An athlete"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AthleteFields(field_name="athlete", arguments=cleared_arguments)
-
-    @classmethod
-    def athlete_group(cls, id: str) -> AthleteGroupFields:
-        """An athlete group"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AthleteGroupFields(
-            field_name="athleteGroup", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def available_dataset_templates(
-        cls, owner_id: str, owner_type: OwnerEnum
-    ) -> DatasetTemplateFields:
-        """The available templates for flexible reporting"""
+    def video_recording_signed_url(
+        cls, video_recording_id: str, *, expires_in: Optional[int] = None
+    ) -> VideoSignedUrlFields:
+        """Generate signed URLs for viewing a camera video recording"""
         arguments: dict[str, dict[str, Any]] = {
-            "ownerId": {"type": "ID!", "value": owner_id},
-            "ownerType": {"type": "OwnerEnum!", "value": owner_type},
+            "expiresIn": {"type": "Int", "value": expires_in},
+            "videoRecordingId": {"type": "ID!", "value": video_recording_id},
         }
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
         }
-        return DatasetTemplateFields(
-            field_name="availableDatasetTemplates", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def chat_example_prompts(
-        cls, *, club_id: Optional[str] = None
-    ) -> ExamplePromptFields:
-        """Example prompts for chat interactions"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID", "value": club_id}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ExamplePromptFields(
-            field_name="chatExamplePrompts", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def chat_question(cls, id: str) -> QuestionFields:
-        """A chat question"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return QuestionFields(field_name="chatQuestion", arguments=cleared_arguments)
-
-    @classmethod
-    def chat_questions(
-        cls, club_id: str, *, limit: Optional[int] = None, offset: Optional[int] = None
-    ) -> QuestionFields:
-        """Chat questions for the current staff member in a club"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID!", "value": club_id},
-            "limit": {"type": "Int", "value": limit},
-            "offset": {"type": "Int", "value": offset},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return QuestionFields(field_name="chatQuestions", arguments=cleared_arguments)
-
-    @classmethod
-    def chat_workflow_string_triggers(cls) -> GraphQLField:
-        """The different string triggers for workflows"""
-        return GraphQLField(field_name="chatWorkflowStringTriggers")
-
-    @classmethod
-    def club(cls, id: str) -> ClubFields:
-        """A club"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ClubFields(field_name="club", arguments=cleared_arguments)
-
-    @classmethod
-    def current_person(cls) -> PersonFields:
-        """The authenticated person"""
-        return PersonFields(field_name="currentPerson")
-
-    @classmethod
-    def current_privacy_policy(cls) -> PrivacyPolicyFields:
-        """Fetch the current privacy policy"""
-        return PrivacyPolicyFields(field_name="currentPrivacyPolicy")
-
-    @classmethod
-    def datasets(
-        cls,
-        *,
-        club_id: Optional[str] = None,
-        ids: Optional[list[str]] = None,
-        limit: Optional[int] = None,
-        offset: Optional[int] = None,
-    ) -> DatasetFields:
-        """A dataset for flexible reporting"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID", "value": club_id},
-            "ids": {"type": "[ID!]", "value": ids},
-            "limit": {"type": "Int", "value": limit},
-            "offset": {"type": "Int", "value": offset},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DatasetFields(field_name="datasets", arguments=cleared_arguments)
-
-    @classmethod
-    def decide_signup_flow(cls, *, email: Optional[str] = None) -> GraphQLField:
-        """Decide what flow a signup should take."""
-        arguments: dict[str, dict[str, Any]] = {
-            "email": {"type": "String", "value": email}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return GraphQLField(field_name="decideSignupFlow", arguments=cleared_arguments)
-
-    @classmethod
-    def device(
-        cls, board_name: FirmwareBoardName, serial_number: Any
-    ) -> DeviceInterfaceInterface:
-        """A device"""
-        arguments: dict[str, dict[str, Any]] = {
-            "boardName": {"type": "FirmwareBoardName!", "value": board_name},
-            "serialNumber": {"type": "BigInt!", "value": serial_number},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DeviceInterfaceInterface(
-            field_name="device", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def edge(cls, id: str) -> EdgeFields:
-        """Query single edge by ID/ Serial Number"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return EdgeFields(field_name="edge", arguments=cleared_arguments)
-
-    @classmethod
-    def edges(cls, *, ids: Optional[list[str]] = None) -> EdgeFields:
-        """All Edges currently owned and accessible to the user"""
-        arguments: dict[str, dict[str, Any]] = {"ids": {"type": "[ID!]", "value": ids}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return EdgeFields(field_name="edges", arguments=cleared_arguments)
-
-    @classmethod
-    def feature(
-        cls,
-        *,
-        club_id: Optional[str] = None,
-        name: Optional[str] = None,
-        name_enum: Optional[FeatureNameEnum] = None,
-        platform: Optional[Platform] = None,
-        version: Optional[str] = None,
-    ) -> FeatureCheckFields:
-        """Check if a feature is available"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID", "value": club_id},
-            "name": {"type": "String", "value": name},
-            "nameEnum": {"type": "FeatureNameEnum", "value": name_enum},
-            "platform": {"type": "Platform", "value": platform},
-            "version": {"type": "String", "value": version},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return FeatureCheckFields(field_name="feature", arguments=cleared_arguments)
-
-    @classmethod
-    def firmware_versions(
-        cls,
-        board_name: FirmwareBoardName,
-        project: FirmwareProject,
-        *,
-        build_profile: Optional[FirmwareBuildProfile] = None,
-        feature_variant: Optional[FirmwareFeatureVariant] = None,
-        variant: Optional[FirmwareVariant] = None,
-    ) -> FirmwareVersionFields:
-        """All firmware versions"""
-        arguments: dict[str, dict[str, Any]] = {
-            "boardName": {"type": "FirmwareBoardName!", "value": board_name},
-            "buildProfile": {"type": "FirmwareBuildProfile", "value": build_profile},
-            "featureVariant": {
-                "type": "FirmwareFeatureVariant",
-                "value": feature_variant,
-            },
-            "project": {"type": "FirmwareProject!", "value": project},
-            "variant": {"type": "FirmwareVariant", "value": variant},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return FirmwareVersionFields(
-            field_name="firmwareVersions", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def flexible_report(cls, id: str) -> FlexibleReportFields:
-        """A flexible report"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return FlexibleReportFields(
-            field_name="flexibleReport", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def latest_firmware_versions(
-        cls,
-        board_names: list[FirmwareBoardName],
-        *,
-        build_profile: Optional[FirmwareBuildProfile] = None,
-        club_id: Optional[str] = None,
-        feature_variant: Optional[FirmwareFeatureVariant] = None,
-        project: Optional[FirmwareProject] = None,
-    ) -> FirmwareVersionFields:
-        """The latest firmware version available to the current person (in their given club)"""
-        arguments: dict[str, dict[str, Any]] = {
-            "boardNames": {"type": "[FirmwareBoardName!]!", "value": board_names},
-            "buildProfile": {"type": "FirmwareBuildProfile", "value": build_profile},
-            "clubId": {"type": "ID", "value": club_id},
-            "featureVariant": {
-                "type": "FirmwareFeatureVariant",
-                "value": feature_variant,
-            },
-            "project": {"type": "FirmwareProject", "value": project},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return FirmwareVersionFields(
-            field_name="latestFirmwareVersions", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def latest_metric_set_version(cls) -> GraphQLField:
-        """The latest released metric version"""
-        return GraphQLField(field_name="latestMetricSetVersion")
-
-    @classmethod
-    def match_session(cls, id: str) -> MatchSessionFields:
-        """A match session"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return MatchSessionFields(
-            field_name="matchSession", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def match_session_participation(cls, id: str) -> MatchSessionParticipationFields:
-        """A match session participation"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return MatchSessionParticipationFields(
-            field_name="matchSessionParticipation", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def match_session_participation_parts(
-        cls, ids: list[str]
-    ) -> MatchSessionParticipationPartFields:
-        """A collection of match session participation part objects"""
-        arguments: dict[str, dict[str, Any]] = {"ids": {"type": "[ID!]!", "value": ids}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return MatchSessionParticipationPartFields(
-            field_name="matchSessionParticipationParts", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def organisations(
-        cls,
-        *,
-        ids: Optional[list[str]] = None,
-        limit: Optional[int] = None,
-        offset: Optional[int] = None,
-    ) -> OrganisationFields:
-        """Organisations"""
-        arguments: dict[str, dict[str, Any]] = {
-            "ids": {"type": "[ID!]", "value": ids},
-            "limit": {"type": "Int", "value": limit},
-            "offset": {"type": "Int", "value": offset},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return OrganisationFields(
-            field_name="organisations", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def permission(
-        cls,
-        requested_action: PermissionAction,
-        *,
-        club_id: Optional[str] = None,
-        subject: Optional[PermissionSubject] = None,
-        subject_id: Optional[str] = None,
-    ) -> PermissionFields:
-        """Check the current user's permissions"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID", "value": club_id},
-            "requestedAction": {"type": "PermissionAction!", "value": requested_action},
-            "subject": {"type": "PermissionSubject", "value": subject},
-            "subjectId": {"type": "ID", "value": subject_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return PermissionFields(field_name="permission", arguments=cleared_arguments)
-
-    @classmethod
-    def person(cls, id: str) -> PersonFields:
-        """Get a single person for editing"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return PersonFields(field_name="person", arguments=cleared_arguments)
-
-    @classmethod
-    def pitch(cls, id: str) -> PitchFields:
-        """A pitch"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return PitchFields(field_name="pitch", arguments=cleared_arguments)
-
-    @classmethod
-    def question_definitions(
-        cls, *, club_id: Optional[str] = None
-    ) -> SurveyQuestionFields:
-        """All available survey question definitions"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID", "value": club_id}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SurveyQuestionFields(
-            field_name="questionDefinitions", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def report(cls, id: str) -> ReportFields:
-        """A report"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ReportFields(field_name="report", arguments=cleared_arguments)
-
-    @classmethod
-    def report_types_allowed(cls, club_id: str) -> GraphQLField:
-        """The set of reports allowed"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID!", "value": club_id}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return GraphQLField(
-            field_name="reportTypesAllowed", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def search_place(cls, address: str) -> MapCoordinateFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "address": {"type": "String!", "value": address}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return MapCoordinateFields(
-            field_name="searchPlace", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def segment(cls, id: str) -> SegmentFields:
-        """A Segment"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SegmentFields(field_name="segment", arguments=cleared_arguments)
-
-    @classmethod
-    def segment_participations(cls, ids: list[str]) -> SegmentParticipationFields:
-        arguments: dict[str, dict[str, Any]] = {"ids": {"type": "[ID!]!", "value": ids}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SegmentParticipationFields(
-            field_name="segmentParticipations", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def session(cls, id: str) -> SessionInterface:
-        """A session"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SessionInterface(field_name="session", arguments=cleared_arguments)
-
-    @classmethod
-    def session_blueprint(cls, id: str) -> SessionBlueprintFields:
-        """A session blueprint"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SessionBlueprintFields(
-            field_name="sessionBlueprint", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def session_participations(
-        cls,
-        ids: list[str],
-        *,
-        limit: Optional[int] = None,
-        offset: Optional[int] = None,
-    ) -> SessionParticipationInterface:
-        """A collection of session participation objects"""
-        arguments: dict[str, dict[str, Any]] = {
-            "ids": {"type": "[ID!]!", "value": ids},
-            "limit": {"type": "Int", "value": limit},
-            "offset": {"type": "Int", "value": offset},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SessionParticipationInterface(
-            field_name="sessionParticipations", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def sessions(
-        cls,
-        filter_: SessionsSessionFilter,
-        *,
-        limit: Optional[int] = None,
-        offset: Optional[int] = None,
-    ) -> SessionInterface:
-        """Sessions"""
-        arguments: dict[str, dict[str, Any]] = {
-            "filter": {"type": "SessionsSessionFilter!", "value": filter_},
-            "limit": {"type": "Int", "value": limit},
-            "offset": {"type": "Int", "value": offset},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SessionInterface(field_name="sessions", arguments=cleared_arguments)
-
-    @classmethod
-    def settings(cls, owner_id: str, owner_type: OwnerEnum) -> SettingsFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "ownerId": {"type": "ID!", "value": owner_id},
-            "ownerType": {"type": "OwnerEnum!", "value": owner_type},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SettingsFields(field_name="settings", arguments=cleared_arguments)
-
-    @classmethod
-    def single_session_report(cls, club_id: str, session_id: str) -> ReportFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID!", "value": club_id},
-            "sessionId": {"type": "ID!", "value": session_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ReportFields(
-            field_name="singleSessionReport", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def sport(
-        cls, *, id: Optional[str] = None, match_id: Optional[str] = None
-    ) -> SportDefinitionFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "id": {"type": "String", "value": id},
-            "matchId": {"type": "ID", "value": match_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SportDefinitionFields(field_name="sport", arguments=cleared_arguments)
-
-    @classmethod
-    def sports(cls) -> SportDefinitionFields:
-        return SportDefinitionFields(field_name="sports")
-
-    @classmethod
-    def survey(cls, id: str) -> SurveyFields:
-        """A survey"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SurveyFields(field_name="survey", arguments=cleared_arguments)
-
-    @classmethod
-    def survey_assignment(cls, id: str) -> SurveyAssignmentFields:
-        """A survey assignment"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SurveyAssignmentFields(
-            field_name="surveyAssignment", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def survey_distribution(cls, id: str) -> SurveyDistributionFields:
-        """A survey distribution"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SurveyDistributionFields(
-            field_name="surveyDistribution", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def training_session(cls, id: str) -> TrainingSessionFields:
-        """A training session"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return TrainingSessionFields(
-            field_name="trainingSession", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def training_session_participation(
-        cls, id: str
-    ) -> TrainingSessionParticipationFields:
-        """A training session participation"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return TrainingSessionParticipationFields(
-            field_name="trainingSessionParticipation", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def user_preferences(
-        cls, owner_id: str, owner_type: OwnerEnum, *, keys: Optional[list[str]] = None
-    ) -> UserPreferenceFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "keys": {"type": "[String!]", "value": keys},
-            "ownerId": {"type": "ID!", "value": owner_id},
-            "ownerType": {"type": "OwnerEnum!", "value": owner_type},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UserPreferenceFields(
-            field_name="userPreferences", arguments=cleared_arguments
-        )
-
-
-from playerdatapy.enums import *
-# Generated by ariadne-codegen
-
-from typing import Any, Optional
-
-from .custom_fields import (
-    AthleteFields,
-    AthleteGroupFields,
-    ClubFields,
-    DatasetFields,
-    DatasetTemplateFields,
-    DeviceInterfaceInterface,
-    EdgeFields,
-    ExamplePromptFields,
-    FeatureCheckFields,
-    FirmwareVersionFields,
-    FlexibleReportFields,
-    MapCoordinateFields,
-    MatchSessionFields,
-    MatchSessionParticipationFields,
-    MatchSessionParticipationPartFields,
-    OrganisationFields,
-    PermissionFields,
-    PersonFields,
-    PitchFields,
-    PrivacyPolicyFields,
-    QuestionFields,
-    ReportFields,
-    SegmentFields,
-    SegmentParticipationFields,
-    SessionBlueprintFields,
-    SessionInterface,
-    SessionParticipationInterface,
-    SettingsFields,
-    SportDefinitionFields,
-    SurveyAssignmentFields,
-    SurveyDistributionFields,
-    SurveyFields,
-    SurveyQuestionFields,
-    TrainingSessionFields,
-    TrainingSessionParticipationFields,
-    UserPreferenceFields,
-)
-from .custom_typing_fields import GraphQLField
-from .input_types import SessionsSessionFilter
-
-
-class Query:
-    @classmethod
-    def app_authentication_flow(cls, *, club_id: Optional[str] = None) -> GraphQLField:
-        """Disambiguate authenticated navigation steps."""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID", "value": club_id}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return GraphQLField(
-            field_name="appAuthenticationFlow", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def athlete(cls, id: str) -> AthleteFields:
-        """An athlete"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AthleteFields(field_name="athlete", arguments=cleared_arguments)
-
-    @classmethod
-    def athlete_group(cls, id: str) -> AthleteGroupFields:
-        """An athlete group"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return AthleteGroupFields(
-            field_name="athleteGroup", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def available_dataset_templates(
-        cls, owner_id: str, owner_type: OwnerEnum
-    ) -> DatasetTemplateFields:
-        """The available templates for flexible reporting"""
-        arguments: dict[str, dict[str, Any]] = {
-            "ownerId": {"type": "ID!", "value": owner_id},
-            "ownerType": {"type": "OwnerEnum!", "value": owner_type},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DatasetTemplateFields(
-            field_name="availableDatasetTemplates", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def chat_example_prompts(
-        cls, *, club_id: Optional[str] = None
-    ) -> ExamplePromptFields:
-        """Example prompts for chat interactions"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID", "value": club_id}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ExamplePromptFields(
-            field_name="chatExamplePrompts", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def chat_question(cls, id: str) -> QuestionFields:
-        """A chat question"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return QuestionFields(field_name="chatQuestion", arguments=cleared_arguments)
-
-    @classmethod
-    def chat_questions(
-        cls, club_id: str, *, limit: Optional[int] = None, offset: Optional[int] = None
-    ) -> QuestionFields:
-        """Chat questions for the current staff member in a club"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID!", "value": club_id},
-            "limit": {"type": "Int", "value": limit},
-            "offset": {"type": "Int", "value": offset},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return QuestionFields(field_name="chatQuestions", arguments=cleared_arguments)
-
-    @classmethod
-    def chat_workflow_string_triggers(cls) -> GraphQLField:
-        """The different string triggers for workflows"""
-        return GraphQLField(field_name="chatWorkflowStringTriggers")
-
-    @classmethod
-    def club(cls, id: str) -> ClubFields:
-        """A club"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ClubFields(field_name="club", arguments=cleared_arguments)
-
-    @classmethod
-    def current_person(cls) -> PersonFields:
-        """The authenticated person"""
-        return PersonFields(field_name="currentPerson")
-
-    @classmethod
-    def current_privacy_policy(cls) -> PrivacyPolicyFields:
-        """Fetch the current privacy policy"""
-        return PrivacyPolicyFields(field_name="currentPrivacyPolicy")
-
-    @classmethod
-    def datasets(
-        cls,
-        *,
-        club_id: Optional[str] = None,
-        ids: Optional[list[str]] = None,
-        limit: Optional[int] = None,
-        offset: Optional[int] = None,
-    ) -> DatasetFields:
-        """A dataset for flexible reporting"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID", "value": club_id},
-            "ids": {"type": "[ID!]", "value": ids},
-            "limit": {"type": "Int", "value": limit},
-            "offset": {"type": "Int", "value": offset},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DatasetFields(field_name="datasets", arguments=cleared_arguments)
-
-    @classmethod
-    def decide_signup_flow(cls, *, email: Optional[str] = None) -> GraphQLField:
-        """Decide what flow a signup should take."""
-        arguments: dict[str, dict[str, Any]] = {
-            "email": {"type": "String", "value": email}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return GraphQLField(field_name="decideSignupFlow", arguments=cleared_arguments)
-
-    @classmethod
-    def device(
-        cls, board_name: FirmwareBoardName, serial_number: Any
-    ) -> DeviceInterfaceInterface:
-        """A device"""
-        arguments: dict[str, dict[str, Any]] = {
-            "boardName": {"type": "FirmwareBoardName!", "value": board_name},
-            "serialNumber": {"type": "BigInt!", "value": serial_number},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return DeviceInterfaceInterface(
-            field_name="device", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def edge(cls, id: str) -> EdgeFields:
-        """Query single edge by ID/ Serial Number"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return EdgeFields(field_name="edge", arguments=cleared_arguments)
-
-    @classmethod
-    def edges(cls, *, ids: Optional[list[str]] = None) -> EdgeFields:
-        """All Edges currently owned and accessible to the user"""
-        arguments: dict[str, dict[str, Any]] = {"ids": {"type": "[ID!]", "value": ids}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return EdgeFields(field_name="edges", arguments=cleared_arguments)
-
-    @classmethod
-    def feature(
-        cls,
-        *,
-        club_id: Optional[str] = None,
-        name: Optional[str] = None,
-        name_enum: Optional[FeatureNameEnum] = None,
-        platform: Optional[Platform] = None,
-        version: Optional[str] = None,
-    ) -> FeatureCheckFields:
-        """Check if a feature is available"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID", "value": club_id},
-            "name": {"type": "String", "value": name},
-            "nameEnum": {"type": "FeatureNameEnum", "value": name_enum},
-            "platform": {"type": "Platform", "value": platform},
-            "version": {"type": "String", "value": version},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return FeatureCheckFields(field_name="feature", arguments=cleared_arguments)
-
-    @classmethod
-    def firmware_versions(
-        cls,
-        board_name: FirmwareBoardName,
-        project: FirmwareProject,
-        *,
-        build_profile: Optional[FirmwareBuildProfile] = None,
-        feature_variant: Optional[FirmwareFeatureVariant] = None,
-        variant: Optional[FirmwareVariant] = None,
-    ) -> FirmwareVersionFields:
-        """All firmware versions"""
-        arguments: dict[str, dict[str, Any]] = {
-            "boardName": {"type": "FirmwareBoardName!", "value": board_name},
-            "buildProfile": {"type": "FirmwareBuildProfile", "value": build_profile},
-            "featureVariant": {
-                "type": "FirmwareFeatureVariant",
-                "value": feature_variant,
-            },
-            "project": {"type": "FirmwareProject!", "value": project},
-            "variant": {"type": "FirmwareVariant", "value": variant},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return FirmwareVersionFields(
-            field_name="firmwareVersions", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def flexible_report(cls, id: str) -> FlexibleReportFields:
-        """A flexible report"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return FlexibleReportFields(
-            field_name="flexibleReport", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def latest_firmware_versions(
-        cls,
-        board_names: list[FirmwareBoardName],
-        *,
-        build_profile: Optional[FirmwareBuildProfile] = None,
-        club_id: Optional[str] = None,
-        feature_variant: Optional[FirmwareFeatureVariant] = None,
-        project: Optional[FirmwareProject] = None,
-    ) -> FirmwareVersionFields:
-        """The latest firmware version available to the current person (in their given club)"""
-        arguments: dict[str, dict[str, Any]] = {
-            "boardNames": {"type": "[FirmwareBoardName!]!", "value": board_names},
-            "buildProfile": {"type": "FirmwareBuildProfile", "value": build_profile},
-            "clubId": {"type": "ID", "value": club_id},
-            "featureVariant": {
-                "type": "FirmwareFeatureVariant",
-                "value": feature_variant,
-            },
-            "project": {"type": "FirmwareProject", "value": project},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return FirmwareVersionFields(
-            field_name="latestFirmwareVersions", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def latest_metric_set_version(cls) -> GraphQLField:
-        """The latest released metric version"""
-        return GraphQLField(field_name="latestMetricSetVersion")
-
-    @classmethod
-    def match_session(cls, id: str) -> MatchSessionFields:
-        """A match session"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return MatchSessionFields(
-            field_name="matchSession", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def match_session_participation(cls, id: str) -> MatchSessionParticipationFields:
-        """A match session participation"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return MatchSessionParticipationFields(
-            field_name="matchSessionParticipation", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def match_session_participation_parts(
-        cls, ids: list[str]
-    ) -> MatchSessionParticipationPartFields:
-        """A collection of match session participation part objects"""
-        arguments: dict[str, dict[str, Any]] = {"ids": {"type": "[ID!]!", "value": ids}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return MatchSessionParticipationPartFields(
-            field_name="matchSessionParticipationParts", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def organisations(
-        cls,
-        *,
-        ids: Optional[list[str]] = None,
-        limit: Optional[int] = None,
-        offset: Optional[int] = None,
-    ) -> OrganisationFields:
-        """Organisations"""
-        arguments: dict[str, dict[str, Any]] = {
-            "ids": {"type": "[ID!]", "value": ids},
-            "limit": {"type": "Int", "value": limit},
-            "offset": {"type": "Int", "value": offset},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return OrganisationFields(
-            field_name="organisations", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def permission(
-        cls,
-        requested_action: PermissionAction,
-        *,
-        club_id: Optional[str] = None,
-        subject: Optional[PermissionSubject] = None,
-        subject_id: Optional[str] = None,
-    ) -> PermissionFields:
-        """Check the current user's permissions"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID", "value": club_id},
-            "requestedAction": {"type": "PermissionAction!", "value": requested_action},
-            "subject": {"type": "PermissionSubject", "value": subject},
-            "subjectId": {"type": "ID", "value": subject_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return PermissionFields(field_name="permission", arguments=cleared_arguments)
-
-    @classmethod
-    def person(cls, id: str) -> PersonFields:
-        """Get a single person for editing"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return PersonFields(field_name="person", arguments=cleared_arguments)
-
-    @classmethod
-    def pitch(cls, id: str) -> PitchFields:
-        """A pitch"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return PitchFields(field_name="pitch", arguments=cleared_arguments)
-
-    @classmethod
-    def question_definitions(
-        cls, *, club_id: Optional[str] = None
-    ) -> SurveyQuestionFields:
-        """All available survey question definitions"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID", "value": club_id}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SurveyQuestionFields(
-            field_name="questionDefinitions", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def report(cls, id: str) -> ReportFields:
-        """A report"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ReportFields(field_name="report", arguments=cleared_arguments)
-
-    @classmethod
-    def report_types_allowed(cls, club_id: str) -> GraphQLField:
-        """The set of reports allowed"""
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID!", "value": club_id}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return GraphQLField(
-            field_name="reportTypesAllowed", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def search_place(cls, address: str) -> MapCoordinateFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "address": {"type": "String!", "value": address}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return MapCoordinateFields(
-            field_name="searchPlace", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def segment(cls, id: str) -> SegmentFields:
-        """A Segment"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SegmentFields(field_name="segment", arguments=cleared_arguments)
-
-    @classmethod
-    def segment_participations(cls, ids: list[str]) -> SegmentParticipationFields:
-        arguments: dict[str, dict[str, Any]] = {"ids": {"type": "[ID!]!", "value": ids}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SegmentParticipationFields(
-            field_name="segmentParticipations", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def session(cls, id: str) -> SessionInterface:
-        """A session"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SessionInterface(field_name="session", arguments=cleared_arguments)
-
-    @classmethod
-    def session_blueprint(cls, id: str) -> SessionBlueprintFields:
-        """A session blueprint"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SessionBlueprintFields(
-            field_name="sessionBlueprint", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def session_participations(
-        cls,
-        ids: list[str],
-        *,
-        limit: Optional[int] = None,
-        offset: Optional[int] = None,
-    ) -> SessionParticipationInterface:
-        """A collection of session participation objects"""
-        arguments: dict[str, dict[str, Any]] = {
-            "ids": {"type": "[ID!]!", "value": ids},
-            "limit": {"type": "Int", "value": limit},
-            "offset": {"type": "Int", "value": offset},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SessionParticipationInterface(
-            field_name="sessionParticipations", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def sessions(
-        cls,
-        filter_: SessionsSessionFilter,
-        *,
-        limit: Optional[int] = None,
-        offset: Optional[int] = None,
-    ) -> SessionInterface:
-        """Sessions"""
-        arguments: dict[str, dict[str, Any]] = {
-            "filter": {"type": "SessionsSessionFilter!", "value": filter_},
-            "limit": {"type": "Int", "value": limit},
-            "offset": {"type": "Int", "value": offset},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SessionInterface(field_name="sessions", arguments=cleared_arguments)
-
-    @classmethod
-    def settings(cls, owner_id: str, owner_type: OwnerEnum) -> SettingsFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "ownerId": {"type": "ID!", "value": owner_id},
-            "ownerType": {"type": "OwnerEnum!", "value": owner_type},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SettingsFields(field_name="settings", arguments=cleared_arguments)
-
-    @classmethod
-    def single_session_report(cls, club_id: str, session_id: str) -> ReportFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "clubId": {"type": "ID!", "value": club_id},
-            "sessionId": {"type": "ID!", "value": session_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ReportFields(
-            field_name="singleSessionReport", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def sport(
-        cls, *, id: Optional[str] = None, match_id: Optional[str] = None
-    ) -> SportDefinitionFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "id": {"type": "String", "value": id},
-            "matchId": {"type": "ID", "value": match_id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SportDefinitionFields(field_name="sport", arguments=cleared_arguments)
-
-    @classmethod
-    def sports(cls) -> SportDefinitionFields:
-        return SportDefinitionFields(field_name="sports")
-
-    @classmethod
-    def survey(cls, id: str) -> SurveyFields:
-        """A survey"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SurveyFields(field_name="survey", arguments=cleared_arguments)
-
-    @classmethod
-    def survey_assignment(cls, id: str) -> SurveyAssignmentFields:
-        """A survey assignment"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SurveyAssignmentFields(
-            field_name="surveyAssignment", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def survey_distribution(cls, id: str) -> SurveyDistributionFields:
-        """A survey distribution"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SurveyDistributionFields(
-            field_name="surveyDistribution", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def training_session(cls, id: str) -> TrainingSessionFields:
-        """A training session"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return TrainingSessionFields(
-            field_name="trainingSession", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def training_session_participation(
-        cls, id: str
-    ) -> TrainingSessionParticipationFields:
-        """A training session participation"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return TrainingSessionParticipationFields(
-            field_name="trainingSessionParticipation", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def user_preferences(
-        cls, owner_id: str, owner_type: OwnerEnum, *, keys: Optional[list[str]] = None
-    ) -> UserPreferenceFields:
-        arguments: dict[str, dict[str, Any]] = {
-            "keys": {"type": "[String!]", "value": keys},
-            "ownerId": {"type": "ID!", "value": owner_id},
-            "ownerType": {"type": "OwnerEnum!", "value": owner_type},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return UserPreferenceFields(
-            field_name="userPreferences", arguments=cleared_arguments
+        return VideoSignedUrlFields(
+            field_name="videoRecordingSignedUrl", arguments=cleared_arguments
         )

@@ -7,16 +7,22 @@ from pydantic import Field
 
 from .base_model import BaseModel
 from .enums import (
+    ClipTeam,
     ClubSport,
     CreatorTypeEnum,
     DeviceSyncTypeEnum,
+    Intensity,
     MatchEventTeam,
     MatchSessionResult,
     OrderDirectionEnum,
     OwnerEnum,
+    PendingMemberTypeEnum,
     SessionTypeEnum,
     TaggableTypeEnum,
     TaggerTypeEnum,
+    TargetAssignableTypeEnum,
+    TargetTypeEnum,
+    TopicTypeEnum,
     UnitSystem,
 )
 
@@ -45,6 +51,17 @@ class AthleteAccelzoneAttributes(BaseModel):
     "Lower bound values of the accelzones in m/s²"
     athlete_ids: list[str] = Field(alias="athleteIds")
     "IDs of the athletes"
+
+
+class AthleteBaseFilter(BaseModel):
+    archived_eq: Optional[bool] = Field(alias="archivedEq", default=None)
+    "Filter by archived status. Omit for active athletes only (default). null = all, true = archived only, false = active only."
+    identity_email_cont: Optional[str] = Field(alias="identityEmailCont", default=None)
+    "Case-insensitive search on the linked person's login email"
+    person_name_cont: Optional[str] = Field(alias="personNameCont", default=None)
+    "Case-insensitive search on athlete name (direct or linked person)"
+    position_eq: Optional[str] = Field(alias="positionEq", default=None)
+    "Exact match on athlete's default position"
 
 
 class AthleteClippedTimesInput(BaseModel):
@@ -151,6 +168,30 @@ class BandedJumpZoneLowerBoundsInput(BaseModel):
     "Medium banded jump zone lower bound in cm"
 
 
+class BulkAthleteRowInput(BaseModel):
+    """A single athlete row for bulk import"""
+
+    date_of_birth: str = Field(alias="dateOfBirth")
+    "The athlete's date of birth"
+    email: str
+    "The athlete's email address"
+    gender: str
+    "The athlete's gender"
+    name: str
+    "The athlete's name"
+    shirt_number: Optional[str] = Field(alias="shirtNumber", default=None)
+    "The athlete's shirt number"
+
+
+class BulkStaffRowInput(BaseModel):
+    """A single staff row for bulk import"""
+
+    email: str
+    "The staff member's email address"
+    name: str
+    "The staff member's name"
+
+
 class BulkUpdateMatchEventAttributes(BaseModel):
     """Attributes for updating a match event"""
 
@@ -163,6 +204,19 @@ class BulkUpdateMatchEventAttributes(BaseModel):
     session_participation_id: Optional[str] = Field(
         alias="sessionParticipationId", default=None
     )
+
+
+class BulkUpdateTargetAttributes(BaseModel):
+    """Attributes for updating a session target"""
+
+    id: str
+    "The id of the target to update"
+    metric_definition_id: str = Field(alias="metricDefinitionId")
+    "The metric the targets are set for"
+    target_range: list[float] = Field(alias="targetRange")
+    "The target range or single value"
+    target_type: TargetTypeEnum = Field(alias="targetType")
+    "The type of target"
 
 
 class ClaimPersonAttributes(BaseModel):
@@ -189,6 +243,7 @@ class ClubContextAttributes(BaseModel):
 
 class ClubPersonFilter(BaseModel):
     name_cont: Optional[str] = Field(alias="nameCont", default=None)
+    name_unaccent_cont: Optional[str] = Field(alias="nameUnaccentCont", default=None)
 
 
 class CoachContextAttributesInput(BaseModel):
@@ -198,6 +253,23 @@ class CoachContextAttributesInput(BaseModel):
     "The coach's career goals"
     competency: str
     "The coach's competency level or area of expertise"
+
+
+class CreateDevicePageInput(BaseModel):
+    """Input for creating a Device::Page with an uploaded file blob"""
+
+    device_ownership_id: str = Field(alias="deviceOwnershipId")
+    "Device ownership ID"
+    device_type: Optional[DeviceSyncTypeEnum] = Field(
+        alias="deviceType", default=DeviceSyncTypeEnum.edge
+    )
+    "Type of device (edge or ball)"
+    index: int
+    "Page index on the device"
+    signed_blob_id: str = Field(alias="signedBlobId")
+    "Signed blob ID from the missingDevicePages query"
+    version: int
+    "Version of the page data format"
 
 
 class CreateDeviceSyncInput(BaseModel):
@@ -238,6 +310,70 @@ class CreateFlexibleReportChartAttributes(BaseModel):
     "The sort config for the chart data"
     title: str
     "The title of the chart"
+
+
+class CreateImportInput(BaseModel):
+    """Input for creating a training plan import"""
+
+    club_id: str = Field(alias="clubId")
+    "ID of the club the import belongs to"
+    signed_blob_id: str = Field(alias="signedBlobId")
+    "Signed blob ID from ActiveStorage direct upload"
+    source_format: str = Field(alias="sourceFormat")
+    "Document format: 'pdf' or 'image'"
+
+
+class CreatePredictedSessionAttributes(BaseModel):
+    """Attributes for creating a predicted session"""
+
+    athlete_ids: Optional[list[str]] = Field(alias="athleteIds", default=None)
+    "Athlete IDs included in this prediction"
+    club_id: str = Field(alias="clubId")
+    "The club this prediction belongs to"
+    end_time: Any = Field(alias="endTime")
+    "Predicted end time"
+    intensity: Intensity
+    "Session intensity (low, medium, or high)"
+    next_match_datetime: Any = Field(alias="nextMatchDatetime")
+    "Predicted datetime of the next match"
+    periods: Optional[list["MatchPeriodAttributes"]] = None
+    "Predicted periods for this session"
+    previous_session_id: str = Field(alias="previousSessionId")
+    "The session that this prediction was generated from"
+    reasoning: str
+    "Explanation of why the intended load was chosen"
+    schedule_reasoning: Optional[str] = Field(alias="scheduleReasoning", default=None)
+    "Explanation of why the predicted start/end time was suggested"
+    session_type: Optional[str] = Field(alias="sessionType", default=None)
+    "Type of session (training or match)"
+    start_time: Any = Field(alias="startTime")
+    "Predicted start time"
+    tags: Optional[list[str]] = None
+    "Suggested tags for this session"
+
+
+class CreateUnreadableDevicePagesInput(BaseModel):
+    """Input for marking device page indexes as unreadable"""
+
+    device_ownership_id: str = Field(alias="deviceOwnershipId")
+    "Device ownership ID"
+    device_type: Optional[DeviceSyncTypeEnum] = Field(
+        alias="deviceType", default=DeviceSyncTypeEnum.edge
+    )
+    "Type of device (edge or ball)"
+    indexes: list[int]
+    "Page indexes the device cannot read"
+    version: int
+    "Version of the page data format"
+
+
+class CustomBaselineTargetInput(BaseModel):
+    """A single baseline target value for a metric."""
+
+    target_name: str = Field(alias="targetName")
+    "The metric definition key, e.g. total_distance_m"
+    value: float
+    "The baseline target value."
 
 
 class CustomQuestionDefinitionAttributes(BaseModel):
@@ -291,6 +427,17 @@ class DecelzoneLowerBoundsInput(BaseModel):
     "Zone 5 lower boundary"
 
 
+class DefaultEdgeAssignmentAttributes(BaseModel):
+    """A single athlete-to-edge assignment"""
+
+    athlete_id: str = Field(alias="athleteId")
+    "ID of the athlete"
+    edge_id: Optional[str] = Field(alias="edgeId", default=None)
+    "ID of the edge to assign as default; omit or null to remove the assignment"
+    edge_name: Optional[str] = Field(alias="edgeName", default=None)
+    "Edge name to assign to the ownership; must match ^[A-Z]{2}\\d{2}$"
+
+
 class DeviceAttributes(BaseModel):
     """Attributes for updating a device"""
 
@@ -327,6 +474,8 @@ class FlexibleReportAttributes(BaseModel):
     "The end date for the range of"
     grid_config: Optional[Any] = Field(alias="gridConfig", default=None)
     "The grid config for the dataset"
+    report_template_id: Optional[str] = Field(alias="reportTemplateId", default=None)
+    "ID of a report template to pre-populate charts from"
     start_date: Optional[Any] = Field(alias="startDate", default=None)
     "The start date for the range of data"
     title: str
@@ -400,6 +549,26 @@ class MatchPeriodAttributes(BaseModel):
     start_time: Any = Field(alias="startTime")
 
 
+class MemberOrganisationMembersFilter(BaseModel):
+    archived_at_null: Optional[bool] = Field(alias="archivedAtNull", default=None)
+    "Filter members by archived status"
+    person_name_i_cont: Optional[str] = Field(alias="personNameICont", default=None)
+    "Filter members by their person's name (case insensitive)"
+
+
+class MetaEventInput(BaseModel):
+    """A single Meta Event"""
+
+    id: Any
+    "event identifier"
+    payload: int
+    "event payload"
+    tag: int
+    "event tag"
+    time: Any
+    "timestamp"
+
+
 class MutateSessionAttributes(BaseModel):
     """Attributes for a session"""
 
@@ -415,14 +584,16 @@ class MutateSessionAttributes(BaseModel):
     "The id of the creator of the session"
     description: Optional[str] = None
     "A description of the session."
-    detected_session_id: Optional[str] = Field(alias="detectedSessionId", default=None)
-    "The detected session associated with this session"
     end_time: Optional[Any] = Field(alias="endTime", default=None)
     "Session end time"
     gateway_ownership_ids: Optional[list[str]] = Field(
         alias="gatewayOwnershipIds", default=None
     )
     "Array of gateway ownership UUIDs."
+    inline_system_tag_label: Optional[str] = Field(
+        alias="inlineSystemTagLabel", default=None
+    )
+    "A raw string label. Finds or creates a system tag definition and merges into session's tags."
     match_type_id: Optional[str] = Field(alias="matchTypeId", default=None)
     "Required to set match_definitoon"
     opponent: Optional[str] = None
@@ -437,10 +608,22 @@ class MutateSessionAttributes(BaseModel):
         alias="pitchCoordinateSetId", default=None
     )
     "The coordinate set for the pitch that the match was played on."
+    predicted_session_id: Optional[str] = Field(
+        alias="predictedSessionId", default=None
+    )
+    "The predicted session to link to the created session"
+    reprocess_ai_summary: Optional[bool] = Field(
+        alias="reprocessAiSummary", default=None
+    )
+    "If true, regenerate the CoachMate AI summary for this session after the update is saved."
     result: Optional[MatchSessionResult] = None
     "Session result."
     score: Optional[int] = None
     "The score of the session."
+    session_context: Optional["SessionContextAttributes"] = Field(
+        alias="sessionContext", default=None
+    )
+    "Session context attributes including expected match date"
     session_tag_definition_ids: Optional[list[str]] = Field(
         alias="sessionTagDefinitionIds", default=None
     )
@@ -500,6 +683,21 @@ class NewPersonAttributes(BaseModel):
     password: str
 
 
+class NewSessionTargetInput(BaseModel):
+    """Attributes for creating a new training session from a parsed plan"""
+
+    athlete_group_ids: Optional[list[str]] = Field(
+        alias="athleteGroupIds", default=None
+    )
+    "Athlete groups whose members should be assigned to the new session"
+    athlete_ids: Optional[list[str]] = Field(alias="athleteIds", default=None)
+    "Athletes to assign to the new session"
+    description: Optional[str] = None
+    "Session-level description"
+    start_time: Any = Field(alias="startTime")
+    "When the new training session should start"
+
+
 class OrderInputObject(BaseModel):
     """A Parameter for ordering a list of records"""
 
@@ -507,6 +705,34 @@ class OrderInputObject(BaseModel):
     "The direction we want to order by"
     field: str
     "The field we want to order by"
+
+
+class ParsedSegmentPatchInput(BaseModel):
+    """An edited segment submitted with a training plan commit"""
+
+    athlete_group_ids: Optional[list[str]] = Field(
+        alias="athleteGroupIds", default=None
+    )
+    "Athlete groups whose members should be added as segment participants"
+    description: Optional[str] = None
+    "Additional notes for the segment"
+    duration_seconds: int = Field(alias="durationSeconds")
+    "Segment duration in whole seconds"
+    keywords: Optional[list[str]] = None
+    "Tags to apply to this segment"
+    start_offset_seconds: int = Field(alias="startOffsetSeconds")
+    "Offset from the start of the session in whole seconds (0 for the first segment)"
+    title: str
+    "The segment title"
+
+
+class PendingMemberBaseFilter(BaseModel):
+    confirmed_eq: Optional[bool] = Field(alias="confirmedEq", default=None)
+    "Filter by email confirmation status. null = all, true = confirmed only, false = unconfirmed only."
+    member_type_eq: Optional[PendingMemberTypeEnum] = Field(
+        alias="memberTypeEq", default=None
+    )
+    "Filter by the role this pending member will hold once approved"
 
 
 class PitchAttributes(BaseModel):
@@ -588,6 +814,8 @@ class SegmentAttributes(BaseModel):
         alias="clippedTimePeriodsByAthlete", default=None
     )
     "An array of intervals for each athlete's participation in the segment"
+    description: Optional[str] = None
+    "A free-text description of the segment"
     end_time: Any = Field(alias="endTime")
     "The time the segment ended"
     id: Optional[str] = None
@@ -628,6 +856,8 @@ class SegmentPatch(BaseModel):
         alias="clippedTimePeriodsByAthlete", default=None
     )
     "An array of intervals for each athlete's participation in the segment"
+    description: Optional[str] = None
+    "A free-text description of the segment"
     end_time: Optional[Any] = Field(alias="endTime", default=None)
     "The time the segment ended"
     id: Optional[str] = None
@@ -655,6 +885,13 @@ class SessionBlueprintSegmentAttributes(BaseModel):
     "The end time of the segment"
     start_time: Any = Field(alias="startTime")
     "The start time of the segment"
+
+
+class SessionContextAttributes(BaseModel):
+    """Attributes for a session context"""
+
+    expected_match_date: Any = Field(alias="expectedMatchDate")
+    "Expected match date for the session context"
 
 
 class SessionParticipationAttributes(BaseModel):
@@ -778,6 +1015,11 @@ class SpeedzoneLowerBoundsInput(BaseModel):
     sprinting: float
 
 
+class StaffBaseFilter(BaseModel):
+    archived_eq: Optional[bool] = Field(alias="archivedEq", default=None)
+    "Filter by archived status. Omit for active staff only (default). null = all, true = archived only, false = active only."
+
+
 class SurveyAnswerAttributes(BaseModel):
     """Attributes for creating a survey answer"""
 
@@ -864,9 +1106,53 @@ class TaggerAttributes(BaseModel):
     "Polymorphic type of tagger"
 
 
+class TargetAttributes(BaseModel):
+    """Attributes for a session target"""
+
+    metric_definition_id: str = Field(alias="metricDefinitionId")
+    "The metric the targets are set for"
+    target_range: list[float] = Field(alias="targetRange")
+    "The target range or single value"
+    target_type: TargetTypeEnum = Field(alias="targetType")
+    "The type of target"
+
+
+class TargetDefinitionAssignmentAttributes(BaseModel):
+    """Attributes for assigning a target definition to an athlete or athlete group"""
+
+    id: str
+    "The id of the record the target definition is assigned to"
+    type_: TargetAssignableTypeEnum = Field(alias="type")
+    "The type of record the target definition is assigned to"
+
+
+class TargetDefinitionAttributes(BaseModel):
+    """Attributes for a target definition within a target template"""
+
+    assignments: list["TargetDefinitionAssignmentAttributes"]
+    "The athletes or athlete groups the target definition is assigned to"
+    is_squad_default: Optional[bool] = Field(alias="isSquadDefault", default=None)
+    "Whether this is the squad default target for its metric"
+    metric_definition_id: str = Field(alias="metricDefinitionId")
+    "The metric the target is set for"
+    target_range: list[float] = Field(alias="targetRange")
+    "The target range or single value"
+    target_type: TargetTypeEnum = Field(alias="targetType")
+    "The type of target"
+
+
 class TimeSpanAttributes(BaseModel):
     from_: Any = Field(alias="from")
     until: Any
+
+
+class TopicAttributesInput(BaseModel):
+    """Attributes identifying the topic a chat is about"""
+
+    topic_id: str = Field(alias="topicId")
+    "ID of the topic entity"
+    topic_type: TopicTypeEnum = Field(alias="topicType")
+    "Type of the topic entity"
 
 
 class UnitOptionsInput(BaseModel):
@@ -887,20 +1173,35 @@ class UpdateAthleteAttributes(BaseModel):
 
     custom_id: Optional[str] = Field(alias="customId", default=None)
     "Custom identifier for external system integration"
-    default_position: str = Field(alias="defaultPosition")
+    default_position: Optional[str] = Field(alias="defaultPosition", default=None)
+
+
+class UpdateClubAttributes(BaseModel):
+    """Attributes for updating top-level club information"""
+
+    device_prefix: Optional[str] = Field(alias="devicePrefix", default=None)
+    "Two-letter code used as device name prefix"
+    name: Optional[str] = None
+    "New name for the club"
 
 
 class UpdateClubMemberAttributes(BaseModel):
     """Attributes for updating a club member's information"""
 
+    date_of_birth: Optional[Any] = Field(alias="dateOfBirth", default=None)
+    "Date of birth of the member"
     default_position: Optional[str] = Field(alias="defaultPosition", default=None)
     "Default position for the member"
+    gender: Optional[str] = None
+    "Gender of the member"
     is_athlete: bool = Field(alias="isAthlete")
     "Whether the member is an athlete"
     is_staff: bool = Field(alias="isStaff")
     "Whether the member is a staff member"
     name: Optional[str] = None
     "Club-specific name for the member"
+    shirt_number: Optional[str] = Field(alias="shirtNumber", default=None)
+    "Two-digit shirt number (e.g. '07')"
 
 
 class UpdateClubSettingsAttributes(BaseModel):
@@ -909,6 +1210,7 @@ class UpdateClubSettingsAttributes(BaseModel):
     auto_edge_assignment: Optional[bool] = Field(
         alias="autoEdgeAssignment", default=None
     )
+    coachmate_enabled: Optional[bool] = Field(alias="coachmateEnabled", default=None)
     labelled_accelzones_lower_bounds_ms_2: Optional["AccelzoneLowerBoundsInput"] = (
         Field(alias="labelledAccelzonesLowerBoundsMs2", default=None)
     )
@@ -926,6 +1228,15 @@ class UpdateClubSettingsAttributes(BaseModel):
     )
     select_edges_for_sync: Optional[bool] = Field(
         alias="selectEdgesForSync", default=None
+    )
+    session_plan_uploader_enabled: Optional[bool] = Field(
+        alias="sessionPlanUploaderEnabled", default=None
+    )
+    session_suggestions_enabled: Optional[bool] = Field(
+        alias="sessionSuggestionsEnabled", default=None
+    )
+    session_summary_enabled: Optional[bool] = Field(
+        alias="sessionSummaryEnabled", default=None
     )
     speedzones_lower_bounds_kph: Optional[list[float]] = Field(
         alias="speedzonesLowerBoundsKph", default=None
@@ -1033,6 +1344,29 @@ class UpdateUserPreferencesAttributes(BaseModel):
     "Value of the preference to update"
 
 
+class UpdateVideoClipAttributes(BaseModel):
+    """Attributes for updating an existing video clip"""
+
+    duration: Optional[int] = None
+    "The duration of the video clip in seconds"
+    name: Optional[str] = None
+    "The name of the video clip"
+    notes: Optional[str] = None
+    "Any notes associated with the video clip"
+    overlays: Optional["VideoClipOverlayInput"] = None
+    "Overlay settings for the video clip"
+    playback_speed: Optional[float] = Field(alias="playbackSpeed", default=None)
+    "The playback speed of the video clip (e.g., 1.0)"
+    start_time: Optional[int] = Field(alias="startTime", default=None)
+    "The start time of the video clip in seconds"
+    tags: Optional[list[str]] = None
+    "The tags associated with the video clip"
+    team: Optional[ClipTeam] = None
+    "The team associated with the video clip"
+    tracked_participant: Optional[str] = Field(alias="trackedParticipant", default=None)
+    "The participation ID of the participant being tracked in the video clip"
+
+
 class UpsertDataRecordingsAttributes(BaseModel):
     """Attributes for upserting a data recording"""
 
@@ -1040,6 +1374,54 @@ class UpsertDataRecordingsAttributes(BaseModel):
     "An ID for an athlete"
     edge_id: Optional[str] = Field(alias="edgeId", default=None)
     "An Edge ID"
+
+
+class VideoClipAttributes(BaseModel):
+    """Attributes for creating a new video clip"""
+
+    duration: int
+    "The duration of the video clip in seconds"
+    name: str
+    "The name of the video clip"
+    notes: Optional[str] = None
+    "Any notes associated with the video clip"
+    overlays: Optional["VideoClipOverlayInput"] = None
+    "Overlay settings for the video clip"
+    playback_speed: float = Field(alias="playbackSpeed")
+    "The playback speed of the video clip (e.g., 1.0)"
+    start_time: int = Field(alias="startTime")
+    "The start time of the video clip in seconds"
+    tags: Optional[list[str]] = None
+    "The tags associated with the video clip"
+    team: ClipTeam
+    "The team associated with the video clip"
+    tracked_participant: Optional[str] = Field(alias="trackedParticipant", default=None)
+    "The participation ID of the participant being tracked in the video clip"
+
+
+class VideoClipOverlayInput(BaseModel):
+    """Input for video clip overlay settings"""
+
+    heatmap_participants: Optional[list[str]] = Field(
+        alias="heatmapParticipants", default=None
+    )
+    "Participation IDs for heatmap overlay"
+    marked_participants: Optional[list[str]] = Field(
+        alias="markedParticipants", default=None
+    )
+    "Participation IDs for marked overlay"
+    metric_participants: Optional[list[str]] = Field(
+        alias="metricParticipants", default=None
+    )
+    "Participation IDs for metric overlay"
+    spacing_participants: Optional[list[str]] = Field(
+        alias="spacingParticipants", default=None
+    )
+    "Participation IDs for spacing overlay"
+    trailed_participants: Optional[list[str]] = Field(
+        alias="trailedParticipants", default=None
+    )
+    "Participation IDs for trailed overlay"
 
 
 class VideoRecordingAttributes(BaseModel):
@@ -1051,7 +1433,9 @@ class VideoRecordingAttributes(BaseModel):
     "The end time of the video recording"
     start_time: Any = Field(alias="startTime")
     "The start time of the video recording"
-    total_size_bytes: int = Field(alias="totalSizeBytes")
+    total_bytes: Optional[Any] = Field(alias="totalBytes", default=None)
+    "The total size of all video fragments in bytes. Replaces totalSizeBytes to support sizes larger than 2GB."
+    total_size_bytes: Optional[int] = Field(alias="totalSizeBytes", default=None)
     "The total size of all video fragments in bytes"
 
 
@@ -1062,6 +1446,7 @@ AthleteHeartRateBoundsAttributes.model_rebuild()
 AthleteRelativeAccelzoneAttributes.model_rebuild()
 AthleteRelativeDecelzoneAttributes.model_rebuild()
 AthleteSpeedzoneAttributes.model_rebuild()
+CreatePredictedSessionAttributes.model_rebuild()
 MutateSessionAttributes.model_rebuild()
 MutateSessionBlueprintAttributes.model_rebuild()
 PitchAttributes.model_rebuild()
@@ -1074,6 +1459,9 @@ SessionPositionsAttributes.model_rebuild()
 SurveyAttributes.model_rebuild()
 SurveyTimerTriggerAttributes.model_rebuild()
 SurveyTimerTriggerCreateAttributes.model_rebuild()
+TargetDefinitionAttributes.model_rebuild()
 UpdateClubSettingsAttributes.model_rebuild()
 UpdatePersonAttributes.model_rebuild()
 UpdateSettingsAttributes.model_rebuild()
+UpdateVideoClipAttributes.model_rebuild()
+VideoClipAttributes.model_rebuild()
