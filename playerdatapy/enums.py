@@ -4,6 +4,20 @@
 from enum import Enum
 
 
+class ActiveFirmwareBoardName(str, Enum):
+    """Board versions that are not archived, for use when selecting from the current range"""
+
+    playerdata_anchor_v6_0_3 = "playerdata_anchor_v6_0_3"
+    playerdata_ball_v1_0_2 = "playerdata_ball_v1_0_2"
+    playerdata_ball_v1_1_0 = "playerdata_ball_v1_1_0"
+    playerdata_edge_v2_0_8 = "playerdata_edge_v2_0_8"
+    playerdata_edge_v2_1_1 = "playerdata_edge_v2_1_1"
+    playerdata_edge_v3_1_0 = "playerdata_edge_v3_1_0"
+    playerdata_gateway_v2_0_3_nrf5340_cpuapp = (
+        "playerdata_gateway_v2_0_3_nrf5340_cpuapp"
+    )
+
+
 class AggFuncEnum(str, Enum):
     """The different aggregation functions"""
 
@@ -18,8 +32,12 @@ class AggFuncEnum(str, Enum):
 class AppAuthenticationFlow(str, Enum):
     ATHLETE_DASHBOARD = "ATHLETE_DASHBOARD"
     "Person is directed to Athlete Dashboard"
+    CLUB_SETUP = "CLUB_SETUP"
+    "Person needs to set up their club"
     CURRENT_CLUB = "CURRENT_CLUB"
     "Person has club, decide route on client side"
+    CURRENT_ORGANISATION = "CURRENT_ORGANISATION"
+    "Person has organisation, decide route on client side"
     DETAILS = "DETAILS"
     "Person without DOB or gender"
     EDGE_ASSIGNMENT = "EDGE_ASSIGNMENT"
@@ -53,6 +71,91 @@ class AppMessageTypeEnum(str, Enum):
     SurveyReminder = "SurveyReminder"
 
 
+class BulkActionEnum(str, Enum):
+    """Actions supported by createBulkAction"""
+
+    approve = "approve"
+    "Approve records (e.g. promote pending members to athletes or staff)"
+    archive = "archive"
+    "Archive records in their source club"
+    copy = "copy"
+    "Copy records from a source club into one or more target clubs"
+    delete = "delete"
+    "Delete records in their source club"
+    reject = "reject"
+    "Reject records (e.g. remove pending members without approval)"
+    reset = "reset"
+    "Reset records to default values"
+    unarchive = "unarchive"
+    "Restore archived records in their source club"
+
+
+class BulkActionableTypeEnum(str, Enum):
+    """Entity types supported by createBulkAction"""
+
+    Athlete = "Athlete"
+    "Perform bulk action on athletes"
+    AthleteGroup = "AthleteGroup"
+    "Perform bulk action on athlete groups"
+    Club = "Club"
+    "Perform bulk action on clubs"
+    ClubMetricZones = "ClubMetricZones"
+    "Perform bulk action on club metric zones"
+    PendingMember = "PendingMember"
+    "Perform bulk action on pending members"
+    Pitch = "Pitch"
+    "Perform bulk action on pitches"
+    Staff = "Staff"
+    "Perform bulk action on staff"
+    Survey = "Survey"
+    "Perform bulk action on surveys"
+    Tag = "Tag"
+    "Perform bulk action on tags"
+
+
+class BulkOperationRowStatusEnum(str, Enum):
+    """Per-row result status for a bulk operation"""
+
+    archived = "archived"
+    "Row archived"
+    created = "created"
+    "Row created"
+    deleted = "deleted"
+    "Row deleted"
+    error = "error"
+    "Row error"
+    overwritten = "overwritten"
+    "Row overwritten"
+    reset = "reset"
+    "Row reset"
+    skipped = "skipped"
+    "Row skipped"
+    succeeded = "succeeded"
+    "Row succeeded"
+    unarchived = "unarchived"
+    "Row unarchived"
+
+
+class BulkOperationStatusEnum(str, Enum):
+    """Lifecycle status of a bulk operation record"""
+
+    Failed = "Failed"
+    "Bulk operation is failed"
+    Pending = "Pending"
+    "Bulk operation is pending"
+    Processing = "Processing"
+    "Bulk operation is processing"
+    Succeeded = "Succeeded"
+    "Bulk operation is succeeded"
+
+
+class CallSiteEnum(str, Enum):
+    """The page or feature from which the chat was initiated"""
+
+    FLEXIBLE_REPORT_INDEX = "FLEXIBLE_REPORT_INDEX"
+    "Chat opened from the flexible reporting page"
+
+
 class ChartDataTypeEnum(str, Enum):
     """data type for a column, required by AG Grid when creating charts"""
 
@@ -73,9 +176,17 @@ class ChartTypeEnum(str, Enum):
     line = "line"
     pie = "pie"
     radarLine = "radarLine"
+    scatter = "scatter"
     stackedBar = "stackedBar"
     stackedColumn = "stackedColumn"
     table = "table"
+
+
+class ClipTeam(str, Enum):
+    """The team associated with a clip"""
+
+    Opponent = "Opponent"
+    OwnTeam = "OwnTeam"
 
 
 class ClubSport(str, Enum):
@@ -84,6 +195,7 @@ class ClubSport(str, Enum):
     association_football_referees = "association_football_referees"
     baseball = "baseball"
     basketball = "basketball"
+    basketball_lps = "basketball_lps"
     cricket = "cricket"
     gaelic_football = "gaelic_football"
     hockey = "hockey"
@@ -194,6 +306,8 @@ class DisplayUnitEnum(str, Enum):
 
     BPM = "BPM"
     "Beats per minute"
+    CM = "CM"
+    "Centimeters"
     HOUR = "HOUR"
     "Hours"
     KM = "KM"
@@ -204,6 +318,8 @@ class DisplayUnitEnum(str, Enum):
     "Meters"
     MIN = "MIN"
     "Minutes"
+    MMSS = "MMSS"
+    "Minutes:Seconds"
     MPS = "MPS"
     "Meters per second"
     PERCENT = "PERCENT"
@@ -224,6 +340,8 @@ class EdgeOwnerType(str, Enum):
 class FeatureNameEnum(str, Enum):
     """An enum of all the features that can be enabled/disabled"""
 
+    activestorage_seaweedfs_cache = "activestorage_seaweedfs_cache"
+    "When enabled, ActiveStorage uses SeaweedFS as an in-cluster read-through cache:\nuploads/deletes are duplicated from GCS to SeaweedFS, and reads (download,\nexist?, internal_url) prefer SeaweedFS and fall back to GCS. When disabled,\nall storage operations go straight to GCS."
     allow_font_scaling = "allow_font_scaling"
     "Enables scaling fonts for accessibility"
     anonymise_data_pipeline_enabled = "anonymise_data_pipeline_enabled"
@@ -231,9 +349,7 @@ class FeatureNameEnum(str, Enum):
     auto_gateway_assignment = "auto_gateway_assignment"
     "Enables processing of gateway assignments received from the gateway assignment pipeline"
     auto_pitch_detection = "auto_pitch_detection"
-    "Enables auto pitch detection"
-    backfill_sampled_speed_blob_job = "backfill_sampled_speed_blob_job"
-    "Enables backfilling sampled speed blob job"
+    "Enables auto pitch detection (deprecated)"
     bad_data_clipping = "bad_data_clipping"
     "Enables the bad data clipping feature in the web application"
     ball_metrics = "ball_metrics"
@@ -242,10 +358,14 @@ class FeatureNameEnum(str, Enum):
     "Enable report generation in the browser"
     bt_hr_sensor_pairing = "bt_hr_sensor_pairing"
     "Enables setting up an edge to pair with a HR sensor"
-    chat = "chat"
-    "*Deprecated* Enable chat interface"
-    chat_extended_capabilities = "chat_extended_capabilities"
-    "Enable extended chat capabilities including sports science research tools"
+    camera_upload = "camera_upload"
+    "Enables camera upload from app"
+    club_onboarding_flow = "club_onboarding_flow"
+    "**Deprecated** Enables the new club onboarding flow"
+    club_setup_flow = "club_setup_flow"
+    "Enables the new club setup flow"
+    coachmate_in_flexible_reports = "coachmate_in_flexible_reports"
+    "Enables coachmate being used within flexible reporting"
     configurable_comparison = "configurable_comparison"
     "Enables configurable metric comparisons"
     configurable_metrics = "configurable_metrics"
@@ -258,20 +378,26 @@ class FeatureNameEnum(str, Enum):
     "Enables custom survey questions"
     customer_flexible_reporting = "customer_flexible_reporting"
     "Enables customer flexible reporting"
-    duplicate_segment_null_times = "duplicate_segment_null_times"
-    "Enables segments with nil duration"
-    firmware_anchor_updates = "firmware_anchor_updates"
-    "Enables (self-serve) anchor firmware updates"
-    firmware_gateway_updates = "firmware_gateway_updates"
-    "Enables (self-serve) gateway firmware updates"
-    firmware_updates = "firmware_updates"
-    "Enables (self-serve) firmware updates, including prompts to update"
+    data_recording_preprocessing = "data_recording_preprocessing"
+    "Enables the data recording preprocessing pipeline (transforms raw sensor data\nindependently of session-level analysis)"
+    device_management_v2 = "device_management_v2"
+    "Enables the unified device management screen (edges, balls, gateways, anchors in one place)"
+    edge_scheduled_wakeup = "edge_scheduled_wakeup"
+    "Enables scheduled wakeup of edge devices"
+    flexible_report_templates = "flexible_report_templates"
+    "Select from templates while creating a new Flexible Report"
     flexible_reporting = "flexible_reporting"
     "Enables flexible reporting"
+    flexible_reports_split_duplicate_segments = (
+        "flexible_reports_split_duplicate_segments"
+    )
+    'In flexible reports, suffixes duplicate segment titles by position (e.g. "Indy" / "Indy 2")\nso that multiple independent segments of the same type appear as separate chart columns'
     heartrate_data = "heartrate_data"
     "*Deprecated by Configurable Metrics*"
     hubspot_integration = "hubspot_integration"
     "Enables a variety of integrations with the hubspot API"
+    imu_motion_estimation = "imu_motion_estimation"
+    "Enables motion estimation from IMU sensor data"
     individual_speed_zones = "individual_speed_zones"
     "Enables the individual speed zones feature"
     localized_terms = "localized_terms"
@@ -280,6 +406,8 @@ class FeatureNameEnum(str, Enum):
     "Enables new match session part processing"
     notification_enhancements = "notification_enhancements"
     "Enables the reworked notifications modal"
+    organisation_admin_panel = "organisation_admin_panel"
+    "Enables the organisation Admin Panel UI for the current organisation.\nRolled out per-organisation via the rollout admin tooling."
     pitches_on_sessions = "pitches_on_sessions"
     "Enables reading & writing pitches from Sessions::Session"
     processing_diagnostics = "processing_diagnostics"
@@ -288,18 +416,32 @@ class FeatureNameEnum(str, Enum):
     "Enables access to the recruitment dashboard via SSO"
     report_improvements = "report_improvements"
     "Enables the report improvements feature"
+    segment_naming_rule_relaxation = "segment_naming_rule_relaxation"
+    "Enables the relaxation of segment naming rules to allow for more characters"
     session_automation = "session_automation"
     "Enables detected sessions v2"
+    session_creation_loop = "session_creation_loop"
+    "Enables the AI powered session creation loop"
+    session_device_checks = "session_device_checks"
+    "Shows the device battery checker page in a session"
+    session_group_filter = "session_group_filter"
+    "Enables filtering session overview by athlete groups"
     session_quick_actions = "session_quick_actions"
     "Enables quick actions on sessions"
+    session_targets = "session_targets"
+    "Enables setting targets on sessions"
     survey_archival = "survey_archival"
     "Enables archival of surveys"
     sync_only_recent_edges = "sync_only_recent_edges"
     "Filters edge sync list to only show edges from a specific session"
+    tablet_session_view = "tablet_session_view"
+    "Enables the redesigned tablet session screen with the table-style athlete metrics overview"
     tactical_map_speed = "tactical_map_speed"
     "Enables speed graphs on tactical maps"
     tactical_video_playback = "tactical_video_playback"
     "Enables the tactical video playback feature"
+    training_plan_import = "training_plan_import"
+    "Enables coaches to upload PDF training plans that are parsed into sessions and segments"
     use_competitor_s_metrics = "use_competitor_s_metrics"
     "Enables using competitor S acceleration/deceleration metrics"
     warmup_match_session = "warmup_match_session"
@@ -358,6 +500,42 @@ class FirmwareVariant(str, Enum):
     release = "release"
 
 
+class ImageSizeEnum(str, Enum):
+    """Standard square image sizes for profile pictures"""
+
+    EXTRA_LARGE = "EXTRA_LARGE"
+    "640x640"
+    LARGE = "LARGE"
+    "320x320"
+    MEDIUM = "MEDIUM"
+    "160x160"
+    SMALL = "SMALL"
+    "80x80"
+
+
+class Intensity(str, Enum):
+    """Predicted session intensity levels"""
+
+    high = "high"
+    low = "low"
+    medium = "medium"
+
+
+class LabelPositionEnum(str, Enum):
+    """Supported overlay label positions"""
+
+    bottom = "bottom"
+    bottom_left = "bottom_left"
+    bottom_right = "bottom_right"
+    inside = "inside"
+    inside_left = "inside_left"
+    inside_right = "inside_right"
+    none = "none"
+    top = "top"
+    top_left = "top_left"
+    top_right = "top_right"
+
+
 class MatchEventClassEnum(str, Enum):
     """Classes of match event"""
 
@@ -379,18 +557,31 @@ class MatchSessionResult(str, Enum):
 
 
 class OperatingMode(str, Enum):
+    BatteryCritical = "BatteryCritical"
     ChargeMode = "ChargeMode"
     DataCapture = "DataCapture"
+    DataCaptureIndoor = "DataCaptureIndoor"
+    DataCaptureOutdoor = "DataCaptureOutdoor"
     DataTransfer = "DataTransfer"
     Error = "Error"
     FirmwareUpdate = "FirmwareUpdate"
-    HrPeripheralPairingMode = "HrPeripheralPairingMode"
+    HrPeripheralPairing = "HrPeripheralPairing"
+    Initialisation = "Initialisation"
     Powerdown = "Powerdown"
 
 
 class OrderDirectionEnum(str, Enum):
     asc = "asc"
     desc = "desc"
+
+
+class OrganisationPersonStatusEnum(str, Enum):
+    """Whether a person is active or archived within an organisation"""
+
+    ACTIVE = "ACTIVE"
+    "Has at least one active staff record or organisation membership"
+    ARCHIVED = "ARCHIVED"
+    "All staff records and organisation memberships are archived"
 
 
 class OwnerEnum(str, Enum):
@@ -405,6 +596,15 @@ class PathmapPathType(str, Enum):
     "sprint"
 
 
+class PendingMemberTypeEnum(str, Enum):
+    """Role a pending member will hold once approved"""
+
+    ATHLETE = "ATHLETE"
+    "Pending athlete"
+    STAFF = "STAFF"
+    "Pending staff"
+
+
 class PermissionAction(str, Enum):
     Create = "Create"
     Destroy = "Destroy"
@@ -416,9 +616,55 @@ class PermissionAction(str, Enum):
     Update = "Update"
 
 
+class PermissionEnum(str, Enum):
+    """An enum of all available RBAC permissions"""
+
+    approve_pending_members = "approve_pending_members"
+    create_athlete_groups = "create_athlete_groups"
+    create_athletes = "create_athletes"
+    create_members = "create_members"
+    create_pitches = "create_pitches"
+    create_reports = "create_reports"
+    create_sessions = "create_sessions"
+    create_staff = "create_staff"
+    create_surveys = "create_surveys"
+    create_tags = "create_tags"
+    destroy_reports = "destroy_reports"
+    force_retrigger_processing = "force_retrigger_processing"
+    manage_oauth_applications = "manage_oauth_applications"
+    manage_roles = "manage_roles"
+    run_maintenance_tasks = "run_maintenance_tasks"
+    update_athlete_groups = "update_athlete_groups"
+    update_athletes = "update_athletes"
+    update_clubs = "update_clubs"
+    update_members = "update_members"
+    update_organisations = "update_organisations"
+    update_pitches = "update_pitches"
+    update_reports = "update_reports"
+    update_sessions = "update_sessions"
+    update_settings = "update_settings"
+    update_staff = "update_staff"
+    update_surveys = "update_surveys"
+    update_tags = "update_tags"
+    view_all_organisations = "view_all_organisations"
+    view_athlete_groups = "view_athlete_groups"
+    view_athletes = "view_athletes"
+    view_clubs = "view_clubs"
+    view_members = "view_members"
+    view_pending_members = "view_pending_members"
+    view_pitches = "view_pitches"
+    view_reports = "view_reports"
+    view_sessions = "view_sessions"
+    view_settings = "view_settings"
+    view_staff = "view_staff"
+    view_surveys = "view_surveys"
+    view_tags = "view_tags"
+
+
 class PermissionSubject(str, Enum):
     Athlete = "Athlete"
     ClubSettings = "ClubSettings"
+    Organisation = "Organisation"
     PendingMember = "PendingMember"
     Person = "Person"
     Pitch = "Pitch"
@@ -438,6 +684,16 @@ class Platform(str, Enum):
     "A device running iOS"
     WEB = "WEB"
     "Running in a web browser"
+
+
+class PreprocessingOutputFileTypeEnum(str, Enum):
+    """Data type of a preprocessing output file"""
+
+    GPS = "GPS"
+    HEARTRATE = "HEARTRATE"
+    IMU = "IMU"
+    IMU_ACCELERATION = "IMU_ACCELERATION"
+    UWB = "UWB"
 
 
 class ProcessingWarning(str, Enum):
@@ -489,6 +745,19 @@ class ProcessingWarning(str, Enum):
     "(DEPRECATED) The localisation process failed for the provided UWB data"
 
 
+class ProfileRegistrationStatusEnum(str, Enum):
+    """Registration status of an athlete or staff member"""
+
+    INVITED = "INVITED"
+    "Uploaded or invited but has not confirmed their account yet"
+    REGISTERED = "REGISTERED"
+    "Has a confirmed account"
+    UNCLAIMED = "UNCLAIMED"
+    "Has an account but has not been claimed yet"
+    UNCONFIRMED = "UNCONFIRMED"
+    "Has an account but has not confirmed it yet"
+
+
 class QuickActionStateEnum(str, Enum):
     """Enum for quick action states"""
 
@@ -533,10 +802,18 @@ class QuickActionStateEnum(str, Enum):
 
 
 class RatingEnum(str, Enum):
-    """The rating of the response"""
+    """The rating of a response or prediction"""
 
     negative = "negative"
     positive = "positive"
+
+
+class ReferenceOverlayTypeEnum(str, Enum):
+    """Supported reference overlay types"""
+
+    all_time_pb = "all_time_pb"
+    match_pb = "match_pb"
+    training_pb = "training_pb"
 
 
 class ReportType(str, Enum):
@@ -717,6 +994,35 @@ class SortField(str, Enum):
     total_sprint_events = "total_sprint_events"
 
 
+class StatOverlayTypeEnum(str, Enum):
+    """Supported statistic overlay types"""
+
+    average = "average"
+    std_dev = "std_dev"
+
+
+class StepEnum(str, Enum):
+    """Available setup checklist step identifiers"""
+
+    add_athletes = "add_athletes"
+    add_staff = "add_staff"
+    set_team_name = "set_team_name"
+    setup_edges = "setup_edges"
+
+
+class StepStatusEnum(str, Enum):
+    """Possible statuses for a setup checklist step"""
+
+    complete = "complete"
+    "Complete"
+    in_progress = "in_progress"
+    "In progress"
+    incomplete = "incomplete"
+    "Incomplete"
+    skipped = "skipped"
+    "Skipped"
+
+
 class StripeSubscriptionStatus(str, Enum):
     active = "active"
     cancelled = "cancelled"
@@ -739,6 +1045,50 @@ class TaggableTypeEnum(str, Enum):
 
 class TaggerTypeEnum(str, Enum):
     Club = "Club"
+
+
+class TargetAssignableTypeEnum(str, Enum):
+    """The type of record a target definition can be assigned to"""
+
+    ATHLETE = "ATHLETE"
+
+
+class TargetStatusEnum(str, Enum):
+    """The outcome status of a session target relative to the recorded value"""
+
+    ABOVE = "ABOVE"
+    BELOW = "BELOW"
+    WITHIN = "WITHIN"
+
+
+class TargetTargetableTypeEnum(str, Enum):
+    """The type of record a session target can be attached to"""
+
+    SESSION_PARTICIPATION = "SESSION_PARTICIPATION"
+
+
+class TargetTypeEnum(str, Enum):
+    """The kind of session target (absolute range or percentage range)"""
+
+    ABSOLUTE_RANGE = "ABSOLUTE_RANGE"
+    PERCENTAGE_RANGE = "PERCENTAGE_RANGE"
+
+
+class TopicTypeEnum(str, Enum):
+    """The type of entity a chat topic references"""
+
+    FLEXIBLE_REPORT = "FLEXIBLE_REPORT"
+    "A flexible report"
+
+
+class TrainingPlanImportStatus(str, Enum):
+    """Lifecycle status of a training plan import"""
+
+    committed = "committed"
+    failed = "failed"
+    parsed = "parsed"
+    parsing = "parsing"
+    pending = "pending"
 
 
 class UnitSystem(str, Enum):
