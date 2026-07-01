@@ -267,7 +267,7 @@ class Mutation:
         cls,
         signup_token: str,
         *,
-        person_attributes: Optional[UpdatePersonAttributes] = None
+        person_attributes: Optional[UpdatePersonAttributes] = None,
     ) -> AddExistingPersonToClubPayloadFields:
         """Adds an existing person to a club"""
         arguments: dict[str, dict[str, Any]] = {
@@ -538,7 +538,7 @@ class Mutation:
         cls,
         attributes: AthleteHeartRateBoundsAttributes,
         *,
-        reprocess: Optional[bool] = None
+        reprocess: Optional[bool] = None,
     ) -> HeartRateBoundsPayloadFields:
         """Sets athletes' heart rate bounds"""
         arguments: dict[str, dict[str, Any]] = {
@@ -560,7 +560,7 @@ class Mutation:
         cls,
         attributes: AthleteRelativeAccelzoneAttributes,
         *,
-        reprocess: Optional[bool] = None
+        reprocess: Optional[bool] = None,
     ) -> RelativeAccelzonesPayloadFields:
         """Sets athletes' relative acceleration zones"""
         arguments: dict[str, dict[str, Any]] = {
@@ -582,7 +582,7 @@ class Mutation:
         cls,
         attributes: AthleteRelativeDecelzoneAttributes,
         *,
-        reprocess: Optional[bool] = None
+        reprocess: Optional[bool] = None,
     ) -> RelativeDecelzonesPayloadFields:
         """Sets athletes' relative deceleration zones"""
         arguments: dict[str, dict[str, Any]] = {
@@ -604,7 +604,7 @@ class Mutation:
         cls,
         attributes: RelativeSpeedzoneAttributes,
         *,
-        reprocess: Optional[bool] = None
+        reprocess: Optional[bool] = None,
     ) -> RelativeSpeedzonesPayloadFields:
         """Sets athletes' relative speed zones"""
         arguments: dict[str, dict[str, Any]] = {
@@ -665,7 +665,7 @@ class Mutation:
         segments: list[ParsedSegmentPatchInput],
         session_id: str,
         *,
-        keywords: Optional[list[str]] = None
+        keywords: Optional[list[str]] = None,
     ) -> CommitImportToExistingSessionPayloadFields:
         """Commits a training plan import to an existing session"""
         arguments: dict[str, dict[str, Any]] = {
@@ -689,7 +689,7 @@ class Mutation:
         new_session: NewSessionTargetInput,
         segments: list[ParsedSegmentPatchInput],
         *,
-        keywords: Optional[list[str]] = None
+        keywords: Optional[list[str]] = None,
     ) -> CommitImportToNewSessionPayloadFields:
         """Commits a training plan import to a new session"""
         arguments: dict[str, dict[str, Any]] = {
@@ -714,7 +714,7 @@ class Mutation:
         source_ids: list[str],
         *,
         extra_params: Optional[Any] = None,
-        target_club_ids: Optional[list[str]] = None
+        target_club_ids: Optional[list[str]] = None,
     ) -> CreateBulkActionPayloadFields:
         """Bulk-action records of a given type (copy across clubs, future: archive, etc.)"""
         arguments: dict[str, dict[str, Any]] = {
@@ -773,7 +773,7 @@ class Mutation:
         question_id: str,
         response: str,
         *,
-        call_site: Optional[CallSiteEnum] = None
+        call_site: Optional[CallSiteEnum] = None,
     ) -> CreateResponsePayloadFields:
         """Creates a chat response"""
         arguments: dict[str, dict[str, Any]] = {
@@ -939,7 +939,7 @@ class Mutation:
         club_id: Optional[str] = None,
         detected_session_id: Optional[str] = None,
         owner_id: Optional[str] = None,
-        owner_type: Optional[OwnerEnum] = None
+        owner_type: Optional[OwnerEnum] = None,
     ) -> CreatePitchPayloadFields:
         """Creates a new pitch"""
         arguments: dict[str, dict[str, Any]] = {
@@ -981,7 +981,7 @@ class Mutation:
         staff_id: str,
         *,
         call_site: Optional[CallSiteEnum] = None,
-        topic_attributes: Optional[TopicAttributesInput] = None
+        topic_attributes: Optional[TopicAttributesInput] = None,
     ) -> CreateQuestionPayloadFields:
         """Creates a chat question"""
         arguments: dict[str, dict[str, Any]] = {
@@ -1618,7 +1618,7 @@ class Mutation:
         response_id: str,
         *,
         rating: Optional[RatingEnum] = None,
-        rating_explanation: Optional[str] = None
+        rating_explanation: Optional[str] = None,
     ) -> RateResponsePayloadFields:
         """Rates a chat response"""
         arguments: dict[str, dict[str, Any]] = {
@@ -1639,7 +1639,7 @@ class Mutation:
         predicted_session_id: str,
         *,
         rating: Optional[RatingEnum] = None,
-        rating_explanation: Optional[str] = None
+        rating_explanation: Optional[str] = None,
     ) -> RatePredictedSessionPayloadFields:
         """Rates a predicted session"""
         arguments: dict[str, dict[str, Any]] = {
@@ -1659,7 +1659,7 @@ class Mutation:
         cls,
         attributes: list[GatewaySessionAttributes],
         *,
-        session_id: Optional[str] = None
+        session_id: Optional[str] = None,
     ) -> RecreateGatewaySessionsPayloadFields:
         """Recreates a gateway's sessions"""
         arguments: dict[str, dict[str, Any]] = {
@@ -1848,7 +1848,7 @@ class Mutation:
         metric: CustomMaxMetricEnum,
         *,
         reprocess: Optional[bool] = None,
-        value: Optional[float] = None
+        value: Optional[float] = None,
     ) -> SetCustomMaxMetricPayloadFields:
         """Sets a custom maximum metric value for an athlete"""
         arguments: dict[str, dict[str, Any]] = {
@@ -1966,7 +1966,7 @@ class Mutation:
         attributes: UpdateClubSettingsAttributes,
         club_id: str,
         *,
-        reprocess: Optional[bool] = None
+        reprocess: Optional[bool] = None,
     ) -> UpdateClubSettingsPayloadFields:
         """Update settings for a club"""
         arguments: dict[str, dict[str, Any]] = {
@@ -2169,7 +2169,7 @@ class Mutation:
         attributes: UpdatePersonAttributes,
         id: str,
         *,
-        reprocess: Optional[bool] = None
+        reprocess: Optional[bool] = None,
     ) -> UpdatePersonDetailsPayloadFields:
         """Updates a person's details"""
         arguments: dict[str, dict[str, Any]] = {
@@ -2275,7 +2275,7 @@ class Mutation:
         id: str,
         *,
         attributes: Optional[SegmentAttributes] = None,
-        patch: Optional[SegmentPatch] = None
+        patch: Optional[SegmentPatch] = None,
     ) -> UpdateSegmentPayloadFields:
         """Updates a session segment"""
         arguments: dict[str, dict[str, Any]] = {
@@ -2521,7 +2521,7 @@ class Mutation:
         events: list[MetaEventInput],
         firmware_version: str,
         *,
-        device_type: Optional[DeviceSyncTypeEnum] = None
+        device_type: Optional[DeviceSyncTypeEnum] = None,
     ) -> UploadMetaEventsPayloadFields:
         """Upload raw meta events for a device and update its firmware version"""
         arguments: dict[str, dict[str, Any]] = {
@@ -2593,7 +2593,7 @@ class Mutation:
         attributes: SessionPlanAttributesInput,
         club_id: str,
         *,
-        session_plan_id: Optional[str] = None
+        session_plan_id: Optional[str] = None,
     ) -> UpsertSessionPlanPayloadFields:
         """Creates or updates a chat session plan"""
         arguments: dict[str, dict[str, Any]] = {

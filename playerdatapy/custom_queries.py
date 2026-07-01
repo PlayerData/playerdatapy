@@ -229,7 +229,7 @@ class Query:
         club_id: Optional[str] = None,
         ids: Optional[list[str]] = None,
         limit: Optional[int] = None,
-        offset: Optional[int] = None
+        offset: Optional[int] = None,
     ) -> DatasetFields:
         """A dataset for flexible reporting"""
         arguments: dict[str, dict[str, Any]] = {
@@ -312,7 +312,7 @@ class Query:
         name: Optional[str] = None,
         name_enum: Optional[FeatureNameEnum] = None,
         platform: Optional[Platform] = None,
-        version: Optional[str] = None
+        version: Optional[str] = None,
     ) -> FeatureCheckFields:
         """Check if a feature is available"""
         arguments: dict[str, dict[str, Any]] = {
@@ -335,7 +335,7 @@ class Query:
         *,
         build_profile: Optional[FirmwareBuildProfile] = None,
         feature_variant: Optional[FirmwareFeatureVariant] = None,
-        variant: Optional[FirmwareVariant] = None
+        variant: Optional[FirmwareVariant] = None,
     ) -> FirmwareVersionFields:
         """All firmware versions"""
         arguments: dict[str, dict[str, Any]] = {
@@ -374,7 +374,7 @@ class Query:
         build_profile: Optional[FirmwareBuildProfile] = None,
         club_id: Optional[str] = None,
         feature_variant: Optional[FirmwareFeatureVariant] = None,
-        project: Optional[FirmwareProject] = None
+        project: Optional[FirmwareProject] = None,
     ) -> FirmwareVersionFields:
         """The latest firmware version available to the current person (in their given club)"""
         arguments: dict[str, dict[str, Any]] = {
@@ -440,7 +440,7 @@ class Query:
         *,
         ids: Optional[list[str]] = None,
         limit: Optional[int] = None,
-        offset: Optional[int] = None
+        offset: Optional[int] = None,
     ) -> OrganisationFields:
         """Organisations"""
         arguments: dict[str, dict[str, Any]] = {
@@ -462,7 +462,7 @@ class Query:
         *,
         club_id: Optional[str] = None,
         subject: Optional[PermissionSubject] = None,
-        subject_id: Optional[str] = None
+        subject_id: Optional[str] = None,
     ) -> PermissionFields:
         """Whether the current person is permitted to perform a given action"""
         arguments: dict[str, dict[str, Any]] = {
@@ -590,7 +590,7 @@ class Query:
         ids: list[str],
         *,
         limit: Optional[int] = None,
-        offset: Optional[int] = None
+        offset: Optional[int] = None,
     ) -> SessionParticipationInterface:
         """A collection of session participation objects"""
         arguments: dict[str, dict[str, Any]] = {
@@ -611,7 +611,7 @@ class Query:
         filter_: SessionsSessionFilter,
         *,
         limit: Optional[int] = None,
-        offset: Optional[int] = None
+        offset: Optional[int] = None,
     ) -> SessionInterface:
         """Sessions"""
         arguments: dict[str, dict[str, Any]] = {
