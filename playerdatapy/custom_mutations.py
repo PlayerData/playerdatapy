@@ -76,6 +76,7 @@ from .custom_fields import (
     DestroySessionTagDefinitionPayloadFields,
     DestroySessionTargetDefinitionsPayloadFields,
     DestroyTagDefinitionPayloadFields,
+    DestroyVideoRecordingPayloadFields,
     DiscardPredictedSessionPayloadFields,
     DuplicateFlexibleReportPayloadFields,
     DuplicateSegmentPayloadFields,
@@ -1453,6 +1454,17 @@ class Mutation:
         }
         return DestroyTagDefinitionPayloadFields(
             field_name="destroyTagDefinition", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def destroy_video_recording(cls, id: str) -> DestroyVideoRecordingPayloadFields:
+        """Destroys a video recording and all associated GCS files"""
+        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return DestroyVideoRecordingPayloadFields(
+            field_name="destroyVideoRecording", arguments=cleared_arguments
         )
 
     @classmethod

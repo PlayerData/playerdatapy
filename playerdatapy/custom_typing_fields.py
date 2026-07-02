@@ -861,6 +861,12 @@ class DestroyTagDefinitionPayloadGraphQLField(GraphQLField):
         return self
 
 
+class DestroyVideoRecordingPayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "DestroyVideoRecordingPayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
 class DetectedCoordinateGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "DetectedCoordinateGraphQLField":
         self._alias = alias
@@ -1981,6 +1987,12 @@ class TargetTemplateGraphQLField(GraphQLField):
         return self
 
 
+class TargetableMetricBaselineGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "TargetableMetricBaselineGraphQLField":
+        self._alias = alias
+        return self
+
+
 class TermsOfUseGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "TermsOfUseGraphQLField":
         self._alias = alias
@@ -2395,6 +2407,12 @@ class VideoSignedUrlGraphQLField(GraphQLField):
 
 class VideoSourceInterfaceGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "VideoSourceInterfaceGraphQLField":
+        self._alias = alias
+        return self
+
+
+class VideoStorageGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "VideoStorageGraphQLField":
         self._alias = alias
         return self
 
