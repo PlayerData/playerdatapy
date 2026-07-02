@@ -834,6 +834,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1112,6 +1132,78 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1170,6 +1262,166 @@
       
         
           
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
         
       
         
@@ -2303,6 +2555,8 @@
       
         
       
+        
+      
     
     
     
@@ -2525,6 +2779,56 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2583,6 +2887,56 @@
       
         
           
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
         
       
         
@@ -2983,9 +3337,10 @@
 <h1 id="sessionparticipation"><code>SessionParticipation</code><a class="headerlink" href="#sessionparticipation" title="Permanent link">&para;</a></h1>
 <h2 id="fields">Fields<a class="headerlink" href="#fields" title="Permanent link">&para;</a></h2>
 <h3 id="athlete"><code>athlete</code><a class="headerlink" href="#athlete" title="Permanent link">&para;</a></h3>
+<p>The athlete taking part in the session</p>
 <p><strong>Returns:</strong> <a href="../../objects/Athlete/"><code>Athlete</code></a>!</p>
 <h3 id="configuredmetrics"><code>configuredMetrics</code><a class="headerlink" href="#configuredmetrics" title="Permanent link">&para;</a></h3>
-<p>Returns the metrics for a participation</p>
+<p>Metrics for the participation, limited to the club's configured metrics</p>
 <p><strong>Returns:</strong> <a href="../../objects/ConfiguredMetrics/"><code>ConfiguredMetrics</code></a></p>
 <p><strong>Arguments:</strong></p>
 <table>
@@ -3002,28 +3357,42 @@
 <td>[<a href="../../scalars/String/"><code>String</code></a>!]</td>
 <td>JSONb fields to return from metric set</td>
 </tr>
+<tr>
+<td><code>requestedKeys</code></td>
+<td>[<a href="../../scalars/String/"><code>String</code></a>!]</td>
+<td>When provided, only return metrics with these keys</td>
+</tr>
 </tbody>
 </table>
 <h3 id="datarecordings"><code>dataRecordings</code><a class="headerlink" href="#datarecordings" title="Permanent link">&para;</a></h3>
+<p>The data recordings captured for the participation</p>
 <p><strong>Returns:</strong> [<a href="../../objects/DataRecording/"><code>DataRecording</code></a>!]!</p>
 <h3 id="datafiles"><code>datafiles</code><a class="headerlink" href="#datafiles" title="Permanent link">&para;</a></h3>
+<p>The data recordings captured for the participation</p>
 <p><strong>Returns:</strong> [<a href="../../objects/EdgeDataFile/"><code>EdgeDataFile</code></a>!]!</p>
 <h3 id="diagnosticwarnings"><code>diagnosticWarnings</code><a class="headerlink" href="#diagnosticwarnings" title="Permanent link">&para;</a></h3>
 <p>The diagnostic warnings for the session participation</p>
 <p><strong>Returns:</strong> [<a href="../../objects/DiagnosticWarning/"><code>DiagnosticWarning</code></a>!]!</p>
 <h3 id="edgeassignmentguess"><code>edgeAssignmentGuess</code><a class="headerlink" href="#edgeassignmentguess" title="Permanent link">&para;</a></h3>
+<p>The edge guessed to be assigned to the athlete</p>
 <p><strong>Returns:</strong> <a href="../../objects/Edge/"><code>Edge</code></a></p>
 <h3 id="filtereddatafileurl"><code>filteredDataFileUrl</code><a class="headerlink" href="#filtereddatafileurl" title="Permanent link">&para;</a></h3>
+<p>A temporary download URL for the participation's filtered data file</p>
 <p><strong>Returns:</strong> <a href="../../scalars/String/"><code>String</code></a></p>
 <h3 id="id"><code>id</code><a class="headerlink" href="#id" title="Permanent link">&para;</a></h3>
+<p>Unique identifier for the session participation</p>
 <p><strong>Returns:</strong> <a href="../../scalars/ID/"><code>ID</code></a>!</p>
 <h3 id="position"><code>position</code><a class="headerlink" href="#position" title="Permanent link">&para;</a></h3>
+<p>The position the athlete played in the session</p>
 <p><strong>Returns:</strong> <a href="../../objects/PositionDefinition/"><code>PositionDefinition</code></a></p>
 <h3 id="segmentparticipations"><code>segmentParticipations</code><a class="headerlink" href="#segmentparticipations" title="Permanent link">&para;</a></h3>
+<p>The athlete's participations in this session's segments</p>
 <p><strong>Returns:</strong> [<a href="../../objects/SegmentParticipation/"><code>SegmentParticipation</code></a>!]</p>
 <h3 id="session"><code>session</code><a class="headerlink" href="#session" title="Permanent link">&para;</a></h3>
+<p>The session this participation belongs to</p>
 <p><strong>Returns:</strong> <a href="../Session/"><code>Session</code></a>!</p>
 <h3 id="tagdefinitions"><code>tagDefinitions</code><a class="headerlink" href="#tagdefinitions" title="Permanent link">&para;</a></h3>
+<p>The tags applied to the participation</p>
 <p><strong>Returns:</strong> [<a href="../../objects/TagDefinition/"><code>TagDefinition</code></a>!]</p>
 <p><strong>Arguments:</strong></p>
 <table>
@@ -3047,9 +3416,15 @@
 </tr>
 </tbody>
 </table>
+<h3 id="targets"><code>targets</code><a class="headerlink" href="#targets" title="Permanent link">&para;</a></h3>
+<p>The metric targets set on this participation</p>
+<p><strong>Returns:</strong> [<a href="../../objects/Target/"><code>Target</code></a>!]!</p>
 <h3 id="timefilters"><code>timeFilters</code><a class="headerlink" href="#timefilters" title="Permanent link">&para;</a></h3>
 <p>Time filter ranges for the participation (array of [start_time, end_time] pairs)</p>
 <p><strong>Returns:</strong> [[<a href="../../scalars/ISO8601DateTime/"><code>ISO8601DateTime</code></a>!]!]!</p>
+<h3 id="updatedat"><code>updatedAt</code><a class="headerlink" href="#updatedat" title="Permanent link">&para;</a></h3>
+<p>The time the participation was last updated</p>
+<p><strong>Returns:</strong> <a href="../../scalars/ISO8601DateTime/"><code>ISO8601DateTime</code></a>!</p>
 <h3 id="warnings"><code>warnings</code><a class="headerlink" href="#warnings" title="Permanent link">&para;</a></h3>
 <p>The warnings for the session participation</p>
 <p><strong>Returns:</strong> [<a href="../../enums/SessionParticipationWarningCodes/"><code>SessionParticipationWarningCodes</code></a>!]!</p>
