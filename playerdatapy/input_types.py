@@ -549,13 +549,6 @@ class MatchPeriodAttributes(BaseModel):
     start_time: Any = Field(alias="startTime")
 
 
-class MemberOrganisationMembersFilter(BaseModel):
-    archived_at_null: Optional[bool] = Field(alias="archivedAtNull", default=None)
-    "Filter members by archived status"
-    person_name_i_cont: Optional[str] = Field(alias="personNameICont", default=None)
-    "Filter members by their person's name (case insensitive)"
-
-
 class MetaEventInput(BaseModel):
     """A single Meta Event"""
 
@@ -733,6 +726,11 @@ class PendingMemberBaseFilter(BaseModel):
         alias="memberTypeEq", default=None
     )
     "Filter by the role this pending member will hold once approved"
+
+
+class PersonBaseFilter(BaseModel):
+    name_i_cont: Optional[str] = Field(alias="nameICont", default=None)
+    "Case-insensitive search on the person's name"
 
 
 class PitchAttributes(BaseModel):
