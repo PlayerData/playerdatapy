@@ -5,7 +5,7 @@ Repo-specific guidance for AI assistants (Claude Code, Cursor, etc.). Humans, sk
 ## Project shape
 
 - Python package `playerdatapy` — typed client for the PlayerData GraphQL API.
-- Generated from `schema.graphql` by `ariadne-codegen` (config in `pyproject.toml` under `[tool.ariadne-codegen]`).
+- Generated from `schema.graphql` by `ariadne-codegen` (config in `pyproject.toml` under `[tool.ariadne-codegen]`). `schema.graphql` is refreshed from the public SDL at `https://app.playerdata.co.uk/api/schema.graphql`.
 - Custom codegen plugin at `codegen_plugins/docstrings.py` injects schema descriptions into generated enums.
 - Docs site at `docs/`, built with MkDocs Material + mkdocstrings, deployed to GitHub Pages via `.github/workflows/docs.yml`.
 - Examples in `examples/direct/` (raw GraphQL) and `examples/pydantic/` (typed `PlayerDataAPI` — preferred).
@@ -25,7 +25,7 @@ These are output of `uv run ariadne-codegen` and excluded from ruff:
 - `playerdatapy/base_operation.py`
 - `playerdatapy/async_base_client.py`
 
-Any edits will be wiped on next codegen run. To change them, edit `schema.graphql` or the codegen plugin.
+Any edits will be wiped on next codegen run. To change them, edit `schema.graphql` (or update upstream schema in the `PlayerData/api` repo) or the codegen plugin.
 
 ## Updating docs
 
@@ -41,14 +41,16 @@ Edit Markdown, open PR. Pages: `index`, `quickstart`, `auth`, `concepts`, `metri
 - Generated modules carry docstrings via ariadne-codegen + the enum plugin — don't edit by hand.
 
 ### 3. SDK regeneration
+`schema.graphql` is committed. Nightly CI (`.github/workflows/codegen.yml`, 06:00 UTC) refreshes it from the public SDL at `https://app.playerdata.co.uk/api/schema.graphql` and reruns codegen — PR opens only if anything drifts.
+
 Local:
 ```bash
-# Refresh schema.graphql from prod first (separate introspection step)
+curl -fsSL https://app.playerdata.co.uk/api/schema.graphql -o schema.graphql
 uv sync --group codegen
 uv run ariadne-codegen
 git add schema.graphql playerdatapy/
 ```
-CI: pushing `schema.graphql` to `main` triggers `.github/workflows/codegen.yml` → opens PR with regenerated files.
+Also triggered by `workflow_dispatch` or pushing `schema.graphql` to `main`.
 
 ## Local commands
 
@@ -77,7 +79,7 @@ uv run pytest                 # tests
 
 ## When making changes
 
-1. **Touching `schema.graphql`** → run `uv run ariadne-codegen`; commit schema + regenerated files together.
+1. **Touching `schema.graphql`** → run `uv run ariadne-codegen`; commit schema + regenerated files together. Nightly CI does this automatically via `codegen.yml`.
 2. **Touching public Python API** → check `docs/api.md` still renders sensibly via `mkdocs build --strict`.
 3. **Touching docs theme** (`docs/stylesheets/extra.css`, `mkdocs.yml`) → preview with `mkdocs serve` before pushing.
 4. **Touching workflows** → verify with `act` locally or watch the run after push.

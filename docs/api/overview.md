@@ -2,13 +2,15 @@
 
 PlayerData exposes a single GraphQL endpoint. Everything — sessions, athletes, metrics, raw GPS — is queryable from one URL.
 
-## Endpoint
+## Endpoints
 
-```
-https://app.playerdata.co.uk/api/graphql
-```
+| Purpose | URL | Auth |
+| --- | --- | --- |
+| GraphQL API | `https://app.playerdata.co.uk/api/graphql` | Bearer token (OAuth2) |
+| Schema SDL | `https://app.playerdata.co.uk/api/schema.graphql` | Public |
+| GraphiQL playground | `https://app.playerdata.co.uk/api/graphiql` | Session login |
 
-All requests are `POST` with a JSON body containing a `query` (and optional `variables`).
+All API requests are `POST` with a JSON body containing a `query` (and optional `variables`). The SDL endpoint serves the full schema definition as `text/plain` — use it to regenerate typed clients without hitting introspection.
 
 ## Why GraphQL
 
