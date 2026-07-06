@@ -633,6 +633,7 @@ class PermissionEnum(str, Enum):
     force_retrigger_processing = "force_retrigger_processing"
     manage_oauth_applications = "manage_oauth_applications"
     manage_roles = "manage_roles"
+    manage_video_storage_limits = "manage_video_storage_limits"
     run_maintenance_tasks = "run_maintenance_tasks"
     update_athlete_groups = "update_athlete_groups"
     update_athletes = "update_athletes"
@@ -806,6 +807,30 @@ class RatingEnum(str, Enum):
 
     negative = "negative"
     positive = "positive"
+
+
+class RawDataPreparationStatusEnum(str, Enum):
+    """Outcome of a prepareRawData mutation"""
+
+    ALREADY_AVAILABLE = "ALREADY_AVAILABLE"
+    "Raw data already covers the session window; nothing was started"
+    IN_FLIGHT = "IN_FLIGHT"
+    "A preparation run was already in flight; nothing was started"
+    TRIGGERED = "TRIGGERED"
+    "A new preparation run was started"
+    UNAVAILABLE = "UNAVAILABLE"
+    "Raw data could not be prepared (feature off, no device, or no recording)"
+
+
+class RawDataStatusEnum(str, Enum):
+    """Availability status of a raw data type for a session participation"""
+
+    PROCESSING = "PROCESSING"
+    "The data is being prepared; poll this field until it is READY"
+    READY = "READY"
+    "The raw data is available to download via the url field"
+    UNAVAILABLE = "UNAVAILABLE"
+    "No raw data is available and none can be produced for this data type"
 
 
 class ReferenceOverlayTypeEnum(str, Enum):

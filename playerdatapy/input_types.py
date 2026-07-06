@@ -1365,6 +1365,15 @@ class UpdateVideoClipAttributes(BaseModel):
     "The participation ID of the participant being tracked in the video clip"
 
 
+class UpdateVideoRecordingAttributes(BaseModel):
+    """Attributes for updating an existing video recording"""
+
+    camera_ownership_id: Optional[str] = Field(alias="cameraOwnershipId", default=None)
+    "The ID of the camera ownership"
+    start_time: Optional[Any] = Field(alias="startTime", default=None)
+    "The corrected start time of the video recording"
+
+
 class UpsertDataRecordingsAttributes(BaseModel):
     """Attributes for upserting a data recording"""
 

@@ -76,7 +76,7 @@ from .custom_fields import (
     DestroySessionTagDefinitionPayloadFields,
     DestroySessionTargetDefinitionsPayloadFields,
     DestroyTagDefinitionPayloadFields,
-    DestroyVideoRecordingPayloadFields,
+    DestroyVideoRecordingsPayloadFields,
     DiscardPredictedSessionPayloadFields,
     DuplicateFlexibleReportPayloadFields,
     DuplicateSegmentPayloadFields,
@@ -87,6 +87,7 @@ from .custom_fields import (
     HeartRateBoundsPayloadFields,
     MarkAppMessageReadPayloadFields,
     MarkMultipleAppMessagesReadPayloadFields,
+    PrepareRawDataPayloadFields,
     ProvisionGatewayPayloadFields,
     RatePredictedSessionPayloadFields,
     RateResponsePayloadFields,
@@ -144,6 +145,7 @@ from .custom_fields import (
     UpdateTargetTemplatePayloadFields,
     UpdateUserPreferencesPayloadFields,
     UpdateVideoClipPayloadFields,
+    UpdateVideoRecordingPayloadFields,
     UploadMetaEventsPayloadFields,
     UpsertChatClubContextPayloadFields,
     UpsertChatCoachContextPayloadFields,
@@ -215,6 +217,7 @@ from .input_types import (
     UpdateStaffBillingAttributes,
     UpdateUserPreferencesAttributes,
     UpdateVideoClipAttributes,
+    UpdateVideoRecordingAttributes,
     UpsertDataRecordingsAttributes,
     VideoClipAttributes,
     VideoRecordingAttributes,
@@ -1457,14 +1460,16 @@ class Mutation:
         )
 
     @classmethod
-    def destroy_video_recording(cls, id: str) -> DestroyVideoRecordingPayloadFields:
-        """Destroys a video recording and all associated GCS files"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
+    def destroy_video_recordings(
+        cls, ids: list[str]
+    ) -> DestroyVideoRecordingsPayloadFields:
+        """Destroys multiple video recordings and all associated GCS files"""
+        arguments: dict[str, dict[str, Any]] = {"ids": {"type": "[ID!]!", "value": ids}}
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
         }
-        return DestroyVideoRecordingPayloadFields(
-            field_name="destroyVideoRecording", arguments=cleared_arguments
+        return DestroyVideoRecordingsPayloadFields(
+            field_name="destroyVideoRecordings", arguments=cleared_arguments
         )
 
     @classmethod
@@ -1604,6 +1609,21 @@ class Mutation:
         }
         return MarkMultipleAppMessagesReadPayloadFields(
             field_name="markMultipleAppMessagesRead", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def prepare_raw_data(
+        cls, session_participation_id: str
+    ) -> PrepareRawDataPayloadFields:
+        """Prepares a session participation's raw data for download"""
+        arguments: dict[str, dict[str, Any]] = {
+            "sessionParticipationId": {"type": "ID!", "value": session_participation_id}
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return PrepareRawDataPayloadFields(
+            field_name="prepareRawData", arguments=cleared_arguments
         )
 
     @classmethod
@@ -2524,6 +2544,25 @@ class Mutation:
         }
         return UpdateVideoClipPayloadFields(
             field_name="updateVideoClip", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def update_video_recording(
+        cls, attributes: UpdateVideoRecordingAttributes, id: str
+    ) -> UpdateVideoRecordingPayloadFields:
+        """Updates the start time of a video recording, shifting end time by the same delta"""
+        arguments: dict[str, dict[str, Any]] = {
+            "attributes": {
+                "type": "UpdateVideoRecordingAttributes!",
+                "value": attributes,
+            },
+            "id": {"type": "ID!", "value": id},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return UpdateVideoRecordingPayloadFields(
+            field_name="updateVideoRecording", arguments=cleared_arguments
         )
 
     @classmethod
