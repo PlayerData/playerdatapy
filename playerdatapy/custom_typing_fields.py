@@ -861,8 +861,8 @@ class DestroyTagDefinitionPayloadGraphQLField(GraphQLField):
         return self
 
 
-class DestroyVideoRecordingPayloadGraphQLField(GraphQLField):
-    def alias(self, alias: str) -> "DestroyVideoRecordingPayloadGraphQLField":
+class DestroyVideoRecordingsPayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "DestroyVideoRecordingsPayloadGraphQLField":
         self._alias = alias
         return self
 
@@ -1469,6 +1469,12 @@ class PredictedSessionGraphQLField(GraphQLField):
         return self
 
 
+class PrepareRawDataPayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "PrepareRawDataPayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
 class PrivacyPolicyGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "PrivacyPolicyGraphQLField":
         self._alias = alias
@@ -1519,6 +1525,12 @@ class RatePredictedSessionPayloadGraphQLField(GraphQLField):
 
 class RateResponsePayloadGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "RateResponsePayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
+class RawDataGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "RawDataGraphQLField":
         self._alias = alias
         return self
 
@@ -2323,6 +2335,12 @@ class UpdateUserPreferencesPayloadGraphQLField(GraphQLField):
 
 class UpdateVideoClipPayloadGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "UpdateVideoClipPayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
+class UpdateVideoRecordingPayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "UpdateVideoRecordingPayloadGraphQLField":
         self._alias = alias
         return self
 
