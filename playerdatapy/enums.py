@@ -82,10 +82,14 @@ class BulkActionEnum(str, Enum):
     "Copy records from a source club into one or more target clubs"
     delete = "delete"
     "Delete records in their source club"
+    grant = "grant"
+    "Grant a role to records (e.g. grant org_admin to people)"
     reject = "reject"
     "Reject records (e.g. remove pending members without approval)"
     reset = "reset"
     "Reset records to default values"
+    revoke = "revoke"
+    "Revoke a role from records (e.g. revoke org_admin from people)"
     unarchive = "unarchive"
     "Restore archived records in their source club"
 
@@ -103,6 +107,8 @@ class BulkActionableTypeEnum(str, Enum):
     "Perform bulk action on club metric zones"
     PendingMember = "PendingMember"
     "Perform bulk action on pending members"
+    Person = "Person"
+    "Perform bulk action on people"
     Pitch = "Pitch"
     "Perform bulk action on pitches"
     Staff = "Staff"
@@ -376,8 +382,6 @@ class FeatureNameEnum(str, Enum):
     "Enables csv reporting options"
     custom_survey_questions = "custom_survey_questions"
     "Enables custom survey questions"
-    customer_flexible_reporting = "customer_flexible_reporting"
-    "Enables customer flexible reporting"
     data_recording_preprocessing = "data_recording_preprocessing"
     "Enables the data recording preprocessing pipeline (transforms raw sensor data\nindependently of session-level analysis)"
     device_management_v2 = "device_management_v2"
@@ -386,8 +390,8 @@ class FeatureNameEnum(str, Enum):
     "Enables scheduled wakeup of edge devices"
     flexible_report_templates = "flexible_report_templates"
     "Select from templates while creating a new Flexible Report"
-    flexible_reporting = "flexible_reporting"
-    "Enables flexible reporting"
+    flexible_reporting_v2 = "flexible_reporting_v2"
+    "Enables flexible reporting v2"
     flexible_reports_split_duplicate_segments = (
         "flexible_reports_split_duplicate_segments"
     )
@@ -587,6 +591,21 @@ class OrganisationPersonStatusEnum(str, Enum):
 class OwnerEnum(str, Enum):
     Club = "Club"
     Person = "Person"
+
+
+class ParticipantDataExportFormatEnum(str, Enum):
+    """Output format for a participant data export"""
+
+    JSON = "JSON"
+    "The JSON format"
+
+
+class ParticipantDataExportStatusEnum(str, Enum):
+    """Status of a participant data export"""
+
+    Completed = "Completed"
+    Failed = "Failed"
+    Generating = "Generating"
 
 
 class PathmapPathType(str, Enum):

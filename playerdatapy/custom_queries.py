@@ -22,6 +22,7 @@ from .custom_fields import (
     MatchSessionParticipationFields,
     MatchSessionParticipationPartFields,
     OrganisationFields,
+    ParticipantDataExportFields,
     PermissionFields,
     PersonFields,
     PitchFields,
@@ -46,6 +47,7 @@ from .custom_fields import (
     TrainingSessionFields,
     TrainingSessionParticipationFields,
     UserPreferenceFields,
+    VideoRecordingFields,
     VideoSignedUrlFields,
     WorkflowImmediateResponseFields,
 )
@@ -456,6 +458,17 @@ class Query:
         )
 
     @classmethod
+    def participant_data_export(cls, id: str) -> ParticipantDataExportFields:
+        """A participant data export; poll for status and download link"""
+        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return ParticipantDataExportFields(
+            field_name="participantDataExport", arguments=cleared_arguments
+        )
+
+    @classmethod
     def permission(
         cls,
         requested_action: PermissionAction,
@@ -761,6 +774,17 @@ class Query:
         }
         return UserPreferenceFields(
             field_name="userPreferences", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def video_recording(cls, id: str) -> VideoRecordingFields:
+        """A video recording"""
+        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return VideoRecordingFields(
+            field_name="videoRecording", arguments=cleared_arguments
         )
 
     @classmethod
