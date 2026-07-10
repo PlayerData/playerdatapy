@@ -3705,6 +3705,11 @@ enum BulkActionEnum {
   delete
 
   """
+  Grant a role to records (e.g. grant org_admin to people)
+  """
+  grant
+
+  """
   Reject records (e.g. remove pending members without approval)
   """
   reject
@@ -3713,6 +3718,11 @@ enum BulkActionEnum {
   Reset records to default values
   """
   reset
+
+  """
+  Revoke a role from records (e.g. revoke org_admin from people)
+  """
+  revoke
 
   """
   Restore archived records in their source club
@@ -3758,6 +3768,11 @@ enum BulkActionableTypeEnum {
   Perform bulk action on pending members
   """
   PendingMember
+
+  """
+  Perform bulk action on people
+  """
+  Person
 
   """
   Perform bulk action on pitches
@@ -4418,6 +4433,11 @@ type Club {
   aggregatedSessions(filter: SessionsSessionAggregateMetricsFilter!, limit: Int @deprecated(reason: "Cannot be used with aggregation."), offset: Int @deprecated(reason: "Cannot be used with aggregation.")): [AggregatedSession!]
 
   """
+  Whether the club is archived
+  """
+  archived: Boolean!
+
+  """
   When the club was archived, nil if not archived
   """
   archivedAt: ISO8601DateTime
@@ -4477,6 +4497,11 @@ type Club {
   Count of active athletes for the club
   """
   athletesCount: Int!
+
+  """
+  Distinct edge board names accessible to this club via its organisation's current edge ownerships
+  """
+  availableEdgeHardwareVersions: [String!]!
 
   """
   Cameras currently owned by this club
@@ -10855,11 +10880,6 @@ enum FeatureNameEnum {
   custom_survey_questions
 
   """
-  Enables customer flexible reporting
-  """
-  customer_flexible_reporting
-
-  """
   Enables the data recording preprocessing pipeline (transforms raw sensor data
   independently of session-level analysis)
   """
@@ -10881,9 +10901,9 @@ enum FeatureNameEnum {
   flexible_report_templates
 
   """
-  Enables flexible reporting
+  Enables flexible reporting v2
   """
-  flexible_reporting
+  flexible_reporting_v2
 
   """
   In flexible reports, suffixes duplicate segment titles by position (e.g. "Indy" / "Indy 2")
@@ -12405,6 +12425,11 @@ type MatchSession implements Session & TimelineItem {
   The number of athletes participating in the session
   """
   sessionParticipationsCount(withData: Boolean): Int!
+
+  """
+  The ID of the target template applied to the session, or null if no template is applied
+  """
+  sessionTargetTemplateId: ID
 
   """
   Video for the session
@@ -21258,6 +21283,11 @@ type Mutation {
     extraParams: JSON
 
     """
+    Organisation the bulk action belongs to
+    """
+    organisationId: ID
+
+    """
     IDs of source records
     """
     sourceIds: [ID!]!
@@ -21961,6 +21991,31 @@ type Mutation {
   Remove a timer trigger
   """
   removeSurveyTimerTrigger(surveyTimerTriggerId: ID!): RemoveSurveyTimerTriggerPayload
+
+  """
+  Removes a target template from a session, deleting its targets
+  """
+  removeTargetTemplate(
+    """
+    The session to remove the target template from
+    """
+    sessionId: ID!
+  ): RemoveTargetTemplatePayload
+
+  """
+  Requests a participant data export (e.g. JSON) derived from pre-processed data
+  """
+  requestParticipantDataExport(
+    """
+    Output format (defaults to JSON)
+    """
+    format: ParticipantDataExportFormatEnum = JSON
+
+    """
+    The session participation to export
+    """
+    sessionParticipationId: ID!
+  ): RequestParticipantDataExportPayload
 
   """
   Resends a pending member's confirmation email
@@ -23013,6 +23068,60 @@ type ParsedTrainingPlan {
   Plan-level title if present in the document
   """
   title: String
+}
+
+"""
+A participant data export in a chosen format, derived from pre-processed data
+"""
+type ParticipantDataExport {
+  """
+  When the export was requested
+  """
+  createdAt: ISO8601DateTime!
+
+  """
+  Time-limited download link; present once status is Completed
+  """
+  downloadUrl: String
+
+  """
+  Errors that occurred during export generation
+  """
+  errors: [String!]!
+
+  """
+  The output format
+  """
+  format: ParticipantDataExportFormatEnum!
+
+  """
+  The participant data export id
+  """
+  id: ID!
+
+  """
+  The status of the export
+  """
+  status: ParticipantDataExportStatusEnum!
+}
+
+"""
+Output format for a participant data export
+"""
+enum ParticipantDataExportFormatEnum {
+  """
+  The JSON format
+  """
+  JSON
+}
+
+"""
+Status of a participant data export
+"""
+enum ParticipantDataExportStatusEnum {
+  Completed
+  Failed
+  Generating
 }
 
 """
@@ -24860,6 +24969,11 @@ type Query {
   organisations(ids: [ID!], limit: Int, offset: Int): [Organisation!]!
 
   """
+  A participant data export; poll for status and download link
+  """
+  participantDataExport(id: ID!): ParticipantDataExport
+
+  """
   Whether the current person is permitted to perform a given action
   """
   permission(clubId: ID, requestedAction: PermissionAction!, subject: PermissionSubject, subjectId: ID): Permission!
@@ -24983,6 +25097,11 @@ type Query {
   The stored user preferences for a given owner
   """
   userPreferences(keys: [String!], ownerId: ID!, ownerType: OwnerEnum!): [UserPreference!]!
+
+  """
+  A video recording
+  """
+  videoRecording(id: ID!): VideoRecording
 
   """
   Generate a signed URL to download the broadcast-view MP4 of a recording
@@ -25472,6 +25591,21 @@ type RemoveSurveyTimerTriggerPayload {
   survey: Survey
 }
 
+"""
+Autogenerated return type of RemoveTargetTemplate.
+"""
+type RemoveTargetTemplatePayload {
+  """
+  Validation errors that occurred while performing the mutation
+  """
+  errors: [ValidationError!]!
+
+  """
+  The session the target template was removed from
+  """
+  session: Session
+}
+
 type Report {
   """
   Athletes included in the report
@@ -25602,6 +25736,26 @@ enum ReportTypeEnum {
   AthleteLoad
   MultiSession
   SingleSession
+}
+
+"""
+Autogenerated return type of RequestParticipantDataExport.
+"""
+type RequestParticipantDataExportPayload {
+  """
+  Availability of the pre-processed data for this participation
+  """
+  availability: RawDataStatusEnum!
+
+  """
+  Validation errors that occurred while performing the mutation
+  """
+  errors: [ValidationError!]!
+
+  """
+  The enqueued export; present only when availability is READY
+  """
+  export: ParticipantDataExport
 }
 
 """
@@ -25758,6 +25912,11 @@ type Role {
   Unique identifier for the role
   """
   id: ID!
+
+  """
+  The role's priority, lower values indicate higher hierarchy
+  """
+  priority: Int!
 
   """
   The name of the role
@@ -26543,6 +26702,11 @@ interface Session {
   The number of athletes participating in the session
   """
   sessionParticipationsCount(withData: Boolean): Int!
+
+  """
+  The ID of the target template applied to the session, or null if no template is applied
+  """
+  sessionTargetTemplateId: ID
 
   """
   Video for the session
@@ -29316,6 +29480,11 @@ type TrainingSession implements Session & TimelineItem {
   The number of athletes participating in the session
   """
   sessionParticipationsCount(withData: Boolean): Int!
+
+  """
+  The ID of the target template applied to the session, or null if no template is applied
+  """
+  sessionTargetTemplateId: ID
 
   """
   Video for the session
@@ -37393,6 +37562,11 @@ type VideoRecording implements VideoSourceInterface {
   Whether the annotations file is attached
   """
   annotationsFileAttached: Boolean!
+
+  """
+  The camera ownership associated with this recording
+  """
+  cameraOwnership: CameraOwnership
 
   """
   Whether all fragments have been uploaded

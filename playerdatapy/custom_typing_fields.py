@@ -1345,6 +1345,12 @@ class ParsedTrainingPlanGraphQLField(GraphQLField):
         return self
 
 
+class ParticipantDataExportGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "ParticipantDataExportGraphQLField":
+        self._alias = alias
+        return self
+
+
 class ParticipationsMetricsSummaryGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "ParticipationsMetricsSummaryGraphQLField":
         self._alias = alias
@@ -1601,6 +1607,12 @@ class RemoveSurveyTimerTriggerPayloadGraphQLField(GraphQLField):
         return self
 
 
+class RemoveTargetTemplatePayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "RemoveTargetTemplatePayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
 class ReportGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "ReportGraphQLField":
         self._alias = alias
@@ -1615,6 +1627,12 @@ class ReportTemplateGraphQLField(GraphQLField):
 
 class ReportTemplateChartGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "ReportTemplateChartGraphQLField":
+        self._alias = alias
+        return self
+
+
+class RequestParticipantDataExportPayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "RequestParticipantDataExportPayloadGraphQLField":
         self._alias = alias
         return self
 

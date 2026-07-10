@@ -98,6 +98,8 @@ from .custom_fields import (
     RelativeDecelzonesPayloadFields,
     RelativeSpeedzonesPayloadFields,
     RemoveSurveyTimerTriggerPayloadFields,
+    RemoveTargetTemplatePayloadFields,
+    RequestParticipantDataExportPayloadFields,
     ResendConfirmationEmailPayloadFields,
     ResendReportPayloadFields,
     RespondToDetectedMatchEventPayloadFields,
@@ -718,6 +720,7 @@ class Mutation:
         source_ids: list[str],
         *,
         extra_params: Optional[Any] = None,
+        organisation_id: Optional[str] = None,
         target_club_ids: Optional[list[str]] = None,
     ) -> CreateBulkActionPayloadFields:
         """Bulk-action records of a given type (copy across clubs, future: archive, etc.)"""
@@ -728,6 +731,7 @@ class Mutation:
                 "value": actionable_type,
             },
             "extraParams": {"type": "JSON", "value": extra_params},
+            "organisationId": {"type": "ID", "value": organisation_id},
             "sourceIds": {"type": "[ID!]!", "value": source_ids},
             "targetClubIds": {"type": "[ID!]", "value": target_club_ids},
         }
@@ -1745,6 +1749,43 @@ class Mutation:
         }
         return RemoveSurveyTimerTriggerPayloadFields(
             field_name="removeSurveyTimerTrigger", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def remove_target_template(
+        cls, session_id: str
+    ) -> RemoveTargetTemplatePayloadFields:
+        """Removes a target template from a session, deleting its targets"""
+        arguments: dict[str, dict[str, Any]] = {
+            "sessionId": {"type": "ID!", "value": session_id}
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return RemoveTargetTemplatePayloadFields(
+            field_name="removeTargetTemplate", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def request_participant_data_export(
+        cls,
+        session_participation_id: str,
+        *,
+        format: Optional[ParticipantDataExportFormatEnum] = None,
+    ) -> RequestParticipantDataExportPayloadFields:
+        """Requests a participant data export (e.g. JSON) derived from pre-processed data"""
+        arguments: dict[str, dict[str, Any]] = {
+            "format": {"type": "ParticipantDataExportFormatEnum", "value": format},
+            "sessionParticipationId": {
+                "type": "ID!",
+                "value": session_participation_id,
+            },
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return RequestParticipantDataExportPayloadFields(
+            field_name="requestParticipantDataExport", arguments=cleared_arguments
         )
 
     @classmethod
