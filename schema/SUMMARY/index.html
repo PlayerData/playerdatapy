@@ -557,6 +557,7 @@
 <li><a href="../queries/matchSessionParticipation/">matchSessionParticipation</a></li>
 <li><a href="../queries/matchSessionParticipationParts/">matchSessionParticipationParts</a></li>
 <li><a href="../queries/organisations/">organisations</a></li>
+<li><a href="../queries/participantDataExport/">participantDataExport</a></li>
 <li><a href="../queries/permission/">permission</a></li>
 <li><a href="../queries/person/">person</a></li>
 <li><a href="../queries/pitch/">pitch</a></li>
@@ -582,6 +583,7 @@
 <li><a href="../queries/trainingSession/">trainingSession</a></li>
 <li><a href="../queries/trainingSessionParticipation/">trainingSessionParticipation</a></li>
 <li><a href="../queries/userPreferences/">userPreferences</a></li>
+<li><a href="../queries/videoRecording/">videoRecording</a></li>
 <li><a href="../queries/videoRecordingDownloadUrl/">videoRecordingDownloadUrl</a></li>
 <li><a href="../queries/videoRecordingSignedUrl/">videoRecordingSignedUrl</a></li>
 </ul>
@@ -665,6 +667,7 @@
 <li><a href="../mutations/destroySessionTagDefinition/">destroySessionTagDefinition</a></li>
 <li><a href="../mutations/destroySessionTargetDefinitions/">destroySessionTargetDefinitions</a></li>
 <li><a href="../mutations/destroyTagDefinition/">destroyTagDefinition</a></li>
+<li><a href="../mutations/destroyVideoRecordings/">destroyVideoRecordings</a></li>
 <li><a href="../mutations/discardPredictedSession/">discardPredictedSession</a></li>
 <li><a href="../mutations/dismissAppMessage/">dismissAppMessage</a></li>
 <li><a href="../mutations/duplicateFlexibleReport/">duplicateFlexibleReport</a></li>
@@ -675,6 +678,7 @@
 <li><a href="../mutations/grantOrgAdminRole/">grantOrgAdminRole</a></li>
 <li><a href="../mutations/markAppMessageRead/">markAppMessageRead</a></li>
 <li><a href="../mutations/markMultipleAppMessagesRead/">markMultipleAppMessagesRead</a></li>
+<li><a href="../mutations/prepareRawData/">prepareRawData</a></li>
 <li><a href="../mutations/provisionGateway/">provisionGateway</a></li>
 <li><a href="../mutations/rateChatResponse/">rateChatResponse</a></li>
 <li><a href="../mutations/ratePredictedSession/">ratePredictedSession</a></li>
@@ -682,6 +686,8 @@
 <li><a href="../mutations/regenerateDataset/">regenerateDataset</a></li>
 <li><a href="../mutations/registerDevice/">registerDevice</a></li>
 <li><a href="../mutations/removeSurveyTimerTrigger/">removeSurveyTimerTrigger</a></li>
+<li><a href="../mutations/removeTargetTemplate/">removeTargetTemplate</a></li>
+<li><a href="../mutations/requestParticipantDataExport/">requestParticipantDataExport</a></li>
 <li><a href="../mutations/resendPendingMemberConfirmationEmail/">resendPendingMemberConfirmationEmail</a></li>
 <li><a href="../mutations/resendReport/">resendReport</a></li>
 <li><a href="../mutations/respondToDetectedMatchEvent/">respondToDetectedMatchEvent</a></li>
@@ -728,6 +734,7 @@
 <li><a href="../mutations/updateTargetTemplate/">updateTargetTemplate</a></li>
 <li><a href="../mutations/updateUserPreferences/">updateUserPreferences</a></li>
 <li><a href="../mutations/updateVideoClip/">updateVideoClip</a></li>
+<li><a href="../mutations/updateVideoRecording/">updateVideoRecording</a></li>
 <li><a href="../mutations/uploadDeviceMetaEvents/">uploadDeviceMetaEvents</a></li>
 <li><a href="../mutations/upsertChatClubContext/">upsertChatClubContext</a></li>
 <li><a href="../mutations/upsertChatCoachContext/">upsertChatCoachContext</a></li>
@@ -872,6 +879,7 @@
 <li><a href="../objects/DestroySessionTargetDefinitionsPayload/">DestroySessionTargetDefinitionsPayload</a></li>
 <li><a href="../objects/DestroySurveyPayload/">DestroySurveyPayload</a></li>
 <li><a href="../objects/DestroyTagDefinitionPayload/">DestroyTagDefinitionPayload</a></li>
+<li><a href="../objects/DestroyVideoRecordingsPayload/">DestroyVideoRecordingsPayload</a></li>
 <li><a href="../objects/DetectedCoordinate/">DetectedCoordinate</a></li>
 <li><a href="../objects/DetectedMatchEvent/">DetectedMatchEvent</a></li>
 <li><a href="../objects/DetectedSession/">DetectedSession</a></li>
@@ -943,6 +951,7 @@
 <li><a href="../objects/Page/">Page</a></li>
 <li><a href="../objects/ParsedSegment/">ParsedSegment</a></li>
 <li><a href="../objects/ParsedTrainingPlan/">ParsedTrainingPlan</a></li>
+<li><a href="../objects/ParticipantDataExport/">ParticipantDataExport</a></li>
 <li><a href="../objects/ParticipationsMetricsSummary/">ParticipationsMetricsSummary</a></li>
 <li><a href="../objects/Pathmap/">Pathmap</a></li>
 <li><a href="../objects/PathmapPitchLimits/">PathmapPitchLimits</a></li>
@@ -963,6 +972,7 @@
 <li><a href="../objects/PitchDetectedSubscriptionPayload/">PitchDetectedSubscriptionPayload</a></li>
 <li><a href="../objects/PositionDefinition/">PositionDefinition</a></li>
 <li><a href="../objects/PredictedSession/">PredictedSession</a></li>
+<li><a href="../objects/PrepareRawDataPayload/">PrepareRawDataPayload</a></li>
 <li><a href="../objects/PrivacyPolicy/">PrivacyPolicy</a></li>
 <li><a href="../objects/PrivacyPolicyAcceptance/">PrivacyPolicyAcceptance</a></li>
 <li><a href="../objects/ProfilePicture/">ProfilePicture</a></li>
@@ -972,6 +982,7 @@
 <li><a href="../objects/Range/">Range</a></li>
 <li><a href="../objects/RatePredictedSessionPayload/">RatePredictedSessionPayload</a></li>
 <li><a href="../objects/RateResponsePayload/">RateResponsePayload</a></li>
+<li><a href="../objects/RawData/">RawData</a></li>
 <li><a href="../objects/RecreateGatewaySessionsPayload/">RecreateGatewaySessionsPayload</a></li>
 <li><a href="../objects/RecurrenceSchedule/">RecurrenceSchedule</a></li>
 <li><a href="../objects/RecurrenceScheduleWeeklyRule/">RecurrenceScheduleWeeklyRule</a></li>
@@ -983,9 +994,11 @@
 <li><a href="../objects/RelativeSpeedzonesPayload/">RelativeSpeedzonesPayload</a></li>
 <li><a href="../objects/RemoveSurveyQuestionPayload/">RemoveSurveyQuestionPayload</a></li>
 <li><a href="../objects/RemoveSurveyTimerTriggerPayload/">RemoveSurveyTimerTriggerPayload</a></li>
+<li><a href="../objects/RemoveTargetTemplatePayload/">RemoveTargetTemplatePayload</a></li>
 <li><a href="../objects/Report/">Report</a></li>
 <li><a href="../objects/ReportTemplate/">ReportTemplate</a></li>
 <li><a href="../objects/ReportTemplateChart/">ReportTemplateChart</a></li>
+<li><a href="../objects/RequestParticipantDataExportPayload/">RequestParticipantDataExportPayload</a></li>
 <li><a href="../objects/ResendConfirmationEmailPayload/">ResendConfirmationEmailPayload</a></li>
 <li><a href="../objects/ResendReportPayload/">ResendReportPayload</a></li>
 <li><a href="../objects/RespondToDetectedMatchEventPayload/">RespondToDetectedMatchEventPayload</a></li>
@@ -1041,6 +1054,7 @@
 <li><a href="../objects/Target/">Target</a></li>
 <li><a href="../objects/TargetDefinition/">TargetDefinition</a></li>
 <li><a href="../objects/TargetTemplate/">TargetTemplate</a></li>
+<li><a href="../objects/TargetableMetricBaseline/">TargetableMetricBaseline</a></li>
 <li><a href="../objects/TermsOfUse/">TermsOfUse</a></li>
 <li><a href="../objects/TermsOfUseAcceptance/">TermsOfUseAcceptance</a></li>
 <li><a href="../objects/TimeRangeData/">TimeRangeData</a></li>
@@ -1095,6 +1109,7 @@
 <li><a href="../objects/UpdateTargetTemplatePayload/">UpdateTargetTemplatePayload</a></li>
 <li><a href="../objects/UpdateUserPreferencesPayload/">UpdateUserPreferencesPayload</a></li>
 <li><a href="../objects/UpdateVideoClipPayload/">UpdateVideoClipPayload</a></li>
+<li><a href="../objects/UpdateVideoRecordingPayload/">UpdateVideoRecordingPayload</a></li>
 <li><a href="../objects/UploadMetaEventsPayload/">UploadMetaEventsPayload</a></li>
 <li><a href="../objects/UpsertChatClubContextPayload/">UpsertChatClubContextPayload</a></li>
 <li><a href="../objects/UpsertChatCoachContextPayload/">UpsertChatCoachContextPayload</a></li>
@@ -1108,6 +1123,7 @@
 <li><a href="../objects/VideoFragment/">VideoFragment</a></li>
 <li><a href="../objects/VideoRecording/">VideoRecording</a></li>
 <li><a href="../objects/VideoSignedUrl/">VideoSignedUrl</a></li>
+<li><a href="../objects/VideoStorage/">VideoStorage</a></li>
 <li><a href="../objects/VideoStream/">VideoStream</a></li>
 <li><a href="../objects/VideoVariant/">VideoVariant</a></li>
 <li><a href="../objects/WeeklyLoad/">WeeklyLoad</a></li>
@@ -1184,7 +1200,6 @@
 <li><a href="../inputs/LiveDataGatewayOwnershipGatewaysCurrentlyOwnedFilter/">LiveDataGatewayOwnershipGatewaysCurrentlyOwnedFilter</a></li>
 <li><a href="../inputs/MatchEventAttributes/">MatchEventAttributes</a></li>
 <li><a href="../inputs/MatchPeriodAttributes/">MatchPeriodAttributes</a></li>
-<li><a href="../inputs/MemberOrganisationMembersFilter/">MemberOrganisationMembersFilter</a></li>
 <li><a href="../inputs/MetaEventInput/">MetaEventInput</a></li>
 <li><a href="../inputs/MutateSessionAttributes/">MutateSessionAttributes</a></li>
 <li><a href="../inputs/MutateSessionBlueprintAttributes/">MutateSessionBlueprintAttributes</a></li>
@@ -1193,6 +1208,7 @@
 <li><a href="../inputs/OrderInputObject/">OrderInputObject</a></li>
 <li><a href="../inputs/ParsedSegmentPatchInput/">ParsedSegmentPatchInput</a></li>
 <li><a href="../inputs/PendingMemberBaseFilter/">PendingMemberBaseFilter</a></li>
+<li><a href="../inputs/PersonBaseFilter/">PersonBaseFilter</a></li>
 <li><a href="../inputs/PitchAttributes/">PitchAttributes</a></li>
 <li><a href="../inputs/PitchCoordinateAttributes/">PitchCoordinateAttributes</a></li>
 <li><a href="../inputs/PitchCoordinateSetAttributes/">PitchCoordinateSetAttributes</a></li>
@@ -1245,6 +1261,7 @@
 <li><a href="../inputs/UpdateStaffBillingAttributes/">UpdateStaffBillingAttributes</a></li>
 <li><a href="../inputs/UpdateUserPreferencesAttributes/">UpdateUserPreferencesAttributes</a></li>
 <li><a href="../inputs/UpdateVideoClipAttributes/">UpdateVideoClipAttributes</a></li>
+<li><a href="../inputs/UpdateVideoRecordingAttributes/">UpdateVideoRecordingAttributes</a></li>
 <li><a href="../inputs/UpsertDataRecordingsAttributes/">UpsertDataRecordingsAttributes</a></li>
 <li><a href="../inputs/VideoClipAttributes/">VideoClipAttributes</a></li>
 <li><a href="../inputs/VideoClipOverlayInput/">VideoClipOverlayInput</a></li>
@@ -1295,6 +1312,8 @@
 <li><a href="../enums/OrderDirectionEnum/">OrderDirectionEnum</a></li>
 <li><a href="../enums/OrganisationPersonStatusEnum/">OrganisationPersonStatusEnum</a></li>
 <li><a href="../enums/OwnerEnum/">OwnerEnum</a></li>
+<li><a href="../enums/ParticipantDataExportFormatEnum/">ParticipantDataExportFormatEnum</a></li>
+<li><a href="../enums/ParticipantDataExportStatusEnum/">ParticipantDataExportStatusEnum</a></li>
 <li><a href="../enums/PathmapPathType/">PathmapPathType</a></li>
 <li><a href="../enums/PendingMemberTypeEnum/">PendingMemberTypeEnum</a></li>
 <li><a href="../enums/PermissionAction/">PermissionAction</a></li>
@@ -1306,6 +1325,8 @@
 <li><a href="../enums/ProfileRegistrationStatusEnum/">ProfileRegistrationStatusEnum</a></li>
 <li><a href="../enums/QuickActionStateEnum/">QuickActionStateEnum</a></li>
 <li><a href="../enums/RatingEnum/">RatingEnum</a></li>
+<li><a href="../enums/RawDataPreparationStatusEnum/">RawDataPreparationStatusEnum</a></li>
+<li><a href="../enums/RawDataStatusEnum/">RawDataStatusEnum</a></li>
 <li><a href="../enums/ReferenceOverlayTypeEnum/">ReferenceOverlayTypeEnum</a></li>
 <li><a href="../enums/ReportType/">ReportType</a></li>
 <li><a href="../enums/ReportTypeEnum/">ReportTypeEnum</a></li>

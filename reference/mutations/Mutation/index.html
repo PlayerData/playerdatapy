@@ -1807,6 +1807,24 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2079,6 +2097,8 @@
       
         
       
+        
+      
     
     
     
@@ -2137,6 +2157,14 @@
       
         
           
+        
+      
+        
+      
+        
+      
+        
+      
         
       
         
@@ -3402,8 +3430,9 @@
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">source_ids</span><span class="p">:</span> <span class="n"><span title="list">list</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">],</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="o">*</span><span class="p">,</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">extra_params</span><span class="p">:</span> <span class="n"><span title="typing.Optional">Optional</span></span><span class="p">[</span><span class="n"><span title="typing.Any">Any</span></span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">target_club_ids</span><span class="p">:</span> <span class="n"><span title="typing.Optional">Optional</span></span><span class="p">[</span><span class="n"><span title="list">list</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="            CreateBulkActionPayloadFields (playerdatapy.custom_fields.CreateBulkActionPayloadFields)" href="../../fields/CreateBulkActionPayloadFields/#playerdatapy.custom_fields.CreateBulkActionPayloadFields">CreateBulkActionPayloadFields</a></span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">organisation_id</span><span class="p">:</span> <span class="n"><span title="typing.Optional">Optional</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="n">target_club_ids</span><span class="p">:</span> <span class="n"><span title="typing.Optional">Optional</span></span><span class="p">[</span><span class="n"><span title="list">list</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="            CreateBulkActionPayloadFields (playerdatapy.custom_fields.CreateBulkActionPayloadFields)" href="../../fields/CreateBulkActionPayloadFields/#playerdatapy.custom_fields.CreateBulkActionPayloadFields">CreateBulkActionPayloadFields</a></span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -4789,6 +4818,32 @@
 <div class="doc doc-object doc-function">
 
 
+<h3 id="playerdatapy.custom_mutations.Mutation.destroy_video_recordings" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">destroy_video_recordings</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#playerdatapy.custom_mutations.Mutation.destroy_video_recordings" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">destroy_video_recordings</span><span class="p">(</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">ids</span><span class="p">:</span> <span class="n"><span title="list">list</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">],</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="            DestroyVideoRecordingsPayloadFields (playerdatapy.custom_fields.DestroyVideoRecordingsPayloadFields)" href="../../fields/DestroyVideoRecordingsPayloadFields/#playerdatapy.custom_fields.DestroyVideoRecordingsPayloadFields">DestroyVideoRecordingsPayloadFields</a></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Destroys multiple video recordings and all associated GCS files</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h3 id="playerdatapy.custom_mutations.Mutation.discard_predicted_session" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">discard_predicted_session</span>
 
@@ -5059,6 +5114,32 @@
 <div class="doc doc-object doc-function">
 
 
+<h3 id="playerdatapy.custom_mutations.Mutation.prepare_raw_data" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">prepare_raw_data</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#playerdatapy.custom_mutations.Mutation.prepare_raw_data" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">prepare_raw_data</span><span class="p">(</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">session_participation_id</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="            PrepareRawDataPayloadFields (playerdatapy.custom_fields.PrepareRawDataPayloadFields)" href="../../fields/PrepareRawDataPayloadFields/#playerdatapy.custom_fields.PrepareRawDataPayloadFields">PrepareRawDataPayloadFields</a></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Prepares a session participation's raw data for download</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h3 id="playerdatapy.custom_mutations.Mutation.provision_gateway" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">provision_gateway</span>
 
@@ -5250,6 +5331,62 @@
     <div class="doc doc-contents ">
 
         <p>Remove a timer trigger</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="playerdatapy.custom_mutations.Mutation.remove_target_template" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">remove_target_template</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#playerdatapy.custom_mutations.Mutation.remove_target_template" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">remove_target_template</span><span class="p">(</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">session_id</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="            RemoveTargetTemplatePayloadFields (playerdatapy.custom_fields.RemoveTargetTemplatePayloadFields)" href="../../fields/RemoveTargetTemplatePayloadFields/#playerdatapy.custom_fields.RemoveTargetTemplatePayloadFields">RemoveTargetTemplatePayloadFields</a></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Removes a target template from a session, deleting its targets</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="playerdatapy.custom_mutations.Mutation.request_participant_data_export" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">request_participant_data_export</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#playerdatapy.custom_mutations.Mutation.request_participant_data_export" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">request_participant_data_export</span><span class="p">(</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">session_participation_id</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="o">*</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="nb">format</span><span class="p">:</span> <span class="n"><span title="typing.Optional">Optional</span></span><span class="p">[</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="n"><a class="autorefs autorefs-internal" title="            ParticipantDataExportFormatEnum (playerdatapy.enums.ParticipantDataExportFormatEnum)" href="../../enums/ParticipantDataExportFormatEnum/#playerdatapy.enums.ParticipantDataExportFormatEnum">ParticipantDataExportFormatEnum</a></span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="            RequestParticipantDataExportPayloadFields (playerdatapy.custom_fields.RequestParticipantDataExportPayloadFields)" href="../../fields/RequestParticipantDataExportPayloadFields/#playerdatapy.custom_fields.RequestParticipantDataExportPayloadFields">RequestParticipantDataExportPayloadFields</a></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Requests a participant data export (e.g. JSON) derived from pre-processed data</p>
 
 
     </div>
@@ -6628,6 +6765,37 @@
     <div class="doc doc-contents ">
 
         <p>Updates a video clip</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="playerdatapy.custom_mutations.Mutation.update_video_recording" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">update_video_recording</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#playerdatapy.custom_mutations.Mutation.update_video_recording" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">update_video_recording</span><span class="p">(</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">attributes</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            UpdateVideoRecordingAttributes
+
+
+  
+      pydantic-model
+   (playerdatapy.input_types.UpdateVideoRecordingAttributes)" href="../../input-types/UpdateVideoRecordingAttributes/#playerdatapy.input_types.UpdateVideoRecordingAttributes">UpdateVideoRecordingAttributes</a></span><span class="p">,</span> <span class="nb">id</span><span class="p">:</span> <span class="n"><span title="str">str</span></span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="            UpdateVideoRecordingPayloadFields (playerdatapy.custom_fields.UpdateVideoRecordingPayloadFields)" href="../../fields/UpdateVideoRecordingPayloadFields/#playerdatapy.custom_fields.UpdateVideoRecordingPayloadFields">UpdateVideoRecordingPayloadFields</a></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Updates the start time of a video recording, shifting end time by the same delta</p>
 
 
     </div>
