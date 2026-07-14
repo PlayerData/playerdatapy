@@ -19139,6 +19139,10 @@ class OrganisationPersonFields(GraphQLField):
     "Unique identifier for the person"
     name: "OrganisationPersonGraphQLField" = OrganisationPersonGraphQLField("name")
     "The person's full name"
+    registration_status: "OrganisationPersonGraphQLField" = (
+        OrganisationPersonGraphQLField("registrationStatus")
+    )
+    "Registered or unconfirmed depending on whether the person's account is confirmed"
 
     @classmethod
     def roles(cls) -> "RoleFields":
@@ -24500,6 +24504,16 @@ class TrainingSessionFields(GraphQLField):
         return SessionBlueprintFields("parentSessionBlueprint")
 
     @classmethod
+    def pitch(cls) -> "PitchFields":
+        """Pitch the training session takes place on"""
+        return PitchFields("pitch")
+
+    @classmethod
+    def pitch_coordinate_set(cls) -> "PitchCoordinateSetFields":
+        """The coordinate set used to calculate the training session metrics"""
+        return PitchCoordinateSetFields("pitchCoordinateSet")
+
+    @classmethod
     def predicted_next_session(cls) -> "PredictedSessionFields":
         """The predicted next session generated from this session. Returns null if no
         prediction exists or if the prediction is not actionable."""
@@ -24715,6 +24729,8 @@ class TrainingSessionFields(GraphQLField):
             "GatewaySessionFields",
             "GenericMetricExplanationFields",
             "MetricExplanationsFields",
+            "PitchCoordinateSetFields",
+            "PitchFields",
             "PredictedSessionFields",
             "SegmentFields",
             "SessionAnchorPositionFields",
