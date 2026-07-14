@@ -22895,6 +22895,11 @@ type OrganisationPerson {
   name: String!
 
   """
+  Registered or unconfirmed depending on whether the person's account is confirmed
+  """
+  registrationStatus: ProfileRegistrationStatusEnum!
+
+  """
   Member roles in the organisation, empty if the person has no assigned roles
   """
   roles: [Role!]!
@@ -23494,6 +23499,7 @@ enum PermissionEnum {
   manage_roles
   manage_video_storage_limits
   run_maintenance_tasks
+  unlock_logins
   update_athlete_groups
   update_athletes
   update_clubs
@@ -29429,6 +29435,16 @@ type TrainingSession implements Session & TimelineItem {
   The session blueprint that created this session
   """
   parentSessionBlueprint: SessionBlueprint
+
+  """
+  Pitch the training session takes place on
+  """
+  pitch: Pitch
+
+  """
+  The coordinate set used to calculate the training session metrics
+  """
+  pitchCoordinateSet: PitchCoordinateSet
 
   """
   The predicted next session generated from this session. Returns null if no

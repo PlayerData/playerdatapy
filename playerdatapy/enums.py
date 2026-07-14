@@ -654,6 +654,7 @@ class PermissionEnum(str, Enum):
     manage_roles = "manage_roles"
     manage_video_storage_limits = "manage_video_storage_limits"
     run_maintenance_tasks = "run_maintenance_tasks"
+    unlock_logins = "unlock_logins"
     update_athlete_groups = "update_athlete_groups"
     update_athletes = "update_athletes"
     update_clubs = "update_clubs"
