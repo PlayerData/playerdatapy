@@ -8,9 +8,6 @@ on:
       - "mkdocs.yml"
       - "playerdatapy/**"
       - ".github/workflows/docs.yml"
-  workflow_run:
-    workflows: [codegen]
-    types: [completed]
   workflow_dispatch:
 
 permissions:

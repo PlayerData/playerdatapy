@@ -1,7 +1,7 @@
 name: codegen
 
 # Nightly: fetches the public schema SDL. If it drifted, reruns ariadne-codegen
-# and opens a PR. Downstream workflows fire on PR creation.
+# and commits directly to main. Downstream workflows (ci, docs, publish) fire on push.
 
 on:
   schedule:
@@ -15,7 +15,6 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
 
 env:
   REMOTE_SCHEMA_URL: https://app.playerdata.co.uk/api/schema.graphql
