@@ -5,6 +5,9 @@ on:
       types: [opened, synchronize, reopened, ready_for_review]
   push:
     branches: [ main ]
+  workflow_run:
+    workflows: [codegen]
+    types: [completed]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
