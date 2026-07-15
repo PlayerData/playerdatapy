@@ -3383,6 +3383,11 @@ type AthleteSessionMetricsUpdatedSubscriptionPayload {
     """
     requestedJsonKeys: [String!]
   ): ConfiguredMetrics
+
+  """
+  The metric targets set on this session participation
+  """
+  targets: [Target!]
 }
 
 """
