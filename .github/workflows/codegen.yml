@@ -11,7 +11,6 @@ on:
     branches: [main]
     paths:
       - "schema.graphql"
-      - ".github/workflows/codegen.yml"
   workflow_dispatch:
 
 permissions:
