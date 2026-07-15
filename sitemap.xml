@@ -1969,6 +1969,10 @@
          <lastmod>2026-07-15</lastmod>
     </url>
     <url>
+         <loc>https://playerdata.github.io/playerdatapy/reference/input-types/ClubBaseFilter/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
          <loc>https://playerdata.github.io/playerdatapy/reference/input-types/ClubContextAttributes/</loc>
          <lastmod>2026-07-15</lastmod>
     </url>
@@ -2754,6 +2758,10 @@
     </url>
     <url>
          <loc>https://playerdata.github.io/playerdatapy/schema/inputs/ClaimPersonAttributes/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://playerdata.github.io/playerdatapy/schema/inputs/ClubBaseFilter/</loc>
          <lastmod>2026-07-15</lastmod>
     </url>
     <url>
