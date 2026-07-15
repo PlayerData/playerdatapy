@@ -4912,6 +4912,15 @@ type Club {
   weeklySessionLoad: WeeklyLoad!
 }
 
+input ClubBaseFilter {
+  """
+  Filter by archived status. Omit for all clubs (default). null = all, true = archived only, false = active only.
+  """
+  archivedEq: Boolean
+  nameCont: String
+  nameUnaccentCont: String
+}
+
 """
 Club context information for chat personalization
 """
@@ -12176,7 +12185,7 @@ type MatchSession implements Session & TimelineItem {
   childSessionBlueprint: SessionBlueprint
 
   """
-  Video clips associated with the match session
+  Video clips associated with the session
   """
   clips: [VideoClip!]
 
@@ -22807,7 +22816,12 @@ type Organisation {
   """
   Clubs belonging to the organisation
   """
-  clubs: [Club!]!
+  clubs(
+    """
+    Filter clubs by name and archived status
+    """
+    filter: ClubBaseFilter
+  ): [Club!]!
 
   """
   Number of Edge devices currently owned by the organisation
@@ -26539,6 +26553,11 @@ interface Session {
   childSessionBlueprint: SessionBlueprint
 
   """
+  Video clips associated with the session
+  """
+  clips: [VideoClip!]
+
+  """
   The club the session belongs to
   """
   club: Club
@@ -27641,9 +27660,9 @@ type SessionVideo {
   id: ID!
 
   """
-  The video recording for the session
+  The video recording for the session, if one overlaps the session's time window
   """
-  videoRecording: VideoRecording!
+  videoRecording: VideoRecording
 }
 
 """
@@ -29012,6 +29031,11 @@ type TargetableMetricBaseline {
   baselineValue: Float!
 
   """
+  ID of the custom baseline target record, if set
+  """
+  customTargetId: ID
+
+  """
   The custom value in the local unit system, if set
   """
   customValue: Float
@@ -29310,6 +29334,11 @@ type TrainingSession implements Session & TimelineItem {
   The session blueprint that was created from this session
   """
   childSessionBlueprint: SessionBlueprint
+
+  """
+  Video clips associated with the session
+  """
+  clips: [VideoClip!]
 
   """
   The club the session belongs to

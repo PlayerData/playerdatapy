@@ -232,6 +232,13 @@ class ClaimPersonAttributes(BaseModel):
     "password for new person"
 
 
+class ClubBaseFilter(BaseModel):
+    archived_eq: Optional[bool] = Field(alias="archivedEq", default=None)
+    "Filter by archived status. Omit for all clubs (default). null = all, true = archived only, false = active only."
+    name_cont: Optional[str] = Field(alias="nameCont", default=None)
+    name_unaccent_cont: Optional[str] = Field(alias="nameUnaccentCont", default=None)
+
+
 class ClubContextAttributes(BaseModel):
     """Attributes for creating or updating a Chat::ClubContext"""
 
