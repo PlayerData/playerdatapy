@@ -391,6 +391,7 @@ from .custom_typing_fields import (
 )
 from .input_types import (
     AthleteBaseFilter,
+    ClubBaseFilter,
     ClubPersonFilter,
     EdgeSessionFilter,
     LiveDataGatewayOwnershipAvailableGatewaysFilter,
@@ -11596,7 +11597,7 @@ class MatchSessionFields(GraphQLField):
 
     @classmethod
     def clips(cls) -> "VideoClipFields":
-        """Video clips associated with the match session"""
+        """Video clips associated with the session"""
         return VideoClipFields("clips")
 
     @classmethod
@@ -19052,9 +19053,15 @@ class OrganisationFields(GraphQLField):
         return DeviceSyncFields("ballSyncs", arguments=cleared_arguments)
 
     @classmethod
-    def clubs(cls) -> "ClubFields":
+    def clubs(cls, *, filter_: Optional[ClubBaseFilter] = None) -> "ClubFields":
         """Clubs belonging to the organisation"""
-        return ClubFields("clubs")
+        arguments: dict[str, dict[str, Any]] = {
+            "filter": {"type": "ClubBaseFilter", "value": filter_}
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return ClubFields("clubs", arguments=cleared_arguments)
 
     edge_ownerships_count: "OrganisationGraphQLField" = OrganisationGraphQLField(
         "edgeOwnershipsCount"
@@ -22068,6 +22075,11 @@ class SessionInterface(GraphQLField):
         return SessionBlueprintFields("childSessionBlueprint")
 
     @classmethod
+    def clips(cls) -> "VideoClipFields":
+        """Video clips associated with the session"""
+        return VideoClipFields("clips")
+
+    @classmethod
     def club(cls) -> "ClubFields":
         """The club the session belongs to"""
         return ClubFields("club")
@@ -22389,6 +22401,7 @@ class SessionInterface(GraphQLField):
             "SurveyAssignmentFields",
             "SurveyDistributionFields",
             "VideoAnnotationsUrlFields",
+            "VideoClipFields",
             "VideoSignedUrlFields",
             "VideoStreamFields",
         ],
@@ -23019,7 +23032,7 @@ class SessionVideoFields(GraphQLField):
 
     @classmethod
     def video_recording(cls) -> "VideoRecordingFields":
-        """The video recording for the session"""
+        """The video recording for the session, if one overlaps the session's time window"""
         return VideoRecordingFields("videoRecording")
 
     def fields(
@@ -24008,6 +24021,10 @@ class TargetableMetricBaselineFields(GraphQLField):
         TargetableMetricBaselineGraphQLField("baselineValue")
     )
     "The baseline value in the local unit system"
+    custom_target_id: "TargetableMetricBaselineGraphQLField" = (
+        TargetableMetricBaselineGraphQLField("customTargetId")
+    )
+    "ID of the custom baseline target record, if set"
     custom_value: "TargetableMetricBaselineGraphQLField" = (
         TargetableMetricBaselineGraphQLField("customValue")
     )
@@ -24372,6 +24389,11 @@ class TrainingSessionFields(GraphQLField):
     def child_session_blueprint(cls) -> "SessionBlueprintFields":
         """The session blueprint that was created from this session"""
         return SessionBlueprintFields("childSessionBlueprint")
+
+    @classmethod
+    def clips(cls) -> "VideoClipFields":
+        """Video clips associated with the session"""
+        return VideoClipFields("clips")
 
     @classmethod
     def club(cls) -> "ClubFields":
@@ -24748,6 +24770,7 @@ class TrainingSessionFields(GraphQLField):
             "TrainingSessionFields",
             "TrainingSessionMetricSetFields",
             "VideoAnnotationsUrlFields",
+            "VideoClipFields",
             "VideoSignedUrlFields",
             "VideoStreamFields",
         ],
