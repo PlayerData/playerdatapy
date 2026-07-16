@@ -91,7 +91,7 @@ def _choose_session(sessions: list[dict]) -> dict | None:
         idx = int(raw)
         if 1 <= idx <= n:
             return sessions[idx - 1]
-    except (ValueError, EOFError):
+    except ValueError, EOFError:
         pass
     print("Invalid choice; using latest session.")
     return sessions[0]
