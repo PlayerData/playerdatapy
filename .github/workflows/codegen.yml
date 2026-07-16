@@ -37,7 +37,7 @@ jobs:
             echo "changed=true" >> "$GITHUB_OUTPUT"
             echo "Schema drifted — running codegen."
           fi
-      - uses: astral-sh/setup-uv@caf0cab7a618c569241d31dcd442f54681755d39 # v3.2.4
+      - uses: astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39 # v8.2.0
         if: steps.drift.outputs.changed == 'true'
         with:
           enable-cache: true
