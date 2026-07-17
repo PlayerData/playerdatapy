@@ -11850,11 +11850,12 @@ class MatchSessionFields(GraphQLField):
 
     @classmethod
     def session_participation(
-        cls, athlete_id: str, *, position_id: Optional[str] = None
+        cls, *, athlete_id: Optional[str] = None, position_id: Optional[str] = None
     ) -> "SessionParticipationInterface":
-        """A single athlete's participation in the session"""
+        """A single athlete's participation in the session. Defaults to the current
+        person's own participation when athleteId is omitted."""
         arguments: dict[str, dict[str, Any]] = {
-            "athleteId": {"type": "ID!", "value": athlete_id},
+            "athleteId": {"type": "ID", "value": athlete_id},
             "positionId": {"type": "String", "value": position_id},
         }
         cleared_arguments = {
@@ -19053,10 +19054,16 @@ class OrganisationFields(GraphQLField):
         return DeviceSyncFields("ballSyncs", arguments=cleared_arguments)
 
     @classmethod
-    def clubs(cls, *, filter_: Optional[ClubBaseFilter] = None) -> "ClubFields":
+    def clubs(
+        cls,
+        *,
+        filter_: Optional[ClubBaseFilter] = None,
+        ids: Optional[list[str]] = None,
+    ) -> "ClubFields":
         """Clubs belonging to the organisation"""
         arguments: dict[str, dict[str, Any]] = {
-            "filter": {"type": "ClubBaseFilter", "value": filter_}
+            "filter": {"type": "ClubBaseFilter", "value": filter_},
+            "ids": {"type": "[ID!]", "value": ids},
         }
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
@@ -22240,11 +22247,12 @@ class SessionInterface(GraphQLField):
 
     @classmethod
     def session_participation(
-        cls, athlete_id: str, *, position_id: Optional[str] = None
+        cls, *, athlete_id: Optional[str] = None, position_id: Optional[str] = None
     ) -> "SessionParticipationInterface":
-        """A single athlete's participation in the session"""
+        """A single athlete's participation in the session. Defaults to the current
+        person's own participation when athleteId is omitted."""
         arguments: dict[str, dict[str, Any]] = {
-            "athleteId": {"type": "ID!", "value": athlete_id},
+            "athleteId": {"type": "ID", "value": athlete_id},
             "positionId": {"type": "String", "value": position_id},
         }
         cleared_arguments = {
@@ -24595,11 +24603,12 @@ class TrainingSessionFields(GraphQLField):
 
     @classmethod
     def session_participation(
-        cls, athlete_id: str, *, position_id: Optional[str] = None
+        cls, *, athlete_id: Optional[str] = None, position_id: Optional[str] = None
     ) -> "SessionParticipationInterface":
-        """A single athlete's participation in the session"""
+        """A single athlete's participation in the session. Defaults to the current
+        person's own participation when athleteId is omitted."""
         arguments: dict[str, dict[str, Any]] = {
-            "athleteId": {"type": "ID!", "value": athlete_id},
+            "athleteId": {"type": "ID", "value": athlete_id},
             "positionId": {"type": "String", "value": position_id},
         }
         cleared_arguments = {
