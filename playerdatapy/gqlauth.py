@@ -34,6 +34,7 @@ class GraphqlAuth:
         redirect_uri: str = "http://localhost:8888",
         port: int = 8888,
         type: AuthenticationType = AuthenticationType.AUTHORISATION_CODE_FLOW,
+        base_url: Optional[str] = None,
     ):
         self.client_id = client_id
         self.token_file: Path = Path(token_file) if token_file else default_token_path()
@@ -42,21 +43,29 @@ class GraphqlAuth:
         self.client_secret = client_secret
         self.redirect_uri = redirect_uri
         self.port = port
+        self.api_base_url = base_url or API_BASE_URL
         self.authenticated_session = self._get_authenticated_session()
 
     def _get_authenticated_session(self):
         match self.authentication_type:
             case AuthenticationType.AUTHORISATION_CODE_FLOW_PCKE:
                 self.authenticator = AuthorisationCodeFlowPCKE(
-                    self.client_id, self.port, self.token_file
+                    self.client_id, self.port, self.token_file, self.api_base_url
                 )
             case AuthenticationType.AUTHORISATION_CODE_FLOW:
                 self.authenticator = AuthorisationCodeFlow(
-                    self.client_id, self.port, self.client_secret, self.token_file
+                    self.client_id,
+                    self.port,
+                    self.client_secret,
+                    self.token_file,
+                    self.api_base_url,
                 )
             case AuthenticationType.CLIENT_CREDENTIALS_FLOW:
                 self.authenticator = ClientCredentialsFlow(
-                    self.client_id, self.client_secret, self.token_file
+                    self.client_id,
+                    self.client_secret,
+                    self.token_file,
+                    self.api_base_url,
                 )
 
         try:
@@ -68,7 +77,7 @@ class GraphqlAuth:
         return OAuth2Session(
             self.client_id,
             token=token,
-            auto_refresh_url=f"{API_BASE_URL}/oauth/token",
+            auto_refresh_url=f"{self.api_base_url}/oauth/token",
             token_updater=self.authenticator.save_token,
         )
 

@@ -129,6 +129,28 @@ SDK opens a browser, captures the redirect, exchanges code → token, stores it.
      -d "client_id=$CLIENT_ID"
    ```
 
+## Pointing at a different environment
+
+By default the SDK talks to production (`https://app.playerdata.co.uk`). To target a preview or staging environment, pass `base_url` — it sets both the GraphQL endpoint (`<base_url>/api/graphql`) and the OAuth endpoints (`<base_url>/oauth/token`, `<base_url>/oauth/authorize`):
+
+```python
+from playerdatapy.playerdata_api import PlayerDataAPI
+
+api = PlayerDataAPI(
+    client_id="...",
+    base_url="https://preview.playerdata.co.uk",
+)
+```
+
+If you'd rather not touch the call site, set environment variables instead — they supply the defaults when `base_url` is omitted:
+
+| Variable | Overrides | Default |
+|----------|-----------|---------|
+| `PLAYERDATA_BASE_URL` | API + OAuth base URL | `https://app.playerdata.co.uk` |
+| `PLAYERDATA_GRAPHQL_URL` | GraphQL endpoint only | `<PLAYERDATA_BASE_URL>/api/graphql` |
+
+An explicit `base_url=` argument always wins over the environment variables.
+
 ## Env vars (used in examples)
 
 ```bash

@@ -11,9 +11,13 @@ class AuthorisationCodeFlowBase(BaseAuthFlow):
     """Base class for OAuth2 authorization code flows with token management."""
 
     def __init__(
-        self, client_id: str, port: int, token_file: Optional[Union[str, Path]] = None
+        self,
+        client_id: str,
+        port: int,
+        token_file: Optional[Union[str, Path]] = None,
+        base_url: Optional[str] = None,
     ):
-        super().__init__(client_id, token_file)
+        super().__init__(client_id, token_file, base_url)
         self.server = Server(port)
 
     def authenticate(self, redirect_uri):
