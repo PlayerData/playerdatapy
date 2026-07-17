@@ -831,6 +831,15 @@ class RatingEnum(str, Enum):
     positive = "positive"
 
 
+class RawDataFormatEnum(str, Enum):
+    """Download format for a raw data type"""
+
+    CSV = "CSV"
+    "Comma-separated values, generated on demand from the pre-processed data"
+    PARQUET = "PARQUET"
+    "The raw pre-processed Apache Parquet file, served directly"
+
+
 class RawDataPreparationStatusEnum(str, Enum):
     """Outcome of a prepareRawData mutation"""
 
