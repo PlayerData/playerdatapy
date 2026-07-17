@@ -388,6 +388,8 @@ class FeatureNameEnum(str, Enum):
     "Enables the unified device management screen (edges, balls, gateways, anchors in one place)"
     edge_scheduled_wakeup = "edge_scheduled_wakeup"
     "Enables scheduled wakeup of edge devices"
+    enhanced_settings = "enhanced_settings"
+    "Enables the enhanced settings screens (Manage Athletes, Manage Staff, EDGE Assignment) on mobile"
     flexible_report_templates = "flexible_report_templates"
     "Select from templates while creating a new Flexible Report"
     flexible_reporting_v2 = "flexible_reporting_v2"

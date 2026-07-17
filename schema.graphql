@@ -10910,6 +10910,11 @@ enum FeatureNameEnum {
   edge_scheduled_wakeup
 
   """
+  Enables the enhanced settings screens (Manage Athletes, Manage Staff, EDGE Assignment) on mobile
+  """
+  enhanced_settings
+
+  """
   Select from templates while creating a new Flexible Report
   """
   flexible_report_templates
@@ -12426,9 +12431,10 @@ type MatchSession implements Session & TimelineItem {
   sessionLoadHistory: SessionLoadHistory
 
   """
-  A single athlete's participation in the session
+  A single athlete's participation in the session. Defaults to the current
+  person's own participation when athleteId is omitted.
   """
-  sessionParticipation(athleteId: ID!, positionId: String): SessionParticipation
+  sessionParticipation(athleteId: ID, positionId: String): SessionParticipation
 
   """
   Athlete participations in the match session
@@ -22826,6 +22832,11 @@ type Organisation {
     Filter clubs by name and archived status
     """
     filter: ClubBaseFilter
+
+    """
+    Filter to clubs with these IDs
+    """
+    ids: [ID!]
   ): [Club!]!
 
   """
@@ -26719,9 +26730,10 @@ interface Session {
   sessionLoadHistory: SessionLoadHistory
 
   """
-  A single athlete's participation in the session
+  A single athlete's participation in the session. Defaults to the current
+  person's own participation when athleteId is omitted.
   """
-  sessionParticipation(athleteId: ID!, positionId: String): SessionParticipation
+  sessionParticipation(athleteId: ID, positionId: String): SessionParticipation
 
   """
   The athletes participating in the session
@@ -29517,9 +29529,10 @@ type TrainingSession implements Session & TimelineItem {
   sessionLoadHistory: SessionLoadHistory
 
   """
-  A single athlete's participation in the session
+  A single athlete's participation in the session. Defaults to the current
+  person's own participation when athleteId is omitted.
   """
-  sessionParticipation(athleteId: ID!, positionId: String): SessionParticipation
+  sessionParticipation(athleteId: ID, positionId: String): SessionParticipation
 
   """
   The athletes participating in the training session
