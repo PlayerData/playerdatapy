@@ -23,6 +23,15 @@ class TestBaseAuthFlow:
         assert flow.token_file == Path(".test_token")
         assert flow.oauth_session is None
 
+    def test_init_with_base_url(self):
+        """Test base_url overrides the default API base URL."""
+        flow = BaseAuthFlow(
+            client_id="test_client",
+            token_file=".test_token",
+            base_url="https://preview.playerdata.co.uk",
+        )
+        assert flow.api_base_url == "https://preview.playerdata.co.uk"
+
     def test_save_token(self):
         """Test saving token to file."""
         with tempfile.NamedTemporaryFile(mode="w", delete=False, suffix=".token") as f:

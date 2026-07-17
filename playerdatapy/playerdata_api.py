@@ -4,7 +4,7 @@ from typing import Optional, Union
 from .gqlauth import GraphqlAuth, AuthenticationType
 from .gqlclient import Client
 from .base_operation import GraphQLField
-from playerdatapy.constants import GRAPHQL_URL
+from playerdatapy.constants import GRAPHQL_URL, graphql_url_for
 
 
 class PlayerDataAPI(GraphqlAuth):
@@ -16,6 +16,7 @@ class PlayerDataAPI(GraphqlAuth):
         token_file: Optional[Union[str, Path]] = None,
         port: int = 8888,
         authentication_type: AuthenticationType = AuthenticationType.AUTHORISATION_CODE_FLOW,
+        base_url: Optional[str] = None,
     ):
         super().__init__(
             client_id=client_id,
@@ -24,9 +25,11 @@ class PlayerDataAPI(GraphqlAuth):
             token_file=token_file,
             port=port,
             type=authentication_type,
+            base_url=base_url,
         )
+        graphql_url = graphql_url_for(base_url) if base_url else GRAPHQL_URL
         self.client = Client(
-            url=GRAPHQL_URL,
+            url=graphql_url,
             headers={"Authorization": f"Bearer {self._get_authentication_token()}"},
         )
 

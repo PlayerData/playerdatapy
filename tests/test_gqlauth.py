@@ -5,6 +5,7 @@ import pytest
 from oauthlib.oauth2 import TokenExpiredError  # type: ignore[import-untyped]
 
 from playerdatapy.auth.token_storage import default_token_path
+from playerdatapy.constants import API_BASE_URL
 from playerdatapy.gqlauth import GraphqlAuth, AuthenticationType
 
 
@@ -37,7 +38,7 @@ class TestGraphqlAuth:
         assert auth.authentication_type == AuthenticationType.CLIENT_CREDENTIALS_FLOW
         assert auth.authenticator == mock_authenticator
         mock_flow_class.assert_called_once_with(
-            "test_client", "test_secret", default_token_path()
+            "test_client", "test_secret", default_token_path(), API_BASE_URL
         )
 
     @patch("playerdatapy.gqlauth.OAuth2Session")
@@ -68,7 +69,7 @@ class TestGraphqlAuth:
         assert auth.port == 9999
         assert auth.authentication_type == AuthenticationType.AUTHORISATION_CODE_FLOW
         mock_flow_class.assert_called_once_with(
-            "test_client", 9999, "test_secret", Path(".test_token")
+            "test_client", 9999, "test_secret", Path(".test_token"), API_BASE_URL
         )
 
     @patch("playerdatapy.gqlauth.OAuth2Session")
@@ -96,7 +97,40 @@ class TestGraphqlAuth:
             auth.authentication_type == AuthenticationType.AUTHORISATION_CODE_FLOW_PCKE
         )
         mock_flow_class.assert_called_once_with(
-            "test_client", 8888, Path(".test_token")
+            "test_client", 8888, Path(".test_token"), API_BASE_URL
+        )
+
+    @patch("playerdatapy.gqlauth.OAuth2Session")
+    @patch("playerdatapy.gqlauth.ClientCredentialsFlow")
+    def test_init_with_base_url(self, mock_flow_class, mock_session_class):
+        """Test base_url overrides the default and reaches the flow and refresh URL."""
+        mock_authenticator = MagicMock()
+        mock_authenticator.get_token.return_value = {"access_token": "test_token"}
+        mock_flow_class.return_value = mock_authenticator
+
+        mock_session = MagicMock()
+        mock_session.token = {"access_token": "test_token"}
+        mock_session_class.return_value = mock_session
+
+        auth = GraphqlAuth(
+            client_id="test_client",
+            client_secret="test_secret",
+            type=AuthenticationType.CLIENT_CREDENTIALS_FLOW,
+            base_url="https://preview.playerdata.co.uk",
+        )
+
+        assert auth.api_base_url == "https://preview.playerdata.co.uk"
+        mock_flow_class.assert_called_once_with(
+            "test_client",
+            "test_secret",
+            default_token_path(),
+            "https://preview.playerdata.co.uk",
+        )
+        mock_session_class.assert_called_once_with(
+            "test_client",
+            token={"access_token": "test_token"},
+            auto_refresh_url="https://preview.playerdata.co.uk/oauth/token",
+            token_updater=mock_authenticator.save_token,
         )
 
     @patch("playerdatapy.gqlauth.OAuth2Session")

@@ -10,10 +10,15 @@ from .token_storage import default_token_path
 class BaseAuthFlow:
     """Base class for OAuth2 authentication flows with token management."""
 
-    def __init__(self, client_id: str, token_file: Optional[Union[str, Path]] = None):
+    def __init__(
+        self,
+        client_id: str,
+        token_file: Optional[Union[str, Path]] = None,
+        base_url: Optional[str] = None,
+    ):
         self.client_id = client_id
         self.token_file: Path = Path(token_file) if token_file else default_token_path()
-        self.api_base_url = API_BASE_URL
+        self.api_base_url = base_url or API_BASE_URL
         self.oauth_session = None
 
     def get_token(self) -> dict:

@@ -76,6 +76,37 @@ class TestPlayerdataAPI:
         )
         assert interface.client == mock_client_instance
 
+    @patch("playerdatapy.playerdata_api.Client")
+    @patch("playerdatapy.gqlauth.OAuth2Session")
+    @patch("playerdatapy.gqlauth.ClientCredentialsFlow")
+    def test_init_with_base_url(
+        self, mock_flow_class, mock_session_class, mock_client_class
+    ):
+        """Test base_url derives the GraphQL URL and reaches the auth layer."""
+        mock_authenticator = MagicMock()
+        mock_authenticator.get_token.return_value = {"access_token": "test_token"}
+        mock_flow_class.return_value = mock_authenticator
+
+        mock_session = MagicMock()
+        mock_session.token = {"access_token": "test_token"}
+        mock_session_class.return_value = mock_session
+
+        mock_client_instance = MagicMock()
+        mock_client_class.return_value = mock_client_instance
+
+        interface = PlayerDataAPI(
+            client_id="test_client",
+            client_secret="test_secret",
+            authentication_type=AuthenticationType.CLIENT_CREDENTIALS_FLOW,
+            base_url="https://preview.playerdata.co.uk",
+        )
+
+        assert interface.api_base_url == "https://preview.playerdata.co.uk"
+        mock_client_class.assert_called_once_with(
+            url="https://preview.playerdata.co.uk/api/graphql",
+            headers={"Authorization": "Bearer test_token"},
+        )
+
     @pytest.mark.asyncio
     @patch("playerdatapy.playerdata_api.Client")
     @patch("playerdatapy.gqlauth.OAuth2Session")

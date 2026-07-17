@@ -13,8 +13,9 @@ class AuthorisationCodeFlow(AuthorisationCodeFlowBase):
         port: int,
         client_secret: str,
         token_file: Optional[Union[str, Path]] = None,
+        base_url: Optional[str] = None,
     ):
-        super().__init__(client_id, port, token_file)
+        super().__init__(client_id, port, token_file, base_url)
         self.client_secret = client_secret
 
     def _fetch_token(self, code: str) -> dict:
