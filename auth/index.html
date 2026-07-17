@@ -633,6 +633,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pointing-at-a-different-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pointing at a different environment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#env-vars-used-in-examples" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3220,6 +3231,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pointing-at-a-different-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pointing at a different environment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#env-vars-used-in-examples" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3388,10 +3410,42 @@
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;client_id=</span><span class="nv">$CLIENT_ID</span><span class="s2">&quot;</span>
 </code></pre></div></li>
 </ol>
+<h2 id="pointing-at-a-different-environment">Pointing at a different environment<a class="headerlink" href="#pointing-at-a-different-environment" title="Permanent link">&para;</a></h2>
+<p>By default the SDK talks to production (<code>https://app.playerdata.co.uk</code>). To target a preview or staging environment, pass <code>base_url</code> — it sets both the GraphQL endpoint (<code>&lt;base_url&gt;/api/graphql</code>) and the OAuth endpoints (<code>&lt;base_url&gt;/oauth/token</code>, <code>&lt;base_url&gt;/oauth/authorize</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">playerdatapy.playerdata_api</span><span class="w"> </span><span class="kn">import</span> <span class="n">PlayerDataAPI</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">api</span> <span class="o">=</span> <span class="n">PlayerDataAPI</span><span class="p">(</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="n">client_id</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://preview.playerdata.co.uk&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">)</span>
+</code></pre></div>
+<p>If you'd rather not touch the call site, set environment variables instead — they supply the defaults when <code>base_url</code> is omitted:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Overrides</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PLAYERDATA_BASE_URL</code></td>
+<td>API + OAuth base URL</td>
+<td><code>https://app.playerdata.co.uk</code></td>
+</tr>
+<tr>
+<td><code>PLAYERDATA_GRAPHQL_URL</code></td>
+<td>GraphQL endpoint only</td>
+<td><code>&lt;PLAYERDATA_BASE_URL&gt;/api/graphql</code></td>
+</tr>
+</tbody>
+</table>
+<p>An explicit <code>base_url=</code> argument always wins over the environment variables.</p>
 <h2 id="env-vars-used-in-examples">Env vars (used in examples)<a class="headerlink" href="#env-vars-used-in-examples" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CLIENT_ID</span><span class="o">=</span>your_client_id
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CLIENT_SECRET</span><span class="o">=</span>your_client_secret
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CLUB_ID</span><span class="o">=</span>your_club_id
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CLIENT_ID</span><span class="o">=</span>your_client_id
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CLIENT_SECRET</span><span class="o">=</span>your_client_secret
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CLUB_ID</span><span class="o">=</span>your_club_id
 </code></pre></div>
 
 
