@@ -1637,6 +1637,12 @@ class RequestParticipantDataExportPayloadGraphQLField(GraphQLField):
         return self
 
 
+class RequestRawDataExportPayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "RequestRawDataExportPayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
 class ResendConfirmationEmailPayloadGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "ResendConfirmationEmailPayloadGraphQLField":
         self._alias = alias

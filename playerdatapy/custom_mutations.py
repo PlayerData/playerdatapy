@@ -100,6 +100,7 @@ from .custom_fields import (
     RemoveSurveyTimerTriggerPayloadFields,
     RemoveTargetTemplatePayloadFields,
     RequestParticipantDataExportPayloadFields,
+    RequestRawDataExportPayloadFields,
     ResendConfirmationEmailPayloadFields,
     ResendReportPayloadFields,
     RespondToDetectedMatchEventPayloadFields,
@@ -1786,6 +1787,29 @@ class Mutation:
         }
         return RequestParticipantDataExportPayloadFields(
             field_name="requestParticipantDataExport", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def request_raw_data_export(
+        cls,
+        data_recording_id: str,
+        data_type: PreprocessingOutputFileTypeEnum,
+        format: RawDataFormatEnum,
+    ) -> RequestRawDataExportPayloadFields:
+        """Requests a single raw data type for download in a given format (e.g. CSV)"""
+        arguments: dict[str, dict[str, Any]] = {
+            "dataRecordingId": {"type": "ID!", "value": data_recording_id},
+            "dataType": {
+                "type": "PreprocessingOutputFileTypeEnum!",
+                "value": data_type,
+            },
+            "format": {"type": "RawDataFormatEnum!", "value": format},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return RequestRawDataExportPayloadFields(
+            field_name="requestRawDataExport", arguments=cleared_arguments
         )
 
     @classmethod
