@@ -3707,7 +3707,8 @@ prediction exists or if the prediction is not actionable.</p>
 <p>The athlete's load history leading up to the session</p>
 <p><strong>Returns:</strong> <a href="../../objects/SessionLoadHistory/"><code>SessionLoadHistory</code></a></p>
 <h3 id="sessionparticipation"><code>sessionParticipation</code><a class="headerlink" href="#sessionparticipation" title="Permanent link">&para;</a></h3>
-<p>A single athlete's participation in the session</p>
+<p>A single athlete's participation in the session. Defaults to the current
+person's own participation when athleteId is omitted.</p>
 <p><strong>Returns:</strong> <a href="../SessionParticipation/"><code>SessionParticipation</code></a></p>
 <p><strong>Arguments:</strong></p>
 <table>
@@ -3721,7 +3722,7 @@ prediction exists or if the prediction is not actionable.</p>
 <tbody>
 <tr>
 <td><code>athleteId</code></td>
-<td><a href="../../scalars/ID/"><code>ID</code></a>!</td>
+<td><a href="../../scalars/ID/"><code>ID</code></a></td>
 <td></td>
 </tr>
 <tr>
