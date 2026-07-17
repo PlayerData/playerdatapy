@@ -293,6 +293,10 @@
          <lastmod>2026-07-17</lastmod>
     </url>
     <url>
+         <loc>https://playerdata.github.io/playerdatapy/reference/enums/RawDataFormatEnum/</loc>
+         <lastmod>2026-07-17</lastmod>
+    </url>
+    <url>
          <loc>https://playerdata.github.io/playerdatapy/reference/enums/RawDataPreparationStatusEnum/</loc>
          <lastmod>2026-07-17</lastmod>
     </url>
@@ -1378,6 +1382,10 @@
     </url>
     <url>
          <loc>https://playerdata.github.io/playerdatapy/reference/fields/RequestParticipantDataExportPayloadFields/</loc>
+         <lastmod>2026-07-17</lastmod>
+    </url>
+    <url>
+         <loc>https://playerdata.github.io/playerdatapy/reference/fields/RequestRawDataExportPayloadFields/</loc>
          <lastmod>2026-07-17</lastmod>
     </url>
     <url>
@@ -2593,6 +2601,10 @@
          <lastmod>2026-07-17</lastmod>
     </url>
     <url>
+         <loc>https://playerdata.github.io/playerdatapy/schema/enums/RawDataFormatEnum/</loc>
+         <lastmod>2026-07-17</lastmod>
+    </url>
+    <url>
          <loc>https://playerdata.github.io/playerdatapy/schema/enums/RawDataPreparationStatusEnum/</loc>
          <lastmod>2026-07-17</lastmod>
     </url>
@@ -3570,6 +3582,10 @@
     </url>
     <url>
          <loc>https://playerdata.github.io/playerdatapy/schema/mutations/requestParticipantDataExport/</loc>
+         <lastmod>2026-07-17</lastmod>
+    </url>
+    <url>
+         <loc>https://playerdata.github.io/playerdatapy/schema/mutations/requestRawDataExport/</loc>
          <lastmod>2026-07-17</lastmod>
     </url>
     <url>
@@ -4802,6 +4818,10 @@
     </url>
     <url>
          <loc>https://playerdata.github.io/playerdatapy/schema/objects/RequestParticipantDataExportPayload/</loc>
+         <lastmod>2026-07-17</lastmod>
+    </url>
+    <url>
+         <loc>https://playerdata.github.io/playerdatapy/schema/objects/RequestRawDataExportPayload/</loc>
          <lastmod>2026-07-17</lastmod>
     </url>
     <url>
