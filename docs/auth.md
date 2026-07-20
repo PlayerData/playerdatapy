@@ -23,7 +23,7 @@ PlayerData API uses **OAuth 2.0**. Two grant types depending on integration.
 **Client Credentials Grant** — server-to-server.
 
 - No user sign-in, Client ID + Secret
-- **Read-only** (queries only)
+- Read **and** write (queries + mutations)
 - Org-level data access
 - Service account must be granted org access
 
