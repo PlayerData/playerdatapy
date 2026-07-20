@@ -39,7 +39,7 @@ SECTION_INTROS: dict[str, str] = {
     "Authentication": "OAuth2 flows and token persistence. Used internally by `PlayerDataAPI`.",
     "GraphQL Client": "Low-level async HTTP client. Use for raw GraphQL strings.",
     "Queries": "Typed query builders generated from the schema. Pass to `PlayerDataAPI.run_queries`.",
-    "Mutations": "Typed mutation builders. Require Authorisation Code Grant — Client Credentials is read-only.",
+    "Mutations": "Typed mutation builders. Usable under both the Authorisation Code and Client Credentials grants.",
     "Fields": "Field builders used when composing queries and mutations.",
     "Input Types": "Pydantic models for query/mutation arguments. Field descriptions come from the schema.",
     "Enums": "String-valued enumerations from the schema. Class and member docstrings come from schema descriptions.",
