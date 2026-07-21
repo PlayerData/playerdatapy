@@ -2,8 +2,8 @@
 
 ### Which authentication method should I use?
 
-- **Authorisation Code Grant** — user-facing apps, per-user access
-- **Client Credentials Grant** — backend integrations, org-level access
+- **Authorisation Code Grant** — user-facing apps, or when mutations are required
+- **Client Credentials Grant** — backend, read-only integrations
 
 ### Why can't I access a club's data?
 
@@ -11,7 +11,7 @@ Using Authorisation Code Grant: the authenticated user/service is not listed as 
 
 ### Can I write or update data (mutate) via the API?
 
-Yes — under both the Authorisation Code Grant and the Client Credentials Grant.
+Yes, but only under the Authorisation Code Grant.
 
 ### Is the GraphiQL Playground safe to use?
 
