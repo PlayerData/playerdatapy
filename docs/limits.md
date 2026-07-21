@@ -19,8 +19,7 @@ The API is rate limited to keep the platform stable. Build clients to stay withi
 When you exceed a limit the API responds with `429 Too Many Requests`. Well-behaved clients:
 
 - Stop issuing new requests and let in-flight ones drain.
-- Retry with **exponential backoff and jitter** (e.g. 1s, 2s, 4s, 8s… capped, plus a random offset) rather than retrying immediately.
-- Honour the `Retry-After` header when present — wait at least that long before retrying.
+- Retry with **exponential backoff and jitter** — increasing delays plus a random offset — rather than retrying immediately.
 - Bound concurrency to 20 and keep sustained request rate below the per-token budget to avoid repeat 429s.
 
 ## Pagination
