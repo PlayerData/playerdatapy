@@ -22529,6 +22529,8 @@ class SessionBlueprintFields(GraphQLField):
     "Free-text description of the blueprint"
     duration: "SessionBlueprintGraphQLField" = SessionBlueprintGraphQLField("duration")
     "The duration of sessions created from this blueprint, in seconds"
+    end_time: "SessionBlueprintGraphQLField" = SessionBlueprintGraphQLField("endTime")
+    "No new sessions are created with a start time after this instant; null means the blueprint recurs indefinitely"
 
     @classmethod
     def gateway_ownerships(cls) -> "GatewayOwnershipFields":
