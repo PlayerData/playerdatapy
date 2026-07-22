@@ -645,6 +645,8 @@ class MutateSessionBlueprintAttributes(BaseModel):
     "A description of the session."
     duration: Optional[int] = None
     "The duration of the session blueprint"
+    end_time: Optional[Any] = Field(alias="endTime", default=None)
+    "No new sessions are created with a start time after this instant; null means the blueprint recurs indefinitely"
     gateway_ownership_ids: Optional[list[str]] = Field(
         alias="gatewayOwnershipIds", default=None
     )

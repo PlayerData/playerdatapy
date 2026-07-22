@@ -20869,6 +20869,11 @@ input MutateSessionBlueprintAttributes {
   duration: Int
 
   """
+  No new sessions are created with a start time after this instant; null means the blueprint recurs indefinitely
+  """
+  endTime: ISO8601DateTime
+
+  """
   Array of gateway ownership UUIDs.
   """
   gatewayOwnershipIds: [ID!]
@@ -26931,6 +26936,11 @@ type SessionBlueprint {
   The duration of sessions created from this blueprint, in seconds
   """
   duration: Int!
+
+  """
+  No new sessions are created with a start time after this instant; null means the blueprint recurs indefinitely
+  """
+  endTime: ISO8601DateTime
 
   """
   Gateway ownerships
