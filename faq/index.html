@@ -2994,13 +2994,13 @@
 <h1 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h1>
 <h3 id="which-authentication-method-should-i-use">Which authentication method should I use?<a class="headerlink" href="#which-authentication-method-should-i-use" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Authorisation Code Grant</strong> — user-facing apps, per-user access</li>
-<li><strong>Client Credentials Grant</strong> — backend integrations, org-level access</li>
+<li><strong>Authorisation Code Grant</strong> — user-facing apps, or when mutations are required</li>
+<li><strong>Client Credentials Grant</strong> — backend, read-only integrations</li>
 </ul>
 <h3 id="why-cant-i-access-a-clubs-data">Why can't I access a club's data?<a class="headerlink" href="#why-cant-i-access-a-clubs-data" title="Permanent link">&para;</a></h3>
 <p>Using Authorisation Code Grant: the authenticated user/service is not listed as staff for that club. Contact the club administrator to grant access.</p>
 <h3 id="can-i-write-or-update-data-mutate-via-the-api">Can I write or update data (mutate) via the API?<a class="headerlink" href="#can-i-write-or-update-data-mutate-via-the-api" title="Permanent link">&para;</a></h3>
-<p>Yes — under both the Authorisation Code Grant and the Client Credentials Grant.</p>
+<p>Yes, but only under the Authorisation Code Grant.</p>
 <h3 id="is-the-graphiql-playground-safe-to-use">Is the GraphiQL Playground safe to use?<a class="headerlink" href="#is-the-graphiql-playground-safe-to-use" title="Permanent link">&para;</a></h3>
 <p>Yes — but mutations run against <strong>real production data</strong>.</p>
 <h3 id="how-long-do-tokens-last">How long do tokens last?<a class="headerlink" href="#how-long-do-tokens-last" title="Permanent link">&para;</a></h3>

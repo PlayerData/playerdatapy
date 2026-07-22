@@ -618,6 +618,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#rate-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rate limits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pagination" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3039,6 +3050,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#rate-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rate limits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pagination" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3081,6 +3103,42 @@
 
 
 <h1 id="pagination-limits">Pagination &amp; limits<a class="headerlink" href="#pagination-limits" title="Permanent link">&para;</a></h1>
+<h2 id="rate-limits">Rate limits<a class="headerlink" href="#rate-limits" title="Permanent link">&para;</a></h2>
+<p>The API is rate limited to keep the platform stable. Build clients to stay within these budgets and to back off when throttled.</p>
+<table>
+<thead>
+<tr>
+<th>Limit</th>
+<th>Budget</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Per IP address</td>
+<td>150 requests / 5 seconds</td>
+</tr>
+<tr>
+<td>Per access token</td>
+<td>100 requests / 5 seconds</td>
+</tr>
+<tr>
+<td>Concurrent GraphQL requests</td>
+<td>20 in flight</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Per-IP and per-token limits apply over a rolling 5-second window.</li>
+<li>The per-token limit is your core API budget — pace sustained traffic against it.</li>
+<li>Keep no more than 20 GraphQL requests in flight at once.</li>
+</ul>
+<h3 id="handling-429-too-many-requests">Handling <code>429 Too Many Requests</code><a class="headerlink" href="#handling-429-too-many-requests" title="Permanent link">&para;</a></h3>
+<p>When you exceed a limit the API responds with <code>429 Too Many Requests</code>. Well-behaved clients:</p>
+<ul>
+<li>Stop issuing new requests and let in-flight ones drain.</li>
+<li>Retry with <strong>exponential backoff and jitter</strong> — increasing delays plus a random offset — rather than retrying immediately.</li>
+<li>Bound concurrency to 20 and keep sustained request rate below the per-token budget to avoid repeat 429s.</li>
+</ul>
 <h2 id="pagination">Pagination<a class="headerlink" href="#pagination" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Default + maximum page size: <strong>30 records</strong></li>

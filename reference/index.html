@@ -2397,7 +2397,7 @@
 <li><strong><a href="authentication/">Authentication</a></strong> — OAuth2 flows and token persistence. Used internally by <code>PlayerDataAPI</code>.</li>
 <li><strong><a href="graphql-client/">GraphQL Client</a></strong> — Low-level async HTTP client. Use for raw GraphQL strings.</li>
 <li><strong><a href="queries/">Queries</a></strong> — Typed query builders generated from the schema. Pass to <code>PlayerDataAPI.run_queries</code>.</li>
-<li><strong><a href="mutations/">Mutations</a></strong> — Typed mutation builders. Usable under both the Authorisation Code and Client Credentials grants.</li>
+<li><strong><a href="mutations/">Mutations</a></strong> — Typed mutation builders. Require Authorisation Code Grant — Client Credentials is read-only.</li>
 <li><strong><a href="fields/">Fields</a></strong> — Field builders used when composing queries and mutations.</li>
 <li><strong><a href="input-types/">Input Types</a></strong> — Pydantic models for query/mutation arguments. Field descriptions come from the schema.</li>
 <li><strong><a href="enums/">Enums</a></strong> — String-valued enumerations from the schema. Class and member docstrings come from schema descriptions.</li>
