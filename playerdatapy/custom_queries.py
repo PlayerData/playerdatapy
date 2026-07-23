@@ -52,6 +52,19 @@ from .custom_fields import (
     WorkflowImmediateResponseFields,
 )
 from .custom_typing_fields import GraphQLField
+from .enums import (
+    DeviceTypeEnum,
+    FeatureNameEnum,
+    FirmwareBoardName,
+    FirmwareBuildProfile,
+    FirmwareFeatureVariant,
+    FirmwareProject,
+    FirmwareVariant,
+    OwnerEnum,
+    PermissionAction,
+    PermissionSubject,
+    Platform,
+)
 from .input_types import SessionsSessionFilter
 
 

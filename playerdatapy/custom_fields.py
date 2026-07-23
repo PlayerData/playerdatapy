@@ -2,17 +2,6 @@
 
 from typing import Any, Optional, Union
 
-from . import (
-    ConfiguredMetricListTypeEnum,
-    DatafileFormat,
-    ImageSizeEnum,
-    MatchEventClassEnum,
-    PermissionEnum,
-    PreprocessingOutputFileTypeEnum,
-    RawDataFormatEnum,
-    SortField,
-    TaggableTypeEnum,
-)
 from .base_operation import GraphQLField
 from .custom_typing_fields import (
     AccelzoneLowerBoundsGraphQLField,
@@ -60,6 +49,7 @@ from .custom_typing_fields import (
     CameraGraphQLField,
     CameraOwnershipGraphQLField,
     CellRangeGraphQLField,
+    ChargebeeSubscriptionGraphQLField,
     ChartConfigGraphQLField,
     ChecklistGraphQLField,
     ClaimPersonPayloadGraphQLField,
@@ -112,6 +102,10 @@ from .custom_typing_fields import (
     CreateUnreadableDevicePagesPayloadGraphQLField,
     CreateVideoClipPayloadGraphQLField,
     CreateVideoRecordingPayloadGraphQLField,
+    CryptoCharacteristicMismatchGraphQLField,
+    CryptoNonceMismatchGraphQLField,
+    CryptoSignatureErrorGraphQLField,
+    CustomerSubscriptionGraphQLField,
     CustomQuestionDefinitionGraphQLField,
     DataColumnGraphQLField,
     DataReadyContextGraphQLField,
@@ -160,6 +154,7 @@ from .custom_typing_fields import (
     EdgeDataFileGraphQLField,
     EdgeDiagnosticInformationGraphQLField,
     EdgeGraphQLField,
+    EdgeMetaEventGraphQLField,
     EdgeNameGraphQLField,
     EndEdgeOwnershipPayloadGraphQLField,
     ExamplePromptGraphQLField,
@@ -179,11 +174,14 @@ from .custom_typing_fields import (
     GrantOrgAdminRolePayloadGraphQLField,
     HeartRateBoundsPayloadGraphQLField,
     HeartRateLowerBoundsGraphQLField,
+    HeartratePeripheralConnectedGraphQLField,
+    HeartratePeripheralDisconnectedGraphQLField,
     IntMetricValueGraphQLField,
     JsonMetricValueGraphQLField,
     LegacySurveyDistributedContextGraphQLField,
     LinkUnion,
     LocalizedTermsGraphQLField,
+    ManualSubscriptionGraphQLField,
     MapCoordinateGraphQLField,
     MarkAppMessageReadPayloadGraphQLField,
     MarkMultipleAppMessagesReadPayloadGraphQLField,
@@ -210,6 +208,8 @@ from .custom_typing_fields import (
     MissingDevicePagesResultGraphQLField,
     MobileDeviceGraphQLField,
     NewPersonalBestContextGraphQLField,
+    OperatingModeRequestGraphQLField,
+    OperatingModeTransitionGraphQLField,
     OrganisationGraphQLField,
     OrganisationPersonGraphQLField,
     PageGraphQLField,
@@ -299,6 +299,7 @@ from .custom_typing_fields import (
     StaffGraphQLField,
     StatOverlayGraphQLField,
     StepGraphQLField,
+    StripeSubscriptionGraphQLField,
     SurveyAggregateUnion,
     SurveyAnswerGraphQLField,
     SurveyAssignmentGraphQLField,
@@ -390,6 +391,17 @@ from .custom_typing_fields import (
     WeeklyLoadAthleteGraphQLField,
     WeeklyLoadGraphQLField,
     WorkflowImmediateResponseGraphQLField,
+)
+from .enums import (
+    ConfiguredMetricListTypeEnum,
+    DatafileFormat,
+    ImageSizeEnum,
+    MatchEventClassEnum,
+    PermissionEnum,
+    PreprocessingOutputFileTypeEnum,
+    RawDataFormatEnum,
+    SortField,
+    TaggableTypeEnum,
 )
 from .input_types import (
     AthleteBaseFilter,
@@ -3892,6 +3904,30 @@ class CellRangeFields(GraphQLField):
         return self
 
 
+class ChargebeeSubscriptionFields(GraphQLField):
+    cancelled_at: "ChargebeeSubscriptionGraphQLField" = (
+        ChargebeeSubscriptionGraphQLField("cancelledAt")
+    )
+    "When the subscription was cancelled"
+    id: "ChargebeeSubscriptionGraphQLField" = ChargebeeSubscriptionGraphQLField("id")
+    "The subscription's unique identifier"
+    subscription_portal_url: "ChargebeeSubscriptionGraphQLField" = (
+        ChargebeeSubscriptionGraphQLField("subscriptionPortalUrl")
+    )
+    "A signed URL to the customer subscription portal"
+
+    def fields(
+        self, *subfields: ChargebeeSubscriptionGraphQLField
+    ) -> "ChargebeeSubscriptionFields":
+        """Subfields should come from the ChargebeeSubscriptionFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "ChargebeeSubscriptionFields":
+        self._alias = alias
+        return self
+
+
 class ChartConfigFields(GraphQLField):
     """Config for a report chart"""
 
@@ -4076,8 +4112,7 @@ class ClubFields(GraphQLField):
     def actionable_predicted_session(cls) -> "PredictedSessionFields":
         """The most recently updated predicted session when that row is still unscheduled
         (no created session linked) and in the future; otherwise nil, including when
-        the latest row is already scheduled even if an older pending prediction exists.
-        """
+        the latest row is already scheduled even if an older pending prediction exists."""
         return PredictedSessionFields("actionablePredictedSession")
 
     @classmethod
@@ -9076,6 +9111,68 @@ class CreateVideoRecordingPayloadFields(GraphQLField):
         return self
 
 
+class CryptoCharacteristicMismatchFields(GraphQLField):
+    decryption_area: "CryptoCharacteristicMismatchGraphQLField" = (
+        CryptoCharacteristicMismatchGraphQLField("decryptionArea")
+    )
+    "The area where the decryption mismatch occurred"
+    time: "CryptoCharacteristicMismatchGraphQLField" = (
+        CryptoCharacteristicMismatchGraphQLField("time")
+    )
+    "When the meta event occurred"
+
+    def fields(
+        self, *subfields: CryptoCharacteristicMismatchGraphQLField
+    ) -> "CryptoCharacteristicMismatchFields":
+        """Subfields should come from the CryptoCharacteristicMismatchFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "CryptoCharacteristicMismatchFields":
+        self._alias = alias
+        return self
+
+
+class CryptoNonceMismatchFields(GraphQLField):
+    decryption_area: "CryptoNonceMismatchGraphQLField" = (
+        CryptoNonceMismatchGraphQLField("decryptionArea")
+    )
+    "The area where the nonce mismatch occurred"
+    time: "CryptoNonceMismatchGraphQLField" = CryptoNonceMismatchGraphQLField("time")
+    "When the meta event occurred"
+
+    def fields(
+        self, *subfields: CryptoNonceMismatchGraphQLField
+    ) -> "CryptoNonceMismatchFields":
+        """Subfields should come from the CryptoNonceMismatchFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "CryptoNonceMismatchFields":
+        self._alias = alias
+        return self
+
+
+class CryptoSignatureErrorFields(GraphQLField):
+    decryption_area: "CryptoSignatureErrorGraphQLField" = (
+        CryptoSignatureErrorGraphQLField("decryptionArea")
+    )
+    "The area where the signature error occurred"
+    time: "CryptoSignatureErrorGraphQLField" = CryptoSignatureErrorGraphQLField("time")
+    "When the meta event occurred"
+
+    def fields(
+        self, *subfields: CryptoSignatureErrorGraphQLField
+    ) -> "CryptoSignatureErrorFields":
+        """Subfields should come from the CryptoSignatureErrorFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "CryptoSignatureErrorFields":
+        self._alias = alias
+        return self
+
+
 class CustomQuestionDefinitionFields(GraphQLField):
     """Type for a custom question definition"""
 
@@ -9105,6 +9202,36 @@ class CustomQuestionDefinitionFields(GraphQLField):
 
     def alias(self, alias: str) -> "CustomQuestionDefinitionFields":
         self._alias = alias
+        return self
+
+
+class CustomerSubscriptionInterface(GraphQLField):
+    cancelled_at: "CustomerSubscriptionGraphQLField" = CustomerSubscriptionGraphQLField(
+        "cancelledAt"
+    )
+    "When the subscription was cancelled"
+    id: "CustomerSubscriptionGraphQLField" = CustomerSubscriptionGraphQLField("id")
+    "The subscription's unique identifier"
+    subscription_portal_url: "CustomerSubscriptionGraphQLField" = (
+        CustomerSubscriptionGraphQLField("subscriptionPortalUrl")
+    )
+    "A signed URL to the customer subscription portal"
+
+    def fields(
+        self, *subfields: CustomerSubscriptionGraphQLField
+    ) -> "CustomerSubscriptionInterface":
+        """Subfields should come from the CustomerSubscriptionInterface class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "CustomerSubscriptionInterface":
+        self._alias = alias
+        return self
+
+    def on(
+        self, type_name: str, *subfields: GraphQLField
+    ) -> "CustomerSubscriptionInterface":
+        self._inline_fragments[type_name] = subfields
         return self
 
 
@@ -10539,6 +10666,24 @@ class EdgeDiagnosticInformationFields(GraphQLField):
         return self
 
 
+class EdgeMetaEventInterface(GraphQLField):
+    time: "EdgeMetaEventGraphQLField" = EdgeMetaEventGraphQLField("time")
+    "When the meta event occurred"
+
+    def fields(self, *subfields: EdgeMetaEventGraphQLField) -> "EdgeMetaEventInterface":
+        """Subfields should come from the EdgeMetaEventInterface class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "EdgeMetaEventInterface":
+        self._alias = alias
+        return self
+
+    def on(self, type_name: str, *subfields: GraphQLField) -> "EdgeMetaEventInterface":
+        self._inline_fragments[type_name] = subfields
+        return self
+
+
 class EdgeNameFields(GraphQLField):
     created_at: "EdgeNameGraphQLField" = EdgeNameGraphQLField("createdAt")
     "When the edge name was created"
@@ -11216,6 +11361,42 @@ class HeartRateLowerBoundsFields(GraphQLField):
         return self
 
 
+class HeartratePeripheralConnectedFields(GraphQLField):
+    time: "HeartratePeripheralConnectedGraphQLField" = (
+        HeartratePeripheralConnectedGraphQLField("time")
+    )
+    "When the meta event occurred"
+
+    def fields(
+        self, *subfields: HeartratePeripheralConnectedGraphQLField
+    ) -> "HeartratePeripheralConnectedFields":
+        """Subfields should come from the HeartratePeripheralConnectedFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "HeartratePeripheralConnectedFields":
+        self._alias = alias
+        return self
+
+
+class HeartratePeripheralDisconnectedFields(GraphQLField):
+    time: "HeartratePeripheralDisconnectedGraphQLField" = (
+        HeartratePeripheralDisconnectedGraphQLField("time")
+    )
+    "When the meta event occurred"
+
+    def fields(
+        self, *subfields: HeartratePeripheralDisconnectedGraphQLField
+    ) -> "HeartratePeripheralDisconnectedFields":
+        """Subfields should come from the HeartratePeripheralDisconnectedFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "HeartratePeripheralDisconnectedFields":
+        self._alias = alias
+        return self
+
+
 class IntMetricValueFields(GraphQLField):
     """A metric value type for integer values"""
 
@@ -11290,6 +11471,32 @@ class LocalizedTermsFields(GraphQLField):
         return self
 
     def alias(self, alias: str) -> "LocalizedTermsFields":
+        self._alias = alias
+        return self
+
+
+class ManualSubscriptionFields(GraphQLField):
+    """A manual subscription"""
+
+    cancelled_at: "ManualSubscriptionGraphQLField" = ManualSubscriptionGraphQLField(
+        "cancelledAt"
+    )
+    "When the subscription was cancelled"
+    id: "ManualSubscriptionGraphQLField" = ManualSubscriptionGraphQLField("id")
+    "The subscription's unique identifier"
+    subscription_portal_url: "ManualSubscriptionGraphQLField" = (
+        ManualSubscriptionGraphQLField("subscriptionPortalUrl")
+    )
+    "A signed URL to the customer subscription portal"
+
+    def fields(
+        self, *subfields: ManualSubscriptionGraphQLField
+    ) -> "ManualSubscriptionFields":
+        """Subfields should come from the ManualSubscriptionFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "ManualSubscriptionFields":
         self._alias = alias
         return self
 
@@ -19022,6 +19229,48 @@ class NewPersonalBestContextFields(GraphQLField):
         return self
 
 
+class OperatingModeRequestFields(GraphQLField):
+    target: "OperatingModeRequestGraphQLField" = OperatingModeRequestGraphQLField(
+        "target"
+    )
+    "The operating mode the edge was requested to switch to"
+    time: "OperatingModeRequestGraphQLField" = OperatingModeRequestGraphQLField("time")
+    "When the meta event occurred"
+
+    def fields(
+        self, *subfields: OperatingModeRequestGraphQLField
+    ) -> "OperatingModeRequestFields":
+        """Subfields should come from the OperatingModeRequestFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "OperatingModeRequestFields":
+        self._alias = alias
+        return self
+
+
+class OperatingModeTransitionFields(GraphQLField):
+    target: "OperatingModeTransitionGraphQLField" = OperatingModeTransitionGraphQLField(
+        "target"
+    )
+    "The operating mode the edge transitioned to"
+    time: "OperatingModeTransitionGraphQLField" = OperatingModeTransitionGraphQLField(
+        "time"
+    )
+    "When the meta event occurred"
+
+    def fields(
+        self, *subfields: OperatingModeTransitionGraphQLField
+    ) -> "OperatingModeTransitionFields":
+        """Subfields should come from the OperatingModeTransitionFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "OperatingModeTransitionFields":
+        self._alias = alias
+        return self
+
+
 class OrganisationFields(GraphQLField):
     active_clubs_count: "OrganisationGraphQLField" = OrganisationGraphQLField(
         "activeClubsCount"
@@ -23580,6 +23829,48 @@ class StepFields(GraphQLField):
         return self
 
     def alias(self, alias: str) -> "StepFields":
+        self._alias = alias
+        return self
+
+
+class StripeSubscriptionFields(GraphQLField):
+    cancelled_at: "StripeSubscriptionGraphQLField" = StripeSubscriptionGraphQLField(
+        "cancelledAt"
+    )
+    "When the subscription was cancelled"
+    id: "StripeSubscriptionGraphQLField" = StripeSubscriptionGraphQLField("id")
+    "The subscription's unique identifier"
+    status: "StripeSubscriptionGraphQLField" = StripeSubscriptionGraphQLField("status")
+    "Current status of the subscription"
+    stripe_product_name: "StripeSubscriptionGraphQLField" = (
+        StripeSubscriptionGraphQLField("stripeProductName")
+    )
+    "Name of the subscribed Stripe product"
+    stripe_renewal_date: "StripeSubscriptionGraphQLField" = (
+        StripeSubscriptionGraphQLField("stripeRenewalDate")
+    )
+    "Date the subscription next renews"
+    stripe_subscription_billing_cost: "StripeSubscriptionGraphQLField" = (
+        StripeSubscriptionGraphQLField("stripeSubscriptionBillingCost")
+    )
+    "Recurring billing cost of the subscription"
+    stripe_subscription_billing_currency: "StripeSubscriptionGraphQLField" = (
+        StripeSubscriptionGraphQLField("stripeSubscriptionBillingCurrency")
+    )
+    "Currency the subscription is billed in"
+    subscription_portal_url: "StripeSubscriptionGraphQLField" = (
+        StripeSubscriptionGraphQLField("subscriptionPortalUrl")
+    )
+    "A signed URL to the customer subscription portal"
+
+    def fields(
+        self, *subfields: StripeSubscriptionGraphQLField
+    ) -> "StripeSubscriptionFields":
+        """Subfields should come from the StripeSubscriptionFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "StripeSubscriptionFields":
         self._alias = alias
         return self
 
