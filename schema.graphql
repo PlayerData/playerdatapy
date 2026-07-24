@@ -37674,6 +37674,16 @@ type VideoFragment implements VideoSourceInterface {
   processingIntermediateFileAttached: Boolean!
 
   """
+  A signed URL to download the processing intermediate file (the fragment's analysis state)
+  """
+  processingIntermediateSignedUrl: SignedUrl
+
+  """
+  A signed URL to download the raw uploaded fragment video file
+  """
+  rawSignedUrl: SignedUrl
+
+  """
   The video variants belonging to this video source
   """
   videoVariants(

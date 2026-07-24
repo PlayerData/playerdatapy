@@ -32155,6 +32155,16 @@ class VideoFragmentFields(GraphQLField):
     "Whether the processing intermediate file is attached"
 
     @classmethod
+    def processing_intermediate_signed_url(cls) -> "SignedUrlFields":
+        """A signed URL to download the processing intermediate file (the fragment's analysis state)"""
+        return SignedUrlFields("processingIntermediateSignedUrl")
+
+    @classmethod
+    def raw_signed_url(cls) -> "SignedUrlFields":
+        """A signed URL to download the raw uploaded fragment video file"""
+        return SignedUrlFields("rawSignedUrl")
+
+    @classmethod
     def video_variants(
         cls, *, limit: Optional[int] = None, offset: Optional[int] = None
     ) -> "VideoVariantFields":
@@ -32169,7 +32179,10 @@ class VideoFragmentFields(GraphQLField):
         return VideoVariantFields("videoVariants", arguments=cleared_arguments)
 
     def fields(
-        self, *subfields: Union[VideoFragmentGraphQLField, "VideoVariantFields"]
+        self,
+        *subfields: Union[
+            VideoFragmentGraphQLField, "SignedUrlFields", "VideoVariantFields"
+        ],
     ) -> "VideoFragmentFields":
         """Subfields should come from the VideoFragmentFields class"""
         self._subfields.extend(subfields)
