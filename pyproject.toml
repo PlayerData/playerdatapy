@@ -56,7 +56,10 @@ target_package_name = "playerdatapy"
 enable_custom_operations = true
 client_file_name = "gqlclient"
 client_class_name = "GraphqlClient"
-plugins = ["codegen_plugins.docstrings.EnumDocstringsPlugin"]
+plugins = [
+    "codegen_plugins.docstrings.EnumDocstringsPlugin",
+    "codegen_plugins.public_api.PublicApiExportsPlugin",
+]
 
 [tool.ruff.lint]
 ignore = ["F405", "F403"]
