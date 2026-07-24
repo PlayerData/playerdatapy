@@ -87,7 +87,6 @@ from .custom_fields import (
     HeartRateBoundsPayloadFields,
     MarkAppMessageReadPayloadFields,
     MarkMultipleAppMessagesReadPayloadFields,
-    PrepareRawDataPayloadFields,
     ProvisionGatewayPayloadFields,
     RatePredictedSessionPayloadFields,
     RateResponsePayloadFields,
@@ -99,7 +98,6 @@ from .custom_fields import (
     RelativeSpeedzonesPayloadFields,
     RemoveSurveyTimerTriggerPayloadFields,
     RemoveTargetTemplatePayloadFields,
-    RequestParticipantDataExportPayloadFields,
     RequestRawDataExportPayloadFields,
     ResendConfirmationEmailPayloadFields,
     ResendReportPayloadFields,
@@ -165,11 +163,10 @@ from .enums import (
     DeviceTypeEnum,
     EdgeOwnerType,
     OwnerEnum,
-    ParticipantDataExportFormatEnum,
     Platform,
-    PreprocessingOutputFileTypeEnum,
     RatingEnum,
-    RawDataFormatEnum,
+    RawDataExportFormatEnum,
+    RawDataExportTypeEnum,
     StepEnum,
     StepStatusEnum,
     TargetTargetableTypeEnum,
@@ -1636,21 +1633,6 @@ class Mutation:
         )
 
     @classmethod
-    def prepare_raw_data(
-        cls, session_participation_id: str
-    ) -> PrepareRawDataPayloadFields:
-        """Prepares a session participation's raw data for download"""
-        arguments: dict[str, dict[str, Any]] = {
-            "sessionParticipationId": {"type": "ID!", "value": session_participation_id}
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return PrepareRawDataPayloadFields(
-            field_name="prepareRawData", arguments=cleared_arguments
-        )
-
-    @classmethod
     def provision_gateway(
         cls, csr: str, firmware_version: str, organisation_id: str, serial_number: str
     ) -> ProvisionGatewayPayloadFields:
@@ -1787,42 +1769,20 @@ class Mutation:
         )
 
     @classmethod
-    def request_participant_data_export(
+    def request_raw_data_export(
         cls,
+        data_type: RawDataExportTypeEnum,
+        format: RawDataExportFormatEnum,
         session_participation_id: str,
-        *,
-        format: Optional[ParticipantDataExportFormatEnum] = None,
-    ) -> RequestParticipantDataExportPayloadFields:
-        """Requests a participant data export (e.g. JSON) derived from pre-processed data"""
+    ) -> RequestRawDataExportPayloadFields:
+        """Request a participation's raw data export (a data type, or FULL); idempotent, call again to poll"""
         arguments: dict[str, dict[str, Any]] = {
-            "format": {"type": "ParticipantDataExportFormatEnum", "value": format},
+            "dataType": {"type": "RawDataExportTypeEnum!", "value": data_type},
+            "format": {"type": "RawDataExportFormatEnum!", "value": format},
             "sessionParticipationId": {
                 "type": "ID!",
                 "value": session_participation_id,
             },
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RequestParticipantDataExportPayloadFields(
-            field_name="requestParticipantDataExport", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def request_raw_data_export(
-        cls,
-        data_recording_id: str,
-        data_type: PreprocessingOutputFileTypeEnum,
-        format: RawDataFormatEnum,
-    ) -> RequestRawDataExportPayloadFields:
-        """Requests a single raw data type for download in a given format (e.g. CSV)"""
-        arguments: dict[str, dict[str, Any]] = {
-            "dataRecordingId": {"type": "ID!", "value": data_recording_id},
-            "dataType": {
-                "type": "PreprocessingOutputFileTypeEnum!",
-                "value": data_type,
-            },
-            "format": {"type": "RawDataFormatEnum!", "value": format},
         }
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
