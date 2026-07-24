@@ -13309,6 +13309,54 @@
 <div class="doc doc-object doc-function">
 
 
+<h3 id="playerdatapy.custom_fields.VideoFragmentFields.processing_intermediate_signed_url" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">processing_intermediate_signed_url</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#playerdatapy.custom_fields.VideoFragmentFields.processing_intermediate_signed_url" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">processing_intermediate_signed_url</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="            SignedUrlFields (playerdatapy.custom_fields.SignedUrlFields)" href="../SignedUrlFields/#playerdatapy.custom_fields.SignedUrlFields">SignedUrlFields</a></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>A signed URL to download the processing intermediate file (the fragment's analysis state)</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="playerdatapy.custom_fields.VideoFragmentFields.raw_signed_url" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">raw_signed_url</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#playerdatapy.custom_fields.VideoFragmentFields.raw_signed_url" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">raw_signed_url</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="            SignedUrlFields (playerdatapy.custom_fields.SignedUrlFields)" href="../SignedUrlFields/#playerdatapy.custom_fields.SignedUrlFields">SignedUrlFields</a></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>A signed URL to download the raw uploaded fragment video file</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h3 id="playerdatapy.custom_fields.VideoFragmentFields.video_variants" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">video_variants</span>
 
@@ -13344,9 +13392,11 @@
 <a href="#playerdatapy.custom_fields.VideoFragmentFields.fields" class="headerlink" title="Permanent link">&para;</a></h3>
 <div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">fields</span><span class="p">(</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="o">*</span><span class="n">subfields</span><span class="p">:</span> <span class="n"><span title="typing.Union">Union</span></span><span class="p">[</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="n"><span title="playerdatapy.custom_typing_fields.VideoFragmentGraphQLField">VideoFragmentGraphQLField</span></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="            VideoVariantFields (playerdatapy.custom_fields.VideoVariantFields)" href="../VideoVariantFields/#playerdatapy.custom_fields.VideoVariantFields">VideoVariantFields</a></span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="p">],</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="            VideoFragmentFields (playerdatapy.custom_fields.VideoFragmentFields)" href="#playerdatapy.custom_fields.VideoFragmentFields">VideoFragmentFields</a></span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="n"><span title="playerdatapy.custom_typing_fields.VideoFragmentGraphQLField">VideoFragmentGraphQLField</span></span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="n"><a class="autorefs autorefs-internal" title="            SignedUrlFields (playerdatapy.custom_fields.SignedUrlFields)" href="../SignedUrlFields/#playerdatapy.custom_fields.SignedUrlFields">SignedUrlFields</a></span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="n"><a class="autorefs autorefs-internal" title="            VideoVariantFields (playerdatapy.custom_fields.VideoVariantFields)" href="../VideoVariantFields/#playerdatapy.custom_fields.VideoVariantFields">VideoVariantFields</a></span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="p">],</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="            VideoFragmentFields (playerdatapy.custom_fields.VideoFragmentFields)" href="#playerdatapy.custom_fields.VideoFragmentFields">VideoFragmentFields</a></span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
