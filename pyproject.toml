@@ -16,7 +16,7 @@ dependencies = [
 
 [dependency-groups]
 codegen = [
-    "ariadne-codegen>=0.17.2",
+    "ariadne-codegen>=0.19.a1",
 ]
 docs = [
     "mkdocs-material>=9.5.0",
