@@ -3489,6 +3489,11 @@ type Ball implements DeviceInterface {
     Total size of the device's circular page buffer (max_index = page_count - 1)
     """
     pageCount: Int!
+
+    """
+    If provided, exclude pages already known to be a different type from the missing results
+    """
+    pageTypes: [Int!]
   ): MissingDevicePagesResult!
 
   """
@@ -9268,9 +9273,14 @@ input CreateUnreadableDevicePagesInput {
   indexes: [Int!]!
 
   """
+  Page types being searched for when these indexes were rejected.
+  """
+  pageTypes: [Int!]
+
+  """
   Version of the page data format
   """
-  version: Int!
+  version: Int @deprecated(reason: "No longer used; pages are stored in Redis rather than the database.")
 }
 
 """
@@ -9283,9 +9293,9 @@ type CreateUnreadableDevicePagesPayload {
   errors: [ValidationError!]!
 
   """
-  The created undecryptable pages
+  Deprecated — always null
   """
-  undecryptablePages: [UndecryptablePage!]
+  undecryptablePages: [UndecryptablePage!] @deprecated(reason: "Pages are now stored in Redis; this field always returns null.")
 }
 
 """
@@ -9574,23 +9584,6 @@ type DataRecording {
   Data types of preprocessing output files attached to this recording
   """
   preprocessingOutputFileTypes: [PreprocessingOutputFileTypeEnum!]!
-
-  """
-  Download state and signed URL for a raw data type. Read-only — use
-  prepareRawData to produce the source data and requestRawDataExport to produce
-  a CSV. PARQUET is served directly; CSV is generated on demand.
-  """
-  rawData(
-    """
-    The raw data type to fetch
-    """
-    dataType: PreprocessingOutputFileTypeEnum!
-
-    """
-    Download format: PARQUET for the raw file, CSV for the generated export
-    """
-    format: RawDataFormatEnum!
-  ): RawData!
 
   """
   When the data recording was last updated
@@ -10615,6 +10608,11 @@ type Edge implements DeviceInterface {
     Total size of the device's circular page buffer (max_index = page_count - 1)
     """
     pageCount: Int!
+
+    """
+    If provided, exclude pages already known to be a different type from the missing results
+    """
+    pageTypes: [Int!]
   ): MissingDevicePagesResult!
 
   """
@@ -21910,16 +21908,6 @@ type Mutation {
   ): MarkMultipleAppMessagesReadPayload
 
   """
-  Prepares a session participation's raw data for download
-  """
-  prepareRawData(
-    """
-    The session participation whose raw data should be prepared
-    """
-    sessionParticipationId: ID!
-  ): PrepareRawDataPayload
-
-  """
   Provisions a new gateway
   """
   provisionGateway(
@@ -22030,38 +22018,23 @@ type Mutation {
   ): RemoveTargetTemplatePayload
 
   """
-  Requests a participant data export (e.g. JSON) derived from pre-processed data
-  """
-  requestParticipantDataExport(
-    """
-    Output format (defaults to JSON)
-    """
-    format: ParticipantDataExportFormatEnum = JSON
-
-    """
-    The session participation to export
-    """
-    sessionParticipationId: ID!
-  ): RequestParticipantDataExportPayload
-
-  """
-  Requests a single raw data type for download in a given format (e.g. CSV)
+  Request a participation's raw data export (a data type, or FULL); idempotent, call again to poll
   """
   requestRawDataExport(
     """
-    The data recording whose raw data should be exported
+    A single data type, or FULL for the whole participation
     """
-    dataRecordingId: ID!
+    dataType: RawDataExportTypeEnum!
 
     """
-    The raw data type to export
+    CSV or JSON (FULL + CSV returns a zip of per-type CSVs)
     """
-    dataType: PreprocessingOutputFileTypeEnum!
+    format: RawDataExportFormatEnum!
 
     """
-    Output format: CSV (generated) or PARQUET (source file)
+    The session participation to export raw data for
     """
-    format: RawDataFormatEnum!
+    sessionParticipationId: ID!
   ): RequestRawDataExportPayload
 
   """
@@ -23133,60 +23106,6 @@ type ParsedTrainingPlan {
 }
 
 """
-A participant data export in a chosen format, derived from pre-processed data
-"""
-type ParticipantDataExport {
-  """
-  When the export was requested
-  """
-  createdAt: ISO8601DateTime!
-
-  """
-  Time-limited download link; present once status is Completed
-  """
-  downloadUrl: String
-
-  """
-  Errors that occurred during export generation
-  """
-  errors: [String!]!
-
-  """
-  The output format
-  """
-  format: ParticipantDataExportFormatEnum!
-
-  """
-  The participant data export id
-  """
-  id: ID!
-
-  """
-  The status of the export
-  """
-  status: ParticipantDataExportStatusEnum!
-}
-
-"""
-Output format for a participant data export
-"""
-enum ParticipantDataExportFormatEnum {
-  """
-  The JSON format
-  """
-  JSON
-}
-
-"""
-Status of a participant data export
-"""
-enum ParticipantDataExportStatusEnum {
-  Completed
-  Failed
-  Generating
-}
-
-"""
 Aggregated metrics across one or more session participations
 """
 type ParticipationsMetricsSummary {
@@ -23552,6 +23471,7 @@ enum PermissionEnum {
   create_tags
   destroy_reports
   force_retrigger_processing
+  manage_ai_models
   manage_oauth_applications
   manage_roles
   manage_video_storage_limits
@@ -24546,21 +24466,6 @@ type PredictedSession {
 }
 
 """
-Autogenerated return type of PrepareRawData.
-"""
-type PrepareRawDataPayload {
-  """
-  Validation errors that occurred while performing the mutation
-  """
-  errors: [ValidationError!]!
-
-  """
-  Outcome of the preparation request
-  """
-  status: RawDataPreparationStatusEnum
-}
-
-"""
 Data type of a preprocessing output file
 """
 enum PreprocessingOutputFileTypeEnum {
@@ -25032,11 +24937,6 @@ type Query {
   organisations(ids: [ID!], limit: Int, offset: Int): [Organisation!]!
 
   """
-  A participant data export; poll for status and download link
-  """
-  participantDataExport(id: ID!): ParticipantDataExport
-
-  """
   Whether the current person is permitted to perform a given action
   """
   permission(clubId: ID, requestedAction: PermissionAction!, subject: PermissionSubject, subjectId: ID): Permission!
@@ -25363,78 +25263,58 @@ enum RatingEnum {
 }
 
 """
-Download status and signed URL for a raw data type of a session participation
+Download format for a raw data export
 """
-type RawData {
+enum RawDataExportFormatEnum {
   """
-  The requested raw data type
-  """
-  dataType: PreprocessingOutputFileTypeEnum!
-
-  """
-  When the signed download URL expires. Present only when status is READY.
-  """
-  expiresAt: ISO8601DateTime
-
-  """
-  The format the download URL points to
-  """
-  format: RawDataFormatEnum!
-
-  """
-  The session participation this data belongs to
-  """
-  sessionParticipationId: ID!
-
-  """
-  Whether the data is ready, processing, or unavailable
-  """
-  status: RawDataStatusEnum!
-
-  """
-  Signed, expiring download URL. Present only when status is READY.
-  """
-  url: String
-}
-
-"""
-Download format for a raw data type
-"""
-enum RawDataFormatEnum {
-  """
-  Comma-separated values, generated on demand from the pre-processed data
+  The CSV format
   """
   CSV
 
   """
-  The raw pre-processed Apache Parquet file, served directly
+  The JSON format
   """
-  PARQUET
+  JSON
 }
 
 """
-Outcome of a prepareRawData mutation
+What to export: a single raw data type, or FULL for the whole participation
 """
-enum RawDataPreparationStatusEnum {
+enum RawDataExportTypeEnum {
   """
-  Raw data already covers the session window; nothing was started
+  The whole participation (all data types)
   """
-  ALREADY_AVAILABLE
+  FULL
 
   """
-  A preparation run was already in flight; nothing was started
+  GPS data
   """
-  IN_FLIGHT
+  GPS
 
   """
-  A new preparation run was started
+  HEARTRATE data
   """
-  TRIGGERED
+  HEARTRATE
 
   """
-  Raw data could not be prepared (feature off, no device, or no recording)
+  IMU data
   """
-  UNAVAILABLE
+  IMU
+
+  """
+  IMU_ACCELERATION data
+  """
+  IMU_ACCELERATION
+
+  """
+  Local Positioning System — alias for UWB
+  """
+  LPS
+
+  """
+  UWB data
+  """
+  UWB
 }
 
 """
@@ -25442,12 +25322,12 @@ Availability status of a raw data type for a session participation
 """
 enum RawDataStatusEnum {
   """
-  The data is being prepared; poll this field until it is READY
+  The data is being prepared; call again to poll until it is READY
   """
   PROCESSING
 
   """
-  The raw data is available to download via the url field
+  The export is ready; download it from downloadUrl
   """
   READY
 
@@ -25822,33 +25702,13 @@ enum ReportTypeEnum {
 }
 
 """
-Autogenerated return type of RequestParticipantDataExport.
-"""
-type RequestParticipantDataExportPayload {
-  """
-  Availability of the pre-processed data for this participation
-  """
-  availability: RawDataStatusEnum!
-
-  """
-  Validation errors that occurred while performing the mutation
-  """
-  errors: [ValidationError!]!
-
-  """
-  The enqueued export; present only when availability is READY
-  """
-  export: ParticipantDataExport
-}
-
-"""
 Autogenerated return type of RequestRawDataExport.
 """
 type RequestRawDataExportPayload {
   """
-  Availability of the pre-processed source data for this data type
+  Time-limited download link; present once status is READY
   """
-  availability: RawDataStatusEnum!
+  downloadUrl: String
 
   """
   Validation errors that occurred while performing the mutation
@@ -25856,9 +25716,9 @@ type RequestRawDataExportPayload {
   errors: [ValidationError!]!
 
   """
-  Download state for the requested data type and format
+  READY (downloadUrl present), PROCESSING (call again to poll), or UNAVAILABLE
   """
-  rawData: RawData!
+  status: RawDataStatusEnum!
 }
 
 """
@@ -28873,6 +28733,7 @@ enum TaggableTypeEnum {
   session
   session_participation
   training_session
+  video_clip
 }
 
 """
@@ -37259,6 +37120,11 @@ input UpdateVideoClipAttributes {
   duration: Int
 
   """
+  The match event definition IDs associated with the video clip
+  """
+  matchEventDefinitionIds: [String!]
+
+  """
   The name of the video clip
   """
   name: String
@@ -37284,9 +37150,14 @@ input UpdateVideoClipAttributes {
   startTime: Int
 
   """
-  The tags associated with the video clip
+  The IDs of the user-defined tags to apply to the video clip
   """
-  tags: [String!]
+  tagDefinitionIds: [ID!]
+
+  """
+  Deprecated alias of matchEventDefinitionIds
+  """
+  tags: [String!] @deprecated(reason: "Renamed to matchEventDefinitionIds; sets the same IDs.")
 
   """
   The team associated with the video clip
@@ -37499,6 +37370,11 @@ type VideoClip {
   id: ID!
 
   """
+  The match event definition IDs associated with the clip
+  """
+  matchEventDefinitionIds: [String!]!
+
+  """
   The name of the clip
   """
   name: String!
@@ -37524,9 +37400,14 @@ type VideoClip {
   startTime: Int!
 
   """
-  The tags associated with the clip
+  The user-defined tags applied to the clip
   """
-  tags: [String!]!
+  tagDefinitions: [TagDefinition!]!
+
+  """
+  Deprecated alias of matchEventDefinitionIds
+  """
+  tags: [String!]! @deprecated(reason: "Renamed to matchEventDefinitionIds; returns the same IDs.")
 
   """
   The team associated with the clip
@@ -37547,6 +37428,11 @@ input VideoClipAttributes {
   The duration of the video clip in seconds
   """
   duration: Int!
+
+  """
+  The match event definition IDs associated with the video clip
+  """
+  matchEventDefinitionIds: [String!]
 
   """
   The name of the video clip
@@ -37574,9 +37460,14 @@ input VideoClipAttributes {
   startTime: Int!
 
   """
-  The tags associated with the video clip
+  The IDs of the user-defined tags to apply to the video clip
   """
-  tags: [String!]
+  tagDefinitionIds: [ID!]
+
+  """
+  Deprecated alias of matchEventDefinitionIds
+  """
+  tags: [String!] @deprecated(reason: "Renamed to matchEventDefinitionIds; sets the same IDs.")
 
   """
   The team associated with the video clip
