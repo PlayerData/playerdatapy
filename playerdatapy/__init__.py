@@ -203,6 +203,7 @@ from .input_types import (
     VideoClipOverlayInput,
     VideoRecordingAttributes,
 )
+from .playerdata_api import PlayerDataAPI
 
 __all__ = [
     "AccelzoneLowerBoundsInput",
@@ -317,6 +318,7 @@ __all__ = [
     "PitchCoordinateAttributes",
     "PitchCoordinateSetAttributes",
     "Platform",
+    "PlayerDataAPI",
     "PositionAttributes",
     "PreprocessingOutputFileTypeEnum",
     "ProcessingWarning",

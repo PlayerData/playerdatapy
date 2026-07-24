@@ -6,7 +6,7 @@ Repo-specific guidance for AI assistants (Claude Code, Cursor, etc.). Humans, sk
 
 - Python package `playerdatapy` — typed client for the PlayerData GraphQL API.
 - Generated from `schema.graphql` by `ariadne-codegen` (config in `pyproject.toml` under `[tool.ariadne-codegen]`). `schema.graphql` is refreshed from the public SDL at `https://app.playerdata.co.uk/api/schema.graphql`.
-- Custom codegen plugin at `codegen_plugins/docstrings.py` injects schema descriptions into generated enums.
+- Custom codegen plugins: `codegen_plugins/docstrings.py` injects schema descriptions into generated enums; `codegen_plugins/public_api.py` re-exports hand-written modules (`PlayerDataAPI`) from the generated `__init__.py`.
 - Docs site at `docs/`, built with MkDocs Material + mkdocstrings, deployed to GitHub Pages via `.github/workflows/docs.yml`.
 - Examples in `examples/direct/` (raw GraphQL) and `examples/pydantic/` (typed `PlayerDataAPI` — preferred).
 
@@ -24,6 +24,7 @@ These are output of `uv run ariadne-codegen` and excluded from ruff:
 - `playerdatapy/base_model.py`
 - `playerdatapy/base_operation.py`
 - `playerdatapy/async_base_client.py`
+- `playerdatapy/__init__.py` — includes the hand-written re-exports only because the `public_api` plugin adds them; never add exports to it by hand
 
 Any edits will be wiped on next codegen run. To change them, edit `schema.graphql` (or update upstream schema in the `PlayerData/api` repo) or the codegen plugin.
 
