@@ -595,21 +595,6 @@ class OwnerEnum(str, Enum):
     Person = "Person"
 
 
-class ParticipantDataExportFormatEnum(str, Enum):
-    """Output format for a participant data export"""
-
-    JSON = "JSON"
-    "The JSON format"
-
-
-class ParticipantDataExportStatusEnum(str, Enum):
-    """Status of a participant data export"""
-
-    Completed = "Completed"
-    Failed = "Failed"
-    Generating = "Generating"
-
-
 class PathmapPathType(str, Enum):
     high_intensity = "high_intensity"
     "high_intensity"
@@ -652,6 +637,7 @@ class PermissionEnum(str, Enum):
     create_tags = "create_tags"
     destroy_reports = "destroy_reports"
     force_retrigger_processing = "force_retrigger_processing"
+    manage_ai_models = "manage_ai_models"
     manage_oauth_applications = "manage_oauth_applications"
     manage_roles = "manage_roles"
     manage_video_storage_limits = "manage_video_storage_limits"
@@ -831,35 +817,41 @@ class RatingEnum(str, Enum):
     positive = "positive"
 
 
-class RawDataFormatEnum(str, Enum):
-    """Download format for a raw data type"""
+class RawDataExportFormatEnum(str, Enum):
+    """Download format for a raw data export"""
 
     CSV = "CSV"
-    "Comma-separated values, generated on demand from the pre-processed data"
-    PARQUET = "PARQUET"
-    "The raw pre-processed Apache Parquet file, served directly"
+    "The CSV format"
+    JSON = "JSON"
+    "The JSON format"
 
 
-class RawDataPreparationStatusEnum(str, Enum):
-    """Outcome of a prepareRawData mutation"""
+class RawDataExportTypeEnum(str, Enum):
+    """What to export: a single raw data type, or FULL for the whole participation"""
 
-    ALREADY_AVAILABLE = "ALREADY_AVAILABLE"
-    "Raw data already covers the session window; nothing was started"
-    IN_FLIGHT = "IN_FLIGHT"
-    "A preparation run was already in flight; nothing was started"
-    TRIGGERED = "TRIGGERED"
-    "A new preparation run was started"
-    UNAVAILABLE = "UNAVAILABLE"
-    "Raw data could not be prepared (feature off, no device, or no recording)"
+    FULL = "FULL"
+    "The whole participation (all data types)"
+    GPS = "GPS"
+    "GPS data"
+    HEARTRATE = "HEARTRATE"
+    "HEARTRATE data"
+    IMU = "IMU"
+    "IMU data"
+    IMU_ACCELERATION = "IMU_ACCELERATION"
+    "IMU_ACCELERATION data"
+    LPS = "LPS"
+    "Local Positioning System — alias for UWB"
+    UWB = "UWB"
+    "UWB data"
 
 
 class RawDataStatusEnum(str, Enum):
     """Availability status of a raw data type for a session participation"""
 
     PROCESSING = "PROCESSING"
-    "The data is being prepared; poll this field until it is READY"
+    "The data is being prepared; call again to poll until it is READY"
     READY = "READY"
-    "The raw data is available to download via the url field"
+    "The export is ready; download it from downloadUrl"
     UNAVAILABLE = "UNAVAILABLE"
     "No raw data is available and none can be produced for this data type"
 
@@ -1097,6 +1089,7 @@ class TaggableTypeEnum(str, Enum):
     session = "session"
     session_participation = "session_participation"
     training_session = "training_session"
+    video_clip = "video_clip"
 
 
 class TaggerTypeEnum(str, Enum):
