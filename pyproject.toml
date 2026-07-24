@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Python client for the PlayerData GraphQL API"
 authors = [{ name = "PlayerData Engineering", email = "dev@playerdata.com" }]
 readme = "README.md"
-requires-python = ">=3.14,<3.15"
+requires-python = ">=3.12"
 dependencies = [
     "graphql-core>=3.2.0",
     "httpx>=0.24.0",
