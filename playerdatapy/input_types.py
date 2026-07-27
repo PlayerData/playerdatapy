@@ -370,7 +370,9 @@ class CreateUnreadableDevicePagesInput(BaseModel):
     "Type of device (edge or ball)"
     indexes: list[int]
     "Page indexes the device cannot read"
-    version: int
+    page_types: Optional[list[int]] = Field(alias="pageTypes", default=None)
+    "Page types being searched for when these indexes were rejected."
+    version: Optional[int] = None
     "Version of the page data format"
 
 
@@ -1356,6 +1358,10 @@ class UpdateVideoClipAttributes(BaseModel):
 
     duration: Optional[int] = None
     "The duration of the video clip in seconds"
+    match_event_definition_ids: Optional[list[str]] = Field(
+        alias="matchEventDefinitionIds", default=None
+    )
+    "The match event definition IDs associated with the video clip"
     name: Optional[str] = None
     "The name of the video clip"
     notes: Optional[str] = None
@@ -1366,8 +1372,12 @@ class UpdateVideoClipAttributes(BaseModel):
     "The playback speed of the video clip (e.g., 1.0)"
     start_time: Optional[int] = Field(alias="startTime", default=None)
     "The start time of the video clip in seconds"
+    tag_definition_ids: Optional[list[str]] = Field(
+        alias="tagDefinitionIds", default=None
+    )
+    "The IDs of the user-defined tags to apply to the video clip"
     tags: Optional[list[str]] = None
-    "The tags associated with the video clip"
+    "Deprecated alias of matchEventDefinitionIds"
     team: Optional[ClipTeam] = None
     "The team associated with the video clip"
     tracked_participant: Optional[str] = Field(alias="trackedParticipant", default=None)
@@ -1397,6 +1407,10 @@ class VideoClipAttributes(BaseModel):
 
     duration: int
     "The duration of the video clip in seconds"
+    match_event_definition_ids: Optional[list[str]] = Field(
+        alias="matchEventDefinitionIds", default=None
+    )
+    "The match event definition IDs associated with the video clip"
     name: str
     "The name of the video clip"
     notes: Optional[str] = None
@@ -1407,8 +1421,12 @@ class VideoClipAttributes(BaseModel):
     "The playback speed of the video clip (e.g., 1.0)"
     start_time: int = Field(alias="startTime")
     "The start time of the video clip in seconds"
+    tag_definition_ids: Optional[list[str]] = Field(
+        alias="tagDefinitionIds", default=None
+    )
+    "The IDs of the user-defined tags to apply to the video clip"
     tags: Optional[list[str]] = None
-    "The tags associated with the video clip"
+    "Deprecated alias of matchEventDefinitionIds"
     team: ClipTeam
     "The team associated with the video clip"
     tracked_participant: Optional[str] = Field(alias="trackedParticipant", default=None)

@@ -215,7 +215,6 @@ from .custom_typing_fields import (
     PageGraphQLField,
     ParsedSegmentGraphQLField,
     ParsedTrainingPlanGraphQLField,
-    ParticipantDataExportGraphQLField,
     ParticipationsMetricsSummaryGraphQLField,
     PathmapGraphQLField,
     PathmapPitchLimitsGraphQLField,
@@ -233,7 +232,6 @@ from .custom_typing_fields import (
     PitchGraphQLField,
     PositionDefinitionGraphQLField,
     PredictedSessionGraphQLField,
-    PrepareRawDataPayloadGraphQLField,
     PrivacyPolicyAcceptanceGraphQLField,
     PrivacyPolicyGraphQLField,
     ProfilePictureGraphQLField,
@@ -242,7 +240,6 @@ from .custom_typing_fields import (
     RangeGraphQLField,
     RatePredictedSessionPayloadGraphQLField,
     RateResponsePayloadGraphQLField,
-    RawDataGraphQLField,
     RecreateGatewaySessionsPayloadGraphQLField,
     RecurrenceScheduleGraphQLField,
     RecurrenceScheduleWeeklyRuleGraphQLField,
@@ -258,7 +255,6 @@ from .custom_typing_fields import (
     ReportGraphQLField,
     ReportTemplateChartGraphQLField,
     ReportTemplateGraphQLField,
-    RequestParticipantDataExportPayloadGraphQLField,
     RequestRawDataExportPayloadGraphQLField,
     ResendConfirmationEmailPayloadGraphQLField,
     ResendReportPayloadGraphQLField,
@@ -398,8 +394,6 @@ from .enums import (
     ImageSizeEnum,
     MatchEventClassEnum,
     PermissionEnum,
-    PreprocessingOutputFileTypeEnum,
-    RawDataFormatEnum,
     SortField,
     TaggableTypeEnum,
 )
@@ -3471,6 +3465,8 @@ class BallFields(GraphQLField):
         earliest_page_time: Any,
         latest_page_index: int,
         page_count: int,
+        *,
+        page_types: Optional[list[int]] = None,
     ) -> "MissingDevicePagesResultFields":
         """Page indexes missing from the server for this device, with signed upload URLs"""
         arguments: dict[str, dict[str, Any]] = {
@@ -3481,6 +3477,7 @@ class BallFields(GraphQLField):
             },
             "latestPageIndex": {"type": "Int!", "value": latest_page_index},
             "pageCount": {"type": "Int!", "value": page_count},
+            "pageTypes": {"type": "[Int!]", "value": page_types},
         }
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
@@ -9031,7 +9028,7 @@ class CreateUnreadableDevicePagesPayloadFields(GraphQLField):
 
     @classmethod
     def undecryptable_pages(cls) -> "UndecryptablePageFields":
-        """The created undecryptable pages"""
+        """Deprecated — always null"""
         return UndecryptablePageFields("undecryptablePages")
 
     def fields(
@@ -9313,26 +9310,6 @@ class DataRecordingFields(GraphQLField):
         DataRecordingGraphQLField("preprocessingOutputFileTypes")
     )
     "Data types of preprocessing output files attached to this recording"
-
-    @classmethod
-    def raw_data(
-        cls, data_type: PreprocessingOutputFileTypeEnum, format: RawDataFormatEnum
-    ) -> "RawDataFields":
-        """Download state and signed URL for a raw data type. Read-only — use
-        prepareRawData to produce the source data and requestRawDataExport to produce
-        a CSV. PARQUET is served directly; CSV is generated on demand."""
-        arguments: dict[str, dict[str, Any]] = {
-            "dataType": {
-                "type": "PreprocessingOutputFileTypeEnum!",
-                "value": data_type,
-            },
-            "format": {"type": "RawDataFormatEnum!", "value": format},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RawDataFields("rawData", arguments=cleared_arguments)
-
     updated_at: "DataRecordingGraphQLField" = DataRecordingGraphQLField("updatedAt")
     "When the data recording was last updated"
 
@@ -9343,7 +9320,6 @@ class DataRecordingFields(GraphQLField):
             "AthleteFields",
             "EdgeDiagnosticInformationFields",
             "EdgeFields",
-            "RawDataFields",
         ],
     ) -> "DataRecordingFields":
         """Subfields should come from the DataRecordingFields class"""
@@ -10539,6 +10515,8 @@ class EdgeFields(GraphQLField):
         earliest_page_time: Any,
         latest_page_index: int,
         page_count: int,
+        *,
+        page_types: Optional[list[int]] = None,
     ) -> "MissingDevicePagesResultFields":
         """Page indexes missing from the server for this device, with signed upload URLs"""
         arguments: dict[str, dict[str, Any]] = {
@@ -10549,6 +10527,7 @@ class EdgeFields(GraphQLField):
             },
             "latestPageIndex": {"type": "Int!", "value": latest_page_index},
             "pageCount": {"type": "Int!", "value": page_count},
+            "pageTypes": {"type": "[Int!]", "value": page_types},
         }
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
@@ -19542,44 +19521,6 @@ class ParsedTrainingPlanFields(GraphQLField):
         return self
 
 
-class ParticipantDataExportFields(GraphQLField):
-    """A participant data export in a chosen format, derived from pre-processed data"""
-
-    created_at: "ParticipantDataExportGraphQLField" = ParticipantDataExportGraphQLField(
-        "createdAt"
-    )
-    "When the export was requested"
-    download_url: "ParticipantDataExportGraphQLField" = (
-        ParticipantDataExportGraphQLField("downloadUrl")
-    )
-    "Time-limited download link; present once status is Completed"
-    errors: "ParticipantDataExportGraphQLField" = ParticipantDataExportGraphQLField(
-        "errors"
-    )
-    "Errors that occurred during export generation"
-    format: "ParticipantDataExportGraphQLField" = ParticipantDataExportGraphQLField(
-        "format"
-    )
-    "The output format"
-    id: "ParticipantDataExportGraphQLField" = ParticipantDataExportGraphQLField("id")
-    "The participant data export id"
-    status: "ParticipantDataExportGraphQLField" = ParticipantDataExportGraphQLField(
-        "status"
-    )
-    "The status of the export"
-
-    def fields(
-        self, *subfields: ParticipantDataExportGraphQLField
-    ) -> "ParticipantDataExportFields":
-        """Subfields should come from the ParticipantDataExportFields class"""
-        self._subfields.extend(subfields)
-        return self
-
-    def alias(self, alias: str) -> "ParticipantDataExportFields":
-        self._alias = alias
-        return self
-
-
 class ParticipationsMetricsSummaryFields(GraphQLField):
     """Aggregated metrics across one or more session participations"""
 
@@ -20925,32 +20866,6 @@ class PredictedSessionFields(GraphQLField):
         return self
 
 
-class PrepareRawDataPayloadFields(GraphQLField):
-    """Autogenerated return type of PrepareRawData."""
-
-    @classmethod
-    def errors(cls) -> "ValidationErrorFields":
-        """Validation errors that occurred while performing the mutation"""
-        return ValidationErrorFields("errors")
-
-    status: "PrepareRawDataPayloadGraphQLField" = PrepareRawDataPayloadGraphQLField(
-        "status"
-    )
-    "Outcome of the preparation request"
-
-    def fields(
-        self,
-        *subfields: Union[PrepareRawDataPayloadGraphQLField, "ValidationErrorFields"],
-    ) -> "PrepareRawDataPayloadFields":
-        """Subfields should come from the PrepareRawDataPayloadFields class"""
-        self._subfields.extend(subfields)
-        return self
-
-    def alias(self, alias: str) -> "PrepareRawDataPayloadFields":
-        self._alias = alias
-        return self
-
-
 class PrivacyPolicyFields(GraphQLField):
     """An object representing a privacy policy"""
 
@@ -21211,34 +21126,6 @@ class RateResponsePayloadFields(GraphQLField):
         return self
 
     def alias(self, alias: str) -> "RateResponsePayloadFields":
-        self._alias = alias
-        return self
-
-
-class RawDataFields(GraphQLField):
-    """Download status and signed URL for a raw data type of a session participation"""
-
-    data_type: "RawDataGraphQLField" = RawDataGraphQLField("dataType")
-    "The requested raw data type"
-    expires_at: "RawDataGraphQLField" = RawDataGraphQLField("expiresAt")
-    "When the signed download URL expires. Present only when status is READY."
-    format: "RawDataGraphQLField" = RawDataGraphQLField("format")
-    "The format the download URL points to"
-    session_participation_id: "RawDataGraphQLField" = RawDataGraphQLField(
-        "sessionParticipationId"
-    )
-    "The session participation this data belongs to"
-    status: "RawDataGraphQLField" = RawDataGraphQLField("status")
-    "Whether the data is ready, processing, or unavailable"
-    url: "RawDataGraphQLField" = RawDataGraphQLField("url")
-    "Signed, expiring download URL. Present only when status is READY."
-
-    def fields(self, *subfields: RawDataGraphQLField) -> "RawDataFields":
-        """Subfields should come from the RawDataFields class"""
-        self._subfields.extend(subfields)
-        return self
-
-    def alias(self, alias: str) -> "RawDataFields":
         self._alias = alias
         return self
 
@@ -21698,65 +21585,28 @@ class ReportTemplateChartFields(GraphQLField):
         return self
 
 
-class RequestParticipantDataExportPayloadFields(GraphQLField):
-    """Autogenerated return type of RequestParticipantDataExport."""
-
-    availability: "RequestParticipantDataExportPayloadGraphQLField" = (
-        RequestParticipantDataExportPayloadGraphQLField("availability")
-    )
-    "Availability of the pre-processed data for this participation"
-
-    @classmethod
-    def errors(cls) -> "ValidationErrorFields":
-        """Validation errors that occurred while performing the mutation"""
-        return ValidationErrorFields("errors")
-
-    @classmethod
-    def export(cls) -> "ParticipantDataExportFields":
-        """The enqueued export; present only when availability is READY"""
-        return ParticipantDataExportFields("export")
-
-    def fields(
-        self,
-        *subfields: Union[
-            RequestParticipantDataExportPayloadGraphQLField,
-            "ParticipantDataExportFields",
-            "ValidationErrorFields",
-        ],
-    ) -> "RequestParticipantDataExportPayloadFields":
-        """Subfields should come from the RequestParticipantDataExportPayloadFields class"""
-        self._subfields.extend(subfields)
-        return self
-
-    def alias(self, alias: str) -> "RequestParticipantDataExportPayloadFields":
-        self._alias = alias
-        return self
-
-
 class RequestRawDataExportPayloadFields(GraphQLField):
     """Autogenerated return type of RequestRawDataExport."""
 
-    availability: "RequestRawDataExportPayloadGraphQLField" = (
-        RequestRawDataExportPayloadGraphQLField("availability")
+    download_url: "RequestRawDataExportPayloadGraphQLField" = (
+        RequestRawDataExportPayloadGraphQLField("downloadUrl")
     )
-    "Availability of the pre-processed source data for this data type"
+    "Time-limited download link; present once status is READY"
 
     @classmethod
     def errors(cls) -> "ValidationErrorFields":
         """Validation errors that occurred while performing the mutation"""
         return ValidationErrorFields("errors")
 
-    @classmethod
-    def raw_data(cls) -> "RawDataFields":
-        """Download state for the requested data type and format"""
-        return RawDataFields("rawData")
+    status: "RequestRawDataExportPayloadGraphQLField" = (
+        RequestRawDataExportPayloadGraphQLField("status")
+    )
+    "READY (downloadUrl present), PROCESSING (call again to poll), or UNAVAILABLE"
 
     def fields(
         self,
         *subfields: Union[
-            RequestRawDataExportPayloadGraphQLField,
-            "RawDataFields",
-            "ValidationErrorFields",
+            RequestRawDataExportPayloadGraphQLField, "ValidationErrorFields"
         ],
     ) -> "RequestRawDataExportPayloadFields":
         """Subfields should come from the RequestRawDataExportPayloadFields class"""
@@ -32065,6 +31915,10 @@ class VideoClipFields(GraphQLField):
     "The duration of the clip in seconds"
     id: "VideoClipGraphQLField" = VideoClipGraphQLField("id")
     "The unique identifier of the clip"
+    match_event_definition_ids: "VideoClipGraphQLField" = VideoClipGraphQLField(
+        "matchEventDefinitionIds"
+    )
+    "The match event definition IDs associated with the clip"
     name: "VideoClipGraphQLField" = VideoClipGraphQLField("name")
     "The name of the clip"
     notes: "VideoClipGraphQLField" = VideoClipGraphQLField("notes")
@@ -32079,8 +31933,14 @@ class VideoClipFields(GraphQLField):
     "The playback speed of the clip (e.g., 1.0 for normal speed, 0.5 for half speed)"
     start_time: "VideoClipGraphQLField" = VideoClipGraphQLField("startTime")
     "The start time of the clip in seconds"
+
+    @classmethod
+    def tag_definitions(cls) -> "TagDefinitionFields":
+        """The user-defined tags applied to the clip"""
+        return TagDefinitionFields("tagDefinitions")
+
     tags: "VideoClipGraphQLField" = VideoClipGraphQLField("tags")
-    "The tags associated with the clip"
+    "Deprecated alias of matchEventDefinitionIds"
     team: "VideoClipGraphQLField" = VideoClipGraphQLField("team")
     "The team associated with the clip"
     tracked_participant: "VideoClipGraphQLField" = VideoClipGraphQLField(
@@ -32089,7 +31949,10 @@ class VideoClipFields(GraphQLField):
     "The participation ID of the participant being tracked in the clip"
 
     def fields(
-        self, *subfields: Union[VideoClipGraphQLField, "VideoClipOverlayFields"]
+        self,
+        *subfields: Union[
+            VideoClipGraphQLField, "TagDefinitionFields", "VideoClipOverlayFields"
+        ],
     ) -> "VideoClipFields":
         """Subfields should come from the VideoClipFields class"""
         self._subfields.extend(subfields)

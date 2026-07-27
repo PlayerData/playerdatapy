@@ -22,7 +22,6 @@ from .custom_fields import (
     MatchSessionParticipationFields,
     MatchSessionParticipationPartFields,
     OrganisationFields,
-    ParticipantDataExportFields,
     PermissionFields,
     PersonFields,
     PitchFields,
@@ -468,17 +467,6 @@ class Query:
         }
         return OrganisationFields(
             field_name="organisations", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def participant_data_export(cls, id: str) -> ParticipantDataExportFields:
-        """A participant data export; poll for status and download link"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return ParticipantDataExportFields(
-            field_name="participantDataExport", arguments=cleared_arguments
         )
 
     @classmethod
