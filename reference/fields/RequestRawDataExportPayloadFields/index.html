@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://playerdata.github.io/playerdatapy/reference/fields/RequestRawDataExportPayloadFields/">
       
       
-        <link rel="prev" href="../RequestParticipantDataExportPayloadFields/">
+        <link rel="prev" href="../ReportTemplateFields/">
       
       
         <link rel="next" href="../ResendConfirmationEmailPayloadFields/">
@@ -986,14 +986,6 @@
       
         
           
-        
-      
-        
-      
-        
-      
-        
-      
         
       
         
@@ -7579,34 +7571,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../ParticipantDataExportFields/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    ParticipantDataExportFields
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../ParticipationsMetricsSummaryFields/" class="md-nav__link">
         
   
@@ -8083,34 +8047,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../PrepareRawDataPayloadFields/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    PrepareRawDataPayloadFields
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../PrivacyPolicyAcceptanceFields/" class="md-nav__link">
         
   
@@ -8315,34 +8251,6 @@
     
   
     RateResponsePayloadFields
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../RawDataFields/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    RawDataFields
   
 
     
@@ -8763,34 +8671,6 @@
     
   
     ReportTemplateFields
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../RequestParticipantDataExportPayloadFields/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    RequestParticipantDataExportPayloadFields
   
 
     
@@ -12957,10 +12837,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -13199,8 +13075,8 @@
 
 
 
-<h3 id="playerdatapy.custom_fields.RequestRawDataExportPayloadFields.availability" class="doc doc-heading">
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">availability</span>
+<h3 id="playerdatapy.custom_fields.RequestRawDataExportPayloadFields.download_url" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">download_url</span>
 
 
   <span class="doc doc-labels">
@@ -13208,15 +13084,42 @@
       <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
   </span>
 
-<a href="#playerdatapy.custom_fields.RequestRawDataExportPayloadFields.availability" class="headerlink" title="Permanent link">&para;</a></h3>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">availability</span><span class="p">:</span> <span class="n"><span title="playerdatapy.custom_typing_fields.RequestRawDataExportPayloadGraphQLField">RequestRawDataExportPayloadGraphQLField</span></span> <span class="o">=</span> <span class="p">(</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n"><span title="playerdatapy.custom_typing_fields.RequestRawDataExportPayloadGraphQLField">RequestRawDataExportPayloadGraphQLField</span></span><span class="p">(</span><span class="s2">&quot;availability&quot;</span><span class="p">)</span>
+<a href="#playerdatapy.custom_fields.RequestRawDataExportPayloadFields.download_url" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">download_url</span><span class="p">:</span> <span class="n"><span title="playerdatapy.custom_typing_fields.RequestRawDataExportPayloadGraphQLField">RequestRawDataExportPayloadGraphQLField</span></span> <span class="o">=</span> <span class="p">(</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n"><span title="playerdatapy.custom_typing_fields.RequestRawDataExportPayloadGraphQLField">RequestRawDataExportPayloadGraphQLField</span></span><span class="p">(</span><span class="s2">&quot;downloadUrl&quot;</span><span class="p">)</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
 
-        <p>Availability of the pre-processed source data for this data type</p>
+        <p>Time-limited download link; present once status is READY</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="playerdatapy.custom_fields.RequestRawDataExportPayloadFields.status" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">status</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#playerdatapy.custom_fields.RequestRawDataExportPayloadFields.status" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">status</span><span class="p">:</span> <span class="n"><span title="playerdatapy.custom_typing_fields.RequestRawDataExportPayloadGraphQLField">RequestRawDataExportPayloadGraphQLField</span></span> <span class="o">=</span> <span class="p">(</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n"><span title="playerdatapy.custom_typing_fields.RequestRawDataExportPayloadGraphQLField">RequestRawDataExportPayloadGraphQLField</span></span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>READY (downloadUrl present), PROCESSING (call again to poll), or UNAVAILABLE</p>
 
     </div>
 
@@ -13252,30 +13155,6 @@
 <div class="doc doc-object doc-function">
 
 
-<h3 id="playerdatapy.custom_fields.RequestRawDataExportPayloadFields.raw_data" class="doc doc-heading">
-<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">raw_data</span>
-
-
-  <span class="doc doc-labels">
-      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
-  </span>
-
-<a href="#playerdatapy.custom_fields.RequestRawDataExportPayloadFields.raw_data" class="headerlink" title="Permanent link">&para;</a></h3>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">raw_data</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="            RawDataFields (playerdatapy.custom_fields.RawDataFields)" href="../RawDataFields/#playerdatapy.custom_fields.RawDataFields">RawDataFields</a></span>
-</code></pre></div>
-
-    <div class="doc doc-contents ">
-
-        <p>Download state for the requested data type and format</p>
-
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
 <h3 id="playerdatapy.custom_fields.RequestRawDataExportPayloadFields.fields" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">fields</span>
 
@@ -13284,10 +13163,9 @@
 <div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">fields</span><span class="p">(</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="o">*</span><span class="n">subfields</span><span class="p">:</span> <span class="n"><span title="typing.Union">Union</span></span><span class="p">[</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="n"><span title="playerdatapy.custom_typing_fields.RequestRawDataExportPayloadGraphQLField">RequestRawDataExportPayloadGraphQLField</span></span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="n"><a class="autorefs autorefs-internal" title="            RawDataFields (playerdatapy.custom_fields.RawDataFields)" href="../RawDataFields/#playerdatapy.custom_fields.RawDataFields">RawDataFields</a></span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="n"><a class="autorefs autorefs-internal" title="            ValidationErrorFields (playerdatapy.custom_fields.ValidationErrorFields)" href="../ValidationErrorFields/#playerdatapy.custom_fields.ValidationErrorFields">ValidationErrorFields</a></span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="p">],</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="            RequestRawDataExportPayloadFields (playerdatapy.custom_fields.RequestRawDataExportPayloadFields)" href="#playerdatapy.custom_fields.RequestRawDataExportPayloadFields">RequestRawDataExportPayloadFields</a></span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="n"><a class="autorefs autorefs-internal" title="            ValidationErrorFields (playerdatapy.custom_fields.ValidationErrorFields)" href="../ValidationErrorFields/#playerdatapy.custom_fields.ValidationErrorFields">ValidationErrorFields</a></span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="p">],</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="            RequestRawDataExportPayloadFields (playerdatapy.custom_fields.RequestRawDataExportPayloadFields)" href="#playerdatapy.custom_fields.RequestRawDataExportPayloadFields">RequestRawDataExportPayloadFields</a></span>
 </code></pre></div>
 
     <div class="doc doc-contents ">

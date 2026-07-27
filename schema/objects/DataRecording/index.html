@@ -856,8 +856,6 @@
       
         
       
-        
-      
     
     
     
@@ -916,10 +914,6 @@
       
         
           
-        
-      
-        
-      
         
       
         
@@ -1280,14 +1274,6 @@
       
         
           
-        
-      
-        
-      
-        
-      
-        
-      
         
       
         
@@ -7971,34 +7957,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../ParticipantDataExport/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    ParticipantDataExport
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../ParticipationsMetricsSummary/" class="md-nav__link">
         
   
@@ -8559,34 +8517,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../PrepareRawDataPayload/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    PrepareRawDataPayload
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../PrivacyPolicy/" class="md-nav__link">
         
   
@@ -8819,34 +8749,6 @@
     
   
     RateResponsePayload
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../RawData/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    RawData
   
 
     
@@ -9267,34 +9169,6 @@
     
   
     ReportTemplateChart
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../RequestParticipantDataExportPayload/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    RequestParticipantDataExportPayload
   
 
     
@@ -13587,10 +13461,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -13913,33 +13783,6 @@
 <h3 id="preprocessingoutputfiletypes"><code>preprocessingOutputFileTypes</code><a class="headerlink" href="#preprocessingoutputfiletypes" title="Permanent link">&para;</a></h3>
 <p>Data types of preprocessing output files attached to this recording</p>
 <p><strong>Returns:</strong> [<a href="../../enums/PreprocessingOutputFileTypeEnum/"><code>PreprocessingOutputFileTypeEnum</code></a>!]!</p>
-<h3 id="rawdata"><code>rawData</code><a class="headerlink" href="#rawdata" title="Permanent link">&para;</a></h3>
-<p>Download state and signed URL for a raw data type. Read-only — use
-prepareRawData to produce the source data and requestRawDataExport to produce
-a CSV. PARQUET is served directly; CSV is generated on demand.</p>
-<p><strong>Returns:</strong> <a href="../RawData/"><code>RawData</code></a>!</p>
-<p><strong>Arguments:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dataType</code></td>
-<td><a href="../../enums/PreprocessingOutputFileTypeEnum/"><code>PreprocessingOutputFileTypeEnum</code></a>!</td>
-<td>The raw data type to fetch</td>
-</tr>
-<tr>
-<td><code>format</code></td>
-<td><a href="../../enums/RawDataFormatEnum/"><code>RawDataFormatEnum</code></a>!</td>
-<td>Download format: PARQUET for the raw file, CSV for the generated export</td>
-</tr>
-</tbody>
-</table>
 <h3 id="updatedat"><code>updatedAt</code><a class="headerlink" href="#updatedat" title="Permanent link">&para;</a></h3>
 <p>When the data recording was last updated</p>
 <p><strong>Returns:</strong> <a href="../../scalars/ISO8601DateTime/"><code>ISO8601DateTime</code></a>!</p>

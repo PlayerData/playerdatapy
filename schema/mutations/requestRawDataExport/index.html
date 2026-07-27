@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://playerdata.github.io/playerdatapy/schema/mutations/requestRawDataExport/">
       
       
-        <link rel="prev" href="../requestParticipantDataExport/">
+        <link rel="prev" href="../removeTargetTemplate/">
       
       
         <link rel="next" href="../resendPendingMemberConfirmationEmail/">
@@ -856,8 +856,6 @@
       
         
       
-        
-      
     
     
     
@@ -918,10 +916,6 @@
       
         
           
-        
-      
-        
-      
         
       
         
@@ -3749,34 +3743,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../prepareRawData/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    prepareRawData
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../provisionGateway/" class="md-nav__link">
         
   
@@ -3981,34 +3947,6 @@
     
   
     removeTargetTemplate
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../requestParticipantDataExport/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    requestParticipantDataExport
   
 
     
@@ -6349,14 +6287,6 @@
       
         
       
-        
-      
-        
-      
-        
-      
-        
-      
     
     
     
@@ -7007,10 +6937,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -7305,7 +7231,7 @@
 
 
 <h1 id="requestrawdataexport"><code>requestRawDataExport</code><a class="headerlink" href="#requestrawdataexport" title="Permanent link">&para;</a></h1>
-<p>Requests a single raw data type for download in a given format (e.g. CSV)</p>
+<p>Request a participation's raw data export (a data type, or FULL); idempotent, call again to poll</p>
 <p><strong>Returns:</strong> <a href="../../objects/RequestRawDataExportPayload/"><code>RequestRawDataExportPayload</code></a></p>
 <h2 id="arguments">Arguments<a class="headerlink" href="#arguments" title="Permanent link">&para;</a></h2>
 <table>
@@ -7318,19 +7244,19 @@
 </thead>
 <tbody>
 <tr>
-<td><code>dataRecordingId</code></td>
-<td><a href="../../scalars/ID/"><code>ID</code></a>!</td>
-<td>The data recording whose raw data should be exported</td>
-</tr>
-<tr>
 <td><code>dataType</code></td>
-<td><a href="../../enums/PreprocessingOutputFileTypeEnum/"><code>PreprocessingOutputFileTypeEnum</code></a>!</td>
-<td>The raw data type to export</td>
+<td><a href="../../enums/RawDataExportTypeEnum/"><code>RawDataExportTypeEnum</code></a>!</td>
+<td>A single data type, or FULL for the whole participation</td>
 </tr>
 <tr>
 <td><code>format</code></td>
-<td><a href="../../enums/RawDataFormatEnum/"><code>RawDataFormatEnum</code></a>!</td>
-<td>Output format: CSV (generated) or PARQUET (source file)</td>
+<td><a href="../../enums/RawDataExportFormatEnum/"><code>RawDataExportFormatEnum</code></a>!</td>
+<td>CSV or JSON (FULL + CSV returns a zip of per-type CSVs)</td>
+</tr>
+<tr>
+<td><code>sessionParticipationId</code></td>
+<td><a href="../../scalars/ID/"><code>ID</code></a>!</td>
+<td>The session participation to export raw data for</td>
 </tr>
 </tbody>
 </table>
