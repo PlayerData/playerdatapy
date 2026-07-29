@@ -60,6 +60,7 @@ class AppMessageTypeEnum(str, Enum):
     GatewayFirmwareUpdateAvailable = "GatewayFirmwareUpdateAvailable"
     LegacySurveyDistributed = "LegacySurveyDistributed"
     NewPersonalBest = "NewPersonalBest"
+    SessionBlueprintAutoEnded = "SessionBlueprintAutoEnded"
     SessionBlueprintSessionCreationFailed = "SessionBlueprintSessionCreationFailed"
     SessionBlueprintSessionCreationSkippedAthletes = (
         "SessionBlueprintSessionCreationSkippedAthletes"
@@ -446,6 +447,8 @@ class FeatureNameEnum(str, Enum):
     "Enables speed graphs on tactical maps"
     tactical_video_playback = "tactical_video_playback"
     "Enables the tactical video playback feature"
+    tactical_video_settings = "tactical_video_settings"
+    "Enables the settings menu (quality selection and playback stats overlay)\nin the tactical video player"
     training_plan_import = "training_plan_import"
     "Enables coaches to upload PDF training plans that are parsed into sessions and segments"
     use_competitor_s_metrics = "use_competitor_s_metrics"

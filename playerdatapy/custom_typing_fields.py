@@ -1729,6 +1729,12 @@ class SessionBlueprintGraphQLField(GraphQLField):
         return self
 
 
+class SessionBlueprintAutoEndedContextGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "SessionBlueprintAutoEndedContextGraphQLField":
+        self._alias = alias
+        return self
+
+
 class SessionBlueprintSegmentGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "SessionBlueprintSegmentGraphQLField":
         self._alias = alias
