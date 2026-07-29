@@ -270,6 +270,7 @@ from .custom_typing_fields import (
     SegmentTitleGraphQLField,
     SeriesChartTypeGraphQLField,
     SessionAnchorPositionGraphQLField,
+    SessionBlueprintAutoEndedContextGraphQLField,
     SessionBlueprintGraphQLField,
     SessionBlueprintSegmentGraphQLField,
     SessionBlueprintSessionCreationFailedContextGraphQLField,
@@ -9296,8 +9297,16 @@ class DataRecordingFields(GraphQLField):
 
     edge_label: "DataRecordingGraphQLField" = DataRecordingGraphQLField("edgeLabel")
     "Edge name at time of session"
+    has_acceleration_data: "DataRecordingGraphQLField" = DataRecordingGraphQLField(
+        "hasAccelerationData"
+    )
+    "Whether the recording contains acceleration data, the source for IMU and IMU_ACCELERATION raw data exports"
     has_gps_data: "DataRecordingGraphQLField" = DataRecordingGraphQLField("hasGpsData")
     "Whether the recording contains GPS data"
+    has_heartrate_data: "DataRecordingGraphQLField" = DataRecordingGraphQLField(
+        "hasHeartrateData"
+    )
+    "Whether the recording contains heart rate data"
     has_uwb_data: "DataRecordingGraphQLField" = DataRecordingGraphQLField("hasUwbData")
     "Whether the recording contains UWB data"
     id: "DataRecordingGraphQLField" = DataRecordingGraphQLField("id")
@@ -22711,6 +22720,26 @@ class SessionBlueprintFields(GraphQLField):
         return self
 
     def alias(self, alias: str) -> "SessionBlueprintFields":
+        self._alias = alias
+        return self
+
+
+class SessionBlueprintAutoEndedContextFields(GraphQLField):
+    """The context of a session blueprint auto ended message"""
+
+    session_blueprint_id: "SessionBlueprintAutoEndedContextGraphQLField" = (
+        SessionBlueprintAutoEndedContextGraphQLField("sessionBlueprintId")
+    )
+    "The id of the session blueprint that was automatically ended"
+
+    def fields(
+        self, *subfields: SessionBlueprintAutoEndedContextGraphQLField
+    ) -> "SessionBlueprintAutoEndedContextFields":
+        """Subfields should come from the SessionBlueprintAutoEndedContextFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "SessionBlueprintAutoEndedContextFields":
         self._alias = alias
         return self
 

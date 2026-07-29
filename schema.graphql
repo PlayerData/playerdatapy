@@ -2466,7 +2466,7 @@ type AppMessage {
 """
 The context of an app message
 """
-union AppMessageContext = DataReadyContext | LegacySurveyDistributedContext | NewPersonalBestContext | SessionBlueprintSessionCreationFailedContext | SessionBlueprintSessionCreationSkippedAthletesContext | SessionBlueprintSessionCreationSkippedGatewaysContext | SurveyCompletedContext | SurveyReminderContext
+union AppMessageContext = DataReadyContext | LegacySurveyDistributedContext | NewPersonalBestContext | SessionBlueprintAutoEndedContext | SessionBlueprintSessionCreationFailedContext | SessionBlueprintSessionCreationSkippedAthletesContext | SessionBlueprintSessionCreationSkippedGatewaysContext | SurveyCompletedContext | SurveyReminderContext
 
 enum AppMessageTypeEnum {
   AccountSuspended
@@ -2476,6 +2476,7 @@ enum AppMessageTypeEnum {
   GatewayFirmwareUpdateAvailable
   LegacySurveyDistributed
   NewPersonalBest
+  SessionBlueprintAutoEnded
   SessionBlueprintSessionCreationFailed
   SessionBlueprintSessionCreationSkippedAthletes
   SessionBlueprintSessionCreationSkippedGateways
@@ -9561,9 +9562,19 @@ type DataRecording {
   edgeLabel: String
 
   """
+  Whether the recording contains acceleration data, the source for IMU and IMU_ACCELERATION raw data exports
+  """
+  hasAccelerationData: Boolean
+
+  """
   Whether the recording contains GPS data
   """
   hasGpsData: Boolean
+
+  """
+  Whether the recording contains heart rate data
+  """
+  hasHeartrateData: Boolean
 
   """
   Whether the recording contains UWB data
@@ -11050,6 +11061,12 @@ enum FeatureNameEnum {
   Enables the tactical video playback feature
   """
   tactical_video_playback
+
+  """
+  Enables the settings menu (quality selection and playback stats overlay)
+  in the tactical video player
+  """
+  tactical_video_settings
 
   """
   Enables coaches to upload PDF training plans that are parsed into sessions and segments
@@ -26866,6 +26883,16 @@ type SessionBlueprint {
   The day of the week the blueprint's sessions occur on
   """
   weekDay: Int!
+}
+
+"""
+The context of a session blueprint auto ended message
+"""
+type SessionBlueprintAutoEndedContext {
+  """
+  The id of the session blueprint that was automatically ended
+  """
+  sessionBlueprintId: ID!
 }
 
 """
