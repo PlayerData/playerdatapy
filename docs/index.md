@@ -12,6 +12,7 @@ Designed for technology partners, clubs, federations, analytics teams, research 
 - :material-shield-lock: **[Authentication](auth.md)** — OAuth2 grant types
 - :material-book-open-variant: **[Concepts](concepts.md)** — Organisation, Club, Session, Athlete
 - :material-chart-line: **[Metrics](metrics.md)** — distance, speed, intensity, raw GPS
+- :material-download: **[Raw Data Export](raw-data-export.md)** — per-sample GPS, positioning, IMU, heart rate as CSV or JSON
 - :material-language-python: **[Python SDK](python/index.md)** — `pip install playerdatapy`
 - :material-language-r: **[R wrapper](https://github.com/PlayerData/playerdatar)** — `remotes::install_github("PlayerData/playerdatar")`
 - :material-application: **[Other Clients](clients.md)** — curl, JS, Go, anything that speaks HTTP

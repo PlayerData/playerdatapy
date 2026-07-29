@@ -53,6 +53,7 @@ nav:
       - Authentication: auth.md
       - Concepts: concepts.md
       - Metrics: metrics.md
+      - Raw Data Export: raw-data-export.md
       - Pagination & Limits: limits.md
       - Errors: errors.md
       - Clients: clients.md

@@ -49,4 +49,5 @@ Response:
 - **[Authentication](../auth.md)** — get an access token via OAuth2
 - **[Concepts](../concepts.md)** — understand the schema's core types
 - **[Metrics](../metrics.md)** — explore the data available per session
+- **[Raw Data Export](../raw-data-export.md)** — download per-sample GPS, positioning, IMU, and heart-rate data
 - **[Clients](../clients.md)** — Python SDK + access patterns for other languages
