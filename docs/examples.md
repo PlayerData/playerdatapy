@@ -90,3 +90,9 @@ asyncio.run(main())
 ```
 
 For the typed/pydantic equivalent, see [`examples/pydantic/quick_start.py`](https://github.com/PlayerData/playerdatapy/blob/main/examples/pydantic/quick_start.py).
+
+## Raw data export
+
+Request a CSV or JSON export for one athlete or a whole session, poll it to a deadline, download it, and read an athlete's CSV out of the session zip.
+
+See [Raw Data Export](raw-data-export.md) for the mutations, statuses, output layouts, and column schemas, and [`examples/direct/raw_data_export.py`](https://github.com/PlayerData/playerdatapy/blob/main/examples/direct/raw_data_export.py) for the runnable script.

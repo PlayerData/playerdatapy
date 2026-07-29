@@ -22,6 +22,16 @@ export CLIENT_SECRET=your_client_secret
 export CLUB_ID=your_club_id
 ```
 
+## Raw Data Export
+
+`raw_data_export.py` requests raw session data as CSV or JSON, for one athlete or a whole session:
+
+```bash
+python examples/direct/raw_data_export.py
+```
+
+It polls each export to a deadline, downloads the result, and reads one athlete's CSV straight out of the session zip. The mutations, statuses, file layouts, and column schemas are documented under [Raw Data Export](https://playerdata.github.io/playerdatapy/raw-data-export/).
+
 ## Basic Usage Pattern
 
 ```python

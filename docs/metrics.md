@@ -106,6 +106,8 @@ Fields returning `[TimeSeriesData!]`, sampled at 5-minute intervals:
 
 Latitude, longitude, speed, timestamps per athlete session participation via dedicated schema fields.
 
+For per-sample GPS, LPS/UWB, IMU, and heart-rate data as downloadable CSV or JSON files, see [Raw Data Export](raw-data-export.md).
+
 ## Configured vs all metrics
 
 **Configured metrics** — club has enabled in the app. Shown to staff + athletes. Queryable at session, participation, segment level.

@@ -76,6 +76,16 @@ export CLIENT_SECRET=your_client_secret
 export CLUB_ID=your_club_id
 ```
 
+### Exporting raw data
+
+Per-sample GPS, positioning (LPS/UWB), IMU, and heart-rate data can be exported as CSV or JSON, for a single athlete or a whole session:
+
+```bash
+python examples/direct/raw_data_export.py
+```
+
+See [Raw Data Export](https://playerdata.github.io/playerdatapy/raw-data-export/) for the mutations, statuses, output layouts, and column schemas.
+
 ## Authentication Types
 
 These authentication types are set out in the `playerdatapy.gqlauth.AuthenticationType` enum.
