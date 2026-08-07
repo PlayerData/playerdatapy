@@ -511,6 +511,12 @@ class CreateFlexibleReportPayloadGraphQLField(GraphQLField):
         return self
 
 
+class CreateFlexibleReportTemplatePayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "CreateFlexibleReportTemplatePayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
 class CreateImportPayloadGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "CreateImportPayloadGraphQLField":
         self._alias = alias
@@ -1619,6 +1625,12 @@ class RequestRawDataExportPayloadGraphQLField(GraphQLField):
         return self
 
 
+class RequestSessionRawDataExportPayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "RequestSessionRawDataExportPayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
 class ResendConfirmationEmailPayloadGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "ResendConfirmationEmailPayloadGraphQLField":
         self._alias = alias
@@ -1817,6 +1829,12 @@ class SessionSummaryGraphQLField(GraphQLField):
 
 class SessionTagDefinitionGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "SessionTagDefinitionGraphQLField":
+        self._alias = alias
+        return self
+
+
+class SessionTargetGroupGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "SessionTargetGroupGraphQLField":
         self._alias = alias
         return self
 

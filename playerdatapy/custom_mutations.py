@@ -32,6 +32,7 @@ from .custom_fields import (
     CreateEdgeNamePayloadFields,
     CreateFlexibleReportChartPayloadFields,
     CreateFlexibleReportPayloadFields,
+    CreateFlexibleReportTemplatePayloadFields,
     CreateImportPayloadFields,
     CreateMatchEventPayloadFields,
     CreateMatchEventsPayloadFields,
@@ -99,6 +100,7 @@ from .custom_fields import (
     RemoveSurveyTimerTriggerPayloadFields,
     RemoveTargetTemplatePayloadFields,
     RequestRawDataExportPayloadFields,
+    RequestSessionRawDataExportPayloadFields,
     ResendConfirmationEmailPayloadFields,
     ResendReportPayloadFields,
     RespondToDetectedMatchEventPayloadFields,
@@ -922,6 +924,23 @@ class Mutation:
         }
         return CreateFlexibleReportChartPayloadFields(
             field_name="createFlexibleReportChart", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def create_flexible_report_template(
+        cls, club_id: str, id: str, *, title: Optional[str] = None
+    ) -> CreateFlexibleReportTemplatePayloadFields:
+        """Creates a reusable template from an existing FlexibleReport"""
+        arguments: dict[str, dict[str, Any]] = {
+            "clubId": {"type": "ID!", "value": club_id},
+            "id": {"type": "ID!", "value": id},
+            "title": {"type": "String", "value": title},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return CreateFlexibleReportTemplatePayloadFields(
+            field_name="createFlexibleReportTemplate", arguments=cleared_arguments
         )
 
     @classmethod
@@ -1789,6 +1808,26 @@ class Mutation:
         }
         return RequestRawDataExportPayloadFields(
             field_name="requestRawDataExport", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def request_session_raw_data_export(
+        cls,
+        data_type: RawDataExportTypeEnum,
+        format: RawDataExportFormatEnum,
+        session_id: str,
+    ) -> RequestSessionRawDataExportPayloadFields:
+        """Request a whole session's raw data export as one zip per-athlete; idempotent, call again to poll"""
+        arguments: dict[str, dict[str, Any]] = {
+            "dataType": {"type": "RawDataExportTypeEnum!", "value": data_type},
+            "format": {"type": "RawDataExportFormatEnum!", "value": format},
+            "sessionId": {"type": "ID!", "value": session_id},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return RequestSessionRawDataExportPayloadFields(
+            field_name="requestSessionRawDataExport", arguments=cleared_arguments
         )
 
     @classmethod

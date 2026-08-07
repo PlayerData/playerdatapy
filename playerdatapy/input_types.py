@@ -11,6 +11,7 @@ from .enums import (
     ClubSport,
     CreatorTypeEnum,
     DeviceSyncTypeEnum,
+    FirmwareBoardName,
     Intensity,
     MatchEventTeam,
     MatchSessionResult,
@@ -485,6 +486,8 @@ class FlexibleReportAttributes(BaseModel):
     "The grid config for the dataset"
     report_template_id: Optional[str] = Field(alias="reportTemplateId", default=None)
     "ID of a report template to pre-populate charts from"
+    source_report_id: Optional[str] = Field(alias="sourceReportId", default=None)
+    "ID of a FlexibleReport to clone charts from when creating from a user template"
     start_date: Optional[Any] = Field(alias="startDate", default=None)
     "The start date for the range of data"
     title: str
@@ -671,6 +674,8 @@ class MutateSessionBlueprintAttributes(BaseModel):
         alias="tagDefinitionIds", default=None
     )
     "Array of session tag definition UUIDs."
+    target_template_id: Optional[str] = Field(alias="targetTemplateId", default=None)
+    "The target template used to build targets on sessions created from this blueprint"
     week_day: Optional[int] = Field(alias="weekDay", default=None)
     "The day of the week the session blueprint occurs on"
 
@@ -1461,10 +1466,18 @@ class VideoClipOverlayInput(BaseModel):
 class VideoRecordingAttributes(BaseModel):
     """Attributes for creating a new video recording"""
 
+    board_version: Optional[FirmwareBoardName] = Field(
+        alias="boardVersion", default=None
+    )
+    "The camera's hardware board name that produced the recording"
     camera_ownership_id: str = Field(alias="cameraOwnershipId")
     "The ID of the camera ownership"
     end_time: Any = Field(alias="endTime")
     "The end time of the video recording"
+    file_version: Optional[int] = Field(alias="fileVersion", default=None)
+    "The camera's on-disk recording format version"
+    image_version: Optional[str] = Field(alias="imageVersion", default=None)
+    "The camera's firmware image version that produced the recording"
     start_time: Any = Field(alias="startTime")
     "The start time of the video recording"
     total_bytes: Optional[Any] = Field(alias="totalBytes", default=None)
