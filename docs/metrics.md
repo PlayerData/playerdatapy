@@ -35,6 +35,7 @@ Metrics fall into four shapes:
 - `totalMediumIntensityDistanceM`
 - `totalSprintDistanceM`
 - `highMetabolicLoadDistanceM`
+- `explosiveDistanceM`
 - `highIntensityEvents`
 - `highMetabolicLoadEvents`
 - `highSpeedRunEvents`
@@ -46,28 +47,72 @@ Metrics fall into four shapes:
 - `decelerationEvents`
 - `maxAcceleration`
 - `maxDeceleration`
+- `accelerationLoad`
 - `accelerationLoadPerContributingMinutes`
 
-### Heart rate
+### Heart rate totals
 
 - `avgHeartrateBpm`
 - `maxHeartrateBpm`
 - `zoneOneHeartrateDurationS` … `zoneFiveHeartrateDurationS`
+
+### Load & effort totals
+
+- `work`
+- `workload`
+- `activeMinutes` (Only available to IMU users)
 
 ### Jump events
 
 - `lowJumpEvents`
 - `mediumJumpEvents`
 - `highJumpEvents`
+- `averageJumpHeightCm`
+- `maxJumpHeightCm`
+
+### Other IMU events
+
+Require supporting device firmware.
+
+- `linearAccelerationLowEvents`, `linearAccelerationMediumEvents`, `linearAccelerationHighEvents`
+- `lateralAccelerationEvents`
+- `verticalAccelerationEvents`
 
 ## 2. Zonal breakdowns
 
-Every zone metric exists in three shapes — `*DistanceM`, `*DurationS`, `*Events` — and in two scopes:
+Speed and acceleration zone metrics exist in up to three shapes — `*DistanceM`, `*DurationS`, `*Events` — and in two scopes.
 
-- **Club zones** — thresholds shared club-wide
-- **Individual zones** — per-athlete thresholds
+These metrics only count a zone once the athlete has held it for at least **0.5 seconds**.
 
-Both scopes are exposed on every athlete. Use whichever matches your analysis.
+### Zone scopes: club vs individual
+
+Both scopes are exposed on every athlete, always. Picking between them is an analysis decision, not an availability one.
+
+| Scope | Thresholds | Use when |
+|---|---|---|
+| **Club** (`clubZone*`) | One boundary set shared by the whole team | Comparing athletes against each other, or matching the club's own reporting |
+| **Individual** (`individualZone*`) | Per-athlete boundaries | Comparing an athlete against their own capacity |
+
+Individual zones are configured in one of two ways, and the difference is visible in the API:
+
+- **Absolute** — explicit boundaries set for that athlete.
+- **Relative** — derived from the athlete's own maximum speed, and re-derived as that maximum changes.
+
+You can read the zone configuration currently in use from the athlete:
+
+```graphql
+query AthleteZones($id: ID!) {
+  athlete(id: $id) {
+    autoUpdateRelativeSpeedzones
+    labelledSpeedzonesLowerBoundsKph { absolute { zone1 zone2 zone3 zone4 zone5 }
+                                       relative { zone1 zone2 zone3 zone4 zone5 } }
+    labelledAccelzonesLowerBoundsMs2 { absolute { zone1 zone2 zone3 zone4 zone5 }
+                                       relative { zone1 zone2 zone3 zone4 zone5 } }
+  }
+}
+```
+
+A null `absolute` block means no overrides are set and platform defaults apply.
 
 ### Speed / intensity bands
 
@@ -82,6 +127,16 @@ Ascending order: **Jogging → Low intensity → Medium intensity → High inten
 | Sprint | `clubZoneSprint*` | `individualZoneSprint*` |
 | High-speed running (combined) | `clubZoneHighSpeedRunning*` | `individualZoneHighSpeedRunning*` |
 
+Default boundaries, used when a club has not configured their own zones. A zone runs from its own lower bound up to the next zone's lower bound, so Jogging is 7.2–10.8 km/h. Speeds below 7.2 km/h fall into no band.
+
+| Label | Zone (km/h) |
+|---|---|
+| Jogging | 7.2–10.8 |
+| Low intensity | 10.8–14.4 |
+| Medium intensity | 14.4–19.8 |
+| High intensity | 19.8–25.2 |
+| Sprint | 25.2 and above |
+
 ### Acceleration / deceleration bands
 
 Five-band split (One → Five), each in both scopes.
@@ -91,9 +146,21 @@ Five-band split (One → Five), each in both scopes.
 - `individualZoneOneAcceleration*` … `individualZoneFiveAcceleration*`
 - `individualZoneOneDeceleration*` … `individualZoneFiveDeceleration*`
 
+Default boundaries, where a club has not configured its own. A zone runs from its own lower bound up to the next zone's lower bound, so Zone 1 is 1–2 m/s².
+
+| Zone | Acceleration | Deceleration |
+|---|---|---|
+| 1 | 1–2 m/s² | −1 to −2 m/s² |
+| 2 | 2–3 m/s² | −2 to −3 m/s² |
+| 3 | 3–4 m/s² | −3 to −4 m/s² |
+| 4 | 4–5 m/s² | −4 to −5 m/s² |
+| 5 | 5 m/s² and above | −5 m/s² and below |
+
+All are configurable per club in zone management, so read the athlete's bounds rather than assuming these.
+
 ## 3. Time series
 
-Fields returning `[TimeSeriesData!]`, sampled at 5-minute intervals:
+Fields returning `[TimeSeriesData!]`. Each point carries its own `startTime` and `endTime` — read the window from the response rather than assuming a fixed sampling interval:
 
 - `distanceMOverTime`
 - `avgSpeedKphOverTime`
@@ -105,6 +172,54 @@ Fields returning `[TimeSeriesData!]`, sampled at 5-minute intervals:
 ## 4. Raw GPS
 
 Latitude, longitude, speed, timestamps per athlete session participation via dedicated schema fields.
+
+## What the metrics actually mean
+
+Field names carry units but not definitions. These are the ones that most often get read the wrong way.
+
+### Speed
+
+**`maxSpeedKph`** — peak running speed, found by analysing peak speed data in **0.5-second intervals** and taking the maximum.
+
+**`rawMaxSpeedKph`** — the absolute maximum speed in the session, unsmoothed. Always ≥ `maxSpeedKph`.
+
+**`percentageMaxSpeedKph`** — a percentage of the athlete's **personal best** max speed, recorded across any previous session. This may exceed 100% if an athlete exceeds their previous personal best in the current session.
+
+### Distance and intensity
+
+**`totalDistanceM`** — cumulative distance between successive position measurements.
+
+**`metresPerMinute`** — total distance divided by time spent on the pitch.
+
+**`highMetabolicLoadDistanceM`** — distance covered above the metabolic power threshold of **25.542 W/kg**. `highMetabolicLoadEvents` counts periods spent above that threshold for at least 0.5 s.
+
+**`highSpeedRunDistanceM`** — the high-intensity and sprint zones combined.
+
+### Load and effort
+
+**`workload`** — a **0–10 score**. It is derived from volume and intensity across all of the athlete's sessions in the **last 28 days**, with **5 as the baseline**. Above 5 means the athlete is above their recent norm; below 5 means under it.
+
+**`accelerationLoad`** — a volume metric: acceleration is combined across all 3 axes. An indicator of total physical work.
+
+**`accelerationLoadPerContributingMinutes`** — `accelerationLoad` divided by total contributing minutes.
+
+**`work` (session load in app)** — a cumulative measure of energy exertion during the session.
+
+**`accelerationEvents` / `decelerationEvents`** — counted when acceleration exceeds **2.25 m/s²** (or drops below **−2.25 m/s²**) for at least 0.5 s.
+
+### Heart rate
+
+Default zone boundaries, all configurable per club:
+
+| Zone | Range |
+|---|---|
+| 1 | 100–120 bpm |
+| 2 | 120–140 bpm |
+| 3 | 140–160 bpm |
+| 4 | 160–180 bpm |
+| 5 | 180 bpm and above |
+
+Heart-rate fields are empty without a paired heartrate strap.
 
 ## Configured vs all metrics
 
