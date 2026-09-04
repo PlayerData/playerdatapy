@@ -2,6 +2,32 @@
 
 PlayerData API uses **OAuth 2.0**. Two grant types depending on integration.
 
+## Choosing a grant type
+
+**1. Do you need to write data — create sessions, update athletes, run any mutation?**
+
+Yes → **Authorisation Code Grant**. Client credentials are read-only and cannot run mutations under any configuration.
+
+**2. Does a user sign in, or is this an unattended server job?**
+
+Unattended and read-only → **Client Credentials Grant**. Anything user-facing → **Authorisation Code Grant**.
+
+| | Authorisation Code | Client Credentials |
+|---|---|---|
+| Interactive sign-in | Required | None |
+| Reads | Yes | Yes |
+| Writes (mutations) | Yes | **No** |
+| Access scoped by | Club staff membership of the signed-in user | Organisation access granted to the service account |
+| Refresh token | Issued | Not issued — re-run the flow |
+| Redirect URI | Must be pre-approved | Not used |
+
+Both have a prerequisite that is easy to miss, and each has its own:
+
+- **Authorisation Code** — the signed-in user must be **staff on the target club**. Authenticating successfully tells you nothing about whether you can see a given club's data.
+- **Client Credentials** — the service account must have been **granted organisation access by PlayerData**. This cannot be self-served; contact `support@playerdata.com` to have an organisation added to your credentials.
+
+Diagnosing a failure of either check: [Troubleshooting](faq.md#troubleshooting).
+
 ## Endpoints
 
 | Purpose | URL |
