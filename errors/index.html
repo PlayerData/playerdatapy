@@ -656,6 +656,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#graphql-level-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GraphQL-level errors
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3022,6 +3033,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#graphql-level-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GraphQL-level errors
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3077,6 +3099,14 @@
 </tr>
 </tbody>
 </table>
+<h2 id="graphql-level-errors">GraphQL-level errors<a class="headerlink" href="#graphql-level-errors" title="Permanent link">&para;</a></h2>
+<p>A GraphQL request can return <code>200 OK</code> and still have failed. Always check the <code>errors</code> array, not just the status code.</p>
+<p><code>errors[].extensions.permissionError: true</code> means the authenticated caller lacks access to the requested resource. Which check failed depends on the grant:</p>
+<ul>
+<li><strong>Authorisation Code Grant</strong> — the signed-in user is not a staff member of the requested club. Ask the club administrator to add them.</li>
+<li><strong>Client Credentials Grant</strong> — the service account has not been granted access to the requested organisation. Organisation access is granted by PlayerData, so contact <code>support@playerdata.com</code> if you need more.</li>
+</ul>
+<p>See <a href="../auth/#permissions">Permissions</a> and <a href="../faq/#troubleshooting">Troubleshooting</a>.</p>
 
 
 

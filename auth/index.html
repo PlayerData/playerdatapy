@@ -534,6 +534,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#choosing-a-grant-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing a grant type
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#endpoints" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3122,6 +3133,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#choosing-a-grant-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing a grant type
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#endpoints" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3264,6 +3286,58 @@
 
 <h1 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h1>
 <p>PlayerData API uses <strong>OAuth 2.0</strong>. Two grant types depending on integration.</p>
+<h2 id="choosing-a-grant-type">Choosing a grant type<a class="headerlink" href="#choosing-a-grant-type" title="Permanent link">&para;</a></h2>
+<p><strong>1. Do you need to write data — create sessions, update athletes, run any mutation?</strong></p>
+<p>Yes → <strong>Authorisation Code Grant</strong>. Client credentials are read-only and cannot run mutations under any configuration.</p>
+<p><strong>2. Does a user sign in, or is this an unattended server job?</strong></p>
+<p>Unattended and read-only → <strong>Client Credentials Grant</strong>. Anything user-facing → <strong>Authorisation Code Grant</strong>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Authorisation Code</th>
+<th>Client Credentials</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Interactive sign-in</td>
+<td>Required</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Reads</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Writes (mutations)</td>
+<td>Yes</td>
+<td><strong>No</strong></td>
+</tr>
+<tr>
+<td>Access scoped by</td>
+<td>Club staff membership of the signed-in user</td>
+<td>Organisation access granted to the service account</td>
+</tr>
+<tr>
+<td>Refresh token</td>
+<td>Issued</td>
+<td>Not issued — re-run the flow</td>
+</tr>
+<tr>
+<td>Redirect URI</td>
+<td>Must be pre-approved</td>
+<td>Not used</td>
+</tr>
+</tbody>
+</table>
+<p>Both have a prerequisite that is easy to miss, and each has its own:</p>
+<ul>
+<li><strong>Authorisation Code</strong> — the signed-in user must be <strong>staff on the target club</strong>. Authenticating successfully tells you nothing about whether you can see a given club's data.</li>
+<li><strong>Client Credentials</strong> — the service account must have been <strong>granted organisation access by PlayerData</strong>. This cannot be self-served; contact <code>support@playerdata.com</code> to have an organisation added to your credentials.</li>
+</ul>
+<p>Diagnosing a failure of either check: <a href="../faq/#troubleshooting">Troubleshooting</a>.</p>
 <h2 id="endpoints">Endpoints<a class="headerlink" href="#endpoints" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
