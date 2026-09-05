@@ -11,6 +11,7 @@ from .enums import (
     ClubSport,
     CreatorTypeEnum,
     DeviceSyncTypeEnum,
+    FirmwareBoardName,
     Intensity,
     MatchEventTeam,
     MatchSessionResult,
@@ -22,6 +23,7 @@ from .enums import (
     TaggerTypeEnum,
     TargetAssignableTypeEnum,
     TargetTypeEnum,
+    TelestrationShape,
     TopicTypeEnum,
     UnitSystem,
 )
@@ -106,6 +108,28 @@ class AthleteHeartRateBoundsAttributes(BaseModel):
         alias="heartRateBoundsPercentages", default=None
     )
     "Heart rate zone boundaries as percentages"
+
+
+class AthleteIMUAccelzoneAttributes(BaseModel):
+    """Attributes for assigning IMU accelzones to athletes"""
+
+    athlete_ids: list[str] = Field(alias="athleteIds")
+    "IDs of the athletes"
+    imu_accelzones_lower_bounds_ms_2: Optional["IMUAccelzoneLowerBoundsInput"] = Field(
+        alias="imuAccelzonesLowerBoundsMs2", default=None
+    )
+    "Lower bound values of the IMU accelzones in m/s²"
+
+
+class AthleteIMUDecelzoneAttributes(BaseModel):
+    """Attributes for assigning IMU decelzones to athletes"""
+
+    athlete_ids: list[str] = Field(alias="athleteIds")
+    "IDs of the athletes"
+    imu_decelzones_lower_bounds_ms_2: Optional["IMUDecelzoneLowerBoundsInput"] = Field(
+        alias="imuDecelzonesLowerBoundsMs2", default=None
+    )
+    "Lower bound values of the IMU decelzones in m/s²"
 
 
 class AthleteRelativeAccelzoneAttributes(BaseModel):
@@ -444,7 +468,7 @@ class DefaultEdgeAssignmentAttributes(BaseModel):
     edge_id: Optional[str] = Field(alias="edgeId", default=None)
     "ID of the edge to assign as default; omit or null to remove the assignment"
     edge_name: Optional[str] = Field(alias="edgeName", default=None)
-    "Edge name to assign to the ownership; must match ^[A-Z]{2}\\d{2}$"
+    "Edge name to assign to the ownership; must match \\A[A-Z]{2}\\d{2}\\z"
 
 
 class DeviceAttributes(BaseModel):
@@ -485,6 +509,8 @@ class FlexibleReportAttributes(BaseModel):
     "The grid config for the dataset"
     report_template_id: Optional[str] = Field(alias="reportTemplateId", default=None)
     "ID of a report template to pre-populate charts from"
+    source_report_id: Optional[str] = Field(alias="sourceReportId", default=None)
+    "ID of a FlexibleReport to clone charts from when creating from a user template"
     start_date: Optional[Any] = Field(alias="startDate", default=None)
     "The start date for the range of data"
     title: str
@@ -504,6 +530,36 @@ class GatewaySessionAttributes(BaseModel):
 
 class HeartRateLowerBoundsInput(BaseModel):
     """Heart rate zone boundaries as percentages"""
+
+    zone_1: float = Field(alias="zone1")
+    "Zone 1 lower boundary"
+    zone_2: float = Field(alias="zone2")
+    "Zone 2 lower boundary"
+    zone_3: float = Field(alias="zone3")
+    "Zone 3 lower boundary"
+    zone_4: float = Field(alias="zone4")
+    "Zone 4 lower boundary"
+    zone_5: float = Field(alias="zone5")
+    "Zone 5 lower boundary"
+
+
+class IMUAccelzoneLowerBoundsInput(BaseModel):
+    """IMU acceleration zone boundaries in m/s²"""
+
+    zone_1: float = Field(alias="zone1")
+    "Zone 1 lower boundary"
+    zone_2: float = Field(alias="zone2")
+    "Zone 2 lower boundary"
+    zone_3: float = Field(alias="zone3")
+    "Zone 3 lower boundary"
+    zone_4: float = Field(alias="zone4")
+    "Zone 4 lower boundary"
+    zone_5: float = Field(alias="zone5")
+    "Zone 5 lower boundary"
+
+
+class IMUDecelzoneLowerBoundsInput(BaseModel):
+    """IMU deceleration zone boundaries in m/s²"""
 
     zone_1: float = Field(alias="zone1")
     "Zone 1 lower boundary"
@@ -643,6 +699,8 @@ class MutateSessionBlueprintAttributes(BaseModel):
 
     athlete_ids: Optional[list[str]] = Field(alias="athleteIds", default=None)
     "Array of athlete UUIDs participating in the session."
+    camera_ownership_id: Optional[str] = Field(alias="cameraOwnershipId", default=None)
+    "The ID of the camera ownership to be assigned to sessions created from this blueprint."
     description: Optional[str] = None
     "A description of the session."
     duration: Optional[int] = None
@@ -671,6 +729,8 @@ class MutateSessionBlueprintAttributes(BaseModel):
         alias="tagDefinitionIds", default=None
     )
     "Array of session tag definition UUIDs."
+    target_template_id: Optional[str] = Field(alias="targetTemplateId", default=None)
+    "The target template used to build targets on sessions created from this blueprint"
     week_day: Optional[int] = Field(alias="weekDay", default=None)
     "The day of the week the session blueprint occurs on"
 
@@ -1150,6 +1210,15 @@ class TargetDefinitionAttributes(BaseModel):
     "The type of target"
 
 
+class TelestrationPointInput(BaseModel):
+    """A point of a telestration shape, normalised to the video image (0-1)"""
+
+    x: float
+    "Normalised horizontal position (0-1)"
+    y: float
+    "Normalised vertical position (0-1)"
+
+
 class TimeSpanAttributes(BaseModel):
     from_: Any = Field(alias="from")
     until: Any
@@ -1232,6 +1301,12 @@ class UpdateClubSettingsAttributes(BaseModel):
     labelled_heart_rate_bounds_percentages: Optional["HeartRateLowerBoundsInput"] = (
         Field(alias="labelledHeartRateBoundsPercentages", default=None)
     )
+    labelled_imu_accelzones_lower_bounds_ms_2: Optional[
+        "IMUAccelzoneLowerBoundsInput"
+    ] = Field(alias="labelledIMUAccelzonesLowerBoundsMs2", default=None)
+    labelled_imu_decelzones_lower_bounds_ms_2: Optional[
+        "IMUDecelzoneLowerBoundsInput"
+    ] = Field(alias="labelledIMUDecelzonesLowerBoundsMs2", default=None)
     labelled_speedzones_lower_bounds_kph: Optional["SpeedzoneLowerBoundsInput"] = Field(
         alias="labelledSpeedzonesLowerBoundsKph", default=None
     )
@@ -1380,6 +1455,8 @@ class UpdateVideoClipAttributes(BaseModel):
     "Deprecated alias of matchEventDefinitionIds"
     team: Optional[ClipTeam] = None
     "The team associated with the video clip"
+    telestrations: Optional[list["VideoClipTelestrationInput"]] = None
+    "Telestration shapes drawn on the video clip"
     tracked_participant: Optional[str] = Field(alias="trackedParticipant", default=None)
     "The participation ID of the participant being tracked in the video clip"
 
@@ -1400,6 +1477,12 @@ class UpsertDataRecordingsAttributes(BaseModel):
     "An ID for an athlete"
     edge_id: Optional[str] = Field(alias="edgeId", default=None)
     "An Edge ID"
+
+
+class VideoCameraOwnershipCamerasCurrentlyOwnedFilter(BaseModel):
+    camera_serial_number_hex_eq: Optional[str] = Field(
+        alias="cameraSerialNumberHexEq", default=None
+    )
 
 
 class VideoClipAttributes(BaseModel):
@@ -1429,6 +1512,8 @@ class VideoClipAttributes(BaseModel):
     "Deprecated alias of matchEventDefinitionIds"
     team: ClipTeam
     "The team associated with the video clip"
+    telestrations: Optional[list["VideoClipTelestrationInput"]] = None
+    "Telestration shapes drawn on the video clip"
     tracked_participant: Optional[str] = Field(alias="trackedParticipant", default=None)
     "The participation ID of the participant being tracked in the video clip"
 
@@ -1458,13 +1543,52 @@ class VideoClipOverlayInput(BaseModel):
     "Participation IDs for trailed overlay"
 
 
+class VideoClipTelestrationInput(BaseModel):
+    """A telestration shape drawn on a video clip"""
+
+    centre: Optional["TelestrationPointInput"] = None
+    "Centre of a circle shape"
+    colour: str
+    "Shape colour as a hex string"
+    end_point: Optional["TelestrationPointInput"] = Field(
+        alias="endPoint", default=None
+    )
+    "End point of a line or arrow shape"
+    end_sec: float = Field(alias="endSec")
+    "Video time in seconds at which the shape disappears"
+    id: str
+    "Client-generated unique identifier of the shape"
+    points: Optional[list["TelestrationPointInput"]] = None
+    "Points of a freehand shape"
+    radius: Optional[float] = None
+    "Radius of a circle shape, normalised (0-1) against the shorter axis of the video image"
+    shape_type: TelestrationShape = Field(alias="shapeType")
+    "The kind of shape"
+    start_point: Optional["TelestrationPointInput"] = Field(
+        alias="startPoint", default=None
+    )
+    "Start point of a line or arrow shape"
+    start_sec: float = Field(alias="startSec")
+    "Video time in seconds at which the shape was drawn and appears"
+    width: float
+    "Stroke width of the shape"
+
+
 class VideoRecordingAttributes(BaseModel):
     """Attributes for creating a new video recording"""
 
+    board_version: Optional[FirmwareBoardName] = Field(
+        alias="boardVersion", default=None
+    )
+    "The camera's hardware board name that produced the recording"
     camera_ownership_id: str = Field(alias="cameraOwnershipId")
     "The ID of the camera ownership"
     end_time: Any = Field(alias="endTime")
     "The end time of the video recording"
+    file_version: Optional[int] = Field(alias="fileVersion", default=None)
+    "The camera's on-disk recording format version"
+    image_version: Optional[str] = Field(alias="imageVersion", default=None)
+    "The camera's firmware image version that produced the recording"
     start_time: Any = Field(alias="startTime")
     "The start time of the video recording"
     total_bytes: Optional[Any] = Field(alias="totalBytes", default=None)
@@ -1477,6 +1601,8 @@ AthleteAccelzoneAttributes.model_rebuild()
 AthleteClippedTimesInput.model_rebuild()
 AthleteDecelzoneAttributes.model_rebuild()
 AthleteHeartRateBoundsAttributes.model_rebuild()
+AthleteIMUAccelzoneAttributes.model_rebuild()
+AthleteIMUDecelzoneAttributes.model_rebuild()
 AthleteRelativeAccelzoneAttributes.model_rebuild()
 AthleteRelativeDecelzoneAttributes.model_rebuild()
 AthleteSpeedzoneAttributes.model_rebuild()
@@ -1499,3 +1625,4 @@ UpdatePersonAttributes.model_rebuild()
 UpdateSettingsAttributes.model_rebuild()
 UpdateVideoClipAttributes.model_rebuild()
 VideoClipAttributes.model_rebuild()
+VideoClipTelestrationInput.model_rebuild()
