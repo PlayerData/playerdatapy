@@ -30,6 +30,8 @@ from .custom_typing_fields import (
     AthleteLabelledAccelzonesGraphQLField,
     AthleteLabelledDecelzonesGraphQLField,
     AthleteLabelledHeartRateBoundsGraphQLField,
+    AthleteLabelledIMUAccelzonesGraphQLField,
+    AthleteLabelledIMUDecelzonesGraphQLField,
     AthleteLabelledSpeedzonesGraphQLField,
     AthleteMetricsSummaryGraphQLField,
     AthleteOrStaffGraphQLField,
@@ -80,6 +82,7 @@ from .custom_typing_fields import (
     CreateEdgeNamePayloadGraphQLField,
     CreateFlexibleReportChartPayloadGraphQLField,
     CreateFlexibleReportPayloadGraphQLField,
+    CreateFlexibleReportTemplatePayloadGraphQLField,
     CreateImportPayloadGraphQLField,
     CreateMatchEventPayloadGraphQLField,
     CreateMatchEventsPayloadGraphQLField,
@@ -119,6 +122,8 @@ from .custom_typing_fields import (
     DeleteCustomBaselineTargetsPayloadGraphQLField,
     DeleteDecelzonesPayloadGraphQLField,
     DeleteHeartRateBoundsPayloadGraphQLField,
+    DeleteIMUAccelzonesPayloadGraphQLField,
+    DeleteIMUDecelzonesPayloadGraphQLField,
     DeleteSessionTargetsPayloadGraphQLField,
     DeleteSpeedzonesPayloadGraphQLField,
     DeleteTargetTemplatesPayloadGraphQLField,
@@ -157,6 +162,7 @@ from .custom_typing_fields import (
     EdgeMetaEventGraphQLField,
     EdgeNameGraphQLField,
     EndEdgeOwnershipPayloadGraphQLField,
+    EventGraphQLField,
     ExamplePromptGraphQLField,
     ExtraParamsUnion,
     FeatureCheckGraphQLField,
@@ -176,6 +182,11 @@ from .custom_typing_fields import (
     HeartRateLowerBoundsGraphQLField,
     HeartratePeripheralConnectedGraphQLField,
     HeartratePeripheralDisconnectedGraphQLField,
+    HubspotSubscriptionGraphQLField,
+    IMUAccelzoneLowerBoundsGraphQLField,
+    IMUAccelzonesPayloadGraphQLField,
+    IMUDecelzoneLowerBoundsGraphQLField,
+    IMUDecelzonesPayloadGraphQLField,
     IntMetricValueGraphQLField,
     JsonMetricValueGraphQLField,
     LegacySurveyDistributedContextGraphQLField,
@@ -184,6 +195,7 @@ from .custom_typing_fields import (
     ManualSubscriptionGraphQLField,
     MapCoordinateGraphQLField,
     MarkAppMessageReadPayloadGraphQLField,
+    MarkedPitchCornerGraphQLField,
     MarkMultipleAppMessagesReadPayloadGraphQLField,
     MatchDefinitionGraphQLField,
     MatchEventDefinitionGraphQLField,
@@ -225,11 +237,13 @@ from .custom_typing_fields import (
     PersonGraphQLField,
     PersonSessionsSummaryMetricsGraphQLField,
     PersonWeekOverviewGraphQLField,
+    PhaseMatchEventGraphQLField,
     PitchCoordinateGraphQLField,
     PitchCoordinateSetGraphQLField,
     PitchCornersGraphQLField,
     PitchDefinitionGraphQLField,
     PitchGraphQLField,
+    PoseSectionGraphQLField,
     PositionDefinitionGraphQLField,
     PredictedSessionGraphQLField,
     PrivacyPolicyAcceptanceGraphQLField,
@@ -256,10 +270,11 @@ from .custom_typing_fields import (
     ReportTemplateChartGraphQLField,
     ReportTemplateGraphQLField,
     RequestRawDataExportPayloadGraphQLField,
+    RequestSessionRawDataExportPayloadGraphQLField,
     ResendConfirmationEmailPayloadGraphQLField,
     ResendReportPayloadGraphQLField,
-    RespondToDetectedMatchEventPayloadGraphQLField,
     RespondToDetectedMatchEventsPayloadGraphQLField,
+    RespondToEventsPayloadGraphQLField,
     ResponseGraphQLField,
     ReviewPendingMemberPayloadGraphQLField,
     RevokeOrgAdminRolePayloadGraphQLField,
@@ -294,6 +309,7 @@ from .custom_typing_fields import (
     SpeedzonesPayloadGraphQLField,
     SportDefinitionGraphQLField,
     StaffGraphQLField,
+    StalledUploadStorageGraphQLField,
     StatOverlayGraphQLField,
     StepGraphQLField,
     StripeSubscriptionGraphQLField,
@@ -313,6 +329,7 @@ from .custom_typing_fields import (
     TargetDefinitionGraphQLField,
     TargetGraphQLField,
     TargetTemplateGraphQLField,
+    TelestrationPointGraphQLField,
     TermsOfUseAcceptanceGraphQLField,
     TermsOfUseGraphQLField,
     TimelineDayGraphQLField,
@@ -378,6 +395,7 @@ from .custom_typing_fields import (
     VideoAnnotationsUrlGraphQLField,
     VideoClipGraphQLField,
     VideoClipOverlayGraphQLField,
+    VideoClipTelestrationGraphQLField,
     VideoFragmentGraphQLField,
     VideoRecordingGraphQLField,
     VideoSignedUrlGraphQLField,
@@ -417,6 +435,7 @@ from .input_types import (
     SurveysSurveyAssignmentBaseFilter,
     SurveysSurveyDistributionBaseFilter,
     TimeSpanAttributes,
+    VideoCameraOwnershipCamerasCurrentlyOwnedFilter,
 )
 
 
@@ -2793,6 +2812,20 @@ class AthleteFields(GraphQLField):
         )
 
     @classmethod
+    def labelled_imu_accelzones_lower_bounds_ms_2(
+        cls,
+    ) -> "AthleteLabelledIMUAccelzonesFields":
+        """Labelled IMU accelzones in m/s²"""
+        return AthleteLabelledIMUAccelzonesFields("labelledIMUAccelzonesLowerBoundsMs2")
+
+    @classmethod
+    def labelled_imu_decelzones_lower_bounds_ms_2(
+        cls,
+    ) -> "AthleteLabelledIMUDecelzonesFields":
+        """Labelled IMU decelzones in m/s²"""
+        return AthleteLabelledIMUDecelzonesFields("labelledIMUDecelzonesLowerBoundsMs2")
+
+    @classmethod
     def labelled_speedzones_lower_bounds_kph(cls) -> "AthleteLabelledSpeedzonesFields":
         """Labelled speedzones in km/h"""
         return AthleteLabelledSpeedzonesFields("labelledSpeedzonesLowerBoundsKph")
@@ -2803,7 +2836,7 @@ class AthleteFields(GraphQLField):
         return EdgeFields("lastEdgeUsed")
 
     max_heart_rate: "AthleteGraphQLField" = AthleteGraphQLField("maxHeartRate")
-    "Maximum heart rate (explicit or age-calculated)"
+    "Maximum heart rate (explicit, recorded from data, or age-calculated)"
 
     @classmethod
     def metrics_summary(
@@ -2919,6 +2952,8 @@ class AthleteFields(GraphQLField):
             "AthleteLabelledAccelzonesFields",
             "AthleteLabelledDecelzonesFields",
             "AthleteLabelledHeartRateBoundsFields",
+            "AthleteLabelledIMUAccelzonesFields",
+            "AthleteLabelledIMUDecelzonesFields",
             "AthleteLabelledSpeedzonesFields",
             "AthleteMetricsSummaryFields",
             "AthleteRecordsFields",
@@ -3054,6 +3089,52 @@ class AthleteLabelledHeartRateBoundsFields(GraphQLField):
         return self
 
     def alias(self, alias: str) -> "AthleteLabelledHeartRateBoundsFields":
+        self._alias = alias
+        return self
+
+
+class AthleteLabelledIMUAccelzonesFields(GraphQLField):
+    """Absolute/Relative IMU accelzones labelled by the boundary type"""
+
+    @classmethod
+    def absolute(cls) -> "IMUAccelzoneLowerBoundsFields":
+        """Labelled absolute IMU accelzones in m/s²"""
+        return IMUAccelzoneLowerBoundsFields("absolute")
+
+    def fields(
+        self,
+        *subfields: Union[
+            AthleteLabelledIMUAccelzonesGraphQLField, "IMUAccelzoneLowerBoundsFields"
+        ],
+    ) -> "AthleteLabelledIMUAccelzonesFields":
+        """Subfields should come from the AthleteLabelledIMUAccelzonesFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "AthleteLabelledIMUAccelzonesFields":
+        self._alias = alias
+        return self
+
+
+class AthleteLabelledIMUDecelzonesFields(GraphQLField):
+    """Absolute/Relative IMU decelzones labelled by the boundary type"""
+
+    @classmethod
+    def absolute(cls) -> "IMUDecelzoneLowerBoundsFields":
+        """Labelled absolute IMU decelzones in m/s²"""
+        return IMUDecelzoneLowerBoundsFields("absolute")
+
+    def fields(
+        self,
+        *subfields: Union[
+            AthleteLabelledIMUDecelzonesGraphQLField, "IMUDecelzoneLowerBoundsFields"
+        ],
+    ) -> "AthleteLabelledIMUDecelzonesFields":
+        """Subfields should come from the AthleteLabelledIMUDecelzonesFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "AthleteLabelledIMUDecelzonesFields":
         self._alias = alias
         return self
 
@@ -3811,6 +3892,12 @@ class CameraFields(GraphQLField):
 
     board_name: "CameraGraphQLField" = CameraGraphQLField("boardName")
     "The board version of the device"
+
+    @classmethod
+    def current_ownership(cls) -> "CameraOwnershipFields":
+        """The camera's current ownership, if any"""
+        return CameraOwnershipFields("currentOwnership")
+
     firmware_version: "CameraGraphQLField" = CameraGraphQLField("firmwareVersion")
     "The firmware version the Camera is running"
     hardware_version: "CameraGraphQLField" = CameraGraphQLField("hardwareVersion")
@@ -3836,7 +3923,10 @@ class CameraFields(GraphQLField):
         return CameraGraphQLField("signedMessage", arguments=cleared_arguments)
 
     def fields(
-        self, *subfields: Union[CameraGraphQLField, "DeviceOwnerUnion"]
+        self,
+        *subfields: Union[
+            CameraGraphQLField, "CameraOwnershipFields", "DeviceOwnerUnion"
+        ],
     ) -> "CameraFields":
         """Subfields should come from the CameraFields class"""
         self._subfields.extend(subfields)
@@ -4007,6 +4097,9 @@ class ChecklistFields(GraphQLField):
     def steps(cls) -> "StepFields":
         """Ordered list of setup steps with their current status"""
         return StepFields("steps")
+
+    version: "ChecklistGraphQLField" = ChecklistGraphQLField("version")
+    "Monotonic version of this checklist, advanced by every write to it. Discard a\nsnapshot whose version is lower than one already held."
 
     def fields(
         self, *subfields: Union[ChecklistGraphQLField, "StepFields"]
@@ -4234,10 +4327,18 @@ class ClubFields(GraphQLField):
 
     @classmethod
     def cameras_currently_owned(
-        cls, *, limit: Optional[int] = None, offset: Optional[int] = None
+        cls,
+        *,
+        filter_: Optional[VideoCameraOwnershipCamerasCurrentlyOwnedFilter] = None,
+        limit: Optional[int] = None,
+        offset: Optional[int] = None,
     ) -> "CameraOwnershipFields":
         """Cameras currently owned by this club"""
         arguments: dict[str, dict[str, Any]] = {
+            "filter": {
+                "type": "VideoCameraOwnershipCamerasCurrentlyOwnedFilter",
+                "value": filter_,
+            },
             "limit": {"type": "Int", "value": limit},
             "offset": {"type": "Int", "value": offset},
         }
@@ -4360,10 +4461,26 @@ class ClubFields(GraphQLField):
         return FeatureCheckFields("feature", arguments=cleared_arguments)
 
     @classmethod
+    def flexible_report_templates(
+        cls, *, limit: Optional[int] = None, offset: Optional[int] = None
+    ) -> "FlexibleReportFields":
+        """User-created flexible report templates for the club"""
+        arguments: dict[str, dict[str, Any]] = {
+            "limit": {"type": "Int", "value": limit},
+            "offset": {"type": "Int", "value": offset},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return FlexibleReportFields(
+            "flexibleReportTemplates", arguments=cleared_arguments
+        )
+
+    @classmethod
     def flexible_reports(
         cls, offset: int, *, limit: Optional[int] = None
     ) -> "FlexibleReportFields":
-        """Flexible reports for the club"""
+        """Flexible reports for the club (excludes templates)"""
         arguments: dict[str, dict[str, Any]] = {
             "limit": {"type": "Int", "value": limit},
             "offset": {"type": "Int!", "value": offset},
@@ -4376,7 +4493,7 @@ class ClubFields(GraphQLField):
     flexible_reports_count: "ClubGraphQLField" = ClubGraphQLField(
         "flexibleReportsCount"
     )
-    "Count of flexible reports for the club"
+    "Count of flexible reports for the club (excludes templates)"
 
     @classmethod
     def gateways_currently_owned(
@@ -8463,6 +8580,36 @@ class CreateFlexibleReportPayloadFields(GraphQLField):
         return self
 
 
+class CreateFlexibleReportTemplatePayloadFields(GraphQLField):
+    """Autogenerated return type of CreateFlexibleReportTemplate."""
+
+    @classmethod
+    def errors(cls) -> "ValidationErrorFields":
+        """Validation errors that occurred while performing the mutation"""
+        return ValidationErrorFields("errors")
+
+    @classmethod
+    def report(cls) -> "FlexibleReportFields":
+        """the created template"""
+        return FlexibleReportFields("report")
+
+    def fields(
+        self,
+        *subfields: Union[
+            CreateFlexibleReportTemplatePayloadGraphQLField,
+            "FlexibleReportFields",
+            "ValidationErrorFields",
+        ],
+    ) -> "CreateFlexibleReportTemplatePayloadFields":
+        """Subfields should come from the CreateFlexibleReportTemplatePayloadFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "CreateFlexibleReportTemplatePayloadFields":
+        self._alias = alias
+        return self
+
+
 class CreateImportPayloadFields(GraphQLField):
     """Autogenerated return type of CreateImport."""
 
@@ -9633,6 +9780,66 @@ class DeleteHeartRateBoundsPayloadFields(GraphQLField):
         return self
 
 
+class DeleteIMUAccelzonesPayloadFields(GraphQLField):
+    """Autogenerated return type of DeleteIMUAccelzones."""
+
+    @classmethod
+    def athletes(cls) -> "AthleteFields":
+        """Athletes with deleted IMU accelzones"""
+        return AthleteFields("athletes")
+
+    @classmethod
+    def errors(cls) -> "ValidationErrorFields":
+        """Validation errors that occurred while performing the mutation"""
+        return ValidationErrorFields("errors")
+
+    def fields(
+        self,
+        *subfields: Union[
+            DeleteIMUAccelzonesPayloadGraphQLField,
+            "AthleteFields",
+            "ValidationErrorFields",
+        ],
+    ) -> "DeleteIMUAccelzonesPayloadFields":
+        """Subfields should come from the DeleteIMUAccelzonesPayloadFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "DeleteIMUAccelzonesPayloadFields":
+        self._alias = alias
+        return self
+
+
+class DeleteIMUDecelzonesPayloadFields(GraphQLField):
+    """Autogenerated return type of DeleteIMUDecelzones."""
+
+    @classmethod
+    def athletes(cls) -> "AthleteFields":
+        """Athletes with deleted IMU decelzones"""
+        return AthleteFields("athletes")
+
+    @classmethod
+    def errors(cls) -> "ValidationErrorFields":
+        """Validation errors that occurred while performing the mutation"""
+        return ValidationErrorFields("errors")
+
+    def fields(
+        self,
+        *subfields: Union[
+            DeleteIMUDecelzonesPayloadGraphQLField,
+            "AthleteFields",
+            "ValidationErrorFields",
+        ],
+    ) -> "DeleteIMUDecelzonesPayloadFields":
+        """Subfields should come from the DeleteIMUDecelzonesPayloadFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "DeleteIMUDecelzonesPayloadFields":
+        self._alias = alias
+        return self
+
+
 class DeleteSessionTargetsPayloadFields(GraphQLField):
     """Autogenerated return type of DeleteSessionTargets."""
 
@@ -10015,10 +10222,17 @@ class DestroySessionTargetDefinitionsPayloadFields(GraphQLField):
         """Validation errors that occurred while performing the mutation"""
         return ValidationErrorFields("errors")
 
+    @classmethod
+    def target_templates(cls) -> "TargetTemplateFields":
+        """The templates the definitions were removed from, with their remaining definitions"""
+        return TargetTemplateFields("targetTemplates")
+
     def fields(
         self,
         *subfields: Union[
-            DestroySessionTargetDefinitionsPayloadGraphQLField, "ValidationErrorFields"
+            DestroySessionTargetDefinitionsPayloadGraphQLField,
+            "TargetTemplateFields",
+            "ValidationErrorFields",
         ],
     ) -> "DestroySessionTargetDefinitionsPayloadFields":
         """Subfields should come from the DestroySessionTargetDefinitionsPayloadFields class"""
@@ -10596,6 +10810,9 @@ class EdgeFields(GraphQLField):
 
 
 class EdgeDataFileFields(GraphQLField):
+    id: "EdgeDataFileGraphQLField" = EdgeDataFileGraphQLField("id")
+    "The id of the data recording this file was captured for"
+
     @classmethod
     def url(
         cls, *, format: Optional[DatafileFormat] = None
@@ -10726,6 +10943,57 @@ class EndEdgeOwnershipPayloadFields(GraphQLField):
         return self
 
 
+class EventInterface(GraphQLField):
+    """Common interface for events that occurred within a session"""
+
+    event_type_id: "EventGraphQLField" = EventGraphQLField("eventTypeId")
+    "Identifier of the event type definition"
+    id: "EventGraphQLField" = EventGraphQLField("id")
+    "Unique identifier for the event"
+    involving_team: "EventGraphQLField" = EventGraphQLField("involvingTeam")
+    "Which team the event involves: our team, the opposing team, or both teams"
+    match_minute: "EventGraphQLField" = EventGraphQLField("matchMinute")
+    "Match minute at which the event occurred"
+    name: "EventGraphQLField" = EventGraphQLField("name")
+    "Name of the event type"
+
+    @classmethod
+    def participants(cls) -> "MatchSessionParticipationFields":
+        """Session participations involved in the event"""
+        return MatchSessionParticipationFields("participants")
+
+    provenance: "EventGraphQLField" = EventGraphQLField("provenance")
+    "How the event was created and whether it has been rejected"
+
+    @classmethod
+    def sport_definition(cls) -> "SportDefinitionFields":
+        """Sport definition the event belongs to"""
+        return SportDefinitionFields("sportDefinition")
+
+    start_time: "EventGraphQLField" = EventGraphQLField("startTime")
+    "When the event started"
+
+    def fields(
+        self,
+        *subfields: Union[
+            EventGraphQLField,
+            "MatchSessionParticipationFields",
+            "SportDefinitionFields",
+        ],
+    ) -> "EventInterface":
+        """Subfields should come from the EventInterface class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "EventInterface":
+        self._alias = alias
+        return self
+
+    def on(self, type_name: str, *subfields: GraphQLField) -> "EventInterface":
+        self._inline_fragments[type_name] = subfields
+        return self
+
+
 class ExamplePromptFields(GraphQLField):
     """An example prompt configuration for chat"""
 
@@ -10840,6 +11108,8 @@ class FlexibleReportFields(GraphQLField):
         }
         return FlexibleReportChartFields("reportCharts", arguments=cleared_arguments)
 
+    template: "FlexibleReportGraphQLField" = FlexibleReportGraphQLField("template")
+    "Whether this report is a user-created template"
     title: "FlexibleReportGraphQLField" = FlexibleReportGraphQLField("title")
     "The report title"
     updated_at: "FlexibleReportGraphQLField" = FlexibleReportGraphQLField("updatedAt")
@@ -11385,6 +11655,164 @@ class HeartratePeripheralDisconnectedFields(GraphQLField):
         return self
 
 
+class HubspotSubscriptionFields(GraphQLField):
+    """A Hubspot-managed subscription"""
+
+    cancelled_at: "HubspotSubscriptionGraphQLField" = HubspotSubscriptionGraphQLField(
+        "cancelledAt"
+    )
+    "When the subscription was cancelled"
+    hubspot_status: "HubspotSubscriptionGraphQLField" = HubspotSubscriptionGraphQLField(
+        "hubspotStatus"
+    )
+    "The subscription's status as last synced from Hubspot"
+    id: "HubspotSubscriptionGraphQLField" = HubspotSubscriptionGraphQLField("id")
+    "The subscription's unique identifier"
+    subscription_portal_url: "HubspotSubscriptionGraphQLField" = (
+        HubspotSubscriptionGraphQLField("subscriptionPortalUrl")
+    )
+    "A signed URL to the customer subscription portal"
+
+    def fields(
+        self, *subfields: HubspotSubscriptionGraphQLField
+    ) -> "HubspotSubscriptionFields":
+        """Subfields should come from the HubspotSubscriptionFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "HubspotSubscriptionFields":
+        self._alias = alias
+        return self
+
+
+class IMUAccelzoneLowerBoundsFields(GraphQLField):
+    """IMU acceleration zone boundaries in m/s²"""
+
+    zone_1: "IMUAccelzoneLowerBoundsGraphQLField" = IMUAccelzoneLowerBoundsGraphQLField(
+        "zone1"
+    )
+    "Zone 1 lower boundary"
+    zone_2: "IMUAccelzoneLowerBoundsGraphQLField" = IMUAccelzoneLowerBoundsGraphQLField(
+        "zone2"
+    )
+    "Zone 2 lower boundary"
+    zone_3: "IMUAccelzoneLowerBoundsGraphQLField" = IMUAccelzoneLowerBoundsGraphQLField(
+        "zone3"
+    )
+    "Zone 3 lower boundary"
+    zone_4: "IMUAccelzoneLowerBoundsGraphQLField" = IMUAccelzoneLowerBoundsGraphQLField(
+        "zone4"
+    )
+    "Zone 4 lower boundary"
+    zone_5: "IMUAccelzoneLowerBoundsGraphQLField" = IMUAccelzoneLowerBoundsGraphQLField(
+        "zone5"
+    )
+    "Zone 5 lower boundary"
+
+    def fields(
+        self, *subfields: IMUAccelzoneLowerBoundsGraphQLField
+    ) -> "IMUAccelzoneLowerBoundsFields":
+        """Subfields should come from the IMUAccelzoneLowerBoundsFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "IMUAccelzoneLowerBoundsFields":
+        self._alias = alias
+        return self
+
+
+class IMUAccelzonesPayloadFields(GraphQLField):
+    """Autogenerated return type of IMUAccelzones."""
+
+    @classmethod
+    def athletes(cls) -> "AthleteFields":
+        """Updated athletes"""
+        return AthleteFields("athletes")
+
+    @classmethod
+    def errors(cls) -> "ValidationErrorFields":
+        """Validation errors that occurred while performing the mutation"""
+        return ValidationErrorFields("errors")
+
+    def fields(
+        self,
+        *subfields: Union[
+            IMUAccelzonesPayloadGraphQLField, "AthleteFields", "ValidationErrorFields"
+        ],
+    ) -> "IMUAccelzonesPayloadFields":
+        """Subfields should come from the IMUAccelzonesPayloadFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "IMUAccelzonesPayloadFields":
+        self._alias = alias
+        return self
+
+
+class IMUDecelzoneLowerBoundsFields(GraphQLField):
+    """IMU deceleration zone boundaries in m/s²"""
+
+    zone_1: "IMUDecelzoneLowerBoundsGraphQLField" = IMUDecelzoneLowerBoundsGraphQLField(
+        "zone1"
+    )
+    "Zone 1 lower boundary"
+    zone_2: "IMUDecelzoneLowerBoundsGraphQLField" = IMUDecelzoneLowerBoundsGraphQLField(
+        "zone2"
+    )
+    "Zone 2 lower boundary"
+    zone_3: "IMUDecelzoneLowerBoundsGraphQLField" = IMUDecelzoneLowerBoundsGraphQLField(
+        "zone3"
+    )
+    "Zone 3 lower boundary"
+    zone_4: "IMUDecelzoneLowerBoundsGraphQLField" = IMUDecelzoneLowerBoundsGraphQLField(
+        "zone4"
+    )
+    "Zone 4 lower boundary"
+    zone_5: "IMUDecelzoneLowerBoundsGraphQLField" = IMUDecelzoneLowerBoundsGraphQLField(
+        "zone5"
+    )
+    "Zone 5 lower boundary"
+
+    def fields(
+        self, *subfields: IMUDecelzoneLowerBoundsGraphQLField
+    ) -> "IMUDecelzoneLowerBoundsFields":
+        """Subfields should come from the IMUDecelzoneLowerBoundsFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "IMUDecelzoneLowerBoundsFields":
+        self._alias = alias
+        return self
+
+
+class IMUDecelzonesPayloadFields(GraphQLField):
+    """Autogenerated return type of IMUDecelzones."""
+
+    @classmethod
+    def athletes(cls) -> "AthleteFields":
+        """Updated athletes"""
+        return AthleteFields("athletes")
+
+    @classmethod
+    def errors(cls) -> "ValidationErrorFields":
+        """Validation errors that occurred while performing the mutation"""
+        return ValidationErrorFields("errors")
+
+    def fields(
+        self,
+        *subfields: Union[
+            IMUDecelzonesPayloadGraphQLField, "AthleteFields", "ValidationErrorFields"
+        ],
+    ) -> "IMUDecelzonesPayloadFields":
+        """Subfields should come from the IMUDecelzonesPayloadFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "IMUDecelzonesPayloadFields":
+        self._alias = alias
+        return self
+
+
 class IntMetricValueFields(GraphQLField):
     """A metric value type for integer values"""
 
@@ -11551,6 +11979,26 @@ class MarkMultipleAppMessagesReadPayloadFields(GraphQLField):
         return self
 
 
+class MarkedPitchCornerFields(GraphQLField):
+    """A hand-marked pitch corner, normalised to the raw camera image (0-1)"""
+
+    x: "MarkedPitchCornerGraphQLField" = MarkedPitchCornerGraphQLField("x")
+    "Normalised horizontal position (0-1)"
+    y: "MarkedPitchCornerGraphQLField" = MarkedPitchCornerGraphQLField("y")
+    "Normalised vertical position (0-1)"
+
+    def fields(
+        self, *subfields: MarkedPitchCornerGraphQLField
+    ) -> "MarkedPitchCornerFields":
+        """Subfields should come from the MarkedPitchCornerFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "MarkedPitchCornerFields":
+        self._alias = alias
+        return self
+
+
 class MatchDefinitionFields(GraphQLField):
     @classmethod
     def events(cls) -> "MatchEventDefinitionFields":
@@ -11599,8 +12047,10 @@ class MatchDefinitionFields(GraphQLField):
 
 
 class MatchEventFields(GraphQLField):
+    event_type_id: "MatchEventGraphQLField" = MatchEventGraphQLField("eventTypeId")
+    "Identifier of the event type definition"
     id: "MatchEventGraphQLField" = MatchEventGraphQLField("id")
-    "Unique identifier for the match event"
+    "Unique identifier for the event"
     involving_team: "MatchEventGraphQLField" = MatchEventGraphQLField("involvingTeam")
     "Which team the event involves: our team, the opposing team, or both teams"
     match_event_type_id: "MatchEventGraphQLField" = MatchEventGraphQLField(
@@ -11615,6 +12065,14 @@ class MatchEventFields(GraphQLField):
     "When the event occurred"
 
     @classmethod
+    def participants(cls) -> "MatchSessionParticipationFields":
+        """Session participations involved in the event"""
+        return MatchSessionParticipationFields("participants")
+
+    provenance: "MatchEventGraphQLField" = MatchEventGraphQLField("provenance")
+    "How the event was created and whether it has been rejected"
+
+    @classmethod
     def session_participation(cls) -> "MatchSessionParticipationFields":
         """Participation of the athlete the event relates to"""
         return MatchSessionParticipationFields("sessionParticipation")
@@ -11623,6 +12081,9 @@ class MatchEventFields(GraphQLField):
     def sport_definition(cls) -> "SportDefinitionFields":
         """Sport definition the event belongs to"""
         return SportDefinitionFields("sportDefinition")
+
+    start_time: "MatchEventGraphQLField" = MatchEventGraphQLField("startTime")
+    "When the event started"
 
     def fields(
         self,
@@ -12049,6 +12510,25 @@ class MatchSessionFields(GraphQLField):
         return SessionContextFields("sessionContext")
 
     @classmethod
+    def session_events(
+        cls,
+        *,
+        include_rejected: Optional[bool] = None,
+        limit: Optional[int] = None,
+        offset: Optional[int] = None,
+    ) -> "EventInterface":
+        """Events recorded in the session, ordered by start time"""
+        arguments: dict[str, dict[str, Any]] = {
+            "includeRejected": {"type": "Boolean", "value": include_rejected},
+            "limit": {"type": "Int", "value": limit},
+            "offset": {"type": "Int", "value": offset},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return EventInterface("sessionEvents", arguments=cleared_arguments)
+
+    @classmethod
     def session_load_history(cls) -> "SessionLoadHistoryFields":
         """The athlete's load history leading up to the session"""
         return SessionLoadHistoryFields("sessionLoadHistory")
@@ -12207,6 +12687,7 @@ class MatchSessionFields(GraphQLField):
             "DetectedSessionFields",
             "DiagnosticWarningFields",
             "EdgeFields",
+            "EventInterface",
             "GatewayOwnershipFields",
             "GatewaySessionFields",
             "GenericMetricExplanationFields",
@@ -20030,9 +20511,17 @@ class PersonFields(GraphQLField):
     "The person's full name"
 
     @classmethod
-    def org_memberships(cls) -> "MemberFields":
+    def org_memberships(
+        cls, *, organisation_id: Optional[str] = None
+    ) -> "MemberFields":
         """Organisation memberships for the person"""
-        return MemberFields("orgMemberships")
+        arguments: dict[str, dict[str, Any]] = {
+            "organisationId": {"type": "ID", "value": organisation_id}
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return MemberFields("orgMemberships", arguments=cleared_arguments)
 
     player_data_staff: "PersonGraphQLField" = PersonGraphQLField("playerDataStaff")
     "Whether the person is a PlayerData staff member"
@@ -20616,6 +21105,63 @@ class PersonalBestsFields(GraphQLField):
         return self
 
 
+class PhaseMatchEventFields(GraphQLField):
+    """A phase-of-play event detected in a match session, spanning an interval"""
+
+    end_time: "PhaseMatchEventGraphQLField" = PhaseMatchEventGraphQLField("endTime")
+    "When the phase ended"
+    event_type_id: "PhaseMatchEventGraphQLField" = PhaseMatchEventGraphQLField(
+        "eventTypeId"
+    )
+    "Identifier of the event type definition"
+    id: "PhaseMatchEventGraphQLField" = PhaseMatchEventGraphQLField("id")
+    "Unique identifier for the event"
+    involving_team: "PhaseMatchEventGraphQLField" = PhaseMatchEventGraphQLField(
+        "involvingTeam"
+    )
+    "Which team the event involves: our team, the opposing team, or both teams"
+    match_minute: "PhaseMatchEventGraphQLField" = PhaseMatchEventGraphQLField(
+        "matchMinute"
+    )
+    "Match minute at which the event occurred"
+    name: "PhaseMatchEventGraphQLField" = PhaseMatchEventGraphQLField("name")
+    "Name of the event type"
+
+    @classmethod
+    def participants(cls) -> "MatchSessionParticipationFields":
+        """Session participations involved in the event"""
+        return MatchSessionParticipationFields("participants")
+
+    provenance: "PhaseMatchEventGraphQLField" = PhaseMatchEventGraphQLField(
+        "provenance"
+    )
+    "How the event was created and whether it has been rejected"
+
+    @classmethod
+    def sport_definition(cls) -> "SportDefinitionFields":
+        """Sport definition the event belongs to"""
+        return SportDefinitionFields("sportDefinition")
+
+    start_time: "PhaseMatchEventGraphQLField" = PhaseMatchEventGraphQLField("startTime")
+    "When the event started"
+
+    def fields(
+        self,
+        *subfields: Union[
+            PhaseMatchEventGraphQLField,
+            "MatchSessionParticipationFields",
+            "SportDefinitionFields",
+        ],
+    ) -> "PhaseMatchEventFields":
+        """Subfields should come from the PhaseMatchEventFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "PhaseMatchEventFields":
+        self._alias = alias
+        return self
+
+
 class PitchFields(GraphQLField):
     archived_at: "PitchGraphQLField" = PitchGraphQLField("archivedAt")
     "Optional archived timestamp of pitch"
@@ -20751,6 +21297,33 @@ class PitchDefinitionFields(GraphQLField):
         return self
 
     def alias(self, alias: str) -> "PitchDefinitionFields":
+        self._alias = alias
+        return self
+
+
+class PoseSectionFields(GraphQLField):
+    """A stretch of a recording sharing one camera pose, and the pitch corners marked on it"""
+
+    @classmethod
+    def corners(cls) -> "MarkedPitchCornerFields":
+        """The four hand-marked pitch corners, or null while the section is unannotated"""
+        return MarkedPitchCornerFields("corners")
+
+    end_time: "PoseSectionGraphQLField" = PoseSectionGraphQLField("endTime")
+    "Where this section ends: the next section's start time, or the end of the recording"
+    id: "PoseSectionGraphQLField" = PoseSectionGraphQLField("id")
+    "Unique identifier for this pose section"
+    start_time: "PoseSectionGraphQLField" = PoseSectionGraphQLField("startTime")
+    "Where this section starts, and the time the corners are valid from"
+
+    def fields(
+        self, *subfields: Union[PoseSectionGraphQLField, "MarkedPitchCornerFields"]
+    ) -> "PoseSectionFields":
+        """Subfields should come from the PoseSectionFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "PoseSectionFields":
         self._alias = alias
         return self
 
@@ -21610,7 +22183,7 @@ class RequestRawDataExportPayloadFields(GraphQLField):
     status: "RequestRawDataExportPayloadGraphQLField" = (
         RequestRawDataExportPayloadGraphQLField("status")
     )
-    "READY (downloadUrl present), PROCESSING (call again to poll), or UNAVAILABLE"
+    "READY (downloadUrl present), PROCESSING (call again to poll), UNAVAILABLE, or NOT_FOUND when the id does not exist"
 
     def fields(
         self,
@@ -21623,6 +22196,43 @@ class RequestRawDataExportPayloadFields(GraphQLField):
         return self
 
     def alias(self, alias: str) -> "RequestRawDataExportPayloadFields":
+        self._alias = alias
+        return self
+
+
+class RequestSessionRawDataExportPayloadFields(GraphQLField):
+    """Autogenerated return type of RequestSessionRawDataExport."""
+
+    download_url: "RequestSessionRawDataExportPayloadGraphQLField" = (
+        RequestSessionRawDataExportPayloadGraphQLField("downloadUrl")
+    )
+    "Time-limited download link; present once status is READY"
+
+    @classmethod
+    def errors(cls) -> "ValidationErrorFields":
+        """Validation errors that occurred while performing the mutation"""
+        return ValidationErrorFields("errors")
+
+    status: "RequestSessionRawDataExportPayloadGraphQLField" = (
+        RequestSessionRawDataExportPayloadGraphQLField("status")
+    )
+    "READY (downloadUrl present), PROCESSING (call again to poll), UNAVAILABLE, or NOT_FOUND when the id does not exist"
+    unavailable_participation_ids: "RequestSessionRawDataExportPayloadGraphQLField" = (
+        RequestSessionRawDataExportPayloadGraphQLField("unavailableParticipationIds")
+    )
+    "Participations left out of the export because their raw data cannot be produced"
+
+    def fields(
+        self,
+        *subfields: Union[
+            RequestSessionRawDataExportPayloadGraphQLField, "ValidationErrorFields"
+        ],
+    ) -> "RequestSessionRawDataExportPayloadFields":
+        """Subfields should come from the RequestSessionRawDataExportPayloadFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "RequestSessionRawDataExportPayloadFields":
         self._alias = alias
         return self
 
@@ -21678,42 +22288,12 @@ class ResendReportPayloadFields(GraphQLField):
         return self
 
 
-class RespondToDetectedMatchEventPayloadFields(GraphQLField):
-    """Autogenerated return type of RespondToDetectedMatchEvent."""
-
-    @classmethod
-    def detected_match_event(cls) -> "DetectedMatchEventFields":
-        """The detected match event after being confirmed or dismissed"""
-        return DetectedMatchEventFields("detectedMatchEvent")
-
-    @classmethod
-    def errors(cls) -> "ValidationErrorFields":
-        """Validation errors that occurred while performing the mutation"""
-        return ValidationErrorFields("errors")
-
-    def fields(
-        self,
-        *subfields: Union[
-            RespondToDetectedMatchEventPayloadGraphQLField,
-            "DetectedMatchEventFields",
-            "ValidationErrorFields",
-        ],
-    ) -> "RespondToDetectedMatchEventPayloadFields":
-        """Subfields should come from the RespondToDetectedMatchEventPayloadFields class"""
-        self._subfields.extend(subfields)
-        return self
-
-    def alias(self, alias: str) -> "RespondToDetectedMatchEventPayloadFields":
-        self._alias = alias
-        return self
-
-
 class RespondToDetectedMatchEventsPayloadFields(GraphQLField):
     """Autogenerated return type of RespondToDetectedMatchEvents."""
 
     @classmethod
     def detected_match_events(cls) -> "DetectedMatchEventFields":
-        """The detected match events after being confirmed or dismissed"""
+        """Always an empty array; detected match events no longer exist"""
         return DetectedMatchEventFields("detectedMatchEvents")
 
     @classmethod
@@ -21734,6 +22314,36 @@ class RespondToDetectedMatchEventsPayloadFields(GraphQLField):
         return self
 
     def alias(self, alias: str) -> "RespondToDetectedMatchEventsPayloadFields":
+        self._alias = alias
+        return self
+
+
+class RespondToEventsPayloadFields(GraphQLField):
+    """Autogenerated return type of RespondToEvents."""
+
+    @classmethod
+    def errors(cls) -> "ValidationErrorFields":
+        """Validation errors that occurred while performing the mutation"""
+        return ValidationErrorFields("errors")
+
+    @classmethod
+    def events(cls) -> "EventInterface":
+        """The events after their provenance transition"""
+        return EventInterface("events")
+
+    def fields(
+        self,
+        *subfields: Union[
+            RespondToEventsPayloadGraphQLField,
+            "EventInterface",
+            "ValidationErrorFields",
+        ],
+    ) -> "RespondToEventsPayloadFields":
+        """Subfields should come from the RespondToEventsPayloadFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "RespondToEventsPayloadFields":
         self._alias = alias
         return self
 
@@ -22396,6 +23006,25 @@ class SessionInterface(GraphQLField):
         return SessionContextFields("sessionContext")
 
     @classmethod
+    def session_events(
+        cls,
+        *,
+        include_rejected: Optional[bool] = None,
+        limit: Optional[int] = None,
+        offset: Optional[int] = None,
+    ) -> "EventInterface":
+        """Events recorded in the session, ordered by start time"""
+        arguments: dict[str, dict[str, Any]] = {
+            "includeRejected": {"type": "Boolean", "value": include_rejected},
+            "limit": {"type": "Int", "value": limit},
+            "offset": {"type": "Int", "value": offset},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return EventInterface("sessionEvents", arguments=cleared_arguments)
+
+    @classmethod
     def session_load_history(cls) -> "SessionLoadHistoryFields":
         """The athlete's load history leading up to the session"""
         return SessionLoadHistoryFields("sessionLoadHistory")
@@ -22545,6 +23174,7 @@ class SessionInterface(GraphQLField):
             "DetectedSessionFields",
             "DiagnosticWarningFields",
             "EdgeFields",
+            "EventInterface",
             "GatewayOwnershipFields",
             "GatewaySessionFields",
             "GenericMetricExplanationFields",
@@ -22615,6 +23245,11 @@ class SessionBlueprintFields(GraphQLField):
     def athletes(cls) -> "AthleteFields":
         """The athletes assigned to the blueprint"""
         return AthleteFields("athletes")
+
+    @classmethod
+    def camera_ownership(cls) -> "CameraOwnershipFields":
+        """The camera ownership assigned to sessions created from this blueprint"""
+        return CameraOwnershipFields("cameraOwnership")
 
     @classmethod
     def club(cls) -> "ClubFields":
@@ -22692,6 +23327,12 @@ class SessionBlueprintFields(GraphQLField):
         """The tags applied to the blueprint"""
         return TagDefinitionFields("tags")
 
+    @classmethod
+    def target_template(cls) -> "TargetTemplateFields":
+        """The target template used to build targets on sessions created from this
+        blueprint; null once the template is archived, as no targets are built from it"""
+        return TargetTemplateFields("targetTemplate")
+
     updated_at: "SessionBlueprintGraphQLField" = SessionBlueprintGraphQLField(
         "updatedAt"
     )
@@ -22705,6 +23346,7 @@ class SessionBlueprintFields(GraphQLField):
             SessionBlueprintGraphQLField,
             "AthleteFields",
             "AthleteOrStaffInterface",
+            "CameraOwnershipFields",
             "ClubFields",
             "GatewayOwnershipFields",
             "MatchDefinitionFields",
@@ -22713,6 +23355,7 @@ class SessionBlueprintFields(GraphQLField):
             "SessionBlueprintSegmentFields",
             "SurveyFields",
             "TagDefinitionFields",
+            "TargetTemplateFields",
         ],
     ) -> "SessionBlueprintFields":
         """Subfields should come from the SessionBlueprintFields class"""
@@ -23316,6 +23959,10 @@ class SetCustomMaxMetricPayloadFields(GraphQLField):
 
 
 class SettingsFields(GraphQLField):
+    advanced_firmware_update_access: "SettingsGraphQLField" = SettingsGraphQLField(
+        "advancedFirmwareUpdateAccess"
+    )
+    "Whether the owner has support-granted access to the advanced firmware update flow"
     auto_edge_assignment: "SettingsGraphQLField" = SettingsGraphQLField(
         "autoEdgeAssignment"
     )
@@ -23350,6 +23997,20 @@ class SettingsFields(GraphQLField):
     def labelled_heart_rate_bounds_percentages(cls) -> "HeartRateLowerBoundsFields":
         """Labelled heart rate bounds percentages"""
         return HeartRateLowerBoundsFields("labelledHeartRateBoundsPercentages")
+
+    @classmethod
+    def labelled_imu_accelzones_lower_bounds_ms_2(
+        cls,
+    ) -> "IMUAccelzoneLowerBoundsFields":
+        """Labelled IMU acceleration zone boundaries in m/s²"""
+        return IMUAccelzoneLowerBoundsFields("labelledIMUAccelzonesLowerBoundsMs2")
+
+    @classmethod
+    def labelled_imu_decelzones_lower_bounds_ms_2(
+        cls,
+    ) -> "IMUDecelzoneLowerBoundsFields":
+        """Labelled IMU deceleration zone boundaries in m/s²"""
+        return IMUDecelzoneLowerBoundsFields("labelledIMUDecelzonesLowerBoundsMs2")
 
     @classmethod
     def labelled_speedzones_lower_bounds_kph(cls) -> "SpeedzoneLowerBoundsFields":
@@ -23427,6 +24088,8 @@ class SettingsFields(GraphQLField):
             "BandedJumpZoneLowerBoundsFields",
             "DecelzoneLowerBoundsFields",
             "HeartRateLowerBoundsFields",
+            "IMUAccelzoneLowerBoundsFields",
+            "IMUDecelzoneLowerBoundsFields",
             "PitchFields",
             "SegmentTitleFields",
             "SpeedzoneLowerBoundsFields",
@@ -23662,6 +24325,30 @@ class StaffFields(GraphQLField):
         return self
 
     def alias(self, alias: str) -> "StaffFields":
+        self._alias = alias
+        return self
+
+
+class StalledUploadStorageFields(GraphQLField):
+    """Storage held by uploads that stalled before delivering every fragment"""
+
+    bytes_: "StalledUploadStorageGraphQLField" = StalledUploadStorageGraphQLField(
+        "bytes"
+    )
+    "Bytes stored by stalled uploads, and so the amount deleting them would reclaim"
+    recording_count: "StalledUploadStorageGraphQLField" = (
+        StalledUploadStorageGraphQLField("recordingCount")
+    )
+    "Number of recordings whose upload has been flagged as stalled"
+
+    def fields(
+        self, *subfields: StalledUploadStorageGraphQLField
+    ) -> "StalledUploadStorageFields":
+        """Subfields should come from the StalledUploadStorageFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "StalledUploadStorageFields":
         self._alias = alias
         return self
 
@@ -23977,6 +24664,8 @@ class SurveyQuestionFields(GraphQLField):
     "Configuration options for the question type"
     category: "SurveyQuestionGraphQLField" = SurveyQuestionGraphQLField("category")
     "The category the question belongs to"
+    default: "SurveyQuestionGraphQLField" = SurveyQuestionGraphQLField("default")
+    "The answer stored when this question is left blank, if it may be"
     deprecated: "SurveyQuestionGraphQLField" = SurveyQuestionGraphQLField("deprecated")
     "Whether the question is deprecated"
     id: "SurveyQuestionGraphQLField" = SurveyQuestionGraphQLField("id")
@@ -24146,22 +24835,24 @@ class TargetFields(GraphQLField):
         "metricDefinitionId"
     )
     "The metric the target is set for"
-    status: "TargetGraphQLField" = TargetGraphQLField("status")
-    "The recorded value's outcome relative to the target (nil when no data)"
     target_range: "TargetGraphQLField" = TargetGraphQLField("targetRange")
     "The raw target range/value as stored"
+
+    @classmethod
+    def target_range_metrics(cls) -> "GenericMetricFields":
+        """The target range as metrics, localized to the viewer's unit system"""
+        return GenericMetricFields("targetRangeMetrics")
+
     target_type: "TargetGraphQLField" = TargetGraphQLField("targetType")
     "Whether the target is an absolute range or percentage range"
-    unit_aware_current_value: "TargetGraphQLField" = TargetGraphQLField(
-        "unitAwareCurrentValue"
-    )
-    "The unit-aware recorded value for the target metric (nil when no data)"
     unit_aware_target_range: "TargetGraphQLField" = TargetGraphQLField(
         "unitAwareTargetRange"
     )
     "The target range localized to the viewer's unit system"
 
-    def fields(self, *subfields: TargetGraphQLField) -> "TargetFields":
+    def fields(
+        self, *subfields: Union[TargetGraphQLField, "GenericMetricFields"]
+    ) -> "TargetFields":
         """Subfields should come from the TargetFields class"""
         self._subfields.extend(subfields)
         return self
@@ -24195,17 +24886,35 @@ class TargetDefinitionFields(GraphQLField):
         "targetRange"
     )
     "The raw stored target range (percentages for percentage targets, absolute values otherwise)"
+
+    @classmethod
+    def target_range_metrics(cls) -> "GenericMetricFields":
+        """The target range as metrics, localized to the viewer's unit system"""
+        return GenericMetricFields("targetRangeMetrics")
+
     target_type: "TargetDefinitionGraphQLField" = TargetDefinitionGraphQLField(
         "targetType"
     )
     "The type of target"
+
+    @classmethod
+    def template(cls) -> "TargetTemplateFields":
+        """The template the definition belongs to"""
+        return TargetTemplateFields("template")
+
     unit_aware_target_range: "TargetDefinitionGraphQLField" = (
         TargetDefinitionGraphQLField("unitAwareTargetRange")
     )
     "The target range localized to the viewer's unit system"
 
     def fields(
-        self, *subfields: Union[TargetDefinitionGraphQLField, "AthleteFields"]
+        self,
+        *subfields: Union[
+            TargetDefinitionGraphQLField,
+            "AthleteFields",
+            "GenericMetricFields",
+            "TargetTemplateFields",
+        ],
     ) -> "TargetDefinitionFields":
         """Subfields should come from the TargetDefinitionFields class"""
         self._subfields.extend(subfields)
@@ -24244,10 +24953,21 @@ class TargetTemplateFields(GraphQLField):
 class TargetableMetricBaselineFields(GraphQLField):
     """A targetable metric's baseline and optional custom value, localized for the viewer"""
 
+    @classmethod
+    def baseline_metric(cls) -> "GenericMetricFields":
+        """The baseline as a metric, carrying the value and its unit"""
+        return GenericMetricFields("baselineMetric")
+
     baseline_value: "TargetableMetricBaselineGraphQLField" = (
         TargetableMetricBaselineGraphQLField("baselineValue")
     )
     "The baseline value in the local unit system"
+
+    @classmethod
+    def custom_metric(cls) -> "GenericMetricFields":
+        """The custom baseline as a metric, if set"""
+        return GenericMetricFields("customMetric")
+
     custom_target_id: "TargetableMetricBaselineGraphQLField" = (
         TargetableMetricBaselineGraphQLField("customTargetId")
     )
@@ -24271,6 +24991,26 @@ class TargetableMetricBaselineFields(GraphQLField):
         return self
 
     def alias(self, alias: str) -> "TargetableMetricBaselineFields":
+        self._alias = alias
+        return self
+
+
+class TelestrationPointFields(GraphQLField):
+    """A point of a telestration shape, normalised to the video image (0-1)"""
+
+    x: "TelestrationPointGraphQLField" = TelestrationPointGraphQLField("x")
+    "Normalised horizontal position (0-1)"
+    y: "TelestrationPointGraphQLField" = TelestrationPointGraphQLField("y")
+    "Normalised vertical position (0-1)"
+
+    def fields(
+        self, *subfields: TelestrationPointGraphQLField
+    ) -> "TelestrationPointFields":
+        """Subfields should come from the TelestrationPointFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "TelestrationPointFields":
         self._alias = alias
         return self
 
@@ -24816,6 +25556,25 @@ class TrainingSessionFields(GraphQLField):
         return SessionContextFields("sessionContext")
 
     @classmethod
+    def session_events(
+        cls,
+        *,
+        include_rejected: Optional[bool] = None,
+        limit: Optional[int] = None,
+        offset: Optional[int] = None,
+    ) -> "EventInterface":
+        """Events recorded in the session, ordered by start time"""
+        arguments: dict[str, dict[str, Any]] = {
+            "includeRejected": {"type": "Boolean", "value": include_rejected},
+            "limit": {"type": "Int", "value": limit},
+            "offset": {"type": "Int", "value": offset},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return EventInterface("sessionEvents", arguments=cleared_arguments)
+
+    @classmethod
     def session_load_history(cls) -> "SessionLoadHistoryFields":
         """The athlete's load history leading up to the session"""
         return SessionLoadHistoryFields("sessionLoadHistory")
@@ -24975,6 +25734,7 @@ class TrainingSessionFields(GraphQLField):
             "DetectedSessionFields",
             "DiagnosticWarningFields",
             "EdgeFields",
+            "EventInterface",
             "GatewayOwnershipFields",
             "GatewaySessionFields",
             "GenericMetricExplanationFields",
@@ -31940,6 +32700,11 @@ class VideoAnnotationsUrlFields(GraphQLField):
 class VideoClipFields(GraphQLField):
     """A video clip"""
 
+    @classmethod
+    def creator(cls) -> "AthleteOrStaffInterface":
+        """The athlete or staff who created the clip"""
+        return AthleteOrStaffInterface("creator")
+
     duration: "VideoClipGraphQLField" = VideoClipGraphQLField("duration")
     "The duration of the clip in seconds"
     id: "VideoClipGraphQLField" = VideoClipGraphQLField("id")
@@ -31972,6 +32737,12 @@ class VideoClipFields(GraphQLField):
     "Deprecated alias of matchEventDefinitionIds"
     team: "VideoClipGraphQLField" = VideoClipGraphQLField("team")
     "The team associated with the clip"
+
+    @classmethod
+    def telestrations(cls) -> "VideoClipTelestrationFields":
+        """Telestration shapes drawn on the clip"""
+        return VideoClipTelestrationFields("telestrations")
+
     tracked_participant: "VideoClipGraphQLField" = VideoClipGraphQLField(
         "trackedParticipant"
     )
@@ -31980,7 +32751,11 @@ class VideoClipFields(GraphQLField):
     def fields(
         self,
         *subfields: Union[
-            VideoClipGraphQLField, "TagDefinitionFields", "VideoClipOverlayFields"
+            VideoClipGraphQLField,
+            "AthleteOrStaffInterface",
+            "TagDefinitionFields",
+            "VideoClipOverlayFields",
+            "VideoClipTelestrationFields",
         ],
     ) -> "VideoClipFields":
         """Subfields should come from the VideoClipFields class"""
@@ -32024,6 +32799,72 @@ class VideoClipOverlayFields(GraphQLField):
         return self
 
     def alias(self, alias: str) -> "VideoClipOverlayFields":
+        self._alias = alias
+        return self
+
+
+class VideoClipTelestrationFields(GraphQLField):
+    """A telestration shape drawn on a video clip"""
+
+    @classmethod
+    def centre(cls) -> "TelestrationPointFields":
+        """Centre of a circle shape"""
+        return TelestrationPointFields("centre")
+
+    colour: "VideoClipTelestrationGraphQLField" = VideoClipTelestrationGraphQLField(
+        "colour"
+    )
+    "Shape colour as a hex string"
+
+    @classmethod
+    def end_point(cls) -> "TelestrationPointFields":
+        """End point of a line or arrow shape"""
+        return TelestrationPointFields("endPoint")
+
+    end_sec: "VideoClipTelestrationGraphQLField" = VideoClipTelestrationGraphQLField(
+        "endSec"
+    )
+    "Video time in seconds at which the shape disappears"
+    id: "VideoClipTelestrationGraphQLField" = VideoClipTelestrationGraphQLField("id")
+    "Client-generated unique identifier of the shape"
+
+    @classmethod
+    def points(cls) -> "TelestrationPointFields":
+        """Points of a freehand shape"""
+        return TelestrationPointFields("points")
+
+    radius: "VideoClipTelestrationGraphQLField" = VideoClipTelestrationGraphQLField(
+        "radius"
+    )
+    "Radius of a circle shape, normalised (0-1) against the shorter axis of the video image"
+    shape_type: "VideoClipTelestrationGraphQLField" = VideoClipTelestrationGraphQLField(
+        "shapeType"
+    )
+    "The kind of shape"
+
+    @classmethod
+    def start_point(cls) -> "TelestrationPointFields":
+        """Start point of a line or arrow shape"""
+        return TelestrationPointFields("startPoint")
+
+    start_sec: "VideoClipTelestrationGraphQLField" = VideoClipTelestrationGraphQLField(
+        "startSec"
+    )
+    "Video time in seconds at which the shape was drawn and appears"
+    width: "VideoClipTelestrationGraphQLField" = VideoClipTelestrationGraphQLField(
+        "width"
+    )
+    "Stroke width of the shape"
+
+    def fields(
+        self,
+        *subfields: Union[VideoClipTelestrationGraphQLField, "TelestrationPointFields"],
+    ) -> "VideoClipTelestrationFields":
+        """Subfields should come from the VideoClipTelestrationFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "VideoClipTelestrationFields":
         self._alias = alias
         return self
 
@@ -32092,6 +32933,10 @@ class VideoRecordingFields(GraphQLField):
         VideoRecordingGraphQLField("annotationsFileAttached")
     )
     "Whether the annotations file is attached"
+    board_version: "VideoRecordingGraphQLField" = VideoRecordingGraphQLField(
+        "boardVersion"
+    )
+    "The camera's hardware board name that produced the recording"
 
     @classmethod
     def camera_ownership(cls) -> "CameraOwnershipFields":
@@ -32110,12 +32955,34 @@ class VideoRecordingFields(GraphQLField):
     "The encrypted ID of the video recording for the camera"
     end_time: "VideoRecordingGraphQLField" = VideoRecordingGraphQLField("endTime")
     "The end time of the video recording"
+    file_version: "VideoRecordingGraphQLField" = VideoRecordingGraphQLField(
+        "fileVersion"
+    )
+    "The camera's on-disk recording format version"
     hls_manifest_path: "VideoRecordingGraphQLField" = VideoRecordingGraphQLField(
         "hlsManifestPath"
     )
     "The HLS manifest path for this video source"
     id: "VideoRecordingGraphQLField" = VideoRecordingGraphQLField("id")
     "The ID of the video source"
+    image_version: "VideoRecordingGraphQLField" = VideoRecordingGraphQLField(
+        "imageVersion"
+    )
+    "The camera's firmware image version that produced the recording"
+
+    @classmethod
+    def pose_sections(
+        cls, *, limit: Optional[int] = None, offset: Optional[int] = None
+    ) -> "PoseSectionFields":
+        """The pose sections of this recording, carrying their hand-marked pitch corners"""
+        arguments: dict[str, dict[str, Any]] = {
+            "limit": {"type": "Int", "value": limit},
+            "offset": {"type": "Int", "value": offset},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return PoseSectionFields("poseSections", arguments=cleared_arguments)
 
     @classmethod
     def sessions(
@@ -32131,6 +32998,8 @@ class VideoRecordingFields(GraphQLField):
         }
         return SessionInterface("sessions", arguments=cleared_arguments)
 
+    stalled_at: "VideoRecordingGraphQLField" = VideoRecordingGraphQLField("stalledAt")
+    "When the upload was flagged as stalled, or null if it is still expected to progress"
     start_time: "VideoRecordingGraphQLField" = VideoRecordingGraphQLField("startTime")
     "The start time of the video recording"
     total_size_bytes: "VideoRecordingGraphQLField" = VideoRecordingGraphQLField(
@@ -32171,6 +33040,7 @@ class VideoRecordingFields(GraphQLField):
         *subfields: Union[
             VideoRecordingGraphQLField,
             "CameraOwnershipFields",
+            "PoseSectionFields",
             "SessionInterface",
             "VideoFragmentFields",
             "VideoVariantFields",
@@ -32258,10 +33128,18 @@ class VideoStorageFields(GraphQLField):
         "recordingCount"
     )
     "Total number of recordings"
-    used_bytes: "VideoStorageGraphQLField" = VideoStorageGraphQLField("usedBytes")
-    "Total bytes used across all recordings"
 
-    def fields(self, *subfields: VideoStorageGraphQLField) -> "VideoStorageFields":
+    @classmethod
+    def stalled(cls) -> "StalledUploadStorageFields":
+        """Storage held by uploads that are no longer progressing"""
+        return StalledUploadStorageFields("stalled")
+
+    used_bytes: "VideoStorageGraphQLField" = VideoStorageGraphQLField("usedBytes")
+    "Bytes counted against the limit: declared size for live uploads, stored size once stalled"
+
+    def fields(
+        self, *subfields: Union[VideoStorageGraphQLField, "StalledUploadStorageFields"]
+    ) -> "VideoStorageFields":
         """Subfields should come from the VideoStorageFields class"""
         self._subfields.extend(subfields)
         return self

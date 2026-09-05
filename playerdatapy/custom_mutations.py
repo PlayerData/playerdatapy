@@ -32,6 +32,7 @@ from .custom_fields import (
     CreateEdgeNamePayloadFields,
     CreateFlexibleReportChartPayloadFields,
     CreateFlexibleReportPayloadFields,
+    CreateFlexibleReportTemplatePayloadFields,
     CreateImportPayloadFields,
     CreateMatchEventPayloadFields,
     CreateMatchEventsPayloadFields,
@@ -58,6 +59,8 @@ from .custom_fields import (
     DeleteCustomBaselineTargetsPayloadFields,
     DeleteDecelzonesPayloadFields,
     DeleteHeartRateBoundsPayloadFields,
+    DeleteIMUAccelzonesPayloadFields,
+    DeleteIMUDecelzonesPayloadFields,
     DeleteSessionTargetsPayloadFields,
     DeleteSpeedzonesPayloadFields,
     DeleteTargetTemplatesPayloadFields,
@@ -85,6 +88,8 @@ from .custom_fields import (
     EndEdgeOwnershipPayloadFields,
     GrantOrgAdminRolePayloadFields,
     HeartRateBoundsPayloadFields,
+    IMUAccelzonesPayloadFields,
+    IMUDecelzonesPayloadFields,
     MarkAppMessageReadPayloadFields,
     MarkMultipleAppMessagesReadPayloadFields,
     ProvisionGatewayPayloadFields,
@@ -99,10 +104,11 @@ from .custom_fields import (
     RemoveSurveyTimerTriggerPayloadFields,
     RemoveTargetTemplatePayloadFields,
     RequestRawDataExportPayloadFields,
+    RequestSessionRawDataExportPayloadFields,
     ResendConfirmationEmailPayloadFields,
     ResendReportPayloadFields,
-    RespondToDetectedMatchEventPayloadFields,
     RespondToDetectedMatchEventsPayloadFields,
+    RespondToEventsPayloadFields,
     ReviewPendingMemberPayloadFields,
     RevokeOrgAdminRolePayloadFields,
     RotateLiveDataKeysPayloadFields,
@@ -176,6 +182,8 @@ from .input_types import (
     AthleteDecelzoneAttributes,
     AthleteGroupAttributes,
     AthleteHeartRateBoundsAttributes,
+    AthleteIMUAccelzoneAttributes,
+    AthleteIMUDecelzoneAttributes,
     AthleteRelativeAccelzoneAttributes,
     AthleteRelativeDecelzoneAttributes,
     AthleteSpeedzoneAttributes,
@@ -541,6 +549,38 @@ class Mutation:
         )
 
     @classmethod
+    def athletes_delete_imu_accelzones(
+        cls, athlete_ids: list[str], *, reprocess: Optional[bool] = None
+    ) -> DeleteIMUAccelzonesPayloadFields:
+        """Deletes athletes' IMU acceleration zones"""
+        arguments: dict[str, dict[str, Any]] = {
+            "athleteIds": {"type": "[ID!]!", "value": athlete_ids},
+            "reprocess": {"type": "Boolean", "value": reprocess},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return DeleteIMUAccelzonesPayloadFields(
+            field_name="athletesDeleteIMUAccelzones", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def athletes_delete_imu_decelzones(
+        cls, athlete_ids: list[str], *, reprocess: Optional[bool] = None
+    ) -> DeleteIMUDecelzonesPayloadFields:
+        """Deletes athletes' IMU deceleration zones"""
+        arguments: dict[str, dict[str, Any]] = {
+            "athleteIds": {"type": "[ID!]!", "value": athlete_ids},
+            "reprocess": {"type": "Boolean", "value": reprocess},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return DeleteIMUDecelzonesPayloadFields(
+            field_name="athletesDeleteIMUDecelzones", arguments=cleared_arguments
+        )
+
+    @classmethod
     def athletes_delete_speedzones(
         cls, athlete_ids: list[str], *, reprocess: Optional[bool] = None
     ) -> DeleteSpeedzonesPayloadFields:
@@ -576,6 +616,50 @@ class Mutation:
         }
         return HeartRateBoundsPayloadFields(
             field_name="athletesHeartRateBounds", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def athletes_imu_accelzones(
+        cls,
+        attributes: AthleteIMUAccelzoneAttributes,
+        *,
+        reprocess: Optional[bool] = None,
+    ) -> IMUAccelzonesPayloadFields:
+        """Sets athletes' IMU acceleration zones"""
+        arguments: dict[str, dict[str, Any]] = {
+            "attributes": {
+                "type": "AthleteIMUAccelzoneAttributes!",
+                "value": attributes,
+            },
+            "reprocess": {"type": "Boolean", "value": reprocess},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return IMUAccelzonesPayloadFields(
+            field_name="athletesIMUAccelzones", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def athletes_imu_decelzones(
+        cls,
+        attributes: AthleteIMUDecelzoneAttributes,
+        *,
+        reprocess: Optional[bool] = None,
+    ) -> IMUDecelzonesPayloadFields:
+        """Sets athletes' IMU deceleration zones"""
+        arguments: dict[str, dict[str, Any]] = {
+            "attributes": {
+                "type": "AthleteIMUDecelzoneAttributes!",
+                "value": attributes,
+            },
+            "reprocess": {"type": "Boolean", "value": reprocess},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return IMUDecelzonesPayloadFields(
+            field_name="athletesIMUDecelzones", arguments=cleared_arguments
         )
 
     @classmethod
@@ -922,6 +1006,23 @@ class Mutation:
         }
         return CreateFlexibleReportChartPayloadFields(
             field_name="createFlexibleReportChart", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def create_flexible_report_template(
+        cls, club_id: str, id: str, *, title: Optional[str] = None
+    ) -> CreateFlexibleReportTemplatePayloadFields:
+        """Creates a reusable template from an existing FlexibleReport"""
+        arguments: dict[str, dict[str, Any]] = {
+            "clubId": {"type": "ID!", "value": club_id},
+            "id": {"type": "ID!", "value": id},
+            "title": {"type": "String", "value": title},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return CreateFlexibleReportTemplatePayloadFields(
+            field_name="createFlexibleReportTemplate", arguments=cleared_arguments
         )
 
     @classmethod
@@ -1792,6 +1893,26 @@ class Mutation:
         )
 
     @classmethod
+    def request_session_raw_data_export(
+        cls,
+        data_type: RawDataExportTypeEnum,
+        format: RawDataExportFormatEnum,
+        session_id: str,
+    ) -> RequestSessionRawDataExportPayloadFields:
+        """Request a whole session's raw data export as one zip per-athlete; idempotent, call again to poll"""
+        arguments: dict[str, dict[str, Any]] = {
+            "dataType": {"type": "RawDataExportTypeEnum!", "value": data_type},
+            "format": {"type": "RawDataExportFormatEnum!", "value": format},
+            "sessionId": {"type": "ID!", "value": session_id},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return RequestSessionRawDataExportPayloadFields(
+            field_name="requestSessionRawDataExport", arguments=cleared_arguments
+        )
+
+    @classmethod
     def resend_pending_member_confirmation_email(
         cls, id: str
     ) -> ResendConfirmationEmailPayloadFields:
@@ -1822,22 +1943,6 @@ class Mutation:
         )
 
     @classmethod
-    def respond_to_detected_match_event(
-        cls, accept_event: bool, id: str
-    ) -> RespondToDetectedMatchEventPayloadFields:
-        """Responds to a detected match event"""
-        arguments: dict[str, dict[str, Any]] = {
-            "acceptEvent": {"type": "Boolean!", "value": accept_event},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RespondToDetectedMatchEventPayloadFields(
-            field_name="respondToDetectedMatchEvent", arguments=cleared_arguments
-        )
-
-    @classmethod
     def respond_to_detected_match_events(
         cls, accept_event: bool, ids: list[str]
     ) -> RespondToDetectedMatchEventsPayloadFields:
@@ -1851,6 +1956,22 @@ class Mutation:
         }
         return RespondToDetectedMatchEventsPayloadFields(
             field_name="respondToDetectedMatchEvents", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def respond_to_events(
+        cls, accept_event: bool, ids: list[str]
+    ) -> RespondToEventsPayloadFields:
+        """Accepts (restores) or rejects a set of generated match events"""
+        arguments: dict[str, dict[str, Any]] = {
+            "acceptEvent": {"type": "Boolean!", "value": accept_event},
+            "ids": {"type": "[ID!]!", "value": ids},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return RespondToEventsPayloadFields(
+            field_name="respondToEvents", arguments=cleared_arguments
         )
 
     @classmethod
