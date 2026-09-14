@@ -68,13 +68,14 @@ Under the **Authorisation Code Grant**, data access is governed by **club staff 
 
 ## Flows in `playerdatapy`
 
-Three OAuth2 flows supported via `playerdatapy.gqlauth.AuthenticationType`:
+Four OAuth2 flows supported via `playerdatapy.gqlauth.AuthenticationType`:
 
 | Flow | Use case |
 |------|----------|
 | `AUTHORISATION_CODE_FLOW` (default) | Confidential clients with a secret |
 | `AUTHORISATION_CODE_FLOW_PCKE` | Public clients, no secret |
 | `CLIENT_CREDENTIALS_FLOW` | Backend-to-backend |
+| `DEVICE_FLOW` | Headless machines with no local browser — user approves on another device |
 
 Contact `support@playerdata.com` to request credentials.
 
@@ -126,6 +127,21 @@ auth = GraphqlAuth(
 ```
 
 SDK opens a browser, captures the redirect, exchanges code → token, stores it. Override the storage path with `token_file=`.
+
+## Device flow — Python SDK
+
+For headless machines with no local browser. The SDK requests a code, prints a URL and short user code to approve in a browser on any device, and polls until a token is issued.
+
+```python
+from playerdatapy.gqlauth import GraphqlAuth, AuthenticationType
+
+auth = GraphqlAuth(
+    client_id="...",
+    type=AuthenticationType.DEVICE_FLOW,
+)
+```
+
+The token (including a refresh token) is stored to disk like the other flows; override the path with `token_file=`.
 
 ## Authorisation Code flow — manual (any language)
 
