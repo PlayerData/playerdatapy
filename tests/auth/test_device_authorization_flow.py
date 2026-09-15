@@ -66,7 +66,9 @@ class TestDeviceAuthorizationFlow:
             result = flow.authenticate()
 
             # 1. device authorization request
-            assert mock_post.call_args_list[0].args[0].endswith("/oauth/authorize_device")
+            assert (
+                mock_post.call_args_list[0].args[0].endswith("/oauth/authorize_device")
+            )
             assert mock_post.call_args_list[0].kwargs["data"] == {
                 "client_id": "test_client",
                 "scope": "public",
@@ -123,7 +125,9 @@ class TestDeviceAuthorizationFlow:
             _response({"error": "access_denied"}, is_success=False),
         ]
 
-        flow = DeviceAuthorizationFlow(client_id="test_client", token_file=".test_token")
+        flow = DeviceAuthorizationFlow(
+            client_id="test_client", token_file=".test_token"
+        )
 
         with pytest.raises(DeviceAuthorizationError, match="access_denied"):
             flow.authenticate()
