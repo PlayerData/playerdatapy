@@ -4,6 +4,7 @@ from typing import Optional, Union
 from .gqlauth import GraphqlAuth, AuthenticationType
 from .gqlclient import Client
 from .base_operation import GraphQLField
+from .auth.device_authorization_flow import DevicePromptHandler
 from playerdatapy.constants import GRAPHQL_URL, graphql_url_for
 
 
@@ -17,6 +18,7 @@ class PlayerDataAPI(GraphqlAuth):
         port: int = 8888,
         authentication_type: AuthenticationType = AuthenticationType.AUTHORISATION_CODE_FLOW,
         base_url: Optional[str] = None,
+        device_prompt: Optional[DevicePromptHandler] = None,
     ):
         super().__init__(
             client_id=client_id,
@@ -26,6 +28,7 @@ class PlayerDataAPI(GraphqlAuth):
             port=port,
             type=authentication_type,
             base_url=base_url,
+            device_prompt=device_prompt,
         )
         graphql_url = graphql_url_for(base_url) if base_url else GRAPHQL_URL
         self.client = Client(

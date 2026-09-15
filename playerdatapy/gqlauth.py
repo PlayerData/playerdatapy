@@ -11,6 +11,10 @@ from oauthlib.oauth2 import TokenExpiredError  # type: ignore[import-untyped]
 from playerdatapy.auth.authorisation_code_flow import AuthorisationCodeFlow
 from playerdatapy.auth.authorisation_code_flow_pcke import AuthorisationCodeFlowPCKE
 from playerdatapy.auth.client_credentials_flow import ClientCredentialsFlow
+from playerdatapy.auth.device_authorization_flow import (
+    DeviceAuthorizationFlow,
+    DevicePromptHandler,
+)
 from playerdatapy.auth.token_storage import default_token_path
 from playerdatapy.constants import API_BASE_URL
 
@@ -19,6 +23,7 @@ class AuthenticationType(Enum):
     AUTHORISATION_CODE_FLOW = "authorisation_code_flow"
     AUTHORISATION_CODE_FLOW_PCKE = "authorisation_code_flow_pcke"
     CLIENT_CREDENTIALS_FLOW = "client_credentials_flow"
+    DEVICE_FLOW = "device_flow"
 
 
 class GraphqlAuth:
@@ -35,6 +40,7 @@ class GraphqlAuth:
         port: int = 8888,
         type: AuthenticationType = AuthenticationType.AUTHORISATION_CODE_FLOW,
         base_url: Optional[str] = None,
+        device_prompt: Optional[DevicePromptHandler] = None,
     ):
         self.client_id = client_id
         self.token_file: Path = Path(token_file) if token_file else default_token_path()
@@ -44,6 +50,7 @@ class GraphqlAuth:
         self.redirect_uri = redirect_uri
         self.port = port
         self.api_base_url = base_url or API_BASE_URL
+        self.device_prompt = device_prompt
         self.authenticated_session = self._get_authenticated_session()
 
     def _get_authenticated_session(self):
@@ -66,6 +73,13 @@ class GraphqlAuth:
                     self.client_secret,
                     self.token_file,
                     self.api_base_url,
+                )
+            case AuthenticationType.DEVICE_FLOW:
+                self.authenticator = DeviceAuthorizationFlow(
+                    self.client_id,
+                    self.token_file,
+                    self.api_base_url,
+                    on_prompt=self.device_prompt,
                 )
 
         try:
