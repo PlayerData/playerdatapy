@@ -633,6 +633,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#device-flow-python-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Device flow — Python SDK
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#authorisation-code-flow-manual-any-language" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3232,6 +3243,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#device-flow-python-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Device flow — Python SDK
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#authorisation-code-flow-manual-any-language" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3391,7 +3413,7 @@
 <li>Refresh proactively before expiry</li>
 </ul>
 <h2 id="flows-in-playerdatapy">Flows in <code>playerdatapy</code><a class="headerlink" href="#flows-in-playerdatapy" title="Permanent link">&para;</a></h2>
-<p>Three OAuth2 flows supported via <code>playerdatapy.gqlauth.AuthenticationType</code>:</p>
+<p>Four OAuth2 flows supported via <code>playerdatapy.gqlauth.AuthenticationType</code>:</p>
 <table>
 <thead>
 <tr>
@@ -3411,6 +3433,10 @@
 <tr>
 <td><code>CLIENT_CREDENTIALS_FLOW</code></td>
 <td>Backend-to-backend</td>
+</tr>
+<tr>
+<td><code>DEVICE_FLOW</code></td>
+<td>Headless machines with no local browser — user approves on another device</td>
 </tr>
 </tbody>
 </table>
@@ -3449,39 +3475,49 @@
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">)</span>
 </code></pre></div>
 <p>SDK opens a browser, captures the redirect, exchanges code → token, stores it. Override the storage path with <code>token_file=</code>.</p>
+<h2 id="device-flow-python-sdk">Device flow — Python SDK<a class="headerlink" href="#device-flow-python-sdk" title="Permanent link">&para;</a></h2>
+<p>For headless machines with no local browser. The SDK requests a code, prints a URL and short user code to approve in a browser on any device, and polls until a token is issued.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">playerdatapy.gqlauth</span><span class="w"> </span><span class="kn">import</span> <span class="n">GraphqlAuth</span><span class="p">,</span> <span class="n">AuthenticationType</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">auth</span> <span class="o">=</span> <span class="n">GraphqlAuth</span><span class="p">(</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">client_id</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="nb">type</span><span class="o">=</span><span class="n">AuthenticationType</span><span class="o">.</span><span class="n">DEVICE_FLOW</span><span class="p">,</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">)</span>
+</code></pre></div>
+<p>The token (including a refresh token) is stored to disk like the other flows; override the path with <code>token_file=</code>.</p>
 <h2 id="authorisation-code-flow-manual-any-language">Authorisation Code flow — manual (any language)<a class="headerlink" href="#authorisation-code-flow-manual-any-language" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Send the user to:
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>https://app.playerdata.co.uk/oauth/authorize
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  ?response_type=code
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  &amp;client_id=$CLIENT_ID
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  &amp;redirect_uri=$REDIRECT_URI
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>https://app.playerdata.co.uk/oauth/authorize
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  ?response_type=code
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  &amp;client_id=$CLIENT_ID
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  &amp;redirect_uri=$REDIRECT_URI
 </code></pre></div></li>
 <li>Receive the <code>code</code> parameter on your registered redirect URI.</li>
 <li>Exchange for tokens (confidential client — include <code>client_secret</code>):
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://app.playerdata.co.uk/oauth/token<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;grant_type=authorization_code&quot;</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;code=</span><span class="nv">$CODE</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;client_id=</span><span class="nv">$CLIENT_ID</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;client_secret=</span><span class="nv">$CLIENT_SECRET</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;redirect_uri=</span><span class="nv">$REDIRECT_URI</span><span class="s2">&quot;</span>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://app.playerdata.co.uk/oauth/token<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;grant_type=authorization_code&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;code=</span><span class="nv">$CODE</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;client_id=</span><span class="nv">$CLIENT_ID</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;client_secret=</span><span class="nv">$CLIENT_SECRET</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;redirect_uri=</span><span class="nv">$REDIRECT_URI</span><span class="s2">&quot;</span>
 </code></pre></div>
    For public clients, omit <code>client_secret</code>.</li>
 <li>Refresh later:
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://app.playerdata.co.uk/oauth/token<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;grant_type=refresh_token&quot;</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;refresh_token=</span><span class="nv">$REFRESH_TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;client_id=</span><span class="nv">$CLIENT_ID</span><span class="s2">&quot;</span>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://app.playerdata.co.uk/oauth/token<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;grant_type=refresh_token&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;refresh_token=</span><span class="nv">$REFRESH_TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;client_id=</span><span class="nv">$CLIENT_ID</span><span class="s2">&quot;</span>
 </code></pre></div></li>
 </ol>
 <h2 id="pointing-at-a-different-environment">Pointing at a different environment<a class="headerlink" href="#pointing-at-a-different-environment" title="Permanent link">&para;</a></h2>
 <p>By default the SDK talks to production (<code>https://app.playerdata.co.uk</code>). To target a preview or staging environment, pass <code>base_url</code> — it sets both the GraphQL endpoint (<code>&lt;base_url&gt;/api/graphql</code>) and the OAuth endpoints (<code>&lt;base_url&gt;/oauth/token</code>, <code>&lt;base_url&gt;/oauth/authorize</code>):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">playerdatapy.playerdata_api</span><span class="w"> </span><span class="kn">import</span> <span class="n">PlayerDataAPI</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">api</span> <span class="o">=</span> <span class="n">PlayerDataAPI</span><span class="p">(</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="n">client_id</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://preview.playerdata.co.uk&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">playerdatapy.playerdata_api</span><span class="w"> </span><span class="kn">import</span> <span class="n">PlayerDataAPI</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">api</span> <span class="o">=</span> <span class="n">PlayerDataAPI</span><span class="p">(</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="n">client_id</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://preview.playerdata.co.uk&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="p">)</span>
 </code></pre></div>
 <p>If you'd rather not touch the call site, set environment variables instead — they supply the defaults when <code>base_url</code> is omitted:</p>
 <table>
@@ -3507,9 +3543,9 @@
 </table>
 <p>An explicit <code>base_url=</code> argument always wins over the environment variables.</p>
 <h2 id="env-vars-used-in-examples">Env vars (used in examples)<a class="headerlink" href="#env-vars-used-in-examples" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CLIENT_ID</span><span class="o">=</span>your_client_id
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CLIENT_SECRET</span><span class="o">=</span>your_client_secret
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CLUB_ID</span><span class="o">=</span>your_club_id
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CLIENT_ID</span><span class="o">=</span>your_client_id
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CLIENT_SECRET</span><span class="o">=</span>your_client_secret
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CLUB_ID</span><span class="o">=</span>your_club_id
 </code></pre></div>
 
 
