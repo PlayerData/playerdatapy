@@ -141,6 +141,8 @@ auth = GraphqlAuth(
 )
 ```
 
+Confidential clients must also pass `client_secret="..."` — it is sent on both the device-code request and each token poll. Public clients omit it.
+
 The token (including a refresh token) is stored to disk like the other flows; override the path with `token_file=`.
 
 ## Authorisation Code flow — manual (any language)
