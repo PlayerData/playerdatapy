@@ -66,6 +66,9 @@ class DeviceAuthorizationFlow(BaseAuthFlow):
 
     ``on_prompt`` receives the :class:`DeviceAuthorization` so a caller can
     surface the code however it likes (GUI, log, etc.); it defaults to printing.
+
+    Confidential clients must pass ``client_secret``; public clients leave it
+    empty and only ``client_id`` is sent.
     """
 
     def __init__(
@@ -75,9 +78,11 @@ class DeviceAuthorizationFlow(BaseAuthFlow):
         base_url: Optional[str] = None,
         scope: str = DEFAULT_SCOPE,
         on_prompt: Optional[DevicePromptHandler] = None,
+        client_secret: str = "",
     ):
         super().__init__(client_id, token_file, base_url)
         self.scope = scope
+        self.client_secret = client_secret
         self._on_prompt: DevicePromptHandler = on_prompt or default_device_prompt
 
     def authenticate(self, redirect_uri: Optional[str] = None) -> dict:
@@ -97,10 +102,15 @@ class DeviceAuthorizationFlow(BaseAuthFlow):
     def _request_device_code(self) -> DeviceAuthorization:
         response = httpx.post(
             f"{self.api_base_url}/oauth/authorize_device",
-            data={"client_id": self.client_id, "scope": self.scope},
+            data={**self._client_params(), "scope": self.scope},
         )
         response.raise_for_status()
         return DeviceAuthorization.from_response(response.json())
+
+    def _client_params(self) -> dict:
+        if self.client_secret:
+            return {"client_id": self.client_id, "client_secret": self.client_secret}
+        return {"client_id": self.client_id}
 
     def _poll_for_token(self, authorization: DeviceAuthorization) -> dict:
         interval = authorization.interval
@@ -113,7 +123,7 @@ class DeviceAuthorizationFlow(BaseAuthFlow):
                 data={
                     "grant_type": DEVICE_CODE_GRANT_TYPE,
                     "device_code": authorization.device_code,
-                    "client_id": self.client_id,
+                    **self._client_params(),
                 },
             )
 

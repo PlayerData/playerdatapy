@@ -61,7 +61,39 @@ class TestGraphqlAuth:
         assert auth.authentication_type == AuthenticationType.DEVICE_FLOW
         assert auth.authenticator == mock_authenticator
         mock_flow_class.assert_called_once_with(
-            "test_client", default_token_path(), API_BASE_URL, on_prompt=None
+            "test_client",
+            default_token_path(),
+            API_BASE_URL,
+            on_prompt=None,
+            client_secret="",
+        )
+
+    @patch("playerdatapy.gqlauth.OAuth2Session")
+    @patch("playerdatapy.gqlauth.DeviceAuthorizationFlow")
+    def test_init_device_flow_with_client_secret(
+        self, mock_flow_class, mock_session_class
+    ):
+        """Test GraphqlAuth passes client_secret through to DEVICE_FLOW."""
+        mock_authenticator = MagicMock()
+        mock_authenticator.get_token.return_value = {"access_token": "test_token"}
+        mock_flow_class.return_value = mock_authenticator
+
+        mock_session = MagicMock()
+        mock_session.token = {"access_token": "test_token"}
+        mock_session_class.return_value = mock_session
+
+        GraphqlAuth(
+            client_id="test_client",
+            client_secret="test_secret",
+            type=AuthenticationType.DEVICE_FLOW,
+        )
+
+        mock_flow_class.assert_called_once_with(
+            "test_client",
+            default_token_path(),
+            API_BASE_URL,
+            on_prompt=None,
+            client_secret="test_secret",
         )
 
     @patch("playerdatapy.gqlauth.OAuth2Session")

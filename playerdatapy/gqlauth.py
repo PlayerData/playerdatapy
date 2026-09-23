@@ -80,6 +80,7 @@ class GraphqlAuth:
                     self.token_file,
                     self.api_base_url,
                     on_prompt=self.device_prompt,
+                    client_secret=self.client_secret,
                 )
 
         try:

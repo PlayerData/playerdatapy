@@ -40,6 +40,7 @@ class TestDeviceAuthorizationFlow:
         assert flow.client_id == "test_client"
         assert flow.token_file == Path(".test_token")
         assert flow.scope == "public"
+        assert flow.client_secret == ""
         assert flow.oauth_session is None
 
     @patch("playerdatapy.auth.device_authorization_flow.time.sleep")
@@ -86,6 +87,40 @@ class TestDeviceAuthorizationFlow:
             assert "expires_at" in result
             saved = json.loads(Path(token_file).read_text())
             assert saved["access_token"] == "the-token"
+        finally:
+            if os.path.exists(token_file):
+                os.remove(token_file)
+
+    @patch("playerdatapy.auth.device_authorization_flow.time.sleep")
+    @patch("playerdatapy.auth.device_authorization_flow.httpx.post")
+    def test_authenticate_sends_client_secret_when_set(self, mock_post, _mock_sleep):
+        mock_post.side_effect = [
+            _response(DEVICE_CODE_RESPONSE),
+            _response({"access_token": "tok", "expires_in": 7200}),
+        ]
+
+        with tempfile.NamedTemporaryFile(mode="w", delete=False, suffix=".token") as f:
+            token_file = f.name
+
+        try:
+            flow = DeviceAuthorizationFlow(
+                client_id="test_client",
+                token_file=token_file,
+                client_secret="test_secret",
+            )
+            flow.authenticate()
+
+            assert mock_post.call_args_list[0].kwargs["data"] == {
+                "client_id": "test_client",
+                "client_secret": "test_secret",
+                "scope": "public",
+            }
+            assert mock_post.call_args_list[1].kwargs["data"] == {
+                "grant_type": "urn:ietf:params:oauth:grant-type:device_code",
+                "device_code": "device-code-123",
+                "client_id": "test_client",
+                "client_secret": "test_secret",
+            }
         finally:
             if os.path.exists(token_file):
                 os.remove(token_file)
