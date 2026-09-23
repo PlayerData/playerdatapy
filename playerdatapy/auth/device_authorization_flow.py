@@ -104,8 +104,23 @@ class DeviceAuthorizationFlow(BaseAuthFlow):
             f"{self.api_base_url}/oauth/authorize_device",
             data={**self._client_params(), "scope": self.scope},
         )
-        response.raise_for_status()
+        if not response.is_success:
+            raise DeviceAuthorizationError(
+                f"Device authorisation failed: {self._describe_error(response)}"
+            )
         return DeviceAuthorization.from_response(response.json())
+
+    @staticmethod
+    def _describe_error(response: httpx.Response) -> str:
+        try:
+            body = response.json()
+        except ValueError:
+            body = None
+        if not isinstance(body, dict) or not body.get("error"):
+            return f"HTTP {response.status_code}"
+        if body.get("error_description"):
+            return f"{body['error']} ({body['error_description']})"
+        return body["error"]
 
     def _client_params(self) -> dict:
         if self.client_secret:

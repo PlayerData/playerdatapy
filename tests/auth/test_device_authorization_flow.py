@@ -26,7 +26,6 @@ def _response(json_data, is_success=True):
     response = MagicMock()
     response.is_success = is_success
     response.json.return_value = json_data
-    response.raise_for_status.return_value = None
     return response
 
 
@@ -165,6 +164,41 @@ class TestDeviceAuthorizationFlow:
         )
 
         with pytest.raises(DeviceAuthorizationError, match="access_denied"):
+            flow.authenticate()
+
+    @patch("playerdatapy.auth.device_authorization_flow.httpx.post")
+    def test_device_code_request_raises_on_invalid_client(self, mock_post):
+        mock_post.return_value = _response(
+            {
+                "error": "invalid_client",
+                "error_description": "Client authentication failed.",
+            },
+            is_success=False,
+        )
+
+        flow = DeviceAuthorizationFlow(
+            client_id="test_client", token_file=".test_token"
+        )
+
+        with pytest.raises(
+            DeviceAuthorizationError,
+            match=r"invalid_client \(Client authentication failed\.\)",
+        ):
+            flow.authenticate()
+        assert mock_post.call_count == 1
+
+    @patch("playerdatapy.auth.device_authorization_flow.httpx.post")
+    def test_device_code_request_raises_on_non_json_error(self, mock_post):
+        response = _response(None, is_success=False)
+        response.status_code = 502
+        response.json.side_effect = json.JSONDecodeError("Expecting value", "", 0)
+        mock_post.return_value = response
+
+        flow = DeviceAuthorizationFlow(
+            client_id="test_client", token_file=".test_token"
+        )
+
+        with pytest.raises(DeviceAuthorizationError, match="HTTP 502"):
             flow.authenticate()
 
     def test_with_expiry_adds_expires_at(self):
