@@ -27,6 +27,24 @@ class AcceptTermsOfUsePayloadGraphQLField(GraphQLField):
         return self
 
 
+class AcuteChronicLoadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "AcuteChronicLoadGraphQLField":
+        self._alias = alias
+        return self
+
+
+class AcuteChronicLoadAthleteGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "AcuteChronicLoadAthleteGraphQLField":
+        self._alias = alias
+        return self
+
+
+class AcuteChronicLoadBandGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "AcuteChronicLoadBandGraphQLField":
+        self._alias = alias
+        return self
+
+
 class AddAthleteGroupPayloadGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "AddAthleteGroupPayloadGraphQLField":
         self._alias = alias
@@ -165,6 +183,18 @@ class AthleteLabelledDecelzonesGraphQLField(GraphQLField):
 
 class AthleteLabelledHeartRateBoundsGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "AthleteLabelledHeartRateBoundsGraphQLField":
+        self._alias = alias
+        return self
+
+
+class AthleteLabelledIMUAccelzonesGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "AthleteLabelledIMUAccelzonesGraphQLField":
+        self._alias = alias
+        return self
+
+
+class AthleteLabelledIMUDecelzonesGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "AthleteLabelledIMUDecelzonesGraphQLField":
         self._alias = alias
         return self
 
@@ -511,6 +541,12 @@ class CreateFlexibleReportPayloadGraphQLField(GraphQLField):
         return self
 
 
+class CreateFlexibleReportTemplatePayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "CreateFlexibleReportTemplatePayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
 class CreateImportPayloadGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "CreateImportPayloadGraphQLField":
         self._alias = alias
@@ -747,6 +783,18 @@ class DeleteHeartRateBoundsPayloadGraphQLField(GraphQLField):
         return self
 
 
+class DeleteIMUAccelzonesPayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "DeleteIMUAccelzonesPayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
+class DeleteIMUDecelzonesPayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "DeleteIMUDecelzonesPayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
 class DeleteSessionTargetsPayloadGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "DeleteSessionTargetsPayloadGraphQLField":
         self._alias = alias
@@ -979,6 +1027,12 @@ class EndEdgeOwnershipPayloadGraphQLField(GraphQLField):
         return self
 
 
+class EventGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "EventGraphQLField":
+        self._alias = alias
+        return self
+
+
 class ExamplePromptGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "ExamplePromptGraphQLField":
         self._alias = alias
@@ -1097,6 +1151,36 @@ class HeartratePeripheralDisconnectedGraphQLField(GraphQLField):
         return self
 
 
+class HubspotSubscriptionGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "HubspotSubscriptionGraphQLField":
+        self._alias = alias
+        return self
+
+
+class IMUAccelzoneLowerBoundsGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "IMUAccelzoneLowerBoundsGraphQLField":
+        self._alias = alias
+        return self
+
+
+class IMUAccelzonesPayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "IMUAccelzonesPayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
+class IMUDecelzoneLowerBoundsGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "IMUDecelzoneLowerBoundsGraphQLField":
+        self._alias = alias
+        return self
+
+
+class IMUDecelzonesPayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "IMUDecelzonesPayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
 class IntMetricValueGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "IntMetricValueGraphQLField":
         self._alias = alias
@@ -1151,6 +1235,12 @@ class MarkAppMessageReadPayloadGraphQLField(GraphQLField):
 
 class MarkMultipleAppMessagesReadPayloadGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "MarkMultipleAppMessagesReadPayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
+class MarkedPitchCornerGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "MarkedPitchCornerGraphQLField":
         self._alias = alias
         return self
 
@@ -1327,6 +1417,18 @@ class OrganisationPersonGraphQLField(GraphQLField):
         return self
 
 
+class OutstandingSurveyAthleteGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "OutstandingSurveyAthleteGraphQLField":
+        self._alias = alias
+        return self
+
+
+class OutstandingSurveyResponsesGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "OutstandingSurveyResponsesGraphQLField":
+        self._alias = alias
+        return self
+
+
 class PageGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "PageGraphQLField":
         self._alias = alias
@@ -1421,6 +1523,12 @@ class PersonalBestsGraphQLField(GraphQLField):
         return self
 
 
+class PhaseMatchEventGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "PhaseMatchEventGraphQLField":
+        self._alias = alias
+        return self
+
+
 class PitchGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "PitchGraphQLField":
         self._alias = alias
@@ -1453,6 +1561,12 @@ class PitchDefinitionGraphQLField(GraphQLField):
 
 class PitchDetectedSubscriptionPayloadGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "PitchDetectedSubscriptionPayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
+class PoseSectionGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "PoseSectionGraphQLField":
         self._alias = alias
         return self
 
@@ -1619,6 +1733,12 @@ class RequestRawDataExportPayloadGraphQLField(GraphQLField):
         return self
 
 
+class RequestSessionRawDataExportPayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "RequestSessionRawDataExportPayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
 class ResendConfirmationEmailPayloadGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "ResendConfirmationEmailPayloadGraphQLField":
         self._alias = alias
@@ -1631,14 +1751,14 @@ class ResendReportPayloadGraphQLField(GraphQLField):
         return self
 
 
-class RespondToDetectedMatchEventPayloadGraphQLField(GraphQLField):
-    def alias(self, alias: str) -> "RespondToDetectedMatchEventPayloadGraphQLField":
+class RespondToDetectedMatchEventsPayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "RespondToDetectedMatchEventsPayloadGraphQLField":
         self._alias = alias
         return self
 
 
-class RespondToDetectedMatchEventsPayloadGraphQLField(GraphQLField):
-    def alias(self, alias: str) -> "RespondToDetectedMatchEventsPayloadGraphQLField":
+class RespondToEventsPayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "RespondToEventsPayloadGraphQLField":
         self._alias = alias
         return self
 
@@ -1681,6 +1801,12 @@ class RotateLiveDataKeysPayloadGraphQLField(GraphQLField):
 
 class SegmentGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "SegmentGraphQLField":
+        self._alias = alias
+        return self
+
+
+class SegmentInterfaceGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "SegmentInterfaceGraphQLField":
         self._alias = alias
         return self
 
@@ -1791,6 +1917,12 @@ class SessionMetricsUpdatedSubscriptionPayloadGraphQLField(GraphQLField):
         return self
 
 
+class SessionNeedingDataGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "SessionNeedingDataGraphQLField":
+        self._alias = alias
+        return self
+
+
 class SessionParticipationGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "SessionParticipationGraphQLField":
         self._alias = alias
@@ -1885,6 +2017,12 @@ class SportDefinitionGraphQLField(GraphQLField):
 
 class StaffGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "StaffGraphQLField":
+        self._alias = alias
+        return self
+
+
+class StalledUploadStorageGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "StalledUploadStorageGraphQLField":
         self._alias = alias
         return self
 
@@ -2007,6 +2145,12 @@ class TargetTemplateGraphQLField(GraphQLField):
 
 class TargetableMetricBaselineGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "TargetableMetricBaselineGraphQLField":
+        self._alias = alias
+        return self
+
+
+class TelestrationPointGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "TelestrationPointGraphQLField":
         self._alias = alias
         return self
 
@@ -2139,6 +2283,12 @@ class UpdateAthleteGroupPayloadGraphQLField(GraphQLField):
 
 class UpdateAthletePayloadGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "UpdateAthletePayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
+class UpdateCameraOwnershipPayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "UpdateCameraOwnershipPayloadGraphQLField":
         self._alias = alias
         return self
 
@@ -2387,6 +2537,12 @@ class UserPreferenceGraphQLField(GraphQLField):
         return self
 
 
+class UserSegmentGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "UserSegmentGraphQLField":
+        self._alias = alias
+        return self
+
+
 class ValidationErrorGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "ValidationErrorGraphQLField":
         self._alias = alias
@@ -2407,6 +2563,12 @@ class VideoClipGraphQLField(GraphQLField):
 
 class VideoClipOverlayGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "VideoClipOverlayGraphQLField":
+        self._alias = alias
+        return self
+
+
+class VideoClipTelestrationGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "VideoClipTelestrationGraphQLField":
         self._alias = alias
         return self
 
@@ -2443,6 +2605,12 @@ class VideoStorageGraphQLField(GraphQLField):
 
 class VideoStreamGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "VideoStreamGraphQLField":
+        self._alias = alias
+        return self
+
+
+class VideoThumbnailGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "VideoThumbnailGraphQLField":
         self._alias = alias
         return self
 
