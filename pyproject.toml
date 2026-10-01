@@ -14,6 +14,13 @@ dependencies = [
     "requests-oauthlib>=2.0.0",
 ]
 
+[tool.uv]
+constraint-dependencies = [
+    # CVE-2026-97687/97688/97689: pull the transitive urllib3 dep
+    # (requests-oauthlib -> requests -> urllib3) up to the patched release.
+    "urllib3>=2.8.0",
+]
+
 [dependency-groups]
 codegen = [
     "ariadne-codegen>=0.19.a1",
