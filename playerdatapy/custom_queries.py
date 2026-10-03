@@ -321,18 +321,16 @@ class Query:
     @classmethod
     def feature(
         cls,
+        name_enum: FeatureNameEnum,
         *,
         club_id: Optional[str] = None,
-        name: Optional[str] = None,
-        name_enum: Optional[FeatureNameEnum] = None,
         platform: Optional[Platform] = None,
         version: Optional[str] = None,
     ) -> FeatureCheckFields:
         """Check if a feature is available"""
         arguments: dict[str, dict[str, Any]] = {
             "clubId": {"type": "ID", "value": club_id},
-            "name": {"type": "String", "value": name},
-            "nameEnum": {"type": "FeatureNameEnum", "value": name_enum},
+            "nameEnum": {"type": "FeatureNameEnum!", "value": name_enum},
             "platform": {"type": "Platform", "value": platform},
             "version": {"type": "String", "value": version},
         }
@@ -348,6 +346,7 @@ class Query:
         project: FirmwareProject,
         *,
         build_profile: Optional[FirmwareBuildProfile] = None,
+        club_id: Optional[str] = None,
         feature_variant: Optional[FirmwareFeatureVariant] = None,
         variant: Optional[FirmwareVariant] = None,
     ) -> FirmwareVersionFields:
@@ -355,6 +354,7 @@ class Query:
         arguments: dict[str, dict[str, Any]] = {
             "boardName": {"type": "FirmwareBoardName!", "value": board_name},
             "buildProfile": {"type": "FirmwareBuildProfile", "value": build_profile},
+            "clubId": {"type": "ID", "value": club_id},
             "featureVariant": {
                 "type": "FirmwareFeatureVariant",
                 "value": feature_variant,

@@ -10,12 +10,26 @@ class ActiveFirmwareBoardName(str, Enum):
     playerdata_anchor_v6_0_3 = "playerdata_anchor_v6_0_3"
     playerdata_ball_v1_0_2 = "playerdata_ball_v1_0_2"
     playerdata_ball_v1_1_0 = "playerdata_ball_v1_1_0"
+    playerdata_camera_v0_1_0 = "playerdata_camera_v0_1_0"
     playerdata_edge_v2_0_8 = "playerdata_edge_v2_0_8"
     playerdata_edge_v2_1_1 = "playerdata_edge_v2_1_1"
     playerdata_edge_v3_1_0 = "playerdata_edge_v3_1_0"
     playerdata_gateway_v2_0_3_nrf5340_cpuapp = (
         "playerdata_gateway_v2_0_3_nrf5340_cpuapp"
     )
+
+
+class AcuteChronicLoadBandKeyEnum(str, Enum):
+    """Acute:chronic workload ratio band"""
+
+    AT_RISK = "AT_RISK"
+    "Elevated injury risk"
+    CAUTION = "CAUTION"
+    "Approaching an elevated injury risk"
+    OPTIMAL = "OPTIMAL"
+    "Within the optimal training load"
+    UNDER = "UNDER"
+    "Below the optimal training load"
 
 
 class AggFuncEnum(str, Enum):
@@ -70,6 +84,13 @@ class AppMessageTypeEnum(str, Enum):
     )
     SurveyCompleted = "SurveyCompleted"
     SurveyReminder = "SurveyReminder"
+
+
+class AssignableRoleEnum(str, Enum):
+    """Roles that can be granted to or revoked from a member"""
+
+    billing_manager = "billing_manager"
+    org_admin = "org_admin"
 
 
 class BulkActionEnum(str, Enum):
@@ -244,6 +265,17 @@ class CustomMaxMetricEnum(str, Enum):
     "Top speed in km/h"
 
 
+class DataTypeEnum(str, Enum):
+    """A kind of data recorded during a session"""
+
+    ECG = "ECG"
+    GPS = "GPS"
+    HR = "HR"
+    IMU = "IMU"
+    LPS = "LPS"
+    VIDEO = "VIDEO"
+
+
 class DatafileFormat(str, Enum):
     json = "json"
     raw = "raw"
@@ -344,27 +376,89 @@ class EdgeOwnerType(str, Enum):
     Person = "Person"
 
 
+class EventGroupEnum(str, Enum):
+    """Display group a timeline event category belongs to"""
+
+    GAME = "GAME"
+    "Discrete game event"
+    PLAY = "PLAY"
+    "Phase of play"
+
+
+class EventIconEnum(str, Enum):
+    """Icon identifier used to represent a timeline event category"""
+
+    ATTACKING = "ATTACKING"
+    CONVERSION = "CONVERSION"
+    CORNER = "CORNER"
+    DEFENDING = "DEFENDING"
+    DROP_KICK = "DROP_KICK"
+    FOOTBALL = "FOOTBALL"
+    FREE_HIT = "FREE_HIT"
+    HOCKEY_GOAL = "HOCKEY_GOAL"
+    LONG_CORNER = "LONG_CORNER"
+    PENALTY = "PENALTY"
+    PENALTY_KICK = "PENALTY_KICK"
+    PENALTY_STROKE = "PENALTY_STROKE"
+    PLAYER_CARD = "PLAYER_CARD"
+    SHORT_PENALTY_CORNER = "SHORT_PENALTY_CORNER"
+    SUB_OFF = "SUB_OFF"
+    SUB_ON = "SUB_ON"
+    THROW_IN = "THROW_IN"
+    TRANSITIONS = "TRANSITIONS"
+    TRY = "TRY"
+    WHISTLE = "WHISTLE"
+
+
+class EventSlugEnum(str, Enum):
+    """Stable semantic key identifying a timeline event category"""
+
+    ATTACKING = "ATTACKING"
+    CONVERSION = "CONVERSION"
+    CORNER = "CORNER"
+    DEFENDING = "DEFENDING"
+    DROPKICK = "DROPKICK"
+    FREEHIT = "FREEHIT"
+    FREEKICK = "FREEKICK"
+    GOAL = "GOAL"
+    GREENCARD = "GREENCARD"
+    LONGCORNER = "LONGCORNER"
+    PENALTY = "PENALTY"
+    PLAYERRETURN = "PLAYERRETURN"
+    REDCARD = "REDCARD"
+    SHORTCORNER = "SHORTCORNER"
+    SUBOFF = "SUBOFF"
+    SUBON = "SUBON"
+    THROWIN = "THROWIN"
+    TOUCHDOWN = "TOUCHDOWN"
+    TRANSITION = "TRANSITION"
+    TRY = "TRY"
+    YELLOWCARD = "YELLOWCARD"
+
+
 class FeatureNameEnum(str, Enum):
     """An enum of all the features that can be enabled/disabled"""
 
     activestorage_seaweedfs_cache = "activestorage_seaweedfs_cache"
-    "When enabled, ActiveStorage uses SeaweedFS as an in-cluster read-through cache:\nuploads/deletes are duplicated from GCS to SeaweedFS, and reads (download,\nexist?, internal_url) prefer SeaweedFS and fall back to GCS. When disabled,\nall storage operations go straight to GCS."
+    "When enabled, ActiveStorage uses SeaweedFS as an in-cluster read-through cache:\nreads (download, exist?, internal_url) prefer SeaweedFS and fall back to GCS.\nWhen disabled, all storage operations go straight to GCS. Evaluated per blob\nkey rather than per club or organisation, so a percentage rule enrols that\nshare of blobs; club, organisation and group rules read as disabled."
     allow_font_scaling = "allow_font_scaling"
     "Enables scaling fonts for accessibility"
     anonymise_data_pipeline_enabled = "anonymise_data_pipeline_enabled"
     "Enables the anonymisation of session data on data recording addition"
+    app_theme_rework = "app_theme_rework"
+    "Enables the theme selector for previewing new app theme(s)"
     auto_gateway_assignment = "auto_gateway_assignment"
     "Enables processing of gateway assignments received from the gateway assignment pipeline"
     auto_pitch_detection = "auto_pitch_detection"
     "Enables auto pitch detection (deprecated)"
-    bad_data_clipping = "bad_data_clipping"
-    "Enables the bad data clipping feature in the web application"
     ball_metrics = "ball_metrics"
     "Enables ball metrics"
     browser_report_gen = "browser_report_gen"
     "Enable report generation in the browser"
     bt_hr_sensor_pairing = "bt_hr_sensor_pairing"
     "Enables setting up an edge to pair with a HR sensor"
+    camera_screens_v2 = "camera_screens_v2"
+    "Enables the v2 camera screens"
     camera_upload = "camera_upload"
     "Enables camera upload from app"
     club_onboarding_flow = "club_onboarding_flow"
@@ -383,30 +477,34 @@ class FeatureNameEnum(str, Enum):
     "Enables csv reporting options"
     custom_survey_questions = "custom_survey_questions"
     "Enables custom survey questions"
+    dashboard_rework = "dashboard_rework"
+    "Enables the reworked answer-first dashboard"
     data_recording_preprocessing = "data_recording_preprocessing"
     "Enables the data recording preprocessing pipeline (transforms raw sensor data\nindependently of session-level analysis)"
+    detect_events = "detect_events"
+    "Gates the FetchDetectedEventsJobAsync analysis job. When disabled, the job is\nskipped and no detector-generated events are ingested."
     device_management_v2 = "device_management_v2"
     "Enables the unified device management screen (edges, balls, gateways, anchors in one place)"
     edge_scheduled_wakeup = "edge_scheduled_wakeup"
     "Enables scheduled wakeup of edge devices"
     enhanced_settings = "enhanced_settings"
     "Enables the enhanced settings screens (Manage Athletes, Manage Staff, EDGE Assignment) on mobile"
+    enhanced_video_clipping = "enhanced_video_clipping"
+    "Advertises phase event definitions (attacking / defending / transitional) on\nmatchDefinitions.events so they can be created from the video clipping UI.\nWhen disabled, those definitions are hidden and only discrete game events\nare offered."
     flexible_report_templates = "flexible_report_templates"
     "Select from templates while creating a new Flexible Report"
-    flexible_reporting_v2 = "flexible_reporting_v2"
-    "Enables flexible reporting v2"
     flexible_reports_split_duplicate_segments = (
         "flexible_reports_split_duplicate_segments"
     )
     'In flexible reports, suffixes duplicate segment titles by position (e.g. "Indy" / "Indy 2")\nso that multiple independent segments of the same type appear as separate chart columns'
     heartrate_data = "heartrate_data"
     "*Deprecated by Configurable Metrics*"
-    hubspot_integration = "hubspot_integration"
-    "Enables a variety of integrations with the hubspot API"
     imu_motion_estimation = "imu_motion_estimation"
     "Enables motion estimation from IMU sensor data"
     individual_speed_zones = "individual_speed_zones"
     "Enables the individual speed zones feature"
+    local_video_clip_export = "local_video_clip_export"
+    "Enables downloading video clips to the device on mobile and web"
     localized_terms = "localized_terms"
     "Enables US / GB specific sports terms (e.g. match -> game)"
     match_session_parts_processing_v2 = "match_session_parts_processing_v2"
@@ -417,6 +515,8 @@ class FeatureNameEnum(str, Enum):
     "Enables the organisation Admin Panel UI for the current organisation.\nRolled out per-organisation via the rollout admin tooling."
     pitches_on_sessions = "pitches_on_sessions"
     "Enables reading & writing pitches from Sessions::Session"
+    player_video_annotations = "player_video_annotations"
+    "Enables player video annotations in the front end"
     processing_diagnostics = "processing_diagnostics"
     "Enables processing diagnostics"
     recruitment_dashboard = "recruitment_dashboard"
@@ -431,16 +531,24 @@ class FeatureNameEnum(str, Enum):
     "Enables the AI powered session creation loop"
     session_device_checks = "session_device_checks"
     "Shows the device battery checker page in a session"
+    session_event_detection = "session_event_detection"
+    "Exposes auto-generated session events (attacking / defending / transitional\nphases and other detector output) on the sessionEvents and matchEvents\nGraphQL fields. When disabled, those fields only return user-created events."
     session_group_filter = "session_group_filter"
     "Enables filtering session overview by athlete groups"
     session_quick_actions = "session_quick_actions"
     "Enables quick actions on sessions"
+    session_rework = "session_rework"
+    "Enables the reworked session experience"
     session_targets = "session_targets"
     "Enables setting targets on sessions"
+    session_video_rework = "session_video_rework"
+    "Enables the reworked match session overview that leads with the video\nplayer and clips instead of the separate playback tab"
     survey_archival = "survey_archival"
     "Enables archival of surveys"
     sync_only_recent_edges = "sync_only_recent_edges"
     "Filters edge sync list to only show edges from a specific session"
+    tablet_athlete_aggregation = "tablet_athlete_aggregation"
+    "Enables group and custom aggregation of athlete metrics on tablets"
     tablet_session_view = "tablet_session_view"
     "Enables the redesigned tablet session screen with the table-style athlete metrics overview"
     tactical_map_speed = "tactical_map_speed"
@@ -453,6 +561,10 @@ class FeatureNameEnum(str, Enum):
     "Enables coaches to upload PDF training plans that are parsed into sessions and segments"
     use_competitor_s_metrics = "use_competitor_s_metrics"
     "Enables using competitor S acceleration/deceleration metrics"
+    user_report_templates = "user_report_templates"
+    "Enables saving and selecting user-created flexible report templates."
+    video_library = "video_library"
+    "Enables the Video Library section"
     warmup_match_session = "warmup_match_session"
     "Enables warmup match session definitions"
     web_segments = "web_segments"
@@ -467,6 +579,7 @@ class FirmwareBoardName(str, Enum):
     playerdata_anchor_v6_0_3 = "playerdata_anchor_v6_0_3"
     playerdata_ball_v1_0_2 = "playerdata_ball_v1_0_2"
     playerdata_ball_v1_1_0 = "playerdata_ball_v1_1_0"
+    playerdata_camera_v0_1_0 = "playerdata_camera_v0_1_0"
     playerdata_edge_v2_0_8 = "playerdata_edge_v2_0_8"
     playerdata_edge_v2_0_81 = "playerdata_edge_v2_0_81"
     playerdata_edge_v2_0_9 = "playerdata_edge_v2_0_9"
@@ -499,6 +612,7 @@ class FirmwareFeatureVariant(str, Enum):
 class FirmwareProject(str, Enum):
     anchor = "anchor"
     anchor_factory_test = "anchor_factory_test"
+    camera = "camera"
     edge = "edge"
     edge_factory_test = "edge_factory_test"
     gateway_v2 = "gateway_v2"
@@ -549,8 +663,22 @@ class MatchEventClassEnum(str, Enum):
     """Classes of match event"""
 
     OnPitchEvent = "OnPitchEvent"
+    PhaseEvent = "PhaseEvent"
     PitchEntryEvent = "PitchEntryEvent"
     PitchExitEvent = "PitchExitEvent"
+
+
+class MatchEventProvenance(str, Enum):
+    """How the match event was created and whether the user has rejected it"""
+
+    generated_accepted = "generated_accepted"
+    "Generated by the pipeline and implicitly accepted after the user modified its segment"
+    generated_unreviewed = "generated_unreviewed"
+    "Created automatically by the event detection pipeline and not yet reviewed"
+    rejected_generated = "rejected_generated"
+    "Generated but rejected by a user as incorrect"
+    user_created = "user_created"
+    "Created directly by a user via the app"
 
 
 class MatchEventTeam(str, Enum):
@@ -565,6 +693,15 @@ class MatchSessionResult(str, Enum):
     win = "win"
 
 
+class MetricAggregationMethodEnum(str, Enum):
+    """How a metric combines across a time period."""
+
+    mean = "mean"
+    "Average values across the period"
+    total = "total"
+    "Sum values across the period"
+
+
 class OperatingMode(str, Enum):
     BatteryCritical = "BatteryCritical"
     ChargeMode = "ChargeMode"
@@ -575,7 +712,7 @@ class OperatingMode(str, Enum):
     Error = "Error"
     FirmwareUpdate = "FirmwareUpdate"
     HrPeripheralPairing = "HrPeripheralPairing"
-    Initialisation = "Initialisation"
+    Idle = "Idle"
     Powerdown = "Powerdown"
 
 
@@ -619,15 +756,18 @@ class PermissionAction(str, Enum):
     Destroy = "Destroy"
     Edit = "Edit"
     Export = "Export"
+    ExportRawData = "ExportRawData"
     Index = "Index"
     New = "New"
     Show = "Show"
     Update = "Update"
+    UpdateEmail = "UpdateEmail"
 
 
 class PermissionEnum(str, Enum):
     """An enum of all available RBAC permissions"""
 
+    access_billing = "access_billing"
     approve_pending_members = "approve_pending_members"
     create_athlete_groups = "create_athlete_groups"
     create_athletes = "create_athletes"
@@ -644,11 +784,13 @@ class PermissionEnum(str, Enum):
     manage_oauth_applications = "manage_oauth_applications"
     manage_roles = "manage_roles"
     manage_video_storage_limits = "manage_video_storage_limits"
+    merge_athletes = "merge_athletes"
     run_maintenance_tasks = "run_maintenance_tasks"
     unlock_logins = "unlock_logins"
     update_athlete_groups = "update_athlete_groups"
     update_athletes = "update_athletes"
     update_clubs = "update_clubs"
+    update_email = "update_email"
     update_members = "update_members"
     update_organisations = "update_organisations"
     update_pitches = "update_pitches"
@@ -711,16 +853,30 @@ class PreprocessingOutputFileTypeEnum(str, Enum):
 class ProcessingWarning(str, Enum):
     ANCHOR_LOCALISATION_FAILED = "ANCHOR_LOCALISATION_FAILED"
     "The anchor auto localisation process failed"
+    DATAFILE_UNAVAILABLE = "DATAFILE_UNAVAILABLE"
+    "The raw datafile could not be fetched"
     FILTERED_BY_PITCH_BOUNDS = "FILTERED_BY_PITCH_BOUNDS"
     "Provided data was (almost) entirely filtered by pitch bounds"
+    FILTERED_BY_RESAMPLING = "FILTERED_BY_RESAMPLING"
+    "Provided data was (almost) entirely filtered out by resampling"
     FILTERED_BY_SATELLITE_COUNT = "FILTERED_BY_SATELLITE_COUNT"
     "Provided data predominantly below satellite count threshold"
     FILTERED_BY_TIME = "FILTERED_BY_TIME"
     "Provided data was (almost) entirely filtered out by time bounds"
+    FILTERED_BY_TIME_FILTERS = "FILTERED_BY_TIME_FILTERS"
+    "Provided data was (almost) entirely filtered out by the session time filters"
+    FILTERED_BY_UTM_BOUNDS = "FILTERED_BY_UTM_BOUNDS"
+    "Provided data was (almost) entirely filtered out by UTM zone bounds"
+    GPS_SAMPLE_RATE_BELOW_EXPECTED = "GPS_SAMPLE_RATE_BELOW_EXPECTED"
+    "GPS was recorded below the expected sample rate while the athlete was moving"
     INSUFFICIENT_LPS_DATA_TO_LOCALISE = "INSUFFICIENT_LPS_DATA_TO_LOCALISE"
     "There was insufficient LPS data to track the athletes position"
+    INVALID_PITCH_SHAPE = "INVALID_PITCH_SHAPE"
+    "The pitch created by pitch detection was not a valid shape"
     LOW_DATA_POINTS = "LOW_DATA_POINTS"
     "Not enough high speed points to create a pitch from"
+    MIXED_SOURCE_UNRESOLVED_GPS_PREFERRED = "MIXED_SOURCE_UNRESOLVED_GPS_PREFERRED"
+    "GPS and LPS coverage could not be resolved to a dominant source, so GPS was used"
     NO_ACCELERATION_DATA = "NO_ACCELERATION_DATA"
     "There was no acceleration data in the provided file"
     NO_ANCHOR_DATA = "NO_ANCHOR_DATA"
@@ -731,8 +887,14 @@ class ProcessingWarning(str, Enum):
     "There was no delta data recorded"
     NO_EDGE_DATA = "NO_EDGE_DATA"
     "There was no data in the provided file"
+    NO_FIX_DATA = "NO_FIX_DATA"
+    "There was no positional fix data in the provided file"
     NO_GPS_DATA = "NO_GPS_DATA"
     "There was no GPS data in the provided file"
+    NO_HEARTRATE_DATA = "NO_HEARTRATE_DATA"
+    "There was no heart rate data in the provided file"
+    NO_IMU_DATA = "NO_IMU_DATA"
+    "There was no IMU data in the provided file"
     NO_LPS_DATA = "NO_LPS_DATA"
     "There was no LPS data recorded"
     NO_PITCH_DETECTED = "NO_PITCH_DETECTED"
@@ -849,8 +1011,10 @@ class RawDataExportTypeEnum(str, Enum):
 
 
 class RawDataStatusEnum(str, Enum):
-    """Availability status of a raw data type for a session participation"""
+    """Outcome of a raw data export request for a session participation"""
 
+    NOT_FOUND = "NOT_FOUND"
+    "The requested record does not exist"
     PROCESSING = "PROCESSING"
     "The data is being prepared; call again to poll until it is READY"
     READY = "READY"
@@ -894,33 +1058,60 @@ class SeriesChartTypeEnum(str, Enum):
     stackedColumn = "stackedColumn"
 
 
+class SessionDataNeedEnum(str, Enum):
+    """What a session needs before its data is complete"""
+
+    EDGE_SYNC_REQUIRED = "EDGE_SYNC_REQUIRED"
+    "An assigned Edge unit still has data to sync"
+    NO_ATHLETES_ASSIGNED = "NO_ATHLETES_ASSIGNED"
+    "The session has no athletes"
+    NO_EDGES_ASSIGNED = "NO_EDGES_ASSIGNED"
+    "The session's athletes have no Edge units assigned"
+    PARTIAL_ATHLETE_DATA = "PARTIAL_ATHLETE_DATA"
+    "Some of the session's athletes have no data"
+
+
 class SessionParticipationWarningCodes(str, Enum):
     """The codes for the warnings"""
 
     ANCHOR_LOCALISATION_FAILED = "ANCHOR_LOCALISATION_FAILED"
     "The anchor auto localisation process failed"
+    DATAFILE_UNAVAILABLE = "DATAFILE_UNAVAILABLE"
+    "The raw datafile could not be fetched"
     EDGE_SYNC_REQUIRED = "EDGE_SYNC_REQUIRED"
     "Session has data syncs but one or more has no data file."
     FILTERED_BY_PITCH_BOUNDS = "FILTERED_BY_PITCH_BOUNDS"
     "Provided data was (almost) entirely filtered by pitch bounds"
+    FILTERED_BY_RESAMPLING = "FILTERED_BY_RESAMPLING"
+    "Provided data was (almost) entirely filtered out by resampling"
     FILTERED_BY_SATELLITE_COUNT = "FILTERED_BY_SATELLITE_COUNT"
     "Provided data predominantly below satellite count threshold"
     FILTERED_BY_TIME = "FILTERED_BY_TIME"
     "Provided data was (almost) entirely filtered out by time bounds"
+    FILTERED_BY_TIME_FILTERS = "FILTERED_BY_TIME_FILTERS"
+    "Provided data was (almost) entirely filtered out by the session time filters"
+    FILTERED_BY_UTM_BOUNDS = "FILTERED_BY_UTM_BOUNDS"
+    "Provided data was (almost) entirely filtered out by UTM zone bounds"
     FUTURE_SESSION = "FUTURE_SESSION"
     "Session start time is in the future."
     GATEWAY_ASSIGNABLE = "GATEWAY_ASSIGNABLE"
     "The session is in progress and a gateway can be assigned."
     GATEWAY_NOT_CONNECTED = "GATEWAY_NOT_CONNECTED"
     "The Gateway has not connected to the network."
+    GPS_SAMPLE_RATE_BELOW_EXPECTED = "GPS_SAMPLE_RATE_BELOW_EXPECTED"
+    "GPS was recorded below the expected sample rate while the athlete was moving"
     INSUFFICIENT_LPS_DATA_TO_LOCALISE = "INSUFFICIENT_LPS_DATA_TO_LOCALISE"
     "There was insufficient LPS data to track the athletes position"
+    INVALID_PITCH_SHAPE = "INVALID_PITCH_SHAPE"
+    "The pitch created by pitch detection was not a valid shape"
     LIVE_INDOOR_SESSION = "LIVE_INDOOR_SESSION"
     "Live indoor session's are not supported."
     LIVE_SESSION_DATA_GAPS = "LIVE_SESSION_DATA_GAPS"
     "The session has gaps in data coverage that require edge sync."
     LOW_DATA_POINTS = "LOW_DATA_POINTS"
     "Not enough high speed points to create a pitch from"
+    MIXED_SOURCE_UNRESOLVED_GPS_PREFERRED = "MIXED_SOURCE_UNRESOLVED_GPS_PREFERRED"
+    "GPS and LPS coverage could not be resolved to a dominant source, so GPS was used"
     NO_ACCELERATION_DATA = "NO_ACCELERATION_DATA"
     "There was no acceleration data in the provided file"
     NO_ANCHOR_DATA = "NO_ANCHOR_DATA"
@@ -935,10 +1126,16 @@ class SessionParticipationWarningCodes(str, Enum):
     "Session has no data recordings."
     NO_EDGE_DATA = "NO_EDGE_DATA"
     "There was no data in the provided file"
+    NO_FIX_DATA = "NO_FIX_DATA"
+    "There was no positional fix data in the provided file"
     NO_GATEWAY_DATA = "NO_GATEWAY_DATA"
     "No data has been received from the Gateway."
     NO_GPS_DATA = "NO_GPS_DATA"
     "There was no GPS data in the provided file"
+    NO_HEARTRATE_DATA = "NO_HEARTRATE_DATA"
+    "There was no heart rate data in the provided file"
+    NO_IMU_DATA = "NO_IMU_DATA"
+    "There was no IMU data in the provided file"
     NO_LPS_DATA = "NO_LPS_DATA"
     "There was no LPS data recorded"
     NO_PITCH_DETECTED = "NO_PITCH_DETECTED"
@@ -1105,14 +1302,6 @@ class TargetAssignableTypeEnum(str, Enum):
     ATHLETE = "ATHLETE"
 
 
-class TargetStatusEnum(str, Enum):
-    """The outcome status of a session target relative to the recorded value"""
-
-    ABOVE = "ABOVE"
-    BELOW = "BELOW"
-    WITHIN = "WITHIN"
-
-
 class TargetTargetableTypeEnum(str, Enum):
     """The type of record a session target can be attached to"""
 
@@ -1124,6 +1313,23 @@ class TargetTypeEnum(str, Enum):
 
     ABSOLUTE_RANGE = "ABSOLUTE_RANGE"
     PERCENTAGE_RANGE = "PERCENTAGE_RANGE"
+
+
+class TelestrationShape(str, Enum):
+    """The kind of telestration shape drawn on a video clip"""
+
+    Arrow = "Arrow"
+    Circle = "Circle"
+    Freehand = "Freehand"
+    Line = "Line"
+
+
+class Theme(str, Enum):
+    """The available UI themes a person can select"""
+
+    dark = "dark"
+    legacy = "legacy"
+    light = "light"
 
 
 class TopicTypeEnum(str, Enum):
