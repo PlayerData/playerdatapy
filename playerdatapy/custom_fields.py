@@ -8,6 +8,9 @@ from .custom_typing_fields import (
     AccelzonesPayloadGraphQLField,
     AcceptPrivacyPolicyPayloadGraphQLField,
     AcceptTermsOfUsePayloadGraphQLField,
+    AcuteChronicLoadAthleteGraphQLField,
+    AcuteChronicLoadBandGraphQLField,
+    AcuteChronicLoadGraphQLField,
     AddAthleteGroupPayloadGraphQLField,
     AddExistingPersonToClubPayloadGraphQLField,
     AddNewPersonToClubPayloadGraphQLField,
@@ -30,12 +33,15 @@ from .custom_typing_fields import (
     AthleteLabelledAccelzonesGraphQLField,
     AthleteLabelledDecelzonesGraphQLField,
     AthleteLabelledHeartRateBoundsGraphQLField,
+    AthleteLabelledIMUAccelzonesGraphQLField,
+    AthleteLabelledIMUDecelzonesGraphQLField,
     AthleteLabelledSpeedzonesGraphQLField,
     AthleteMetricsSummaryGraphQLField,
     AthleteOrStaffGraphQLField,
     AthleteRecordsGraphQLField,
     AthleteSessionLinkGraphQLField,
     AthleteStaffOrPdStaffGraphQLField,
+    AuthenticateCameraPayloadGraphQLField,
     AveragePositionGraphQLField,
     BallDataRecordingGraphQLField,
     BallGraphQLField,
@@ -80,6 +86,7 @@ from .custom_typing_fields import (
     CreateEdgeNamePayloadGraphQLField,
     CreateFlexibleReportChartPayloadGraphQLField,
     CreateFlexibleReportPayloadGraphQLField,
+    CreateFlexibleReportTemplatePayloadGraphQLField,
     CreateImportPayloadGraphQLField,
     CreateMatchEventPayloadGraphQLField,
     CreateMatchEventsPayloadGraphQLField,
@@ -119,6 +126,8 @@ from .custom_typing_fields import (
     DeleteCustomBaselineTargetsPayloadGraphQLField,
     DeleteDecelzonesPayloadGraphQLField,
     DeleteHeartRateBoundsPayloadGraphQLField,
+    DeleteIMUAccelzonesPayloadGraphQLField,
+    DeleteIMUDecelzonesPayloadGraphQLField,
     DeleteSessionTargetsPayloadGraphQLField,
     DeleteSpeedzonesPayloadGraphQLField,
     DeleteTargetTemplatesPayloadGraphQLField,
@@ -157,6 +166,7 @@ from .custom_typing_fields import (
     EdgeMetaEventGraphQLField,
     EdgeNameGraphQLField,
     EndEdgeOwnershipPayloadGraphQLField,
+    EventGraphQLField,
     ExamplePromptGraphQLField,
     ExtraParamsUnion,
     FeatureCheckGraphQLField,
@@ -172,10 +182,16 @@ from .custom_typing_fields import (
     GenericMetricGraphQLField,
     GenericPersonalBestsMetricGraphQLField,
     GrantOrgAdminRolePayloadGraphQLField,
+    GrantRolePayloadGraphQLField,
     HeartRateBoundsPayloadGraphQLField,
     HeartRateLowerBoundsGraphQLField,
     HeartratePeripheralConnectedGraphQLField,
     HeartratePeripheralDisconnectedGraphQLField,
+    HubspotSubscriptionGraphQLField,
+    IMUAccelzoneLowerBoundsGraphQLField,
+    IMUAccelzonesPayloadGraphQLField,
+    IMUDecelzoneLowerBoundsGraphQLField,
+    IMUDecelzonesPayloadGraphQLField,
     IntMetricValueGraphQLField,
     JsonMetricValueGraphQLField,
     LegacySurveyDistributedContextGraphQLField,
@@ -184,6 +200,7 @@ from .custom_typing_fields import (
     ManualSubscriptionGraphQLField,
     MapCoordinateGraphQLField,
     MarkAppMessageReadPayloadGraphQLField,
+    MarkedPitchCornerGraphQLField,
     MarkMultipleAppMessagesReadPayloadGraphQLField,
     MatchDefinitionGraphQLField,
     MatchEventDefinitionGraphQLField,
@@ -212,6 +229,8 @@ from .custom_typing_fields import (
     OperatingModeTransitionGraphQLField,
     OrganisationGraphQLField,
     OrganisationPersonGraphQLField,
+    OutstandingSurveyAthleteGraphQLField,
+    OutstandingSurveyResponsesGraphQLField,
     PageGraphQLField,
     ParsedSegmentGraphQLField,
     ParsedTrainingPlanGraphQLField,
@@ -225,11 +244,13 @@ from .custom_typing_fields import (
     PersonGraphQLField,
     PersonSessionsSummaryMetricsGraphQLField,
     PersonWeekOverviewGraphQLField,
+    PhaseMatchEventGraphQLField,
     PitchCoordinateGraphQLField,
     PitchCoordinateSetGraphQLField,
     PitchCornersGraphQLField,
     PitchDefinitionGraphQLField,
     PitchGraphQLField,
+    PoseSectionGraphQLField,
     PositionDefinitionGraphQLField,
     PredictedSessionGraphQLField,
     PrivacyPolicyAcceptanceGraphQLField,
@@ -256,16 +277,19 @@ from .custom_typing_fields import (
     ReportTemplateChartGraphQLField,
     ReportTemplateGraphQLField,
     RequestRawDataExportPayloadGraphQLField,
+    RequestSessionRawDataExportPayloadGraphQLField,
     ResendConfirmationEmailPayloadGraphQLField,
     ResendReportPayloadGraphQLField,
-    RespondToDetectedMatchEventPayloadGraphQLField,
     RespondToDetectedMatchEventsPayloadGraphQLField,
+    RespondToEventsPayloadGraphQLField,
     ResponseGraphQLField,
     ReviewPendingMemberPayloadGraphQLField,
     RevokeOrgAdminRolePayloadGraphQLField,
+    RevokeRolePayloadGraphQLField,
     RoleGraphQLField,
     RotateLiveDataKeysPayloadGraphQLField,
     SegmentGraphQLField,
+    SegmentInterfaceGraphQLField,
     SegmentParticipationGraphQLField,
     SegmentTitleGraphQLField,
     SeriesChartTypeGraphQLField,
@@ -280,6 +304,7 @@ from .custom_typing_fields import (
     SessionGraphQLField,
     SessionLoadHistoryEntryGraphQLField,
     SessionLoadHistoryGraphQLField,
+    SessionNeedingDataGraphQLField,
     SessionParticipationGraphQLField,
     SessionPlanGraphQLField,
     SessionSummaryGraphQLField,
@@ -294,6 +319,7 @@ from .custom_typing_fields import (
     SpeedzonesPayloadGraphQLField,
     SportDefinitionGraphQLField,
     StaffGraphQLField,
+    StalledUploadStorageGraphQLField,
     StatOverlayGraphQLField,
     StepGraphQLField,
     StripeSubscriptionGraphQLField,
@@ -313,6 +339,7 @@ from .custom_typing_fields import (
     TargetDefinitionGraphQLField,
     TargetGraphQLField,
     TargetTemplateGraphQLField,
+    TelestrationPointGraphQLField,
     TermsOfUseAcceptanceGraphQLField,
     TermsOfUseGraphQLField,
     TimelineDayGraphQLField,
@@ -334,6 +361,7 @@ from .custom_typing_fields import (
     UnitOptionsGraphQLField,
     UpdateAthleteGroupPayloadGraphQLField,
     UpdateAthletePayloadGraphQLField,
+    UpdateCameraOwnershipPayloadGraphQLField,
     UpdateClubMemberPayloadGraphQLField,
     UpdateClubPayloadGraphQLField,
     UpdateClubSettingsPayloadGraphQLField,
@@ -374,16 +402,19 @@ from .custom_typing_fields import (
     UpsertDataRecordingsPayloadGraphQLField,
     UpsertSessionPlanPayloadGraphQLField,
     UserPreferenceGraphQLField,
+    UserSegmentGraphQLField,
     ValidationErrorGraphQLField,
     VideoAnnotationsUrlGraphQLField,
     VideoClipGraphQLField,
     VideoClipOverlayGraphQLField,
+    VideoClipTelestrationGraphQLField,
     VideoFragmentGraphQLField,
     VideoRecordingGraphQLField,
     VideoSignedUrlGraphQLField,
     VideoSourceInterfaceGraphQLField,
     VideoStorageGraphQLField,
     VideoStreamGraphQLField,
+    VideoThumbnailGraphQLField,
     VideoVariantGraphQLField,
     WeeklyLoadAthleteGraphQLField,
     WeeklyLoadGraphQLField,
@@ -392,11 +423,14 @@ from .custom_typing_fields import (
 from .enums import (
     ConfiguredMetricListTypeEnum,
     DatafileFormat,
+    DayBreakdownSessionFilterEnum,
     ImageSizeEnum,
     MatchEventClassEnum,
     PermissionEnum,
+    SegmentTypeFilter,
     SortField,
     TaggableTypeEnum,
+    UserSegmentTypeFilter,
 )
 from .input_types import (
     AthleteBaseFilter,
@@ -417,6 +451,7 @@ from .input_types import (
     SurveysSurveyAssignmentBaseFilter,
     SurveysSurveyDistributionBaseFilter,
     TimeSpanAttributes,
+    VideoCameraOwnershipCamerasCurrentlyOwnedFilter,
 )
 
 
@@ -540,6 +575,121 @@ class AcceptTermsOfUsePayloadFields(GraphQLField):
         return self
 
     def alias(self, alias: str) -> "AcceptTermsOfUsePayloadFields":
+        self._alias = alias
+        return self
+
+
+class AcuteChronicLoadFields(GraphQLField):
+    """Acute:chronic workload ratio for a club's squad"""
+
+    @classmethod
+    def athletes(cls) -> "AcuteChronicLoadAthleteFields":
+        """Athlete loads, highest ratio first, excluding athletes with no chronic load"""
+        return AcuteChronicLoadAthleteFields("athletes")
+
+    @classmethod
+    def bands(cls) -> "AcuteChronicLoadBandFields":
+        """Ratio bands with the number of returned athletes in each"""
+        return AcuteChronicLoadBandFields("bands")
+
+    squad_acute: "AcuteChronicLoadGraphQLField" = AcuteChronicLoadGraphQLField(
+        "squadAcute"
+    )
+    "Summed acute load across the returned athletes"
+    squad_chronic: "AcuteChronicLoadGraphQLField" = AcuteChronicLoadGraphQLField(
+        "squadChronic"
+    )
+    "Summed chronic load across the returned athletes"
+    squad_ratio: "AcuteChronicLoadGraphQLField" = AcuteChronicLoadGraphQLField(
+        "squadRatio"
+    )
+    "Mean of the returned athletes' ratios, not the ratio of the squad sums"
+    unit_label: "AcuteChronicLoadGraphQLField" = AcuteChronicLoadGraphQLField(
+        "unitLabel"
+    )
+    "Unit the acute and chronic load values are expressed in"
+
+    def fields(
+        self,
+        *subfields: Union[
+            AcuteChronicLoadGraphQLField,
+            "AcuteChronicLoadAthleteFields",
+            "AcuteChronicLoadBandFields",
+        ],
+    ) -> "AcuteChronicLoadFields":
+        """Subfields should come from the AcuteChronicLoadFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "AcuteChronicLoadFields":
+        self._alias = alias
+        return self
+
+
+class AcuteChronicLoadAthleteFields(GraphQLField):
+    """One athlete's acute and chronic load and the resulting ratio"""
+
+    acute: "AcuteChronicLoadAthleteGraphQLField" = AcuteChronicLoadAthleteGraphQLField(
+        "acute"
+    )
+    "Load over the trailing seven days"
+
+    @classmethod
+    def athlete(cls) -> "AthleteFields":
+        """The athlete the load belongs to"""
+        return AthleteFields("athlete")
+
+    band_key: "AcuteChronicLoadAthleteGraphQLField" = (
+        AcuteChronicLoadAthleteGraphQLField("bandKey")
+    )
+    "Key of the band this ratio falls in"
+    chronic: "AcuteChronicLoadAthleteGraphQLField" = (
+        AcuteChronicLoadAthleteGraphQLField("chronic")
+    )
+    "Weekly average load over the trailing 28 days"
+    ratio: "AcuteChronicLoadAthleteGraphQLField" = AcuteChronicLoadAthleteGraphQLField(
+        "ratio"
+    )
+    "Acute load divided by chronic load"
+
+    def fields(
+        self, *subfields: Union[AcuteChronicLoadAthleteGraphQLField, "AthleteFields"]
+    ) -> "AcuteChronicLoadAthleteFields":
+        """Subfields should come from the AcuteChronicLoadAthleteFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "AcuteChronicLoadAthleteFields":
+        self._alias = alias
+        return self
+
+
+class AcuteChronicLoadBandFields(GraphQLField):
+    """A ratio band, its bounds and how many athletes fall inside it"""
+
+    count: "AcuteChronicLoadBandGraphQLField" = AcuteChronicLoadBandGraphQLField(
+        "count"
+    )
+    "Number of returned athletes whose ratio falls in this band"
+    high: "AcuteChronicLoadBandGraphQLField" = AcuteChronicLoadBandGraphQLField("high")
+    "Exclusive upper ratio bound, null when the band is unbounded"
+    key: "AcuteChronicLoadBandGraphQLField" = AcuteChronicLoadBandGraphQLField("key")
+    "Stable identifier for the band"
+    label: "AcuteChronicLoadBandGraphQLField" = AcuteChronicLoadBandGraphQLField(
+        "label"
+    )
+    "Human readable name for the band"
+    low: "AcuteChronicLoadBandGraphQLField" = AcuteChronicLoadBandGraphQLField("low")
+    "Inclusive lower ratio bound"
+
+    def fields(
+        self, *subfields: AcuteChronicLoadBandGraphQLField
+    ) -> "AcuteChronicLoadBandFields":
+        """Subfields should come from the AcuteChronicLoadBandFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "AcuteChronicLoadBandFields":
         self._alias = alias
         return self
 
@@ -1043,6 +1193,30 @@ class AggregatedSessionMetricSetFields(GraphQLField):
         "avgClubZoneThreeDecelerationEvents"
     )
     "Average number of club zone 3 deceleration events"
+    avg_club_zone_three_plus_acceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneThreePlusAccelerationDistanceM"
+    )
+    "Average club zone 3+ acceleration distance in metres"
+    avg_club_zone_three_plus_acceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneThreePlusAccelerationDurationS"
+    )
+    "Average club zone 3+ acceleration duration in seconds"
+    avg_club_zone_three_plus_acceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneThreePlusAccelerationEvents"
+    )
+    "Average number of club zone 3+ acceleration events"
+    avg_club_zone_three_plus_deceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneThreePlusDecelerationDistanceM"
+    )
+    "Average club zone 3+ deceleration distance in metres"
+    avg_club_zone_three_plus_deceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneThreePlusDecelerationDurationS"
+    )
+    "Average club zone 3+ deceleration duration in seconds"
+    avg_club_zone_three_plus_deceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneThreePlusDecelerationEvents"
+    )
+    "Average number of club zone 3+ deceleration events"
     avg_club_zone_two_acceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "avgClubZoneTwoAccelerationDistanceM"
     )
@@ -1067,6 +1241,30 @@ class AggregatedSessionMetricSetFields(GraphQLField):
         AggregatedSessionMetricSetGraphQLField("avgClubZoneTwoDecelerationEvents")
     )
     "Average number of club zone 2 deceleration events"
+    avg_club_zone_two_plus_acceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneTwoPlusAccelerationDistanceM"
+    )
+    "Average club zone 2+ acceleration distance in metres"
+    avg_club_zone_two_plus_acceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneTwoPlusAccelerationDurationS"
+    )
+    "Average club zone 2+ acceleration duration in seconds"
+    avg_club_zone_two_plus_acceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneTwoPlusAccelerationEvents"
+    )
+    "Average number of club zone 2+ acceleration events"
+    avg_club_zone_two_plus_deceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneTwoPlusDecelerationDistanceM"
+    )
+    "Average club zone 2+ deceleration distance in metres"
+    avg_club_zone_two_plus_deceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneTwoPlusDecelerationDurationS"
+    )
+    "Average club zone 2+ deceleration duration in seconds"
+    avg_club_zone_two_plus_deceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "avgClubZoneTwoPlusDecelerationEvents"
+    )
+    "Average number of club zone 2+ deceleration events"
     avg_deceleration_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("avgDecelerationEvents")
     )
@@ -1930,6 +2128,30 @@ class AggregatedSessionMetricSetFields(GraphQLField):
         "totalClubZoneThreeDecelerationEvents"
     )
     "Total number of club zone 3 deceleration events"
+    total_club_zone_three_plus_acceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneThreePlusAccelerationDistanceM"
+    )
+    "Total club zone 3+ acceleration distance in metres"
+    total_club_zone_three_plus_acceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneThreePlusAccelerationDurationS"
+    )
+    "Total club zone 3+ acceleration duration in seconds"
+    total_club_zone_three_plus_acceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneThreePlusAccelerationEvents"
+    )
+    "Total number of club zone 3+ acceleration events"
+    total_club_zone_three_plus_deceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneThreePlusDecelerationDistanceM"
+    )
+    "Total club zone 3+ deceleration distance in metres"
+    total_club_zone_three_plus_deceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneThreePlusDecelerationDurationS"
+    )
+    "Total club zone 3+ deceleration duration in seconds"
+    total_club_zone_three_plus_deceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneThreePlusDecelerationEvents"
+    )
+    "Total number of club zone 3+ deceleration events"
     total_club_zone_two_acceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
         "totalClubZoneTwoAccelerationDistanceM"
     )
@@ -1954,6 +2176,30 @@ class AggregatedSessionMetricSetFields(GraphQLField):
         "totalClubZoneTwoDecelerationEvents"
     )
     "Total number of club zone 2 deceleration events"
+    total_club_zone_two_plus_acceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneTwoPlusAccelerationDistanceM"
+    )
+    "Total club zone 2+ acceleration distance in metres"
+    total_club_zone_two_plus_acceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneTwoPlusAccelerationDurationS"
+    )
+    "Total club zone 2+ acceleration duration in seconds"
+    total_club_zone_two_plus_acceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneTwoPlusAccelerationEvents"
+    )
+    "Total number of club zone 2+ acceleration events"
+    total_club_zone_two_plus_deceleration_distance_m: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneTwoPlusDecelerationDistanceM"
+    )
+    "Total club zone 2+ deceleration distance in metres"
+    total_club_zone_two_plus_deceleration_duration_s: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneTwoPlusDecelerationDurationS"
+    )
+    "Total club zone 2+ deceleration duration in seconds"
+    total_club_zone_two_plus_deceleration_events: "AggregatedSessionMetricSetGraphQLField" = AggregatedSessionMetricSetGraphQLField(
+        "totalClubZoneTwoPlusDecelerationEvents"
+    )
+    "Total number of club zone 2+ deceleration events"
     total_deceleration_events: "AggregatedSessionMetricSetGraphQLField" = (
         AggregatedSessionMetricSetGraphQLField("totalDecelerationEvents")
     )
@@ -2793,6 +3039,20 @@ class AthleteFields(GraphQLField):
         )
 
     @classmethod
+    def labelled_imu_accelzones_lower_bounds_ms_2(
+        cls,
+    ) -> "AthleteLabelledIMUAccelzonesFields":
+        """Labelled IMU accelzones in m/s²"""
+        return AthleteLabelledIMUAccelzonesFields("labelledIMUAccelzonesLowerBoundsMs2")
+
+    @classmethod
+    def labelled_imu_decelzones_lower_bounds_ms_2(
+        cls,
+    ) -> "AthleteLabelledIMUDecelzonesFields":
+        """Labelled IMU decelzones in m/s²"""
+        return AthleteLabelledIMUDecelzonesFields("labelledIMUDecelzonesLowerBoundsMs2")
+
+    @classmethod
     def labelled_speedzones_lower_bounds_kph(cls) -> "AthleteLabelledSpeedzonesFields":
         """Labelled speedzones in km/h"""
         return AthleteLabelledSpeedzonesFields("labelledSpeedzonesLowerBoundsKph")
@@ -2803,7 +3063,7 @@ class AthleteFields(GraphQLField):
         return EdgeFields("lastEdgeUsed")
 
     max_heart_rate: "AthleteGraphQLField" = AthleteGraphQLField("maxHeartRate")
-    "Maximum heart rate (explicit or age-calculated)"
+    "Maximum heart rate (explicit, recorded from data, or age-calculated)"
 
     @classmethod
     def metrics_summary(
@@ -2919,6 +3179,8 @@ class AthleteFields(GraphQLField):
             "AthleteLabelledAccelzonesFields",
             "AthleteLabelledDecelzonesFields",
             "AthleteLabelledHeartRateBoundsFields",
+            "AthleteLabelledIMUAccelzonesFields",
+            "AthleteLabelledIMUDecelzonesFields",
             "AthleteLabelledSpeedzonesFields",
             "AthleteMetricsSummaryFields",
             "AthleteRecordsFields",
@@ -3054,6 +3316,52 @@ class AthleteLabelledHeartRateBoundsFields(GraphQLField):
         return self
 
     def alias(self, alias: str) -> "AthleteLabelledHeartRateBoundsFields":
+        self._alias = alias
+        return self
+
+
+class AthleteLabelledIMUAccelzonesFields(GraphQLField):
+    """Absolute/Relative IMU accelzones labelled by the boundary type"""
+
+    @classmethod
+    def absolute(cls) -> "IMUAccelzoneLowerBoundsFields":
+        """Labelled absolute IMU accelzones in m/s²"""
+        return IMUAccelzoneLowerBoundsFields("absolute")
+
+    def fields(
+        self,
+        *subfields: Union[
+            AthleteLabelledIMUAccelzonesGraphQLField, "IMUAccelzoneLowerBoundsFields"
+        ],
+    ) -> "AthleteLabelledIMUAccelzonesFields":
+        """Subfields should come from the AthleteLabelledIMUAccelzonesFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "AthleteLabelledIMUAccelzonesFields":
+        self._alias = alias
+        return self
+
+
+class AthleteLabelledIMUDecelzonesFields(GraphQLField):
+    """Absolute/Relative IMU decelzones labelled by the boundary type"""
+
+    @classmethod
+    def absolute(cls) -> "IMUDecelzoneLowerBoundsFields":
+        """Labelled absolute IMU decelzones in m/s²"""
+        return IMUDecelzoneLowerBoundsFields("absolute")
+
+    def fields(
+        self,
+        *subfields: Union[
+            AthleteLabelledIMUDecelzonesGraphQLField, "IMUDecelzoneLowerBoundsFields"
+        ],
+    ) -> "AthleteLabelledIMUDecelzonesFields":
+        """Subfields should come from the AthleteLabelledIMUDecelzonesFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "AthleteLabelledIMUDecelzonesFields":
         self._alias = alias
         return self
 
@@ -3421,6 +3729,38 @@ class AthleteStaffOrPdStaffFields(GraphQLField):
         return self
 
     def alias(self, alias: str) -> "AthleteStaffOrPdStaffFields":
+        self._alias = alias
+        return self
+
+
+class AuthenticateCameraPayloadFields(GraphQLField):
+    """Autogenerated return type of AuthenticateCamera."""
+
+    @classmethod
+    def errors(cls) -> "ValidationErrorFields":
+        """Validation errors that occurred while performing the mutation"""
+        return ValidationErrorFields("errors")
+
+    receiving_key: "AuthenticateCameraPayloadGraphQLField" = (
+        AuthenticateCameraPayloadGraphQLField("receivingKey")
+    )
+    "Base64 encoded key the phone decrypts messages from the camera with"
+    sending_key: "AuthenticateCameraPayloadGraphQLField" = (
+        AuthenticateCameraPayloadGraphQLField("sendingKey")
+    )
+    "Base64 encoded key the phone encrypts messages to the camera with"
+
+    def fields(
+        self,
+        *subfields: Union[
+            AuthenticateCameraPayloadGraphQLField, "ValidationErrorFields"
+        ],
+    ) -> "AuthenticateCameraPayloadFields":
+        """Subfields should come from the AuthenticateCameraPayloadFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "AuthenticateCameraPayloadFields":
         self._alias = alias
         return self
 
@@ -3811,6 +4151,12 @@ class CameraFields(GraphQLField):
 
     board_name: "CameraGraphQLField" = CameraGraphQLField("boardName")
     "The board version of the device"
+
+    @classmethod
+    def current_ownership(cls) -> "CameraOwnershipFields":
+        """The camera's current ownership, if any"""
+        return CameraOwnershipFields("currentOwnership")
+
     firmware_version: "CameraGraphQLField" = CameraGraphQLField("firmwareVersion")
     "The firmware version the Camera is running"
     hardware_version: "CameraGraphQLField" = CameraGraphQLField("hardwareVersion")
@@ -3836,7 +4182,10 @@ class CameraFields(GraphQLField):
         return CameraGraphQLField("signedMessage", arguments=cleared_arguments)
 
     def fields(
-        self, *subfields: Union[CameraGraphQLField, "DeviceOwnerUnion"]
+        self,
+        *subfields: Union[
+            CameraGraphQLField, "CameraOwnershipFields", "DeviceOwnerUnion"
+        ],
     ) -> "CameraFields":
         """Subfields should come from the CameraFields class"""
         self._subfields.extend(subfields)
@@ -3861,6 +4210,8 @@ class CameraOwnershipFields(GraphQLField):
     "The serial number of the camera, in hex format"
     id: "CameraOwnershipGraphQLField" = CameraOwnershipGraphQLField("id")
     "The ID of the camera ownership"
+    name: "CameraOwnershipGraphQLField" = CameraOwnershipGraphQLField("name")
+    "The name of the ownership, falling back to the camera serial when unset"
 
     def fields(
         self, *subfields: Union[CameraOwnershipGraphQLField, "CameraFields"]
@@ -4008,6 +4359,9 @@ class ChecklistFields(GraphQLField):
         """Ordered list of setup steps with their current status"""
         return StepFields("steps")
 
+    version: "ChecklistGraphQLField" = ChecklistGraphQLField("version")
+    "Monotonic version of this checklist, advanced by every write to it. Discard a\nsnapshot whose version is lower than one already held."
+
     def fields(
         self, *subfields: Union[ChecklistGraphQLField, "StepFields"]
     ) -> "ChecklistFields":
@@ -4112,6 +4466,19 @@ class ClubFields(GraphQLField):
         (no created session linked) and in the future; otherwise nil, including when
         the latest row is already scheduled even if an older pending prediction exists."""
         return PredictedSessionFields("actionablePredictedSession")
+
+    @classmethod
+    def acute_chronic_load(
+        cls, *, limit: Optional[int] = None
+    ) -> "AcuteChronicLoadFields":
+        """Acute:chronic workload ratio for the club's squad, with the bands the client filters on"""
+        arguments: dict[str, dict[str, Any]] = {
+            "limit": {"type": "Int", "value": limit}
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return AcuteChronicLoadFields("acuteChronicLoad", arguments=cleared_arguments)
 
     @classmethod
     def aggregated_sessions(
@@ -4234,10 +4601,18 @@ class ClubFields(GraphQLField):
 
     @classmethod
     def cameras_currently_owned(
-        cls, *, limit: Optional[int] = None, offset: Optional[int] = None
+        cls,
+        *,
+        filter_: Optional[VideoCameraOwnershipCamerasCurrentlyOwnedFilter] = None,
+        limit: Optional[int] = None,
+        offset: Optional[int] = None,
     ) -> "CameraOwnershipFields":
         """Cameras currently owned by this club"""
         arguments: dict[str, dict[str, Any]] = {
+            "filter": {
+                "type": "VideoCameraOwnershipCamerasCurrentlyOwnedFilter",
+                "value": filter_,
+            },
             "limit": {"type": "Int", "value": limit},
             "offset": {"type": "Int", "value": offset},
         }
@@ -4308,13 +4683,16 @@ class ClubFields(GraphQLField):
         *,
         athlete_ids: Optional[list[str]] = None,
         number_of_days: Optional[int] = None,
-        session_filter: Optional[str] = None,
+        session_filter: Optional[DayBreakdownSessionFilterEnum] = None,
     ) -> "DayBreakdownOverviewFields":
         """breakdown of metrics by date, optionally grouped by athlete ids"""
         arguments: dict[str, dict[str, Any]] = {
             "athleteIds": {"type": "[String!]", "value": athlete_ids},
             "numberOfDays": {"type": "Int", "value": number_of_days},
-            "sessionFilter": {"type": "String", "value": session_filter},
+            "sessionFilter": {
+                "type": "DayBreakdownSessionFilterEnum",
+                "value": session_filter,
+            },
         }
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
@@ -4360,10 +4738,26 @@ class ClubFields(GraphQLField):
         return FeatureCheckFields("feature", arguments=cleared_arguments)
 
     @classmethod
+    def flexible_report_templates(
+        cls, *, limit: Optional[int] = None, offset: Optional[int] = None
+    ) -> "FlexibleReportFields":
+        """User-created flexible report templates for the club"""
+        arguments: dict[str, dict[str, Any]] = {
+            "limit": {"type": "Int", "value": limit},
+            "offset": {"type": "Int", "value": offset},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return FlexibleReportFields(
+            "flexibleReportTemplates", arguments=cleared_arguments
+        )
+
+    @classmethod
     def flexible_reports(
         cls, offset: int, *, limit: Optional[int] = None
     ) -> "FlexibleReportFields":
-        """Flexible reports for the club"""
+        """Flexible reports for the club (excludes templates)"""
         arguments: dict[str, dict[str, Any]] = {
             "limit": {"type": "Int", "value": limit},
             "offset": {"type": "Int!", "value": offset},
@@ -4376,7 +4770,7 @@ class ClubFields(GraphQLField):
     flexible_reports_count: "ClubGraphQLField" = ClubGraphQLField(
         "flexibleReportsCount"
     )
-    "Count of flexible reports for the club"
+    "Count of flexible reports for the club (excludes templates)"
 
     @classmethod
     def gateways_currently_owned(
@@ -4489,6 +4883,25 @@ class ClubFields(GraphQLField):
     def organisation(cls) -> "OrganisationFields":
         """Organisation the club belongs to"""
         return OrganisationFields("organisation")
+
+    @classmethod
+    def outstanding_survey_responses(
+        cls, distributed_since: Any, *, limit: Optional[int] = None
+    ) -> "OutstandingSurveyResponsesFields":
+        """Survey responses the club is still waiting on, with the athletes yet to respond"""
+        arguments: dict[str, dict[str, Any]] = {
+            "distributedSince": {
+                "type": "ISO8601DateTime!",
+                "value": distributed_since,
+            },
+            "limit": {"type": "Int", "value": limit},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return OutstandingSurveyResponsesFields(
+            "outstandingSurveyResponses", arguments=cleared_arguments
+        )
 
     @classmethod
     def pending_members(
@@ -4632,6 +5045,36 @@ class ClubFields(GraphQLField):
             key: value for key, value in arguments.items() if value["value"] is not None
         }
         return SessionInterface("sessions", arguments=cleared_arguments)
+
+    @classmethod
+    def sessions_count(
+        cls, *, filter_: Optional[SessionsSessionBaseFilter] = None
+    ) -> "ClubGraphQLField":
+        """Count of the sessions belonging to a club that match the filter"""
+        arguments: dict[str, dict[str, Any]] = {
+            "filter": {"type": "SessionsSessionBaseFilter", "value": filter_}
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return ClubGraphQLField("sessionsCount", arguments=cleared_arguments)
+
+    @classmethod
+    def sessions_needing_data(
+        cls, since: Any, *, limit: Optional[int] = None, offset: Optional[int] = None
+    ) -> "SessionNeedingDataFields":
+        """Finished sessions still missing data, most recently finished first"""
+        arguments: dict[str, dict[str, Any]] = {
+            "limit": {"type": "Int", "value": limit},
+            "offset": {"type": "Int", "value": offset},
+            "since": {"type": "ISO8601DateTime!", "value": since},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return SessionNeedingDataFields(
+            "sessionsNeedingData", arguments=cleared_arguments
+        )
 
     @classmethod
     def settings(cls) -> "SettingsFields":
@@ -4847,6 +5290,11 @@ class ClubFields(GraphQLField):
         }
         return TrainingSessionFields("trainingSessions", arguments=cleared_arguments)
 
+    @classmethod
+    def trend_chartable_metrics(cls) -> "GenericMetricFields":
+        """Metrics that can be charted on the Team Trends card for this club"""
+        return GenericMetricFields("trendChartableMetrics")
+
     two_char_initials: "ClubGraphQLField" = ClubGraphQLField("twoCharInitials")
     "Two character initials derived from the club name"
 
@@ -4907,6 +5355,7 @@ class ClubFields(GraphQLField):
         self,
         *subfields: Union[
             ClubGraphQLField,
+            "AcuteChronicLoadFields",
             "AggregatedSessionFields",
             "AthleteFields",
             "AthleteGroupFields",
@@ -4925,6 +5374,7 @@ class ClubFields(GraphQLField):
             "MatchDefinitionFields",
             "MatchSessionFields",
             "OrganisationFields",
+            "OutstandingSurveyResponsesFields",
             "PendingMemberFields",
             "PitchDefinitionFields",
             "PitchFields",
@@ -4933,6 +5383,7 @@ class ClubFields(GraphQLField):
             "SegmentTitleFields",
             "SessionBlueprintFields",
             "SessionInterface",
+            "SessionNeedingDataFields",
             "SessionParticipationInterface",
             "SessionPlanFields",
             "SessionTagDefinitionFields",
@@ -5662,6 +6113,30 @@ class CommonAggregatedMetricsInterface(GraphQLField):
         CommonAggregatedMetricsGraphQLField("avgClubZoneThreeDecelerationEvents")
     )
     "Average number of club zone 3 deceleration events"
+    avg_club_zone_three_plus_acceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgClubZoneThreePlusAccelerationDistanceM"
+    )
+    "Average club zone 3+ acceleration distance in metres"
+    avg_club_zone_three_plus_acceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgClubZoneThreePlusAccelerationDurationS"
+    )
+    "Average club zone 3+ acceleration duration in seconds"
+    avg_club_zone_three_plus_acceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgClubZoneThreePlusAccelerationEvents"
+    )
+    "Average number of club zone 3+ acceleration events"
+    avg_club_zone_three_plus_deceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgClubZoneThreePlusDecelerationDistanceM"
+    )
+    "Average club zone 3+ deceleration distance in metres"
+    avg_club_zone_three_plus_deceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgClubZoneThreePlusDecelerationDurationS"
+    )
+    "Average club zone 3+ deceleration duration in seconds"
+    avg_club_zone_three_plus_deceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgClubZoneThreePlusDecelerationEvents"
+    )
+    "Average number of club zone 3+ deceleration events"
     avg_club_zone_two_acceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("avgClubZoneTwoAccelerationDistanceM")
     )
@@ -5686,6 +6161,30 @@ class CommonAggregatedMetricsInterface(GraphQLField):
         CommonAggregatedMetricsGraphQLField("avgClubZoneTwoDecelerationEvents")
     )
     "Average number of club zone 2 deceleration events"
+    avg_club_zone_two_plus_acceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgClubZoneTwoPlusAccelerationDistanceM"
+    )
+    "Average club zone 2+ acceleration distance in metres"
+    avg_club_zone_two_plus_acceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgClubZoneTwoPlusAccelerationDurationS"
+    )
+    "Average club zone 2+ acceleration duration in seconds"
+    avg_club_zone_two_plus_acceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgClubZoneTwoPlusAccelerationEvents"
+    )
+    "Average number of club zone 2+ acceleration events"
+    avg_club_zone_two_plus_deceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgClubZoneTwoPlusDecelerationDistanceM"
+    )
+    "Average club zone 2+ deceleration distance in metres"
+    avg_club_zone_two_plus_deceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgClubZoneTwoPlusDecelerationDurationS"
+    )
+    "Average club zone 2+ deceleration duration in seconds"
+    avg_club_zone_two_plus_deceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "avgClubZoneTwoPlusDecelerationEvents"
+    )
+    "Average number of club zone 2+ deceleration events"
     avg_deceleration_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("avgDecelerationEvents")
     )
@@ -6549,6 +7048,30 @@ class CommonAggregatedMetricsInterface(GraphQLField):
         CommonAggregatedMetricsGraphQLField("totalClubZoneThreeDecelerationEvents")
     )
     "Total number of club zone 3 deceleration events"
+    total_club_zone_three_plus_acceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneThreePlusAccelerationDistanceM"
+    )
+    "Total club zone 3+ acceleration distance in metres"
+    total_club_zone_three_plus_acceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneThreePlusAccelerationDurationS"
+    )
+    "Total club zone 3+ acceleration duration in seconds"
+    total_club_zone_three_plus_acceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneThreePlusAccelerationEvents"
+    )
+    "Total number of club zone 3+ acceleration events"
+    total_club_zone_three_plus_deceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneThreePlusDecelerationDistanceM"
+    )
+    "Total club zone 3+ deceleration distance in metres"
+    total_club_zone_three_plus_deceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneThreePlusDecelerationDurationS"
+    )
+    "Total club zone 3+ deceleration duration in seconds"
+    total_club_zone_three_plus_deceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneThreePlusDecelerationEvents"
+    )
+    "Total number of club zone 3+ deceleration events"
     total_club_zone_two_acceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
         "totalClubZoneTwoAccelerationDistanceM"
     )
@@ -6573,6 +7096,30 @@ class CommonAggregatedMetricsInterface(GraphQLField):
         CommonAggregatedMetricsGraphQLField("totalClubZoneTwoDecelerationEvents")
     )
     "Total number of club zone 2 deceleration events"
+    total_club_zone_two_plus_acceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneTwoPlusAccelerationDistanceM"
+    )
+    "Total club zone 2+ acceleration distance in metres"
+    total_club_zone_two_plus_acceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneTwoPlusAccelerationDurationS"
+    )
+    "Total club zone 2+ acceleration duration in seconds"
+    total_club_zone_two_plus_acceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneTwoPlusAccelerationEvents"
+    )
+    "Total number of club zone 2+ acceleration events"
+    total_club_zone_two_plus_deceleration_distance_m: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneTwoPlusDecelerationDistanceM"
+    )
+    "Total club zone 2+ deceleration distance in metres"
+    total_club_zone_two_plus_deceleration_duration_s: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneTwoPlusDecelerationDurationS"
+    )
+    "Total club zone 2+ deceleration duration in seconds"
+    total_club_zone_two_plus_deceleration_events: "CommonAggregatedMetricsGraphQLField" = CommonAggregatedMetricsGraphQLField(
+        "totalClubZoneTwoPlusDecelerationEvents"
+    )
+    "Total number of club zone 2+ deceleration events"
     total_deceleration_events: "CommonAggregatedMetricsGraphQLField" = (
         CommonAggregatedMetricsGraphQLField("totalDecelerationEvents")
     )
@@ -7396,6 +7943,30 @@ class CommonAthleteMetricsInterface(GraphQLField):
         CommonAthleteMetricsGraphQLField("clubZoneThreeDecelerationEvents")
     )
     "Number of club zone 3 deceleration events"
+    club_zone_three_plus_acceleration_distance_m: "CommonAthleteMetricsGraphQLField" = (
+        CommonAthleteMetricsGraphQLField("clubZoneThreePlusAccelerationDistanceM")
+    )
+    "Club zone 3+ acceleration distance in metres"
+    club_zone_three_plus_acceleration_duration_s: "CommonAthleteMetricsGraphQLField" = (
+        CommonAthleteMetricsGraphQLField("clubZoneThreePlusAccelerationDurationS")
+    )
+    "Club zone 3+ acceleration duration in seconds"
+    club_zone_three_plus_acceleration_events: "CommonAthleteMetricsGraphQLField" = (
+        CommonAthleteMetricsGraphQLField("clubZoneThreePlusAccelerationEvents")
+    )
+    "Number of club zone 3+ acceleration events"
+    club_zone_three_plus_deceleration_distance_m: "CommonAthleteMetricsGraphQLField" = (
+        CommonAthleteMetricsGraphQLField("clubZoneThreePlusDecelerationDistanceM")
+    )
+    "Club zone 3+ deceleration distance in metres"
+    club_zone_three_plus_deceleration_duration_s: "CommonAthleteMetricsGraphQLField" = (
+        CommonAthleteMetricsGraphQLField("clubZoneThreePlusDecelerationDurationS")
+    )
+    "Club zone 3+ deceleration duration in seconds"
+    club_zone_three_plus_deceleration_events: "CommonAthleteMetricsGraphQLField" = (
+        CommonAthleteMetricsGraphQLField("clubZoneThreePlusDecelerationEvents")
+    )
+    "Number of club zone 3+ deceleration events"
     club_zone_two_acceleration_distance_m: "CommonAthleteMetricsGraphQLField" = (
         CommonAthleteMetricsGraphQLField("clubZoneTwoAccelerationDistanceM")
     )
@@ -7420,6 +7991,30 @@ class CommonAthleteMetricsInterface(GraphQLField):
         CommonAthleteMetricsGraphQLField("clubZoneTwoDecelerationEvents")
     )
     "Number of club zone 2 deceleration events"
+    club_zone_two_plus_acceleration_distance_m: "CommonAthleteMetricsGraphQLField" = (
+        CommonAthleteMetricsGraphQLField("clubZoneTwoPlusAccelerationDistanceM")
+    )
+    "Club zone 2+ acceleration distance in metres"
+    club_zone_two_plus_acceleration_duration_s: "CommonAthleteMetricsGraphQLField" = (
+        CommonAthleteMetricsGraphQLField("clubZoneTwoPlusAccelerationDurationS")
+    )
+    "Club zone 2+ acceleration duration in seconds"
+    club_zone_two_plus_acceleration_events: "CommonAthleteMetricsGraphQLField" = (
+        CommonAthleteMetricsGraphQLField("clubZoneTwoPlusAccelerationEvents")
+    )
+    "Number of club zone 2+ acceleration events"
+    club_zone_two_plus_deceleration_distance_m: "CommonAthleteMetricsGraphQLField" = (
+        CommonAthleteMetricsGraphQLField("clubZoneTwoPlusDecelerationDistanceM")
+    )
+    "Club zone 2+ deceleration distance in metres"
+    club_zone_two_plus_deceleration_duration_s: "CommonAthleteMetricsGraphQLField" = (
+        CommonAthleteMetricsGraphQLField("clubZoneTwoPlusDecelerationDurationS")
+    )
+    "Club zone 2+ deceleration duration in seconds"
+    club_zone_two_plus_deceleration_events: "CommonAthleteMetricsGraphQLField" = (
+        CommonAthleteMetricsGraphQLField("clubZoneTwoPlusDecelerationEvents")
+    )
+    "Number of club zone 2+ deceleration events"
 
     @classmethod
     def contributing_data_times(cls) -> "TimeRangeDataFields":
@@ -7849,6 +8444,14 @@ class CommonAthleteMetricsInterface(GraphQLField):
         CommonAthleteMetricsGraphQLField("maxHeartrateBpm")
     )
     "Maximum heart rate in beats per minute"
+    max_imu_acceleration: "CommonAthleteMetricsGraphQLField" = (
+        CommonAthleteMetricsGraphQLField("maxIMUAcceleration")
+    )
+    "Maximum IMU acceleration in m/s²"
+    max_imu_deceleration: "CommonAthleteMetricsGraphQLField" = (
+        CommonAthleteMetricsGraphQLField("maxIMUDeceleration")
+    )
+    "Maximum IMU deceleration in m/s²"
     max_jump_height_cm: "CommonAthleteMetricsGraphQLField" = (
         CommonAthleteMetricsGraphQLField("maxJumpHeightCm")
     )
@@ -8459,6 +9062,36 @@ class CreateFlexibleReportPayloadFields(GraphQLField):
         return self
 
     def alias(self, alias: str) -> "CreateFlexibleReportPayloadFields":
+        self._alias = alias
+        return self
+
+
+class CreateFlexibleReportTemplatePayloadFields(GraphQLField):
+    """Autogenerated return type of CreateFlexibleReportTemplate."""
+
+    @classmethod
+    def errors(cls) -> "ValidationErrorFields":
+        """Validation errors that occurred while performing the mutation"""
+        return ValidationErrorFields("errors")
+
+    @classmethod
+    def report(cls) -> "FlexibleReportFields":
+        """the created template"""
+        return FlexibleReportFields("report")
+
+    def fields(
+        self,
+        *subfields: Union[
+            CreateFlexibleReportTemplatePayloadGraphQLField,
+            "FlexibleReportFields",
+            "ValidationErrorFields",
+        ],
+    ) -> "CreateFlexibleReportTemplatePayloadFields":
+        """Subfields should come from the CreateFlexibleReportTemplatePayloadFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "CreateFlexibleReportTemplatePayloadFields":
         self._alias = alias
         return self
 
@@ -9178,6 +9811,10 @@ class CustomQuestionDefinitionFields(GraphQLField):
         CustomQuestionDefinitionGraphQLField("arguments")
     )
     "Arguments of the question (min, max, labels, etc.)"
+    default: "CustomQuestionDefinitionGraphQLField" = (
+        CustomQuestionDefinitionGraphQLField("default")
+    )
+    "The answer stored when this question is left blank, if it may be"
     id: "CustomQuestionDefinitionGraphQLField" = CustomQuestionDefinitionGraphQLField(
         "id"
     )
@@ -9240,6 +9877,10 @@ class DataColumnFields(GraphQLField):
     "the data type for charting the column"
     color: "DataColumnGraphQLField" = DataColumnGraphQLField("color")
     "the column color (only present for series data type)"
+    default_agg_func: "DataColumnGraphQLField" = DataColumnGraphQLField(
+        "defaultAggFunc"
+    )
+    "the aggregation this column's metric rolls up by (only present for series data type)"
     id: "DataColumnGraphQLField" = DataColumnGraphQLField("id")
     "the column id"
     name: "DataColumnGraphQLField" = DataColumnGraphQLField("name")
@@ -9435,6 +10076,10 @@ class DayBreakdownOverviewFields(GraphQLField):
 
     date: "DayBreakdownOverviewGraphQLField" = DayBreakdownOverviewGraphQLField("date")
     "The date these metrics are aggregated for"
+    session_count: "DayBreakdownOverviewGraphQLField" = (
+        DayBreakdownOverviewGraphQLField("sessionCount")
+    )
+    "Number of distinct sessions with participations on the date"
 
     @classmethod
     def summary(cls) -> "ParticipationsMetricsSummaryFields":
@@ -9629,6 +10274,66 @@ class DeleteHeartRateBoundsPayloadFields(GraphQLField):
         return self
 
     def alias(self, alias: str) -> "DeleteHeartRateBoundsPayloadFields":
+        self._alias = alias
+        return self
+
+
+class DeleteIMUAccelzonesPayloadFields(GraphQLField):
+    """Autogenerated return type of DeleteIMUAccelzones."""
+
+    @classmethod
+    def athletes(cls) -> "AthleteFields":
+        """Athletes with deleted IMU accelzones"""
+        return AthleteFields("athletes")
+
+    @classmethod
+    def errors(cls) -> "ValidationErrorFields":
+        """Validation errors that occurred while performing the mutation"""
+        return ValidationErrorFields("errors")
+
+    def fields(
+        self,
+        *subfields: Union[
+            DeleteIMUAccelzonesPayloadGraphQLField,
+            "AthleteFields",
+            "ValidationErrorFields",
+        ],
+    ) -> "DeleteIMUAccelzonesPayloadFields":
+        """Subfields should come from the DeleteIMUAccelzonesPayloadFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "DeleteIMUAccelzonesPayloadFields":
+        self._alias = alias
+        return self
+
+
+class DeleteIMUDecelzonesPayloadFields(GraphQLField):
+    """Autogenerated return type of DeleteIMUDecelzones."""
+
+    @classmethod
+    def athletes(cls) -> "AthleteFields":
+        """Athletes with deleted IMU decelzones"""
+        return AthleteFields("athletes")
+
+    @classmethod
+    def errors(cls) -> "ValidationErrorFields":
+        """Validation errors that occurred while performing the mutation"""
+        return ValidationErrorFields("errors")
+
+    def fields(
+        self,
+        *subfields: Union[
+            DeleteIMUDecelzonesPayloadGraphQLField,
+            "AthleteFields",
+            "ValidationErrorFields",
+        ],
+    ) -> "DeleteIMUDecelzonesPayloadFields":
+        """Subfields should come from the DeleteIMUDecelzonesPayloadFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "DeleteIMUDecelzonesPayloadFields":
         self._alias = alias
         return self
 
@@ -10015,10 +10720,17 @@ class DestroySessionTargetDefinitionsPayloadFields(GraphQLField):
         """Validation errors that occurred while performing the mutation"""
         return ValidationErrorFields("errors")
 
+    @classmethod
+    def target_templates(cls) -> "TargetTemplateFields":
+        """The templates the definitions were removed from, with their remaining definitions"""
+        return TargetTemplateFields("targetTemplates")
+
     def fields(
         self,
         *subfields: Union[
-            DestroySessionTargetDefinitionsPayloadGraphQLField, "ValidationErrorFields"
+            DestroySessionTargetDefinitionsPayloadGraphQLField,
+            "TargetTemplateFields",
+            "ValidationErrorFields",
         ],
     ) -> "DestroySessionTargetDefinitionsPayloadFields":
         """Subfields should come from the DestroySessionTargetDefinitionsPayloadFields class"""
@@ -10596,6 +11308,9 @@ class EdgeFields(GraphQLField):
 
 
 class EdgeDataFileFields(GraphQLField):
+    id: "EdgeDataFileGraphQLField" = EdgeDataFileGraphQLField("id")
+    "The id of the data recording this file was captured for"
+
     @classmethod
     def url(
         cls, *, format: Optional[DatafileFormat] = None
@@ -10726,6 +11441,60 @@ class EndEdgeOwnershipPayloadFields(GraphQLField):
         return self
 
 
+class EventInterface(GraphQLField):
+    """Common fields shared by user- and period-derived session segments"""
+
+    created_at: "EventGraphQLField" = EventGraphQLField("createdAt")
+    "The time the segment was created"
+    end_time: "EventGraphQLField" = EventGraphQLField("endTime")
+    "The time the segment ends"
+    event_type_id: "EventGraphQLField" = EventGraphQLField("eventTypeId")
+    "Identifier of the event type definition"
+    id: "EventGraphQLField" = EventGraphQLField("id")
+    "Unique identifier for the segment"
+    involving_team: "EventGraphQLField" = EventGraphQLField("involvingTeam")
+    "Which team the event involves: our team, the opposing team, or both teams"
+    match_minute: "EventGraphQLField" = EventGraphQLField("matchMinute")
+    "Match minute at which the event occurred"
+    name: "EventGraphQLField" = EventGraphQLField("name")
+    "Name of the event type"
+    provenance: "EventGraphQLField" = EventGraphQLField("provenance")
+    "How the event was created and whether it has been rejected"
+
+    @classmethod
+    def segment_participations(cls) -> "SegmentParticipationFields":
+        """Athlete participations within this segment"""
+        return SegmentParticipationFields("segmentParticipations")
+
+    @classmethod
+    def sport_definition(cls) -> "SportDefinitionFields":
+        """Sport definition the event belongs to"""
+        return SportDefinitionFields("sportDefinition")
+
+    start_time: "EventGraphQLField" = EventGraphQLField("startTime")
+    "The time the segment starts"
+    updated_at: "EventGraphQLField" = EventGraphQLField("updatedAt")
+    "The time the segment was last updated"
+
+    def fields(
+        self,
+        *subfields: Union[
+            EventGraphQLField, "SegmentParticipationFields", "SportDefinitionFields"
+        ],
+    ) -> "EventInterface":
+        """Subfields should come from the EventInterface class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "EventInterface":
+        self._alias = alias
+        return self
+
+    def on(self, type_name: str, *subfields: GraphQLField) -> "EventInterface":
+        self._inline_fragments[type_name] = subfields
+        return self
+
+
 class ExamplePromptFields(GraphQLField):
     """An example prompt configuration for chat"""
 
@@ -10840,6 +11609,8 @@ class FlexibleReportFields(GraphQLField):
         }
         return FlexibleReportChartFields("reportCharts", arguments=cleared_arguments)
 
+    template: "FlexibleReportGraphQLField" = FlexibleReportGraphQLField("template")
+    "Whether this report is a user-created template"
     title: "FlexibleReportGraphQLField" = FlexibleReportGraphQLField("title")
     "The report title"
     updated_at: "FlexibleReportGraphQLField" = FlexibleReportGraphQLField("updatedAt")
@@ -11079,6 +11850,14 @@ class GatewaySessionFields(GraphQLField):
 class GenericMetricFields(GraphQLField):
     """A generic metric type with common attributes"""
 
+    aggregation_method: "GenericMetricGraphQLField" = GenericMetricGraphQLField(
+        "aggregationMethod"
+    )
+    "How this metric combines across a time period"
+    aggregation_weight: "GenericMetricGraphQLField" = GenericMetricGraphQLField(
+        "aggregationWeight"
+    )
+    "The weight of this metric when it is averaged across athletes or sessions. The same weights as the server averages"
     category: "GenericMetricGraphQLField" = GenericMetricGraphQLField("category")
     "The category of the metric"
     display_unit: "GenericMetricGraphQLField" = GenericMetricGraphQLField("displayUnit")
@@ -11177,6 +11956,14 @@ class GenericPersonalBestsMetricFields(GraphQLField):
         GenericPersonalBestsMetricGraphQLField("achievedDate")
     )
     "The date the personal best was achieved"
+    aggregation_method: "GenericPersonalBestsMetricGraphQLField" = (
+        GenericPersonalBestsMetricGraphQLField("aggregationMethod")
+    )
+    "How this metric combines across a time period"
+    aggregation_weight: "GenericPersonalBestsMetricGraphQLField" = (
+        GenericPersonalBestsMetricGraphQLField("aggregationWeight")
+    )
+    "The weight of this metric when it is averaged across athletes or sessions. The same weights as the server averages"
     category: "GenericPersonalBestsMetricGraphQLField" = (
         GenericPersonalBestsMetricGraphQLField("category")
     )
@@ -11285,6 +12072,34 @@ class GrantOrgAdminRolePayloadFields(GraphQLField):
         return self
 
 
+class GrantRolePayloadFields(GraphQLField):
+    """Autogenerated return type of GrantRole."""
+
+    @classmethod
+    def errors(cls) -> "ValidationErrorFields":
+        """Validation errors that occurred while performing the mutation"""
+        return ValidationErrorFields("errors")
+
+    @classmethod
+    def members(cls) -> "MemberFields":
+        """The members the role was granted to"""
+        return MemberFields("members")
+
+    def fields(
+        self,
+        *subfields: Union[
+            GrantRolePayloadGraphQLField, "MemberFields", "ValidationErrorFields"
+        ],
+    ) -> "GrantRolePayloadFields":
+        """Subfields should come from the GrantRolePayloadFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "GrantRolePayloadFields":
+        self._alias = alias
+        return self
+
+
 class HeartRateBoundsPayloadFields(GraphQLField):
     """Autogenerated return type of HeartRateBounds."""
 
@@ -11385,6 +12200,164 @@ class HeartratePeripheralDisconnectedFields(GraphQLField):
         return self
 
 
+class HubspotSubscriptionFields(GraphQLField):
+    """A Hubspot-managed subscription"""
+
+    cancelled_at: "HubspotSubscriptionGraphQLField" = HubspotSubscriptionGraphQLField(
+        "cancelledAt"
+    )
+    "When the subscription was cancelled"
+    hubspot_status: "HubspotSubscriptionGraphQLField" = HubspotSubscriptionGraphQLField(
+        "hubspotStatus"
+    )
+    "The subscription's status as last synced from Hubspot"
+    id: "HubspotSubscriptionGraphQLField" = HubspotSubscriptionGraphQLField("id")
+    "The subscription's unique identifier"
+    subscription_portal_url: "HubspotSubscriptionGraphQLField" = (
+        HubspotSubscriptionGraphQLField("subscriptionPortalUrl")
+    )
+    "A signed URL to the customer subscription portal"
+
+    def fields(
+        self, *subfields: HubspotSubscriptionGraphQLField
+    ) -> "HubspotSubscriptionFields":
+        """Subfields should come from the HubspotSubscriptionFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "HubspotSubscriptionFields":
+        self._alias = alias
+        return self
+
+
+class IMUAccelzoneLowerBoundsFields(GraphQLField):
+    """IMU acceleration zone boundaries in m/s²"""
+
+    zone_1: "IMUAccelzoneLowerBoundsGraphQLField" = IMUAccelzoneLowerBoundsGraphQLField(
+        "zone1"
+    )
+    "Zone 1 lower boundary"
+    zone_2: "IMUAccelzoneLowerBoundsGraphQLField" = IMUAccelzoneLowerBoundsGraphQLField(
+        "zone2"
+    )
+    "Zone 2 lower boundary"
+    zone_3: "IMUAccelzoneLowerBoundsGraphQLField" = IMUAccelzoneLowerBoundsGraphQLField(
+        "zone3"
+    )
+    "Zone 3 lower boundary"
+    zone_4: "IMUAccelzoneLowerBoundsGraphQLField" = IMUAccelzoneLowerBoundsGraphQLField(
+        "zone4"
+    )
+    "Zone 4 lower boundary"
+    zone_5: "IMUAccelzoneLowerBoundsGraphQLField" = IMUAccelzoneLowerBoundsGraphQLField(
+        "zone5"
+    )
+    "Zone 5 lower boundary"
+
+    def fields(
+        self, *subfields: IMUAccelzoneLowerBoundsGraphQLField
+    ) -> "IMUAccelzoneLowerBoundsFields":
+        """Subfields should come from the IMUAccelzoneLowerBoundsFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "IMUAccelzoneLowerBoundsFields":
+        self._alias = alias
+        return self
+
+
+class IMUAccelzonesPayloadFields(GraphQLField):
+    """Autogenerated return type of IMUAccelzones."""
+
+    @classmethod
+    def athletes(cls) -> "AthleteFields":
+        """Updated athletes"""
+        return AthleteFields("athletes")
+
+    @classmethod
+    def errors(cls) -> "ValidationErrorFields":
+        """Validation errors that occurred while performing the mutation"""
+        return ValidationErrorFields("errors")
+
+    def fields(
+        self,
+        *subfields: Union[
+            IMUAccelzonesPayloadGraphQLField, "AthleteFields", "ValidationErrorFields"
+        ],
+    ) -> "IMUAccelzonesPayloadFields":
+        """Subfields should come from the IMUAccelzonesPayloadFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "IMUAccelzonesPayloadFields":
+        self._alias = alias
+        return self
+
+
+class IMUDecelzoneLowerBoundsFields(GraphQLField):
+    """IMU deceleration zone boundaries in m/s²"""
+
+    zone_1: "IMUDecelzoneLowerBoundsGraphQLField" = IMUDecelzoneLowerBoundsGraphQLField(
+        "zone1"
+    )
+    "Zone 1 lower boundary"
+    zone_2: "IMUDecelzoneLowerBoundsGraphQLField" = IMUDecelzoneLowerBoundsGraphQLField(
+        "zone2"
+    )
+    "Zone 2 lower boundary"
+    zone_3: "IMUDecelzoneLowerBoundsGraphQLField" = IMUDecelzoneLowerBoundsGraphQLField(
+        "zone3"
+    )
+    "Zone 3 lower boundary"
+    zone_4: "IMUDecelzoneLowerBoundsGraphQLField" = IMUDecelzoneLowerBoundsGraphQLField(
+        "zone4"
+    )
+    "Zone 4 lower boundary"
+    zone_5: "IMUDecelzoneLowerBoundsGraphQLField" = IMUDecelzoneLowerBoundsGraphQLField(
+        "zone5"
+    )
+    "Zone 5 lower boundary"
+
+    def fields(
+        self, *subfields: IMUDecelzoneLowerBoundsGraphQLField
+    ) -> "IMUDecelzoneLowerBoundsFields":
+        """Subfields should come from the IMUDecelzoneLowerBoundsFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "IMUDecelzoneLowerBoundsFields":
+        self._alias = alias
+        return self
+
+
+class IMUDecelzonesPayloadFields(GraphQLField):
+    """Autogenerated return type of IMUDecelzones."""
+
+    @classmethod
+    def athletes(cls) -> "AthleteFields":
+        """Updated athletes"""
+        return AthleteFields("athletes")
+
+    @classmethod
+    def errors(cls) -> "ValidationErrorFields":
+        """Validation errors that occurred while performing the mutation"""
+        return ValidationErrorFields("errors")
+
+    def fields(
+        self,
+        *subfields: Union[
+            IMUDecelzonesPayloadGraphQLField, "AthleteFields", "ValidationErrorFields"
+        ],
+    ) -> "IMUDecelzonesPayloadFields":
+        """Subfields should come from the IMUDecelzonesPayloadFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "IMUDecelzonesPayloadFields":
+        self._alias = alias
+        return self
+
+
 class IntMetricValueFields(GraphQLField):
     """A metric value type for integer values"""
 
@@ -11442,6 +12415,10 @@ class LegacySurveyDistributedContextFields(GraphQLField):
 class LocalizedTermsFields(GraphQLField):
     """Localized terminology for sports concepts"""
 
+    full_time: "LocalizedTermsGraphQLField" = LocalizedTermsGraphQLField("fullTime")
+    "Localized short label for full-time/final (e.g. FT)"
+    kick_off: "LocalizedTermsGraphQLField" = LocalizedTermsGraphQLField("kickOff")
+    "Localized short label for kick-off/start (e.g. KO)"
     match: "LocalizedTermsGraphQLField" = LocalizedTermsGraphQLField("match")
     "Localized term for match/game"
     pitch: "LocalizedTermsGraphQLField" = LocalizedTermsGraphQLField("pitch")
@@ -11551,6 +12528,26 @@ class MarkMultipleAppMessagesReadPayloadFields(GraphQLField):
         return self
 
 
+class MarkedPitchCornerFields(GraphQLField):
+    """A hand-marked pitch corner, normalised to the raw camera image (0-1)"""
+
+    x: "MarkedPitchCornerGraphQLField" = MarkedPitchCornerGraphQLField("x")
+    "Normalised horizontal position (0-1)"
+    y: "MarkedPitchCornerGraphQLField" = MarkedPitchCornerGraphQLField("y")
+    "Normalised vertical position (0-1)"
+
+    def fields(
+        self, *subfields: MarkedPitchCornerGraphQLField
+    ) -> "MarkedPitchCornerFields":
+        """Subfields should come from the MarkedPitchCornerFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "MarkedPitchCornerFields":
+        self._alias = alias
+        return self
+
+
 class MatchDefinitionFields(GraphQLField):
     @classmethod
     def events(cls) -> "MatchEventDefinitionFields":
@@ -11599,8 +12596,14 @@ class MatchDefinitionFields(GraphQLField):
 
 
 class MatchEventFields(GraphQLField):
+    created_at: "MatchEventGraphQLField" = MatchEventGraphQLField("createdAt")
+    "The time the segment was created"
+    end_time: "MatchEventGraphQLField" = MatchEventGraphQLField("endTime")
+    "The time the segment ends"
+    event_type_id: "MatchEventGraphQLField" = MatchEventGraphQLField("eventTypeId")
+    "Identifier of the event type definition"
     id: "MatchEventGraphQLField" = MatchEventGraphQLField("id")
-    "Unique identifier for the match event"
+    "Unique identifier for the segment"
     involving_team: "MatchEventGraphQLField" = MatchEventGraphQLField("involvingTeam")
     "Which team the event involves: our team, the opposing team, or both teams"
     match_event_type_id: "MatchEventGraphQLField" = MatchEventGraphQLField(
@@ -11615,6 +12618,19 @@ class MatchEventFields(GraphQLField):
     "When the event occurred"
 
     @classmethod
+    def participants(cls) -> "MatchSessionParticipationFields":
+        """Session participations involved in the event"""
+        return MatchSessionParticipationFields("participants")
+
+    provenance: "MatchEventGraphQLField" = MatchEventGraphQLField("provenance")
+    "How the event was created and whether it has been rejected"
+
+    @classmethod
+    def segment_participations(cls) -> "SegmentParticipationFields":
+        """Athlete participations within this segment"""
+        return SegmentParticipationFields("segmentParticipations")
+
+    @classmethod
     def session_participation(cls) -> "MatchSessionParticipationFields":
         """Participation of the athlete the event relates to"""
         return MatchSessionParticipationFields("sessionParticipation")
@@ -11624,11 +12640,17 @@ class MatchEventFields(GraphQLField):
         """Sport definition the event belongs to"""
         return SportDefinitionFields("sportDefinition")
 
+    start_time: "MatchEventGraphQLField" = MatchEventGraphQLField("startTime")
+    "The time the segment starts"
+    updated_at: "MatchEventGraphQLField" = MatchEventGraphQLField("updatedAt")
+    "The time the segment was last updated"
+
     def fields(
         self,
         *subfields: Union[
             MatchEventGraphQLField,
             "MatchSessionParticipationFields",
+            "SegmentParticipationFields",
             "SportDefinitionFields",
         ],
     ) -> "MatchEventFields":
@@ -11646,10 +12668,24 @@ class MatchEventDefinitionFields(GraphQLField):
         "className"
     )
     "Underlying event class used to record this event"
+    colour: "MatchEventDefinitionGraphQLField" = MatchEventDefinitionGraphQLField(
+        "colour"
+    )
+    "Hex colour from the brand palette"
+    group: "MatchEventDefinitionGraphQLField" = MatchEventDefinitionGraphQLField(
+        "group"
+    )
+    "Display group this event belongs to"
+    icon_name: "MatchEventDefinitionGraphQLField" = MatchEventDefinitionGraphQLField(
+        "iconName"
+    )
+    "Icon identifier used to represent this event"
     id: "MatchEventDefinitionGraphQLField" = MatchEventDefinitionGraphQLField("id")
     "Unique identifier for this match event definition"
     name: "MatchEventDefinitionGraphQLField" = MatchEventDefinitionGraphQLField("name")
     "Display name of the match event"
+    slug: "MatchEventDefinitionGraphQLField" = MatchEventDefinitionGraphQLField("slug")
+    "Stable semantic key for this event, shared across sports"
 
     def fields(
         self, *subfields: MatchEventDefinitionGraphQLField
@@ -11801,9 +12837,18 @@ class MatchSessionFields(GraphQLField):
         return SessionBlueprintFields("childSessionBlueprint")
 
     @classmethod
-    def clips(cls) -> "VideoClipFields":
-        """Video clips associated with the session"""
-        return VideoClipFields("clips")
+    def clips(
+        cls, *, limit: Optional[int] = None, offset: Optional[int] = None
+    ) -> "VideoClipFields":
+        """Video clips associated with the session, earliest start time first"""
+        arguments: dict[str, dict[str, Any]] = {
+            "limit": {"type": "Int", "value": limit},
+            "offset": {"type": "Int", "value": offset},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return VideoClipFields("clips", arguments=cleared_arguments)
 
     @classmethod
     def club(cls) -> "ClubFields":
@@ -12026,12 +13071,14 @@ class MatchSessionFields(GraphQLField):
         limit: Optional[int] = None,
         offset: Optional[int] = None,
         order: Optional[list[OrderInputObject]] = None,
+        types: Optional[list[SegmentTypeFilter]] = None,
     ) -> "SegmentFields":
         """The segments that make up the session"""
         arguments: dict[str, dict[str, Any]] = {
             "limit": {"type": "Int", "value": limit},
             "offset": {"type": "Int", "value": offset},
             "order": {"type": "[OrderInputObject!]", "value": order},
+            "types": {"type": "[SegmentTypeFilter!]", "value": types},
         }
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
@@ -12040,13 +13087,32 @@ class MatchSessionFields(GraphQLField):
 
     @classmethod
     def session_anchor_positions(cls) -> "SessionAnchorPositionFields":
-        """LPS anchor positions override. (empty if none)"""
+        """LPS anchor positions processing uses for this session. (empty if none)"""
         return SessionAnchorPositionFields("sessionAnchorPositions")
 
     @classmethod
     def session_context(cls) -> "SessionContextFields":
         """Context for the session"""
         return SessionContextFields("sessionContext")
+
+    @classmethod
+    def session_events(
+        cls,
+        *,
+        include_rejected: Optional[bool] = None,
+        limit: Optional[int] = None,
+        offset: Optional[int] = None,
+    ) -> "EventInterface":
+        """Events recorded in the session, ordered by start time"""
+        arguments: dict[str, dict[str, Any]] = {
+            "includeRejected": {"type": "Boolean", "value": include_rejected},
+            "limit": {"type": "Int", "value": limit},
+            "offset": {"type": "Int", "value": offset},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return EventInterface("sessionEvents", arguments=cleared_arguments)
 
     @classmethod
     def session_load_history(cls) -> "SessionLoadHistoryFields":
@@ -12141,6 +13207,8 @@ class MatchSessionFields(GraphQLField):
 
     timeline_time: "MatchSessionGraphQLField" = MatchSessionGraphQLField("timelineTime")
     "The time this item should be displayed in the user's timeline"
+    timezone: "MatchSessionGraphQLField" = MatchSessionGraphQLField("timezone")
+    "IANA timezone the session took place in. startTime and endTime are UTC\ninstants; apply this to render or reason about the session's local clock time"
 
     @classmethod
     def unavailable_gateways(
@@ -12165,6 +13233,27 @@ class MatchSessionFields(GraphQLField):
 
     updated_at: "MatchSessionGraphQLField" = MatchSessionGraphQLField("updatedAt")
     "The time the session was last updated"
+
+    @classmethod
+    def user_segments(
+        cls,
+        *,
+        limit: Optional[int] = None,
+        offset: Optional[int] = None,
+        order: Optional[list[OrderInputObject]] = None,
+        types: Optional[list[UserSegmentTypeFilter]] = None,
+    ) -> "UserSegmentFields":
+        """The user-created segments in the session"""
+        arguments: dict[str, dict[str, Any]] = {
+            "limit": {"type": "Int", "value": limit},
+            "offset": {"type": "Int", "value": offset},
+            "order": {"type": "[OrderInputObject!]", "value": order},
+            "types": {"type": "[UserSegmentTypeFilter!]", "value": types},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return UserSegmentFields("userSegments", arguments=cleared_arguments)
 
     @classmethod
     def video_annotations_url(cls) -> "VideoAnnotationsUrlFields":
@@ -12207,6 +13296,7 @@ class MatchSessionFields(GraphQLField):
             "DetectedSessionFields",
             "DiagnosticWarningFields",
             "EdgeFields",
+            "EventInterface",
             "GatewayOwnershipFields",
             "GatewaySessionFields",
             "GenericMetricExplanationFields",
@@ -12233,6 +13323,7 @@ class MatchSessionFields(GraphQLField):
             "SportDefinitionFields",
             "SurveyAssignmentFields",
             "SurveyDistributionFields",
+            "UserSegmentFields",
             "VideoAnnotationsUrlFields",
             "VideoClipFields",
             "VideoSignedUrlFields",
@@ -12549,6 +13640,30 @@ class MatchSessionAthleteMetricSetFields(GraphQLField):
         MatchSessionAthleteMetricSetGraphQLField("clubZoneThreeDecelerationEvents")
     )
     "Number of club zone 3 deceleration events"
+    club_zone_three_plus_acceleration_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneThreePlusAccelerationDistanceM"
+    )
+    "Club zone 3+ acceleration distance in metres"
+    club_zone_three_plus_acceleration_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneThreePlusAccelerationDurationS"
+    )
+    "Club zone 3+ acceleration duration in seconds"
+    club_zone_three_plus_acceleration_events: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneThreePlusAccelerationEvents"
+    )
+    "Number of club zone 3+ acceleration events"
+    club_zone_three_plus_deceleration_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneThreePlusDecelerationDistanceM"
+    )
+    "Club zone 3+ deceleration distance in metres"
+    club_zone_three_plus_deceleration_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneThreePlusDecelerationDurationS"
+    )
+    "Club zone 3+ deceleration duration in seconds"
+    club_zone_three_plus_deceleration_events: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneThreePlusDecelerationEvents"
+    )
+    "Number of club zone 3+ deceleration events"
     club_zone_two_acceleration_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
         "clubZoneTwoAccelerationDistanceM"
     )
@@ -12573,6 +13688,30 @@ class MatchSessionAthleteMetricSetFields(GraphQLField):
         MatchSessionAthleteMetricSetGraphQLField("clubZoneTwoDecelerationEvents")
     )
     "Number of club zone 2 deceleration events"
+    club_zone_two_plus_acceleration_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneTwoPlusAccelerationDistanceM"
+    )
+    "Club zone 2+ acceleration distance in metres"
+    club_zone_two_plus_acceleration_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneTwoPlusAccelerationDurationS"
+    )
+    "Club zone 2+ acceleration duration in seconds"
+    club_zone_two_plus_acceleration_events: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneTwoPlusAccelerationEvents"
+    )
+    "Number of club zone 2+ acceleration events"
+    club_zone_two_plus_deceleration_distance_m: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneTwoPlusDecelerationDistanceM"
+    )
+    "Club zone 2+ deceleration distance in metres"
+    club_zone_two_plus_deceleration_duration_s: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneTwoPlusDecelerationDurationS"
+    )
+    "Club zone 2+ deceleration duration in seconds"
+    club_zone_two_plus_deceleration_events: "MatchSessionAthleteMetricSetGraphQLField" = MatchSessionAthleteMetricSetGraphQLField(
+        "clubZoneTwoPlusDecelerationEvents"
+    )
+    "Number of club zone 2+ deceleration events"
 
     @classmethod
     def contributing_data_times(cls) -> "TimeRangeDataFields":
@@ -13004,6 +14143,14 @@ class MatchSessionAthleteMetricSetFields(GraphQLField):
         MatchSessionAthleteMetricSetGraphQLField("maxHeartrateBpm")
     )
     "Maximum heart rate in beats per minute"
+    max_imu_acceleration: "MatchSessionAthleteMetricSetGraphQLField" = (
+        MatchSessionAthleteMetricSetGraphQLField("maxIMUAcceleration")
+    )
+    "Maximum IMU acceleration in m/s²"
+    max_imu_deceleration: "MatchSessionAthleteMetricSetGraphQLField" = (
+        MatchSessionAthleteMetricSetGraphQLField("maxIMUDeceleration")
+    )
+    "Maximum IMU deceleration in m/s²"
     max_jump_height_cm: "MatchSessionAthleteMetricSetGraphQLField" = (
         MatchSessionAthleteMetricSetGraphQLField("maxJumpHeightCm")
     )
@@ -13520,6 +14667,30 @@ class MatchSessionAthletePeriodMetricSetFields(GraphQLField):
         "clubZoneThreeDecelerationEvents"
     )
     "Number of club zone 3 deceleration events"
+    club_zone_three_plus_acceleration_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "clubZoneThreePlusAccelerationDistanceM"
+    )
+    "Club zone 3+ acceleration distance in metres"
+    club_zone_three_plus_acceleration_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "clubZoneThreePlusAccelerationDurationS"
+    )
+    "Club zone 3+ acceleration duration in seconds"
+    club_zone_three_plus_acceleration_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "clubZoneThreePlusAccelerationEvents"
+    )
+    "Number of club zone 3+ acceleration events"
+    club_zone_three_plus_deceleration_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "clubZoneThreePlusDecelerationDistanceM"
+    )
+    "Club zone 3+ deceleration distance in metres"
+    club_zone_three_plus_deceleration_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "clubZoneThreePlusDecelerationDurationS"
+    )
+    "Club zone 3+ deceleration duration in seconds"
+    club_zone_three_plus_deceleration_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "clubZoneThreePlusDecelerationEvents"
+    )
+    "Number of club zone 3+ deceleration events"
     club_zone_two_acceleration_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
         "clubZoneTwoAccelerationDistanceM"
     )
@@ -13544,6 +14715,30 @@ class MatchSessionAthletePeriodMetricSetFields(GraphQLField):
         "clubZoneTwoDecelerationEvents"
     )
     "Number of club zone 2 deceleration events"
+    club_zone_two_plus_acceleration_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "clubZoneTwoPlusAccelerationDistanceM"
+    )
+    "Club zone 2+ acceleration distance in metres"
+    club_zone_two_plus_acceleration_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "clubZoneTwoPlusAccelerationDurationS"
+    )
+    "Club zone 2+ acceleration duration in seconds"
+    club_zone_two_plus_acceleration_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "clubZoneTwoPlusAccelerationEvents"
+    )
+    "Number of club zone 2+ acceleration events"
+    club_zone_two_plus_deceleration_distance_m: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "clubZoneTwoPlusDecelerationDistanceM"
+    )
+    "Club zone 2+ deceleration distance in metres"
+    club_zone_two_plus_deceleration_duration_s: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "clubZoneTwoPlusDecelerationDurationS"
+    )
+    "Club zone 2+ deceleration duration in seconds"
+    club_zone_two_plus_deceleration_events: "MatchSessionAthletePeriodMetricSetGraphQLField" = MatchSessionAthletePeriodMetricSetGraphQLField(
+        "clubZoneTwoPlusDecelerationEvents"
+    )
+    "Number of club zone 2+ deceleration events"
 
     @classmethod
     def configured_metrics(
@@ -13998,6 +15193,14 @@ class MatchSessionAthletePeriodMetricSetFields(GraphQLField):
         MatchSessionAthletePeriodMetricSetGraphQLField("maxHeartrateBpm")
     )
     "Maximum heart rate in beats per minute"
+    max_imu_acceleration: "MatchSessionAthletePeriodMetricSetGraphQLField" = (
+        MatchSessionAthletePeriodMetricSetGraphQLField("maxIMUAcceleration")
+    )
+    "Maximum IMU acceleration in m/s²"
+    max_imu_deceleration: "MatchSessionAthletePeriodMetricSetGraphQLField" = (
+        MatchSessionAthletePeriodMetricSetGraphQLField("maxIMUDeceleration")
+    )
+    "Maximum IMU deceleration in m/s²"
     max_jump_height_cm: "MatchSessionAthletePeriodMetricSetGraphQLField" = (
         MatchSessionAthletePeriodMetricSetGraphQLField("maxJumpHeightCm")
     )
@@ -14523,6 +15726,30 @@ class MatchSessionMetricSetFields(GraphQLField):
         MatchSessionMetricSetGraphQLField("avgClubZoneThreeDecelerationEvents")
     )
     "Average number of club zone 3 deceleration events"
+    avg_club_zone_three_plus_acceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgClubZoneThreePlusAccelerationDistanceM"
+    )
+    "Average club zone 3+ acceleration distance in metres"
+    avg_club_zone_three_plus_acceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgClubZoneThreePlusAccelerationDurationS"
+    )
+    "Average club zone 3+ acceleration duration in seconds"
+    avg_club_zone_three_plus_acceleration_events: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgClubZoneThreePlusAccelerationEvents"
+    )
+    "Average number of club zone 3+ acceleration events"
+    avg_club_zone_three_plus_deceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgClubZoneThreePlusDecelerationDistanceM"
+    )
+    "Average club zone 3+ deceleration distance in metres"
+    avg_club_zone_three_plus_deceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgClubZoneThreePlusDecelerationDurationS"
+    )
+    "Average club zone 3+ deceleration duration in seconds"
+    avg_club_zone_three_plus_deceleration_events: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgClubZoneThreePlusDecelerationEvents"
+    )
+    "Average number of club zone 3+ deceleration events"
     avg_club_zone_two_acceleration_distance_m: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("avgClubZoneTwoAccelerationDistanceM")
     )
@@ -14547,6 +15774,30 @@ class MatchSessionMetricSetFields(GraphQLField):
         MatchSessionMetricSetGraphQLField("avgClubZoneTwoDecelerationEvents")
     )
     "Average number of club zone 2 deceleration events"
+    avg_club_zone_two_plus_acceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgClubZoneTwoPlusAccelerationDistanceM"
+    )
+    "Average club zone 2+ acceleration distance in metres"
+    avg_club_zone_two_plus_acceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgClubZoneTwoPlusAccelerationDurationS"
+    )
+    "Average club zone 2+ acceleration duration in seconds"
+    avg_club_zone_two_plus_acceleration_events: "MatchSessionMetricSetGraphQLField" = (
+        MatchSessionMetricSetGraphQLField("avgClubZoneTwoPlusAccelerationEvents")
+    )
+    "Average number of club zone 2+ acceleration events"
+    avg_club_zone_two_plus_deceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgClubZoneTwoPlusDecelerationDistanceM"
+    )
+    "Average club zone 2+ deceleration distance in metres"
+    avg_club_zone_two_plus_deceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "avgClubZoneTwoPlusDecelerationDurationS"
+    )
+    "Average club zone 2+ deceleration duration in seconds"
+    avg_club_zone_two_plus_deceleration_events: "MatchSessionMetricSetGraphQLField" = (
+        MatchSessionMetricSetGraphQLField("avgClubZoneTwoPlusDecelerationEvents")
+    )
+    "Average number of club zone 2+ deceleration events"
     avg_deceleration_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("avgDecelerationEvents")
     )
@@ -15412,6 +16663,30 @@ class MatchSessionMetricSetFields(GraphQLField):
         MatchSessionMetricSetGraphQLField("totalClubZoneThreeDecelerationEvents")
     )
     "Total number of club zone 3 deceleration events"
+    total_club_zone_three_plus_acceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalClubZoneThreePlusAccelerationDistanceM"
+    )
+    "Total club zone 3+ acceleration distance in metres"
+    total_club_zone_three_plus_acceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalClubZoneThreePlusAccelerationDurationS"
+    )
+    "Total club zone 3+ acceleration duration in seconds"
+    total_club_zone_three_plus_acceleration_events: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalClubZoneThreePlusAccelerationEvents"
+    )
+    "Total number of club zone 3+ acceleration events"
+    total_club_zone_three_plus_deceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalClubZoneThreePlusDecelerationDistanceM"
+    )
+    "Total club zone 3+ deceleration distance in metres"
+    total_club_zone_three_plus_deceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalClubZoneThreePlusDecelerationDurationS"
+    )
+    "Total club zone 3+ deceleration duration in seconds"
+    total_club_zone_three_plus_deceleration_events: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalClubZoneThreePlusDecelerationEvents"
+    )
+    "Total number of club zone 3+ deceleration events"
     total_club_zone_two_acceleration_distance_m: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("totalClubZoneTwoAccelerationDistanceM")
     )
@@ -15436,6 +16711,30 @@ class MatchSessionMetricSetFields(GraphQLField):
         MatchSessionMetricSetGraphQLField("totalClubZoneTwoDecelerationEvents")
     )
     "Total number of club zone 2 deceleration events"
+    total_club_zone_two_plus_acceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalClubZoneTwoPlusAccelerationDistanceM"
+    )
+    "Total club zone 2+ acceleration distance in metres"
+    total_club_zone_two_plus_acceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalClubZoneTwoPlusAccelerationDurationS"
+    )
+    "Total club zone 2+ acceleration duration in seconds"
+    total_club_zone_two_plus_acceleration_events: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalClubZoneTwoPlusAccelerationEvents"
+    )
+    "Total number of club zone 2+ acceleration events"
+    total_club_zone_two_plus_deceleration_distance_m: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalClubZoneTwoPlusDecelerationDistanceM"
+    )
+    "Total club zone 2+ deceleration distance in metres"
+    total_club_zone_two_plus_deceleration_duration_s: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalClubZoneTwoPlusDecelerationDurationS"
+    )
+    "Total club zone 2+ deceleration duration in seconds"
+    total_club_zone_two_plus_deceleration_events: "MatchSessionMetricSetGraphQLField" = MatchSessionMetricSetGraphQLField(
+        "totalClubZoneTwoPlusDecelerationEvents"
+    )
+    "Total number of club zone 2+ deceleration events"
     total_deceleration_events: "MatchSessionMetricSetGraphQLField" = (
         MatchSessionMetricSetGraphQLField("totalDecelerationEvents")
     )
@@ -16020,6 +17319,14 @@ class MatchSessionParticipationFields(GraphQLField):
     "Unique identifier for the session participation"
 
     @classmethod
+    def last_seven_days_metrics(cls) -> "ConfiguredMetricsFields":
+        """The athlete's mean of each configured metric over their other sessions of the
+        same type in the last 7 days, weighted by active minutes for IMU, jump and
+        acceleration load metrics, and by contributing seconds for all other metrics.
+        Null when there are no such sessions"""
+        return ConfiguredMetricsFields("lastSevenDaysMetrics")
+
+    @classmethod
     def match_events(
         cls, *, event_classes: Optional[list[MatchEventClassEnum]] = None
     ) -> "MatchEventFields":
@@ -16053,9 +17360,20 @@ class MatchSessionParticipationFields(GraphQLField):
         return MatchSessionAthleteMetricSetFields("metricSet")
 
     @classmethod
+    def participant_annotations_url(cls) -> "VideoAnnotationsUrlFields":
+        """Signed URL for this participation's annotations file on the session's video recording"""
+        return VideoAnnotationsUrlFields("participantAnnotationsUrl")
+
+    @classmethod
     def period_metric_sets(cls) -> "MatchSessionAthletePeriodMetricSetFields":
         """Athlete metrics broken down by match session period"""
         return MatchSessionAthletePeriodMetricSetFields("periodMetricSets")
+
+    @classmethod
+    def personal_best_metrics(cls) -> "ConfiguredMetricsFields":
+        """The athlete's all-time best for each configured metric, over all session types
+        in the club that the viewer can see. A metric without a personal best has no value"""
+        return ConfiguredMetricsFields("personalBestMetrics")
 
     @classmethod
     def pitch_entry_events(cls) -> "MatchEventFields":
@@ -16071,6 +17389,11 @@ class MatchSessionParticipationFields(GraphQLField):
     def position(cls) -> "PositionDefinitionFields":
         """The position the athlete played in the session"""
         return PositionDefinitionFields("position")
+
+    @classmethod
+    def previous_participation(cls) -> "SessionParticipationInterface":
+        """The same athlete's participation in their most recent earlier session of the same type that has metrics"""
+        return SessionParticipationInterface("previousParticipation")
 
     @classmethod
     def segment_participations(cls) -> "SegmentParticipationFields":
@@ -16137,8 +17460,10 @@ class MatchSessionParticipationFields(GraphQLField):
             "PositionDefinitionFields",
             "SegmentParticipationFields",
             "SessionInterface",
+            "SessionParticipationInterface",
             "TagDefinitionFields",
             "TargetFields",
+            "VideoAnnotationsUrlFields",
         ],
     ) -> "MatchSessionParticipationFields":
         """Subfields should come from the MatchSessionParticipationFields class"""
@@ -16523,6 +17848,30 @@ class MatchSessionParticipationPartMetricSetFields(GraphQLField):
         "clubZoneThreeDecelerationEvents"
     )
     "Number of club zone 3 deceleration events"
+    club_zone_three_plus_acceleration_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
+        "clubZoneThreePlusAccelerationDistanceM"
+    )
+    "Club zone 3+ acceleration distance in metres"
+    club_zone_three_plus_acceleration_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
+        "clubZoneThreePlusAccelerationDurationS"
+    )
+    "Club zone 3+ acceleration duration in seconds"
+    club_zone_three_plus_acceleration_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
+        "clubZoneThreePlusAccelerationEvents"
+    )
+    "Number of club zone 3+ acceleration events"
+    club_zone_three_plus_deceleration_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
+        "clubZoneThreePlusDecelerationDistanceM"
+    )
+    "Club zone 3+ deceleration distance in metres"
+    club_zone_three_plus_deceleration_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
+        "clubZoneThreePlusDecelerationDurationS"
+    )
+    "Club zone 3+ deceleration duration in seconds"
+    club_zone_three_plus_deceleration_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
+        "clubZoneThreePlusDecelerationEvents"
+    )
+    "Number of club zone 3+ deceleration events"
     club_zone_two_acceleration_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
         "clubZoneTwoAccelerationDistanceM"
     )
@@ -16547,6 +17896,30 @@ class MatchSessionParticipationPartMetricSetFields(GraphQLField):
         "clubZoneTwoDecelerationEvents"
     )
     "Number of club zone 2 deceleration events"
+    club_zone_two_plus_acceleration_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
+        "clubZoneTwoPlusAccelerationDistanceM"
+    )
+    "Club zone 2+ acceleration distance in metres"
+    club_zone_two_plus_acceleration_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
+        "clubZoneTwoPlusAccelerationDurationS"
+    )
+    "Club zone 2+ acceleration duration in seconds"
+    club_zone_two_plus_acceleration_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
+        "clubZoneTwoPlusAccelerationEvents"
+    )
+    "Number of club zone 2+ acceleration events"
+    club_zone_two_plus_deceleration_distance_m: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
+        "clubZoneTwoPlusDecelerationDistanceM"
+    )
+    "Club zone 2+ deceleration distance in metres"
+    club_zone_two_plus_deceleration_duration_s: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
+        "clubZoneTwoPlusDecelerationDurationS"
+    )
+    "Club zone 2+ deceleration duration in seconds"
+    club_zone_two_plus_deceleration_events: "MatchSessionParticipationPartMetricSetGraphQLField" = MatchSessionParticipationPartMetricSetGraphQLField(
+        "clubZoneTwoPlusDecelerationEvents"
+    )
+    "Number of club zone 2+ deceleration events"
 
     @classmethod
     def contributing_data_times(cls) -> "TimeRangeDataFields":
@@ -16978,6 +18351,14 @@ class MatchSessionParticipationPartMetricSetFields(GraphQLField):
         MatchSessionParticipationPartMetricSetGraphQLField("maxHeartrateBpm")
     )
     "Maximum heart rate in beats per minute"
+    max_imu_acceleration: "MatchSessionParticipationPartMetricSetGraphQLField" = (
+        MatchSessionParticipationPartMetricSetGraphQLField("maxIMUAcceleration")
+    )
+    "Maximum IMU acceleration in m/s²"
+    max_imu_deceleration: "MatchSessionParticipationPartMetricSetGraphQLField" = (
+        MatchSessionParticipationPartMetricSetGraphQLField("maxIMUDeceleration")
+    )
+    "Maximum IMU deceleration in m/s²"
     max_jump_height_cm: "MatchSessionParticipationPartMetricSetGraphQLField" = (
         MatchSessionParticipationPartMetricSetGraphQLField("maxJumpHeightCm")
     )
@@ -17197,6 +18578,11 @@ class MatchSessionPeriodFields(GraphQLField):
             "configuredAggMetrics", arguments=cleared_arguments
         )
 
+    created_at: "MatchSessionPeriodGraphQLField" = MatchSessionPeriodGraphQLField(
+        "createdAt"
+    )
+    "The time the segment was created"
+
     @classmethod
     def detected_match_events(cls) -> "DetectedMatchEventFields":
         """Pending detected match events within this period awaiting review"""
@@ -17205,9 +18591,9 @@ class MatchSessionPeriodFields(GraphQLField):
     end_time: "MatchSessionPeriodGraphQLField" = MatchSessionPeriodGraphQLField(
         "endTime"
     )
-    "When the period ended"
+    "The time the segment ends"
     id: "MatchSessionPeriodGraphQLField" = MatchSessionPeriodGraphQLField("id")
-    "Unique identifier for the match session period"
+    "Unique identifier for the segment"
 
     @classmethod
     def match_events(cls) -> "MatchEventFields":
@@ -17235,10 +18621,20 @@ class MatchSessionPeriodFields(GraphQLField):
 
     name: "MatchSessionPeriodGraphQLField" = MatchSessionPeriodGraphQLField("name")
     "Name of the period"
+
+    @classmethod
+    def segment_participations(cls) -> "SegmentParticipationFields":
+        """Athlete participations within this segment"""
+        return SegmentParticipationFields("segmentParticipations")
+
     start_time: "MatchSessionPeriodGraphQLField" = MatchSessionPeriodGraphQLField(
         "startTime"
     )
-    "When the period started"
+    "The time the segment starts"
+    updated_at: "MatchSessionPeriodGraphQLField" = MatchSessionPeriodGraphQLField(
+        "updatedAt"
+    )
+    "The time the segment was last updated"
 
     def fields(
         self,
@@ -17250,6 +18646,7 @@ class MatchSessionPeriodFields(GraphQLField):
             "MatchSessionAthletePeriodMetricSetFields",
             "MatchSessionParticipationFields",
             "MatchSessionPeriodMetricSetFields",
+            "SegmentParticipationFields",
         ],
     ) -> "MatchSessionPeriodFields":
         """Subfields should come from the MatchSessionPeriodFields class"""
@@ -17534,6 +18931,30 @@ class MatchSessionPeriodMetricSetFields(GraphQLField):
         "avgClubZoneThreeDecelerationEvents"
     )
     "Average number of club zone 3 deceleration events"
+    avg_club_zone_three_plus_acceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneThreePlusAccelerationDistanceM"
+    )
+    "Average club zone 3+ acceleration distance in metres"
+    avg_club_zone_three_plus_acceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneThreePlusAccelerationDurationS"
+    )
+    "Average club zone 3+ acceleration duration in seconds"
+    avg_club_zone_three_plus_acceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneThreePlusAccelerationEvents"
+    )
+    "Average number of club zone 3+ acceleration events"
+    avg_club_zone_three_plus_deceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneThreePlusDecelerationDistanceM"
+    )
+    "Average club zone 3+ deceleration distance in metres"
+    avg_club_zone_three_plus_deceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneThreePlusDecelerationDurationS"
+    )
+    "Average club zone 3+ deceleration duration in seconds"
+    avg_club_zone_three_plus_deceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneThreePlusDecelerationEvents"
+    )
+    "Average number of club zone 3+ deceleration events"
     avg_club_zone_two_acceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "avgClubZoneTwoAccelerationDistanceM"
     )
@@ -17558,6 +18979,30 @@ class MatchSessionPeriodMetricSetFields(GraphQLField):
         MatchSessionPeriodMetricSetGraphQLField("avgClubZoneTwoDecelerationEvents")
     )
     "Average number of club zone 2 deceleration events"
+    avg_club_zone_two_plus_acceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneTwoPlusAccelerationDistanceM"
+    )
+    "Average club zone 2+ acceleration distance in metres"
+    avg_club_zone_two_plus_acceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneTwoPlusAccelerationDurationS"
+    )
+    "Average club zone 2+ acceleration duration in seconds"
+    avg_club_zone_two_plus_acceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneTwoPlusAccelerationEvents"
+    )
+    "Average number of club zone 2+ acceleration events"
+    avg_club_zone_two_plus_deceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneTwoPlusDecelerationDistanceM"
+    )
+    "Average club zone 2+ deceleration distance in metres"
+    avg_club_zone_two_plus_deceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneTwoPlusDecelerationDurationS"
+    )
+    "Average club zone 2+ deceleration duration in seconds"
+    avg_club_zone_two_plus_deceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "avgClubZoneTwoPlusDecelerationEvents"
+    )
+    "Average number of club zone 2+ deceleration events"
     avg_deceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("avgDecelerationEvents")
     )
@@ -18425,6 +19870,30 @@ class MatchSessionPeriodMetricSetFields(GraphQLField):
         "totalClubZoneThreeDecelerationEvents"
     )
     "Total number of club zone 3 deceleration events"
+    total_club_zone_three_plus_acceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneThreePlusAccelerationDistanceM"
+    )
+    "Total club zone 3+ acceleration distance in metres"
+    total_club_zone_three_plus_acceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneThreePlusAccelerationDurationS"
+    )
+    "Total club zone 3+ acceleration duration in seconds"
+    total_club_zone_three_plus_acceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneThreePlusAccelerationEvents"
+    )
+    "Total number of club zone 3+ acceleration events"
+    total_club_zone_three_plus_deceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneThreePlusDecelerationDistanceM"
+    )
+    "Total club zone 3+ deceleration distance in metres"
+    total_club_zone_three_plus_deceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneThreePlusDecelerationDurationS"
+    )
+    "Total club zone 3+ deceleration duration in seconds"
+    total_club_zone_three_plus_deceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneThreePlusDecelerationEvents"
+    )
+    "Total number of club zone 3+ deceleration events"
     total_club_zone_two_acceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
         "totalClubZoneTwoAccelerationDistanceM"
     )
@@ -18449,6 +19918,30 @@ class MatchSessionPeriodMetricSetFields(GraphQLField):
         "totalClubZoneTwoDecelerationEvents"
     )
     "Total number of club zone 2 deceleration events"
+    total_club_zone_two_plus_acceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneTwoPlusAccelerationDistanceM"
+    )
+    "Total club zone 2+ acceleration distance in metres"
+    total_club_zone_two_plus_acceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneTwoPlusAccelerationDurationS"
+    )
+    "Total club zone 2+ acceleration duration in seconds"
+    total_club_zone_two_plus_acceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneTwoPlusAccelerationEvents"
+    )
+    "Total number of club zone 2+ acceleration events"
+    total_club_zone_two_plus_deceleration_distance_m: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneTwoPlusDecelerationDistanceM"
+    )
+    "Total club zone 2+ deceleration distance in metres"
+    total_club_zone_two_plus_deceleration_duration_s: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneTwoPlusDecelerationDurationS"
+    )
+    "Total club zone 2+ deceleration duration in seconds"
+    total_club_zone_two_plus_deceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = MatchSessionPeriodMetricSetGraphQLField(
+        "totalClubZoneTwoPlusDecelerationEvents"
+    )
+    "Total number of club zone 2+ deceleration events"
     total_deceleration_events: "MatchSessionPeriodMetricSetGraphQLField" = (
         MatchSessionPeriodMetricSetGraphQLField("totalDecelerationEvents")
     )
@@ -18968,14 +20461,19 @@ class MatchSessionPeriodMetricSetFields(GraphQLField):
 
 
 class MemberFields(GraphQLField):
-    """A member within an organisation"""
+    """A member of a club or an organisation"""
+
+    @classmethod
+    def club(cls) -> "ClubFields":
+        """The club this membership is for, when it is a club membership"""
+        return ClubFields("club")
 
     id: "MemberGraphQLField" = MemberGraphQLField("id")
     "Unique identifier for the member"
 
     @classmethod
     def organisation(cls) -> "OrganisationFields":
-        """The organisation that the member belongs to"""
+        """The organisation this membership is for, when it is an organisation membership"""
         return OrganisationFields("organisation")
 
     @classmethod
@@ -18985,13 +20483,17 @@ class MemberFields(GraphQLField):
 
     @classmethod
     def roles(cls) -> "RoleFields":
-        """The roles of the member within the organisation"""
+        """The roles the member holds"""
         return RoleFields("roles")
 
     def fields(
         self,
         *subfields: Union[
-            MemberGraphQLField, "OrganisationFields", "PersonFields", "RoleFields"
+            MemberGraphQLField,
+            "ClubFields",
+            "OrganisationFields",
+            "PersonFields",
+            "RoleFields",
         ],
     ) -> "MemberFields":
         """Subfields should come from the MemberFields class"""
@@ -19426,6 +20928,67 @@ class OrganisationPersonFields(GraphQLField):
         return self
 
 
+class OutstandingSurveyAthleteFields(GraphQLField):
+    """One athlete's outstanding survey responses"""
+
+    @classmethod
+    def athlete(cls) -> "AthleteFields":
+        """The athlete yet to respond"""
+        return AthleteFields("athlete")
+
+    latest_distribute_at: "OutstandingSurveyAthleteGraphQLField" = (
+        OutstandingSurveyAthleteGraphQLField("latestDistributeAt")
+    )
+    "When the most recent survey still waiting on this athlete was distributed"
+    outstanding_count: "OutstandingSurveyAthleteGraphQLField" = (
+        OutstandingSurveyAthleteGraphQLField("outstandingCount")
+    )
+    "Number of distributed surveys this athlete has not finished answering"
+
+    def fields(
+        self, *subfields: Union[OutstandingSurveyAthleteGraphQLField, "AthleteFields"]
+    ) -> "OutstandingSurveyAthleteFields":
+        """Subfields should come from the OutstandingSurveyAthleteFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "OutstandingSurveyAthleteFields":
+        self._alias = alias
+        return self
+
+
+class OutstandingSurveyResponsesFields(GraphQLField):
+    """Survey responses a club is still waiting on"""
+
+    @classmethod
+    def athletes(cls) -> "OutstandingSurveyAthleteFields":
+        """Athletes with outstanding responses, most outstanding first"""
+        return OutstandingSurveyAthleteFields("athletes")
+
+    distribution_count: "OutstandingSurveyResponsesGraphQLField" = (
+        OutstandingSurveyResponsesGraphQLField("distributionCount")
+    )
+    "Surveys distributed to the club inside the window"
+    response_count: "OutstandingSurveyResponsesGraphQLField" = (
+        OutstandingSurveyResponsesGraphQLField("responseCount")
+    )
+    "Distributed surveys across the squad still waiting on an answer"
+
+    def fields(
+        self,
+        *subfields: Union[
+            OutstandingSurveyResponsesGraphQLField, "OutstandingSurveyAthleteFields"
+        ],
+    ) -> "OutstandingSurveyResponsesFields":
+        """Subfields should come from the OutstandingSurveyResponsesFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "OutstandingSurveyResponsesFields":
+        self._alias = alias
+        return self
+
+
 class PageFields(GraphQLField):
     """A device data page"""
 
@@ -19835,6 +21398,11 @@ class PersonFields(GraphQLField):
         return SyncableUnionUnion("accessibleSyncables", arguments=cleared_arguments)
 
     @classmethod
+    def acute_chronic_load(cls) -> "AcuteChronicLoadFields":
+        """The person's own acute:chronic workload ratio, combined across their athlete records"""
+        return AcuteChronicLoadFields("acuteChronicLoad")
+
+    @classmethod
     def aggregated_sessions(
         cls,
         filter_: SessionsSessionAggregatePersonMetricsFilter,
@@ -19955,6 +21523,26 @@ class PersonFields(GraphQLField):
     "The person's date of birth"
 
     @classmethod
+    def day_breakdown(
+        cls,
+        *,
+        number_of_days: Optional[int] = None,
+        session_filter: Optional[DayBreakdownSessionFilterEnum] = None,
+    ) -> "DayBreakdownOverviewFields":
+        """Breakdown of the person's own metrics by date"""
+        arguments: dict[str, dict[str, Any]] = {
+            "numberOfDays": {"type": "Int", "value": number_of_days},
+            "sessionFilter": {
+                "type": "DayBreakdownSessionFilterEnum",
+                "value": session_filter,
+            },
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return DayBreakdownOverviewFields("dayBreakdown", arguments=cleared_arguments)
+
+    @classmethod
     def detected_sessions(
         cls, *, club_id: Optional[str] = None
     ) -> "DetectedSessionFields":
@@ -19978,7 +21566,7 @@ class PersonFields(GraphQLField):
         return EdgeFields("edgesCurrentlyOwned")
 
     email: "PersonGraphQLField" = PersonGraphQLField("email")
-    "The person's email address"
+    "The person's email address, obfuscated unless you have permission to view it in full"
 
     @classmethod
     def feature(cls, name: str) -> "FeatureCheckFields":
@@ -20030,9 +21618,17 @@ class PersonFields(GraphQLField):
     "The person's full name"
 
     @classmethod
-    def org_memberships(cls) -> "MemberFields":
+    def org_memberships(
+        cls, *, organisation_id: Optional[str] = None
+    ) -> "MemberFields":
         """Organisation memberships for the person"""
-        return MemberFields("orgMemberships")
+        arguments: dict[str, dict[str, Any]] = {
+            "organisationId": {"type": "ID", "value": organisation_id}
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return MemberFields("orgMemberships", arguments=cleared_arguments)
 
     player_data_staff: "PersonGraphQLField" = PersonGraphQLField("playerDataStaff")
     "Whether the person is a PlayerData staff member"
@@ -20230,6 +21826,11 @@ class PersonFields(GraphQLField):
         )
 
     @classmethod
+    def trend_chartable_metrics(cls) -> "GenericMetricFields":
+        """Metrics that can be charted on the person's trends card"""
+        return GenericMetricFields("trendChartableMetrics")
+
+    @classmethod
     def unit_options(cls) -> "UnitOptionsFields":
         """The person's preferred unit options"""
         return UnitOptionsFields("unitOptions")
@@ -20252,6 +21853,7 @@ class PersonFields(GraphQLField):
         self,
         *subfields: Union[
             PersonGraphQLField,
+            "AcuteChronicLoadFields",
             "AggregatedSessionFields",
             "AppMessageFields",
             "AthleteFields",
@@ -20259,9 +21861,11 @@ class PersonFields(GraphQLField):
             "ClubFields",
             "ConfiguredPersonalBestsFields",
             "CustomerSubscriptionInterface",
+            "DayBreakdownOverviewFields",
             "DetectedSessionFields",
             "EdgeFields",
             "FeatureCheckFields",
+            "GenericMetricFields",
             "MatchSessionParticipationFields",
             "MemberFields",
             "PersonWeekOverviewFields",
@@ -20616,6 +22220,66 @@ class PersonalBestsFields(GraphQLField):
         return self
 
 
+class PhaseMatchEventFields(GraphQLField):
+    """A phase-of-play event detected in a match session, spanning an interval"""
+
+    created_at: "PhaseMatchEventGraphQLField" = PhaseMatchEventGraphQLField("createdAt")
+    "The time the segment was created"
+    end_time: "PhaseMatchEventGraphQLField" = PhaseMatchEventGraphQLField("endTime")
+    "The time the segment ends"
+    event_type_id: "PhaseMatchEventGraphQLField" = PhaseMatchEventGraphQLField(
+        "eventTypeId"
+    )
+    "Identifier of the event type definition"
+    id: "PhaseMatchEventGraphQLField" = PhaseMatchEventGraphQLField("id")
+    "Unique identifier for the segment"
+    involving_team: "PhaseMatchEventGraphQLField" = PhaseMatchEventGraphQLField(
+        "involvingTeam"
+    )
+    "Which team the event involves: our team, the opposing team, or both teams"
+    match_minute: "PhaseMatchEventGraphQLField" = PhaseMatchEventGraphQLField(
+        "matchMinute"
+    )
+    "Match minute at which the event occurred"
+    name: "PhaseMatchEventGraphQLField" = PhaseMatchEventGraphQLField("name")
+    "Name of the event type"
+    provenance: "PhaseMatchEventGraphQLField" = PhaseMatchEventGraphQLField(
+        "provenance"
+    )
+    "How the event was created and whether it has been rejected"
+
+    @classmethod
+    def segment_participations(cls) -> "SegmentParticipationFields":
+        """Athlete participations within this segment"""
+        return SegmentParticipationFields("segmentParticipations")
+
+    @classmethod
+    def sport_definition(cls) -> "SportDefinitionFields":
+        """Sport definition the event belongs to"""
+        return SportDefinitionFields("sportDefinition")
+
+    start_time: "PhaseMatchEventGraphQLField" = PhaseMatchEventGraphQLField("startTime")
+    "The time the segment starts"
+    updated_at: "PhaseMatchEventGraphQLField" = PhaseMatchEventGraphQLField("updatedAt")
+    "The time the segment was last updated"
+
+    def fields(
+        self,
+        *subfields: Union[
+            PhaseMatchEventGraphQLField,
+            "SegmentParticipationFields",
+            "SportDefinitionFields",
+        ],
+    ) -> "PhaseMatchEventFields":
+        """Subfields should come from the PhaseMatchEventFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "PhaseMatchEventFields":
+        self._alias = alias
+        return self
+
+
 class PitchFields(GraphQLField):
     archived_at: "PitchGraphQLField" = PitchGraphQLField("archivedAt")
     "Optional archived timestamp of pitch"
@@ -20751,6 +22415,33 @@ class PitchDefinitionFields(GraphQLField):
         return self
 
     def alias(self, alias: str) -> "PitchDefinitionFields":
+        self._alias = alias
+        return self
+
+
+class PoseSectionFields(GraphQLField):
+    """A stretch of a recording sharing one camera pose, and the pitch corners marked on it"""
+
+    @classmethod
+    def corners(cls) -> "MarkedPitchCornerFields":
+        """The four hand-marked pitch corners, or null while the section is unannotated"""
+        return MarkedPitchCornerFields("corners")
+
+    end_time: "PoseSectionGraphQLField" = PoseSectionGraphQLField("endTime")
+    "Where this section ends: the next section's start time, or the end of the recording"
+    id: "PoseSectionGraphQLField" = PoseSectionGraphQLField("id")
+    "Unique identifier for this pose section"
+    start_time: "PoseSectionGraphQLField" = PoseSectionGraphQLField("startTime")
+    "Where this section starts, and the time the corners are valid from"
+
+    def fields(
+        self, *subfields: Union[PoseSectionGraphQLField, "MarkedPitchCornerFields"]
+    ) -> "PoseSectionFields":
+        """Subfields should come from the PoseSectionFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "PoseSectionFields":
         self._alias = alias
         return self
 
@@ -21610,7 +23301,7 @@ class RequestRawDataExportPayloadFields(GraphQLField):
     status: "RequestRawDataExportPayloadGraphQLField" = (
         RequestRawDataExportPayloadGraphQLField("status")
     )
-    "READY (downloadUrl present), PROCESSING (call again to poll), or UNAVAILABLE"
+    "READY (downloadUrl present), PROCESSING (call again to poll), UNAVAILABLE, or NOT_FOUND when the id does not exist"
 
     def fields(
         self,
@@ -21623,6 +23314,43 @@ class RequestRawDataExportPayloadFields(GraphQLField):
         return self
 
     def alias(self, alias: str) -> "RequestRawDataExportPayloadFields":
+        self._alias = alias
+        return self
+
+
+class RequestSessionRawDataExportPayloadFields(GraphQLField):
+    """Autogenerated return type of RequestSessionRawDataExport."""
+
+    download_url: "RequestSessionRawDataExportPayloadGraphQLField" = (
+        RequestSessionRawDataExportPayloadGraphQLField("downloadUrl")
+    )
+    "Time-limited download link; present once status is READY"
+
+    @classmethod
+    def errors(cls) -> "ValidationErrorFields":
+        """Validation errors that occurred while performing the mutation"""
+        return ValidationErrorFields("errors")
+
+    status: "RequestSessionRawDataExportPayloadGraphQLField" = (
+        RequestSessionRawDataExportPayloadGraphQLField("status")
+    )
+    "READY (downloadUrl present), PROCESSING (call again to poll), UNAVAILABLE, or NOT_FOUND when the id does not exist"
+    unavailable_participation_ids: "RequestSessionRawDataExportPayloadGraphQLField" = (
+        RequestSessionRawDataExportPayloadGraphQLField("unavailableParticipationIds")
+    )
+    "Participations left out of the export because their raw data cannot be produced"
+
+    def fields(
+        self,
+        *subfields: Union[
+            RequestSessionRawDataExportPayloadGraphQLField, "ValidationErrorFields"
+        ],
+    ) -> "RequestSessionRawDataExportPayloadFields":
+        """Subfields should come from the RequestSessionRawDataExportPayloadFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "RequestSessionRawDataExportPayloadFields":
         self._alias = alias
         return self
 
@@ -21678,42 +23406,12 @@ class ResendReportPayloadFields(GraphQLField):
         return self
 
 
-class RespondToDetectedMatchEventPayloadFields(GraphQLField):
-    """Autogenerated return type of RespondToDetectedMatchEvent."""
-
-    @classmethod
-    def detected_match_event(cls) -> "DetectedMatchEventFields":
-        """The detected match event after being confirmed or dismissed"""
-        return DetectedMatchEventFields("detectedMatchEvent")
-
-    @classmethod
-    def errors(cls) -> "ValidationErrorFields":
-        """Validation errors that occurred while performing the mutation"""
-        return ValidationErrorFields("errors")
-
-    def fields(
-        self,
-        *subfields: Union[
-            RespondToDetectedMatchEventPayloadGraphQLField,
-            "DetectedMatchEventFields",
-            "ValidationErrorFields",
-        ],
-    ) -> "RespondToDetectedMatchEventPayloadFields":
-        """Subfields should come from the RespondToDetectedMatchEventPayloadFields class"""
-        self._subfields.extend(subfields)
-        return self
-
-    def alias(self, alias: str) -> "RespondToDetectedMatchEventPayloadFields":
-        self._alias = alias
-        return self
-
-
 class RespondToDetectedMatchEventsPayloadFields(GraphQLField):
     """Autogenerated return type of RespondToDetectedMatchEvents."""
 
     @classmethod
     def detected_match_events(cls) -> "DetectedMatchEventFields":
-        """The detected match events after being confirmed or dismissed"""
+        """Always an empty array; detected match events no longer exist"""
         return DetectedMatchEventFields("detectedMatchEvents")
 
     @classmethod
@@ -21734,6 +23432,36 @@ class RespondToDetectedMatchEventsPayloadFields(GraphQLField):
         return self
 
     def alias(self, alias: str) -> "RespondToDetectedMatchEventsPayloadFields":
+        self._alias = alias
+        return self
+
+
+class RespondToEventsPayloadFields(GraphQLField):
+    """Autogenerated return type of RespondToEvents."""
+
+    @classmethod
+    def errors(cls) -> "ValidationErrorFields":
+        """Validation errors that occurred while performing the mutation"""
+        return ValidationErrorFields("errors")
+
+    @classmethod
+    def events(cls) -> "EventInterface":
+        """The events after their provenance transition"""
+        return EventInterface("events")
+
+    def fields(
+        self,
+        *subfields: Union[
+            RespondToEventsPayloadGraphQLField,
+            "EventInterface",
+            "ValidationErrorFields",
+        ],
+    ) -> "RespondToEventsPayloadFields":
+        """Subfields should come from the RespondToEventsPayloadFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "RespondToEventsPayloadFields":
         self._alias = alias
         return self
 
@@ -21846,6 +23574,34 @@ class RevokeOrgAdminRolePayloadFields(GraphQLField):
         return self
 
 
+class RevokeRolePayloadFields(GraphQLField):
+    """Autogenerated return type of RevokeRole."""
+
+    @classmethod
+    def errors(cls) -> "ValidationErrorFields":
+        """Validation errors that occurred while performing the mutation"""
+        return ValidationErrorFields("errors")
+
+    @classmethod
+    def members(cls) -> "MemberFields":
+        """The members the role was revoked from"""
+        return MemberFields("members")
+
+    def fields(
+        self,
+        *subfields: Union[
+            RevokeRolePayloadGraphQLField, "MemberFields", "ValidationErrorFields"
+        ],
+    ) -> "RevokeRolePayloadFields":
+        """Subfields should come from the RevokeRolePayloadFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "RevokeRolePayloadFields":
+        self._alias = alias
+        return self
+
+
 class RoleFields(GraphQLField):
     """A role within an organisation"""
 
@@ -21890,6 +23646,8 @@ class RotateLiveDataKeysPayloadFields(GraphQLField):
 
 
 class SegmentFields(GraphQLField):
+    """A session segment"""
+
     @classmethod
     def clipped_time_periods_by_athlete(cls) -> "ClippedTimePeriodByAthleteFields":
         """Clipped time periods grouped by athlete"""
@@ -21918,8 +23676,6 @@ class SegmentFields(GraphQLField):
     "The time the segment ends"
     id: "SegmentGraphQLField" = SegmentGraphQLField("id")
     "Unique identifier for the segment"
-    processing: "SegmentGraphQLField" = SegmentGraphQLField("processing")
-    "Whether the segment is still being processed"
 
     @classmethod
     def segment_participation(cls, athlete_id: str) -> "SegmentParticipationFields":
@@ -21935,20 +23691,9 @@ class SegmentFields(GraphQLField):
         )
 
     @classmethod
-    def segment_participations(
-        cls, *, limit: Optional[int] = None, offset: Optional[int] = None
-    ) -> "SegmentParticipationFields":
-        """The segment participations"""
-        arguments: dict[str, dict[str, Any]] = {
-            "limit": {"type": "Int", "value": limit},
-            "offset": {"type": "Int", "value": offset},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return SegmentParticipationFields(
-            "segmentParticipations", arguments=cleared_arguments
-        )
+    def segment_participations(cls) -> "SegmentParticipationFields":
+        """Athlete participations within this segment"""
+        return SegmentParticipationFields("segmentParticipations")
 
     @classmethod
     def session(cls) -> "SessionInterface":
@@ -21994,6 +23739,51 @@ class SegmentFields(GraphQLField):
 
     def alias(self, alias: str) -> "SegmentFields":
         self._alias = alias
+        return self
+
+
+class SegmentInterfaceInterface(GraphQLField):
+    """Common fields shared by user- and period-derived session segments"""
+
+    created_at: "SegmentInterfaceGraphQLField" = SegmentInterfaceGraphQLField(
+        "createdAt"
+    )
+    "The time the segment was created"
+    end_time: "SegmentInterfaceGraphQLField" = SegmentInterfaceGraphQLField("endTime")
+    "The time the segment ends"
+    id: "SegmentInterfaceGraphQLField" = SegmentInterfaceGraphQLField("id")
+    "Unique identifier for the segment"
+
+    @classmethod
+    def segment_participations(cls) -> "SegmentParticipationFields":
+        """Athlete participations within this segment"""
+        return SegmentParticipationFields("segmentParticipations")
+
+    start_time: "SegmentInterfaceGraphQLField" = SegmentInterfaceGraphQLField(
+        "startTime"
+    )
+    "The time the segment starts"
+    updated_at: "SegmentInterfaceGraphQLField" = SegmentInterfaceGraphQLField(
+        "updatedAt"
+    )
+    "The time the segment was last updated"
+
+    def fields(
+        self,
+        *subfields: Union[SegmentInterfaceGraphQLField, "SegmentParticipationFields"],
+    ) -> "SegmentInterfaceInterface":
+        """Subfields should come from the SegmentInterfaceInterface class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "SegmentInterfaceInterface":
+        self._alias = alias
+        return self
+
+    def on(
+        self, type_name: str, *subfields: GraphQLField
+    ) -> "SegmentInterfaceInterface":
+        self._inline_fragments[type_name] = subfields
         return self
 
 
@@ -22237,9 +24027,18 @@ class SessionInterface(GraphQLField):
         return SessionBlueprintFields("childSessionBlueprint")
 
     @classmethod
-    def clips(cls) -> "VideoClipFields":
-        """Video clips associated with the session"""
-        return VideoClipFields("clips")
+    def clips(
+        cls, *, limit: Optional[int] = None, offset: Optional[int] = None
+    ) -> "VideoClipFields":
+        """Video clips associated with the session, earliest start time first"""
+        arguments: dict[str, dict[str, Any]] = {
+            "limit": {"type": "Int", "value": limit},
+            "offset": {"type": "Int", "value": offset},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return VideoClipFields("clips", arguments=cleared_arguments)
 
     @classmethod
     def club(cls) -> "ClubFields":
@@ -22373,12 +24172,14 @@ class SessionInterface(GraphQLField):
         limit: Optional[int] = None,
         offset: Optional[int] = None,
         order: Optional[list[OrderInputObject]] = None,
+        types: Optional[list[SegmentTypeFilter]] = None,
     ) -> "SegmentFields":
         """The segments that make up the session"""
         arguments: dict[str, dict[str, Any]] = {
             "limit": {"type": "Int", "value": limit},
             "offset": {"type": "Int", "value": offset},
             "order": {"type": "[OrderInputObject!]", "value": order},
+            "types": {"type": "[SegmentTypeFilter!]", "value": types},
         }
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
@@ -22387,13 +24188,32 @@ class SessionInterface(GraphQLField):
 
     @classmethod
     def session_anchor_positions(cls) -> "SessionAnchorPositionFields":
-        """LPS anchor positions override. (empty if none)"""
+        """LPS anchor positions processing uses for this session. (empty if none)"""
         return SessionAnchorPositionFields("sessionAnchorPositions")
 
     @classmethod
     def session_context(cls) -> "SessionContextFields":
         """Context for the session"""
         return SessionContextFields("sessionContext")
+
+    @classmethod
+    def session_events(
+        cls,
+        *,
+        include_rejected: Optional[bool] = None,
+        limit: Optional[int] = None,
+        offset: Optional[int] = None,
+    ) -> "EventInterface":
+        """Events recorded in the session, ordered by start time"""
+        arguments: dict[str, dict[str, Any]] = {
+            "includeRejected": {"type": "Boolean", "value": include_rejected},
+            "limit": {"type": "Int", "value": limit},
+            "offset": {"type": "Int", "value": offset},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return EventInterface("sessionEvents", arguments=cleared_arguments)
 
     @classmethod
     def session_load_history(cls) -> "SessionLoadHistoryFields":
@@ -22481,6 +24301,9 @@ class SessionInterface(GraphQLField):
         """The tags applied to the session"""
         return SessionTagDefinitionFields("tags")
 
+    timezone: "SessionGraphQLField" = SessionGraphQLField("timezone")
+    "IANA timezone the session took place in. startTime and endTime are UTC\ninstants; apply this to render or reason about the session's local clock time"
+
     @classmethod
     def unavailable_gateways(
         cls,
@@ -22504,6 +24327,27 @@ class SessionInterface(GraphQLField):
 
     updated_at: "SessionGraphQLField" = SessionGraphQLField("updatedAt")
     "The time the session was last updated"
+
+    @classmethod
+    def user_segments(
+        cls,
+        *,
+        limit: Optional[int] = None,
+        offset: Optional[int] = None,
+        order: Optional[list[OrderInputObject]] = None,
+        types: Optional[list[UserSegmentTypeFilter]] = None,
+    ) -> "UserSegmentFields":
+        """The user-created segments in the session"""
+        arguments: dict[str, dict[str, Any]] = {
+            "limit": {"type": "Int", "value": limit},
+            "offset": {"type": "Int", "value": offset},
+            "order": {"type": "[OrderInputObject!]", "value": order},
+            "types": {"type": "[UserSegmentTypeFilter!]", "value": types},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return UserSegmentFields("userSegments", arguments=cleared_arguments)
 
     @classmethod
     def video_annotations_url(cls) -> "VideoAnnotationsUrlFields":
@@ -22545,6 +24389,7 @@ class SessionInterface(GraphQLField):
             "DetectedSessionFields",
             "DiagnosticWarningFields",
             "EdgeFields",
+            "EventInterface",
             "GatewayOwnershipFields",
             "GatewaySessionFields",
             "GenericMetricExplanationFields",
@@ -22563,6 +24408,7 @@ class SessionInterface(GraphQLField):
             "SettingsFields",
             "SurveyAssignmentFields",
             "SurveyDistributionFields",
+            "UserSegmentFields",
             "VideoAnnotationsUrlFields",
             "VideoClipFields",
             "VideoSignedUrlFields",
@@ -22583,7 +24429,7 @@ class SessionInterface(GraphQLField):
 
 
 class SessionAnchorPositionFields(GraphQLField):
-    """One anchor position in the session override set (index and x, y, z)."""
+    """One anchor position in the anchor layout this session uses (index and x, y, z)."""
 
     index: "SessionAnchorPositionGraphQLField" = SessionAnchorPositionGraphQLField(
         "index"
@@ -22615,6 +24461,11 @@ class SessionBlueprintFields(GraphQLField):
     def athletes(cls) -> "AthleteFields":
         """The athletes assigned to the blueprint"""
         return AthleteFields("athletes")
+
+    @classmethod
+    def camera_ownership(cls) -> "CameraOwnershipFields":
+        """The camera ownership assigned to sessions created from this blueprint"""
+        return CameraOwnershipFields("cameraOwnership")
 
     @classmethod
     def club(cls) -> "ClubFields":
@@ -22692,6 +24543,12 @@ class SessionBlueprintFields(GraphQLField):
         """The tags applied to the blueprint"""
         return TagDefinitionFields("tags")
 
+    @classmethod
+    def target_template(cls) -> "TargetTemplateFields":
+        """The target template used to build targets on sessions created from this
+        blueprint; null once the template is archived, as no targets are built from it"""
+        return TargetTemplateFields("targetTemplate")
+
     updated_at: "SessionBlueprintGraphQLField" = SessionBlueprintGraphQLField(
         "updatedAt"
     )
@@ -22705,6 +24562,7 @@ class SessionBlueprintFields(GraphQLField):
             SessionBlueprintGraphQLField,
             "AthleteFields",
             "AthleteOrStaffInterface",
+            "CameraOwnershipFields",
             "ClubFields",
             "GatewayOwnershipFields",
             "MatchDefinitionFields",
@@ -22713,6 +24571,7 @@ class SessionBlueprintFields(GraphQLField):
             "SessionBlueprintSegmentFields",
             "SurveyFields",
             "TagDefinitionFields",
+            "TargetTemplateFields",
         ],
     ) -> "SessionBlueprintFields":
         """Subfields should come from the SessionBlueprintFields class"""
@@ -23002,6 +24861,29 @@ class SessionLoadHistoryEntryFields(GraphQLField):
         return self
 
 
+class SessionNeedingDataFields(GraphQLField):
+    """A finished session still missing some of its data, and what it needs"""
+
+    need: "SessionNeedingDataGraphQLField" = SessionNeedingDataGraphQLField("need")
+    "The most pressing thing the session needs, highest priority first"
+
+    @classmethod
+    def session(cls) -> "SessionInterface":
+        """The session itself"""
+        return SessionInterface("session")
+
+    def fields(
+        self, *subfields: Union[SessionNeedingDataGraphQLField, "SessionInterface"]
+    ) -> "SessionNeedingDataFields":
+        """Subfields should come from the SessionNeedingDataFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "SessionNeedingDataFields":
+        self._alias = alias
+        return self
+
+
 class SessionParticipationInterface(GraphQLField):
     @classmethod
     def athlete(cls) -> "AthleteFields":
@@ -23053,9 +24935,33 @@ class SessionParticipationInterface(GraphQLField):
     "Unique identifier for the session participation"
 
     @classmethod
+    def last_seven_days_metrics(cls) -> "ConfiguredMetricsFields":
+        """The athlete's mean of each configured metric over their other sessions of the
+        same type in the last 7 days, weighted by active minutes for IMU, jump and
+        acceleration load metrics, and by contributing seconds for all other metrics.
+        Null when there are no such sessions"""
+        return ConfiguredMetricsFields("lastSevenDaysMetrics")
+
+    @classmethod
+    def participant_annotations_url(cls) -> "VideoAnnotationsUrlFields":
+        """Signed URL for this participation's annotations file on the session's video recording"""
+        return VideoAnnotationsUrlFields("participantAnnotationsUrl")
+
+    @classmethod
+    def personal_best_metrics(cls) -> "ConfiguredMetricsFields":
+        """The athlete's all-time best for each configured metric, over all session types
+        in the club that the viewer can see. A metric without a personal best has no value"""
+        return ConfiguredMetricsFields("personalBestMetrics")
+
+    @classmethod
     def position(cls) -> "PositionDefinitionFields":
         """The position the athlete played in the session"""
         return PositionDefinitionFields("position")
+
+    @classmethod
+    def previous_participation(cls) -> "SessionParticipationInterface":
+        """The same athlete's participation in their most recent earlier session of the same type that has metrics"""
+        return SessionParticipationInterface("previousParticipation")
 
     @classmethod
     def segment_participations(cls) -> "SegmentParticipationFields":
@@ -23112,8 +25018,10 @@ class SessionParticipationInterface(GraphQLField):
             "PositionDefinitionFields",
             "SegmentParticipationFields",
             "SessionInterface",
+            "SessionParticipationInterface",
             "TagDefinitionFields",
             "TargetFields",
+            "VideoAnnotationsUrlFields",
         ],
     ) -> "SessionParticipationInterface":
         """Subfields should come from the SessionParticipationInterface class"""
@@ -23316,6 +25224,10 @@ class SetCustomMaxMetricPayloadFields(GraphQLField):
 
 
 class SettingsFields(GraphQLField):
+    advanced_firmware_update_access: "SettingsGraphQLField" = SettingsGraphQLField(
+        "advancedFirmwareUpdateAccess"
+    )
+    "Whether the owner has support-granted access to the advanced firmware update flow"
     auto_edge_assignment: "SettingsGraphQLField" = SettingsGraphQLField(
         "autoEdgeAssignment"
     )
@@ -23350,6 +25262,20 @@ class SettingsFields(GraphQLField):
     def labelled_heart_rate_bounds_percentages(cls) -> "HeartRateLowerBoundsFields":
         """Labelled heart rate bounds percentages"""
         return HeartRateLowerBoundsFields("labelledHeartRateBoundsPercentages")
+
+    @classmethod
+    def labelled_imu_accelzones_lower_bounds_ms_2(
+        cls,
+    ) -> "IMUAccelzoneLowerBoundsFields":
+        """Labelled IMU acceleration zone boundaries in m/s²"""
+        return IMUAccelzoneLowerBoundsFields("labelledIMUAccelzonesLowerBoundsMs2")
+
+    @classmethod
+    def labelled_imu_decelzones_lower_bounds_ms_2(
+        cls,
+    ) -> "IMUDecelzoneLowerBoundsFields":
+        """Labelled IMU deceleration zone boundaries in m/s²"""
+        return IMUDecelzoneLowerBoundsFields("labelledIMUDecelzonesLowerBoundsMs2")
 
     @classmethod
     def labelled_speedzones_lower_bounds_kph(cls) -> "SpeedzoneLowerBoundsFields":
@@ -23416,6 +25342,8 @@ class SettingsFields(GraphQLField):
         """Targetable metrics with their baseline and configured values"""
         return TargetableMetricBaselineFields("targetableMetrics")
 
+    theme: "SettingsGraphQLField" = SettingsGraphQLField("theme")
+    "The owner's preferred UI theme"
     user_preferences: "SettingsGraphQLField" = SettingsGraphQLField("userPreferences")
     "Arbitrary user preferences"
 
@@ -23427,6 +25355,8 @@ class SettingsFields(GraphQLField):
             "BandedJumpZoneLowerBoundsFields",
             "DecelzoneLowerBoundsFields",
             "HeartRateLowerBoundsFields",
+            "IMUAccelzoneLowerBoundsFields",
+            "IMUDecelzoneLowerBoundsFields",
             "PitchFields",
             "SegmentTitleFields",
             "SpeedzoneLowerBoundsFields",
@@ -23610,6 +25540,12 @@ class StaffFields(GraphQLField):
     "Unique identifier"
     initials: "StaffGraphQLField" = StaffGraphQLField("initials")
     "Initials derived from the name"
+
+    @classmethod
+    def member(cls) -> "MemberFields":
+        """The staff member's club membership, absent until their identity is confirmed"""
+        return MemberFields("member")
+
     name: "StaffGraphQLField" = StaffGraphQLField("name")
     "The full name"
 
@@ -23652,6 +25588,7 @@ class StaffFields(GraphQLField):
             StaffGraphQLField,
             "ClubFields",
             "CoachContextFields",
+            "MemberFields",
             "PersonFields",
             "ProfilePictureFields",
             "ReportFields",
@@ -23662,6 +25599,30 @@ class StaffFields(GraphQLField):
         return self
 
     def alias(self, alias: str) -> "StaffFields":
+        self._alias = alias
+        return self
+
+
+class StalledUploadStorageFields(GraphQLField):
+    """Storage held by uploads that stalled before delivering every fragment"""
+
+    bytes_: "StalledUploadStorageGraphQLField" = StalledUploadStorageGraphQLField(
+        "bytes"
+    )
+    "Bytes stored by stalled uploads, and so the amount deleting them would reclaim"
+    recording_count: "StalledUploadStorageGraphQLField" = (
+        StalledUploadStorageGraphQLField("recordingCount")
+    )
+    "Number of recordings whose upload has been flagged as stalled"
+
+    def fields(
+        self, *subfields: StalledUploadStorageGraphQLField
+    ) -> "StalledUploadStorageFields":
+        """Subfields should come from the StalledUploadStorageFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "StalledUploadStorageFields":
         self._alias = alias
         return self
 
@@ -23977,6 +25938,8 @@ class SurveyQuestionFields(GraphQLField):
     "Configuration options for the question type"
     category: "SurveyQuestionGraphQLField" = SurveyQuestionGraphQLField("category")
     "The category the question belongs to"
+    default: "SurveyQuestionGraphQLField" = SurveyQuestionGraphQLField("default")
+    "The answer stored when this question is left blank, if it may be"
     deprecated: "SurveyQuestionGraphQLField" = SurveyQuestionGraphQLField("deprecated")
     "Whether the question is deprecated"
     id: "SurveyQuestionGraphQLField" = SurveyQuestionGraphQLField("id")
@@ -24146,22 +26109,24 @@ class TargetFields(GraphQLField):
         "metricDefinitionId"
     )
     "The metric the target is set for"
-    status: "TargetGraphQLField" = TargetGraphQLField("status")
-    "The recorded value's outcome relative to the target (nil when no data)"
     target_range: "TargetGraphQLField" = TargetGraphQLField("targetRange")
     "The raw target range/value as stored"
+
+    @classmethod
+    def target_range_metrics(cls) -> "GenericMetricFields":
+        """The target range as metrics, localized to the viewer's unit system"""
+        return GenericMetricFields("targetRangeMetrics")
+
     target_type: "TargetGraphQLField" = TargetGraphQLField("targetType")
     "Whether the target is an absolute range or percentage range"
-    unit_aware_current_value: "TargetGraphQLField" = TargetGraphQLField(
-        "unitAwareCurrentValue"
-    )
-    "The unit-aware recorded value for the target metric (nil when no data)"
     unit_aware_target_range: "TargetGraphQLField" = TargetGraphQLField(
         "unitAwareTargetRange"
     )
     "The target range localized to the viewer's unit system"
 
-    def fields(self, *subfields: TargetGraphQLField) -> "TargetFields":
+    def fields(
+        self, *subfields: Union[TargetGraphQLField, "GenericMetricFields"]
+    ) -> "TargetFields":
         """Subfields should come from the TargetFields class"""
         self._subfields.extend(subfields)
         return self
@@ -24195,17 +26160,35 @@ class TargetDefinitionFields(GraphQLField):
         "targetRange"
     )
     "The raw stored target range (percentages for percentage targets, absolute values otherwise)"
+
+    @classmethod
+    def target_range_metrics(cls) -> "GenericMetricFields":
+        """The target range as metrics, localized to the viewer's unit system"""
+        return GenericMetricFields("targetRangeMetrics")
+
     target_type: "TargetDefinitionGraphQLField" = TargetDefinitionGraphQLField(
         "targetType"
     )
     "The type of target"
+
+    @classmethod
+    def template(cls) -> "TargetTemplateFields":
+        """The template the definition belongs to"""
+        return TargetTemplateFields("template")
+
     unit_aware_target_range: "TargetDefinitionGraphQLField" = (
         TargetDefinitionGraphQLField("unitAwareTargetRange")
     )
     "The target range localized to the viewer's unit system"
 
     def fields(
-        self, *subfields: Union[TargetDefinitionGraphQLField, "AthleteFields"]
+        self,
+        *subfields: Union[
+            TargetDefinitionGraphQLField,
+            "AthleteFields",
+            "GenericMetricFields",
+            "TargetTemplateFields",
+        ],
     ) -> "TargetDefinitionFields":
         """Subfields should come from the TargetDefinitionFields class"""
         self._subfields.extend(subfields)
@@ -24244,10 +26227,21 @@ class TargetTemplateFields(GraphQLField):
 class TargetableMetricBaselineFields(GraphQLField):
     """A targetable metric's baseline and optional custom value, localized for the viewer"""
 
+    @classmethod
+    def baseline_metric(cls) -> "GenericMetricFields":
+        """The baseline as a metric, carrying the value and its unit"""
+        return GenericMetricFields("baselineMetric")
+
     baseline_value: "TargetableMetricBaselineGraphQLField" = (
         TargetableMetricBaselineGraphQLField("baselineValue")
     )
     "The baseline value in the local unit system"
+
+    @classmethod
+    def custom_metric(cls) -> "GenericMetricFields":
+        """The custom baseline as a metric, if set"""
+        return GenericMetricFields("customMetric")
+
     custom_target_id: "TargetableMetricBaselineGraphQLField" = (
         TargetableMetricBaselineGraphQLField("customTargetId")
     )
@@ -24271,6 +26265,26 @@ class TargetableMetricBaselineFields(GraphQLField):
         return self
 
     def alias(self, alias: str) -> "TargetableMetricBaselineFields":
+        self._alias = alias
+        return self
+
+
+class TelestrationPointFields(GraphQLField):
+    """A point of a telestration shape, normalised to the video image (0-1)"""
+
+    x: "TelestrationPointGraphQLField" = TelestrationPointGraphQLField("x")
+    "Normalised horizontal position (0-1)"
+    y: "TelestrationPointGraphQLField" = TelestrationPointGraphQLField("y")
+    "Normalised vertical position (0-1)"
+
+    def fields(
+        self, *subfields: TelestrationPointGraphQLField
+    ) -> "TelestrationPointFields":
+        """Subfields should come from the TelestrationPointFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "TelestrationPointFields":
         self._alias = alias
         return self
 
@@ -24618,9 +26632,18 @@ class TrainingSessionFields(GraphQLField):
         return SessionBlueprintFields("childSessionBlueprint")
 
     @classmethod
-    def clips(cls) -> "VideoClipFields":
-        """Video clips associated with the session"""
-        return VideoClipFields("clips")
+    def clips(
+        cls, *, limit: Optional[int] = None, offset: Optional[int] = None
+    ) -> "VideoClipFields":
+        """Video clips associated with the session, earliest start time first"""
+        arguments: dict[str, dict[str, Any]] = {
+            "limit": {"type": "Int", "value": limit},
+            "offset": {"type": "Int", "value": offset},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return VideoClipFields("clips", arguments=cleared_arguments)
 
     @classmethod
     def club(cls) -> "ClubFields":
@@ -24793,12 +26816,14 @@ class TrainingSessionFields(GraphQLField):
         limit: Optional[int] = None,
         offset: Optional[int] = None,
         order: Optional[list[OrderInputObject]] = None,
+        types: Optional[list[SegmentTypeFilter]] = None,
     ) -> "SegmentFields":
         """The segments that make up the session"""
         arguments: dict[str, dict[str, Any]] = {
             "limit": {"type": "Int", "value": limit},
             "offset": {"type": "Int", "value": offset},
             "order": {"type": "[OrderInputObject!]", "value": order},
+            "types": {"type": "[SegmentTypeFilter!]", "value": types},
         }
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
@@ -24807,13 +26832,32 @@ class TrainingSessionFields(GraphQLField):
 
     @classmethod
     def session_anchor_positions(cls) -> "SessionAnchorPositionFields":
-        """LPS anchor positions override. (empty if none)"""
+        """LPS anchor positions processing uses for this session. (empty if none)"""
         return SessionAnchorPositionFields("sessionAnchorPositions")
 
     @classmethod
     def session_context(cls) -> "SessionContextFields":
         """Context for the session"""
         return SessionContextFields("sessionContext")
+
+    @classmethod
+    def session_events(
+        cls,
+        *,
+        include_rejected: Optional[bool] = None,
+        limit: Optional[int] = None,
+        offset: Optional[int] = None,
+    ) -> "EventInterface":
+        """Events recorded in the session, ordered by start time"""
+        arguments: dict[str, dict[str, Any]] = {
+            "includeRejected": {"type": "Boolean", "value": include_rejected},
+            "limit": {"type": "Int", "value": limit},
+            "offset": {"type": "Int", "value": offset},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return EventInterface("sessionEvents", arguments=cleared_arguments)
 
     @classmethod
     def session_load_history(cls) -> "SessionLoadHistoryFields":
@@ -24905,6 +26949,8 @@ class TrainingSessionFields(GraphQLField):
         "timelineTime"
     )
     "The time this item should be displayed in the user's timeline"
+    timezone: "TrainingSessionGraphQLField" = TrainingSessionGraphQLField("timezone")
+    "IANA timezone the session took place in. startTime and endTime are UTC\ninstants; apply this to render or reason about the session's local clock time"
 
     @classmethod
     def training_session_metric_set(cls) -> "TrainingSessionMetricSetFields":
@@ -24934,6 +26980,27 @@ class TrainingSessionFields(GraphQLField):
 
     updated_at: "TrainingSessionGraphQLField" = TrainingSessionGraphQLField("updatedAt")
     "The time the session was last updated"
+
+    @classmethod
+    def user_segments(
+        cls,
+        *,
+        limit: Optional[int] = None,
+        offset: Optional[int] = None,
+        order: Optional[list[OrderInputObject]] = None,
+        types: Optional[list[UserSegmentTypeFilter]] = None,
+    ) -> "UserSegmentFields":
+        """The user-created segments in the session"""
+        arguments: dict[str, dict[str, Any]] = {
+            "limit": {"type": "Int", "value": limit},
+            "offset": {"type": "Int", "value": offset},
+            "order": {"type": "[OrderInputObject!]", "value": order},
+            "types": {"type": "[UserSegmentTypeFilter!]", "value": types},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return UserSegmentFields("userSegments", arguments=cleared_arguments)
 
     @classmethod
     def video_annotations_url(cls) -> "VideoAnnotationsUrlFields":
@@ -24975,6 +27042,7 @@ class TrainingSessionFields(GraphQLField):
             "DetectedSessionFields",
             "DiagnosticWarningFields",
             "EdgeFields",
+            "EventInterface",
             "GatewayOwnershipFields",
             "GatewaySessionFields",
             "GenericMetricExplanationFields",
@@ -24997,6 +27065,7 @@ class TrainingSessionFields(GraphQLField):
             "SurveyDistributionFields",
             "TrainingSessionFields",
             "TrainingSessionMetricSetFields",
+            "UserSegmentFields",
             "VideoAnnotationsUrlFields",
             "VideoClipFields",
             "VideoSignedUrlFields",
@@ -25323,6 +27392,30 @@ class TrainingSessionAthleteMetricSetFields(GraphQLField):
         "clubZoneThreeDecelerationEvents"
     )
     "Number of club zone 3 deceleration events"
+    club_zone_three_plus_acceleration_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneThreePlusAccelerationDistanceM"
+    )
+    "Club zone 3+ acceleration distance in metres"
+    club_zone_three_plus_acceleration_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneThreePlusAccelerationDurationS"
+    )
+    "Club zone 3+ acceleration duration in seconds"
+    club_zone_three_plus_acceleration_events: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneThreePlusAccelerationEvents"
+    )
+    "Number of club zone 3+ acceleration events"
+    club_zone_three_plus_deceleration_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneThreePlusDecelerationDistanceM"
+    )
+    "Club zone 3+ deceleration distance in metres"
+    club_zone_three_plus_deceleration_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneThreePlusDecelerationDurationS"
+    )
+    "Club zone 3+ deceleration duration in seconds"
+    club_zone_three_plus_deceleration_events: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneThreePlusDecelerationEvents"
+    )
+    "Number of club zone 3+ deceleration events"
     club_zone_two_acceleration_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
         "clubZoneTwoAccelerationDistanceM"
     )
@@ -25347,6 +27440,30 @@ class TrainingSessionAthleteMetricSetFields(GraphQLField):
         TrainingSessionAthleteMetricSetGraphQLField("clubZoneTwoDecelerationEvents")
     )
     "Number of club zone 2 deceleration events"
+    club_zone_two_plus_acceleration_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneTwoPlusAccelerationDistanceM"
+    )
+    "Club zone 2+ acceleration distance in metres"
+    club_zone_two_plus_acceleration_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneTwoPlusAccelerationDurationS"
+    )
+    "Club zone 2+ acceleration duration in seconds"
+    club_zone_two_plus_acceleration_events: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneTwoPlusAccelerationEvents"
+    )
+    "Number of club zone 2+ acceleration events"
+    club_zone_two_plus_deceleration_distance_m: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneTwoPlusDecelerationDistanceM"
+    )
+    "Club zone 2+ deceleration distance in metres"
+    club_zone_two_plus_deceleration_duration_s: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneTwoPlusDecelerationDurationS"
+    )
+    "Club zone 2+ deceleration duration in seconds"
+    club_zone_two_plus_deceleration_events: "TrainingSessionAthleteMetricSetGraphQLField" = TrainingSessionAthleteMetricSetGraphQLField(
+        "clubZoneTwoPlusDecelerationEvents"
+    )
+    "Number of club zone 2+ deceleration events"
 
     @classmethod
     def contributing_data_times(cls) -> "TimeRangeDataFields":
@@ -25786,6 +27903,14 @@ class TrainingSessionAthleteMetricSetFields(GraphQLField):
         TrainingSessionAthleteMetricSetGraphQLField("maxHeartrateBpm")
     )
     "Maximum heart rate in beats per minute"
+    max_imu_acceleration: "TrainingSessionAthleteMetricSetGraphQLField" = (
+        TrainingSessionAthleteMetricSetGraphQLField("maxIMUAcceleration")
+    )
+    "Maximum IMU acceleration in m/s²"
+    max_imu_deceleration: "TrainingSessionAthleteMetricSetGraphQLField" = (
+        TrainingSessionAthleteMetricSetGraphQLField("maxIMUDeceleration")
+    )
+    "Maximum IMU deceleration in m/s²"
     max_jump_height_cm: "TrainingSessionAthleteMetricSetGraphQLField" = (
         TrainingSessionAthleteMetricSetGraphQLField("maxJumpHeightCm")
     )
@@ -26308,6 +28433,30 @@ class TrainingSessionMetricSetFields(GraphQLField):
         TrainingSessionMetricSetGraphQLField("avgClubZoneThreeDecelerationEvents")
     )
     "Average number of club zone 3 deceleration events"
+    avg_club_zone_three_plus_acceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneThreePlusAccelerationDistanceM"
+    )
+    "Average club zone 3+ acceleration distance in metres"
+    avg_club_zone_three_plus_acceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneThreePlusAccelerationDurationS"
+    )
+    "Average club zone 3+ acceleration duration in seconds"
+    avg_club_zone_three_plus_acceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneThreePlusAccelerationEvents"
+    )
+    "Average number of club zone 3+ acceleration events"
+    avg_club_zone_three_plus_deceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneThreePlusDecelerationDistanceM"
+    )
+    "Average club zone 3+ deceleration distance in metres"
+    avg_club_zone_three_plus_deceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneThreePlusDecelerationDurationS"
+    )
+    "Average club zone 3+ deceleration duration in seconds"
+    avg_club_zone_three_plus_deceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneThreePlusDecelerationEvents"
+    )
+    "Average number of club zone 3+ deceleration events"
     avg_club_zone_two_acceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "avgClubZoneTwoAccelerationDistanceM"
     )
@@ -26332,6 +28481,30 @@ class TrainingSessionMetricSetFields(GraphQLField):
         TrainingSessionMetricSetGraphQLField("avgClubZoneTwoDecelerationEvents")
     )
     "Average number of club zone 2 deceleration events"
+    avg_club_zone_two_plus_acceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneTwoPlusAccelerationDistanceM"
+    )
+    "Average club zone 2+ acceleration distance in metres"
+    avg_club_zone_two_plus_acceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneTwoPlusAccelerationDurationS"
+    )
+    "Average club zone 2+ acceleration duration in seconds"
+    avg_club_zone_two_plus_acceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneTwoPlusAccelerationEvents"
+    )
+    "Average number of club zone 2+ acceleration events"
+    avg_club_zone_two_plus_deceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneTwoPlusDecelerationDistanceM"
+    )
+    "Average club zone 2+ deceleration distance in metres"
+    avg_club_zone_two_plus_deceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneTwoPlusDecelerationDurationS"
+    )
+    "Average club zone 2+ deceleration duration in seconds"
+    avg_club_zone_two_plus_deceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "avgClubZoneTwoPlusDecelerationEvents"
+    )
+    "Average number of club zone 2+ deceleration events"
     avg_deceleration_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("avgDecelerationEvents")
     )
@@ -27231,6 +29404,30 @@ class TrainingSessionMetricSetFields(GraphQLField):
         "totalClubZoneThreeDecelerationEvents"
     )
     "Total number of club zone 3 deceleration events"
+    total_club_zone_three_plus_acceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneThreePlusAccelerationDistanceM"
+    )
+    "Total club zone 3+ acceleration distance in metres"
+    total_club_zone_three_plus_acceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneThreePlusAccelerationDurationS"
+    )
+    "Total club zone 3+ acceleration duration in seconds"
+    total_club_zone_three_plus_acceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneThreePlusAccelerationEvents"
+    )
+    "Total number of club zone 3+ acceleration events"
+    total_club_zone_three_plus_deceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneThreePlusDecelerationDistanceM"
+    )
+    "Total club zone 3+ deceleration distance in metres"
+    total_club_zone_three_plus_deceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneThreePlusDecelerationDurationS"
+    )
+    "Total club zone 3+ deceleration duration in seconds"
+    total_club_zone_three_plus_deceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneThreePlusDecelerationEvents"
+    )
+    "Total number of club zone 3+ deceleration events"
     total_club_zone_two_acceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
         "totalClubZoneTwoAccelerationDistanceM"
     )
@@ -27255,6 +29452,30 @@ class TrainingSessionMetricSetFields(GraphQLField):
         TrainingSessionMetricSetGraphQLField("totalClubZoneTwoDecelerationEvents")
     )
     "Total number of club zone 2 deceleration events"
+    total_club_zone_two_plus_acceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneTwoPlusAccelerationDistanceM"
+    )
+    "Total club zone 2+ acceleration distance in metres"
+    total_club_zone_two_plus_acceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneTwoPlusAccelerationDurationS"
+    )
+    "Total club zone 2+ acceleration duration in seconds"
+    total_club_zone_two_plus_acceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneTwoPlusAccelerationEvents"
+    )
+    "Total number of club zone 2+ acceleration events"
+    total_club_zone_two_plus_deceleration_distance_m: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneTwoPlusDecelerationDistanceM"
+    )
+    "Total club zone 2+ deceleration distance in metres"
+    total_club_zone_two_plus_deceleration_duration_s: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneTwoPlusDecelerationDurationS"
+    )
+    "Total club zone 2+ deceleration duration in seconds"
+    total_club_zone_two_plus_deceleration_events: "TrainingSessionMetricSetGraphQLField" = TrainingSessionMetricSetGraphQLField(
+        "totalClubZoneTwoPlusDecelerationEvents"
+    )
+    "Total number of club zone 2+ deceleration events"
     total_deceleration_events: "TrainingSessionMetricSetGraphQLField" = (
         TrainingSessionMetricSetGraphQLField("totalDecelerationEvents")
     )
@@ -27829,9 +30050,33 @@ class TrainingSessionParticipationFields(GraphQLField):
     "Unique identifier for the session participation"
 
     @classmethod
+    def last_seven_days_metrics(cls) -> "ConfiguredMetricsFields":
+        """The athlete's mean of each configured metric over their other sessions of the
+        same type in the last 7 days, weighted by active minutes for IMU, jump and
+        acceleration load metrics, and by contributing seconds for all other metrics.
+        Null when there are no such sessions"""
+        return ConfiguredMetricsFields("lastSevenDaysMetrics")
+
+    @classmethod
+    def participant_annotations_url(cls) -> "VideoAnnotationsUrlFields":
+        """Signed URL for this participation's annotations file on the session's video recording"""
+        return VideoAnnotationsUrlFields("participantAnnotationsUrl")
+
+    @classmethod
+    def personal_best_metrics(cls) -> "ConfiguredMetricsFields":
+        """The athlete's all-time best for each configured metric, over all session types
+        in the club that the viewer can see. A metric without a personal best has no value"""
+        return ConfiguredMetricsFields("personalBestMetrics")
+
+    @classmethod
     def position(cls) -> "PositionDefinitionFields":
         """The position the athlete played in the session"""
         return PositionDefinitionFields("position")
+
+    @classmethod
+    def previous_participation(cls) -> "SessionParticipationInterface":
+        """The same athlete's participation in their most recent earlier session of the same type that has metrics"""
+        return SessionParticipationInterface("previousParticipation")
 
     @classmethod
     def segment_participations(cls) -> "SegmentParticipationFields":
@@ -27894,10 +30139,12 @@ class TrainingSessionParticipationFields(GraphQLField):
             "PositionDefinitionFields",
             "SegmentParticipationFields",
             "SessionInterface",
+            "SessionParticipationInterface",
             "TagDefinitionFields",
             "TargetFields",
             "TrainingSessionAthleteMetricSetFields",
             "TrainingSessionFields",
+            "VideoAnnotationsUrlFields",
         ],
     ) -> "TrainingSessionParticipationFields":
         """Subfields should come from the TrainingSessionParticipationFields class"""
@@ -28210,6 +30457,30 @@ class TrainingSessionSegmentAthleteMetricSetFields(GraphQLField):
         "clubZoneThreeDecelerationEvents"
     )
     "Number of club zone 3 deceleration events"
+    club_zone_three_plus_acceleration_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+        "clubZoneThreePlusAccelerationDistanceM"
+    )
+    "Club zone 3+ acceleration distance in metres"
+    club_zone_three_plus_acceleration_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+        "clubZoneThreePlusAccelerationDurationS"
+    )
+    "Club zone 3+ acceleration duration in seconds"
+    club_zone_three_plus_acceleration_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+        "clubZoneThreePlusAccelerationEvents"
+    )
+    "Number of club zone 3+ acceleration events"
+    club_zone_three_plus_deceleration_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+        "clubZoneThreePlusDecelerationDistanceM"
+    )
+    "Club zone 3+ deceleration distance in metres"
+    club_zone_three_plus_deceleration_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+        "clubZoneThreePlusDecelerationDurationS"
+    )
+    "Club zone 3+ deceleration duration in seconds"
+    club_zone_three_plus_deceleration_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+        "clubZoneThreePlusDecelerationEvents"
+    )
+    "Number of club zone 3+ deceleration events"
     club_zone_two_acceleration_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
         "clubZoneTwoAccelerationDistanceM"
     )
@@ -28234,6 +30505,30 @@ class TrainingSessionSegmentAthleteMetricSetFields(GraphQLField):
         "clubZoneTwoDecelerationEvents"
     )
     "Number of club zone 2 deceleration events"
+    club_zone_two_plus_acceleration_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+        "clubZoneTwoPlusAccelerationDistanceM"
+    )
+    "Club zone 2+ acceleration distance in metres"
+    club_zone_two_plus_acceleration_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+        "clubZoneTwoPlusAccelerationDurationS"
+    )
+    "Club zone 2+ acceleration duration in seconds"
+    club_zone_two_plus_acceleration_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+        "clubZoneTwoPlusAccelerationEvents"
+    )
+    "Number of club zone 2+ acceleration events"
+    club_zone_two_plus_deceleration_distance_m: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+        "clubZoneTwoPlusDecelerationDistanceM"
+    )
+    "Club zone 2+ deceleration distance in metres"
+    club_zone_two_plus_deceleration_duration_s: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+        "clubZoneTwoPlusDecelerationDurationS"
+    )
+    "Club zone 2+ deceleration duration in seconds"
+    club_zone_two_plus_deceleration_events: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = TrainingSessionSegmentAthleteMetricSetGraphQLField(
+        "clubZoneTwoPlusDecelerationEvents"
+    )
+    "Number of club zone 2+ deceleration events"
 
     @classmethod
     def contributing_data_times(cls) -> "TimeRangeDataFields":
@@ -28669,6 +30964,14 @@ class TrainingSessionSegmentAthleteMetricSetFields(GraphQLField):
         TrainingSessionSegmentAthleteMetricSetGraphQLField("maxHeartrateBpm")
     )
     "Maximum heart rate in beats per minute"
+    max_imu_acceleration: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = (
+        TrainingSessionSegmentAthleteMetricSetGraphQLField("maxIMUAcceleration")
+    )
+    "Maximum IMU acceleration in m/s²"
+    max_imu_deceleration: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = (
+        TrainingSessionSegmentAthleteMetricSetGraphQLField("maxIMUDeceleration")
+    )
+    "Maximum IMU deceleration in m/s²"
     max_jump_height_cm: "TrainingSessionSegmentAthleteMetricSetGraphQLField" = (
         TrainingSessionSegmentAthleteMetricSetGraphQLField("maxJumpHeightCm")
     )
@@ -29145,6 +31448,30 @@ class TrainingSessionSegmentMetricSetFields(GraphQLField):
         "avgClubZoneThreeDecelerationEvents"
     )
     "Average number of club zone 3 deceleration events"
+    avg_club_zone_three_plus_acceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneThreePlusAccelerationDistanceM"
+    )
+    "Average club zone 3+ acceleration distance in metres"
+    avg_club_zone_three_plus_acceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneThreePlusAccelerationDurationS"
+    )
+    "Average club zone 3+ acceleration duration in seconds"
+    avg_club_zone_three_plus_acceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneThreePlusAccelerationEvents"
+    )
+    "Average number of club zone 3+ acceleration events"
+    avg_club_zone_three_plus_deceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneThreePlusDecelerationDistanceM"
+    )
+    "Average club zone 3+ deceleration distance in metres"
+    avg_club_zone_three_plus_deceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneThreePlusDecelerationDurationS"
+    )
+    "Average club zone 3+ deceleration duration in seconds"
+    avg_club_zone_three_plus_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneThreePlusDecelerationEvents"
+    )
+    "Average number of club zone 3+ deceleration events"
     avg_club_zone_two_acceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "avgClubZoneTwoAccelerationDistanceM"
     )
@@ -29169,6 +31496,30 @@ class TrainingSessionSegmentMetricSetFields(GraphQLField):
         "avgClubZoneTwoDecelerationEvents"
     )
     "Average number of club zone 2 deceleration events"
+    avg_club_zone_two_plus_acceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneTwoPlusAccelerationDistanceM"
+    )
+    "Average club zone 2+ acceleration distance in metres"
+    avg_club_zone_two_plus_acceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneTwoPlusAccelerationDurationS"
+    )
+    "Average club zone 2+ acceleration duration in seconds"
+    avg_club_zone_two_plus_acceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneTwoPlusAccelerationEvents"
+    )
+    "Average number of club zone 2+ acceleration events"
+    avg_club_zone_two_plus_deceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneTwoPlusDecelerationDistanceM"
+    )
+    "Average club zone 2+ deceleration distance in metres"
+    avg_club_zone_two_plus_deceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneTwoPlusDecelerationDurationS"
+    )
+    "Average club zone 2+ deceleration duration in seconds"
+    avg_club_zone_two_plus_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "avgClubZoneTwoPlusDecelerationEvents"
+    )
+    "Average number of club zone 2+ deceleration events"
     avg_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = (
         TrainingSessionSegmentMetricSetGraphQLField("avgDecelerationEvents")
     )
@@ -30040,6 +32391,30 @@ class TrainingSessionSegmentMetricSetFields(GraphQLField):
         "totalClubZoneThreeDecelerationEvents"
     )
     "Total number of club zone 3 deceleration events"
+    total_club_zone_three_plus_acceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "totalClubZoneThreePlusAccelerationDistanceM"
+    )
+    "Total club zone 3+ acceleration distance in metres"
+    total_club_zone_three_plus_acceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "totalClubZoneThreePlusAccelerationDurationS"
+    )
+    "Total club zone 3+ acceleration duration in seconds"
+    total_club_zone_three_plus_acceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "totalClubZoneThreePlusAccelerationEvents"
+    )
+    "Total number of club zone 3+ acceleration events"
+    total_club_zone_three_plus_deceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "totalClubZoneThreePlusDecelerationDistanceM"
+    )
+    "Total club zone 3+ deceleration distance in metres"
+    total_club_zone_three_plus_deceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "totalClubZoneThreePlusDecelerationDurationS"
+    )
+    "Total club zone 3+ deceleration duration in seconds"
+    total_club_zone_three_plus_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "totalClubZoneThreePlusDecelerationEvents"
+    )
+    "Total number of club zone 3+ deceleration events"
     total_club_zone_two_acceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
         "totalClubZoneTwoAccelerationDistanceM"
     )
@@ -30064,6 +32439,30 @@ class TrainingSessionSegmentMetricSetFields(GraphQLField):
         "totalClubZoneTwoDecelerationEvents"
     )
     "Total number of club zone 2 deceleration events"
+    total_club_zone_two_plus_acceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "totalClubZoneTwoPlusAccelerationDistanceM"
+    )
+    "Total club zone 2+ acceleration distance in metres"
+    total_club_zone_two_plus_acceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "totalClubZoneTwoPlusAccelerationDurationS"
+    )
+    "Total club zone 2+ acceleration duration in seconds"
+    total_club_zone_two_plus_acceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "totalClubZoneTwoPlusAccelerationEvents"
+    )
+    "Total number of club zone 2+ acceleration events"
+    total_club_zone_two_plus_deceleration_distance_m: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "totalClubZoneTwoPlusDecelerationDistanceM"
+    )
+    "Total club zone 2+ deceleration distance in metres"
+    total_club_zone_two_plus_deceleration_duration_s: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "totalClubZoneTwoPlusDecelerationDurationS"
+    )
+    "Total club zone 2+ deceleration duration in seconds"
+    total_club_zone_two_plus_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = TrainingSessionSegmentMetricSetGraphQLField(
+        "totalClubZoneTwoPlusDecelerationEvents"
+    )
+    "Total number of club zone 2+ deceleration events"
     total_deceleration_events: "TrainingSessionSegmentMetricSetGraphQLField" = (
         TrainingSessionSegmentMetricSetGraphQLField("totalDecelerationEvents")
     )
@@ -30730,6 +33129,36 @@ class UpdateAthletePayloadFields(GraphQLField):
         return self
 
     def alias(self, alias: str) -> "UpdateAthletePayloadFields":
+        self._alias = alias
+        return self
+
+
+class UpdateCameraOwnershipPayloadFields(GraphQLField):
+    """Autogenerated return type of UpdateCameraOwnership."""
+
+    @classmethod
+    def camera_ownership(cls) -> "CameraOwnershipFields":
+        """The updated camera ownership"""
+        return CameraOwnershipFields("cameraOwnership")
+
+    @classmethod
+    def errors(cls) -> "ValidationErrorFields":
+        """Validation errors that occurred while performing the mutation"""
+        return ValidationErrorFields("errors")
+
+    def fields(
+        self,
+        *subfields: Union[
+            UpdateCameraOwnershipPayloadGraphQLField,
+            "CameraOwnershipFields",
+            "ValidationErrorFields",
+        ],
+    ) -> "UpdateCameraOwnershipPayloadFields":
+        """Subfields should come from the UpdateCameraOwnershipPayloadFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "UpdateCameraOwnershipPayloadFields":
         self._alias = alias
         return self
 
@@ -31891,6 +34320,97 @@ class UserPreferenceFields(GraphQLField):
         return self
 
 
+class UserSegmentFields(GraphQLField):
+    """A user-created segment within a session"""
+
+    @classmethod
+    def clipped_time_periods_by_athlete(cls) -> "ClippedTimePeriodByAthleteFields":
+        """Clipped time periods grouped by athlete"""
+        return ClippedTimePeriodByAthleteFields("clippedTimePeriodsByAthlete")
+
+    @classmethod
+    def configured_agg_metrics(
+        cls, *, requested_json_keys: Optional[list[str]] = None
+    ) -> "ConfiguredAggMetricsFields":
+        """Aggregated metrics for the segment, limited to the club's configured metrics"""
+        arguments: dict[str, dict[str, Any]] = {
+            "requestedJsonKeys": {"type": "[String!]", "value": requested_json_keys}
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return ConfiguredAggMetricsFields(
+            "configuredAggMetrics", arguments=cleared_arguments
+        )
+
+    created_at: "UserSegmentGraphQLField" = UserSegmentGraphQLField("createdAt")
+    "The time the segment was created"
+    description: "UserSegmentGraphQLField" = UserSegmentGraphQLField("description")
+    "Free-text description of the segment"
+    end_time: "UserSegmentGraphQLField" = UserSegmentGraphQLField("endTime")
+    "The time the segment ends"
+    id: "UserSegmentGraphQLField" = UserSegmentGraphQLField("id")
+    "Unique identifier for the segment"
+
+    @classmethod
+    def segment_participation(cls, athlete_id: str) -> "SegmentParticipationFields":
+        """A single athlete's participation in the segment"""
+        arguments: dict[str, dict[str, Any]] = {
+            "athleteId": {"type": "ID!", "value": athlete_id}
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return SegmentParticipationFields(
+            "segmentParticipation", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def segment_participations(cls) -> "SegmentParticipationFields":
+        """Athlete participations within this segment"""
+        return SegmentParticipationFields("segmentParticipations")
+
+    start_time: "UserSegmentGraphQLField" = UserSegmentGraphQLField("startTime")
+    "The time the segment starts"
+
+    @classmethod
+    def tags(cls) -> "TagDefinitionFields":
+        """The tags applied to the segment"""
+        return TagDefinitionFields("tags")
+
+    title: "UserSegmentGraphQLField" = UserSegmentGraphQLField("title")
+    "The segment's title"
+
+    @classmethod
+    def training_session_segment_metric_set(
+        cls,
+    ) -> "TrainingSessionSegmentMetricSetFields":
+        """Aggregated metrics for the segment in a training session"""
+        return TrainingSessionSegmentMetricSetFields("trainingSessionSegmentMetricSet")
+
+    updated_at: "UserSegmentGraphQLField" = UserSegmentGraphQLField("updatedAt")
+    "The time the segment was last updated"
+
+    def fields(
+        self,
+        *subfields: Union[
+            UserSegmentGraphQLField,
+            "ClippedTimePeriodByAthleteFields",
+            "ConfiguredAggMetricsFields",
+            "SegmentParticipationFields",
+            "TagDefinitionFields",
+            "TrainingSessionSegmentMetricSetFields",
+        ],
+    ) -> "UserSegmentFields":
+        """Subfields should come from the UserSegmentFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "UserSegmentFields":
+        self._alias = alias
+        return self
+
+
 class ValidationErrorFields(GraphQLField):
     """A validation error"""
 
@@ -31940,6 +34460,11 @@ class VideoAnnotationsUrlFields(GraphQLField):
 class VideoClipFields(GraphQLField):
     """A video clip"""
 
+    @classmethod
+    def creator(cls) -> "AthleteOrStaffInterface":
+        """The athlete or staff who created the clip"""
+        return AthleteOrStaffInterface("creator")
+
     duration: "VideoClipGraphQLField" = VideoClipGraphQLField("duration")
     "The duration of the clip in seconds"
     id: "VideoClipGraphQLField" = VideoClipGraphQLField("id")
@@ -31960,6 +34485,12 @@ class VideoClipFields(GraphQLField):
 
     playback_speed: "VideoClipGraphQLField" = VideoClipGraphQLField("playbackSpeed")
     "The playback speed of the clip (e.g., 1.0 for normal speed, 0.5 for half speed)"
+
+    @classmethod
+    def segment(cls) -> "UserSegmentFields":
+        """The segment holding the clip's times, athletes, tags and metrics, when it has one"""
+        return UserSegmentFields("segment")
+
     start_time: "VideoClipGraphQLField" = VideoClipGraphQLField("startTime")
     "The start time of the clip in seconds"
 
@@ -31972,6 +34503,17 @@ class VideoClipFields(GraphQLField):
     "Deprecated alias of matchEventDefinitionIds"
     team: "VideoClipGraphQLField" = VideoClipGraphQLField("team")
     "The team associated with the clip"
+
+    @classmethod
+    def telestrations(cls) -> "VideoClipTelestrationFields":
+        """Telestration shapes drawn on the clip"""
+        return VideoClipTelestrationFields("telestrations")
+
+    @classmethod
+    def thumbnail(cls) -> "VideoThumbnailFields":
+        """A still frame representing this video, if one has been generated"""
+        return VideoThumbnailFields("thumbnail")
+
     tracked_participant: "VideoClipGraphQLField" = VideoClipGraphQLField(
         "trackedParticipant"
     )
@@ -31980,7 +34522,13 @@ class VideoClipFields(GraphQLField):
     def fields(
         self,
         *subfields: Union[
-            VideoClipGraphQLField, "TagDefinitionFields", "VideoClipOverlayFields"
+            VideoClipGraphQLField,
+            "AthleteOrStaffInterface",
+            "TagDefinitionFields",
+            "UserSegmentFields",
+            "VideoClipOverlayFields",
+            "VideoClipTelestrationFields",
+            "VideoThumbnailFields",
         ],
     ) -> "VideoClipFields":
         """Subfields should come from the VideoClipFields class"""
@@ -32024,6 +34572,72 @@ class VideoClipOverlayFields(GraphQLField):
         return self
 
     def alias(self, alias: str) -> "VideoClipOverlayFields":
+        self._alias = alias
+        return self
+
+
+class VideoClipTelestrationFields(GraphQLField):
+    """A telestration shape drawn on a video clip"""
+
+    @classmethod
+    def centre(cls) -> "TelestrationPointFields":
+        """Centre of a circle shape"""
+        return TelestrationPointFields("centre")
+
+    colour: "VideoClipTelestrationGraphQLField" = VideoClipTelestrationGraphQLField(
+        "colour"
+    )
+    "Shape colour as a hex string"
+
+    @classmethod
+    def end_point(cls) -> "TelestrationPointFields":
+        """End point of a line or arrow shape"""
+        return TelestrationPointFields("endPoint")
+
+    end_sec: "VideoClipTelestrationGraphQLField" = VideoClipTelestrationGraphQLField(
+        "endSec"
+    )
+    "Video time in seconds at which the shape disappears"
+    id: "VideoClipTelestrationGraphQLField" = VideoClipTelestrationGraphQLField("id")
+    "Client-generated unique identifier of the shape"
+
+    @classmethod
+    def points(cls) -> "TelestrationPointFields":
+        """Points of a freehand shape"""
+        return TelestrationPointFields("points")
+
+    radius: "VideoClipTelestrationGraphQLField" = VideoClipTelestrationGraphQLField(
+        "radius"
+    )
+    "Radius of a circle shape, normalised (0-1) against the shorter axis of the video image"
+    shape_type: "VideoClipTelestrationGraphQLField" = VideoClipTelestrationGraphQLField(
+        "shapeType"
+    )
+    "The kind of shape"
+
+    @classmethod
+    def start_point(cls) -> "TelestrationPointFields":
+        """Start point of a line or arrow shape"""
+        return TelestrationPointFields("startPoint")
+
+    start_sec: "VideoClipTelestrationGraphQLField" = VideoClipTelestrationGraphQLField(
+        "startSec"
+    )
+    "Video time in seconds at which the shape was drawn and appears"
+    width: "VideoClipTelestrationGraphQLField" = VideoClipTelestrationGraphQLField(
+        "width"
+    )
+    "Stroke width of the shape"
+
+    def fields(
+        self,
+        *subfields: Union[VideoClipTelestrationGraphQLField, "TelestrationPointFields"],
+    ) -> "VideoClipTelestrationFields":
+        """Subfields should come from the VideoClipTelestrationFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "VideoClipTelestrationFields":
         self._alias = alias
         return self
 
@@ -32092,6 +34706,10 @@ class VideoRecordingFields(GraphQLField):
         VideoRecordingGraphQLField("annotationsFileAttached")
     )
     "Whether the annotations file is attached"
+    board_version: "VideoRecordingGraphQLField" = VideoRecordingGraphQLField(
+        "boardVersion"
+    )
+    "The camera's hardware board name that produced the recording"
 
     @classmethod
     def camera_ownership(cls) -> "CameraOwnershipFields":
@@ -32110,12 +34728,50 @@ class VideoRecordingFields(GraphQLField):
     "The encrypted ID of the video recording for the camera"
     end_time: "VideoRecordingGraphQLField" = VideoRecordingGraphQLField("endTime")
     "The end time of the video recording"
+    file_version: "VideoRecordingGraphQLField" = VideoRecordingGraphQLField(
+        "fileVersion"
+    )
+    "The camera's on-disk recording format version"
+
+    @classmethod
+    def hero_stills(
+        cls, *, limit: Optional[int] = None, offset: Optional[int] = None
+    ) -> "VideoThumbnailFields":
+        """Larger stills spread evenly across the recording, one per fragment at most, in
+        playback order. Each is a whole image, for hero surfaces that would upscale a sheet tile."""
+        arguments: dict[str, dict[str, Any]] = {
+            "limit": {"type": "Int", "value": limit},
+            "offset": {"type": "Int", "value": offset},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return VideoThumbnailFields("heroStills", arguments=cleared_arguments)
+
     hls_manifest_path: "VideoRecordingGraphQLField" = VideoRecordingGraphQLField(
         "hlsManifestPath"
     )
     "The HLS manifest path for this video source"
     id: "VideoRecordingGraphQLField" = VideoRecordingGraphQLField("id")
     "The ID of the video source"
+    image_version: "VideoRecordingGraphQLField" = VideoRecordingGraphQLField(
+        "imageVersion"
+    )
+    "The camera's firmware image version that produced the recording"
+
+    @classmethod
+    def pose_sections(
+        cls, *, limit: Optional[int] = None, offset: Optional[int] = None
+    ) -> "PoseSectionFields":
+        """The pose sections of this recording, carrying their hand-marked pitch corners"""
+        arguments: dict[str, dict[str, Any]] = {
+            "limit": {"type": "Int", "value": limit},
+            "offset": {"type": "Int", "value": offset},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return PoseSectionFields("poseSections", arguments=cleared_arguments)
 
     @classmethod
     def sessions(
@@ -32131,8 +34787,20 @@ class VideoRecordingFields(GraphQLField):
         }
         return SessionInterface("sessions", arguments=cleared_arguments)
 
+    stalled_at: "VideoRecordingGraphQLField" = VideoRecordingGraphQLField("stalledAt")
+    "When the upload was flagged as stalled, or null if it is still expected to progress"
     start_time: "VideoRecordingGraphQLField" = VideoRecordingGraphQLField("startTime")
     "The start time of the video recording"
+    stream_start_time: "VideoRecordingGraphQLField" = VideoRecordingGraphQLField(
+        "streamStartTime"
+    )
+    "Wall-clock time of the first frame in the HLS stream"
+
+    @classmethod
+    def thumbnail(cls) -> "VideoThumbnailFields":
+        """A still frame representing this video, if one has been generated"""
+        return VideoThumbnailFields("thumbnail")
+
     total_size_bytes: "VideoRecordingGraphQLField" = VideoRecordingGraphQLField(
         "totalSizeBytes"
     )
@@ -32171,8 +34839,10 @@ class VideoRecordingFields(GraphQLField):
         *subfields: Union[
             VideoRecordingGraphQLField,
             "CameraOwnershipFields",
+            "PoseSectionFields",
             "SessionInterface",
             "VideoFragmentFields",
+            "VideoThumbnailFields",
             "VideoVariantFields",
         ],
     ) -> "VideoRecordingFields":
@@ -32258,10 +34928,18 @@ class VideoStorageFields(GraphQLField):
         "recordingCount"
     )
     "Total number of recordings"
-    used_bytes: "VideoStorageGraphQLField" = VideoStorageGraphQLField("usedBytes")
-    "Total bytes used across all recordings"
 
-    def fields(self, *subfields: VideoStorageGraphQLField) -> "VideoStorageFields":
+    @classmethod
+    def stalled(cls) -> "StalledUploadStorageFields":
+        """Storage held by uploads that are no longer progressing"""
+        return StalledUploadStorageFields("stalled")
+
+    used_bytes: "VideoStorageGraphQLField" = VideoStorageGraphQLField("usedBytes")
+    "Bytes counted against the limit: declared size for live uploads, stored size once stalled"
+
+    def fields(
+        self, *subfields: Union[VideoStorageGraphQLField, "StalledUploadStorageFields"]
+    ) -> "VideoStorageFields":
         """Subfields should come from the VideoStorageFields class"""
         self._subfields.extend(subfields)
         return self
@@ -32283,6 +34961,48 @@ class VideoStreamFields(GraphQLField):
         return self
 
     def alias(self, alias: str) -> "VideoStreamFields":
+        self._alias = alias
+        return self
+
+
+class VideoThumbnailFields(GraphQLField):
+    """A still frame representing a point in a video.
+
+    The image may hold several frames tiled into a grid, so the frame to show is
+    given as a rectangle in fractions of the image. A whole image is x: 0, y: 0,
+    width: 1, height: 1."""
+
+    cell: "VideoThumbnailGraphQLField" = VideoThumbnailGraphQLField("cell")
+    "Index of this frame within the grid, counting left to right then top to bottom"
+    columns: "VideoThumbnailGraphQLField" = VideoThumbnailGraphQLField("columns")
+    "Frames across the grid"
+    expires_at: "VideoThumbnailGraphQLField" = VideoThumbnailGraphQLField("expiresAt")
+    "When the signed URL stops working"
+    height: "VideoThumbnailGraphQLField" = VideoThumbnailGraphQLField("height")
+    "Height of the frame as a fraction of the image"
+    interval_seconds: "VideoThumbnailGraphQLField" = VideoThumbnailGraphQLField(
+        "intervalSeconds"
+    )
+    "Seconds of video between one frame and the next"
+    rows: "VideoThumbnailGraphQLField" = VideoThumbnailGraphQLField("rows")
+    "Frames down the grid"
+    tile_count: "VideoThumbnailGraphQLField" = VideoThumbnailGraphQLField("tileCount")
+    "Frames the grid actually holds, which can be fewer than columns times rows"
+    url: "VideoThumbnailGraphQLField" = VideoThumbnailGraphQLField("url")
+    "Signed CDN URL of the image"
+    width: "VideoThumbnailGraphQLField" = VideoThumbnailGraphQLField("width")
+    "Width of the frame as a fraction of the image"
+    x: "VideoThumbnailGraphQLField" = VideoThumbnailGraphQLField("x")
+    "Left edge of the frame as a fraction of the image width"
+    y: "VideoThumbnailGraphQLField" = VideoThumbnailGraphQLField("y")
+    "Top edge of the frame as a fraction of the image height"
+
+    def fields(self, *subfields: VideoThumbnailGraphQLField) -> "VideoThumbnailFields":
+        """Subfields should come from the VideoThumbnailFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "VideoThumbnailFields":
         self._alias = alias
         return self
 
