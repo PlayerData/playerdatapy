@@ -12,11 +12,13 @@ from .custom_fields import (
     AddSurveyAnswerPayloadFields,
     ApplyTargetTemplatePayloadFields,
     ArchiveClubMemberPayloadFields,
+    ArchiveCustomEventTypePayloadFields,
     ArchivePitchPayloadFields,
     ArchiveSurveyPayloadFields,
     AssignDefaultEdgesPayloadFields,
     AssignDevicePayloadFields,
     AssignEdgePayloadFields,
+    AuthenticateCameraPayloadFields,
     BulkApprovePayloadFields,
     ClaimPersonPayloadFields,
     ClubMutationFields,
@@ -25,6 +27,7 @@ from .custom_fields import (
     CreateBulkActionPayloadFields,
     CreateBulkAthleteImportPayloadFields,
     CreateBulkStaffImportPayloadFields,
+    CreateCustomEventTypePayloadFields,
     CreateCustomQuestionDefinitionPayloadFields,
     CreateDatasetPayloadFields,
     CreateDevicePagePayloadFields,
@@ -32,6 +35,7 @@ from .custom_fields import (
     CreateEdgeNamePayloadFields,
     CreateFlexibleReportChartPayloadFields,
     CreateFlexibleReportPayloadFields,
+    CreateFlexibleReportTemplatePayloadFields,
     CreateImportPayloadFields,
     CreateMatchEventPayloadFields,
     CreateMatchEventsPayloadFields,
@@ -58,6 +62,8 @@ from .custom_fields import (
     DeleteCustomBaselineTargetsPayloadFields,
     DeleteDecelzonesPayloadFields,
     DeleteHeartRateBoundsPayloadFields,
+    DeleteIMUAccelzonesPayloadFields,
+    DeleteIMUDecelzonesPayloadFields,
     DeleteSessionTargetsPayloadFields,
     DeleteSpeedzonesPayloadFields,
     DeleteTargetTemplatesPayloadFields,
@@ -83,8 +89,12 @@ from .custom_fields import (
     DuplicateSessionPayloadFields,
     DuplicateSurveyPayloadFields,
     EndEdgeOwnershipPayloadFields,
+    FindOrCreateTemplateTagPayloadFields,
     GrantOrgAdminRolePayloadFields,
+    GrantRolePayloadFields,
     HeartRateBoundsPayloadFields,
+    IMUAccelzonesPayloadFields,
+    IMUDecelzonesPayloadFields,
     MarkAppMessageReadPayloadFields,
     MarkMultipleAppMessagesReadPayloadFields,
     ProvisionGatewayPayloadFields,
@@ -99,20 +109,24 @@ from .custom_fields import (
     RemoveSurveyTimerTriggerPayloadFields,
     RemoveTargetTemplatePayloadFields,
     RequestRawDataExportPayloadFields,
+    RequestSessionRawDataExportPayloadFields,
     ResendConfirmationEmailPayloadFields,
     ResendReportPayloadFields,
-    RespondToDetectedMatchEventPayloadFields,
     RespondToDetectedMatchEventsPayloadFields,
+    RespondToEventsPayloadFields,
     ReviewPendingMemberPayloadFields,
     RevokeOrgAdminRolePayloadFields,
+    RevokeRolePayloadFields,
     RotateLiveDataKeysPayloadFields,
     SetBenchedPlayersPayloadFields,
     SetCustomMaxMetricPayloadFields,
     SpeedzonesPayloadFields,
     TriggerSessionDetectionV2PayloadFields,
     UnarchiveClubMemberPayloadFields,
+    UnarchiveCustomEventTypePayloadFields,
     UpdateAthleteGroupPayloadFields,
     UpdateAthletePayloadFields,
+    UpdateCameraOwnershipPayloadFields,
     UpdateClubMemberPayloadFields,
     UpdateClubPayloadFields,
     UpdateClubSettingsPayloadFields,
@@ -154,6 +168,7 @@ from .custom_fields import (
     UpsertSessionPlanPayloadFields,
 )
 from .enums import (
+    AssignableRoleEnum,
     BulkActionableTypeEnum,
     BulkActionEnum,
     CallSiteEnum,
@@ -176,6 +191,8 @@ from .input_types import (
     AthleteDecelzoneAttributes,
     AthleteGroupAttributes,
     AthleteHeartRateBoundsAttributes,
+    AthleteIMUAccelzoneAttributes,
+    AthleteIMUDecelzoneAttributes,
     AthleteRelativeAccelzoneAttributes,
     AthleteRelativeDecelzoneAttributes,
     AthleteSpeedzoneAttributes,
@@ -183,6 +200,7 @@ from .input_types import (
     BulkStaffRowInput,
     BulkUpdateMatchEventAttributes,
     BulkUpdateTargetAttributes,
+    CameraHandshakeAttributes,
     ClaimPersonAttributes,
     ClubContextAttributes,
     CoachContextAttributesInput,
@@ -225,6 +243,7 @@ from .input_types import (
     TargetDefinitionAttributes,
     TopicAttributesInput,
     UpdateAthleteAttributes,
+    UpdateCameraOwnershipAttributes,
     UpdateClubAttributes,
     UpdateClubMemberAttributes,
     UpdateClubSettingsAttributes,
@@ -378,6 +397,17 @@ class Mutation:
         }
         return ArchiveClubMemberPayloadFields(
             field_name="archiveClubMember", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def archive_custom_event_type(cls, id: str) -> ArchiveCustomEventTypePayloadFields:
+        """Archives a custom event type"""
+        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return ArchiveCustomEventTypePayloadFields(
+            field_name="archiveCustomEventType", arguments=cleared_arguments
         )
 
     @classmethod
@@ -541,6 +571,38 @@ class Mutation:
         )
 
     @classmethod
+    def athletes_delete_imu_accelzones(
+        cls, athlete_ids: list[str], *, reprocess: Optional[bool] = None
+    ) -> DeleteIMUAccelzonesPayloadFields:
+        """Deletes athletes' IMU acceleration zones"""
+        arguments: dict[str, dict[str, Any]] = {
+            "athleteIds": {"type": "[ID!]!", "value": athlete_ids},
+            "reprocess": {"type": "Boolean", "value": reprocess},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return DeleteIMUAccelzonesPayloadFields(
+            field_name="athletesDeleteIMUAccelzones", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def athletes_delete_imu_decelzones(
+        cls, athlete_ids: list[str], *, reprocess: Optional[bool] = None
+    ) -> DeleteIMUDecelzonesPayloadFields:
+        """Deletes athletes' IMU deceleration zones"""
+        arguments: dict[str, dict[str, Any]] = {
+            "athleteIds": {"type": "[ID!]!", "value": athlete_ids},
+            "reprocess": {"type": "Boolean", "value": reprocess},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return DeleteIMUDecelzonesPayloadFields(
+            field_name="athletesDeleteIMUDecelzones", arguments=cleared_arguments
+        )
+
+    @classmethod
     def athletes_delete_speedzones(
         cls, athlete_ids: list[str], *, reprocess: Optional[bool] = None
     ) -> DeleteSpeedzonesPayloadFields:
@@ -576,6 +638,50 @@ class Mutation:
         }
         return HeartRateBoundsPayloadFields(
             field_name="athletesHeartRateBounds", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def athletes_imu_accelzones(
+        cls,
+        attributes: AthleteIMUAccelzoneAttributes,
+        *,
+        reprocess: Optional[bool] = None,
+    ) -> IMUAccelzonesPayloadFields:
+        """Sets athletes' IMU acceleration zones"""
+        arguments: dict[str, dict[str, Any]] = {
+            "attributes": {
+                "type": "AthleteIMUAccelzoneAttributes!",
+                "value": attributes,
+            },
+            "reprocess": {"type": "Boolean", "value": reprocess},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return IMUAccelzonesPayloadFields(
+            field_name="athletesIMUAccelzones", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def athletes_imu_decelzones(
+        cls,
+        attributes: AthleteIMUDecelzoneAttributes,
+        *,
+        reprocess: Optional[bool] = None,
+    ) -> IMUDecelzonesPayloadFields:
+        """Sets athletes' IMU deceleration zones"""
+        arguments: dict[str, dict[str, Any]] = {
+            "attributes": {
+                "type": "AthleteIMUDecelzoneAttributes!",
+                "value": attributes,
+            },
+            "reprocess": {"type": "Boolean", "value": reprocess},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return IMUDecelzonesPayloadFields(
+            field_name="athletesIMUDecelzones", arguments=cleared_arguments
         )
 
     @classmethod
@@ -655,6 +761,22 @@ class Mutation:
         }
         return SpeedzonesPayloadFields(
             field_name="athletesSpeedzones", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def authenticate_camera(
+        cls, handshake: CameraHandshakeAttributes, serial_number: Any
+    ) -> AuthenticateCameraPayloadFields:
+        """Authenticate a camera's Bluetooth handshake response and derive transport keys"""
+        arguments: dict[str, dict[str, Any]] = {
+            "handshake": {"type": "CameraHandshakeAttributes!", "value": handshake},
+            "serialNumber": {"type": "BigInt!", "value": serial_number},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return AuthenticateCameraPayloadFields(
+            field_name="authenticateCamera", arguments=cleared_arguments
         )
 
     @classmethod
@@ -798,10 +920,15 @@ class Mutation:
         question_id: str,
         response: str,
         *,
+        attachment_signed_blob_ids: Optional[list[str]] = None,
         call_site: Optional[CallSiteEnum] = None,
     ) -> CreateResponsePayloadFields:
         """Creates a chat response"""
         arguments: dict[str, dict[str, Any]] = {
+            "attachmentSignedBlobIds": {
+                "type": "[String!]",
+                "value": attachment_signed_blob_ids,
+            },
             "callSite": {"type": "CallSiteEnum", "value": call_site},
             "questionId": {"type": "ID!", "value": question_id},
             "response": {"type": "String!", "value": response},
@@ -811,6 +938,22 @@ class Mutation:
         }
         return CreateResponsePayloadFields(
             field_name="createChatResponse", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def create_custom_event_type(
+        cls, club_id: str, name: str
+    ) -> CreateCustomEventTypePayloadFields:
+        """Creates a custom event type for a club"""
+        arguments: dict[str, dict[str, Any]] = {
+            "clubId": {"type": "ID!", "value": club_id},
+            "name": {"type": "String!", "value": name},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return CreateCustomEventTypePayloadFields(
+            field_name="createCustomEventType", arguments=cleared_arguments
         )
 
     @classmethod
@@ -925,6 +1068,23 @@ class Mutation:
         )
 
     @classmethod
+    def create_flexible_report_template(
+        cls, club_id: str, id: str, *, title: Optional[str] = None
+    ) -> CreateFlexibleReportTemplatePayloadFields:
+        """Creates a reusable template from an existing FlexibleReport"""
+        arguments: dict[str, dict[str, Any]] = {
+            "clubId": {"type": "ID!", "value": club_id},
+            "id": {"type": "ID!", "value": id},
+            "title": {"type": "String", "value": title},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return CreateFlexibleReportTemplatePayloadFields(
+            field_name="createFlexibleReportTemplate", arguments=cleared_arguments
+        )
+
+    @classmethod
     def create_match_event(
         cls, attributes: MatchEventAttributes, session_id: str
     ) -> CreateMatchEventPayloadFields:
@@ -1005,11 +1165,16 @@ class Mutation:
         question: str,
         staff_id: str,
         *,
+        attachment_signed_blob_ids: Optional[list[str]] = None,
         call_site: Optional[CallSiteEnum] = None,
         topic_attributes: Optional[TopicAttributesInput] = None,
     ) -> CreateQuestionPayloadFields:
         """Creates a chat question"""
         arguments: dict[str, dict[str, Any]] = {
+            "attachmentSignedBlobIds": {
+                "type": "[String!]",
+                "value": attachment_signed_blob_ids,
+            },
             "callSite": {"type": "CallSiteEnum", "value": call_site},
             "question": {"type": "String!", "value": question},
             "staffId": {"type": "ID!", "value": staff_id},
@@ -1593,6 +1758,38 @@ class Mutation:
         )
 
     @classmethod
+    def find_or_create_template_tag(
+        cls, tag_group_id: str, values: list[int]
+    ) -> FindOrCreateTemplateTagPayloadFields:
+        """Finds or creates the tag that a template tag group's label template makes from the given numbers"""
+        arguments: dict[str, dict[str, Any]] = {
+            "tagGroupId": {"type": "ID!", "value": tag_group_id},
+            "values": {"type": "[Int!]!", "value": values},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return FindOrCreateTemplateTagPayloadFields(
+            field_name="findOrCreateTemplateTag", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def grant_member_role(
+        cls, member_ids: list[str], role_name: AssignableRoleEnum
+    ) -> GrantRolePayloadFields:
+        """Grants a role to a member of a club or organisation"""
+        arguments: dict[str, dict[str, Any]] = {
+            "memberIds": {"type": "[ID!]!", "value": member_ids},
+            "roleName": {"type": "AssignableRoleEnum!", "value": role_name},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return GrantRolePayloadFields(
+            field_name="grantMemberRole", arguments=cleared_arguments
+        )
+
+    @classmethod
     def grant_org_admin_role(
         cls, member_id: str, org_id: str
     ) -> GrantOrgAdminRolePayloadFields:
@@ -1792,6 +1989,26 @@ class Mutation:
         )
 
     @classmethod
+    def request_session_raw_data_export(
+        cls,
+        data_type: RawDataExportTypeEnum,
+        format: RawDataExportFormatEnum,
+        session_id: str,
+    ) -> RequestSessionRawDataExportPayloadFields:
+        """Request a whole session's raw data export as one zip per-athlete; idempotent, call again to poll"""
+        arguments: dict[str, dict[str, Any]] = {
+            "dataType": {"type": "RawDataExportTypeEnum!", "value": data_type},
+            "format": {"type": "RawDataExportFormatEnum!", "value": format},
+            "sessionId": {"type": "ID!", "value": session_id},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return RequestSessionRawDataExportPayloadFields(
+            field_name="requestSessionRawDataExport", arguments=cleared_arguments
+        )
+
+    @classmethod
     def resend_pending_member_confirmation_email(
         cls, id: str
     ) -> ResendConfirmationEmailPayloadFields:
@@ -1822,22 +2039,6 @@ class Mutation:
         )
 
     @classmethod
-    def respond_to_detected_match_event(
-        cls, accept_event: bool, id: str
-    ) -> RespondToDetectedMatchEventPayloadFields:
-        """Responds to a detected match event"""
-        arguments: dict[str, dict[str, Any]] = {
-            "acceptEvent": {"type": "Boolean!", "value": accept_event},
-            "id": {"type": "ID!", "value": id},
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return RespondToDetectedMatchEventPayloadFields(
-            field_name="respondToDetectedMatchEvent", arguments=cleared_arguments
-        )
-
-    @classmethod
     def respond_to_detected_match_events(
         cls, accept_event: bool, ids: list[str]
     ) -> RespondToDetectedMatchEventsPayloadFields:
@@ -1854,6 +2055,22 @@ class Mutation:
         )
 
     @classmethod
+    def respond_to_events(
+        cls, accept_event: bool, ids: list[str]
+    ) -> RespondToEventsPayloadFields:
+        """Accepts (restores) or rejects a set of generated match events"""
+        arguments: dict[str, dict[str, Any]] = {
+            "acceptEvent": {"type": "Boolean!", "value": accept_event},
+            "ids": {"type": "[ID!]!", "value": ids},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return RespondToEventsPayloadFields(
+            field_name="respondToEvents", arguments=cleared_arguments
+        )
+
+    @classmethod
     def review_pending_member(
         cls, approved: bool, id: str
     ) -> ReviewPendingMemberPayloadFields:
@@ -1867,6 +2084,22 @@ class Mutation:
         }
         return ReviewPendingMemberPayloadFields(
             field_name="reviewPendingMember", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def revoke_member_role(
+        cls, member_ids: list[str], role_name: AssignableRoleEnum
+    ) -> RevokeRolePayloadFields:
+        """Revokes a role from a member of a club or organisation"""
+        arguments: dict[str, dict[str, Any]] = {
+            "memberIds": {"type": "[ID!]!", "value": member_ids},
+            "roleName": {"type": "AssignableRoleEnum!", "value": role_name},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return RevokeRolePayloadFields(
+            field_name="revokeMemberRole", arguments=cleared_arguments
         )
 
     @classmethod
@@ -1972,6 +2205,19 @@ class Mutation:
         )
 
     @classmethod
+    def unarchive_custom_event_type(
+        cls, id: str
+    ) -> UnarchiveCustomEventTypePayloadFields:
+        """Makes an archived custom event type active again"""
+        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return UnarchiveCustomEventTypePayloadFields(
+            field_name="unarchiveCustomEventType", arguments=cleared_arguments
+        )
+
+    @classmethod
     def update_athlete(
         cls, athlete_id: str, attributes: UpdateAthleteAttributes
     ) -> UpdateAthletePayloadFields:
@@ -2001,6 +2247,25 @@ class Mutation:
         }
         return UpdateAthleteGroupPayloadFields(
             field_name="updateAthleteGroup", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def update_camera_ownership(
+        cls, attributes: UpdateCameraOwnershipAttributes, id: str
+    ) -> UpdateCameraOwnershipPayloadFields:
+        """Update a camera ownership's name"""
+        arguments: dict[str, dict[str, Any]] = {
+            "attributes": {
+                "type": "UpdateCameraOwnershipAttributes!",
+                "value": attributes,
+            },
+            "id": {"type": "ID!", "value": id},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return UpdateCameraOwnershipPayloadFields(
+            field_name="updateCameraOwnership", arguments=cleared_arguments
         )
 
     @classmethod
