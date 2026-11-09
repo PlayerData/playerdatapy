@@ -74,7 +74,7 @@ A null means *"not recorded"*. A zero means *"recorded, and the value was zero"*
 | Field | What the value means | What to do |
 |---|---|---|
 | `Athlete.labelledAccelzonesLowerBoundsMs2.absolute` | Null when the athlete has no absolute overrides set, so platform defaults are in use | Nothing. Read `relative` for the derived per-athlete bounds, or treat null as "defaults" |
-| `SessionParticipation.filteredDataFileUrl` | Always null. Retired field, kept for compatibility | Use `datafiles` for the participation's data recordings |
+| `SessionParticipation.filteredDataFileUrl` | Always null. Retired field, kept for compatibility | Use the [`requestRawDataExport`](raw-data.md) mutation for the participation's raw data |
 | `activeMinutes` | `0.0` when the club does not record IMU data | Zero here means "not recorded", not an inactive athlete. Confirm the club has IMU-capable devices before treating it as a real measurement |
 | IMU-derived fields | Empty or null without supporting device firmware | Check firmware support with the club before building on these |
 | Heart-rate fields (`avgHeartrateBpm`, `maxHeartrateBpm`, `zone*HeartrateDurationS`) | Empty when no heart-rate strap was paired for that participation | Check `DataRecording.hasHeartrateData` before reading them |

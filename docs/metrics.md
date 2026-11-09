@@ -9,7 +9,7 @@ Metrics fall into four shapes:
 1. **Totals** — one number per athlete per session/segment (e.g. `totalDistanceM`)
 2. **Zonal breakdowns** — totals binned into intensity bands (e.g. `clubZoneSprintDistanceM`)
 3. **Time series** — sampled values over time at fixed intervals (e.g. `distanceMOverTime`)
-4. **Raw GPS** — per-sample latitude / longitude / speed
+4. **Raw data** — per-sample GPS, LPS, IMU and heart rate, via [raw data exports](raw-data.md)
 
 ## 1. Totals
 
@@ -169,9 +169,9 @@ Fields returning `[TimeSeriesData!]`. Each point carries its own `startTime` and
 - `highIntensityRunDistanceMOverTime`
 - `sampledSpeedKphOverTime`
 
-## 4. Raw GPS
+## 4. Raw data
 
-Latitude, longitude, speed, timestamps per athlete session participation via dedicated schema fields.
+Per-sample GPS, LPS/UWB, IMU and heart rate data is downloaded as CSV or JSON with the `requestRawDataExport` and `requestSessionRawDataExport` mutations. See [Raw data exports](raw-data.md).
 
 ## What the metrics actually mean
 
