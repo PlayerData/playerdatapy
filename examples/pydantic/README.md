@@ -28,14 +28,12 @@ export CLUB_ID=your_club_id
 - **`example_use.ipynb`**: A comprehensive Jupyter notebook with detailed examples covering:
   - Session details queries
   - Session metrics queries
-  - Raw data retrieval and processing
+  - Raw data exports
 - **`queries/`**: Reusable query functions built using Pydantic models
   - `club_sessions_filtered_by_time_range.py`: Query sessions filtered by time range
   - `session_details.py`: Query detailed session information including participants and segments
   - `session_metrics.py`: Query session and participation metrics
-  - `session_participations_urls.py`: Query datafile URLs for session participations
-- **`raw_data_utils/`**: Utilities for processing raw data
-  - `url_to_csv.py`: Functions to fetch raw data from URLs and convert to CSV format
+  - `request_raw_data_export.py`: Request a raw data export for a session participation
 
 ## Basic Usage Pattern
 
@@ -104,45 +102,18 @@ from queries.session_metrics import session_metrics
 query = session_metrics(session_id="your_session_id")
 ```
 
-### Session Participation URLs
+### Raw Data Exports
 
-Query datafile URLs for session participations:
-
-```python
-from queries.session_participations_urls import session_participations_urls
-
-query = session_participations_urls(
-    session_participation_ids=["id1", "id2", "id3"]
-)
-```
-
-## Raw Data Processing
-
-The `raw_data_utils/` folder contains utilities for processing raw data retrieved from the API:
-
-### Converting Raw Data to CSV
-
-The `url_to_csv.py` module provides functions to:
-- Fetch JSON data from URLs
-- Extract GPS data, IMU acceleration data, and IMU orientation data
-- Write data to CSV files organized by session participation ID
-
-Example usage:
+Request a session participation's raw data as CSV or JSON. Call it again to poll until `status` is `READY`, then download from `downloadUrl`:
 
 ```python
-from raw_data_utils.url_to_csv import url_to_csv
+from queries.request_raw_data_export import request_raw_data_export
 
-# Fetch and convert raw data to CSV files
-url_to_csv(
-    url="https://datafile_url.com",
-    session_participation_id="participation_id"
-)
+mutation = request_raw_data_export(session_participation_id="your_participation_id")
+result = await api.run_mutations("RequestRawDataExport", mutation)
 ```
 
-This will create a directory named after the `session_participation_id` containing:
-- `gps_data_{session_participation_id}.csv`
-- `imu_acceleration_data_{session_participation_id}.csv`
-- `imu_orientation_data_{session_participation_id}.csv`
+See the [raw data exports guide](https://playerdata.github.io/playerdatapy/raw-data/) for statuses, formats and data schemas.
 
 ## Authentication Types
 
@@ -153,4 +124,4 @@ The examples use `AuthenticationType.CLIENT_CREDENTIALS_FLOW` by default, which 
 
 ## Further Reading
 
-For more detailed examples and use cases, see the `example_use.ipynb` notebook which provides comprehensive demonstrations of querying session details, metrics, and raw data processing.
+For more detailed examples and use cases, see the `example_use.ipynb` notebook which provides comprehensive demonstrations of querying session details, metrics, and raw data exports.

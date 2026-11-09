@@ -1,0 +1,9 @@
+mutation RequestRawDataExport($id: ID!, $dataType: RawDataExportTypeEnum!, $format: RawDataExportFormatEnum!) {
+  requestRawDataExport(sessionParticipationId: $id, dataType: $dataType, format: $format) {
+    status
+    downloadUrl
+    errors {
+      fullMessages
+    }
+  }
+}
