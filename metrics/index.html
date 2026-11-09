@@ -16,7 +16,7 @@
         <link rel="prev" href="../concepts/">
       
       
-        <link rel="next" href="../limits/">
+        <link rel="next" href="../raw-data/">
       
       
         
@@ -389,6 +389,8 @@
       
         
       
+        
+      
     
     
     
@@ -623,10 +625,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-raw-gps" class="md-nav__link">
+  <a href="#4-raw-data" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Raw GPS
+        4. Raw data
       
     </span>
   </a>
@@ -659,6 +661,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../raw-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raw data exports
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -795,7 +825,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -817,14 +847,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2_8" id="__nav_2_8_label" tabindex="">
+              <label class="md-nav__link " for="__nav_2_9" id="__nav_2_9_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_8">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3100,10 +3130,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-raw-gps" class="md-nav__link">
+  <a href="#4-raw-data" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Raw GPS
+        4. Raw data
       
     </span>
   </a>
@@ -3160,7 +3190,7 @@
 <li><strong>Totals</strong> — one number per athlete per session/segment (e.g. <code>totalDistanceM</code>)</li>
 <li><strong>Zonal breakdowns</strong> — totals binned into intensity bands (e.g. <code>clubZoneSprintDistanceM</code>)</li>
 <li><strong>Time series</strong> — sampled values over time at fixed intervals (e.g. <code>distanceMOverTime</code>)</li>
-<li><strong>Raw GPS</strong> — per-sample latitude / longitude / speed</li>
+<li><strong>Raw data</strong> — per-sample GPS, LPS, IMU and heart rate, via <a href="../raw-data/">raw data exports</a></li>
 </ol>
 <h2 id="1-totals">1. Totals<a class="headerlink" href="#1-totals" title="Permanent link">&para;</a></h2>
 <h3 id="distance-speed">Distance &amp; speed<a class="headerlink" href="#distance-speed" title="Permanent link">&para;</a></h3>
@@ -3400,8 +3430,8 @@
 <li><code>highIntensityRunDistanceMOverTime</code></li>
 <li><code>sampledSpeedKphOverTime</code></li>
 </ul>
-<h2 id="4-raw-gps">4. Raw GPS<a class="headerlink" href="#4-raw-gps" title="Permanent link">&para;</a></h2>
-<p>Latitude, longitude, speed, timestamps per athlete session participation via dedicated schema fields.</p>
+<h2 id="4-raw-data">4. Raw data<a class="headerlink" href="#4-raw-data" title="Permanent link">&para;</a></h2>
+<p>Per-sample GPS, LPS/UWB, IMU and heart rate data is downloaded as CSV or JSON with the <code>requestRawDataExport</code> and <code>requestSessionRawDataExport</code> mutations. See <a href="../raw-data/">Raw data exports</a>.</p>
 <h2 id="what-the-metrics-actually-mean">What the metrics actually mean<a class="headerlink" href="#what-the-metrics-actually-mean" title="Permanent link">&para;</a></h2>
 <p>Field names carry units but not definitions. These are the ones that most often get read the wrong way.</p>
 <h3 id="speed">Speed<a class="headerlink" href="#speed" title="Permanent link">&para;</a></h3>
