@@ -29,6 +29,8 @@ import asyncio
 import os
 from datetime import datetime, timedelta, timezone
 
+import httpx
+
 from playerdatapy.gqlauth import GraphqlAuth, AuthenticationType
 from playerdatapy.gqlclient import Client
 from playerdatapy.constants import GRAPHQL_URL
@@ -75,10 +77,9 @@ variables = {
 
 
 async def main():
-    access_token = auth.authenticated_session.token["access_token"]
     client = Client(
         url=GRAPHQL_URL,
-        headers={"Authorization": f"Bearer {access_token}"},
+        http_client=httpx.AsyncClient(auth=auth.httpx_auth),
     )
     response = await client.execute(query=query, variables=variables)
     sessions = client.get_data(response)["sessions"]

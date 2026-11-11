@@ -15,8 +15,9 @@ class AuthorisationCodeFlow(AuthorisationCodeFlowBase):
         token_file: Optional[Union[str, Path]] = None,
         base_url: Optional[str] = None,
     ):
-        super().__init__(client_id, port, token_file, base_url)
-        self.client_secret = client_secret
+        super().__init__(
+            client_id, port, token_file, base_url, client_secret=client_secret
+        )
 
     def _fetch_token(self, code: str) -> dict:
         """Exchange authorization code for access token."""

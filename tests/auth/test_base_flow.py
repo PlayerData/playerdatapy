@@ -5,6 +5,7 @@ import time
 
 from pathlib import Path
 import pytest
+from unittest.mock import patch
 from oauthlib.oauth2 import TokenExpiredError
 
 from playerdatapy.auth.base_flow import BaseAuthFlow
@@ -66,25 +67,15 @@ class TestBaseAuthFlow:
             if os.path.exists(token_file):
                 os.remove(token_file)
 
-    def test_get_token_file_not_found(self):
-        """Test get_token raises error when token file doesn't exist."""
-        flow = BaseAuthFlow(client_id="test_client", token_file="nonexistent.token")
-        with pytest.raises(TokenExpiredError, match="No token file found"):
+    @pytest.mark.parametrize("contents", [None, ""], ids=["missing", "empty"])
+    def test_get_token_unusable_file(self, tmp_path, contents):
+        """Test get_token raises when the token file is missing or empty."""
+        token_file = tmp_path / "token.json"
+        if contents is not None:
+            token_file.write_text(contents)
+        flow = BaseAuthFlow(client_id="test_client", token_file=token_file)
+        with pytest.raises(TokenExpiredError, match="No usable token file"):
             flow.get_token()
-
-    def test_get_token_empty_file(self):
-        """Test get_token raises error when token file is empty."""
-        with tempfile.NamedTemporaryFile(mode="w", delete=False, suffix=".token") as f:
-            token_file = f.name
-            # File is empty
-
-        try:
-            flow = BaseAuthFlow(client_id="test_client", token_file=token_file)
-            with pytest.raises(TokenExpiredError, match="Token file is empty"):
-                flow.get_token()
-        finally:
-            if os.path.exists(token_file):
-                os.remove(token_file)
 
     def test_get_token_expired(self):
         """Test get_token raises error when token is expired."""
@@ -144,3 +135,60 @@ class TestBaseAuthFlow:
         finally:
             if os.path.exists(token_file):
                 os.remove(token_file)
+
+
+class TestBaseAuthFlowStoredToken:
+    """load_stored_token ignores expiry; unusable files read as no token."""
+
+    @pytest.mark.parametrize(
+        "contents", [None, "", "{not json"], ids=["missing", "empty", "corrupt"]
+    )
+    def test_load_stored_token_returns_none_for_unusable_file(self, tmp_path, contents):
+        token_file = tmp_path / "token.json"
+        if contents is not None:
+            token_file.write_text(contents)
+
+        flow = BaseAuthFlow(client_id="test_client", token_file=token_file)
+
+        assert flow.load_stored_token() is None
+
+    def test_load_stored_token_returns_expired_token(self, tmp_path):
+        token_file = tmp_path / "token.json"
+        expired = {"access_token": "a", "expires_at": time.time() - 60}
+        token_file.write_text(json.dumps(expired))
+
+        flow = BaseAuthFlow(client_id="test_client", token_file=token_file)
+
+        assert flow.load_stored_token() == expired
+
+    def test_get_token_corrupt_file_raises_token_expired(self, tmp_path):
+        token_file = tmp_path / "token.json"
+        token_file.write_text("{not json")
+
+        flow = BaseAuthFlow(client_id="test_client", token_file=token_file)
+
+        with pytest.raises(TokenExpiredError):
+            flow.get_token()
+
+    def test_save_token_replaces_file_atomically(self, tmp_path):
+        token_file = tmp_path / "token.json"
+        flow = BaseAuthFlow(client_id="test_client", token_file=token_file)
+
+        with patch("playerdatapy.auth.base_flow.os.replace", wraps=os.replace) as rep:
+            flow.save_token({"access_token": "a"})
+
+        rep.assert_called_once()
+        assert rep.call_args.args[1] == token_file
+        assert json.loads(token_file.read_text()) == {"access_token": "a"}
+        assert list(tmp_path.iterdir()) == [token_file]
+
+    def test_client_secret_is_keyword_only(self):
+        with pytest.raises(TypeError):
+            BaseAuthFlow("test_client", ".test_token", None, "secret")
+
+        flow = BaseAuthFlow("test_client", client_secret="secret")
+
+        assert flow._client_params() == {
+            "client_id": "test_client",
+            "client_secret": "secret",
+        }

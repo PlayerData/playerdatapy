@@ -1,9 +1,13 @@
+import json
+import time
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
+import httpx
 import pytest
 from oauthlib.oauth2 import TokenExpiredError  # type: ignore[import-untyped]
 
+from playerdatapy.auth.device_authorization_flow import DeviceAuthorizationFlow
 from playerdatapy.auth.token_storage import default_token_path
 from playerdatapy.constants import API_BASE_URL
 from playerdatapy.gqlauth import GraphqlAuth, AuthenticationType
@@ -158,7 +162,7 @@ class TestGraphqlAuth:
     @patch("playerdatapy.gqlauth.OAuth2Session")
     @patch("playerdatapy.gqlauth.ClientCredentialsFlow")
     def test_init_with_base_url(self, mock_flow_class, mock_session_class):
-        """Test base_url overrides the default and reaches the flow and refresh URL."""
+        """Test base_url overrides the default and reaches the flow."""
         mock_authenticator = MagicMock()
         mock_authenticator.get_token.return_value = {"access_token": "test_token"}
         mock_flow_class.return_value = mock_authenticator
@@ -182,10 +186,7 @@ class TestGraphqlAuth:
             "https://preview.playerdata.co.uk",
         )
         mock_session_class.assert_called_once_with(
-            "test_client",
-            token={"access_token": "test_token"},
-            auto_refresh_url="https://preview.playerdata.co.uk/oauth/token",
-            token_updater=mock_authenticator.save_token,
+            "test_client", token={"access_token": "test_token"}
         )
 
     @patch("playerdatapy.gqlauth.OAuth2Session")
@@ -210,10 +211,7 @@ class TestGraphqlAuth:
 
         mock_authenticator.get_token.assert_called_once()
         mock_session_class.assert_called_once_with(
-            "test_client",
-            token={"access_token": "test_token"},
-            auto_refresh_url="https://app.playerdata.co.uk/oauth/token",
-            token_updater=mock_authenticator.save_token,
+            "test_client", token={"access_token": "test_token"}
         )
 
     @patch("playerdatapy.gqlauth.OAuth2Session")
@@ -263,3 +261,118 @@ class TestGraphqlAuth:
 
         with pytest.raises(KeyError):
             auth._get_authentication_token()
+
+
+def _write_token(token_file, access, refresh="old-refresh", expires_in=-60):
+    token = {
+        "access_token": access,
+        "token_type": "Bearer",
+        "expires_at": time.time() + expires_in,
+    }
+    if refresh is not None:
+        token["refresh_token"] = refresh
+    token_file.write_text(json.dumps(token))
+
+
+def _token_endpoint(response, calls):
+    def handler(request):
+        if request.url.path == "/oauth/token":
+            calls.append(request)
+            return response
+        return httpx.Response(200, json={"data": {}})
+
+    return handler
+
+
+def _refreshed():
+    return httpx.Response(
+        200,
+        json={
+            "access_token": "new-access",
+            "refresh_token": "new-refresh",
+            "token_type": "Bearer",
+            "expires_in": 7200,
+        },
+    )
+
+
+class TestGraphqlAuthRefresh:
+    """Startup and on-demand refresh through the saved refresh token."""
+
+    def _auth(self, token_file):
+        return GraphqlAuth(
+            client_id="test_client",
+            token_file=token_file,
+            type=AuthenticationType.DEVICE_FLOW,
+        )
+
+    def _auth_via(self, mock_httpx, token_file, handler):
+        mock_httpx(handler)
+        return self._auth(token_file)
+
+    @patch.object(DeviceAuthorizationFlow, "authenticate")
+    def test_expired_token_refreshes_without_login(
+        self, mock_authenticate, tmp_path, mock_httpx
+    ):
+        token_file = tmp_path / "token.json"
+        _write_token(token_file, "old-access")
+        calls = []
+
+        auth = self._auth_via(
+            mock_httpx, token_file, _token_endpoint(_refreshed(), calls)
+        )
+
+        mock_authenticate.assert_not_called()
+        assert len(calls) == 1
+        assert auth.httpx_auth.token["access_token"] == "new-access"
+        assert auth.authenticated_session.token["access_token"] == "new-access"
+        assert json.loads(token_file.read_text())["refresh_token"] == "new-refresh"
+
+    @patch.object(DeviceAuthorizationFlow, "authenticate")
+    def test_rejected_refresh_falls_back_to_login(
+        self, mock_authenticate, tmp_path, mock_httpx
+    ):
+        token_file = tmp_path / "token.json"
+        _write_token(token_file, "old-access")
+        mock_authenticate.side_effect = lambda _redirect_uri: _write_token(
+            token_file, "login-access", expires_in=3600
+        )
+        rejected = httpx.Response(400, json={"error": "invalid_grant"})
+
+        auth = self._auth_via(mock_httpx, token_file, _token_endpoint(rejected, []))
+
+        mock_authenticate.assert_called_once()
+        assert auth.httpx_auth.token["access_token"] == "login-access"
+
+    @patch.object(DeviceAuthorizationFlow, "authenticate")
+    def test_unavailable_refresh_propagates_without_login(
+        self, mock_authenticate, tmp_path, mock_httpx
+    ):
+        token_file = tmp_path / "token.json"
+        _write_token(token_file, "old-access")
+        unavailable = httpx.Response(503, text="down")
+
+        with pytest.raises(httpx.HTTPStatusError):
+            self._auth_via(mock_httpx, token_file, _token_endpoint(unavailable, []))
+
+        mock_authenticate.assert_not_called()
+
+    @pytest.mark.asyncio
+    async def test_session_token_follows_mid_run_refresh(self, tmp_path):
+        token_file = tmp_path / "token.json"
+        _write_token(token_file, "old-access", expires_in=3600)
+        auth = self._auth(token_file)
+
+        def handler(request):
+            if request.url.path == "/oauth/token":
+                return _refreshed()
+            if request.headers["Authorization"] == "Bearer old-access":
+                return httpx.Response(401)
+            return httpx.Response(200, json={"data": {}})
+
+        async with httpx.AsyncClient(
+            auth=auth.httpx_auth, transport=httpx.MockTransport(handler)
+        ) as client:
+            await client.post(f"{API_BASE_URL}/api/graphql")
+
+        assert auth.authenticated_session.token["access_token"] == "new-access"

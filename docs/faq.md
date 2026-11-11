@@ -23,9 +23,9 @@ Note that `createSession` only creates the session record — attaching data nee
 
 Yes — but mutations run against **real production data**.
 
-### How long do tokens last?
+### Do access tokens expire?
 
-Access tokens expire after **2 hours**. Authorisation Code Grant issues refresh tokens; Client Credentials Grant does not (re-run the flow).
+Yes. Authorisation Code Grant issues refresh tokens; Client Credentials Grant does not (re-run the flow).
 
 ### Where do I get credentials?
 

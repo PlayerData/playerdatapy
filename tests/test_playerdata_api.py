@@ -1,4 +1,8 @@
-from unittest.mock import AsyncMock, MagicMock, patch
+import json
+import time
+from unittest.mock import ANY, AsyncMock, MagicMock, patch
+
+import httpx
 
 import pytest
 
@@ -37,11 +41,11 @@ class TestPlayerdataAPI:
             authentication_type=AuthenticationType.CLIENT_CREDENTIALS_FLOW,
         )
 
-        # Verify Client was initialized with correct URL and headers
         mock_client_class.assert_called_once_with(
-            url="https://app.playerdata.co.uk/api/graphql",
-            headers={"Authorization": "Bearer test_token"},
+            url="https://app.playerdata.co.uk/api/graphql", http_client=ANY
         )
+        http_client = mock_client_class.call_args.kwargs["http_client"]
+        assert http_client.auth is interface.httpx_auth
 
         assert interface.client == mock_client_instance
 
@@ -103,9 +107,10 @@ class TestPlayerdataAPI:
 
         assert interface.api_base_url == "https://preview.playerdata.co.uk"
         mock_client_class.assert_called_once_with(
-            url="https://preview.playerdata.co.uk/api/graphql",
-            headers={"Authorization": "Bearer test_token"},
+            url="https://preview.playerdata.co.uk/api/graphql", http_client=ANY
         )
+        http_client = mock_client_class.call_args.kwargs["http_client"]
+        assert http_client.auth is interface.httpx_auth
 
     @pytest.mark.asyncio
     @patch("playerdatapy.playerdata_api.Client")
@@ -313,3 +318,51 @@ class TestPlayerdataAPI:
             operation_name="EmptyMutation"
         )
         assert result == {"data": {"result": "success"}}
+
+
+class TestPlayerdataAPIRealClient:
+    """The generated Client sends queries with the refresher's token."""
+
+    @pytest.mark.asyncio
+    async def test_query_carries_refreshed_bearer(self, tmp_path, mock_httpx):
+        token_file = tmp_path / "token.json"
+        token_file.write_text(
+            json.dumps(
+                {
+                    "access_token": "expiring-access",
+                    "refresh_token": "expiring-refresh",
+                    "token_type": "Bearer",
+                    "expires_at": time.time() + 20,
+                }
+            )
+        )
+        refreshes = []
+        authorizations = []
+
+        def handler(request):
+            if request.url.path == "/oauth/token":
+                refreshes.append(request)
+                return httpx.Response(
+                    200,
+                    json={
+                        "access_token": "refreshed-access",
+                        "refresh_token": "refreshed-refresh",
+                        "token_type": "Bearer",
+                        "expires_in": 7200,
+                    },
+                )
+            authorizations.append(request.headers.get("Authorization"))
+            return httpx.Response(200, json={"data": {"__typename": "Query"}})
+
+        mock_httpx(handler)
+        api = PlayerDataAPI(
+            client_id="test_client",
+            token_file=token_file,
+            authentication_type=AuthenticationType.DEVICE_FLOW,
+        )
+
+        response = await api.client.execute(query="query Probe { __typename }")
+
+        assert response.status_code == 200
+        assert len(refreshes) == 1
+        assert authorizations == ["Bearer refreshed-access"]
