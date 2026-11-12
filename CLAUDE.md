@@ -6,7 +6,7 @@ Repo-specific guidance for AI assistants (Claude Code, Cursor, etc.). Humans, sk
 
 - Python package `playerdatapy` — typed client for the PlayerData GraphQL API.
 - Generated from `schema.graphql` by `ariadne-codegen` (config in `pyproject.toml` under `[tool.ariadne-codegen]`). `schema.graphql` is refreshed from the public SDL at `https://app.playerdata.co.uk/api/schema.graphql`.
-- Custom codegen plugins: `codegen_plugins/docstrings.py` injects schema descriptions into generated enums; `codegen_plugins/public_api.py` re-exports hand-written modules (`PlayerDataAPI`) from the generated `__init__.py`.
+- Custom codegen plugins: `codegen_plugins/docstrings.py` injects schema descriptions into generated enums; `codegen_plugins/public_api.py` re-exports hand-written modules (`PlayerDataAPI`) from the generated `__init__.py`; `codegen_plugins/tuple_collections.py` makes the generated client build its query documents from tuples, which graphql-core 3.3 needs.
 - Docs site at `docs/`, built with MkDocs Material + mkdocstrings, deployed to GitHub Pages via `.github/workflows/docs.yml`.
 - Examples in `examples/direct/` (raw GraphQL) and `examples/pydantic/` (typed `PlayerDataAPI` — preferred).
 

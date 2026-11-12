@@ -67,6 +67,7 @@ client_class_name = "GraphqlClient"
 plugins = [
     "codegen_plugins.docstrings.EnumDocstringsPlugin",
     "codegen_plugins.public_api.PublicApiExportsPlugin",
+    "codegen_plugins.tuple_collections.TupleCollectionsPlugin",
 ]
 
 [tool.ruff.lint]

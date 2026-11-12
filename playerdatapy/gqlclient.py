@@ -79,14 +79,16 @@ class Client(AsyncBaseClient):
         variable_definitions: list[VariableDefinitionNode],
     ) -> DocumentNode:
         return DocumentNode(
-            definitions=[
-                OperationDefinitionNode(
-                    operation=operation_type,
-                    name=NameNode(value=operation_name),
-                    variable_definitions=variable_definitions,
-                    selection_set=SelectionSetNode(selections=selections),
-                )
-            ]
+            definitions=tuple(
+                [
+                    OperationDefinitionNode(
+                        operation=operation_type,
+                        name=NameNode(value=operation_name),
+                        variable_definitions=tuple(variable_definitions),
+                        selection_set=SelectionSetNode(selections=tuple(selections)),
+                    )
+                ]
+            )
         )
 
     def _build_selection_set(

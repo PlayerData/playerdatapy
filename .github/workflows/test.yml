@@ -30,3 +30,6 @@ jobs:
 
       - name: Run Tests
         run: uv run --no-sync pytest
+
+      - name: Run Tests on graphql-core 3.3
+        run: uv run --no-sync --with 'graphql-core>=3.3,<3.4' pytest
