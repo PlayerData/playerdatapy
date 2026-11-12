@@ -16,8 +16,10 @@ class AuthorisationCodeFlowBase(BaseAuthFlow):
         port: int,
         token_file: Optional[Union[str, Path]] = None,
         base_url: Optional[str] = None,
+        *,
+        client_secret: str = "",
     ):
-        super().__init__(client_id, token_file, base_url)
+        super().__init__(client_id, token_file, base_url, client_secret=client_secret)
         self.server = Server(port)
 
     def authenticate(self, redirect_uri):

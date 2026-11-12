@@ -17,3 +17,10 @@ class TestPublicExports:
 
         assert PlayerDataAPI is canonical
         assert "PlayerDataAPI" in playerdatapy.__all__
+
+    def test_auth_errors_import(self):
+        from playerdatapy import RefreshFailedError
+        from playerdatapy.auth import errors
+
+        assert RefreshFailedError is errors.RefreshFailedError
+        assert "RefreshFailedError" in playerdatapy.__all__

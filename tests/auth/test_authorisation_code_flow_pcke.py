@@ -23,8 +23,7 @@ class TestAuthorisationCodeFlowPCKE:
             assert flow.client_id == "test_client"
             assert flow.token_file == Path(".test_token")
             assert flow.server == mock_server
-            # Should not have client_secret attribute
-            assert not hasattr(flow, "client_secret")
+            assert flow.client_secret == ""
 
     def test_fetch_token_without_client_secret(self):
         """Test _fetch_token does not include client_secret (PKCE flow)."""

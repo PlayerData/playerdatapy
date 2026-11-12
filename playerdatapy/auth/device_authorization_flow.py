@@ -80,9 +80,8 @@ class DeviceAuthorizationFlow(BaseAuthFlow):
         on_prompt: Optional[DevicePromptHandler] = None,
         client_secret: str = "",
     ):
-        super().__init__(client_id, token_file, base_url)
+        super().__init__(client_id, token_file, base_url, client_secret=client_secret)
         self.scope = scope
-        self.client_secret = client_secret
         self._on_prompt: DevicePromptHandler = on_prompt or default_device_prompt
 
     def authenticate(self, redirect_uri: Optional[str] = None) -> dict:
@@ -121,11 +120,6 @@ class DeviceAuthorizationFlow(BaseAuthFlow):
         if body.get("error_description"):
             return f"{body['error']} ({body['error_description']})"
         return body["error"]
-
-    def _client_params(self) -> dict:
-        if self.client_secret:
-            return {"client_id": self.client_id, "client_secret": self.client_secret}
-        return {"client_id": self.client_id}
 
     def _poll_for_token(self, authorization: DeviceAuthorization) -> dict:
         interval = authorization.interval

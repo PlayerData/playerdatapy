@@ -1,11 +1,12 @@
 from pathlib import Path
 from typing import Optional, Union
 
+import httpx
+
 from .gqlauth import GraphqlAuth, AuthenticationType
 from .gqlclient import Client
 from .base_operation import GraphQLField
 from .auth.device_authorization_flow import DevicePromptHandler
-from playerdatapy.constants import GRAPHQL_URL, graphql_url_for
 
 
 class PlayerDataAPI(GraphqlAuth):
@@ -30,10 +31,9 @@ class PlayerDataAPI(GraphqlAuth):
             base_url=base_url,
             device_prompt=device_prompt,
         )
-        graphql_url = graphql_url_for(base_url) if base_url else GRAPHQL_URL
         self.client = Client(
-            url=graphql_url,
-            headers={"Authorization": f"Bearer {self._get_authentication_token()}"},
+            url=self.graphql_url,
+            http_client=httpx.AsyncClient(auth=self.httpx_auth),
         )
 
     async def run_queries(self, operation_name: str, *query_objects: GraphQLField):

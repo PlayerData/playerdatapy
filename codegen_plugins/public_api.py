@@ -14,6 +14,7 @@ from ariadne_codegen.plugins.base import Plugin
 
 PUBLIC_EXPORTS: dict[str, list[str]] = {
     "playerdata_api": ["PlayerDataAPI"],
+    "auth.errors": ["RefreshFailedError"],
 }
 
 

@@ -158,7 +158,7 @@ async def main() -> None:
     )
     client = Client(
         url=f"{API_BASE_URL}/api/graphql",
-        headers={"Authorization": f"Bearer {auth._get_authentication_token()}"},
+        http_client=httpx.AsyncClient(auth=auth.httpx_auth),
     )
 
     now = datetime.now(timezone.utc)
@@ -198,8 +198,7 @@ async def main() -> None:
     print(f"Session {session['id']} ({session['startTime']} – {session['endTime']})")
     print(f"Downloading {len(recordings_with_url)} recording(s) to {out_dir}/")
 
-    headers = {"Authorization": f"Bearer {auth._get_authentication_token()}"}
-    async with httpx.AsyncClient(headers=headers, timeout=60.0) as http_client:
+    async with httpx.AsyncClient(auth=auth.httpx_auth, timeout=60.0) as http_client:
         ok = sum(
             await asyncio.gather(
                 *[

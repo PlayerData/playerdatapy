@@ -5,6 +5,8 @@ from playerdatapy.constants import API_BASE_URL
 
 import os
 import asyncio
+
+import httpx
 from datetime import datetime, timedelta
 
 CLIENT_ID = os.environ.get("CLIENT_ID")
@@ -21,7 +23,7 @@ auth = GraphqlAuth(
 # Create a Client instance.
 client = Client(
     url=f"{API_BASE_URL}/api/graphql",
-    headers={"Authorization": f"Bearer {auth._get_authentication_token()}"},
+    http_client=httpx.AsyncClient(auth=auth.httpx_auth),
 )
 
 # Build out the query string to get session details.

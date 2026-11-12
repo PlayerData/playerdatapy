@@ -16,8 +16,7 @@ class ClientCredentialsFlow(BaseAuthFlow):
         token_file: Optional[Union[str, Path]] = None,
         base_url: Optional[str] = None,
     ):
-        super().__init__(client_id, token_file, base_url)
-        self.client_secret = client_secret
+        super().__init__(client_id, token_file, base_url, client_secret=client_secret)
 
     def authenticate(self, save_token: bool = True) -> dict:
         client = BackendApplicationClient(client_id=self.client_id)

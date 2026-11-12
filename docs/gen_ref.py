@@ -24,7 +24,7 @@ except Exception as _exc:
 
 SECTIONS: list[tuple[str, list[str]]] = [
     ("PlayerDataAPI", ["playerdatapy.playerdata_api"]),
-    ("Authentication", ["playerdatapy.gqlauth"]),
+    ("Authentication", ["playerdatapy.gqlauth", "playerdatapy.auth.errors"]),
     ("GraphQL Client", ["playerdatapy.gqlclient"]),
     ("Queries", ["playerdatapy.custom_queries"]),
     ("Mutations", ["playerdatapy.custom_mutations"]),

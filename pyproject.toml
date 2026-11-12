@@ -6,8 +6,9 @@ authors = [{ name = "PlayerData Engineering", email = "dev@playerdata.com" }]
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "filelock>=3.15",
     "graphql-core>=3.2.0",
-    "httpx>=0.24.0",
+    "httpx>=0.28",
     "oauthlib>=3.2.0",
     "polars>=1.37.1",
     "pydantic>=2.0.0",
@@ -77,3 +78,6 @@ exclude = [
     "playerdatapy/custom_mutations.py",
     "playerdatapy/custom_fields.py",
 ]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"

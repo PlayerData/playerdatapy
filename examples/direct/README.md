@@ -29,6 +29,7 @@ from playerdatapy.gqlauth import GraphqlAuth, AuthenticationType
 from playerdatapy.gqlclient import Client
 from playerdatapy.constants import API_BASE_URL
 import asyncio
+import httpx
 
 # Authenticate
 auth = GraphqlAuth(
@@ -40,7 +41,7 @@ auth = GraphqlAuth(
 # Create a Client instance
 client = Client(
     url=f"{API_BASE_URL}/api/graphql",
-    headers={"Authorization": f"Bearer {auth._get_authentication_token()}"},
+    http_client=httpx.AsyncClient(auth=auth.httpx_auth),
 )
 
 # Build your GraphQL query string

@@ -5,6 +5,7 @@ GraphQL client for the Playerdata API
 from enum import Enum
 from pathlib import Path
 from typing import Optional, Union
+
 from requests_oauthlib import OAuth2Session  # type: ignore[import-untyped]
 from oauthlib.oauth2 import TokenExpiredError  # type: ignore[import-untyped]
 
@@ -15,8 +16,10 @@ from playerdatapy.auth.device_authorization_flow import (
     DeviceAuthorizationFlow,
     DevicePromptHandler,
 )
+from playerdatapy.auth.errors import RefreshFailedError
+from playerdatapy.auth.token_refresher import TokenRefresher
 from playerdatapy.auth.token_storage import default_token_path
-from playerdatapy.constants import API_BASE_URL
+from playerdatapy.constants import API_BASE_URL, GRAPHQL_URL, graphql_url_for
 
 
 class AuthenticationType(Enum):
@@ -50,17 +53,19 @@ class GraphqlAuth:
         self.redirect_uri = redirect_uri
         self.port = port
         self.api_base_url = base_url or API_BASE_URL
+        self.graphql_url = graphql_url_for(base_url) if base_url else GRAPHQL_URL
         self.device_prompt = device_prompt
+        self.authenticated_session: Optional[OAuth2Session] = None
         self.authenticated_session = self._get_authenticated_session()
 
-    def _get_authenticated_session(self):
+    def _build_authenticator(self):
         match self.authentication_type:
             case AuthenticationType.AUTHORISATION_CODE_FLOW_PCKE:
-                self.authenticator = AuthorisationCodeFlowPCKE(
+                return AuthorisationCodeFlowPCKE(
                     self.client_id, self.port, self.token_file, self.api_base_url
                 )
             case AuthenticationType.AUTHORISATION_CODE_FLOW:
-                self.authenticator = AuthorisationCodeFlow(
+                return AuthorisationCodeFlow(
                     self.client_id,
                     self.port,
                     self.client_secret,
@@ -68,14 +73,14 @@ class GraphqlAuth:
                     self.api_base_url,
                 )
             case AuthenticationType.CLIENT_CREDENTIALS_FLOW:
-                self.authenticator = ClientCredentialsFlow(
+                return ClientCredentialsFlow(
                     self.client_id,
                     self.client_secret,
                     self.token_file,
                     self.api_base_url,
                 )
             case AuthenticationType.DEVICE_FLOW:
-                self.authenticator = DeviceAuthorizationFlow(
+                return DeviceAuthorizationFlow(
                     self.client_id,
                     self.token_file,
                     self.api_base_url,
@@ -83,18 +88,39 @@ class GraphqlAuth:
                     client_secret=self.client_secret,
                 )
 
-        try:
-            token = self.authenticator.get_token()
-        except TokenExpiredError:
-            self.authenticator.authenticate(self.redirect_uri)
-            token = self.authenticator.get_token()
+    def _get_authenticated_session(self):
+        self.authenticator = self._build_authenticator()
+        token = self._load_or_login()
+        self.httpx_auth = self._build_refresher(token)
+        return OAuth2Session(self.client_id, token=token)
 
-        return OAuth2Session(
-            self.client_id,
-            token=token,
-            auto_refresh_url=f"{self.api_base_url}/oauth/token",
-            token_updater=self.authenticator.save_token,
+    def _load_or_login(self) -> dict:
+        try:
+            return self.authenticator.get_token()
+        except TokenExpiredError:
+            pass
+
+        stored = self.authenticator.load_stored_token()
+        if stored is not None and "refresh_token" in stored:
+            try:
+                return self._build_refresher(stored).ensure_fresh()
+            except RefreshFailedError:
+                pass
+
+        self.authenticator.authenticate(self.redirect_uri)
+        return self.authenticator.get_token()
+
+    def _build_refresher(self, token: dict) -> TokenRefresher:
+        return TokenRefresher(
+            self.authenticator,
+            token,
+            allowed_urls=[self.api_base_url, self.graphql_url],
+            on_token_updated=self._sync_session_token,
         )
+
+    def _sync_session_token(self, token: dict) -> None:
+        if self.authenticated_session is not None:
+            self.authenticated_session.token = token
 
     def _get_authentication_token(self):
         return self.authenticated_session.token["access_token"]

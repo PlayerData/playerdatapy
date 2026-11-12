@@ -61,7 +61,6 @@ Under the **Authorisation Code Grant**, data access is governed by **club staff 
 
 ## Tokens
 
-- Access tokens expire after **2 hours**
 - Authorisation Code Grant: refresh tokens issued — renew via `refresh_token` grant
 - Client Credentials Grant: no refresh token — re-run flow for new token
 - Refresh proactively before expiry
@@ -113,7 +112,7 @@ api = PlayerDataAPI(
 )
 ```
 
-The SDK persists tokens to disk and refreshes proactively. See [Python SDK → Authentication](reference/authentication/GraphqlAuth.md).
+The SDK persists tokens to disk. See [Python SDK → Authentication](reference/authentication/GraphqlAuth.md).
 
 ## Authorisation Code flow — Python SDK (PKCE)
 
@@ -144,6 +143,15 @@ auth = GraphqlAuth(
 Confidential clients must also pass `client_secret="..."` — it is sent on both the device-code request and each token poll. Public clients omit it.
 
 The token (including a refresh token) is stored to disk like the other flows; override the path with `token_file=`.
+
+## Token refresh — Python SDK
+
+The SDK refreshes tokens automatically when it has a refresh token. A rejected refresh raises `RefreshFailedError`. For your own `httpx.AsyncClient`, pass `auth.httpx_auth`:
+
+```python
+async with httpx.AsyncClient(auth=auth.httpx_auth) as http:
+    ...
+```
 
 ## Authorisation Code flow — manual (any language)
 
