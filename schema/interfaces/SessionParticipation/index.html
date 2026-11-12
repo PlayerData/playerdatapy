@@ -1244,6 +1244,40 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1302,6 +1336,100 @@
       
         
           
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
         
       
         
@@ -2154,6 +2282,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -2393,6 +2525,62 @@
     
   
     EdgeMetaEvent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Event/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Event
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SegmentInterface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SegmentInterface
   
 
     
@@ -2887,6 +3075,32 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2945,6 +3159,48 @@
       
         
           
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
         
       
         
@@ -3446,9 +3702,25 @@
 <h3 id="id"><code>id</code><a class="headerlink" href="#id" title="Permanent link">&para;</a></h3>
 <p>Unique identifier for the session participation</p>
 <p><strong>Returns:</strong> <a href="../../scalars/ID/"><code>ID</code></a>!</p>
+<h3 id="lastsevendaysmetrics"><code>lastSevenDaysMetrics</code><a class="headerlink" href="#lastsevendaysmetrics" title="Permanent link">&para;</a></h3>
+<p>The athlete's mean of each configured metric over their other sessions of the
+same type in the last 7 days, weighted by active minutes for IMU, jump and
+acceleration load metrics, and by contributing seconds for all other metrics.
+Null when there are no such sessions</p>
+<p><strong>Returns:</strong> <a href="../../objects/ConfiguredMetrics/"><code>ConfiguredMetrics</code></a></p>
+<h3 id="participantannotationsurl"><code>participantAnnotationsUrl</code><a class="headerlink" href="#participantannotationsurl" title="Permanent link">&para;</a></h3>
+<p>Signed URL for this participation's annotations file on the session's video recording</p>
+<p><strong>Returns:</strong> <a href="../../objects/VideoAnnotationsUrl/"><code>VideoAnnotationsUrl</code></a></p>
+<h3 id="personalbestmetrics"><code>personalBestMetrics</code><a class="headerlink" href="#personalbestmetrics" title="Permanent link">&para;</a></h3>
+<p>The athlete's all-time best for each configured metric, over all session types
+in the club that the viewer can see. A metric without a personal best has no value</p>
+<p><strong>Returns:</strong> <a href="../../objects/ConfiguredMetrics/"><code>ConfiguredMetrics</code></a></p>
 <h3 id="position"><code>position</code><a class="headerlink" href="#position" title="Permanent link">&para;</a></h3>
 <p>The position the athlete played in the session</p>
 <p><strong>Returns:</strong> <a href="../../objects/PositionDefinition/"><code>PositionDefinition</code></a></p>
+<h3 id="previousparticipation"><code>previousParticipation</code><a class="headerlink" href="#previousparticipation" title="Permanent link">&para;</a></h3>
+<p>The same athlete's participation in their most recent earlier session of the same type that has metrics</p>
+<p><strong>Returns:</strong> <a href="./"><code>SessionParticipation</code></a></p>
 <h3 id="segmentparticipations"><code>segmentParticipations</code><a class="headerlink" href="#segmentparticipations" title="Permanent link">&para;</a></h3>
 <p>The athlete's participations in this session's segments</p>
 <p><strong>Returns:</strong> [<a href="../../objects/SegmentParticipation/"><code>SegmentParticipation</code></a>!]</p>

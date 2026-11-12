@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://playerdata.github.io/playerdatapy/schema/interfaces/Session/">
       
       
-        <link rel="prev" href="../EdgeMetaEvent/">
+        <link rel="prev" href="../SegmentInterface/">
       
       
         <link rel="next" href="../SessionParticipation/">
@@ -1244,6 +1244,40 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1302,6 +1336,100 @@
       
         
           
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
         
       
         
@@ -2154,6 +2282,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -2393,6 +2525,62 @@
     
   
     EdgeMetaEvent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Event/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Event
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SegmentInterface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SegmentInterface
   
 
     
@@ -2887,6 +3075,32 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2945,6 +3159,48 @@
       
         
           
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
         
       
         
@@ -3567,8 +3823,40 @@
 <p>The session blueprint that was created from this session</p>
 <p><strong>Returns:</strong> <a href="../../objects/SessionBlueprint/"><code>SessionBlueprint</code></a></p>
 <h3 id="clips"><code>clips</code><a class="headerlink" href="#clips" title="Permanent link">&para;</a></h3>
-<p>Video clips associated with the session</p>
+<p>Video clips associated with the session, earliest start time first</p>
 <p><strong>Returns:</strong> [<a href="../../objects/VideoClip/"><code>VideoClip</code></a>!]</p>
+<p><strong>Arguments:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>limit</code></td>
+<td><a href="../../scalars/Int/"><code>Int</code></a></td>
+<td>Most clips to return, at most 30</td>
+</tr>
+<tr>
+<td><code>matchEventIds</code></td>
+<td>[<a href="../../scalars/ID/"><code>ID</code></a>!]</td>
+<td>Only clips during which one of these match events happens</td>
+</tr>
+<tr>
+<td><code>matchEventTypeIds</code></td>
+<td>[<a href="../../scalars/ID/"><code>ID</code></a>!]</td>
+<td>Only clips during which a match event of one of these types happens</td>
+</tr>
+<tr>
+<td><code>offset</code></td>
+<td><a href="../../scalars/Int/"><code>Int</code></a></td>
+<td>Clips to skip before returning</td>
+</tr>
+</tbody>
+</table>
 <h3 id="club"><code>club</code><a class="headerlink" href="#club" title="Permanent link">&para;</a></h3>
 <p>The club the session belongs to</p>
 <p><strong>Returns:</strong> <a href="../../objects/Club/"><code>Club</code></a></p>
@@ -3715,14 +4003,49 @@ prediction exists or if the prediction is not actionable.</p>
 <td>[<a href="../../inputs/OrderInputObject/"><code>OrderInputObject</code></a>!]</td>
 <td></td>
 </tr>
+<tr>
+<td><code>types</code></td>
+<td>[<a href="../../enums/SegmentTypeFilter/"><code>SegmentTypeFilter</code></a>!]</td>
+<td>The types of segment to return</td>
+</tr>
 </tbody>
 </table>
 <h3 id="sessionanchorpositions"><code>sessionAnchorPositions</code><a class="headerlink" href="#sessionanchorpositions" title="Permanent link">&para;</a></h3>
-<p>LPS anchor positions override. (empty if none)</p>
+<p>LPS anchor positions processing uses for this session. (empty if none)</p>
 <p><strong>Returns:</strong> [<a href="../../objects/SessionAnchorPosition/"><code>SessionAnchorPosition</code></a>!]!</p>
 <h3 id="sessioncontext"><code>sessionContext</code><a class="headerlink" href="#sessioncontext" title="Permanent link">&para;</a></h3>
 <p>Context for the session</p>
 <p><strong>Returns:</strong> <a href="../../objects/SessionContext/"><code>SessionContext</code></a></p>
+<h3 id="sessionevents"><code>sessionEvents</code><a class="headerlink" href="#sessionevents" title="Permanent link">&para;</a></h3>
+<p>Events recorded in the session, ordered by start time</p>
+<p><strong>Returns:</strong> [<a href="../Event/"><code>Event</code></a>!]!</p>
+<p><strong>Arguments:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>includeRejected</code></td>
+<td><a href="../../scalars/Boolean/"><code>Boolean</code></a></td>
+<td>Include rejected_generated events in the response</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td><a href="../../scalars/Int/"><code>Int</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td><code>offset</code></td>
+<td><a href="../../scalars/Int/"><code>Int</code></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h3 id="sessionloadhistory"><code>sessionLoadHistory</code><a class="headerlink" href="#sessionloadhistory" title="Permanent link">&para;</a></h3>
 <p>The athlete's load history leading up to the session</p>
 <p><strong>Returns:</strong> <a href="../../objects/SessionLoadHistory/"><code>SessionLoadHistory</code></a></p>
@@ -3820,6 +4143,10 @@ person's own participation when athleteId is omitted.</p>
 <h3 id="tags"><code>tags</code><a class="headerlink" href="#tags" title="Permanent link">&para;</a></h3>
 <p>The tags applied to the session</p>
 <p><strong>Returns:</strong> [<a href="../../objects/SessionTagDefinition/"><code>SessionTagDefinition</code></a>!]!</p>
+<h3 id="timezone"><code>timezone</code><a class="headerlink" href="#timezone" title="Permanent link">&para;</a></h3>
+<p>IANA timezone the session took place in. startTime and endTime are UTC
+instants; apply this to render or reason about the session's local clock time</p>
+<p><strong>Returns:</strong> <a href="../../scalars/String/"><code>String</code></a>!</p>
 <h3 id="unavailablegateways"><code>unavailableGateways</code><a class="headerlink" href="#unavailablegateways" title="Permanent link">&para;</a></h3>
 <p>A list of gateway ownerships that are already assigned to this session</p>
 <p><strong>Returns:</strong> [<a href="../../objects/GatewayOwnership/"><code>GatewayOwnership</code></a>!]!</p>
@@ -3853,6 +4180,41 @@ person's own participation when athleteId is omitted.</p>
 <h3 id="updatedat"><code>updatedAt</code><a class="headerlink" href="#updatedat" title="Permanent link">&para;</a></h3>
 <p>The time the session was last updated</p>
 <p><strong>Returns:</strong> <a href="../../scalars/ISO8601DateTime/"><code>ISO8601DateTime</code></a>!</p>
+<h3 id="usersegments"><code>userSegments</code><a class="headerlink" href="#usersegments" title="Permanent link">&para;</a></h3>
+<p>The user-created segments in the session</p>
+<p><strong>Returns:</strong> [<a href="../../objects/UserSegment/"><code>UserSegment</code></a>!]!</p>
+<p><strong>Arguments:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>limit</code></td>
+<td><a href="../../scalars/Int/"><code>Int</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td><code>offset</code></td>
+<td><a href="../../scalars/Int/"><code>Int</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td><code>order</code></td>
+<td>[<a href="../../inputs/OrderInputObject/"><code>OrderInputObject</code></a>!]</td>
+<td></td>
+</tr>
+<tr>
+<td><code>types</code></td>
+<td>[<a href="../../enums/UserSegmentTypeFilter/"><code>UserSegmentTypeFilter</code></a>!]</td>
+<td>The types of user segment to return</td>
+</tr>
+</tbody>
+</table>
 <h3 id="videoannotationsurl"><code>videoAnnotationsUrl</code><a class="headerlink" href="#videoannotationsurl" title="Permanent link">&para;</a></h3>
 <p>Signed URL for the annotations file associated with this session</p>
 <p><strong>Returns:</strong> <a href="../../objects/VideoAnnotationsUrl/"><code>VideoAnnotationsUrl</code></a></p>
