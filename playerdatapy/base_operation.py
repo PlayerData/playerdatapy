@@ -75,9 +75,9 @@ class GraphQLField:
                 InlineFragmentNode(
                     type_condition=NamedTypeNode(name=NameNode(value=name)),
                     selection_set=SelectionSetNode(
-                        selections=[
-                            subfield.to_ast(idx, used_names) for subfield in subfields
-                        ]
+                        selections=tuple(
+                            [subfield.to_ast(idx, used_names) for subfield in subfields]
+                        )
                     ),
                 )
             )
@@ -127,12 +127,16 @@ class GraphQLField:
 
         return FieldNode(
             name=NameNode(value=self._build_field_name()),
-            arguments=[
-                GraphQLArgument(v["name"], k).to_ast()
-                for k, v in self.formatted_variables.items()
-            ],
+            arguments=tuple(
+                [
+                    GraphQLArgument(v["name"], k).to_ast()
+                    for k, v in self.formatted_variables.items()
+                ]
+            ),
             selection_set=(
-                SelectionSetNode(selections=self._build_selections(idx, used_names))
+                SelectionSetNode(
+                    selections=tuple(self._build_selections(idx, used_names))
+                )
                 if self._subfields or self._inline_fragments
                 else None
             ),
