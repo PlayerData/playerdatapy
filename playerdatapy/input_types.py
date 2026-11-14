@@ -376,6 +376,19 @@ class CreateDevicePageInput(BaseModel):
     "Version of the page data format"
 
 
+class CreateDevicePagesInput(BaseModel):
+    """Input for creating several Device::Pages from one device's uploaded blobs"""
+
+    device_ownership_id: str = Field(alias="deviceOwnershipId")
+    "Device ownership ID"
+    device_type: Optional[DeviceSyncTypeEnum] = Field(
+        alias="deviceType", default=DeviceSyncTypeEnum.edge
+    )
+    "Type of device (edge or ball)"
+    pages: list["DevicePageUploadInput"]
+    "Uploaded pages, at most 50"
+
+
 class CreateDeviceSyncInput(BaseModel):
     """Input for creating a DeviceSync with an uploaded file blob"""
 
@@ -560,6 +573,17 @@ class DeviceAttributes(BaseModel):
 
     firmware_version: str = Field(alias="firmwareVersion")
     "firmware version for the device"
+
+
+class DevicePageUploadInput(BaseModel):
+    """A page uploaded to a signed blob, to be stored as a Device::Page"""
+
+    index: int
+    "Page index on the device"
+    signed_blob_id: str = Field(alias="signedBlobId")
+    "Signed blob ID from the missingDevicePages query"
+    version: int
+    "Version of the page data format"
 
 
 class DuplicateSessionAttributes(BaseModel):
@@ -1116,6 +1140,7 @@ class SessionsSessionBaseFilter(BaseModel):
     )
     end_time_lteq: Optional[Any] = Field(alias="endTimeLteq", default=None)
     has_metrics_eq: Optional[bool] = Field(alias="hasMetricsEq", default=None)
+    is_live_session: Optional[bool] = Field(alias="isLiveSession", default=None)
     session_details_type_eq: Optional[str] = Field(
         alias="sessionDetailsTypeEq", default=None
     )
@@ -1719,6 +1744,7 @@ AthleteRelativeDecelzoneAttributes.model_rebuild()
 AthleteRelativeIMUAccelzoneAttributes.model_rebuild()
 AthleteRelativeIMUDecelzoneAttributes.model_rebuild()
 AthleteSpeedzoneAttributes.model_rebuild()
+CreateDevicePagesInput.model_rebuild()
 CreatePredictedSessionAttributes.model_rebuild()
 MutateSessionAttributes.model_rebuild()
 MutateSessionBlueprintAttributes.model_rebuild()

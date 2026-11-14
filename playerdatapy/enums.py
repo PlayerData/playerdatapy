@@ -596,6 +596,8 @@ class FeatureNameEnum(str, Enum):
     "Enables the Team and Athlete pages"
     training_plan_import = "training_plan_import"
     "Enables coaches to upload PDF training plans that are parsed into sessions and segments"
+    training_sessions_with_pitch = "training_sessions_with_pitch"
+    "Lets training sessions keep a pitch without a camera, and shows the pitch step for\nevery training session and training session blueprint in the app."
     user_report_templates = "user_report_templates"
     "Enables saving and selecting user-created flexible report templates."
     video_library = "video_library"
@@ -780,6 +782,15 @@ class OrganisationPersonStatusEnum(str, Enum):
 class OwnerEnum(str, Enum):
     Club = "Club"
     Person = "Person"
+
+
+class PageRejectionEnum(str, Enum):
+    """Why an uploaded page was discarded after it was first confirmed; retrying it cannot succeed"""
+
+    OWNERSHIP_REJECTED = "OWNERSHIP_REJECTED"
+    "The page falls outside the device ownership it was uploaded for"
+    UNDECRYPTABLE = "UNDECRYPTABLE"
+    "The page could not be decrypted"
 
 
 class PathmapPathType(str, Enum):
