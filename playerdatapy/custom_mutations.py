@@ -31,6 +31,7 @@ from .custom_fields import (
     CreateCustomQuestionDefinitionPayloadFields,
     CreateDatasetPayloadFields,
     CreateDevicePagePayloadFields,
+    CreateDevicePagesPayloadFields,
     CreateDeviceSyncPayloadFields,
     CreateEdgeNamePayloadFields,
     CreateFlexibleReportChartPayloadFields,
@@ -211,6 +212,7 @@ from .input_types import (
     CoachContextAttributesInput,
     CreateCustomEventTypeAttributes,
     CreateDevicePageInput,
+    CreateDevicePagesInput,
     CreateDeviceSyncInput,
     CreateFlexibleReportChartAttributes,
     CreateImportInput,
@@ -1062,6 +1064,21 @@ class Mutation:
         }
         return CreateDevicePagePayloadFields(
             field_name="createDevicePage", arguments=cleared_arguments
+        )
+
+    @classmethod
+    def create_device_pages(
+        cls, input: CreateDevicePagesInput
+    ) -> CreateDevicePagesPayloadFields:
+        """Create Device::Pages from blobs uploaded via missingDevicePages, one result per page"""
+        arguments: dict[str, dict[str, Any]] = {
+            "input": {"type": "CreateDevicePagesInput!", "value": input}
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return CreateDevicePagesPayloadFields(
+            field_name="createDevicePages", arguments=cleared_arguments
         )
 
     @classmethod

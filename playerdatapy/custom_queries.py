@@ -13,6 +13,7 @@ from .custom_fields import (
     DatasetTemplateFields,
     DeviceInterfaceInterface,
     EdgeFields,
+    EventColourFields,
     ExamplePromptFields,
     FeatureCheckFields,
     FirmwareVersionFields,
@@ -235,6 +236,11 @@ class Query:
     def current_terms_of_use(cls) -> TermsOfUseFields:
         """Fetch the current terms of use"""
         return TermsOfUseFields(field_name="currentTermsOfUse")
+
+    @classmethod
+    def custom_event_type_colours(cls) -> EventColourFields:
+        """Colour options available for custom event types"""
+        return EventColourFields(field_name="customEventTypeColours")
 
     @classmethod
     def datasets(
@@ -776,6 +782,11 @@ class Query:
         return UserPreferenceFields(
             field_name="userPreferences", arguments=cleared_arguments
         )
+
+    @classmethod
+    def video_clip_max_duration(cls) -> GraphQLField:
+        """The longest a video clip can be, in seconds"""
+        return GraphQLField(field_name="videoClipMaxDuration")
 
     @classmethod
     def video_recording(cls, id: str) -> VideoRecordingFields:

@@ -45,6 +45,12 @@ class AcuteChronicLoadBandGraphQLField(GraphQLField):
         return self
 
 
+class AcuteChronicLoadPendingAthleteGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "AcuteChronicLoadPendingAthleteGraphQLField":
+        self._alias = alias
+        return self
+
+
 class AddAthleteGroupPayloadGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "AddAthleteGroupPayloadGraphQLField":
         self._alias = alias
@@ -541,6 +547,12 @@ class CreateDevicePagePayloadGraphQLField(GraphQLField):
         return self
 
 
+class CreateDevicePagesPayloadGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "CreateDevicePagesPayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
 class CreateDeviceSyncPayloadGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "CreateDeviceSyncPayloadGraphQLField":
         self._alias = alias
@@ -701,6 +713,12 @@ class CreateVideoClipPayloadGraphQLField(GraphQLField):
 
 class CreateVideoRecordingPayloadGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "CreateVideoRecordingPayloadGraphQLField":
+        self._alias = alias
+        return self
+
+
+class CreatedPageResultGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "CreatedPageResultGraphQLField":
         self._alias = alias
         return self
 
@@ -1071,6 +1089,12 @@ class EndEdgeOwnershipPayloadGraphQLField(GraphQLField):
 
 class EventGraphQLField(GraphQLField):
     def alias(self, alias: str) -> "EventGraphQLField":
+        self._alias = alias
+        return self
+
+
+class EventColourGraphQLField(GraphQLField):
+    def alias(self, alias: str) -> "EventColourGraphQLField":
         self._alias = alias
         return self
 
