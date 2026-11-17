@@ -91,3 +91,11 @@ asyncio.run(main())
 ```
 
 For the typed/pydantic equivalent, see [`examples/pydantic/quick_start.py`](https://github.com/PlayerData/playerdatapy/blob/main/examples/pydantic/quick_start.py).
+
+## Raw data exports
+
+Request a raw data export (GPS, IMU, heart-rate, UWB, or FULL) via the `requestRawDataExport` mutation, then poll until `status` is `READY`. Full flow, statuses and data schemas on the [Raw data exports](raw-data.md) page.
+
+- Typed SDK: [`examples/pydantic/queries/request_raw_data_export.py`](https://github.com/PlayerData/playerdatapy/blob/main/examples/pydantic/queries/request_raw_data_export.py)
+- Raw mutation: [`examples/direct/queries/request_raw_data_export.graphql`](https://github.com/PlayerData/playerdatapy/blob/main/examples/direct/queries/request_raw_data_export.graphql)
+- Walk-through: the "Raw Data Exports" cells in [`example_use.ipynb`](https://github.com/PlayerData/playerdatapy/blob/main/examples/pydantic/example_use.ipynb)
