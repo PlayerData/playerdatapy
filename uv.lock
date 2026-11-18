@@ -37,23 +37,6 @@ wheels = [
 ]
 
 [[package]]
-name = "ariadne-codegen"
-version = "0.19a1"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "click" },
-    { name = "graphql-core" },
-    { name = "httpx" },
-    { name = "pydantic" },
-    { name = "ruff" },
-    { name = "toml" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/b8/e2/6ef3a9596bfd318f1771de9911a823a005d2f70b4061540b1ca226db7190/ariadne_codegen-0.19a1.tar.gz", hash = "sha256:81acb91db34706912e50c10de110a5f90e8681b5d086f69774be6dec08af45ff", size = 81112, upload-time = "2026-07-13T08:03:41.695Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/2e/3f/68b262bcfa768a4fe8b7b96241bffefd0ed8cf0409dc59b7d895bd0cf842/ariadne_codegen-0.19a1-py3-none-any.whl", hash = "sha256:b3591c40ce7c28d5046f040e4a5122a3f06c1c3343bd544778f5b5990594eb8c", size = 113688, upload-time = "2026-07-13T08:03:40.332Z" },
-]
-
-[[package]]
 name = "asttokens"
 version = "3.0.1"
 source = { registry = "https://pypi.org/simple" }
@@ -299,11 +282,11 @@ wheels = [
 
 [[package]]
 name = "graphql-core"
-version = "3.2.14"
+version = "3.3.2"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/9f/55/3f86cc857125e0a9d4ddf7a85a54c69d8c6436cd3c4e360ab6c4686140b8/graphql_core-3.2.14.tar.gz", hash = "sha256:efec124d951f2997e8f28bb9f056d0a3b4b11dce720e2225723ec20fac570af5", size = 610310, upload-time = "2026-11-06T21:41:59.878Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/0d/11/511b9487dd338a9cd98a8040a1f20feaa99b2f2e4921c049cb9cbbff2870/graphql_core-3.3.2.tar.gz", hash = "sha256:15d6eee7d4364fbc202833bc6bd0d504004d8ae7c0aaf620fa884d8e437622f2", size = 794346, upload-time = "2026-11-06T21:41:54.017Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/5d/b8/c45a999940326178a32cc3ba7c88f7c661d0cff9399e78cb3898f9e96387/graphql_core-3.2.14-py3-none-any.whl", hash = "sha256:fb0eaaad81c558325f037a79dab7c6dd568cd17196030fb5c46fc4996948cc42", size = 279946, upload-time = "2026-11-06T21:41:58.085Z" },
+    { url = "https://files.pythonhosted.org/packages/9b/c0/dec5c3a96d9e47c7aaaa6a062e065e6c738d67d11a9cda15705592f45409/graphql_core-3.3.2-py3-none-any.whl", hash = "sha256:d83f49ee18d2db89fb575dab6ffefa8aa1bf5f60dff8a6781db6f63420041348", size = 366135, upload-time = "2026-11-06T21:41:52.327Z" },
 ]
 
 [[package]]
@@ -833,9 +816,6 @@ dependencies = [
 ]
 
 [package.dev-dependencies]
-codegen = [
-    { name = "ariadne-codegen" },
-]
 docs = [
     { name = "griffe-pydantic" },
     { name = "mkdocs-gen-files" },
@@ -855,7 +835,7 @@ test = [
 [package.metadata]
 requires-dist = [
     { name = "filelock", specifier = ">=3.15" },
-    { name = "graphql-core", specifier = ">=3.2.0" },
+    { name = "graphql-core", specifier = ">=3.3" },
     { name = "httpx", specifier = ">=0.28" },
     { name = "oauthlib", specifier = ">=3.2.0" },
     { name = "polars", specifier = ">=1.37.1" },
@@ -864,7 +844,6 @@ requires-dist = [
 ]
 
 [package.metadata.requires-dev]
-codegen = [{ name = "ariadne-codegen", specifier = ">=0.19a1" }]
 docs = [
     { name = "griffe-pydantic", specifier = ">=1.0.0" },
     { name = "mkdocs-gen-files", specifier = ">=0.5.0" },
@@ -1332,15 +1311,6 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/28/e3/55dcc2cfbc3ca9c29519eb6884dd1415ecb53b0e934862d3559ddcb7e20b/stack_data-0.6.3.tar.gz", hash = "sha256:836a778de4fec4dcd1dcd89ed8abff8a221f58308462e1c4aa2a3cf30148f0b9", size = 44707, upload-time = "2023-09-30T13:58:05.479Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/f1/7b/ce1eafaf1a76852e2ec9b22edecf1daa58175c090266e9f6c64afcd81d91/stack_data-0.6.3-py3-none-any.whl", hash = "sha256:d5558e0c25a4cb0853cddad3d77da9891a08cb85dd9f9f91b9f8cd66e511e695", size = 24521, upload-time = "2023-09-30T13:58:03.53Z" },
-]
-
-[[package]]
-name = "toml"
-version = "0.10.2"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz", hash = "sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f", size = 22253, upload-time = "2020-11-01T01:40:22.204Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/44/6f/7120676b6d73228c96e17f1f794d8ab046fc910d781c8d151120c3f1569e/toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b", size = 16588, upload-time = "2020-11-01T01:40:20.672Z" },
 ]
 
 [[package]]
