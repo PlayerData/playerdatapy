@@ -59,6 +59,12 @@ query ParticipationDiagnostics($id: ID!) {
 
 A participation with no data and no warnings is worth reporting to `support@playerdata.com`.
 
+### How do I download raw GPS / IMU / heart-rate data?
+
+Use the `requestRawDataExport` mutation for a single participation, or `requestSessionRawDataExport` for a whole session as one zip. Both produce a time-limited download URL for a single data type (or `FULL` for every type recorded) in CSV or JSON. The flow is request → poll until `READY` → download. Full walkthrough: [Raw data exports](raw-data.md).
+
+These mutations replace `SessionParticipation.datafiles { url(format: json) }`, whose `format` argument is deprecated — JSON datafiles from it will stop being available to third-party integrations.
+
 ### What is `percentageMaxSpeedKph` a percentage of?
 
 The athlete's own personal best max speed — not the session's top speed, and not a club or positional maximum. See [Metrics](metrics.md#speed).

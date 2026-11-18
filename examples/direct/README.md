@@ -100,6 +100,10 @@ This query:
 - Filters sessions by club ID and time range
 - Returns session ID, start time, and end time
 
+## Raw Data Export
+
+The `queries/request_raw_data_export.graphql` file contains the mutation for requesting a raw data export (GPS, IMU, heart-rate, UWB, or the whole participation) in CSV or JSON. It's a polling flow — the mutation is idempotent, so call it again with the same arguments until `status` is `READY` and `downloadUrl` is populated. See the [Raw data export docs](https://playerdata.github.io/playerdatapy/raw-data/) for the full flow.
+
 ## Authentication Types
 
 The examples use `AuthenticationType.CLIENT_CREDENTIALS_FLOW` by default, which is suitable for backend-to-backend communication. You can also use:
