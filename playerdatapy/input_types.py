@@ -14,7 +14,6 @@ from .enums import (
     DeviceSyncTypeEnum,
     EventIconEnum,
     FirmwareBoardName,
-    Intensity,
     MatchEventTeam,
     MatchSessionResult,
     OrderDirectionEnum,
@@ -303,10 +302,14 @@ class CameraHandshakeAttributes(BaseModel):
 class ClaimPersonAttributes(BaseModel):
     """Attributes for claiming a Person"""
 
-    accepted_eula: bool = Field(alias="acceptedEula")
+    accepted_eula: Optional[bool] = Field(alias="acceptedEula", default=None)
     "if Person has accepted eula"
     accepted_privacy_policy: bool = Field(alias="acceptedPrivacyPolicy")
     "if Person has accepted privacy policy"
+    accepted_terms_of_use: Optional[bool] = Field(
+        alias="acceptedTermsOfUse", default=None
+    )
+    "if Person has accepted terms of use"
     email: str
     "email for Person to claim"
     password: str
@@ -376,6 +379,19 @@ class CreateDevicePageInput(BaseModel):
     "Version of the page data format"
 
 
+class CreateDevicePagesInput(BaseModel):
+    """Input for creating several Device::Pages from one device's uploaded blobs"""
+
+    device_ownership_id: str = Field(alias="deviceOwnershipId")
+    "Device ownership ID"
+    device_type: Optional[DeviceSyncTypeEnum] = Field(
+        alias="deviceType", default=DeviceSyncTypeEnum.edge
+    )
+    "Type of device (edge or ball)"
+    pages: list["DevicePageUploadInput"]
+    "Uploaded pages, at most 50"
+
+
 class CreateDeviceSyncInput(BaseModel):
     """Input for creating a DeviceSync with an uploaded file blob"""
 
@@ -427,35 +443,6 @@ class CreateImportInput(BaseModel):
     "Document format: 'pdf' or 'image'"
 
 
-class CreatePredictedSessionAttributes(BaseModel):
-    """Attributes for creating a predicted session"""
-
-    athlete_ids: Optional[list[str]] = Field(alias="athleteIds", default=None)
-    "Athlete IDs included in this prediction"
-    club_id: str = Field(alias="clubId")
-    "The club this prediction belongs to"
-    end_time: Any = Field(alias="endTime")
-    "Predicted end time"
-    intensity: Intensity
-    "Session intensity (low, medium, or high)"
-    next_match_datetime: Any = Field(alias="nextMatchDatetime")
-    "Predicted datetime of the next match"
-    periods: Optional[list["MatchPeriodAttributes"]] = None
-    "Predicted periods for this session"
-    previous_session_id: str = Field(alias="previousSessionId")
-    "The session that this prediction was generated from"
-    reasoning: str
-    "Explanation of why the intended load was chosen"
-    schedule_reasoning: Optional[str] = Field(alias="scheduleReasoning", default=None)
-    "Explanation of why the predicted start/end time was suggested"
-    session_type: Optional[str] = Field(alias="sessionType", default=None)
-    "Type of session (training or match)"
-    start_time: Any = Field(alias="startTime")
-    "Predicted start time"
-    tags: Optional[list[str]] = None
-    "Suggested tags for this session"
-
-
 class CreateUnreadableDevicePagesInput(BaseModel):
     """Input for marking device page indexes as unreadable"""
 
@@ -489,6 +476,8 @@ class CustomEventTypeAttributes(BaseModel):
     "Hex colour from the brand palette"
     icon_name: Optional[EventIconEnum] = Field(alias="iconName", default=None)
     "Icon identifier used to represent this event"
+    name: Optional[str] = None
+    "New name for the custom event type"
 
 
 class CustomQuestionDefinitionAttributes(BaseModel):
@@ -560,6 +549,17 @@ class DeviceAttributes(BaseModel):
 
     firmware_version: str = Field(alias="firmwareVersion")
     "firmware version for the device"
+
+
+class DevicePageUploadInput(BaseModel):
+    """A page uploaded to a signed blob, to be stored as a Device::Page"""
+
+    index: int
+    "Page index on the device"
+    signed_blob_id: str = Field(alias="signedBlobId")
+    "Signed blob ID from the missingDevicePages query"
+    version: int
+    "Version of the page data format"
 
 
 class DuplicateSessionAttributes(BaseModel):
@@ -831,6 +831,9 @@ class NewPersonAttributes(BaseModel):
 
     accepted_eula: Optional[bool] = Field(alias="acceptedEula", default=None)
     accepted_privacy_policy: bool = Field(alias="acceptedPrivacyPolicy")
+    accepted_terms_of_use: Optional[bool] = Field(
+        alias="acceptedTermsOfUse", default=None
+    )
     date_of_birth: Any = Field(alias="dateOfBirth")
     email: str
     gender: str
@@ -1116,6 +1119,7 @@ class SessionsSessionBaseFilter(BaseModel):
     )
     end_time_lteq: Optional[Any] = Field(alias="endTimeLteq", default=None)
     has_metrics_eq: Optional[bool] = Field(alias="hasMetricsEq", default=None)
+    is_live_session: Optional[bool] = Field(alias="isLiveSession", default=None)
     session_details_type_eq: Optional[str] = Field(
         alias="sessionDetailsTypeEq", default=None
     )
@@ -1135,6 +1139,9 @@ class SessionsSessionBaseFilter(BaseModel):
     with_match_result: Optional[str] = Field(alias="withMatchResult", default=None)
     with_pitch_name_containing: Optional[str] = Field(
         alias="withPitchNameContaining", default=None
+    )
+    with_search_containing: Optional[str] = Field(
+        alias="withSearchContaining", default=None
     )
 
 
@@ -1719,7 +1726,7 @@ AthleteRelativeDecelzoneAttributes.model_rebuild()
 AthleteRelativeIMUAccelzoneAttributes.model_rebuild()
 AthleteRelativeIMUDecelzoneAttributes.model_rebuild()
 AthleteSpeedzoneAttributes.model_rebuild()
-CreatePredictedSessionAttributes.model_rebuild()
+CreateDevicePagesInput.model_rebuild()
 MutateSessionAttributes.model_rebuild()
 MutateSessionBlueprintAttributes.model_rebuild()
 PitchAttributes.model_rebuild()

@@ -31,6 +31,7 @@ from .custom_fields import (
     CreateCustomQuestionDefinitionPayloadFields,
     CreateDatasetPayloadFields,
     CreateDevicePagePayloadFields,
+    CreateDevicePagesPayloadFields,
     CreateDeviceSyncPayloadFields,
     CreateEdgeNamePayloadFields,
     CreateFlexibleReportChartPayloadFields,
@@ -40,7 +41,6 @@ from .custom_fields import (
     CreateMatchEventPayloadFields,
     CreateMatchEventsPayloadFields,
     CreatePitchPayloadFields,
-    CreatePredictedSessionPayloadFields,
     CreateQuestionPayloadFields,
     CreateReportPayloadFields,
     CreateResponsePayloadFields,
@@ -211,10 +211,10 @@ from .input_types import (
     CoachContextAttributesInput,
     CreateCustomEventTypeAttributes,
     CreateDevicePageInput,
+    CreateDevicePagesInput,
     CreateDeviceSyncInput,
     CreateFlexibleReportChartAttributes,
     CreateImportInput,
-    CreatePredictedSessionAttributes,
     CreateUnreadableDevicePagesInput,
     CustomBaselineTargetInput,
     CustomEventTypeAttributes,
@@ -1065,6 +1065,21 @@ class Mutation:
         )
 
     @classmethod
+    def create_device_pages(
+        cls, input: CreateDevicePagesInput
+    ) -> CreateDevicePagesPayloadFields:
+        """Create Device::Pages from blobs uploaded via missingDevicePages, one result per page"""
+        arguments: dict[str, dict[str, Any]] = {
+            "input": {"type": "CreateDevicePagesInput!", "value": input}
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return CreateDevicePagesPayloadFields(
+            field_name="createDevicePages", arguments=cleared_arguments
+        )
+
+    @classmethod
     def create_device_sync(
         cls, input: CreateDeviceSyncInput
     ) -> CreateDeviceSyncPayloadFields:
@@ -1198,24 +1213,6 @@ class Mutation:
         }
         return CreatePitchPayloadFields(
             field_name="createPitch", arguments=cleared_arguments
-        )
-
-    @classmethod
-    def create_predicted_session(
-        cls, attributes: CreatePredictedSessionAttributes
-    ) -> CreatePredictedSessionPayloadFields:
-        """Creates a predicted session"""
-        arguments: dict[str, dict[str, Any]] = {
-            "attributes": {
-                "type": "CreatePredictedSessionAttributes!",
-                "value": attributes,
-            }
-        }
-        cleared_arguments = {
-            key: value for key, value in arguments.items() if value["value"] is not None
-        }
-        return CreatePredictedSessionPayloadFields(
-            field_name="createPredictedSession", arguments=cleared_arguments
         )
 
     @classmethod
@@ -1532,9 +1529,14 @@ class Mutation:
         )
 
     @classmethod
-    def delete_video_clip(cls, id: str) -> DeleteVideoClipPayloadFields:
+    def delete_video_clip(
+        cls, id: str, *, also_reject_events: Optional[bool] = None
+    ) -> DeleteVideoClipPayloadFields:
         """Deletes a video clip"""
-        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
+        arguments: dict[str, dict[str, Any]] = {
+            "alsoRejectEvents": {"type": "Boolean", "value": also_reject_events},
+            "id": {"type": "ID!", "value": id},
+        }
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
         }
@@ -2407,7 +2409,7 @@ class Mutation:
     def update_custom_event_type(
         cls, attributes: CustomEventTypeAttributes, id: str
     ) -> UpdateCustomEventTypePayloadFields:
-        """Updates the icon and colour of a custom event type"""
+        """Updates the name, icon and colour of a custom event type"""
         arguments: dict[str, dict[str, Any]] = {
             "attributes": {"type": "CustomEventTypeAttributes!", "value": attributes},
             "id": {"type": "ID!", "value": id},

@@ -13,6 +13,7 @@ from .custom_fields import (
     DatasetTemplateFields,
     DeviceInterfaceInterface,
     EdgeFields,
+    EventColourFields,
     ExamplePromptFields,
     FeatureCheckFields,
     FirmwareVersionFields,
@@ -46,6 +47,7 @@ from .custom_fields import (
     TrainingSessionFields,
     TrainingSessionParticipationFields,
     UserPreferenceFields,
+    VideoClipFields,
     VideoRecordingFields,
     VideoSignedUrlFields,
     WorkflowImmediateResponseFields,
@@ -235,6 +237,11 @@ class Query:
     def current_terms_of_use(cls) -> TermsOfUseFields:
         """Fetch the current terms of use"""
         return TermsOfUseFields(field_name="currentTermsOfUse")
+
+    @classmethod
+    def custom_event_type_colours(cls) -> EventColourFields:
+        """Colour options available for custom event types"""
+        return EventColourFields(field_name="customEventTypeColours")
 
     @classmethod
     def datasets(
@@ -776,6 +783,20 @@ class Query:
         return UserPreferenceFields(
             field_name="userPreferences", arguments=cleared_arguments
         )
+
+    @classmethod
+    def video_clip(cls, id: str) -> VideoClipFields:
+        """A video clip"""
+        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return VideoClipFields(field_name="videoClip", arguments=cleared_arguments)
+
+    @classmethod
+    def video_clip_max_duration(cls) -> GraphQLField:
+        """The longest a video clip can be, in seconds"""
+        return GraphQLField(field_name="videoClipMaxDuration")
 
     @classmethod
     def video_recording(cls, id: str) -> VideoRecordingFields:

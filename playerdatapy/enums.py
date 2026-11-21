@@ -212,6 +212,26 @@ class ChartTypeEnum(str, Enum):
     table = "table"
 
 
+class ClipGrouping(str, Enum):
+    """How the clip library puts clips into groups"""
+
+    DATE = "DATE"
+    "One group for each day, by each session's start date in its own time zone. The group key is the date, as YYYY-MM-DD"
+    EVENT = "EVENT"
+    "One group for each type of event during a clip that the requester may see. A\nclip shows in the group of each of its event types, so group counts can add up\nto more than the number of clips. The group key is the event type ID, or NONE\nfor clips with no event"
+    SESSION = "SESSION"
+    "One group for each session. The group key is the session ID"
+
+
+class ClipSort(str, Enum):
+    """The order of clips in the clip library: by session start time, then clip start time"""
+
+    LATEST = "LATEST"
+    "Newest session first, and the latest clip first in a session"
+    OLDEST = "OLDEST"
+    "Oldest session first, and the earliest clip first in a session"
+
+
 class ClipTeam(str, Enum):
     """The team associated with a clip"""
 
@@ -410,6 +430,8 @@ class EventGroupEnum(str, Enum):
     "Event type a club created"
     GAME = "GAME"
     "Discrete game event"
+    PHYSICAL = "PHYSICAL"
+    "Physical effort measured from an athlete's data"
     PLAY = "PLAY"
     "Phase of play"
 
@@ -417,20 +439,25 @@ class EventGroupEnum(str, Enum):
 class EventIconEnum(str, Enum):
     """Icon identifier used to represent a timeline event category"""
 
+    ACCELERATION = "ACCELERATION"
     ATTACKING = "ATTACKING"
     CONVERSION = "CONVERSION"
     CORNER = "CORNER"
+    DECELERATION = "DECELERATION"
     DEFENDING = "DEFENDING"
     DROP_KICK = "DROP_KICK"
     FOOTBALL = "FOOTBALL"
     FREE_HIT = "FREE_HIT"
     HOCKEY_GOAL = "HOCKEY_GOAL"
     LONG_CORNER = "LONG_CORNER"
+    NUMBER_OF_HIGH_INT_RUNS = "NUMBER_OF_HIGH_INT_RUNS"
+    NUMBER_OF_SPRINTS = "NUMBER_OF_SPRINTS"
     PENALTY = "PENALTY"
     PENALTY_KICK = "PENALTY_KICK"
     PENALTY_STROKE = "PENALTY_STROKE"
     PLAYER_CARD = "PLAYER_CARD"
     SHORT_PENALTY_CORNER = "SHORT_PENALTY_CORNER"
+    SPRINT_DISTANCE = "SPRINT_DISTANCE"
     SUB_OFF = "SUB_OFF"
     SUB_ON = "SUB_ON"
     THROW_IN = "THROW_IN"
@@ -442,20 +469,25 @@ class EventIconEnum(str, Enum):
 class EventSlugEnum(str, Enum):
     """Stable semantic key identifying a timeline event category"""
 
+    ACCELERATION = "ACCELERATION"
     ATTACKING = "ATTACKING"
     CONVERSION = "CONVERSION"
     CORNER = "CORNER"
+    DECELERATION = "DECELERATION"
     DEFENDING = "DEFENDING"
     DROPKICK = "DROPKICK"
     FREEHIT = "FREEHIT"
     FREEKICK = "FREEKICK"
     GOAL = "GOAL"
     GREENCARD = "GREENCARD"
+    HIGHINTENSITYRUN = "HIGHINTENSITYRUN"
+    HIGHSPEEDRUN = "HIGHSPEEDRUN"
     LONGCORNER = "LONGCORNER"
     PENALTY = "PENALTY"
     PLAYERRETURN = "PLAYERRETURN"
     REDCARD = "REDCARD"
     SHORTCORNER = "SHORTCORNER"
+    SPRINT = "SPRINT"
     SUBOFF = "SUBOFF"
     SUBON = "SUBON"
     THROWIN = "THROWIN"
@@ -476,6 +508,8 @@ class FeatureNameEnum(str, Enum):
     "Enables the anonymisation of session data on data recording addition"
     app_theme_rework = "app_theme_rework"
     "Enables the theme selector for previewing new app theme(s)"
+    auto_clip_creation = "auto_clip_creation"
+    "Creates a video clip automatically for each detected match event whose event\ndefinition has :auto_clip: true (for example Goal). Runs after event detection\nfinishes for a session. Off by default."
     auto_gateway_assignment = "auto_gateway_assignment"
     "Enables processing of gateway assignments received from the gateway assignment pipeline"
     auto_pitch_detection = "auto_pitch_detection"
@@ -534,6 +568,8 @@ class FeatureNameEnum(str, Enum):
     'In flexible reports, suffixes duplicate segment titles by position (e.g. "Indy" / "Indy 2")\nso that multiple independent segments of the same type appear as separate chart columns'
     heartrate_data = "heartrate_data"
     "*Deprecated by Configurable Metrics*"
+    imu_motion_estimate_chunks = "imu_motion_estimate_chunks"
+    "With imu_motion_estimation, preprocesses the IMU motion estimate per chunk and\nhas analysis read the stored chunks instead of rerunning the model over the\nwhole session on every live update"
     imu_motion_estimation = "imu_motion_estimation"
     "Enables motion estimation from IMU sensor data"
     individual_speed_zones = "individual_speed_zones"
@@ -564,12 +600,16 @@ class FeatureNameEnum(str, Enum):
     "Enables detected sessions v2"
     session_creation_loop = "session_creation_loop"
     "Enables the AI powered session creation loop"
+    session_creation_rework = "session_creation_rework"
+    "Shows the reworked session creation flow in the app. Editing a session still\nuses the existing wizard."
     session_device_checks = "session_device_checks"
     "Shows the device battery checker page in a session"
     session_event_detection = "session_event_detection"
     "Exposes auto-generated session events (attacking / defending / transitional\nphases and other detector output) on the sessionEvents and matchEvents\nGraphQL fields. When disabled, those fields only return user-created events."
     session_group_filter = "session_group_filter"
     "Enables filtering session overview by athlete groups"
+    session_list_rework = "session_list_rework"
+    "Enables the reworked calendar-first sessions page"
     session_quick_actions = "session_quick_actions"
     "Enables quick actions on sessions"
     session_rework = "session_rework"
@@ -596,6 +636,8 @@ class FeatureNameEnum(str, Enum):
     "Enables the Team and Athlete pages"
     training_plan_import = "training_plan_import"
     "Enables coaches to upload PDF training plans that are parsed into sessions and segments"
+    training_sessions_with_pitch = "training_sessions_with_pitch"
+    "Lets training sessions keep a pitch without a camera, and shows the pitch step for\nevery training session and training session blueprint in the app."
     user_report_templates = "user_report_templates"
     "Enables saving and selecting user-created flexible report templates."
     video_library = "video_library"
@@ -713,6 +755,8 @@ class MatchEventProvenance(str, Enum):
     "Generated by the pipeline and implicitly accepted after the user modified its segment"
     generated_unreviewed = "generated_unreviewed"
     "Created automatically by the event detection pipeline and not yet reviewed"
+    measured = "measured"
+    "Measured from an athlete's data; read-only and never reviewed"
     rejected_generated = "rejected_generated"
     "Generated but rejected by a user as incorrect"
     user_created = "user_created"
@@ -780,6 +824,15 @@ class OrganisationPersonStatusEnum(str, Enum):
 class OwnerEnum(str, Enum):
     Club = "Club"
     Person = "Person"
+
+
+class PageRejectionEnum(str, Enum):
+    """Why an uploaded page was discarded after it was first confirmed; retrying it cannot succeed"""
+
+    OWNERSHIP_REJECTED = "OWNERSHIP_REJECTED"
+    "The page falls outside the device ownership it was uploaded for"
+    UNDECRYPTABLE = "UNDECRYPTABLE"
+    "The page could not be decrypted"
 
 
 class PathmapPathType(str, Enum):
@@ -899,6 +952,7 @@ class PreprocessingOutputFileTypeEnum(str, Enum):
     HEARTRATE = "HEARTRATE"
     IMU = "IMU"
     IMU_ACCELERATION = "IMU_ACCELERATION"
+    IMU_MOTION_ESTIMATE = "IMU_MOTION_ESTIMATE"
     UWB = "UWB"
 
 
