@@ -130,7 +130,7 @@ Acute:chronic workload ratio for a club's squad
 """
 type AcuteChronicLoad {
   """
-  Athlete loads, highest ratio first, excluding athletes with no chronic load
+  Athlete loads, highest ratio first, excluding athletes with no chronic load or with less than 28 days of data
   """
   athletes: [AcuteChronicLoadAthlete!]!
 
@@ -143,6 +143,11 @@ type AcuteChronicLoad {
   Metric the load is summed from: distance, or acceleration load when the data has no distance
   """
   metric: GenericMetric
+
+  """
+  Athletes with less than 28 days of data, fewest days remaining first
+  """
+  pendingAthletes: [AcuteChronicLoadPendingAthlete!]!
 
   """
   Summed acute load across the returned athletes
@@ -248,6 +253,26 @@ enum AcuteChronicLoadBandKeyEnum {
   Below the optimal training load
   """
   UNDER
+}
+
+"""
+An athlete with less than 28 days of data, so no acute:chronic workload ratio yet
+"""
+type AcuteChronicLoadPendingAthlete {
+  """
+  Load over the trailing seven days
+  """
+  acute: Float!
+
+  """
+  The athlete the load belongs to
+  """
+  athlete: Athlete!
+
+  """
+  Days until the athlete has 28 days of data and gets a ratio
+  """
+  daysRemaining: Int!
 }
 
 """
@@ -4889,12 +4914,17 @@ input ClaimPersonAttributes {
   """
   if Person has accepted eula
   """
-  acceptedEula: Boolean!
+  acceptedEula: Boolean @deprecated(reason: "Use acceptedTermsOfUse. Records a Terms of Use acceptance.")
 
   """
   if Person has accepted privacy policy
   """
   acceptedPrivacyPolicy: Boolean!
+
+  """
+  if Person has accepted terms of use
+  """
+  acceptedTermsOfUse: Boolean
 
   """
   email for Person to claim
@@ -4920,6 +4950,169 @@ type ClaimPersonPayload {
   the claimed Person
   """
   person: Person
+}
+
+"""
+A group of clips in the clip library, with its first clips
+"""
+type ClipGroup {
+  """
+  The number of clips in the group that the requester may see
+  """
+  clipCount: Int!
+
+  """
+  The first clips of the group, in the library's sort order
+  """
+  clips: [VideoClip!]!
+
+  """
+  The value the clips share, such as the session ID
+  """
+  key: String!
+}
+
+"""
+One page of whole groups from the clip library
+"""
+type ClipGroupPage {
+  """
+  The groups on this page
+  """
+  groups: [ClipGroup!]!
+
+  """
+  The number of groups across all pages
+  """
+  totalCount: Int!
+}
+
+"""
+How the clip library puts clips into groups
+"""
+enum ClipGrouping {
+  """
+  One group for each day, by each session's start date in its own time zone. The group key is the date, as YYYY-MM-DD
+  """
+  DATE
+
+  """
+  One group for each type of event during a clip that the requester may see. A
+  clip shows in the group of each of its event types, so group counts can add up
+  to more than the number of clips. The group key is the event type ID, or NONE
+  for clips with no event
+  """
+  EVENT
+
+  """
+  One group for each session. The group key is the session ID
+  """
+  SESSION
+}
+
+"""
+The club's clips that the requester may see, sorted, grouped and paged
+"""
+type ClipLibrary {
+  """
+  A page of clips: all of the library, or one group's clips for Show more
+  """
+  clips(
+    """
+    The grouping that groupKey belongs to. Leave out for the whole library
+    """
+    groupBy: ClipGrouping
+
+    """
+    The key of the group to list
+    """
+    groupKey: String
+
+    """
+    Most clips to return, at most 50
+    """
+    limit: Int = 20
+
+    """
+    Clips to skip
+    """
+    offset: Int = 0
+  ): ClipPage!
+
+  """
+  A page of whole groups, each with its clip count and first clips
+  """
+  groups(
+    """
+    Most clips to return in each group, at most 50
+    """
+    clipsPerGroup: Int = 10
+
+    """
+    How to group the clips
+    """
+    groupBy: ClipGrouping!
+
+    """
+    Most groups to return, at most 20
+    """
+    limit: Int = 5
+
+    """
+    Groups to skip
+    """
+    offset: Int = 0
+  ): ClipGroupPage!
+}
+
+"""
+One page of clips from the clip library
+"""
+type ClipPage {
+  """
+  The clips on this page
+  """
+  clips: [VideoClip!]!
+
+  """
+  The number of clips across all pages
+  """
+  totalCount: Int!
+}
+
+"""
+What the requester may do with a video clip
+"""
+type ClipPermissions {
+  """
+  Whether the requester may delete the clip
+  """
+  delete: Boolean!
+
+  """
+  Whether the requester may create a copy of the clip in the same session
+  """
+  duplicate: Boolean!
+
+  """
+  Whether the requester may edit the clip
+  """
+  update: Boolean!
+}
+
+"""
+The order of clips in the clip library: by session start time, then clip start time
+"""
+enum ClipSort {
+  """
+  Newest session first, and the latest clip first in a session
+  """
+  LATEST
+
+  """
+  Oldest session first, and the earliest clip first in a session
+  """
+  OLDEST
 }
 
 """
@@ -5076,6 +5269,16 @@ type Club {
   Chat session plans for the club
   """
   chatSessionPlans(limit: Int, offset: Int): [SessionPlan!]!
+
+  """
+  The club's video clips that the requester may see, for the clip library
+  """
+  clipLibrary(
+    """
+    The order of sessions and clips
+    """
+    sort: ClipSort = LATEST
+  ): ClipLibrary!
 
   """
   Configured athlete metric summary.
@@ -9670,6 +9873,41 @@ type CreateDevicePagePayload {
 }
 
 """
+Input for creating several Device::Pages from one device's uploaded blobs
+"""
+input CreateDevicePagesInput {
+  """
+  Device ownership ID
+  """
+  deviceOwnershipId: ID!
+
+  """
+  Type of device (edge or ball)
+  """
+  deviceType: DeviceSyncTypeEnum = edge
+
+  """
+  Uploaded pages, at most 50
+  """
+  pages: [DevicePageUploadInput!]!
+}
+
+"""
+Autogenerated return type of CreateDevicePages.
+"""
+type CreateDevicePagesPayload {
+  """
+  Validation errors that occurred while performing the mutation
+  """
+  errors: [ValidationError!]!
+
+  """
+  One result per input page, in input order
+  """
+  results: [CreatedPageResult!]!
+}
+
+"""
 Input for creating a DeviceSync with an uploaded file blob
 """
 input CreateDeviceSyncInput {
@@ -9897,86 +10135,6 @@ type CreatePitchPayload {
   The newly created pitch
   """
   pitch: Pitch
-}
-
-"""
-Attributes for creating a predicted session
-"""
-input CreatePredictedSessionAttributes {
-  """
-  Athlete IDs included in this prediction
-  """
-  athleteIds: [ID!]
-
-  """
-  The club this prediction belongs to
-  """
-  clubId: ID!
-
-  """
-  Predicted end time
-  """
-  endTime: ISO8601DateTime!
-
-  """
-  Session intensity (low, medium, or high)
-  """
-  intensity: Intensity!
-
-  """
-  Predicted datetime of the next match
-  """
-  nextMatchDatetime: ISO8601DateTime!
-
-  """
-  Predicted periods for this session
-  """
-  periods: [MatchPeriodAttributes!]
-
-  """
-  The session that this prediction was generated from
-  """
-  previousSessionId: ID!
-
-  """
-  Explanation of why the intended load was chosen
-  """
-  reasoning: String!
-
-  """
-  Explanation of why the predicted start/end time was suggested
-  """
-  scheduleReasoning: String
-
-  """
-  Type of session (training or match)
-  """
-  sessionType: String
-
-  """
-  Predicted start time
-  """
-  startTime: ISO8601DateTime!
-
-  """
-  Suggested tags for this session
-  """
-  tags: [String!]
-}
-
-"""
-Autogenerated return type of CreatePredictedSession.
-"""
-type CreatePredictedSessionPayload {
-  """
-  Validation errors that occurred while performing the mutation
-  """
-  errors: [ValidationError!]!
-
-  """
-  Predicted session
-  """
-  predictedSession: PredictedSession
 }
 
 """
@@ -10265,6 +10423,31 @@ type CreateVideoRecordingPayload {
 }
 
 """
+The outcome of storing one page from a createDevicePages batch
+"""
+type CreatedPageResult {
+  """
+  Why the page was not stored; empty when it was
+  """
+  errors: [ValidationError!]!
+
+  """
+  Page index on the device
+  """
+  index: Int!
+
+  """
+  The created page
+  """
+  page: Page
+
+  """
+  Set when a retried page was already discarded, so the client should stop retrying it
+  """
+  rejection: PageRejectionEnum
+}
+
+"""
 The type of polymorphic creator
 """
 enum CreatorTypeEnum {
@@ -10366,6 +10549,11 @@ input CustomEventTypeAttributes {
   Icon identifier used to represent this event
   """
   iconName: EventIconEnum
+
+  """
+  New name for the custom event type
+  """
+  name: String
 }
 
 """
@@ -11376,6 +11564,26 @@ enum DeviceOwnerType {
 }
 
 """
+A page uploaded to a signed blob, to be stored as a Device::Page
+"""
+input DevicePageUploadInput {
+  """
+  Page index on the device
+  """
+  index: Int!
+
+  """
+  Signed blob ID from the missingDevicePages query
+  """
+  signedBlobId: ID!
+
+  """
+  Version of the page data format
+  """
+  version: Int!
+}
+
+"""
 Device sync upload record
 """
 type DeviceSync {
@@ -11969,6 +12177,16 @@ interface Event implements SegmentInterface {
 }
 
 """
+A named colour option for a custom event type
+"""
+type EventColour {
+  """
+  Hex value for this colour, e.g. #2f9e8f
+  """
+  hex: String!
+}
+
+"""
 Display group a timeline event category belongs to
 """
 enum EventGroupEnum {
@@ -11983,6 +12201,11 @@ enum EventGroupEnum {
   GAME
 
   """
+  Physical effort measured from an athlete's data
+  """
+  PHYSICAL
+
+  """
   Phase of play
   """
   PLAY
@@ -11992,20 +12215,25 @@ enum EventGroupEnum {
 Icon identifier used to represent a timeline event category
 """
 enum EventIconEnum {
+  ACCELERATION
   ATTACKING
   CONVERSION
   CORNER
+  DECELERATION
   DEFENDING
   DROP_KICK
   FOOTBALL
   FREE_HIT
   HOCKEY_GOAL
   LONG_CORNER
+  NUMBER_OF_HIGH_INT_RUNS
+  NUMBER_OF_SPRINTS
   PENALTY
   PENALTY_KICK
   PENALTY_STROKE
   PLAYER_CARD
   SHORT_PENALTY_CORNER
+  SPRINT_DISTANCE
   SUB_OFF
   SUB_ON
   THROW_IN
@@ -12018,20 +12246,25 @@ enum EventIconEnum {
 Stable semantic key identifying a timeline event category
 """
 enum EventSlugEnum {
+  ACCELERATION
   ATTACKING
   CONVERSION
   CORNER
+  DECELERATION
   DEFENDING
   DROPKICK
   FREEHIT
   FREEKICK
   GOAL
   GREENCARD
+  HIGHINTENSITYRUN
+  HIGHSPEEDRUN
   LONGCORNER
   PENALTY
   PLAYERRETURN
   REDCARD
   SHORTCORNER
+  SPRINT
   SUBOFF
   SUBON
   THROWIN
@@ -12110,6 +12343,13 @@ enum FeatureNameEnum {
   Enables the theme selector for previewing new app theme(s)
   """
   app_theme_rework
+
+  """
+  Creates a video clip automatically for each detected match event whose event
+  definition has :auto_clip: true (for example Goal). Runs after event detection
+  finishes for a session. Off by default.
+  """
+  auto_clip_creation
 
   """
   Enables processing of gateway assignments received from the gateway assignment pipeline
@@ -12257,6 +12497,13 @@ enum FeatureNameEnum {
   heartrate_data
 
   """
+  With imu_motion_estimation, preprocesses the IMU motion estimate per chunk and
+  has analysis read the stored chunks instead of rerunning the model over the
+  whole session on every live update
+  """
+  imu_motion_estimate_chunks
+
+  """
   Enables motion estimation from IMU sensor data
   """
   imu_motion_estimation
@@ -12334,6 +12581,12 @@ enum FeatureNameEnum {
   session_creation_loop
 
   """
+  Shows the reworked session creation flow in the app. Editing a session still
+  uses the existing wizard.
+  """
+  session_creation_rework
+
+  """
   Shows the device battery checker page in a session
   """
   session_device_checks
@@ -12349,6 +12602,11 @@ enum FeatureNameEnum {
   Enables filtering session overview by athlete groups
   """
   session_group_filter
+
+  """
+  Enables the reworked calendar-first sessions page
+  """
+  session_list_rework
 
   """
   Enables quick actions on sessions
@@ -12416,6 +12674,12 @@ enum FeatureNameEnum {
   Enables coaches to upload PDF training plans that are parsed into sessions and segments
   """
   training_plan_import
+
+  """
+  Lets training sessions keep a pitch without a camera, and shows the pitch step for
+  every training session and training session blueprint in the app.
+  """
+  training_sessions_with_pitch
 
   """
   Enables saving and selecting user-created flexible report templates.
@@ -13842,6 +14106,11 @@ enum MatchEventProvenance {
   generated_unreviewed
 
   """
+  Measured from an athlete's data; read-only and never reviewed
+  """
+  measured
+
+  """
   Generated but rejected by a user as incorrect
   """
   rejected_generated
@@ -14000,6 +14269,11 @@ type MatchSession implements Session & TimelineItem {
   dataProcessing: Boolean!
 
   """
+  The kinds of data recorded during the session
+  """
+  dataTypes: [DataTypeEnum!]!
+
+  """
   Free-text description of the session
   """
   description: String
@@ -14037,6 +14311,11 @@ type MatchSession implements Session & TimelineItem {
     Include the club's archived custom event types
     """
     includeArchived: Boolean = false
+
+    """
+    Include measured physical event types so clients can label them on the timeline
+    """
+    includePhysical: Boolean = false
   ): [MatchEventDefinition!]!
 
   """
@@ -24007,7 +24286,17 @@ type Mutation {
     Attributes for the new page
     """
     input: CreateDevicePageInput!
-  ): CreateDevicePagePayload
+  ): CreateDevicePagePayload @deprecated(reason: "Use createDevicePages instead")
+
+  """
+  Create Device::Pages from blobs uploaded via missingDevicePages, one result per page
+  """
+  createDevicePages(
+    """
+    The device and its uploaded pages
+    """
+    input: CreateDevicePagesInput!
+  ): CreateDevicePagesPayload
 
   """
   Create a DeviceSync with an uploaded file blob
@@ -24078,16 +24367,6 @@ type Mutation {
   Creates a new pitch
   """
   createPitch(attributes: PitchAttributes!, clubId: ID @deprecated(reason: "Use ownerId and ownerType instead"), detectedSessionId: ID, ownerId: ID, ownerType: OwnerEnum): CreatePitchPayload
-
-  """
-  Creates a predicted session
-  """
-  createPredictedSession(
-    """
-    Predicted session attributes
-    """
-    attributes: CreatePredictedSessionAttributes!
-  ): CreatePredictedSessionPayload
 
   """
   Creates a chat question
@@ -24308,6 +24587,11 @@ type Mutation {
   Deletes a video clip
   """
   deleteVideoClip(
+    """
+    Reject the generated events linked to this clip
+    """
+    alsoRejectEvents: Boolean = false
+
     """
     ID of the video clip to delete
     """
@@ -24958,7 +25242,7 @@ type Mutation {
   ): UpdateCustomBaselineTargetsPayload
 
   """
-  Updates the icon and colour of a custom event type
+  Updates the name, icon and colour of a custom event type
   """
   updateCustomEventType(
     """
@@ -25411,8 +25695,9 @@ type Mutation {
 Attributes for creating a new Person
 """
 input NewPersonAttributes {
-  acceptedEula: Boolean
+  acceptedEula: Boolean @deprecated(reason: "Use acceptedTermsOfUse. Records a Terms of Use acceptance.")
   acceptedPrivacyPolicy: Boolean!
+  acceptedTermsOfUse: Boolean
   dateOfBirth: ISO8601Date!
   email: String!
   gender: String!
@@ -25783,6 +26068,21 @@ type Page {
   File format version
   """
   version: Int!
+}
+
+"""
+Why an uploaded page was discarded after it was first confirmed; retrying it cannot succeed
+"""
+enum PageRejectionEnum {
+  """
+  The page falls outside the device ownership it was uploaded for
+  """
+  OWNERSHIP_REJECTED
+
+  """
+  The page could not be decrypted
+  """
+  UNDECRYPTABLE
 }
 
 """
@@ -26475,6 +26775,11 @@ type Person {
   matchSessionParticipations(limit: Int!): [MatchSessionParticipation!]!
 
   """
+  The person's club-level and organisation-level memberships covering the given club
+  """
+  memberships(clubId: ID!): [Member!]!
+
+  """
   The minimum app version currently supported
   """
   minimumAppVersion: String!
@@ -26523,6 +26828,11 @@ type Person {
   The person's session participations that have metrics
   """
   sessionParticipationsWithData(filter: SessionsSessionBaseFilter, limit: Int, offset: Int, order: [OrderInputObject!], startTimeGteq: ISO8601DateTime, startTimeLteq: ISO8601DateTime): [SessionParticipation!]!
+
+  """
+  Count of the person's sessions that match the filter and that the requestor can see
+  """
+  sessionsCount(filter: SessionsSessionBaseFilter): Int!
 
   """
   personal user settings
@@ -27396,6 +27706,7 @@ enum PreprocessingOutputFileTypeEnum {
   HEARTRATE
   IMU
   IMU_ACCELERATION
+  IMU_MOTION_ESTIMATE
   UWB
 }
 
@@ -27800,6 +28111,11 @@ type Query {
   currentTermsOfUse: TermsOfUse
 
   """
+  Colour options available for custom event types
+  """
+  customEventTypeColours: [EventColour!]!
+
+  """
   A dataset for flexible reporting
   """
   datasets(clubId: ID, ids: [ID!], limit: Int, offset: Int): [Dataset!]!
@@ -28032,6 +28348,16 @@ type Query {
   The stored user preferences for a given owner
   """
   userPreferences(keys: [String!], ownerId: ID!, ownerType: OwnerEnum!): [UserPreference!]!
+
+  """
+  A video clip
+  """
+  videoClip(id: ID!): VideoClip
+
+  """
+  The longest a video clip can be, in seconds
+  """
+  videoClipMaxDuration: Int!
 
   """
   A video recording
@@ -29686,6 +30012,11 @@ interface Session {
   dataProcessing: Boolean!
 
   """
+  The kinds of data recorded during the session
+  """
+  dataTypes: [DataTypeEnum!]!
+
+  """
   Free-text description of the session
   """
   description: String
@@ -31019,6 +31350,7 @@ input SessionsSessionBaseFilter {
   creatorTypeEq: CreatorTypeEnum
   endTimeLteq: ISO8601DateTime
   hasMetricsEq: Boolean
+  isLiveSession: Boolean
   sessionDetailsTypeEq: String
   startTimeGteq: ISO8601DateTime
   startTimeLteq: ISO8601DateTime
@@ -31029,6 +31361,7 @@ input SessionsSessionBaseFilter {
   withMatchOpponentContaining: String
   withMatchResult: String
   withPitchNameContaining: String
+  withSearchContaining: String
 }
 
 input SessionsSessionFilter {
@@ -31762,6 +32095,11 @@ type StoredClip {
   annotationsUrl: SignedUrl
 
   """
+  A large still of the frame at the clip start, cut from the stored copy, when it has one
+  """
+  heroStill: VideoThumbnail
+
+  """
   The state of the stored copy
   """
   status: StoredClipStatus!
@@ -31770,6 +32108,11 @@ type StoredClip {
   The HLS manifest URL of the stored copy on the clip CDN, when it is stored
   """
   streamUrl: String
+
+  """
+  A still frame representing this video, if one has been generated
+  """
+  thumbnail: VideoThumbnail
 }
 
 """
@@ -33092,6 +33435,11 @@ type TrainingSession implements Session & TimelineItem {
   Whether the session's data is still being processed
   """
   dataProcessing: Boolean!
+
+  """
+  The kinds of data recorded during the session
+  """
+  dataTypes: [DataTypeEnum!]!
 
   """
   Free-text description of the session
@@ -41902,6 +42250,11 @@ A video clip
 """
 type VideoClip {
   """
+  What the requester may do with the clip
+  """
+  can: ClipPermissions!
+
+  """
   The athlete or staff who created the clip
   """
   creator: AthleteOrStaff
@@ -41947,9 +42300,14 @@ type VideoClip {
   playbackSpeed: Float
 
   """
-  Other clips in the same session that share an athlete, a tag or a match event, newest first
+  Clips in the same session that share an athlete, a tag or a match event, newest first
   """
   relatedClips(
+    """
+    Search the club's other sessions from the last 90 days instead, matching on athlete or tag only, newest session first
+    """
+    includeOtherSessions: Boolean = false
+
     """
     Most clips to return
     """
@@ -41960,6 +42318,11 @@ type VideoClip {
   The segment holding the clip's times, athletes, tags and metrics, when it has one
   """
   segment: UserSegment
+
+  """
+  The session the clip belongs to
+  """
+  session: Session!
 
   """
   The start time of the clip in seconds

@@ -11,6 +11,7 @@ from .custom_typing_fields import (
     AcuteChronicLoadAthleteGraphQLField,
     AcuteChronicLoadBandGraphQLField,
     AcuteChronicLoadGraphQLField,
+    AcuteChronicLoadPendingAthleteGraphQLField,
     AddAthleteGroupPayloadGraphQLField,
     AddExistingPersonToClubPayloadGraphQLField,
     AddNewPersonToClubPayloadGraphQLField,
@@ -61,8 +62,13 @@ from .custom_typing_fields import (
     ChartConfigGraphQLField,
     ChecklistGraphQLField,
     ClaimPersonPayloadGraphQLField,
+    ClipGroupGraphQLField,
+    ClipGroupPageGraphQLField,
+    ClipLibraryGraphQLField,
+    ClipPageGraphQLField,
     ClippedTimePeriodByAthleteGraphQLField,
     ClippedTimePeriodGraphQLField,
+    ClipPermissionsGraphQLField,
     ClubContextGraphQLField,
     ClubGraphQLField,
     ClubMetricZonesExtraParamsGraphQLField,
@@ -85,7 +91,9 @@ from .custom_typing_fields import (
     CreateCustomQuestionDefinitionPayloadGraphQLField,
     CreateDatasetPayloadGraphQLField,
     CreateDevicePagePayloadGraphQLField,
+    CreateDevicePagesPayloadGraphQLField,
     CreateDeviceSyncPayloadGraphQLField,
+    CreatedPageResultGraphQLField,
     CreateEdgeNamePayloadGraphQLField,
     CreateFlexibleReportChartPayloadGraphQLField,
     CreateFlexibleReportPayloadGraphQLField,
@@ -94,7 +102,6 @@ from .custom_typing_fields import (
     CreateMatchEventPayloadGraphQLField,
     CreateMatchEventsPayloadGraphQLField,
     CreatePitchPayloadGraphQLField,
-    CreatePredictedSessionPayloadGraphQLField,
     CreateQuestionPayloadGraphQLField,
     CreateReportPayloadGraphQLField,
     CreateResponsePayloadGraphQLField,
@@ -172,6 +179,7 @@ from .custom_typing_fields import (
     EdgeMetaEventGraphQLField,
     EdgeNameGraphQLField,
     EndEdgeOwnershipPayloadGraphQLField,
+    EventColourGraphQLField,
     EventGraphQLField,
     ExamplePromptGraphQLField,
     ExtraParamsUnion,
@@ -439,6 +447,8 @@ from .custom_typing_fields import (
     WorkflowImmediateResponseGraphQLField,
 )
 from .enums import (
+    ClipGrouping,
+    ClipSort,
     ConfiguredMetricListTypeEnum,
     DatafileFormat,
     DayBreakdownSessionFilterEnum,
@@ -603,7 +613,7 @@ class AcuteChronicLoadFields(GraphQLField):
 
     @classmethod
     def athletes(cls) -> "AcuteChronicLoadAthleteFields":
-        """Athlete loads, highest ratio first, excluding athletes with no chronic load"""
+        """Athlete loads, highest ratio first, excluding athletes with no chronic load or with less than 28 days of data"""
         return AcuteChronicLoadAthleteFields("athletes")
 
     @classmethod
@@ -615,6 +625,11 @@ class AcuteChronicLoadFields(GraphQLField):
     def metric(cls) -> "GenericMetricFields":
         """Metric the load is summed from: distance, or acceleration load when the data has no distance"""
         return GenericMetricFields("metric")
+
+    @classmethod
+    def pending_athletes(cls) -> "AcuteChronicLoadPendingAthleteFields":
+        """Athletes with less than 28 days of data, fewest days remaining first"""
+        return AcuteChronicLoadPendingAthleteFields("pendingAthletes")
 
     squad_acute: "AcuteChronicLoadGraphQLField" = AcuteChronicLoadGraphQLField(
         "squadAcute"
@@ -639,6 +654,7 @@ class AcuteChronicLoadFields(GraphQLField):
             AcuteChronicLoadGraphQLField,
             "AcuteChronicLoadAthleteFields",
             "AcuteChronicLoadBandFields",
+            "AcuteChronicLoadPendingAthleteFields",
             "GenericMetricFields",
         ],
     ) -> "AcuteChronicLoadFields":
@@ -715,6 +731,37 @@ class AcuteChronicLoadBandFields(GraphQLField):
         return self
 
     def alias(self, alias: str) -> "AcuteChronicLoadBandFields":
+        self._alias = alias
+        return self
+
+
+class AcuteChronicLoadPendingAthleteFields(GraphQLField):
+    """An athlete with less than 28 days of data, so no acute:chronic workload ratio yet"""
+
+    acute: "AcuteChronicLoadPendingAthleteGraphQLField" = (
+        AcuteChronicLoadPendingAthleteGraphQLField("acute")
+    )
+    "Load over the trailing seven days"
+
+    @classmethod
+    def athlete(cls) -> "AthleteFields":
+        """The athlete the load belongs to"""
+        return AthleteFields("athlete")
+
+    days_remaining: "AcuteChronicLoadPendingAthleteGraphQLField" = (
+        AcuteChronicLoadPendingAthleteGraphQLField("daysRemaining")
+    )
+    "Days until the athlete has 28 days of data and gets a ratio"
+
+    def fields(
+        self,
+        *subfields: Union[AcuteChronicLoadPendingAthleteGraphQLField, "AthleteFields"],
+    ) -> "AcuteChronicLoadPendingAthleteFields":
+        """Subfields should come from the AcuteChronicLoadPendingAthleteFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "AcuteChronicLoadPendingAthleteFields":
         self._alias = alias
         return self
 
@@ -4518,6 +4565,160 @@ class ClaimPersonPayloadFields(GraphQLField):
         return self
 
 
+class ClipGroupFields(GraphQLField):
+    """A group of clips in the clip library, with its first clips"""
+
+    clip_count: "ClipGroupGraphQLField" = ClipGroupGraphQLField("clipCount")
+    "The number of clips in the group that the requester may see"
+
+    @classmethod
+    def clips(cls) -> "VideoClipFields":
+        """The first clips of the group, in the library's sort order"""
+        return VideoClipFields("clips")
+
+    key: "ClipGroupGraphQLField" = ClipGroupGraphQLField("key")
+    "The value the clips share, such as the session ID"
+
+    def fields(
+        self, *subfields: Union[ClipGroupGraphQLField, "VideoClipFields"]
+    ) -> "ClipGroupFields":
+        """Subfields should come from the ClipGroupFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "ClipGroupFields":
+        self._alias = alias
+        return self
+
+
+class ClipGroupPageFields(GraphQLField):
+    """One page of whole groups from the clip library"""
+
+    @classmethod
+    def groups(cls) -> "ClipGroupFields":
+        """The groups on this page"""
+        return ClipGroupFields("groups")
+
+    total_count: "ClipGroupPageGraphQLField" = ClipGroupPageGraphQLField("totalCount")
+    "The number of groups across all pages"
+
+    def fields(
+        self, *subfields: Union[ClipGroupPageGraphQLField, "ClipGroupFields"]
+    ) -> "ClipGroupPageFields":
+        """Subfields should come from the ClipGroupPageFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "ClipGroupPageFields":
+        self._alias = alias
+        return self
+
+
+class ClipLibraryFields(GraphQLField):
+    """The club's clips that the requester may see, sorted, grouped and paged"""
+
+    @classmethod
+    def clips(
+        cls,
+        *,
+        group_by: Optional[ClipGrouping] = None,
+        group_key: Optional[str] = None,
+        limit: Optional[int] = None,
+        offset: Optional[int] = None,
+    ) -> "ClipPageFields":
+        """A page of clips: all of the library, or one group's clips for Show more"""
+        arguments: dict[str, dict[str, Any]] = {
+            "groupBy": {"type": "ClipGrouping", "value": group_by},
+            "groupKey": {"type": "String", "value": group_key},
+            "limit": {"type": "Int", "value": limit},
+            "offset": {"type": "Int", "value": offset},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return ClipPageFields("clips", arguments=cleared_arguments)
+
+    @classmethod
+    def groups(
+        cls,
+        group_by: ClipGrouping,
+        *,
+        clips_per_group: Optional[int] = None,
+        limit: Optional[int] = None,
+        offset: Optional[int] = None,
+    ) -> "ClipGroupPageFields":
+        """A page of whole groups, each with its clip count and first clips"""
+        arguments: dict[str, dict[str, Any]] = {
+            "clipsPerGroup": {"type": "Int", "value": clips_per_group},
+            "groupBy": {"type": "ClipGrouping!", "value": group_by},
+            "limit": {"type": "Int", "value": limit},
+            "offset": {"type": "Int", "value": offset},
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return ClipGroupPageFields("groups", arguments=cleared_arguments)
+
+    def fields(
+        self,
+        *subfields: Union[
+            ClipLibraryGraphQLField, "ClipGroupPageFields", "ClipPageFields"
+        ],
+    ) -> "ClipLibraryFields":
+        """Subfields should come from the ClipLibraryFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "ClipLibraryFields":
+        self._alias = alias
+        return self
+
+
+class ClipPageFields(GraphQLField):
+    """One page of clips from the clip library"""
+
+    @classmethod
+    def clips(cls) -> "VideoClipFields":
+        """The clips on this page"""
+        return VideoClipFields("clips")
+
+    total_count: "ClipPageGraphQLField" = ClipPageGraphQLField("totalCount")
+    "The number of clips across all pages"
+
+    def fields(
+        self, *subfields: Union[ClipPageGraphQLField, "VideoClipFields"]
+    ) -> "ClipPageFields":
+        """Subfields should come from the ClipPageFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "ClipPageFields":
+        self._alias = alias
+        return self
+
+
+class ClipPermissionsFields(GraphQLField):
+    """What the requester may do with a video clip"""
+
+    delete: "ClipPermissionsGraphQLField" = ClipPermissionsGraphQLField("delete")
+    "Whether the requester may delete the clip"
+    duplicate: "ClipPermissionsGraphQLField" = ClipPermissionsGraphQLField("duplicate")
+    "Whether the requester may create a copy of the clip in the same session"
+    update: "ClipPermissionsGraphQLField" = ClipPermissionsGraphQLField("update")
+    "Whether the requester may edit the clip"
+
+    def fields(
+        self, *subfields: ClipPermissionsGraphQLField
+    ) -> "ClipPermissionsFields":
+        """Subfields should come from the ClipPermissionsFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "ClipPermissionsFields":
+        self._alias = alias
+        return self
+
+
 class ClippedTimePeriodFields(GraphQLField):
     """An array of clipped time periods (in MS, relative to start time) denoting activity for processing"""
 
@@ -4752,6 +4953,17 @@ class ClubFields(GraphQLField):
             key: value for key, value in arguments.items() if value["value"] is not None
         }
         return SessionPlanFields("chatSessionPlans", arguments=cleared_arguments)
+
+    @classmethod
+    def clip_library(cls, *, sort: Optional[ClipSort] = None) -> "ClipLibraryFields":
+        """The club's video clips that the requester may see, for the clip library"""
+        arguments: dict[str, dict[str, Any]] = {
+            "sort": {"type": "ClipSort", "value": sort}
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return ClipLibraryFields("clipLibrary", arguments=cleared_arguments)
 
     @classmethod
     def configured_athlete_stats(
@@ -5524,6 +5736,7 @@ class ClubFields(GraphQLField):
             "AthleteOrStaffInterface",
             "CameraOwnershipFields",
             "ChecklistFields",
+            "ClipLibraryFields",
             "ClubWeekOverviewFields",
             "ConfigurableAthleteSummaryFields",
             "CustomEventTypeFields",
@@ -9174,6 +9387,36 @@ class CreateDevicePagePayloadFields(GraphQLField):
         return self
 
 
+class CreateDevicePagesPayloadFields(GraphQLField):
+    """Autogenerated return type of CreateDevicePages."""
+
+    @classmethod
+    def errors(cls) -> "ValidationErrorFields":
+        """Validation errors that occurred while performing the mutation"""
+        return ValidationErrorFields("errors")
+
+    @classmethod
+    def results(cls) -> "CreatedPageResultFields":
+        """One result per input page, in input order"""
+        return CreatedPageResultFields("results")
+
+    def fields(
+        self,
+        *subfields: Union[
+            CreateDevicePagesPayloadGraphQLField,
+            "CreatedPageResultFields",
+            "ValidationErrorFields",
+        ],
+    ) -> "CreateDevicePagesPayloadFields":
+        """Subfields should come from the CreateDevicePagesPayloadFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "CreateDevicePagesPayloadFields":
+        self._alias = alias
+        return self
+
+
 class CreateDeviceSyncPayloadFields(GraphQLField):
     """Autogenerated return type of CreateDeviceSync."""
 
@@ -9436,36 +9679,6 @@ class CreatePitchPayloadFields(GraphQLField):
         return self
 
     def alias(self, alias: str) -> "CreatePitchPayloadFields":
-        self._alias = alias
-        return self
-
-
-class CreatePredictedSessionPayloadFields(GraphQLField):
-    """Autogenerated return type of CreatePredictedSession."""
-
-    @classmethod
-    def errors(cls) -> "ValidationErrorFields":
-        """Validation errors that occurred while performing the mutation"""
-        return ValidationErrorFields("errors")
-
-    @classmethod
-    def predicted_session(cls) -> "PredictedSessionFields":
-        """Predicted session"""
-        return PredictedSessionFields("predictedSession")
-
-    def fields(
-        self,
-        *subfields: Union[
-            CreatePredictedSessionPayloadGraphQLField,
-            "PredictedSessionFields",
-            "ValidationErrorFields",
-        ],
-    ) -> "CreatePredictedSessionPayloadFields":
-        """Subfields should come from the CreatePredictedSessionPayloadFields class"""
-        self._subfields.extend(subfields)
-        return self
-
-    def alias(self, alias: str) -> "CreatePredictedSessionPayloadFields":
         self._alias = alias
         return self
 
@@ -9964,6 +10177,42 @@ class CreateVideoRecordingPayloadFields(GraphQLField):
         return self
 
     def alias(self, alias: str) -> "CreateVideoRecordingPayloadFields":
+        self._alias = alias
+        return self
+
+
+class CreatedPageResultFields(GraphQLField):
+    """The outcome of storing one page from a createDevicePages batch"""
+
+    @classmethod
+    def errors(cls) -> "ValidationErrorFields":
+        """Why the page was not stored; empty when it was"""
+        return ValidationErrorFields("errors")
+
+    index: "CreatedPageResultGraphQLField" = CreatedPageResultGraphQLField("index")
+    "Page index on the device"
+
+    @classmethod
+    def page(cls) -> "PageFields":
+        """The created page"""
+        return PageFields("page")
+
+    rejection: "CreatedPageResultGraphQLField" = CreatedPageResultGraphQLField(
+        "rejection"
+    )
+    "Set when a retried page was already discarded, so the client should stop retrying it"
+
+    def fields(
+        self,
+        *subfields: Union[
+            CreatedPageResultGraphQLField, "PageFields", "ValidationErrorFields"
+        ],
+    ) -> "CreatedPageResultFields":
+        """Subfields should come from the CreatedPageResultFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "CreatedPageResultFields":
         self._alias = alias
         return self
 
@@ -11812,6 +12061,22 @@ class EventInterface(GraphQLField):
         return self
 
 
+class EventColourFields(GraphQLField):
+    """A named colour option for a custom event type"""
+
+    hex: "EventColourGraphQLField" = EventColourGraphQLField("hex")
+    "Hex value for this colour, e.g. #2f9e8f"
+
+    def fields(self, *subfields: EventColourGraphQLField) -> "EventColourFields":
+        """Subfields should come from the EventColourFields class"""
+        self._subfields.extend(subfields)
+        return self
+
+    def alias(self, alias: str) -> "EventColourFields":
+        self._alias = alias
+        return self
+
+
 class ExamplePromptFields(GraphQLField):
     """An example prompt configuration for chat"""
 
@@ -13254,6 +13519,8 @@ class MatchSessionFields(GraphQLField):
         "dataProcessing"
     )
     "Whether the session's data is still being processed"
+    data_types: "MatchSessionGraphQLField" = MatchSessionGraphQLField("dataTypes")
+    "The kinds of data recorded during the session"
     description: "MatchSessionGraphQLField" = MatchSessionGraphQLField("description")
     "Free-text description of the session"
 
@@ -13280,11 +13547,15 @@ class MatchSessionFields(GraphQLField):
 
     @classmethod
     def event_definitions(
-        cls, *, include_archived: Optional[bool] = None
+        cls,
+        *,
+        include_archived: Optional[bool] = None,
+        include_physical: Optional[bool] = None,
     ) -> "MatchEventDefinitionFields":
         """Event types that can be recorded in this session, the club's active custom types included"""
         arguments: dict[str, dict[str, Any]] = {
-            "includeArchived": {"type": "Boolean", "value": include_archived}
+            "includeArchived": {"type": "Boolean", "value": include_archived},
+            "includePhysical": {"type": "Boolean", "value": include_physical},
         }
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
@@ -22094,6 +22365,17 @@ class PersonFields(GraphQLField):
             "matchSessionParticipations", arguments=cleared_arguments
         )
 
+    @classmethod
+    def memberships(cls, club_id: str) -> "MemberFields":
+        """The person's club-level and organisation-level memberships covering the given club"""
+        arguments: dict[str, dict[str, Any]] = {
+            "clubId": {"type": "ID!", "value": club_id}
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return MemberFields("memberships", arguments=cleared_arguments)
+
     minimum_app_version: "PersonGraphQLField" = PersonGraphQLField("minimumAppVersion")
     "The minimum app version currently supported"
     name: "PersonGraphQLField" = PersonGraphQLField("name")
@@ -22188,6 +22470,19 @@ class PersonFields(GraphQLField):
         return SessionParticipationInterface(
             "sessionParticipationsWithData", arguments=cleared_arguments
         )
+
+    @classmethod
+    def sessions_count(
+        cls, *, filter_: Optional[SessionsSessionBaseFilter] = None
+    ) -> "PersonGraphQLField":
+        """Count of the person's sessions that match the filter and that the requestor can see"""
+        arguments: dict[str, dict[str, Any]] = {
+            "filter": {"type": "SessionsSessionBaseFilter", "value": filter_}
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return PersonGraphQLField("sessionsCount", arguments=cleared_arguments)
 
     @classmethod
     def settings(cls) -> "SettingsFields":
@@ -24649,6 +24944,8 @@ class SessionInterface(GraphQLField):
 
     data_processing: "SessionGraphQLField" = SessionGraphQLField("dataProcessing")
     "Whether the session's data is still being processed"
+    data_types: "SessionGraphQLField" = SessionGraphQLField("dataTypes")
+    "The kinds of data recorded during the session"
     description: "SessionGraphQLField" = SessionGraphQLField("description")
     "Free-text description of the session"
 
@@ -26335,13 +26632,26 @@ class StoredClipFields(GraphQLField):
         """A signed URL to the annotations of the stored copy, when it has one"""
         return SignedUrlFields("annotationsUrl")
 
+    @classmethod
+    def hero_still(cls) -> "VideoThumbnailFields":
+        """A large still of the frame at the clip start, cut from the stored copy, when it has one"""
+        return VideoThumbnailFields("heroStill")
+
     status: "StoredClipGraphQLField" = StoredClipGraphQLField("status")
     "The state of the stored copy"
     stream_url: "StoredClipGraphQLField" = StoredClipGraphQLField("streamUrl")
     "The HLS manifest URL of the stored copy on the clip CDN, when it is stored"
 
+    @classmethod
+    def thumbnail(cls) -> "VideoThumbnailFields":
+        """A still frame representing this video, if one has been generated"""
+        return VideoThumbnailFields("thumbnail")
+
     def fields(
-        self, *subfields: Union[StoredClipGraphQLField, "SignedUrlFields"]
+        self,
+        *subfields: Union[
+            StoredClipGraphQLField, "SignedUrlFields", "VideoThumbnailFields"
+        ],
     ) -> "StoredClipFields":
         """Subfields should come from the StoredClipFields class"""
         self._subfields.extend(subfields)
@@ -27481,6 +27791,8 @@ class TrainingSessionFields(GraphQLField):
         "dataProcessing"
     )
     "Whether the session's data is still being processed"
+    data_types: "TrainingSessionGraphQLField" = TrainingSessionGraphQLField("dataTypes")
+    "The kinds of data recorded during the session"
     description: "TrainingSessionGraphQLField" = TrainingSessionGraphQLField(
         "description"
     )
@@ -35448,6 +35760,11 @@ class VideoClipFields(GraphQLField):
     """A video clip"""
 
     @classmethod
+    def can(cls) -> "ClipPermissionsFields":
+        """What the requester may do with the clip"""
+        return ClipPermissionsFields("can")
+
+    @classmethod
     def creator(cls) -> "AthleteOrStaffInterface":
         """The athlete or staff who created the clip"""
         return AthleteOrStaffInterface("creator")
@@ -35480,10 +35797,19 @@ class VideoClipFields(GraphQLField):
     "The playback speed of the clip (e.g., 1.0 for normal speed, 0.5 for half speed)"
 
     @classmethod
-    def related_clips(cls, *, limit: Optional[int] = None) -> "VideoClipFields":
-        """Other clips in the same session that share an athlete, a tag or a match event, newest first"""
+    def related_clips(
+        cls,
+        *,
+        include_other_sessions: Optional[bool] = None,
+        limit: Optional[int] = None,
+    ) -> "VideoClipFields":
+        """Clips in the same session that share an athlete, a tag or a match event, newest first"""
         arguments: dict[str, dict[str, Any]] = {
-            "limit": {"type": "Int", "value": limit}
+            "includeOtherSessions": {
+                "type": "Boolean",
+                "value": include_other_sessions,
+            },
+            "limit": {"type": "Int", "value": limit},
         }
         cleared_arguments = {
             key: value for key, value in arguments.items() if value["value"] is not None
@@ -35494,6 +35820,11 @@ class VideoClipFields(GraphQLField):
     def segment(cls) -> "UserSegmentFields":
         """The segment holding the clip's times, athletes, tags and metrics, when it has one"""
         return UserSegmentFields("segment")
+
+    @classmethod
+    def session(cls) -> "SessionInterface":
+        """The session the clip belongs to"""
+        return SessionInterface("session")
 
     start_time: "VideoClipGraphQLField" = VideoClipGraphQLField("startTime")
     "The start time of the clip in seconds"
@@ -35531,7 +35862,9 @@ class VideoClipFields(GraphQLField):
         *subfields: Union[
             VideoClipGraphQLField,
             "AthleteOrStaffInterface",
+            "ClipPermissionsFields",
             "EventInterface",
+            "SessionInterface",
             "StoredClipFields",
             "TagDefinitionFields",
             "UserSegmentFields",
