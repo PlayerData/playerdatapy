@@ -1,0 +1,11 @@
+[project]
+name = "playerdatapy-codegen"
+version = "0.0.0"
+description = "Generates the playerdatapy client from schema.graphql; run from the repository root"
+requires-python = ">=3.12"
+dependencies = [
+    "ariadne-codegen==0.19a1",
+]
+
+[tool.uv]
+package = false

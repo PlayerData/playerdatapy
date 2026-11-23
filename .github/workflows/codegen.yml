@@ -43,10 +43,10 @@ jobs:
           enable-cache: true
       - name: Install
         if: steps.drift.outputs.changed == 'true'
-        run: uv sync --group codegen --group test
+        run: uv sync --group test
       - name: Regenerate
         if: steps.drift.outputs.changed == 'true'
-        run: uv run ariadne-codegen
+        run: uv run --project codegen --locked ariadne-codegen
       - name: Format
         if: steps.drift.outputs.changed == 'true'
         run: uv run ruff format .
