@@ -13,6 +13,7 @@ from .custom_fields import (
     DatasetTemplateFields,
     DeviceInterfaceInterface,
     EdgeFields,
+    EventColourFields,
     ExamplePromptFields,
     FeatureCheckFields,
     FirmwareVersionFields,
@@ -46,6 +47,7 @@ from .custom_fields import (
     TrainingSessionFields,
     TrainingSessionParticipationFields,
     UserPreferenceFields,
+    VideoClipFields,
     VideoRecordingFields,
     VideoSignedUrlFields,
     WorkflowImmediateResponseFields,
@@ -237,6 +239,11 @@ class Query:
         return TermsOfUseFields(field_name="currentTermsOfUse")
 
     @classmethod
+    def custom_event_type_colours(cls) -> EventColourFields:
+        """Colour options available for custom event types"""
+        return EventColourFields(field_name="customEventTypeColours")
+
+    @classmethod
     def datasets(
         cls,
         *,
@@ -317,6 +324,17 @@ class Query:
             key: value for key, value in arguments.items() if value["value"] is not None
         }
         return EdgeFields(field_name="edges", arguments=cleared_arguments)
+
+    @classmethod
+    def enabled_features(cls, *, club_id: Optional[str] = None) -> GraphQLField:
+        """Client-visible features enabled for the requester"""
+        arguments: dict[str, dict[str, Any]] = {
+            "clubId": {"type": "ID", "value": club_id}
+        }
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return GraphQLField(field_name="enabledFeatures", arguments=cleared_arguments)
 
     @classmethod
     def feature(
@@ -776,6 +794,20 @@ class Query:
         return UserPreferenceFields(
             field_name="userPreferences", arguments=cleared_arguments
         )
+
+    @classmethod
+    def video_clip(cls, id: str) -> VideoClipFields:
+        """A video clip"""
+        arguments: dict[str, dict[str, Any]] = {"id": {"type": "ID!", "value": id}}
+        cleared_arguments = {
+            key: value for key, value in arguments.items() if value["value"] is not None
+        }
+        return VideoClipFields(field_name="videoClip", arguments=cleared_arguments)
+
+    @classmethod
+    def video_clip_max_duration(cls) -> GraphQLField:
+        """The longest a video clip can be, in seconds"""
+        return GraphQLField(field_name="videoClipMaxDuration")
 
     @classmethod
     def video_recording(cls, id: str) -> VideoRecordingFields:
